@@ -580,60 +580,66 @@ resolve(fallback)
     async goto(url) {
         // Return when the URL is a duplicate or maxUrls has been reached
         if (this.analyzedUrls[url.href]) {
-return []
+            return []
         }
+        const t = new Promise((_, reject) => {
+            setTimeout(() => {
+                reject(new Error(`Unable to navigate to page: ${url.href}: timeout reached!`));
+            }, this.options.pageTimeout);
+        });
 
-this.log(`Navigate to ${url}`)
+
+        this.log(`Navigate to ${url}`)
 
         this.analyzedUrls[url.href] = {
-    status: 0,
-}
+            status: 0,
+        }
 
-const page = await this.newPage(url)
+        const page = await this.newPage(url)
 
-await page.setRequestInterception(true)
+        await page.setRequestInterception(true)
 
-let responseReceived = false
+        let responseReceived = false
 
-page.on('request', async (request) => {
-    try {
-if (request.resourceType() === 'xhr') {
-    let hostname
+        page.on('request', async (request) => {
+            try {
+                if (request.resourceType() === 'xhr') {
+                    let hostname
 
-try {
-;({ hostname } = new URL(request.url()))
-} catch (error) {
-request.abort('blockedbyclient')
+                    try {
+                        ;({ hostname } = new URL(request.url()))
+                    } catch (error) {
+                        request.abort('blockedbyclient')
 
-return
-}
+                        return
+                    }
 
-if (!xhrDebounce.includes(hostname)) {
-xhrDebounce.push(hostname)
+                    if (!xhrDebounce.includes(hostname)) {
+                        xhrDebounce.push(hostname)
 
-setTimeout(async () => {
-    xhrDebounce.splice(xhrDebounce.indexOf(hostname), 1)
+                        setTimeout(async () => {
+                            xhrDebounce.splice(xhrDebounce.indexOf(hostname), 1)
 
-this.analyzedXhr[url.hostname] =
-this.analyzedXhr[url.hostname] || []
+                            this.analyzedXhr[url.hostname] =
+                                this.analyzedXhr[url.hostname] || []
 
-if (!this.analyzedXhr[url.hostname].includes(hostname)) {
-this.analyzedXhr[url.hostname].push(hostname)
+                            if (!this.analyzedXhr[url.hostname].includes(hostname)) {
+                                this.analyzedXhr[url.hostname].push(hostname)
 
-await this.onDetect(url, analyze({ xhr: hostname }))
-}
-}, 1000)
-}
-}
+                                await this.onDetect(url, analyze({ xhr: hostname }))
+                            }
+                        }, 1000)
+                    }
+                }
 
-if (
-(responseReceived && request.isNavigationRequest()) ||
-request.frame() !== page.mainFrame() ||
-!['document', ...(this.options.noScripts ? [] : ['script'])].includes(
+                if (
+                    (responseReceived && request.isNavigationRequest()) ||
+                        request.frame() !== page.mainFrame() ||
+                        !['document', ...(this.options.noScripts ? [] : ['script'])].includes(
                             request.resourceType()
-)
+                        )
                 ) {
-request.abort('blockedbyclient')
+                    request.abort('blockedbyclient')
                 } else {
                     await this.emit('request', { page, request })
 
@@ -734,7 +740,7 @@ request.abort('blockedbyclient')
 
         try {
             await page.goto(url.href, {
-                timeout: this.options.maxWait
+                timeout: this.options.pageTimeout || undefined
             })
 
             if (page.url() === 'about:blank') {
@@ -870,10 +876,10 @@ request.abort('blockedbyclient')
                             (
                                 await this.promiseTimeout(
                                     page.evaluateHandle((maxRows) => {
-    const css = []
+                                        const css = []
 
-try {
-if (!document.styleSheets.length) {
+                                        try {
+                                            if (!document.styleSheets.length) {
                                                 return ''
                                             }
 
@@ -887,54 +893,54 @@ if (!document.styleSheets.length) {
                                                 }
                                             }
                                         } catch (error) {
-return ''
+                                            return ''
                                         }
 
                                         return css.join('\n')
                                     }, this.options.htmlMaxRows),
                                     { jsonValue: () => '' },
-'Timeout (css)'
-)
-).jsonValue(),
-'',
-'Timeout (css)'
-)
-})(),
+                                    'Timeout (css)'
+                                )
+                            ).jsonValue(),
+                            '',
+                            'Timeout (css)'
+                        )
+                    })(),
                     (async () => {
-    // Script tags
-;[scriptSrc, scripts] = await this.promiseTimeout(
+                        // Script tags
+                        ;[scriptSrc, scripts] = await this.promiseTimeout(
                             (
-await this.promiseTimeout(
-    page.evaluateHandle(() => {
-    const nodes = Array.from(
+                                await this.promiseTimeout(
+                                    page.evaluateHandle(() => {
+                                        const nodes = Array.from(
                                             document.getElementsByTagName('script')
                                         )
 
                                         return [
-    nodes
-.filter(
-({ src }) =>
-src && !src.startsWith('data:text/javascript;')
-)
-.map(({ src }) => src),
-nodes
-.map((node) => node.textContent)
-.filter((script) => script),
-]
-}),
-{ jsonValue: () => [] },
-'Timeout (scripts)'
-)
-).jsonValue(),
-[],
-'Timeout (scripts)'
-)
-})(),
-(async () => {
-    // Meta tags
+                                            nodes
+                                            .filter(
+                                                ({ src }) =>
+                                                    src && !src.startsWith('data:text/javascript;')
+                                            )
+                                            .map(({ src }) => src),
+                                            nodes
+                                            .map((node) => node.textContent)
+                                            .filter((script) => script),
+                                        ]
+                                    }),
+                                    { jsonValue: () => [] },
+                                    'Timeout (scripts)'
+                                )
+                            ).jsonValue(),
+                            [],
+                            'Timeout (scripts)'
+                        )
+                    })(),
+                    (async () => {
+                        // Meta tags
                         meta = await this.promiseTimeout(
-    (
-await this.promiseTimeout(
+                            (
+                                await this.promiseTimeout(
                                     page.evaluateHandle(() =>
                                         Array.from(document.querySelectorAll('meta')).reduce(
                                             (metas, meta) => {
@@ -947,32 +953,32 @@ await this.promiseTimeout(
                                                         metas[key.toLowerCase()] || []
 
                                                     metas[key.toLowerCase()].push(
-meta.getAttribute('content')
-)
+                                                        meta.getAttribute('content')
+                                                    )
                                                 }
 
                                                 return metas
                                             },
                                             {}
-)
+                                        )
                                     ),
-{ jsonValue: () => [] },
+                                    { jsonValue: () => [] },
                                     'Timeout (meta)'
                                 )
-).jsonValue(),
+                            ).jsonValue(),
                             [],
-'Timeout (meta)'
+                            'Timeout (meta)'
                         )
                     })(),
                     (async () => {
-    // JavaScript
-js = this.options.noScripts
-    ? []
+                        // JavaScript
+                        js = this.options.noScripts
+                            ? []
                             : await this.promiseTimeout(getJs(page), [], 'Timeout (js)')
-})(),
+                    })(),
                     (async () => {
                         // DOM
-dom = await this.promiseTimeout(getDom(page), [], 'Timeout (dom)')
+                        dom = await this.promiseTimeout(getDom(page), [], 'Timeout (dom)')
                     })(),
                 ])
             }
@@ -1007,9 +1013,9 @@ dom = await this.promiseTimeout(getDom(page), [], 'Timeout (dom)')
 
             const reducedLinks = Array.prototype.reduce.call(
                 links,
-(results, link) => {
-if (
-results &&
+                (results, link) => {
+                    if (
+                        results &&
                             Object.prototype.hasOwnProperty.call(
                                 Object.getPrototypeOf(results),
                                 'push'
@@ -1017,8 +1023,8 @@ results &&
                             link.protocol &&
                             link.protocol.match(/https?:/) &&
                             link.hostname === url.hostname &&
-extensions.test(link.pathname.slice(-5))
-) {
+                            extensions.test(link.pathname.slice(-5))
+                    ) {
                         results.push(new URL(link.href.split('#')[0]))
                     }
 
@@ -1034,7 +1040,7 @@ extensions.test(link.pathname.slice(-5))
                 ...this.cache[url.href],
             })
 
-page.__closed = true
+            page.__closed = true
 
             try {
                 await page.close()
@@ -1080,8 +1086,8 @@ page.__closed = true
     }
 
     async newPage(url) {
-if (!this.browser) {
-await this.initDriver()
+        if (!this.browser) {
+            await this.initDriver()
 
             if (!this.browser) {
                 throw new Error('Browser closed')
@@ -1091,10 +1097,10 @@ await this.initDriver()
         let page
 
         try {
-page = await this.browser.newPage()
+            page = await this.browser.newPage()
 
             if (!page || page.isClosed()) {
-throw new Error('Page did not open')
+                throw new Error('Page did not open')
             }
         } catch (error) {
             error.message += ` (${url})`
@@ -1137,7 +1143,7 @@ throw new Error('Page did not open')
                         ({ href }) => !this.analyzedUrls[href]
                     )
 
-if (
+                    if (
                         links.length &&
                             this.options.recursive &&
                             Object.keys(this.analyzedUrls).length < this.options.maxUrls &&
@@ -1146,9 +1152,9 @@ if (
                         await this.batch(
                             links.slice(
                                 0,
-this.options.maxUrls - Object.keys(this.analyzedUrls).length
-),
-depth + 1
+                                this.options.maxUrls - Object.keys(this.analyzedUrls).length
+                            ),
+                            depth + 1
                         )
                     }
                 } catch (error) {
@@ -1162,9 +1168,9 @@ depth + 1
                     this.error(error)
                 }
             })(),
-(async () => {
-    if (this.options.probe && !this.probed) {
-this.probed = true
+            (async () => {
+                if (this.options.probe && !this.probed) {
+                    this.probed = true
 
                     await this.probe(url)
                 }
@@ -1281,17 +1287,17 @@ this.probed = true
             )
         }
 
-const domain = url.hostname.replace(/^www\./, '')
+        const domain = url.hostname.replace(/^www\./, '')
 
-await Promise.allSettled([
-    // Static files
+        await Promise.allSettled([
+            // Static files
             ...paths.map(async ({ type, path, technology }, index) => {
                 try {
                     await sleep(this.options.delay * index)
 
-const body = await get(new URL(path, url.href), {
-    userAgent: this.options.userAgent,
-timeout: Math.min(this.options.maxWait, 3000),
+                    const body = await get(new URL(path, url.href), {
+                        userAgent: this.options.userAgent,
+                        timeout: Math.min(this.options.maxWait, 3000),
                     })
 
                     this.log(`Probe ok (${path})`)
@@ -1421,29 +1427,29 @@ timeout: Math.min(this.options.maxWait, 3000),
                     if (!this.analyzedRequires[url.href].includes(id)) {
                         this.analyzedRequires[url.href].push(id)
 
-const { page, cookies, html, text, css, scripts, scriptSrc, meta } =
-this.cache[url.href]
+                        const { page, cookies, html, text, css, scripts, scriptSrc, meta } =
+                            this.cache[url.href]
 
-const js = await this.promiseTimeout(
-    getJs(page, technologies),
-[],
+                        const js = await this.promiseTimeout(
+                            getJs(page, technologies),
+                            [],
                             'Timeout (js)'
                         )
                         const dom = await this.promiseTimeout(
                             getDom(page, technologies),
-[],
-'Timeout (dom)'
-)
+                            [],
+                            'Timeout (dom)'
+                        )
 
                         await this.onDetect(
                             url,
                             [
-analyzeDom(dom, technologies),
+                                analyzeDom(dom, technologies),
                                 analyzeJs(js, technologies),
                                 await analyze(
                                     {
-url,
-cookies,
+                                        url,
+                                        cookies,
                                         html,
                                         text,
                                         css,
@@ -1469,10 +1475,10 @@ cookies,
 
                     try {
                         await page.close()
-} catch (error) {
+                    } catch (error) {
                         // Continue
-}
-}
+                    }
+                }
             })
         )
 
