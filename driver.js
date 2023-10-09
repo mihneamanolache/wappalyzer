@@ -587,20 +587,15 @@ resolve(fallback)
                 reject(new Error(`Unable to navigate to page: ${url.href}: timeout reached!`));
             }, this.options.pageTimeout);
         });
-
-
         this.log(`Navigate to ${url}`)
-
         this.analyzedUrls[url.href] = {
             status: 0,
         }
-
-        const page = await this.newPage(url)
-
+        const page = await Promise.race([
+            this.newPage(url), t
+        ])
         await page.setRequestInterception(true)
-
         let responseReceived = false
-
         page.on('request', async (request) => {
             try {
                 if (request.resourceType() === 'xhr') {
