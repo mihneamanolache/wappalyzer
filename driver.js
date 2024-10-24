@@ -9,7 +9,7 @@ const Wappalyzer = require('./wappalyzer')
 const { setTechnologies, setCategories, analyze, analyzeManyToMany, resolve } =
     Wappalyzer
 
-const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS } =
+const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS, EXTRA_TECHNOLOGIES_DIR } =
     process.env
 
 const chromiumArgs = CHROMIUM_ARGS
@@ -47,6 +47,29 @@ for (const index of Array(27).keys()) {
     }
 }
 
+if ( EXTRA_TECHNOLOGIES_DIR ) {
+    if (fs.existsSync(techFolderPath)) {
+        const files = fs.readdirSync(techFolderPath).filter(file => file.endsWith('.json'));
+        files.forEach(file => {
+            const filePath = path.join(techFolderPath, file);
+
+            try {
+                technologies = {
+                    ...technologies,
+                    ...JSON.parse(
+                        fs.readFileSync(
+                            path.resolve(filePath)
+                        )
+                    ),
+                }
+            } catch (e) {}
+        });
+    } else {
+        log(`Tech folder not found: ${techFolderPath}`);
+    }
+
+}
+
 setTechnologies(technologies)
 setCategories(categories)
 
@@ -58,9 +81,9 @@ function sleep(ms) {
 
 function getJs(page, technologies = Wappalyzer.technologies) {
     return page.evaluate((technologies) => {
-    return technologies
-        .filter(({ js }) => Object.keys(js).length)
-.map(({ name, js }) => ({ name, chains: Object.keys(js) }))
+        return technologies
+            .filter(({ js }) => Object.keys(js).length)
+            .map(({ name, js }) => ({ name, chains: Object.keys(js) }))
             .reduce((technologies, { name, chains }) => {
                 chains.forEach((chain) => {
                     chain = chain.replace(/\[([^\]]+)\]/g, '.$1')
@@ -232,9 +255,9 @@ function getDom(page, technologies = Wappalyzer.technologies) {
                                     ) {
                                         const value = node.getAttribute(attribute)
 
-technologies.push({
-    name,
-selector,
+                                        technologies.push({
+                                            name,
+                                            selector,
                                             attribute,
                                             value: toScalar(value),
                                         })
@@ -314,76 +337,76 @@ function get(url, options = {}) {
 
                     response.on('data', (data) => (body += data))
                     response.on('error', (error) => reject(new Error(error.message)))
-response.on('end', () => resolve(body))
-}
-)
+                    response.on('end', () => resolve(body))
+                }
+            )
             .setTimeout(timeout, () =>
                 reject(new Error(`Timeout (${url}, ${timeout}ms)`))
             )
             .on('error', (error) => reject(new Error(error.message)))
         )
     } else {
-throw new Error(`Invalid protocol: ${url.protocol}`)
-}
+        throw new Error(`Invalid protocol: ${url.protocol}`)
+    }
 }
 
 class Driver {
     constructor(options = {}) {
-this.options = {
-    batchSize: 5,
-debug: false,
-delay: 500,
-htmlMaxCols: 2000,
-htmlMaxRows: 3000,
-maxDepth: 3,
-maxUrls: 10,
-maxWait: 30000,
-recursive: false,
-probe: false,
-proxy: false,
-noScripts: false,
-userAgent:
-'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
-extended: false,
-...options,
-}
+        this.options = {
+            batchSize: 5,
+            debug: false,
+            delay: 500,
+            htmlMaxCols: 2000,
+            htmlMaxRows: 3000,
+            maxDepth: 3,
+            maxUrls: 10,
+            maxWait: 30000,
+            recursive: false,
+            probe: false,
+            proxy: false,
+            noScripts: false,
+            userAgent:
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
+            extended: false,
+            ...options,
+        }
 
-this.options.debug = Boolean(+this.options.debug)
-this.options.fast = Boolean(+this.options.fast)
-this.options.recursive = Boolean(+this.options.recursive)
-this.options.probe =
-String(this.options.probe || '').toLowerCase() === 'basic'
-? 'basic'
-: String(this.options.probe || '').toLowerCase() === 'full'
-    ? 'full'
-: Boolean(+this.options.probe) && 'full'
-this.options.delay = parseInt(this.options.delay, 10)
-this.options.maxDepth = parseInt(this.options.maxDepth, 10)
-this.options.maxUrls = parseInt(this.options.maxUrls, 10)
-this.options.maxWait = parseInt(this.options.maxWait, 10)
-this.options.htmlMaxCols = parseInt(this.options.htmlMaxCols, 10)
-this.options.htmlMaxRows = parseInt(this.options.htmlMaxRows, 10)
-this.options.noScripts = Boolean(+this.options.noScripts)
-this.options.extended = Boolean(+this.options.extended)
+        this.options.debug = Boolean(+this.options.debug)
+        this.options.fast = Boolean(+this.options.fast)
+        this.options.recursive = Boolean(+this.options.recursive)
+        this.options.probe =
+            String(this.options.probe || '').toLowerCase() === 'basic'
+                ? 'basic'
+                : String(this.options.probe || '').toLowerCase() === 'full'
+                    ? 'full'
+                    : Boolean(+this.options.probe) && 'full'
+        this.options.delay = parseInt(this.options.delay, 10)
+        this.options.maxDepth = parseInt(this.options.maxDepth, 10)
+        this.options.maxUrls = parseInt(this.options.maxUrls, 10)
+        this.options.maxWait = parseInt(this.options.maxWait, 10)
+        this.options.htmlMaxCols = parseInt(this.options.htmlMaxCols, 10)
+        this.options.htmlMaxRows = parseInt(this.options.htmlMaxRows, 10)
+        this.options.noScripts = Boolean(+this.options.noScripts)
+        this.options.extended = Boolean(+this.options.extended)
 
-if (this.options.proxy) {
-chromiumArgs.push(`--proxy-server=${this.options.proxy}`)
-}
+        if (this.options.proxy) {
+            chromiumArgs.push(`--proxy-server=${this.options.proxy}`)
+        }
 
-this.destroyed = false
-}
+        this.destroyed = false
+    }
 
-async init() {
-for (let attempt = 1; attempt <= 2; attempt++) {
-this.log(`Launching browser (attempt ${attempt})...`)
+    async init() {
+        for (let attempt = 1; attempt <= 2; attempt++) {
+            this.log(`Launching browser (attempt ${attempt})...`)
 
-try {
-if (CHROMIUM_WEBSOCKET) {
-this.browser = await puppeteer.connect({
+            try {
+                if (CHROMIUM_WEBSOCKET) {
+                    this.browser = await puppeteer.connect({
                         ignoreHTTPSErrors: true,
-acceptInsecureCerts: true,
+                        acceptInsecureCerts: true,
                         browserWSEndpoint: CHROMIUM_WEBSOCKET,
-})
+                    })
                 } else {
                     this.browser = await puppeteer.launch({
                         ignoreHTTPSErrors: true,
@@ -475,26 +498,26 @@ acceptInsecureCerts: true,
 
 class Site {
     constructor(url, headers = {}, driver) {
-;({
-options: this.options,
+        ;({
+            options: this.options,
             browser: this.browser,
             init: this.initDriver,
         } = driver)
 
-this.options.headers = {
+        this.options.headers = {
             ...this.options.headers,
-...headers,
-        }
+            ...headers,
+}
 
 this.driver = driver
 
 try {
-this.originalUrl = new URL(url)
-} catch (error) {
-throw new Error(error.toString())
-}
+    this.originalUrl = new URL(url)
+        } catch (error) {
+            throw new Error(error.toString())
+        }
 
-this.analyzedUrls = {}
+        this.analyzedUrls = {}
 this.analyzedXhr = {}
 this.analyzedRequires = {}
 this.detections = []
@@ -510,36 +533,36 @@ this.probed = false
 
 log(message, source = 'driver', type = 'log') {
 if (this.options.debug) {
-// eslint-disable-next-line no-console
-console[type](`${type} | ${source} |`, message)
-}
+    // eslint-disable-next-line no-console
+            console[type](`${type} | ${source} |`, message)
+        }
 
-this.emit(type, { message, source })
-}
+        this.emit(type, { message, source })
+    }
 
-error(error, source = 'driver') {
-this.log(error, source, 'error')
-}
+    error(error, source = 'driver') {
+        this.log(error, source, 'error')
+    }
 
-on(event, callback) {
-if (!this.listeners[event]) {
-this.listeners[event] = []
-}
+    on(event, callback) {
+        if (!this.listeners[event]) {
+            this.listeners[event] = []
+        }
 
-this.listeners[event].push(callback)
-}
+        this.listeners[event].push(callback)
+    }
 
-emit(event, params) {
-if (this.listeners[event]) {
-return Promise.allSettled(
-    this.listeners[event].map((listener) => listener(params))
-)
-}
-}
+    emit(event, params) {
+        if (this.listeners[event]) {
+            return Promise.allSettled(
+                this.listeners[event].map((listener) => listener(params))
+            )
+        }
+    }
 
-promiseTimeout(
-promise,
-fallback,
+    promiseTimeout(
+        promise,
+        fallback,
         errorMessage = 'Operation took too long to complete',
         maxWait = this.options.fast
             ? Math.min(this.options.maxWait, 2000)
@@ -556,14 +579,14 @@ fallback,
                 timeout = setTimeout(() => {
                     clearTimeout(timeout)
 
-const error = new Error(errorMessage)
+                    const error = new Error(errorMessage)
 
                     error.code = 'PROMISE_TIMEOUT_ERROR'
 
-if (fallback !== undefined) {
-this.error(error)
+                    if (fallback !== undefined) {
+                        this.error(error)
 
-resolve(fallback)
+                        resolve(fallback)
                     } else {
                         reject(error)
                     }
