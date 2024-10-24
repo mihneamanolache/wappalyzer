@@ -5,7 +5,9 @@
     ],
     "description": "K-Sup is an open-source CMS/portal solution dedicated to higher education and research created by Kosmos Education.",
     "icon": "Kosmos.svg",
-    "implies": "Java",
+    "implies": [
+      "Java"
+    ],
     "meta": {
       "generator": "^K-Sup \\(([\\d.R]+)\\)$\\;version:\\1"
     },
@@ -16,13 +18,18 @@
     "cats": [
       19
     ],
-    "html": "<!--(?: JoomlaWorks \"K2\"| Start K2)",
-    "icon": "K2.png",
-    "implies": "Joomla",
+    "html": [
+      "<!--(?: JoomlaWorks \"K2\"| Start K2)"
+    ],
+    "icon": "K2.svg",
+    "implies": [
+      "Joomla"
+    ],
     "js": {
       "K2RatingURL": ""
     },
-    "website": "https://getk2.org"
+    "website": "https://getk2.org",
+    "description": "K2 is a content management extension for Joomla, developed by JoomlaWorks, that enhances Joomla's capabilities by providing features like rich content forms, nested categories, tags, comments, and more."
   },
   "KAMAR": {
     "cats": [
@@ -58,7 +65,9 @@
       "NS": "ns\\d\\.kmkhosting\\.net",
       "SOA": "ns\\d\\.kmkhosting\\.net"
     },
-    "dom": "a[href*='.kmk.net.tr/'][target='_blank'], div#kmkCopyright",
+    "dom": [
+      "a[href*='.kmk.net.tr/'][target='_blank'], div#kmkCopyright"
+    ],
     "icon": "KMK.svg",
     "pricing": [
       "recurring",
@@ -76,7 +85,9 @@
       "x-powered-by": "^KPHP/([\\d\\.]+)$\\;version:\\1"
     },
     "icon": "default.svg",
-    "implies": "PHP",
+    "implies": [
+      "PHP"
+    ],
     "oss": true,
     "website": "https://vkcom.github.io/kphp"
   },
@@ -90,7 +101,7 @@
       "a[href*='kqs.pl'][target='_blank']",
       "#kqs-box,kqs-cookie"
     ],
-    "icon": "KQS.store.png",
+    "icon": "KQS.store.svg",
     "js": {
       "kqs_box": "\\;confidence:50",
       "kqs_off": "\\;confidence:50"
@@ -119,7 +130,9 @@
       "katex.version": "^(.+)$\\;version:\\1"
     },
     "oss": true,
-    "scriptSrc": "katex(@|/)[0-9.]+(?:/dist)?/katex(?:\\.min)?\\.(mjs|js|css)\\;version:\\1",
+    "scriptSrc": [
+      "katex(@|/)[0-9.]+(?:/dist)?/katex(?:\\.min)?\\.(mjs|js|css)\\;version:\\1"
+    ],
     "website": "https://katex.org/"
   },
   "Kadence WP Blocks": {
@@ -127,16 +140,24 @@
       87
     ],
     "description": "Kadence WP Blocks is a plugin for WordPress that provides a collection of custom blocks for the Gutenberg editor, allowing users to create custom layouts and designs for their website without needing to know how to code.",
-    "dom": "link[href*='/wp-content/plugins/kadence-blocks/']",
+    "dom": [
+      "link[href*='/wp-content/plugins/kadence-blocks/']"
+    ],
     "icon": "Kadence WP.svg",
-    "implies": "Gutenberg",
+    "implies": [
+      "Gutenberg"
+    ],
     "pricing": [
       "freemium",
       "low",
       "recurring"
     ],
-    "requires": "WordPress",
-    "scriptSrc": "/wp-content/plugins/kadence-blocks/dist/.+/kb-form-block\\.min\\.js(?:\\?ver=([\\d\\.]+))?\\;version:\\1",
+    "requires": [
+      "WordPress"
+    ],
+    "scriptSrc": [
+      "/wp-content/plugins/kadence-blocks/dist/.+/kb-form-block\\.min\\.js(?:\\?ver=([\\d\\.]+))?\\;version:\\1"
+    ],
     "website": "https://www.kadencewp.com/kadence-blocks/"
   },
   "Kadence WP Kadence": {
@@ -144,7 +165,9 @@
       80
     ],
     "description": "Kadence WP Kadence is a multipurpose WordPress theme that is available for free download and also offers a pro version.",
-    "dom": "link#kadence-global-css",
+    "dom": [
+      "link#kadence-global-css"
+    ],
     "icon": "Kadence WP.svg",
     "js": {
       "kadence": "",
@@ -156,8 +179,12 @@
       "mid",
       "recurring"
     ],
-    "requires": "WordPress",
-    "scriptSrc": "/wp-content/themes/kadence/.+navigation\\.min\\.js(?:\\?ver=([\\d\\.]+))?\\;version:\\1",
+    "requires": [
+      "WordPress"
+    ],
+    "scriptSrc": [
+      "/wp-content/themes/kadence/.+navigation\\.min\\.js(?:\\?ver=([\\d\\.]+))?\\;version:\\1"
+    ],
     "website": "https://www.kadencewp.com/kadence-theme"
   },
   "Kadence WP Virtue": {
@@ -165,15 +192,21 @@
       80
     ],
     "description": "Kadence WP Virtue is a multipurpose WordPress theme that is available for free download and also offers a pro version.",
-    "dom": "link[href*='/wp-content/themes/virtue/']",
+    "dom": [
+      "link[href*='/wp-content/themes/virtue/']"
+    ],
     "icon": "Kadence WP.svg",
     "pricing": [
       "freemium",
       "low",
       "recurring"
     ],
-    "requires": "WordPress",
-    "scriptSrc": "/wp-content/themes/virtue/.+main-min\\.js(?:\\?ver=([\\d\\.]+))?\\;version:\\1",
+    "requires": [
+      "WordPress"
+    ],
+    "scriptSrc": [
+      "/wp-content/themes/virtue/.+main-min\\.js(?:\\?ver=([\\d\\.]+))?\\;version:\\1"
+    ],
     "website": "https://www.kadencewp.com/product/virtue-free-theme"
   },
   "Kaira Vogue": {
@@ -181,15 +214,32 @@
       80
     ],
     "description": "Vogue is a very easy to use multipurpose WordPress theme created by Kaira.",
-    "dom": "link#vogue-style-css",
-    "icon": "Kaira.png",
+    "dom": [
+      "link#vogue-style-css"
+    ],
+    "icon": "Kaira.svg",
     "pricing": [
       "freemium",
       "onetime"
     ],
-    "requires": "WordPress",
-    "scriptSrc": "/wp-content/themes/vogue(?:-child)?/",
+    "requires": [
+      "WordPress"
+    ],
+    "scriptSrc": [
+      "/wp-content/themes/vogue(?:-child)?/"
+    ],
     "website": "https://kairaweb.com/wordpress-theme/vogue"
+  },
+  "Kaisa": {
+    "cats": [
+      76
+    ],
+    "description": "Kaisa is a platform that leverages data to maintain buyer and seller engagement through personalised customer experiences on a large scale.",
+    "icon": "Kaisa.svg",
+    "scriptSrc": [
+      "\\.freespee\\.com/js/external/fs\\.(?:min\\.)?js"
+    ],
+    "website": "https://www.kaisa.io"
   },
   "Kajabi": {
     "cats": [
@@ -213,12 +263,16 @@
       19
     ],
     "description": "Kakao platform provides various services such as Kakao Talk, Kakao Talk Channel, Kakao Story as well as Kakao Pay, Kakao Commerce, Kakao Page provided by the subsidiaries. Users can use all Kakao platform services with a united account called Kakao Account.",
-    "dom": "a[href*='.kakao.com/'][target='_blank']",
+    "dom": [
+      "a[href*='.kakao.com/'][target='_blank']"
+    ],
     "icon": "Kakao.svg",
     "js": {
       "Kakao.VERSION": "^([\\d\\.]+)$\\;version:\\1"
     },
-    "scriptSrc": "\\.kakao\\.com/",
+    "scriptSrc": [
+      "\\.kakao\\.com/"
+    ],
     "website": "https://developers.kakao.com/product"
   },
   "Kaltura": {
@@ -227,7 +281,9 @@
       103
     ],
     "description": "Kaltura is a video content management platform that allows users to upload, manage, share, publish, and stream videos.",
-    "dom": "link[href*='.kaltura.com'], div.kaltura-zone",
+    "dom": [
+      "link[href*='.kaltura.com'], div.kaltura-zone"
+    ],
     "icon": "Kaltura.svg",
     "js": {
       "Kplayer": "",
@@ -242,8 +298,12 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "api\\.kaltura\\.(?:nordu\\.net|com)/",
-    "scripts": "kalturaPlayer",
+    "scriptSrc": [
+      "api\\.kaltura\\.(?:nordu\\.net|com)/"
+    ],
+    "scripts": [
+      "kalturaPlayer"
+    ],
     "website": "https://corp.kaltura.com"
   },
   "Kameleoon": {
@@ -254,7 +314,9 @@
       "kameleoonVisitorCode": ""
     },
     "description": "Kameleoon is a personalisation technology platform for real-time omnichannel optimisation and conversion.",
-    "dom": "link[href*='.kameleoon.eu/kameleoon.js']",
+    "dom": [
+      "link[href*='.kameleoon.eu/kameleoon.js']"
+    ],
     "icon": "Kameleoon.svg",
     "js": {
       "Kameleoon.Gatherer.SCRIPT_VERSION": "(.+)\\;version:\\1",
@@ -265,7 +327,9 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "\\.kameleoon\\.\\w+/kameleoon\\.js",
+    "scriptSrc": [
+      "\\.kameleoon\\.\\w+/kameleoon\\.js"
+    ],
     "website": "https://kameleoon.com/"
   },
   "Kamva": {
@@ -279,7 +343,9 @@
     "meta": {
       "generator": "[CK]amva"
     },
-    "scriptSrc": "cdn\\.mykamva\\.ir",
+    "scriptSrc": [
+      "cdn\\.mykamva\\.ir"
+    ],
     "website": "https://kamva.ir"
   },
   "Kapix Studio": {
@@ -310,7 +376,7 @@
       53
     ],
     "description": "Kapture CRM is an enterprise-grade SaaS-based customer support automation platform.",
-    "icon": "Kapture CRM.png",
+    "icon": "Kapture CRM.svg",
     "js": {
       "Kapchat": "",
       "kap_chat_js": ""
@@ -320,7 +386,9 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "\\.kapturecrm\\.com/.+\\?ver=([\\d\\.]+)\\;version:\\1",
+    "scriptSrc": [
+      "\\.kapturecrm\\.com/.+\\?ver=([\\d\\.]+)\\;version:\\1"
+    ],
     "website": "https://www.kapturecrm.com"
   },
   "Karma": {
@@ -329,12 +397,16 @@
     ],
     "description": "Karma is a test runner for JavaScript that runs on Node.js.",
     "icon": "Karma.svg",
-    "implies": "Node.js",
+    "implies": [
+      "Node.js"
+    ],
     "js": {
       "karma.vars.version": "(.+)\\;version:\\1"
     },
     "oss": true,
-    "scriptSrc": "karma\\.mdpcdn\\.com",
+    "scriptSrc": [
+      "karma\\.mdpcdn\\.com"
+    ],
     "website": "https://karma-runner.github.io"
   },
   "Karte": {
@@ -343,7 +415,7 @@
       76
     ],
     "description": "Karte is a customer engagement and marketing automation platform that enables businesses to understand their customers, deliver personalised experiences, and optimise marketing strategies.",
-    "icon": "Karte.png",
+    "icon": "Karte.svg",
     "js": {
       "__KARTE_REWRITE_ADMIN_CONFIG": "",
       "__karte_live": "",
@@ -362,7 +434,9 @@
       32
     ],
     "description": "Kartra is an online business platform that offers marketing and sales tools.",
-    "dom": "form[action*='app.kartra.com']",
+    "dom": [
+      "form[action*='app.kartra.com']"
+    ],
     "icon": "Kartra.svg",
     "js": {
       "init_kartra_tracking": "",
@@ -373,7 +447,9 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "app\\.kartra\\.com",
+    "scriptSrc": [
+      "app\\.kartra\\.com"
+    ],
     "website": "https://home.kartra.com"
   },
   "Kasada": {
@@ -399,16 +475,22 @@
       53
     ],
     "description": "Keap offers an email marketing and sales platform for small businesses, including products to manage customers, customer relationship management, marketing, and ecommerce.",
-    "dom": "form[action*='property.infusionsoft.com'], link[href*='.infusionsoft.com']",
+    "dom": [
+      "form[action*='property.infusionsoft.com'], link[href*='.infusionsoft.com']"
+    ],
     "icon": "Keap.svg",
     "pricing": [
       "low",
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "\\.infusionsoft\\.com/",
+    "scriptSrc": [
+      "\\.infusionsoft\\.com/"
+    ],
     "website": "https://keap.com",
-    "xhr": "property\\.infusionsoft\\.com"
+    "xhr": [
+      "property\\.infusionsoft\\.com"
+    ]
   },
   "Keen Delivery": {
     "cats": [
@@ -416,7 +498,9 @@
     ],
     "description": "Keen Delivery is a Dutch shipping platform ",
     "icon": "Keen Delivery.svg",
-    "requiresCategory": 6,
+    "requiresCategory": [
+      6
+    ],
     "text": [
       "\\bKeen Delivery\\b"
     ],
@@ -427,13 +511,29 @@
       59
     ],
     "description": "Keen-Slider is a free library agnostic touch slider with native touch/swipe behavior.",
-    "dom": "div.keen-slider, div.keen-slider__slide",
+    "dom": [
+      "div.keen-slider, div.keen-slider__slide"
+    ],
     "icon": "keen-slider.svg",
     "js": {
       "KeenSlider": ""
     },
     "oss": true,
     "website": "https://keen-slider.io"
+  },
+  "KelonCloud": {
+    "cats": [
+      31
+    ],
+    "description": "KelonCloud offers a variety of cloud-based services, such as CDN, DDoS mitigation, cloud security, streaming, cloud compute, and more.",
+    "headers": {
+      "server": "^(?:(?:KelonCloud|KC)-Private-CDN|KelonCloud)$"
+    },
+    "icon": "KelonCloud.svg",
+    "pricing": [
+      "recurring"
+    ],
+    "website": "https://www.keloncloud.com"
   },
   "Kemal": {
     "cats": [
@@ -443,22 +543,39 @@
     "headers": {
       "X-Powered-By": "Kemal"
     },
-    "icon": "kemalcr.png",
-    "website": "https://kemalcr.com"
+    "icon": "kemalcr.svg",
+    "website": "https://kemalcr.com",
+    "oss": true,
+    "description": "Kemal is a fast and efficient web framework for the Crystal programming language."
   },
   "Kendo UI": {
     "cats": [
       66
     ],
     "description": "Kendo UI is a HTML5 user interface framework for building interactive and high-performance websites and applications.",
-    "html": "<link[^>]*\\s+href=[^>]*styles/kendo\\.common(?:\\.min)?\\.css[^>]*/>",
-    "icon": "Kendo UI.png",
-    "implies": "jQuery",
+    "html": [
+      "<link[^>]*\\s+href=[^>]*styles/kendo\\.common(?:\\.min)?\\.css[^>]*/>"
+    ],
+    "icon": "Kendo UI.svg",
+    "implies": [
+      "jQuery"
+    ],
     "js": {
       "kendo": "",
       "kendo.version": "^(.+)$\\;version:\\1"
     },
-    "website": "https://www.telerik.com/kendo-ui"
+    "website": "https://www.telerik.com/kendo-ui",
+    "oss": true,
+    "scriptSrc": [
+      "/kendo/.*-([\\d]{4})%20([\\d\\.]{6})\\;version:\\1.\\2"
+    ],
+    "dom": {
+      "link[href*=kendo]": {
+        "attributes": {
+          "href": "/([\\d\\.]+).*/kendo\\.common\\.min\\.css\\;version:\\1"
+        }
+      }
+    }
   },
   "Kentico CMS": {
     "cats": [
@@ -470,7 +587,7 @@
     },
     "cpe": "cpe:2.3:a:kentico:kentico_cms:*:*:*:*:*:*:*:*",
     "description": "Kentico CMS is a web content management system for building websites, online stores, intranets, and Web 2.0 community sites.",
-    "icon": "Kentico CMS.png",
+    "icon": "Kentico CMS.svg",
     "js": {
       "CMS.Application": ""
     },
@@ -478,6 +595,8 @@
       "generator": "Kentico CMS ([\\d.R]+ \\(build [\\d.]+\\))\\;version:\\1"
     },
     "pricing": [
+      "high",
+      "recurring",
       "poa"
     ],
     "saas": true,
@@ -485,7 +604,10 @@
       "/CMSPages/GetResource\\.ashx",
       "/kentico\\.resource"
     ],
-    "website": "https://www.kentico.com"
+    "website": "https://www.kentico.com",
+    "dom": [
+      "link[href*='/kentico/bundles/pageComponents/']"
+    ]
   },
   "Keptify": {
     "cats": [
@@ -501,7 +623,9 @@
       "payg"
     ],
     "saas": true,
-    "scriptSrc": "app\\.keptify\\.com/",
+    "scriptSrc": [
+      "app\\.keptify\\.com/"
+    ],
     "website": "https://keptify.com"
   },
   "Kerberos": {
@@ -522,7 +646,9 @@
       "Server": "^Kestrel"
     },
     "icon": "kestrel.svg",
-    "implies": "Microsoft ASP.NET",
+    "implies": [
+      "Microsoft ASP.NET"
+    ],
     "website": "https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel"
   },
   "Ketch": {
@@ -535,7 +661,9 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "\\.ketchcdn\\.com/",
+    "scriptSrc": [
+      "\\.ketchcdn\\.com/"
+    ],
     "website": "https://www.ketch.com"
   },
   "Kevel": {
@@ -543,7 +671,9 @@
       36
     ],
     "description": "Kevel (formerly Adzerk) is a developer of ad-serving APIs to help developers build server-side ad platforms.",
-    "dom": "iframe[src*='adzerk.net'], link[href*='adzerk.net']",
+    "dom": [
+      "iframe[src*='adzerk.net'], link[href*='adzerk.net']"
+    ],
     "icon": "Kevel.svg",
     "js": {
       "ados": "",
@@ -553,7 +683,9 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "adzerk\\.net/",
+    "scriptSrc": [
+      "adzerk\\.net/"
+    ],
     "website": "https://www.kevel.com"
   },
   "KeyCDN": {
@@ -564,13 +696,14 @@
     "headers": {
       "Server": "^keycdn-engine$"
     },
-    "icon": "KeyCDN.png",
+    "icon": "KeyCDN.svg",
     "website": "https://www.keycdn.com"
   },
   "Keybase": {
     "cats": [
       16
     ],
+    "cpe": "cpe:2.3:a:keybase:keybase:*:*:*:*:*:*:*:*",
     "description": "Keybase is for keeping everyone's chats and files safe, from families to communities to companies. MacOS, Windows, Linux, iPhone, and Android.",
     "dns": {
       "TXT": [
@@ -585,6 +718,28 @@
     "saas": true,
     "website": "https://keybase.io/"
   },
+  "Keymailer": {
+    "cats": [
+      32
+    ],
+    "description": "Keymailer is a game influencer marketing platform that integrates creators, software, and services into one portal.",
+    "icon": "Keymailer.svg",
+    "js": {
+      "Keymailer": "",
+      "KeymailerJS": ""
+    },
+    "meta": {
+      "application-name": "^Keymailer$"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://keymailer.co"
+  },
   "Kibana": {
     "cats": [
       29,
@@ -596,13 +751,17 @@
       "kbn-name": "kibana",
       "kbn-version": "^([\\d.]+)$\\;version:\\1"
     },
-    "html": "<title>Kibana</title>",
+    "html": [
+      "<title>Kibana</title>"
+    ],
     "icon": "kibana.svg",
     "implies": [
       "Node.js",
       "Elasticsearch"
     ],
-    "url": "kibana#/dashboard/",
+    "url": [
+      "kibana#/dashboard/"
+    ],
     "website": "https://www.elastic.co/products/kibana"
   },
   "Kibo Commerce": {
@@ -614,7 +773,9 @@
     "pricing": [
       "poa"
     ],
-    "scriptSrc": "cdn-tp\\d+\\.mozu\\.com",
+    "scriptSrc": [
+      "cdn-tp\\d+\\.mozu\\.com"
+    ],
     "website": "https://kibocommerce.com"
   },
   "Kibo Personalization": {
@@ -640,6 +801,40 @@
     ],
     "website": "https://kibocommerce.com/personalization-software"
   },
+  "Kicksite": {
+    "cats": [
+      53
+    ],
+    "description": "Kicksite is a gym and martial arts member management software with attendance tracking, automated billing, free texting, lead capture forms and more.",
+    "icon": "Kicksite.svg",
+    "cookies": {
+      "_kicksite_session": ""
+    },
+    "dom": [
+      "iframe[src*='.kicksite.net/']"
+    ],
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://kicksite.com"
+  },
+  "Kilatech": {
+    "cats": [
+      100
+    ],
+    "description": "Kilatech is a Shopify ecommerce application builder.",
+    "icon": "Kilatech.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "cdn\\.kilatechapps\\.com/"
+    ],
+    "website": "https://web.kilatechapps.com"
+  },
   "Kiliba": {
     "cats": [
       32
@@ -651,7 +846,9 @@
       "recurring"
     ],
     "saas": true,
-    "url": "/modules/kiliba/logo\\.png",
+    "url": [
+      "/modules/kiliba/logo\\.png"
+    ],
     "website": "https://en.kiliba.com"
   },
   "Kindful": {
@@ -659,7 +856,9 @@
       111
     ],
     "description": "Kindful is a cloud-based donor management and fundraising software and database designed for nonprofit organisations.",
-    "dom": "a[href*='.kindful.com/']",
+    "dom": [
+      "a[href*='.kindful.com/']"
+    ],
     "icon": "Kindful.svg",
     "js": {
       "Bloomerang.version": "([\\d\\.]+)\\;version:\\1",
@@ -683,7 +882,9 @@
       "Kinetic": "",
       "Kinetic.version": "^(.+)$\\;version:\\1"
     },
-    "scriptSrc": "kinetic(?:-v?([\\d.]+))?(?:\\.min)?\\.js\\;version:\\1",
+    "scriptSrc": [
+      "kinetic(?:-v?([\\d.]+))?(?:\\.min)?\\.js\\;version:\\1"
+    ],
     "website": "https://github.com/ericdrowell/KineticJS/"
   },
   "Kinsta": {
@@ -695,22 +896,75 @@
       "x-kinsta-cache": ""
     },
     "icon": "kinsta.svg",
-    "implies": "WordPress",
-    "website": "https://kinsta.com"
+    "implies": [
+      "WordPress"
+    ],
+    "website": "https://kinsta.com",
+    "description": "Kinsta is a managed WordPress hosting provider leveraging the Google Cloud Platform to offer high-performance, secure, and user-friendly hosting solutions for WordPress websites.",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ]
+  },
+  "Kintone": {
+    "cats": [
+      53
+    ],
+    "description": "Kintone is a versatile cloud-based platform offering business data management, CRM, and custom app development.",
+    "dom": [
+      "iframe[src*='.kintoneapp.com/'], a[href*='.kintoneapp.com/'][target='_blank']"
+    ],
+    "icon": "Kintone.png",
+    "js": {
+      "kintoneappHost": ""
+    },
+    "pricing": [
+      "recurring",
+      "low"
+    ],
+    "saas": true,
+    "website": "https://kintone.cybozu.co.jp"
+  },
+  "Kirby": {
+    "cats": [
+      1
+    ],
+    "cookies": {
+      "kirby_session": ""
+    },
+    "cpe": "cpe:2.3:a:getkirby:kirby:*:*:*:*:*:*:*:*",
+    "description": "Kirby is a file-based content management system (CMS) that simplifies website and web application development by using text files for content management instead of a traditional database.",
+    "icon": "Kirby.svg",
+    "implies": [
+      "PHP",
+      "Vue.js"
+    ],
+    "pricing": [
+      "onetime"
+    ],
+    "saas": true,
+    "website": "https://getkirby.com"
   },
   "Kirki Customizer Framework": {
     "cats": [
       87
     ],
     "description": "Kirki Customizer Framework is a toolkit allowing WordPress developers to use the Customizer and take advantage of its advanced features and flexibility by abstracting the code.",
-    "dom": "link[href*='/wp-content/plugins/kirki/']",
+    "dom": [
+      "link[href*='/wp-content/plugins/kirki/']"
+    ],
     "icon": "Kirki Customizer Framework.png",
     "pricing": [
       "freemium",
       "poa"
     ],
-    "requires": "WordPress",
-    "scriptSrc": "/wp-content/plugins/kirki/",
+    "requires": [
+      "WordPress"
+    ],
+    "scriptSrc": [
+      "/wp-content/plugins/kirki/"
+    ],
     "website": "https://kirki.org"
   },
   "Kitcart": {
@@ -718,8 +972,10 @@
       6
     ],
     "description": "KitCart is a cloud-based solution that helps businesses build ecommerce stores, manage inventory, and more.",
-    "dom": "a[href*='kitcart.net'][target='_blank'], form[action*='kitcart.net/']",
-    "icon": "Kitcart.png",
+    "dom": [
+      "form[action*='usekitcart.com/'], form[action*='kitcart.net/']"
+    ],
+    "icon": "Kitcart.svg",
     "implies": [
       "Laravel",
       "PHP"
@@ -729,14 +985,17 @@
       "recurring"
     ],
     "saas": true,
-    "website": "https://kitcart.net"
+    "website": "https://kitcart.net",
+    "cookies": {
+      "kitcart_session": ""
+    }
   },
   "Kiwi Sizing": {
     "cats": [
       76
     ],
     "description": "Kiwi Sizing is a size chart and a recommender plugin on the Shopify platform.",
-    "icon": "Kiwi Sizing.png",
+    "icon": "Kiwi Sizing.svg",
     "js": {
       "KiwiSizing": ""
     },
@@ -746,8 +1005,62 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "cdn\\.static\\.kiwisizing\\.com/",
+    "scriptSrc": [
+      "cdn\\.static\\.kiwisizing\\.com/"
+    ],
     "website": "https://www.kiwisizing.com"
+  },
+  "Kizen": {
+    "cats": [
+      32,
+      76
+    ],
+    "description": "Kizen is an automation and AI personalization solution designed to simplify and accelerate the adoption of relevant AI technologies in the healthcare, insurance, and financial services industries.",
+    "dom": [
+      "a[data-kizen-track]"
+    ],
+    "icon": "Kizen.svg",
+    "js": {
+      "KIZEN": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://kizen.com"
+  },
+  "Klangoo": {
+    "cats": [
+      96
+    ],
+    "description": "Klangoo is an AI-based audience engagement solution designed to enhance user interaction and optimise content delivery.",
+    "icon": "Klangoo.svg",
+    "pricing": [
+      "freemium",
+      "payg",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.klangoo\\.com/"
+    ],
+    "website": "https://klangoo.com"
+  },
+  "Klara": {
+    "cats": [
+      52,
+      53
+    ],
+    "description": "Klara is a healthcare communication platform that enables staff to communicate with patients and with each other.",
+    "icon": "Klara.svg",
+    "js": {
+      "klaraWidget": ""
+    },
+    "saas": true,
+    "scriptSrc": [
+      "\\.klara\\.com/"
+    ],
+    "website": "https://www.klara.com"
   },
   "Klarna Checkout": {
     "cats": [
@@ -759,7 +1072,9 @@
       "ku1-vid": ""
     },
     "description": "Klarna Checkout is a complete payment solution where Klarna handles a store's entire checkout.",
-    "dom": "[aria-labelledby='pi-klarna']",
+    "dom": [
+      "[aria-labelledby='pi-klarna']"
+    ],
     "headers": {
       "content-security-policy": "\\.klarna(?:cdn|services)\\.(?:net|com)"
     },
@@ -774,8 +1089,30 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "\\.klarnaservices\\.com/lib\\.js",
+    "scriptSrc": [
+      "\\.klarnaservices\\.com/lib\\.js"
+    ],
     "website": "https://www.klarna.com/international/"
+  },
+  "Klarna Virtual Shopping": {
+    "cats": [
+      103
+    ],
+    "description": "Klarna Virtual Shopping is a service that allows online shoppers to interact with in-store retail experts via live chats and video calls, providing real-time advice and product demonstrations to enhance the online shopping experience.",
+    "icon": "Klarna.svg",
+    "implies": [
+      "Cart Functionality"
+    ],
+    "js": {
+      "HeroWebPluginSettings": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "scriptSrc": [
+      "cdn\\.usehero\\.com"
+    ],
+    "website": "https://www.klarna.com/us/business/marketing-solutions/"
   },
   "Klaro": {
     "cats": [
@@ -805,7 +1142,9 @@
     "js": {
       "KlashaClient": ""
     },
-    "scriptSrc": "klasha-integration\\.js",
+    "scriptSrc": [
+      "klasha-integration\\.js"
+    ],
     "website": "https://www.klasha.com/"
   },
   "Klaviyo": {
@@ -818,15 +1157,56 @@
       "KlaviyoSubscribe": "",
       "klaviyo": ""
     },
-    "scriptSrc": "klaviyo\\.com",
-    "website": "https://www.klaviyo.com/"
+    "scriptSrc": [
+      "klaviyo\\.com"
+    ],
+    "website": "https://www.klaviyo.com/",
+    "saas": true,
+    "pricing": [
+      "mid",
+      "recurring"
+    ]
+  },
+  "Klaviyo Reviews": {
+    "cats": [
+      90
+    ],
+    "description": "Klaviyo Reviews is a built-in product review offering for Shopify and WooCommerce by Klaviyo.",
+    "icon": "Klaviyo.svg",
+    "implies": [
+      "Klaviyo"
+    ],
+    "js": {
+      "klaviyoReviewsProductDesignMode": ""
+    },
+    "saas": true,
+    "scriptSrc": [
+      "klaviyo\\.com/onsite/js/reviews"
+    ],
+    "website": "https://www.klaviyo.com/product-reviews"
+  },
+  "Kleeja": {
+    "cats": [
+      1
+    ],
+    "description": "Kleeja is a PHP-based solution for managing file upload services on websites.",
+    "icon": "Kleeja.svg",
+    "js": {
+      "update_kleeja_captcha": ""
+    },
+    "oss": true,
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "website": "https://kleeja.net"
   },
   "Klevu": {
     "cats": [
       29
     ],
     "description": "Klevu is a highly advanced AI-Powered search solution for ecommerce platforms.",
-    "icon": "Klevu.png",
+    "icon": "Klevu.svg",
     "js": {
       "klevu.version": "([\\d\\.]+)\\;version:\\1",
       "klevu_apiKey": "",
@@ -838,7 +1218,9 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "js\\.klevu\\.\\w+/klevu-js-v([\\d.]+)\\;version:\\1",
+    "scriptSrc": [
+      "js\\.klevu\\.\\w+/klevu-js-v([\\d.]+)\\;version:\\1"
+    ],
     "website": "https://www.klevu.com"
   },
   "KlickPages": {
@@ -859,8 +1241,29 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "\\.klickpages\\.com\\.br/",
+    "scriptSrc": [
+      "\\.klickpages\\.com\\.br/"
+    ],
     "website": "https://klickpages.com.br"
+  },
+  "KlickTipp": {
+    "cats": [
+      32
+    ],
+    "description": "KlickTipp is an email marketing service offering a range of features for businesses, including newsletter creation, SMS functionality, and marketing automation tools.",
+    "dom": [
+      "form[action*='app.klicktipp.com/api']"
+    ],
+    "icon": "KlickTipp.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "assets\\.klicktipp\\.com/"
+    ],
+    "website": "https://www.klicktipp.com"
   },
   "Klickly": {
     "cats": [
@@ -872,15 +1275,54 @@
       "payg"
     ],
     "saas": true,
-    "scriptSrc": "analytics\\.klickly\\.com/pixel\\.js\\?v=([\\d\\.]+)\\;version:\\1",
+    "scriptSrc": [
+      "analytics\\.klickly\\.com/pixel\\.js\\?v=([\\d\\.]+)\\;version:\\1"
+    ],
     "website": "https://www.klickly.com"
+  },
+  "Klook": {
+    "cats": [
+      71
+    ],
+    "description": "Klook is a travel affiliate system designed to connect users with various travel services and experiences.",
+    "icon": "Klook.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.klook\\.com/"
+    ],
+    "website": "https://www.klook.com"
+  },
+  "Knack": {
+    "cats": [
+      3,
+      18
+    ],
+    "description": "Knack is a tool designed to build online databases and web applications, providing a platform for creating custom applications without extensive programming knowledge.",
+    "icon": "Knack.svg",
+    "js": {
+      "Knack": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "loader\\.knack\\.com/"
+    ],
+    "website": "https://www.knack.com"
   },
   "Knak": {
     "cats": [
       75
     ],
     "description": "Knak is a platform that provides customisable email and landing page templates to simplify the creation of visually appealing marketing campaigns.",
-    "dom": "img[src*='.knak.io/']",
+    "dom": [
+      "img[src*='.knak.io/']"
+    ],
     "icon": "Knak.svg",
     "pricing": [
       "poa",
@@ -888,6 +1330,21 @@
     ],
     "saas": true,
     "website": "https://knak.com"
+  },
+  "Knock": {
+    "cats": [
+      32
+    ],
+    "description": "Knock is a platform offering insights into marketing, leasing, and renewals for the real estate sector.",
+    "icon": "Knock.svg",
+    "js": {
+      "knockDoorway": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.knockcrm.com"
   },
   "Knockout.js": {
     "cats": [
@@ -901,13 +1358,30 @@
     "oss": true,
     "website": "https://knockoutjs.com"
   },
+  "Knoma": {
+    "cats": [
+      21
+    ],
+    "description": "Knoma is a platform where users can search hundreds of courses from leading schools and bootcamps.",
+    "icon": "Knoma.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "api\\.knoma\\.io/"
+    ],
+    "website": "https://www.knoma.io"
+  },
   "Ko-fi": {
     "cats": [
       5,
       111
     ],
     "description": "Ko-fi is an online platform that helps content creators get the financial support.",
-    "dom": "a[href*='ko-fi.com/'][target='_blank']",
+    "dom": [
+      "a[href*='ko-fi.com/'][target='_blank']"
+    ],
     "icon": "Ko-fi.svg",
     "js": {
       "kofiwidget2": ""
@@ -918,7 +1392,9 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "ko-fi\\.com/widgets",
+    "scriptSrc": [
+      "ko-fi\\.com/widgets"
+    ],
     "website": "https://ko-fi.com"
   },
   "Koa": {
@@ -930,7 +1406,9 @@
       "X-Powered-By": "^koa$"
     },
     "icon": "Koa.png",
-    "implies": "Node.js",
+    "implies": [
+      "Node.js"
+    ],
     "website": "https://koajs.com"
   },
   "Koala": {
@@ -949,34 +1427,71 @@
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": "cdn\\.getkoala\\.com/",
+    "scriptSrc": [
+      "cdn\\.getkoala\\.com/"
+    ],
     "website": "https://getkoala.com/",
-    "xhr": "api\\.getkoala\\.com"
+    "xhr": [
+      "api\\.getkoala\\.com"
+    ]
   },
   "Koala Framework": {
     "cats": [
       1,
       18
     ],
-    "html": "<!--[^>]+This website is powered by Koala Web Framework CMS",
-    "icon": "Koala Framework.png",
-    "implies": "PHP",
+    "html": [
+      "<!--[^>]+This website is powered by Koala Web Framework CMS"
+    ],
+    "icon": "Koala Framework.svg",
+    "implies": [
+      "PHP"
+    ],
     "meta": {
       "generator": "^Koala Web Framework CMS"
     },
-    "website": "https://koala-framework.org"
+    "website": "https://koala-framework.org",
+    "oss": true,
+    "description": "Koala Framework is an open-source PHP web application framework designed for scalable and modular development, emphasizing MVC architecture and component-based design.",
+    "cpe": "cpe:2.3:a:koala-framework:koala_framework:*:*:*:*:*:*:*:*"
+  },
+  "Kobalte": {
+    "cats": [
+      66
+    ],
+    "cookies": {
+      "kb-color-mode": ""
+    },
+    "description": "Kobalte is a UI toolkit for building accessible web apps and design systems with SolidJS.",
+    "dom": [
+      "div[data-kb-top-layer], html[data-kb-theme]"
+    ],
+    "icon": "kobalte.svg",
+    "implies": [
+      "SolidJS"
+    ],
+    "oss": true,
+    "website": "https://kobalte.dev"
   },
   "KobiMaster": {
     "cats": [
       6
     ],
-    "icon": "Kobimaster.png",
-    "implies": "Microsoft ASP.NET",
+    "icon": "Kobimaster.svg",
+    "implies": [
+      "Microsoft ASP.NET"
+    ],
     "js": {
       "kmGetSession": "",
       "kmPageInfo": ""
     },
-    "website": "https://www.kobimaster.com.tr"
+    "website": "https://www.kobimaster.com.tr",
+    "saas": true,
+    "description": "KobiMaster is an ecommerce platform from Turkey.",
+    "pricing": [
+      "low",
+      "recurring"
+    ]
   },
   "Koha": {
     "cats": [
@@ -988,15 +1503,20 @@
       "<input name=\"koha_login_context\" value=\"intranet\" type=\"hidden\">",
       "<a href=\"/cgi-bin/koha/"
     ],
-    "icon": "koha.png",
-    "implies": "Perl",
+    "icon": "koha.svg",
+    "implies": [
+      "Perl"
+    ],
     "js": {
       "KOHA": ""
     },
     "meta": {
       "generator": "^Koha ([\\d.]+)$\\;version:\\1"
     },
-    "website": "https://koha-community.org/"
+    "website": "https://koha-community.org/",
+    "dom": [
+      "input[name*='koha_login_context'][type='hidden'], a[href*='/cgi-bin/koha/']"
+    ]
   },
   "Kohana": {
     "cats": [
@@ -1009,9 +1529,27 @@
     "headers": {
       "X-Powered-By": "Kohana Framework ([\\d.]+)\\;version:\\1"
     },
-    "icon": "Kohana.png",
-    "implies": "PHP",
-    "website": "https://kohanaframework.org"
+    "icon": "Kohana.svg",
+    "implies": [
+      "PHP"
+    ],
+    "website": "https://kohanaframework.org",
+    "description": "Kohana is an open-source PHP web framework designed for building web applications, following the Model-View-Controller (MVC) architectural pattern."
+  },
+  "Koishi.js": {
+    "cats": [
+      12
+    ],
+    "description": "Koishi.js is a cross-platform chatbot framework.",
+    "icon": "Koishi.js.png",
+    "implies": [
+      "TypeScript"
+    ],
+    "js": {
+      "KOISHI_CONFIG": ""
+    },
+    "oss": true,
+    "website": "https://github.com/koishijs"
   },
   "Koken": {
     "cats": [
@@ -1021,10 +1559,9 @@
       "koken_referrer": ""
     },
     "html": [
-      "<html lang=\"en\" class=\"k-source-essays k-lens-essays\">",
       "<!--\\s+KOKEN DEBUGGING"
     ],
-    "icon": "Koken.png",
+    "icon": "Koken.svg",
     "implies": [
       "PHP",
       "MySQL"
@@ -1032,15 +1569,38 @@
     "meta": {
       "generator": "Koken ([\\d.]+)\\;version:\\1"
     },
-    "scriptSrc": "koken(?:\\.js\\?([\\d.]+)|/storage)\\;version:\\1",
-    "website": "https://koken.me"
+    "scriptSrc": [
+      "koken(?:\\.js\\?([\\d.]+)|/storage)\\;version:\\1"
+    ],
+    "website": "https://koken.me",
+    "dom": [
+      "html[lang='en'][class*='k-source-essays']"
+    ],
+    "description": "Koken is a free web site publishing system developed for photographers, designers, artists and creative DIYs."
+  },
+  "Kommi": {
+    "cats": [
+      32
+    ],
+    "description": "Kommi is a provider of digital marketing services.",
+    "icon": "Kommi.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "tracker\\.kommi\\.io/"
+    ],
+    "website": "https://kommi.io"
   },
   "Komodo CMS": {
     "cats": [
       1
     ],
     "icon": "Komodo CMS.png",
-    "implies": "PHP",
+    "implies": [
+      "PHP"
+    ],
     "meta": {
       "generator": "^Komodo CMS"
     },
@@ -1051,8 +1611,10 @@
       16
     ],
     "description": "Konduto is a fraud detection service for ecommerce.",
-    "dom": "link[href*='.konduto.com']",
-    "icon": "Konduto.png",
+    "dom": [
+      "link[href*='.konduto.com']"
+    ],
+    "icon": "Konduto.svg",
     "js": {
       "Konduto": "",
       "getKondutoID": ""
@@ -1061,7 +1623,9 @@
       "poa"
     ],
     "saas": true,
-    "scriptSrc": "\\.k-analytix\\.com",
+    "scriptSrc": [
+      "\\.k-analytix\\.com"
+    ],
     "website": "https://www.konduto.com"
   },
   "Kong": {
@@ -1080,12 +1644,34 @@
     ],
     "website": "https://konghq.com"
   },
+  "Konget": {
+    "cats": [
+      10,
+      32
+    ],
+    "description": "Konget is a platform that integrates applications for lead generation, a builder for automated outgoing calls, and a suite of marketing statistics and analytics.",
+    "icon": "Konget.svg",
+    "js": {
+      "__KONGET_PUBLIC__": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.konget\\.ru/"
+    ],
+    "website": "https://konget.ru"
+  },
   "Kontent.ai": {
     "cats": [
       1
     ],
     "description": "Kontent.ai is a SaaS-based modular content platform.",
-    "dom": "img[src*='.kc-usercontent.com'], link[href*='.kc-usercontent.com']",
+    "dom": [
+      "img[src*='.kc-usercontent.com'], link[href*='.kc-usercontent.com']"
+    ],
     "headers": {
       "content-security-policy": "\\.kc-usercontent\\.com"
     },
@@ -1098,11 +1684,25 @@
     "saas": true,
     "website": "https://kontent.ai"
   },
+  "Konva.js": {
+    "cats": [
+      25
+    ],
+    "description": "Konva.js is a JavaScript library for creating 2D canvas applications on both desktop and mobile platforms, utilising HTML5.",
+    "icon": "KonvaJS.svg",
+    "js": {
+      "Konva": "",
+      "Konva.version": "^(.+)$\\;version:\\1"
+    },
+    "website": "https://konvajs.org"
+  },
   "Koobi": {
     "cats": [
       1
     ],
-    "html": "<!--[^K>-]+Koobi ([a-z\\d.]+)\\;version:\\1",
+    "html": [
+      "<!--[^K>-]+Koobi ([a-z\\d.]+)\\;version:\\1"
+    ],
     "icon": "Koobi.png",
     "meta": {
       "generator": "Koobi"
@@ -1116,17 +1716,26 @@
     "headers": {
       "X-KoobooCMS-Version": "^(.+)$\\;version:\\1"
     },
-    "icon": "Kooboo CMS.png",
-    "implies": "Microsoft ASP.NET",
-    "scriptSrc": "/Kooboo",
-    "website": "https://kooboo.com"
+    "icon": "Kooboo CMS.svg",
+    "implies": [
+      "Microsoft ASP.NET"
+    ],
+    "scriptSrc": [
+      "/Kooboo"
+    ],
+    "website": "https://kooboo.com",
+    "oss": true,
+    "description": "Kooboo is a content management system (CMS) and web development framework used for building and managing websites and web applications.",
+    "cpe": "cpe:2.3:a:kooboo:kooboo_cms:*:*:*:*:*:*:*:*"
   },
   "Kooomo": {
     "cats": [
       6
     ],
     "description": "Kooomo is a SaaS ecommerce platform with a focus on localisation and internationalisation.",
-    "dom": "img[src*='.kooomo-cloud.com']",
+    "dom": [
+      "img[src*='.kooomo-cloud.com']"
+    ],
     "icon": "Kooomo.svg",
     "implies": [
       "PHP",
@@ -1143,13 +1752,39 @@
     "saas": true,
     "website": "https://www.kooomo.com"
   },
+  "Kopage": {
+    "cats": [
+      51
+    ],
+    "description": "Kopage is an AI-powered website builder designed to simplify the process of creating and managing websites, offering automated tools and features that enable users to build functional websites without extensive technical knowledge.",
+    "icon": "Kopage.svg",
+    "js": {
+      "kopageBar": "",
+      "kopageChatBar": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.kopage.com"
+  },
   "Kotisivukone": {
     "cats": [
       1
     ],
-    "icon": "Kotisivukone.png",
-    "scriptSrc": "kotisivukone(?:\\.min)?\\.js",
-    "website": "https://www.kotisivukone.fi"
+    "icon": "Kotisivukone.svg",
+    "scriptSrc": [
+      "kotisivukone(?:\\.min)?\\.js"
+    ],
+    "website": "https://www.kotisivukone.fi",
+    "description": "Kotisivukone is a Finnish website builder platform.",
+    "saas": true,
+    "pricing": [
+      "low",
+      "recurring"
+    ]
   },
   "Kotlin": {
     "cats": [
@@ -1192,7 +1827,9 @@
       "x-engine": "^Ktor$"
     },
     "icon": "Ktor.svg",
-    "implies": "Kotlin",
+    "implies": [
+      "Kotlin"
+    ],
     "oss": true,
     "website": "https://ktor.io"
   },
@@ -1201,7 +1838,9 @@
       47
     ],
     "cpe": "cpe:2.3:a:kubernetes:kubernetes:*:*:*:*:*:*:*:*",
-    "dom": "[ng-app='kubernetesDashboard']",
+    "dom": [
+      "[ng-app='kubernetesDashboard']"
+    ],
     "icon": "Kubernetes.svg",
     "website": "https://kubernetes.io/"
   },
@@ -1235,7 +1874,9 @@
     "pricing": [
       "payg"
     ],
-    "scriptSrc": "cdn\\.kueskipay\\.com",
+    "scriptSrc": [
+      "cdn\\.kueskipay\\.com"
+    ],
     "website": "https://kueskipay.com/"
   },
   "Kustomer": {
@@ -1258,7 +1899,7 @@
       10
     ],
     "description": "Kwai is a social network for short videos and trends.",
-    "icon": "Kwai.png",
+    "icon": "Kwai.svg",
     "js": {
       "KwaiAnalyticsObject": "",
       "kwaiq": ""
@@ -1270,8 +1911,10 @@
       6
     ],
     "description": "k-eCommerce is mdf commerce’s platform for SMBs, providing all-in-one ecommerce and digital payment solutions integrated to Microsoft Dynamics and SAP Business One. ",
-    "dom": "a[href*='.k-ecommerce.com/'][target='_blank']",
-    "icon": "k-eCommerce.png",
+    "dom": [
+      "a[href*='.k-ecommerce.com/'][target='_blank']"
+    ],
+    "icon": "k-eCommerce.svg",
     "meta": {
       "generator": "k-eCommerce"
     },

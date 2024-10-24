@@ -41,8 +41,7 @@
         "wappalyzer": "./cli.js"
     },
     "dependencies": {
-        "puppeteer": "~19.7.0",
-        "wappalyzer": "^6.10.66"
+        "puppeteer": "~19.7.0"
     },
     "engines": {
         "node": ">=16"
