@@ -9,7 +9,7 @@ const Wappalyzer = require('./wappalyzer')
 const { setTechnologies, setCategories, analyze, analyzeManyToMany, resolve } =
     Wappalyzer
 
-const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS, EXTRA_TECHNOLOGIES_DIR } =
+const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS } =
     process.env
 
 const chromiumArgs = CHROMIUM_ARGS
@@ -45,29 +45,6 @@ for (const index of Array(27).keys()) {
             )
         ),
     }
-}
-
-if ( EXTRA_TECHNOLOGIES_DIR ) {
-    if (fs.existsSync(techFolderPath)) {
-        const files = fs.readdirSync(techFolderPath).filter(file => file.endsWith('.json'));
-        files.forEach(file => {
-            const filePath = path.join(techFolderPath, file);
-
-            try {
-                technologies = {
-                    ...technologies,
-                    ...JSON.parse(
-                        fs.readFileSync(
-                            path.resolve(filePath)
-                        )
-                    ),
-                }
-            } catch (e) {}
-        });
-    } else {
-        log(`Tech folder not found: ${techFolderPath}`);
-    }
-
 }
 
 setTechnologies(technologies)
@@ -507,33 +484,33 @@ class Site {
         this.options.headers = {
             ...this.options.headers,
             ...headers,
-}
+        }
 
-this.driver = driver
+        this.driver = driver
 
-try {
-    this.originalUrl = new URL(url)
+        try {
+            this.originalUrl = new URL(url)
         } catch (error) {
             throw new Error(error.toString())
         }
 
         this.analyzedUrls = {}
-this.analyzedXhr = {}
-this.analyzedRequires = {}
-this.detections = []
+        this.analyzedXhr = {}
+        this.analyzedRequires = {}
+        this.detections = []
 
-this.listeners = {}
+        this.listeners = {}
 
-this.pages = []
+        this.pages = []
 
-this.cache = {}
+        this.cache = {}
 
-this.probed = false
-}
+        this.probed = false
+    }
 
-log(message, source = 'driver', type = 'log') {
-if (this.options.debug) {
-    // eslint-disable-next-line no-console
+    log(message, source = 'driver', type = 'log') {
+        if (this.options.debug) {
+            // eslint-disable-next-line no-console
             console[type](`${type} | ${source} |`, message)
         }
 
@@ -605,20 +582,19 @@ if (this.options.debug) {
         if (this.analyzedUrls[url.href]) {
             return []
         }
-        const t = new Promise((_, reject) => {
-            setTimeout(() => {
-                reject(new Error(`Unable to navigate to page: ${url.href}: timeout reached!`));
-            }, this.options.pageTimeout);
-        });
+
         this.log(`Navigate to ${url}`)
+
         this.analyzedUrls[url.href] = {
             status: 0,
         }
-        const page = await Promise.race([
-            this.newPage(url), t
-        ])
+
+        const page = await this.newPage(url)
+
         await page.setRequestInterception(true)
+
         let responseReceived = false
+
         page.on('request', async (request) => {
             try {
                 if (request.resourceType() === 'xhr') {
@@ -757,9 +733,7 @@ if (this.options.debug) {
         })
 
         try {
-            await page.goto(url.href, {
-                timeout: this.options.pageTimeout || undefined
-            })
+            await page.goto(url.href)
 
             if (page.url() === 'about:blank') {
                 const error = new Error(`The page failed to load (${url})`)
