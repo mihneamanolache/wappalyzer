@@ -9,7 +9,7 @@ const Wappalyzer = require('./wappalyzer')
 const { setTechnologies, setCategories, analyze, analyzeManyToMany, resolve } =
   Wappalyzer
 
-const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS } =
+const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS, EXTRA_TECH_DIR } =
   process.env
 
 const chromiumArgs = CHROMIUM_ARGS
@@ -45,6 +45,19 @@ for (const index of Array(27).keys()) {
       )
     ),
   }
+}
+
+if (EXTRA_TECH_DIR) {
+  fs.readdirSync(EXTRA_TECH_DIR).forEach((file) => {
+    if (file.endsWith('.json')) {
+      // Fixed the missing parenthesis here
+      const data = JSON.parse(fs.readFileSync(path.resolve(EXTRA_TECH_DIR, file)));
+      technologies = {
+        ...technologies,
+        ...data
+      };
+    }
+  });
 }
 
 setTechnologies(technologies)
