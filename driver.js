@@ -1492,3 +1492,5 @@ class Site {
 }
 
 module.exports = Driver
+module.exports.Driver = Driver; 
+module.exports.Site = Site; 
