@@ -596,11 +596,12 @@
     "cats": [
       62
     ],
-    "icon": "NetApp Data ONTAP.svg",
-    "website": "https://www.netapp.com/data-management/netapp-ontap",
+    "description": "Data ONTAP is the operating system for NetApp storage filers.",
     "headers": {
-      "Server": "NetApp/**"
+      "server": "(?:NetApp[\\x20]Web[\\x20]Server|NetApp|Data ONTAP)"
     },
+    "icon": "NetApp.svg",
+    "website": "https://www.netapp.com",
     "text": "\\bNetApp Data ONTAP\\b"
   },
   "Tencent Cloud Content Delivery Network (CDN)": {
@@ -999,7 +1000,8 @@
       "QNAP"
     ],
     "website": "https://www.qnap.com/qts",
-    "text": "\\bQTS\\b"
+    "text": "\\bQTS\\b",
+    "html": "https://www.qnap.com/qts"
   },
   "WP Page Numbers": {
     "cats": [
@@ -1098,12 +1100,6 @@
     "icon": "Enfold.svg",
     "implies": "WordPress",
     "website": "https://kriesi.at/themes/enfold-overview/",
-    "scripts": {
-      "regex": "/wp-content/themes/enfold/.*\\.js"
-    },
-    "css": {
-      "regex": "/wp-content/themes/enfold/.*\\.css"
-    },
     "text": "\\bEnfold\\b"
   },
   "Porto": {
@@ -1178,8 +1174,6 @@
     ],
     "description": ".NET Framework is a software framework developed by Microsoft.",
     "icon": "NET_Framework.svg",
-    "js": {},
-    "scripts": {},
     "website": "https://www.microsoft.com/net/",
     "dom": {
       "[__VIEWSTATE]": ""
@@ -1254,9 +1248,6 @@
     "description": "Casewise provides software solutions for enterprise architecture, business process modeling, and business process analysis.",
     "icon": "Casewise.svg",
     "website": "https://www.erwin.com/products/erwin-evolve/",
-    "scripts": {
-      "Casewise": ""
-    },
     "text": "\\bCasewise\\b"
   },
   "Spacious": {
@@ -1933,7 +1924,8 @@
     },
     "icon": "Workforce Central.svg",
     "website": "https://www.kronos.com/products/kronos-workforce-central-suite",
-    "text": "\\bWorkforce Central\\b"
+    "text": "\\bWorkforce Central\\b",
+    "html": "https?://.+/wfc/(navigator|staticnavigator)/.+"
   },
   "AdStir": {
     "cats": [
@@ -2092,30 +2084,6 @@
       "server": "CDN"
     },
     "text": "\\bCdnetworks DNS\\b"
-  },
-  "Microsoft Commerce Server": {
-    "cats": [
-      6
-    ],
-    "description": "A Microsoft product for building e-commerce systems.",
-    "icon": "Microsoft Commerce Server.svg",
-    "website": "https://en.wikipedia.org/wiki/Microsoft_Commerce_Server",
-    "cookies": [
-      "s_SessionId*",
-      "MSCSProfile"
-    ],
-    "headers": {
-      "Set-Cookie": [
-        "MSCSProfile=",
-        "s_SessionId="
-      ]
-    },
-    "meta": {
-      "generator": [
-        "Commerce Server"
-      ]
-    },
-    "text": "\\bMicrosoft Commerce Server\\b"
   },
   "Hudson": {
     "cats": [
@@ -2908,9 +2876,6 @@
     "description": "Oracle Endeca Information Discovery is a data discovery platform for analyzing information from both structured and unstructured sources.",
     "website": "https://www.oracle.com/database/technologies/endeca-information-discovery.html",
     "icon": "Oracle Endeca Information Discovery.svg",
-    "scripts": {
-      "EndecaPage": ""
-    },
     "html": "<!-- Endeca -->",
     "text": "\\bOracle Endeca Information Discovery\\b"
   },
@@ -3300,7 +3265,8 @@
     "icon": "FileMaker.svg",
     "url": "/fmi/",
     "implies": [],
-    "text": "\\bFileMaker\\b"
+    "text": "\\bFileMaker\\b",
+    "html": "/fmi/"
   },
   "Zoho SalesIQ": {
     "cats": [
@@ -3479,18 +3445,6 @@
       "X-Merchant": ""
     },
     "text": "\\bYahoo! Store\\b"
-  },
-  "NetApp Data ONTAP": {
-    "cats": [
-      62
-    ],
-    "description": "Data ONTAP is the operating system for NetApp storage filers.",
-    "headers": {
-      "server": "(?:NetApp[\\x20]Web[\\x20]Server|NetApp|Data ONTAP)"
-    },
-    "icon": "NetApp.svg",
-    "website": "https://www.netapp.com",
-    "text": "\\bNetApp Data ONTAP\\b"
   },
   "WiredMinds": {
     "cats": [
@@ -4532,7 +4486,8 @@
     "icon": "Cognos.svg",
     "website": "https://www.ibm.com/products/cognos-analytics",
     "url": "/cognos9/cgi-bin/cognos.cgi",
-    "text": "\\bCognos 9\\b"
+    "text": "\\bCognos 9\\b",
+    "html": "/cognos9/cgi-bin/cognos.cgi"
   },
   "Sinch": {
     "cats": [
@@ -4594,9 +4549,6 @@
     ],
     "description": "Google Trusted Stores helps shoppers identify online merchants that offer a great shopping experience.",
     "icon": "Google Trusted Stores.png",
-    "scripts": {
-      "gts": ""
-    },
     "website": "https://www.google.com/trustedstores/",
     "text": "\\bGoogle Trusted Stores\\b"
   },
@@ -4958,18 +4910,6 @@
     "website": "https://www.loopia.com/",
     "text": "\\bLoopiaDNS\\b"
   },
-  "TrustedForm": {
-    "cats": [
-      10
-    ],
-    "description": "TrustedForm provides independent proof of consent for lead generation.",
-    "icon": "TrustedForm.svg",
-    "website": "https://activeprospect.com/products/trustedform/",
-    "scriptSrc": "trustedform\\.io",
-    "html": "<input[^>]+name=[\"']?xxTrustedFormCertUrl[\"']?",
-    "js": "TrustedForm",
-    "text": "\\bTrustedForm\\b"
-  },
   "jQuery Payment": {
     "description": "jQuery Payment is a jQuery plugin for formatting and validating payment card form fields.",
     "cats": [
@@ -5099,9 +5039,6 @@
     "description": "Textalk Webshop is an e-commerce platform from Sweden.",
     "icon": "Textalk Webshop.png",
     "website": "https://textalk.se/",
-    "html": {
-      "<!--(Textalk AB|Textalk Webshop)-->": ""
-    },
     "implies": "PHP",
     "text": "\\bTextalk Webshop\\b"
   },
@@ -5345,7 +5282,8 @@
     "icon": "Google Docs.svg",
     "website": "https://docs.google.com",
     "url": "docs\\.google\\.com",
-    "text": "\\bGoogle Docs\\b"
+    "text": "\\bGoogle Docs\\b",
+    "html": "docs\\.google\\.com"
   },
   "Storefront": {
     "cats": [
@@ -5983,12 +5921,6 @@
     "icon": "Salesforce Sales Cloud.svg",
     "implies": "Salesforce",
     "website": "https://www.salesforce.com/products/sales-cloud/overview/",
-    "scripts": {
-      "Sfdc": ""
-    },
-    "js": {
-      "Sfdc": ""
-    },
     "text": "\\bSalesforce Sales Cloud\\b"
   },
   "jQuery Lazy Load": {
@@ -6201,9 +6133,6 @@
     "implies": "ExtJS",
     "icon": "PRTG Network Monitor.png",
     "website": "https://www.paessler.com/prtg",
-    "scripts": {
-      "PRTG\\.Core\\.Common\\.js": ""
-    },
     "html": [
       "PRTG Network Monitor",
       "PRTG Enterprise Monitor"
@@ -6633,7 +6562,8 @@
     "scriptSrc": "\\/ats\\/mobile\\/shared\\/javascript\\/",
     "url": "\\/ats\\/careercenter.*\\/?",
     "website": "https://www.oracle.com/human-capital-management/talent-management/",
-    "text": "\\bOracle Taleo Cloud Service\\b"
+    "text": "\\bOracle Taleo Cloud Service\\b",
+    "html": "\\/ats\\/careercenter.*\\/?"
   },
   "Google AdWords Conversion": {
     "cats": [
@@ -6664,10 +6594,6 @@
     "description": "SmarterStats is a complete Web log analytics solution that supports various log file types",
     "icon": "SmarterStats.svg",
     "website": "https://www.smartertools.com/smarterstats/web-log-analytics-seo-software",
-    "scripts": {
-      "STKey": "",
-      "STKey2": ""
-    },
     "text": "\\bSmarterStats\\b"
   },
   "OpenText WEM": {
