@@ -4326,7 +4326,6 @@
         }
       }
     },
-    "requires": "JavaScript",
     "saas": true,
     "text": "\\bGenesys Workforce Management\\b"
   },
@@ -4596,7 +4595,7 @@
     "description": "Google Trusted Stores helps shoppers identify online merchants that offer a great shopping experience.",
     "icon": "Google Trusted Stores.png",
     "scripts": {
-      "gts": "*"
+      "gts": ""
     },
     "website": "https://www.google.com/trustedstores/",
     "text": "\\bGoogle Trusted Stores\\b"
@@ -5610,19 +5609,6 @@
     "website": "https://www.microfocus.com/en-us/products/application-lifecycle-management/overview",
     "text": "\\bMicro Focus ALM / Quality Center\\b"
   },
-  "IBM Web Content Manager": {
-    "cats": [
-      1
-    ],
-    "description": "IBM Web Content Manager is a content management system for building enterprise websites.",
-    "icon": "IBM Web Content Manager.svg",
-    "website": "https://www.ibm.com/products/web-content-manager",
-    "html": "(?i)<!--.*?WCM Custom JSP Component.*?-->|<[^>]+?class=\"[^\"]*?wcmContent[^\"]*?\"[^>]*?>",
-    "meta": {
-      "generator": "IBM Web Content Manager"
-    },
-    "text": "\\bIBM Web Content Manager\\b"
-  },
   "Teradata": {
     "cats": [
       34
@@ -6608,7 +6594,7 @@
     "description": "IBM MaaS360 is a cloud-based enterprise mobility management platform.",
     "headers": {
       "Server": "MaaS360",
-      "X-MaaS360-App-Gateway": "*"
+      "X-MaaS360-App-Gateway": ""
     },
     "icon": "IBM MaaS360.svg",
     "website": "https://www.ibm.com/security/mobile/maas360",
@@ -6712,23 +6698,6 @@
       ]
     },
     "text": "\\bOpenText WEM\\b"
-  },
-  "Demandware": {
-    "cats": [
-      6
-    ],
-    "description": "Demandware is a cloud-based e-commerce platform.",
-    "website": "https://www.demandware.com/",
-    "icon": "Demandware.svg",
-    "headers": {
-      "x-demandware-request-id": ""
-    },
-    "js": {
-      "dw": ""
-    },
-    "html": "(?i)<!--\\s*Demandware",
-    "scriptSrc": "/on/demandware\\.static/",
-    "text": "\\bDemandware\\b"
   },
   "OneLink": {
     "cats": [
@@ -6886,7 +6855,7 @@
       "content-type": "text/html*; twitter-card*=*"
     },
     "meta": {
-      "twitter:card": "*"
+      "twitter:card": ""
     },
     "website": "https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started",
     "saas": true,
@@ -7231,39 +7200,6 @@
     "website": "https://www.carbonblack.com",
     "text": "\\bCarbon Black\\b"
   },
-  "Microsoft Active Directory Federation Services": {
-    "cats": [
-      10
-    ],
-    "description": "Active Directory Federation Services is an identity access solution by Microsoft.",
-    "icon": "Microsoft.svg",
-    "website": "https://docs.microsoft.com/windows-server/identity/active-directory-federation-services",
-    "headers": {
-      "WWW-Authenticate": "^(?:Negotiate|NTLM)$",
-      "Server": "^Microsoft-HTTPAPI\\/2\\.0$"
-    },
-    "html": [
-      "(?i)<!--\\s*Copyright.*?Microsoft Corporation\\. All rights reserved\\.\\s*-->",
-      "(?i)AD FS"
-    ],
-    "implies": "Microsoft",
-    "text": "\\bMicrosoft Active Directory Federation Services\\b"
-  },
-  "WebObjects": {
-    "cats": [
-      16
-    ],
-    "description": "WebObjects was a framework for building server-side applications and web services in Java.",
-    "headers": {
-      "Server": "(?:Apple)?WebObjects"
-    },
-    "html": "(?:<[^>]+\\s(?:name|id|class|data-[^=]+)=\"[^\"]*WebObjects[^\"]*\"[^>]*>)",
-    "meta": {
-      "generator": "WebObjects"
-    },
-    "website": "https://web.archive.org/web/20180109191129/https://developer.apple.com/",
-    "text": "\\bWebObjects\\b"
-  },
   ".NET Core": {
     "cats": [
       27
@@ -7455,18 +7391,6 @@
     "implies": "Embedded devices",
     "website": null,
     "text": "\\bAirLink\\b"
-  },
-  "VMware vCenter Server": {
-    "cats": [
-      22
-    ],
-    "description": "VMware vCenter Server is a centralized platform for managing VMware vSphere environments.",
-    "icon": "VMware.svg",
-    "website": "https://www.vmware.com/products/vcenter-server.html",
-    "headers": {
-      "Server": "(?i)VMware"
-    },
-    "text": "\\bVMware vCenter Server\\b"
   },
   "Mail.Ru Share": {
     "cats": [
@@ -8145,20 +8069,6 @@
       "set-cookie": "(^|; )AspxAutoDetectCookieSupport="
     },
     "text": "\\bConnectWise Control\\b"
-  },
-  "HP LaserJet printer": {
-    "cats": [
-      26
-    ],
-    "description": "HP LaserJet is a line of laser printers manufactured by Hewlett-Packard.",
-    "icon": "HP.svg",
-    "html": "(?i)HP (LaserJet|Officejet)",
-    "implies": [
-      "HP",
-      "Embedded web server"
-    ],
-    "website": "https://support.hp.com/us-en/drivers/printers",
-    "text": "\\bHP LaserJet printer\\b"
   },
   "YouTube": {
     "cats": [
