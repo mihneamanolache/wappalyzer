@@ -232,7 +232,7 @@ const Wappalyzer = {
         const excluded = Wappalyzer.getTechnology(name)
 
         if (!excluded) {
-          throw new Error(`Excluded technology does not exist: ${name}`)
+          console.warn(`Excluded technology does not exist: ${name}`)
         }
 
         let index
@@ -266,7 +266,7 @@ const Wappalyzer = {
             const implied = Wappalyzer.getTechnology(name)
 
             if (!implied) {
-              throw new Error(`Implied technology does not exist: ${name}`)
+              console.warn(`Implied technology does not exist: ${name}`)
             }
 
             if (
