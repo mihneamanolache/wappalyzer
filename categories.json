@@ -279,6 +279,13 @@
     "name": "Webcams",
     "priority": 9
   },
+  "40": {
+    "groups": [
+      9
+    ],
+    "name": "Web fonts",
+    "priority": 9
+  },
   "41": {
     "groups": [
       1
@@ -291,6 +298,13 @@
       8
     ],
     "name": "Tag managers",
+    "priority": 9
+  },
+  "43": {
+    "groups": [
+      9
+    ],
+    "name": "Web components",
     "priority": 9
   },
   "44": {
@@ -413,6 +427,13 @@
     ],
     "name": "Containers",
     "priority": 8
+  },
+  "61": {
+    "groups": [
+      7
+    ],
+    "name": "Unknown",
+    "priority": 1000
   },
   "62": {
     "groups": [
