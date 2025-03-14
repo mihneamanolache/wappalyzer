@@ -1112,7 +1112,13 @@ class Site {
 
     await page.setUserAgent(this.options.userAgent)
 
-    page.on('dialog', (dialog) => dialog.dismiss()).catch(() => {})
+    page.on('dialog', async (dialog) => {
+        try {
+            await dialog.dismiss();
+        } catch (error) {
+            this.error(error);
+        }
+    });
 
     page.on('error', (error) => {
       error.message += ` (${url})`
