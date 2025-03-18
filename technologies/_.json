@@ -4788,17 +4788,6 @@
     },
     "website": "https://www.loopia.com/"
   },
-  "TrustedForm": {
-    "cats": [
-      10
-    ],
-    "description": "TrustedForm provides independent proof of consent for lead generation.",
-    "icon": "TrustedForm.svg",
-    "website": "https://activeprospect.com/products/trustedform/",
-    "scriptSrc": "trustedform\\.io",
-    "html": "<input[^>]+name=[\"']?xxTrustedFormCertUrl[\"']?",
-    "js": "TrustedForm"
-  },
   "jQuery Payment": {
     "description": "jQuery Payment is a jQuery plugin for formatting and validating payment card form fields.",
     "cats": [
@@ -8134,5 +8123,53 @@
     "headers": {
       "Server": "Servidores Comvive"
     }
+  },
+  "Facebook": {
+    "cats": [19],
+    "description": "Facebook integration, including widgets and tracking.",
+    "icon": "Facebook.svg",
+    "html": "a[href*='www.facebook.com']"
+  },
+  "Instagram": {
+    "cats": [19],
+    "description": "Instagram integration, including widgets and tracking.",
+    "icon": "Instagram.svg",
+    "html": "a[href*='instagram.com']"
+  },
+  "WhatsApp": {
+    "cats": [19],
+    "description": "WhatsApp integration, including widgets and tracking.",
+    "icon": "WhatsApp.svg",
+    "html": "a[href*='whatsapp.com']"
+  },
+  "Twitter": {
+    "cats": [19],
+    "description": "Twitter integration, including widgets and tracking.",
+    "icon": "Twitter.svg",
+    "html": "a[href*='twitter.com']"
+  },
+  "X": {
+    "cats": [19],
+    "description": "X (formerly Twitter) integration, including widgets and tracking.",
+    "icon": "X.svg",
+    "html": "a[href*='x.com']"
+  },
+  "LinkedIn": {
+    "cats": [19],
+    "description": "LinkedIn integration, including widgets and tracking.",
+    "icon": "LinkedIn.svg",
+    "html": "a[href*='linkedin.com']"
+  },
+  "Pinterest": {
+    "cats": [19],
+    "description": "Pinterest integration, including widgets and tracking.",
+    "icon": "Pinterest.svg",
+    "html": "a[href*='pinterest.com']"
+  },
+  "HTML5": {
+    "cats": [37],
+    "description": "HTML5 document detection.",
+    "icon": "html5.svg",
+    "html": "<!DOCTYPE html>"
   }
 }
