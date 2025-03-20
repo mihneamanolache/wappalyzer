@@ -8171,5 +8171,19 @@
     "description": "HTML5 document detection.",
     "icon": "html5.svg",
     "html": "<!DOCTYPE html>"
+  },
+  "CSS": {
+    "cats": [5],
+    "description": "CSS stylesheets and inline styles detected.",
+    "icon": "css3.svg",
+    "html": "<style",
+    "script": "document.querySelector('link[rel=\"stylesheet\"]') || document.querySelector('style')"
+  },
+  "JavaScript": {
+    "cats": [5],
+    "description": "JavaScript usage detected.",
+    "icon": "javascript.svg",
+    "html": "<script",
+    "script": "document.querySelector('script[src]')"
   }
 }
