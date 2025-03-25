@@ -6108,9 +6108,6 @@
     "html": [
       "<%[@=]"
     ],
-    "excludes": [
-      "ASP.NET"
-    ],
     "website": "https://wikipedia.org/wiki/Active_Server_Pages"
   },
   "Azure Application Gateway": {
