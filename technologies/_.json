@@ -8179,7 +8179,7 @@
     ]
   },
   "HTML5": {
-    "cats": [37],
+    "cats": [18],
     "description": "HTML5 document detection.",
     "icon": "html5.svg",
     "html": [
@@ -8191,17 +8191,21 @@
     "description": "CSS stylesheets and inline styles detected.",
     "icon": "css3.svg",
     "html": [
+      "<style",
       "<style[^>]*>",
       "<link[^>]+rel=[\"']stylesheet[\"'][^>]*>"
-    ]
+    ],
+    "url": "\\.css$"
   },
   "JavaScript": {
     "cats": [5],
     "description": "JavaScript usage detected.",
     "icon": "javascript.svg",
     "html": [
+      "<script",
       "<script[^>]*>",
       "<script[^>]+src=[\"'][^\"']+[\"'][^>]*>"
-    ]
+    ],
+    "url": "\\.js$"
   }
 }
