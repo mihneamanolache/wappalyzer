@@ -736,7 +736,7 @@ class Site {
 
         try {
             this.log(`Navigate to ${url}`)
-            await page.goto(url.href, { timeout: 5000 })
+            await page.goto(url.href)
             this.log(`Page loaded (${url})`)
             if (page.url() === 'about:blank') {
                 const error = new Error(`The page failed to load (${url})`)
