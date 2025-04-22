@@ -331,7 +331,7 @@ class Driver {
     constructor(options = {}) {
         this.options = {
             batchSize: 5,
-            debug: false,
+            debug: process.env.DEBUG === "true",
             delay: 500,
             htmlMaxCols: 2000,
             htmlMaxRows: 3000,
@@ -597,6 +597,10 @@ class Site {
 
         page.on('request', async (request) => {
             try {
+                if ( ["bundle.js"].some((ext) => request.url().includes(ext)) ) {
+                    request.abort('blockedbyclient')
+                    return
+                }
                 if (request.resourceType() === 'xhr') {
                     let hostname
 
