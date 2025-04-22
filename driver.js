@@ -345,6 +345,7 @@ class Driver {
             userAgent:
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
             extended: false,
+            debug: options.debug ?? process.env.DEBUG !== undefined,
             ...options,
         }
 
@@ -583,8 +584,6 @@ class Site {
             return []
         }
 
-        this.log(`Navigate to ${url}`)
-
         this.analyzedUrls[url.href] = {
             status: 0,
         }
@@ -596,15 +595,22 @@ class Site {
         let responseReceived = false
 
         page.on('request', async (request) => {
+            if (!page || page.__closed || page.isClosed()) {
+                return
+            }
             try {
-                if (request.resourceType() === 'xhr') {
+                if (request.resourceType() === 'script') {
+                    if (["bundle.js"].some((name) => request.url().includes(name))) {
+                        request.abort('blockedbyclient')
+                        return
+                    }
+                }
+                if (request.resourceType() === 'xhr' || request.resourceType() === 'fetch') {
                     let hostname
-
                     try {
                         ;({ hostname } = new URL(request.url()))
                     } catch (error) {
                         request.abort('blockedbyclient')
-
                         return
                     }
 
@@ -625,7 +631,6 @@ class Site {
                         }, 1000)
                     }
                 }
-
                 if (
                     (responseReceived && request.isNavigationRequest()) ||
                         request.frame() !== page.mainFrame() ||
@@ -650,7 +655,6 @@ class Site {
                 }
             } catch (error) {
                 error.message += ` (${url})`
-
                 this.error(error)
             }
         })
@@ -727,14 +731,14 @@ class Site {
                 }
             } catch (error) {
                 error.message += ` (${url})`
-
                 this.error(error)
             }
         })
 
         try {
-            await page.goto(url.href)
-
+            this.log(`Navigate to ${url}`)
+            await page.goto(url.href, { timeout: 5000 })
+            this.log(`Page loaded (${url})`)
             if (page.url() === 'about:blank') {
                 const error = new Error(`The page failed to load (${url})`)
 

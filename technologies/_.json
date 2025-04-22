@@ -3826,8 +3826,7 @@
     "website": "https://www.applinks.org/",
     "html": "<meta[^>]+?property=\"al:",
     "excludes": [
-      "Twitter Cards",
-      "Apple Mobile Web App Capable"
+      "Twitter Cards"
     ]
   },
   "Easy FancyBox": {
