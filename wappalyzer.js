@@ -552,7 +552,13 @@ const Wappalyzer = {
                             // Optimise quantifiers for long strings
                             .replace(/\\\+/g, '__escapedPlus__')
                             .replace(/\+/g, '{1,250}')
+                            .replace(/\\\*/g, '__escapedStar__')
+                            .replace(/\[([a-z0-9_-]+)\*\s*=\s*(['"])([^'"]+?)\2\]/gi,
+                                (_m, attr, quote, val) =>
+                                    `\\[${attr}\\s*=\\s*${quote}[^${quote}]*${val}[^${quote}]*${quote}\\]`
+                            )
                             .replace(/\*/g, '{0,250}')
+                            .replace(/__escapedStar__/g, '\\*')
                             .replace(/__escapedPlus__/g, '\\+')
                             : '',
                         'i'
