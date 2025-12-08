@@ -21,6 +21,62 @@
     ],
     "website": "https://c3js.org/"
   },
+  "CA Clarity Service Manager": {
+    "description": "Broadcom’s CA Service Management suite (briefly branded Clarity Service Management) for IT service management. It includes Service Desk Manager (SDM), Service Catalog (USM), and the xFlow/Service Point UI, typically deployed on‑premises.",
+    "cats": [
+      103
+    ],
+    "website": "https://www.broadcom.com/info/clarity-sm/service-desk-manager",
+    "icon": "ClarityServiceManager.svg",
+    "oss": false,
+    "saas": false,
+    "pricing": [
+      "poa",
+      "enterprise",
+      "recurring"
+    ],
+    "cpe": "cpe:2.3:a:broadcom:service_desk_manager",
+    "implies": [
+      "Java",
+      "Apache Tomcat"
+    ],
+    "excludes": [],
+    "requires": [],
+    "url": [
+      "/CAisd/pdmweb\\.exe",
+      "/axis/services/USD_R11_WebService(?:\\?wsdl)?",
+      "/usm/(?:wpf|services)(?:/|\\?|$)",
+      ":(?:9002|9444)(?:/|$)",
+      "/axis/servlet/AxisServlet"
+    ],
+    "xhr": [
+      ":(?:9002|9444)/(?:api|bui)(?:/|$)",
+      "/usm/services/(?:AdminService|RequestService|Version)\\?wsdl",
+      "/axis/services/USD_R11_WebService\\?wsdl",
+      "/axis/servlet/AxisServlet"
+    ],
+    "scriptSrc": [
+      "conf/casm\\.conf\\.js"
+    ],
+    "cookies": {
+      "loggedUser": ".+"
+    },
+    "js": {
+      "casm_admin": ".*"
+    },
+    "dom": {
+      "form[action*=\"/CAisd/pdmweb.exe\"]": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Service Desk Manager|Clarity Service Management|CA Service Management|IT Service Management"
+      }
+    },
+    "meta": {
+      "description": "Service Desk Manager|Clarity Service Management|IT Service Management|ITSM",
+      "keywords": "Service Desk|ITSM|CA Technologies"
+    }
+  },
   "CCV Shop": {
     "cats": [
       6
@@ -1701,6 +1757,47 @@
     ],
     "website": "https://centribal.com"
   },
+  "Ceph": {
+    "description": "Ceph is an open-source, software-defined distributed storage platform providing object (RGW), block (RBD), and file (CephFS) storage.",
+    "cats": [
+      48,
+      37
+    ],
+    "website": "https://ceph.io",
+    "icon": "Ceph.svg",
+    "oss": true,
+    "saas": false,
+    "pricing": [
+      "free",
+      "onetime"
+    ],
+    "cpe": "cpe:2.3:a:linuxfoundation:ceph:*:*:*:*:*:*:*:*",
+    "xhr": [
+      "/api/(?:auth|health|summary|cluster|osd|rgw/.*)",
+      "/auth/saml2(?:/metadata)?$"
+    ],
+    "headers": {
+      "x-rgw-object-type": ".+",
+      "x-rgw-replicated-at": ".+",
+      "x-rgw-replicated-from": ".+"
+    },
+    "text": [
+      "Ceph Dashboard"
+    ],
+    "dom": {
+      "title": {
+        "text": "Ceph"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Ceph"
+      }
+    },
+    "meta": {
+      "description": "Ceph"
+    },
+    "requires": [],
+    "excludes": []
+  },
   "Cevoid": {
     "cats": [
       96
@@ -3346,6 +3443,53 @@
     ],
     "saas": true,
     "website": "https://clickhelp.com"
+  },
+  "ClickHouse": {
+    "description": "ClickHouse is an open-source, column-oriented OLAP database for real-time analytics.",
+    "cats": [
+      34
+    ],
+    "website": "https://clickhouse.com",
+    "icon": "ClickHouse.svg",
+    "oss": true,
+    "saas": false,
+    "pricing": [
+      "free",
+      "payg",
+      "enterprise"
+    ],
+    "cpe": "cpe:2.3:a:clickhouse:clickhouse:*:*:*:*:*:*:*:*",
+    "url": [
+      "^https?://play\\.clickhouse\\.com(?:/|\\?|$)",
+      "console-api\\.clickhouse\\.cloud"
+    ],
+    "xhr": [
+      "/ping",
+      "/replicas_status",
+      "console-api\\.clickhouse\\.cloud/\\.api/query-endpoints/.+?/run"
+    ],
+    "headers": {
+      "x-clickhouse-query-id": ".+",
+      "x-clickhouse-server-display-name": ".+",
+      "x-clickhouse-format": ".+",
+      "x-clickhouse-summary": ".+",
+      "server": "^ClickHouse"
+    },
+    "text": [
+      "ClickHouse Cloud",
+      "ClickHouse OLAP"
+    ],
+    "dom": {
+      "title": {
+        "text": "ClickHouse"
+      },
+      "h1": {
+        "text": "ClickHouse"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "ClickHouse|OLAP"
+      }
+    }
   },
   "ClickOnce": {
     "cats": [

@@ -3051,21 +3051,56 @@
     "website": "https://docs.microsoft.com/en-us/aspnet/ajax/cdn/overview"
   },
   "Microsoft Application Insights": {
+    "description": "Azure Monitor Application Insights is Microsoft’s real-user monitoring (RUM) and application performance monitoring (APM) service for web apps, collecting page views, events, dependencies, exceptions, and metrics.",
     "cats": [
-      78
+      10,
+      78,
+      94,
+      61
     ],
-    "description": "Microsoft Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM) and monitoring for live web apps.",
-    "icon": "Microsoft.svg",
+    "website": "https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview",
+    "icon": "Application-Insights.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "freemium",
+      "payg"
+    ],
+    "scriptSrc": [
+      "^https://js\\.monitor\\.azure\\.com/(?:scripts|beta|next|nightly)/.*\\bai\\.(?:2|3)(?:\\.[\\d.-]+)?(?:\\.gbl)?(?:\\.min)?\\.js$",
+      "^https://js\\.(?:cdn\\.monitor|cdn\\.applicationinsights)\\.azure\\.com/(?:scripts|beta|next|nightly)/.*\\bai\\.(?:2|3)(?:\\.[\\d.-]+)?(?:\\.gbl)?(?:\\.min)?\\.js$",
+      "^https?://az416426\\.vo\\.msecnd\\.net/scripts/.*\\bai\\.(?:0|1|2)\\..*\\.js$",
+      "^https://js\\.monitor\\.azure\\.com/(?:scripts|beta|next|nightly)/ext/ai\\.(?:clck|dbg|prfmm-mgr)\\.(?:2|3)(?:\\.[\\d.-]+)?(?:\\.gbl)?(?:\\.min)?\\.js$"
+    ],
+    "xhr": [
+      "^https://dc\\.services\\.visualstudio\\.com/v2(?:\\.1)?/track",
+      "^https://[a-z0-9.-]+\\.in\\.applicationinsights\\.azure\\.com/v2(?:\\.1)?/track"
+    ],
+    "headers": {
+      "request-context": "appId=cid-v1:"
+    },
+    "cookies": {
+      "ai_user": ".+",
+      "ai_session": ".+"
+    },
     "js": {
+      "appInsights": "",
+      "appInsights.queue": "",
+      "appInsights.core": "",
+      "appInsights.config": "",
       "appInsights.SeverityLevel": "",
       "appInsights.addTelemetryInitializer": "",
       "appInsightsSDK": "appInsights"
     },
-    "pricing": [
-      "payg"
-    ],
-    "saas": true,
-    "website": "https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview"
+    "dom": {
+      "title": {
+        "text": "Application Insights|Azure Monitor"
+      }
+    },
+    "meta": {
+      "description": "Application Insights|Azure Monitor|APM|Real User Monitoring",
+      "keywords": "Application Insights|Azure Monitor"
+    }
   },
   "Microsoft Authentication": {
     "cats": [
@@ -3081,6 +3116,151 @@
     },
     "oss": true,
     "website": "https://github.com/AzureAD/microsoft-authentication-library-for-js"
+  },
+  "Microsoft Azure Active Directory Premium": {
+    "description": "Microsoft’s cloud identity and access management (IAM) for enterprise SSO and Conditional Access; Premium P1/P2 tiers of Microsoft Entra ID (formerly Azure Active Directory).",
+    "cats": [
+      16,
+      61,
+      69
+    ],
+    "website": "https://www.microsoft.com/security/business/identity-access/microsoft-entra-id",
+    "icon": "MicrosoftEntraID.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "recurring",
+      "enterprise",
+      "mid"
+    ],
+    "cpe": "cpe:2.3:a:microsoft:azure_active_directory:-:*:*:*:*:*:*:*",
+    "scriptSrc": [
+      "^https?://alcdn\\.(?:msauth|msftauth)\\.net/browser/\\d+(?:\\.\\d+){2}/js/msal-browser(?:\\.min)?\\.js$",
+      "^https?://secure\\.aadcdn\\.microsoftonline-p\\.com/lib/\\d+(?:\\.\\d+){2}/js/adal(?:-angular)?(?:\\.min)?\\.js$",
+      "^https?://(?:aadcdn|logincdn)\\.(?:msauth|msftauth)\\.net/.*$"
+    ],
+    "xhr": [
+      "https?://login\\.microsoftonline\\.com/(?:[0-9a-f-]{36}|common|organizations)/v2\\.0/(?:authorize|token|devicecode)",
+      "https?://login\\.microsoftonline\\.com/(?:[0-9a-f-]{36}|common|organizations)/(?:saml2|login\\.srf|oauth2/authorize|oauth2/token)"
+    ],
+    "dom": {
+      "a[href*=\"login.microsoftonline.com/\"]": {
+        "exists": ""
+      },
+      "form[action*=\"login.microsoftonline.com/\"]": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Microsoft Entra ID|Azure Active Directory|Identity and Access Management"
+      }
+    },
+    "headers": {
+      "x-ms-ests-server": ".+",
+      "www-authenticate": "authorization_uri\\s*=\\s*\"?https?://login\\.(?:microsoftonline|windows)\\.(?:com|net)/"
+    },
+    "cookies": {
+      "ESTSAUTH": ".+",
+      "ESTSAUTHPERSISTENT": ".+",
+      "x-ms-gateway-slice": ".+"
+    },
+    "js": {
+      "msal.PublicClientApplication": "",
+      "AuthenticationContext": ""
+    },
+    "meta": {
+      "description": "Microsoft Entra ID|Azure Active Directory",
+      "keywords": "Entra ID|Azure AD|Identity"
+    },
+    "implies": ["Azure" ],
+    "excludes": []
+  },
+  "Microsoft Azure ExpressRoute": {
+    "description": "Microsoft Azure ExpressRoute is a private, dedicated connectivity service that links on‑premises or colocation networks to Azure over private circuits, bypassing the public internet.",
+    "cats": [
+      37,
+      63
+    ],
+    "website": "https://azure.microsoft.com/en-us/products/expressroute/",
+    "icon": "AzureExpressRoute.svg",
+    "oss": false,
+    "saas": false,
+    "pricing": [
+      "payg",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "portal\\.azure\\.(?:com|us|cn)/.*(?:Microsoft\\.Network|microsoft\\.network)(?:%2F|/)expressRoute",
+      "portal\\.microsoftazure\\.de/.*(?:Microsoft\\.Network|microsoft\\.network)(?:%2F|/)expressRoute"
+    ],
+    "xhr": [
+      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRouteCircuits|expressroutecircuits)(?:/|\\?|$)",
+      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRoutePorts|expressrouteports)(?:/|\\?|$)",
+      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRouteGateways|expressroutegateways)(?:/|\\?|$)",
+      "https?://management\\.(?:usgovcloudapi\\.net|chinacloudapi\\.cn|microsoftazure\\.de)/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRoute(?:Circuits|Ports|Gateways)|expressroute(?:circuits|ports|gateways))(?:/|\\?|$)"
+    ],
+    "dom": {
+      "title": {
+        "text": "ExpressRoute|Azure ExpressRoute"
+      },
+      "a[href*=\"Microsoft.Network/expressRoute\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "ExpressRoute|private connections to Azure|Azure ExpressRoute",
+      "keywords": "ExpressRoute|Azure Networking|Private Connectivity"
+    },
+    "implies": ["Azure"],
+    "excludes": []
+  },
+  "Microsoft Azure File Storage Service": {
+    "description": "Azure Files is Microsoft Azure's fully managed file share service accessible over SMB and NFS, and via the FileREST API.",
+    "cats": [
+      48,
+      63
+    ],
+    "website": "https://azure.microsoft.com/en-us/products/storage/files",
+    "icon": "azure.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg"
+    ],
+    "url": [
+      "^https?://[a-z0-9-]+\\.(?:privatelink\\.)?file\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)(?:/|$)"
+    ],
+    "xhr": [
+      "(?:^|\\.)[a-z0-9-]+\\.(?:privatelink\\.)?file\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)"
+    ],
+    "scriptSrc": [
+      "(?:^|\\.)[a-z0-9-]+\\.(?:privatelink\\.)?file\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)/.*"
+    ],
+    "headers": {
+      "Server": "Windows-Azure-File",
+      "x-ms-type": "^File$",
+      "x-ms-file-attributes": ""
+    },
+    "dom": {
+      "title": {
+        "text": "Azure Files|Azure File Storage"
+      },
+      "img[src*=\".file.core.windows.net\"]": {
+        "exists": ""
+      },
+      "link[href*=\".file.core.windows.net\"]": {
+        "exists": ""
+      },
+      "a[href*=\".file.core.windows.net\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "Azure Files|managed file share|SMB|NFS",
+      "keywords": "Azure Files|File Storage|SMB|NFS"
+    },
+    "implies": ["Azure"],
+    "excludes": []
   },
   "Microsoft Azure Maps": {
     "cats": [
@@ -3100,6 +3280,176 @@
       "payg"
     ],
     "website": "https://azure.microsoft.com/en-us/products/azure-maps/"
+  },
+  "Microsoft Azure Service Fabric": {
+    "description": "Azure Service Fabric is a distributed systems platform for packaging, deploying, and managing scalable and reliable microservices and containers. It includes a built-in reverse proxy and the Service Fabric Explorer management UI.",
+    "cats": [
+      62,
+      60
+    ],
+    "website": "https://azure.microsoft.com/en-us/products/service-fabric/",
+    "icon": "MicrosoftAzureServiceFabric.svg",
+    "oss": true,
+    "saas": true,
+    "pricing": [
+      "payg"
+    ],
+    "cpe": "cpe:2.3:a:microsoft:azure_service_fabric:*:*:*:*:*:*:*:*",
+    "url": [
+      ":19080(?:/|$)",
+      ":19081(?:/|$)",
+      "/Explorer(?:/|$)"
+    ],
+    "xhr": [
+      "/EventsStore/(?:Cluster|Applications|Services|Partitions|Nodes)/"
+    ],
+    "headers": {
+      "X-ServiceFabric": "^ResourceNotFound$"
+    },
+    "dom": {
+      "title": {
+        "text": "Service Fabric Explorer"
+      },
+      "a[href*=\"fabric:/\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "Service Fabric|microservices|Azure Service Fabric",
+      "keywords": "Service Fabric|Azure|Microservices"
+    },
+    "implies": ["Azure"],
+    "excludes": []
+  },
+  "Microsoft Azure Site Recovery": {
+    "description": "Azure-native disaster recovery as a service (DRaaS) that orchestrates replication, failover and recovery for Azure VMs and on-premises VMware/Hyper-V/physical servers to Azure.",
+    "cats": [
+      61,
+      37,
+      63
+    ],
+    "website": "https://azure.microsoft.com/en-us/products/site-recovery/",
+    "icon": "MicrosoftAzureSiteRecovery.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg",
+      "enterprise"
+    ],
+    "cpe": "cpe:2.3:a:microsoft:azure_site_recovery:*:*:*:*:*:*:*:*",
+    "url": [
+      "^https?://[^/]*siterecovery\\.windowsazure\\.com/",
+      "^https?://portal\\.azure\\.com/.+Microsoft\\.RecoveryServices%2Fvaults.*"
+    ],
+    "xhr": [
+      "siterecovery\\.windowsazure\\.com",
+      "privatelink\\.siterecovery\\.windowsazure\\.com",
+      "hypervrecoverymanager\\.windowsazure\\.com",
+      "providers/Microsoft\\.RecoveryServices/vaults/.+/(?:replication(?:Fabrics|ProtectionContainers|Policies|Jobs|MigrationItems|RecoveryServicesProviders|NetworkMappings|AlertSettings|Events)|replicationFabrics)",
+      "management\\.azure\\.com/.+/providers/Microsoft\\.RecoveryServices/vaults"
+    ],
+    "dom": {
+      "title": {
+        "text": "Azure Site Recovery|Site Recovery"
+      }
+    },
+    "meta": {
+      "description": "Azure Site Recovery|Disaster Recovery|DRaaS",
+      "keywords": "Azure Site Recovery|Disaster Recovery"
+    },
+    "implies": ["Azure"],
+    "excludes": []
+  },
+  "Microsoft Azure Table storage": {
+    "description": "Azure Table storage is a fully managed NoSQL key–value store in Azure Storage, exposing an OData-compatible REST API for scalable, semi-structured datasets.",
+    "cats": [
+      34,
+      62
+    ],
+    "website": "https://azure.microsoft.com/en-us/products/storage/tables/",
+    "icon": "AzureTableStorage.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "^https?://[^/]*\\btable\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)(?:/|$)"
+    ],
+    "xhr": [
+      "table\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)",
+      "/(?:Tables|\\$metadata|[A-Za-z0-9._%-]+)(?:\\?.*)?$"
+    ],
+    "scriptSrc": [
+      "azure-storage\\.table(?:\\.min)?\\.js",
+      "(?:unpkg|cdn\\.jsdelivr|esm\\.sh)/@azure/data-tables"
+    ],
+    "headers": {
+      "server": "^Windows-Azure-Table",
+      "x-ms-continuation-nexttablename": "",
+      "x-ms-continuation-nextpartitionkey": ""
+    },
+    "js": {
+      "AzureStorage.Table": ""
+    },
+    "dom": {
+      "title": {
+        "text": "Azure Table storage|NoSQL key-value store"
+      },
+      "script[src*=\"azure-storage.table\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "Azure Table storage|NoSQL|Key-value store",
+      "keywords": "Azure Table storage|NoSQL"
+    },
+    "implies": [
+      "Azure"
+    ],
+    "excludes": []
+  },
+  "Microsoft Azure Virtual Network": {
+    "description": "Azure Virtual Network (VNet) provides isolated private networking for Azure resources, supporting subnets, routing, network security groups, peering, and VPN/ExpressRoute connectivity.",
+    "cats": [
+      63,
+      37,
+      88
+    ],
+    "website": "https://azure.microsoft.com/en-us/products/virtual-network",
+    "icon": "Microsoft Azure.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "free",
+      "payg",
+      "enterprise"
+    ],
+    "url": [
+      "portal\\.azure\\.(?:com|cn|us)/#.*Microsoft\\.Network%2FvirtualNetworks",
+      "portal\\.microsoftazure\\.de/#.*Microsoft\\.Network%2FvirtualNetworks"
+    ],
+    "xhr": [
+      "management\\.(?:azure\\.com|usgovcloudapi\\.net|chinacloudapi\\.cn|microsoftazure\\.de)/.+/providers/Microsoft\\.Network/virtualNetworks"
+    ],
+    "dom": {
+      "title": {
+        "text": "Azure Virtual Network|VNet"
+      },
+      "a[href*=\"Microsoft.Network%2FvirtualNetworks\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "Azure Virtual Network|VNet|private networking|isolated network",
+      "keywords": "Azure Virtual Network|VNet|Azure Network"
+    },
+    "implies": [
+      "Azure"
+    ],
+    "excludes": []
   },
   "Microsoft Clarity": {
     "cats": [
@@ -3154,6 +3504,62 @@
       "generator": "Microsoft Excel( [\\d.]+)?\\;version:\\1"
     },
     "website": "https://office.microsoft.com/excel"
+  },
+  "Microsoft Insider Risk Management": {
+    "description": "Microsoft Purview Insider Risk Management (IRM) is a Microsoft 365 compliance and security solution that uses behavioral analytics and machine learning to detect insider risks.",
+    "cats": [
+      16,
+      10,
+      61,
+      99
+    ],
+    "website": "https://www.microsoft.com/en-gb/security/business/risk-management/microsoft-purview-insider-risk-management",
+    "icon": "Microsoft-Purview.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "payg",
+      "poa"
+    ],
+    "url": [
+      "^https?://(?:compliance|purview)\\.microsoft\\.(?:com|us)/(?:insiderrisk|insiderriskmgmt|insider-?risk)(?:/|$)",
+      "^https?://compliance\\.apps\\.mil/(?:insiderrisk|insiderriskmgmt)(?:/|$)",
+      "^https?://compliance\\.microsoft\\.(?:com|us)/solutioncatalog/solution/insiderriskmgmt(?:\\?.*)?$",
+      "^https?://www\\.microsoft\\.com/.*/microsoft-purview-insider-risk-management(?:/|$)"
+    ],
+    "xhr": [
+      "manage(?:-gcc)?\\.office\\.com/api/v1\\.0/[^/]+/activity/feed/(?:subscriptions/(?:start|content)|alerts|audit).*",
+      "manage\\.office365\\.us/api/v1\\.0/[^/]+/activity/feed/.*",
+      "manage\\.protection\\.apps\\.mil/api/v1\\.0/[^/]+/activity/feed/.*"
+    ],
+    "scriptSrc": [
+      "res\\.cdn\\.office\\.net/scc-resources/resources/ww(?:-v2)?/scc/static/",
+      "scc\\.azureedge\\.net/scc/(?:scripts|static)/"
+    ],
+    "dom": {
+      "title": {
+        "text": "Insider Risk|insider risk|Microsoft Purview|Risk Management|risk management"
+      },
+      "h1": {
+        "text": "Insider Risk|insider risk|Microsoft Purview"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Insider Risk|insider risk|Purview"
+      }
+    },
+    "meta": {
+      "description": "Insider Risk|insider risk|Microsoft Purview|compliance",
+      "keywords": "Insider Risk|insider risk|Purview|Compliance"
+    },
+    "implies": [
+      "Microsoft 365"
+    ],
+    "requires": [
+      "Microsoft 365"
+    ],
+    "excludes": []
   },
   "Microsoft HTTPAPI": {
     "cats": [

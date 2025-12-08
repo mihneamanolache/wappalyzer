@@ -120,6 +120,49 @@
     "saas": true,
     "website": "https://www.sapstore.com/solutions/47000/SAP-Upscale-Commerce"
   },
+  "SAP Linear Asset Management": {
+    "description": "SAP Linear Asset Management (LAM) is an SAP S/4HANA capability for modelling and maintaining linear infrastructure (roads, rails, pipelines).",
+    "cats": [
+      19
+    ],
+    "website": "https://www.sap.com/products/scm/linear-asset-management.html",
+    "icon": "SAP.svg",
+    "oss": false,
+    "saas": false,
+    "pricing": [
+      "enterprise",
+      "poa"
+    ],
+    "url": [
+      "/sap/bc/webdynpro/sap/eaml_wda_lrp_oif",
+      "/sap/bc/gui/sap/its/webgui\\?~transaction=\\*IK8(?:1|2|3)",
+      "#.*LinearReferencePattern"
+    ],
+    "headers": {
+      "sap-perf-fesrec": ".+"
+    },
+    "cookies": {
+      "saplb_.*": ".+"
+    },
+    "text": [
+      "Linear Reference Pattern",
+      "Linear Asset Management"
+    ],
+    "dom": {
+      "title": {
+        "text": "Linear Asset Management|Linear Reference Pattern"
+      },
+      "a[href*=\"#LinearReferencePattern\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "keywords": "Linear Asset Management|Linear Reference Pattern"
+    },
+    "implies": [
+    ],
+    "excludes": []
+  },
   "SDL Tridion": {
     "cats": [
       1
@@ -988,6 +1031,66 @@
     ],
     "website": "https://demandware.com"
   },
+  "Salesforce Communities": {
+    "description": "Salesforce Experience Cloud (formerly Salesforce Communities) is Salesforce’s platform for building customer, partner, and employee portals and digital experiences.",
+    "cats": [
+      1,
+      53,
+      61,
+      91
+    ],
+    "website": "https://www.salesforce.com/products/experience-cloud/features/customer-engagement-solutions/",
+    "icon": "SalesforceExperienceCloud.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "^https?://[^/]+\\.my\\.site\\.com(/|$)",
+      "^https?://[^/]+\\.force\\.com/(?:s/|[^/]+/s/)?",
+      "^https?://[^/]+\\.live\\.siteforce\\.com(/|$)"
+    ],
+    "xhr": [
+      "/s/sfsites/auraCmpDef(?:[^\\s\"']+)?aura\\.app=markup://siteforce:communityApp",
+      "/s/sfsites/auraFW/javascript/[^/]+/aura_prod\\.js"
+    ],
+    "scriptSrc": [
+      "/s/sfsites/auraFW/javascript/[^/]+/aura_prod\\.js",
+      "/sfsites/c/resource/",
+      "/resource/\\d+/[A-Za-z0-9_\\-]+"
+    ],
+    "headers": {
+      "x-sfdc-request-id": ".+",
+      "server": "sfdcedge"
+    },
+    "cookies": {
+      "sfdc_lv2": ".+",
+      "sid_Client": ".+",
+      "sfdc-stream": ".+"
+    },
+    "dom": {
+      "title": {
+        "text": "Experience Cloud|Salesforce Communities|Customer Portals"
+      },
+      "meta[name=\"description\"]": {
+        "content": "Experience Cloud|Salesforce Communities"
+      },
+      "a[href*=\"force.com\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "keywords": "Experience Cloud|Salesforce Communities|Community Cloud"
+    },
+    "implies": [
+      "Salesforce"
+    ],
+    "requires": [],
+    "excludes": []
+  },
   "Salesforce Desk": {
     "cats": [
       53
@@ -1006,6 +1109,72 @@
       "^/s/sfsites/auraFW/"
     ],
     "website": "https://www.salesforce.com/solutions/small-business-solutions/help-desk-software/"
+  },
+  "Salesforce Education Cloud": {
+    "description": "Salesforce Education Cloud is Salesforce’s industry cloud for education institutions, providing CRM and student lifecycle capabilities on the Salesforce platform.",
+    "cats": [
+      53,
+      61
+    ],
+    "website": "https://www.salesforce.com/education/cloud/",
+    "icon": "Salesforce.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "recurring",
+      "enterprise",
+      "high"
+    ],
+    "url": [
+      "^https?://[^/]+\\.my\\.salesforce\\.com",
+      "^https?://[^/]+\\.force\\.com",
+      "^https?://[^/]+\\.my\\.site\\.com",
+      "/apex/hed__"
+    ],
+    "xhr": [
+      "s/sfsites/aura",
+      "webto\\.salesforce\\.com/servlet/servlet\\.(?:WebToLead|WebToCase)"
+    ],
+    "scriptSrc": [
+      "s/sfsites/auraFW/javascript/.+/aura_prod\\.js",
+      "static\\.lightning\\.force\\.com/.+/auraFW/.+"
+    ],
+    "headers": {
+      "server": "sfdcedge",
+      "x-sfdc-request-id": ".+"
+    },
+    "cookies": {
+      "BrowserId": "",
+      "BrowserId_sec": ""
+    },
+    "text": [
+      "Salesforce Education Cloud",
+      "Education Cloud",
+      "Education Data Architecture",
+      "Student Success Hub"
+    ],
+    "dom": {
+      "title": {
+        "text": "Education Cloud|Student Success|Education CRM"
+      },
+      "h1": {
+        "text": "Education Cloud"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Education Cloud|EDA|Student Success"
+      }
+    },
+    "meta": {
+      "description": "Education Cloud"
+    },
+    "implies": [
+      "Salesforce",
+      "Salesforce Experience Cloud"
+    ],
+    "requires": [
+      "Salesforce"
+    ]
   },
   "Salesforce Interaction Studio": {
     "cats": [
@@ -1079,27 +1248,253 @@
     "saas": true,
     "website": "https://www.salesforce.com/products/marketing-cloud/email-marketing"
   },
-  "Salesforce Service Cloud": {
+  "Salesforce Remedyforce": {
+    "description": "BMC Helix Remedyforce (formerly Salesforce.com Remedyforce) is a cloud-based IT service management suite built on the Salesforce platform.",
     "cats": [
-      52,
-      53
+      103,
+      61
     ],
-    "description": "Salesforce Service Cloud is a customer relationship management (CRM) platform for customer service and support.",
-    "icon": "Salesforce.svg",
+    "website": "https://www.bmc.com/it-solutions/bmc-helix-remedyforce.html",
+    "icon": "BMC-Remedyforce.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "/apex/BMCServiceDesk__",
+      "/one/one\\.app.*/apex/BMCServiceDesk__",
+      "[?&]startURL=.*BMCServiceDesk__"
+    ],
+    "xhr": [
+      "/services/apexrest/BMCServiceDesk/"
+    ],
+    "dom": {
+      "title": {
+        "text": "Remedyforce|BMCServiceDesk"
+      },
+      "h1": {
+        "text": "Remedyforce"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Remedyforce"
+      }
+    },
+    "meta": {
+      "description": "Remedyforce",
+      "keywords": "Remedyforce"
+    },
     "implies": [
       "Salesforce"
     ],
-    "js": {
-      "embedded_svc": ""
-    },
-    "pricing": [
-      "low"
+    "requires": [
+      "Salesforce"
     ],
+    "excludes": []
+  },
+  "Salesforce Service Cloud": {
+    "description": "Salesforce Service Cloud is Salesforce’s customer service and support platform, offering case management, live chat (Embedded Service/Live Agent), messaging, and knowledge base.",
+    "cats": [
+      103,
+      53,
+      61,
+      52
+    ],
+    "website": "https://www.salesforce.com/products/service-cloud/",
+    "icon": "Salesforce-Service-Cloud.svg",
+    "oss": false,
     "saas": true,
+    "pricing": [
+      "recurring",
+      "high",
+      "enterprise",
+      "poa"
+    ],
     "scriptSrc": [
+      "service\\.force\\.com/embeddedservice/\\d+(?:\\.\\d+)?/esw(?:\\.min)?\\.js",
+      "salesforceliveagent\\.com/content/g/js/\\d+\\.\\d+/(?:deployment|prechat)\\.js",
       "service\\.force\\.com"
     ],
-    "website": "https://www.salesforce.com/au/products/service-cloud/"
+    "xhr": [
+      "salesforceliveagent\\.com/chat/rest(?:/|$)",
+      "salesforceliveagent\\.com/chat/rest/(?:Visitor/Availability|System/Messages|Chasitor/(?:ChasitorInit|ChatMessage|ChatEnd))"
+    ],
+    "cookies": {
+      "liveagent_vc": ".+",
+      "liveagent_sid": ".+",
+      "liveagent_oref": ".+",
+      "liveagent_ptid": ".+"
+    },
+    "js": {
+      "embedded_svc": "",
+      "liveagent": ""
+    },
+    "text": [
+      "Salesforce Service Cloud",
+      "Service Cloud"
+    ],
+    "dom": {
+      ".embeddedServiceHelpButton": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Service Cloud|Customer Service Software"
+      },
+      "h1": {
+        "text": "Service Cloud"
+      }
+    },
+    "meta": {
+      "description": "Service Cloud|Customer Service Software",
+      "keywords": "Service Cloud|Customer Service|Help Desk"
+    },
+    "implies": [
+      "Salesforce"
+    ]
+  },
+  "Salesforce Sales Cloud Einstein": {
+    "description": "AI features for Salesforce Sales Cloud that automate and augment selling with lead and opportunity scoring, forecasting insights, and generative AI (Einstein GPT).",
+    "cats": [
+      53,
+      104,
+      61,
+      99,
+      10
+    ],
+    "website": "https://www.salesforce.com/products/sales-cloud/features/sales-cloud-einstein/",
+    "icon": "Salesforce.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "xhr": [
+      "/services/data/v\\d+\\.\\d+/smartdatadiscovery/(?:predictions|predictionDefinitions|models|jobs)(?:/|$)",
+      "/models/[\\w\\.-]+/(?:generations|chat-generations|embeddings)(?:/|$)",
+      "/einstein/ai-evaluations/(?:runs|runs/[^/]+)(?:/|$)"
+    ],
+    "headers": {
+      "x-sfdc-app-context": "EinsteinGPT",
+      "x-client-feature-id": "ai-platform-models-connected-app"
+    },
+    "dom": {
+      "title": {
+        "text": "Sales Cloud Einstein|Einstein GPT|Salesforce Einstein|Sales AI"
+      },
+      "h1": {
+        "text": "Sales Cloud Einstein|Salesforce Einstein|Sales AI"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Einstein GPT|Salesforce AI|Sales AI"
+      }
+    },
+    "meta": {
+      "description": "Sales Cloud Einstein|generative AI for sales|Sales AI",
+      "keywords": "Sales Cloud Einstein|Einstein GPT|Sales AI"
+    },
+    "implies": [
+      "Salesforce"
+    ],
+    "requires": [
+      "Salesforce"
+    ],
+    "excludes": []
+  },
+  "Salesforce SPF": {
+    "description": "DNS SPF include record used to authorize Salesforce application mail servers to send on behalf of a domain.",
+    "cats": [
+      75,
+      16
+    ],
+    "website": "https://www.salesforce.com/",
+    "icon": "Salesforce.svg",
+    "dns": {
+      "TXT": [
+        "include:_spf\\.salesforce\\.com",
+        "_spf\\.salesforce\\.com"
+      ]
+    },
+    "text": [
+      "include:_spf\\.salesforce\\.com",
+      "_spf\\.salesforce\\.com"
+    ],
+    "dom": {
+      "code": {
+        "text": "_spf\\.salesforce\\.com"
+      },
+      "div": {
+        "text": "_spf\\.salesforce\\.com"
+      },
+      "span": {
+        "text": "_spf\\.salesforce\\.com"
+      },
+      "p": {
+        "text": "_spf\\.salesforce\\.com"
+      }
+    },
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "free"
+    ],
+    "implies": [
+      "Salesforce"
+    ],
+    "requires": [],
+    "excludes": []
+  },
+  "Salesforce Work.Com": {
+    "description": "Salesforce Work.com is an employee experience and workplace management suite built on Salesforce Customer 360, including Command Center, Employee Workspace, and concierge capabilities.",
+    "cats": [
+      61,
+      91,
+      103,
+      53,
+      73
+    ],
+    "website": "https://work.com",
+    "icon": "Work.com.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "^https?://(?:[^/]+\\.)?work\\.com(?:/|$)",
+      "^https?://(?:www\\.)?salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/(?:contact|conf)/workplace-command-center(?:-contact)?/(?:.*)?",
+      "^https?://(?:www\\.)?salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?company/news-press/press-releases/.*work-com.*"
+    ],
+    "xhr": [
+      "salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/(?:contact|conf)/workplace-command-center(?:-contact)?/",
+      "salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/conf/contact-tracing/"
+    ],
+    "text": [
+      "Salesforce Work.com",
+      "Workplace Command Center"
+    ],
+    "dom": {
+      "title": {
+        "text": "Work.com|Workplace Command Center"
+      },
+      "h1": {
+        "text": "Work.com|Workplace Command Center"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Work.com"
+      }
+    },
+    "implies": [
+      "Salesforce",
+      "Akamai"
+    ],
+    "requires": [],
+    "excludes": []
   },
   "Salesloft": {
     "cats": [
@@ -2830,6 +3225,334 @@
     ],
     "website": "https://www.servicenow.com"
   },
+  "ServiceNow Agile Development": {
+    "description": "ServiceNow Agile Development (Agile Development 2.0) provides Scrum/SAFe backlogs, sprints, and boards on the Now Platform.",
+    "cats": [
+      13,
+      47,
+      61,
+      91
+    ],
+    "website": "https://www.servicenow.com/products/agile-development.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "headers": {
+      "Server": "^ServiceNow$",
+      "X-Is-Logged-In": "^(true|false)$"
+    },
+    "cookies": {
+      "glide_user_session": ".+",
+      "glide_user_route": "glide\\.[0-9a-f]{32}",
+      "glide_user": ".*"
+    },
+    "url": [
+      "/\\$agile_board\\.do",
+      "agile_board\\.do"
+    ],
+    "xhr": [
+      "/api/now/(?:(?:table)|(?:ui/meta))/rm_(?:story|sprint|epic|release_scrum|scrum_task|defect|enhancement)\\b"
+    ],
+    "text": [
+      "ServiceNow Agile Development",
+      "Agile Development 2.0"
+    ],
+    "dom": {
+      "title": {
+        "text": "Agile Development|Scrum|SAFe"
+      },
+      "h1": {
+        "text": "Agile Development"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Agile Development|Scrum|SAFe|ServiceNow"
+      }
+    },
+    "meta": {
+      "description": "Agile Development"
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Application Portfolio Management (APM)": {
+    "description": "ServiceNow’s Application Portfolio Management (APM)—renamed Enterprise Architecture in recent releases—helps inventory, rationalise, and score business applications.",
+    "cats": [
+      61,
+      19
+    ],
+    "website": "https://www.servicenow.com/products/application-portfolio-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "high",
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "nav_to\\.do\\?uri=%2F(?:apm_|sn_apm)",
+      "now/workspace/(?:enterprise|.*apm)"
+    ],
+    "xhr": [
+      "/api/now/table/apm_application_indicator",
+      "/api/now/table/apm_application_indicator_score",
+      "/api/now/table/sn_apm_tpm_discovered_technology",
+      "/api/now/table/sn_apm_trm_standards_product"
+    ],
+    "text": [
+      "Application Portfolio Management",
+      "Enterprise Architecture Workspace",
+      "Application 360"
+    ],
+    "dom": {
+      "title": {
+        "text": "Application Portfolio Management|Enterprise Architecture Workspace"
+      },
+      "h1": {
+        "text": "Application Portfolio Management|Enterprise Architecture"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Application Portfolio Management|APM"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Automated Test Framework": {
+    "description": "ServiceNow Automated Test Framework (ATF) is the built-in testing framework on the Now Platform that automates UI, server, and REST tests.",
+    "cats": [
+      47,
+      44
+    ],
+    "website": "https://www.servicenow.com/products/automated-test-framework.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring"
+    ],
+    "url": [
+      "nav_to\\.do\\?uri=(?:sys_atf|sn_atf|atf)[^&]*",
+      "(?:^|/)(?:sys_atf_(?:test|step|test_suite|test_result))\\.do"
+    ],
+    "xhr": [
+      "/api/now/table/sys_atf_(?:test|test_result|step|suite|test_suite|step_result)\\b",
+      "/api/sn_atf/(?:test_suite_runner(?:/run)?|test_runner)\\b"
+    ],
+    "scriptSrc": [
+      ".*/sn_atf/.*",
+      "sn_atf(?:_|\\-)?[^\\s\"']*\\.js"
+    ],
+    "text": [
+      "Client Test Runner",
+      "Waiting for a test to run",
+      "Automated Test Framework"
+    ],
+    "dom": {
+      "[sn-atf-class]": {
+        "exists": ""
+      },
+      "iframe[name='testFrame']": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Automated Test Framework|Client Test Runner"
+      },
+      "h1": {
+        "text": "Automated Test Framework"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Automated Test Framework|ATF"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Business Continuity": {
+    "description": "ServiceNow Business Continuity Management (BCM) is an enterprise resilience product on the ServiceNow platform for business impact analysis and continuity planning.",
+    "cats": [
+      61,
+      91,
+      19
+    ],
+    "website": "https://www.servicenow.com/products/business-continuity-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "enterprise",
+      "recurring"
+    ],
+    "url": [
+      "/now/bcm(?:/|$)",
+      "nav_to\\.do\\?uri=%2Fnow%2Fbcm"
+    ],
+    "xhr": [
+      "/api/now/table/sn_bcp_(?:plan|plan_asset|plan_task)",
+      "/api/now/table/sn_bcm_.*"
+    ],
+    "headers": {
+      "Server": "^ServiceNow$",
+      "X-Is-Logged-In": ".+",
+      "X-Transaction-ID": ".+"
+    },
+    "cookies": {
+      "glide_user_session": ".+",
+      "glide_user_route": "^glide\\..+"
+    },
+    "text": [
+      "ServiceNow Business Continuity Management",
+      "Business Continuity Management",
+      "Business Impact Analysis"
+    ],
+    "dom": {
+      "a[href*='/now/bcm/']": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Business Continuity Management|BCM"
+      },
+      "h1": {
+        "text": "Business Continuity Management"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Business Continuity Management|BCM"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [],
+    "excludes": []
+  },
+  "ServiceNow Change Management": {
+    "description": "ServiceNow Change Management is the ITSM module on the Now Platform for planning, approving, scheduling, and implementing changes with risk assessment and CAB workbench.",
+    "cats": [
+      103,
+      13,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/it-service-automation-applications/change-and-release-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "change_request(?:_list)?\\.do",
+      "nav_to\\.do\\?uri=.*?change_request",
+      "/api/now/(?:v\\d+/)?table/change_request"
+    ],
+    "xhr": [
+      "/api/now/(?:v\\d+/)?table/change_request"
+    ],
+    "headers": {
+      "server": "^ServiceNow$",
+      "x-transaction-id": ".+",
+      "x-is-logged-in": "^(true|false)$"
+    },
+    "cookies": {
+      "glide_user_route": ".+",
+      "glide_user_session": ".+"
+    },
+    "text": [
+      "ServiceNow Change Management",
+      "Change Management Application",
+      "CAB workbench"
+    ],
+    "dom": {
+      "title": {
+        "text": "Change Management|CAB Workbench"
+      },
+      "h1": {
+        "text": "Change Management"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Change Management|CAB"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Configuration Management Database (CMDB)": {
+    "description": "ServiceNow’s Configuration Management Database (CMDB) is a SaaS repository for configuration items (CIs) and their relationships, part of Service Graph on the Now Platform.",
+    "cats": [
+      61,
+      100
+    ],
+    "website": "https://www.servicenow.com/products/configuration-management-database.html",
+    "icon": "ServiceNowCMDB.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "poa",
+      "recurring"
+    ],
+    "xhr": [
+      "/api/now/cmdb/instance/cmdb_ci",
+      "/api/now/cimodel/cmdb_ci/fullclasshierarchy",
+      "/api/now/table/cmdb_ci"
+    ],
+    "headers": {
+      "Server": "^ServiceNow$",
+      "WWW-Authenticate": "Service-now"
+    },
+    "text": [
+      "ServiceNow Configuration Management Database",
+      "Configuration Management Database",
+      "CMDB"
+    ],
+    "dom": {
+      "title": {
+        "text": "Configuration Management Database|CMDB"
+      },
+      "h1": {
+        "text": "Configuration Management Database|CMDB"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "CMDB|Configuration Management"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
   "SessionStack": {
     "cats": [
       10
@@ -2844,6 +3567,426 @@
       "cdn\\.sessionstack\\.com/"
     ],
     "website": "https://www.sessionstack.com"
+  },
+  "ServiceNow Cost Management": {
+    "description": "ServiceNow Cloud Cost Management (formerly Cloud Insights) provides FinOps capabilities to analyze and optimize cloud spend across SaaS, IaaS, and PaaS.",
+    "cats": [
+      10,
+      61,
+      19
+    ],
+    "website": "https://www.servicenow.com/products/cloud-cost-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "now/workspace/.*(?:cloud|cost|spend)"
+    ],
+    "xhr": [
+      "/api/now/table/sn_cld_spend_core_monthly_provider_agg_cost",
+      "/api/now/table/sn_cld_spend_core_monthly_aggregated_cost",
+      "/api/now/table/sn_cld_spend_core_(?:daily|monthly)_(?:provider_agg|aggregated)_cost"
+    ],
+    "text": [
+      "Cloud Spend Analytics",
+      "Cloud Cost Management",
+      "Cloud Insights"
+    ],
+    "dom": {
+      "title": {
+        "text": "Cloud Cost Management|Cloud Insights"
+      },
+      "h1": {
+        "text": "Cloud Cost Management|Cloud Insights"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Cloud Cost|FinOps|Cloud Insights"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Demand Management": {
+    "description": "ServiceNow Demand Management centralized business and IT demands, provides a Demand Workbench for assessment and prioritization.",
+    "cats": [
+      61,
+      91,
+      19
+    ],
+    "website": "https://www.servicenow.com/products/strategic-portfolio-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "nav_to\\.do\\?uri=.*?dmn_demand",
+      "dmn_demand(?:_list)?\\.do",
+      "demand_workbench\\.do"
+    ],
+    "xhr": [
+      "/api/now/table/dmn_demand"
+    ],
+    "text": [
+      "ServiceNow Demand Management",
+      "Demand Workbench"
+    ],
+    "dom": {
+      "a[href*='dmn_demand.do']": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Demand Management|Demand Workbench"
+      },
+      "h1": {
+        "text": "Demand Management"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Demand Management"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Governance, Risk, and Compliance (GRC)": {
+    "description": "ServiceNow Governance, Risk, and Compliance (GRC) is a suite of integrated risk, compliance, audit, and third‑party risk applications built on the Now Platform.",
+    "cats": [
+      16,
+      61,
+      50,
+      10,
+      73
+    ],
+    "website": "https://www.servicenow.com/products/governance-risk-and-compliance.html",
+    "icon": "ServiceNowGRC.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "/now/(?:risk|compliance|audit)(?:/|$)",
+      "/now/risk/risk/risk-assessment-homepage(?:/|$)"
+    ],
+    "xhr": [
+      "/api/now/table/sn_(?:grc|risk|compliance|audit|vdr)_[a-z_]+"
+    ],
+    "text": [
+      "ServiceNow GRC",
+      "Governance, Risk, and Compliance",
+      "Integrated Risk Management"
+    ],
+    "dom": {
+      "a[href*=\"/now/risk/\"]": {
+        "exists": ""
+      },
+      "a[href*=\"/now/compliance/\"]": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Governance, Risk, and Compliance|GRC|Integrated Risk Management"
+      },
+      "h1": {
+        "text": "Governance, Risk, and Compliance|GRC"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "GRC|Integrated Risk Management|ServiceNow Risk"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow IT Operations Management": {
+    "description": "ServiceNow IT Operations Management (ITOM) is a SaaS suite on the Now Platform that provides discovery, service mapping, event management (AIOps), and operational capabilities.",
+    "cats": [
+      37,
+      61,
+      99
+    ],
+    "website": "https://www.servicenow.com/products/it-operations-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "xhr": [
+      "/api/sn_em_connector/em/inbound_event",
+      "/api/global/em/jsonv2",
+      "/api/mid/em/inbound_event",
+      "/api/now/table/(?:em_event|em_alert)"
+    ],
+    "text": [
+      "ServiceNow IT Operations Management",
+      "IT Operations Management",
+      "Service Mapping",
+      "Event Management"
+    ],
+    "dom": {
+      "title": {
+        "text": "IT Operations Management|ITOM"
+      },
+      "h1": {
+        "text": "IT Operations Management"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "ITOM|IT Operations"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "Servicenow It Service Management": {
+    "description": "ServiceNow IT Service Management (ITSM) is a cloud-based suite for managing incidents, problems, changes, requests, and related workflows on the Now Platform.",
+    "cats": [
+      103,
+      13,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/itsm.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "incident\\.do",
+      "problem\\.do",
+      "change_request\\.do",
+      "nav_to\\.do\\?uri=%2Fincident",
+      "/sp\\?id=ticket&table=incident"
+    ],
+    "xhr": [
+      "/api/now/table/(?:incident|problem|change_request|sc_request|sc_task)\\b",
+      "/api/now/import/(?:incident|problem|change_request)"
+    ],
+    "text": [
+      "ServiceNow IT Service Management",
+      "Incident Management",
+      "Problem Management"
+    ],
+    "dom": {
+      "title": {
+        "text": "IT Service Management|ITSM|Incident Management"
+      },
+      "h1": {
+        "text": "IT Service Management|ITSM"
+      },
+      "a[href*='incident.do']": {
+        "exists": ""
+      },
+      "a[href*='change_request.do']": {
+        "exists": ""
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Now Platform": {
+    "description": "ServiceNow Now Platform is a cloud‑based workflow and IT service management platform.",
+    "cats": [
+      61,
+      103,
+      13,
+      53
+    ],
+    "website": "https://www.servicenow.com",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa",
+      "high"
+    ],
+    "url": [
+      "service-now\\.com",
+      "servicenowservices\\.com"
+    ],
+    "xhr": [
+      "/api/now/",
+      "oauth_token\\.do",
+      "login\\.do"
+    ],
+    "headers": {
+      "Server": "^ServiceNow$",
+      "X-Is-Logged-In": ".+"
+    },
+    "cookies": {
+      "glide_user_route": ".+",
+      "glide_session_store": ".+",
+      "JSESSIONID": ".+"
+    },
+    "js": {
+      "g_form": "",
+      "NOW": "",
+      "GlideAjax": ""
+    },
+    "dom": {
+      "a[href*=\"nav_to.do\"]": {
+        "exists": ""
+      },
+      "form[action*=\"login.do\"]": {
+        "exists": ""
+      },
+      "title": {
+        "text": "ServiceNow"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "ServiceNow"
+      }
+    },
+    "meta": {
+      "description": "ServiceNow"
+    }
+  },
+  "ServiceNow Now Platform App Engine": {
+    "description": "ServiceNow’s low‑code application development platform on the Now Platform for building data models, workflows, and modern experiences (UI Builder, Workspaces, Portals) with REST APIs.",
+    "cats": [
+      61,
+      62,
+      47
+    ],
+    "website": "https://www.servicenow.com/products/now-platform-app-engine.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "service-now\\.com",
+      "servicenowservices\\.com",
+      "/(?:^|/)nav_to\\.do(?:\\?|$)",
+      "/(?:^|/)(?:sp|esc)(?:/|\\?|$)"
+    ],
+    "xhr": [
+      "/api/now/(?:table|aggregate|stats|import)/",
+      "/api/now/processflow/",
+      "/api/(?:sn_|x_)[a-z0-9_]/",
+      "login\\.do",
+      "oauth_token\\.do"
+    ],
+    "scriptSrc": [
+      "/uxasset/externals/@servicenow/.+",
+      "/uxasset/externals/@devsnc/.+"
+    ],
+    "text": [
+      "App Engine Studio",
+      "UI Builder",
+      "Low-code",
+      "Workspaces"
+    ],
+    "dom": {
+      "title": {
+        "text": "Now Platform App Engine|Low-code|UI Builder"
+      },
+      "h1": {
+        "text": "Now Platform App Engine|Low-code"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Problem Management": {
+    "description": "ServiceNow Problem Management is an ITSM application on the ServiceNow platform used to identify root causes, coordinate remediation, and prevent recurring incidents with dashboards and known error management.",
+    "cats": [
+      13,
+      103,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/problem-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa",
+      "high"
+    ],
+    "url": [
+      "https?://[^/]*\\.service-now\\.com/(?:.*/)?nav_to\\.do\\?uri=problem(?:_list)?\\.do",
+      "https?://[^/]*\\.service-now\\.com/(?:.*/)?problem(?:_list)?\\.do"
+    ],
+    "xhr": [
+      "/api/now/(?:v[0-9]+/)?table/problem(?:/|\\?|$)",
+      "/api/now/(?:v[0-9]+/)?stats/problem(?:/|\\?|$)"
+    ],
+    "dom": {
+      "a[href*=\"problem_list.do\"]": {
+        "exists": ""
+      },
+      "a[href*=\"problem.do\"]": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Problem Management|Root Cause Analysis"
+      },
+      "h1": {
+        "text": "Problem Management"
+      }
+    },
+    "text": [
+      "ServiceNow Problem Management",
+      "Problem Management",
+      "Known Error"
+    ],
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
   },
   "Sessionly": {
     "cats": [
@@ -2864,6 +4007,462 @@
       "//sessionly\\.io/"
     ],
     "website": "https://sessionly.hubspotpagebuilder.com"
+  },
+  "ServiceNow Request Management": {
+    "description": "ServiceNow Request Management delivers self-service request intake and fulfillment via the Service Catalog and portals (Service Portal/Employee Center).",
+    "cats": [
+      103,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/request-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "enterprise",
+      "recurring"
+    ],
+    "url": [
+      "service-now\\.com/(?:sp|esc|ec)\\?id=sc_(?:home|cat_item|category|order_guide)",
+      "service-now\\.com/(?:sc_request|sc_req_item|sc_cat_item)\\.do",
+      "service-now\\.com/nav_to\\.do\\?uri=sc_cat_item|sc_request|sc_category"
+    ],
+    "xhr": [
+      "/api/sn_sc/servicecatalog/(?:items|cart|categories|order_guide)",
+      "/api/now/(?:v2/)?table/(?:sc_request|sc_req_item)"
+    ],
+    "scriptSrc": [
+      "/scripts/(?:app\\.|sp|service-portal).*\\.js",
+      "https?://[^/]+\\.service-now\\.com/(?:scripts|styles)/.*"
+    ],
+    "text": [
+      "SC Order Guide",
+      "Service Catalog",
+      "Request Management"
+    ],
+    "dom": {
+      "a[href*='?id=sc_home']": {
+        "exists": ""
+      },
+      "a[href*='?id=sc_cat_item']": {
+        "exists": ""
+      },
+      "form[action*='sc_cat_item.do']": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Request Management|Service Catalog"
+      },
+      "h1": {
+        "text": "Request Management|Service Catalog"
+      }
+    },
+    "js": {
+      "g_service_catalog": "",
+      "spUtil": ""
+    },
+    "implies": [
+      "ServiceNow"
+    ]
+  },
+  "ServiceNow Resource Management": {
+    "description": "ServiceNow Resource Management helps organizations plan capacity, allocate people to work, and track availability and actuals across projects and demands.",
+    "cats": [
+      91,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/resource-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "/now/workspace/.+resource.+management",
+      "/resource_allocation_workbench\\.do"
+    ],
+    "xhr": [
+      "/api/sn_rm_ws/resource_management_workspace/createResourceBoard",
+      "/api/now/table/resource_plan",
+      "/api/now/table/resource_allocation"
+    ],
+    "scriptSrc": [
+      "sn_rm_ws"
+    ],
+    "text": [
+      "Resource Management Workspace",
+      "Resource Allocation Workbench",
+      "Capacity Planning"
+    ],
+    "dom": {
+      "title": {
+        "text": "Resource Management|Capacity Planning"
+      },
+      "h1": {
+        "text": "Resource Management"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Resource Management|Capacity Planning|Resource Allocation"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Security Incident Response": {
+    "description": "ServiceNow Security Incident Response (SIR) is a SecOps application on the Now Platform to triage, investigate, and orchestrate response to security incidents.",
+    "cats": [
+      16,
+      61,
+      13
+    ],
+    "website": "https://www.servicenow.com/products/security-incident-response.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "sn_si_incident\\.do",
+      "sn_si_task\\.do",
+      "sn_sec_cmn_risk_score_weight_list\\.do"
+    ],
+    "xhr": [
+      "/api/now/table/sn_si_incident(?:\\b|/)",
+      "/api/now/table/sn_si_task(?:\\b|/)",
+      "/api/now/table/sn_si_incident_import(?:\\b|/)"
+    ],
+    "text": [
+      "ServiceNow Security Incident Response",
+      "Security Incident Response",
+      "SIR",
+      "SecOps"
+    ],
+    "dom": {
+      "title": {
+        "text": "Security Incident Response|SIR|SecOps"
+      },
+      "h1": {
+        "text": "Security Incident Response"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "SIR|SecOps|Security Incident"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Security Operations (SecOps)": {
+    "description": "ServiceNow Security Operations (SecOps) is a suite for security incident response, vulnerability response, threat intelligence, and security posture management.",
+    "cats": [
+      16,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/security-operations.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "sn_si_",
+      "sn_vul_",
+      "sn_ti_"
+    ],
+    "xhr": [
+      "/api/now/table/sn_si_(?:incident(?:_import)?|task)(?:\\b|/)",
+      "/api/now/table/sn_vul_(?:vulnerable_item|detection|vulnerability|entry|group|ci_scan)(?:\\b|/)",
+      "/api/now/table/sn_ti_(?:observable|case|m2m_task_observable)(?:\\b|/)"
+    ],
+    "text": [
+      "Security Operations",
+      "SecOps",
+      "Vulnerability Response"
+    ],
+    "dom": {
+      "title": {
+        "text": "Security Operations|SecOps"
+      },
+      "h1": {
+        "text": "Security Operations|SecOps"
+      }
+    },
+    "cookies": {
+      "glide_session_store": ".+"
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Service Catalog": {
+    "description": "ServiceNow Service Catalog provides an enterprise storefront for requesting services and products on the Now Platform, typically surfaced via Service Portal or Employee Center.",
+    "cats": [
+      103,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/it-service-automation-applications/service-catalog.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "poa",
+      "recurring"
+    ],
+    "url": [
+      "(?:sp|esc|ec)\\?id=sc_(?:home|category|cat_item|request|req_item|order_guide)",
+      "/com\\.glideapp\\.servicecatalog_cat_item_view\\.do",
+      "/sc_catalog\\.do"
+    ],
+    "xhr": [
+      "/api/sn_sc/(?:v\\d+/)?servicecatalog/(?:items|cart|catalogs|categories)"
+    ],
+    "js": {
+      "g_service_catalog": ""
+    },
+    "text": [
+      "Service Catalog",
+      "SC Order Guide"
+    ],
+    "dom": {
+      "a[href*='?id=sc_cat_item']": {
+        "exists": ""
+      },
+      "a[href*='com.glideapp.servicecatalog']": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Service Catalog"
+      },
+      "h1": {
+        "text": "Service Catalog"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Service Level Management (SLM)": {
+    "description": "ServiceNow Service Level Management (SLM) is a ServiceNow platform application for defining, tracking, and reporting service level agreements (SLAs).",
+    "cats": [
+      103,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/service-level-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "task_sla_list\\.do",
+      "contract_sla_list\\.do",
+      "nav_to\\.do\\?uri=(?:task_sla|contract_sla)"
+    ],
+    "xhr": [
+      "/api/now/(?:v\\d+/)?table/(?:task_sla|contract_sla)(?:\\?|$)"
+    ],
+    "text": [
+      "Show SLA timeline",
+      "SLA Definition",
+      "Task SLA"
+    ],
+    "dom": {
+      "now-sla-timer": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Service Level Management|SLA"
+      },
+      "h1": {
+        "text": "Service Level Management"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Service Level Management|SLA"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "Servicenow Vendor Risk Management": {
+    "description": "ServiceNow Vendor Risk Management (renamed Third-party Risk Management) is a Now Platform application for assessing and monitoring third‑party/vendor risk.",
+    "cats": [
+      16,
+      61,
+      19
+    ],
+    "website": "https://www.servicenow.com/products/vendor-risk-management.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "/(?:svdp|vdp)(?:/|$)"
+    ],
+    "xhr": [
+      "api/now/sp/(?:page\\?.*request_uri=%2F|widget.*)(?:svdp|vdp)"
+    ],
+    "text": [
+      "Vendor Risk Management",
+      "Third-party Risk Management",
+      "Vendor Portal"
+    ],
+    "dom": {
+      "title": {
+        "text": "Vendor Risk Management|Third-party Risk Management|Vendor Portal"
+      },
+      "h1": {
+        "text": "Vendor Risk Management|Third-party Risk Management"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Vendor Risk|TPRM|VRM"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Visual Task Boards": {
+    "description": "Kanban-style boards within ServiceNow to visualize and manage tasks via drag-and-drop lanes, labels, checklists, and activity streams.",
+    "cats": [
+      91,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/visual-task-boards.html",
+    "icon": "ServiceNow.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "(?:^|/)(?:\\$)?vtb\\.do(?:$|[?#])",
+      "nav_to\\.do\\?uri=.*(?:%2F|/)(?:\\$)?vtb\\.do",
+      "(?:^|/)(?:\\$)?vtb_add_to_board\\.do"
+    ],
+    "xhr": [
+      "/api/now/table/vtb_(?:board|card|lane|task|board_member|board_label)(?:[?#]|$)"
+    ],
+    "text": [
+      "Visual Task Boards"
+    ],
+    "dom": {
+      "title": {
+        "text": "Visual Task Boards"
+      },
+      "h1": {
+        "text": "Visual Task Boards"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Visual Task Boards"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
+  },
+  "ServiceNow Vulnerability Response": {
+    "description": "ServiceNow Vulnerability Response (VR) is a Security Operations product that ingests scanner detections, correlates with CMDB context, prioritizes risk, and orchestrates remediation.",
+    "cats": [
+      16,
+      61
+    ],
+    "website": "https://www.servicenow.com/products/vulnerability-response.html",
+    "icon": "ServiceNow-Vulnerability-Response.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "poa",
+      "recurring"
+    ],
+    "url": [
+      "nav_to\\.do\\?uri=sn_vul",
+      "sn_vul_[a-z_]+\\.do",
+      "/now/(?:ui|workspace)/[^?#]*(?:Vulnerability|vulnerability)"
+    ],
+    "xhr": [
+      "/api/now/table/sn_vul_vulnerable_item",
+      "/api/now/table/sn_vulnerability"
+    ],
+    "text": [
+      "ServiceNow Vulnerability Response",
+      "Vulnerability Response Workspace",
+      "IT Remediation Workspace"
+    ],
+    "dom": {
+      "a[href*='sn_vul_']": {
+        "exists": ""
+      },
+      "a[href*='vulnerability-manager']": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Vulnerability Response"
+      },
+      "h1": {
+        "text": "Vulnerability Response"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Vulnerability Response"
+      }
+    },
+    "implies": [
+      "ServiceNow"
+    ],
+    "requires": [
+      "ServiceNow"
+    ],
+    "excludes": []
   },
   "Setmore": {
     "cats": [
@@ -3957,6 +5556,58 @@
       "\\.myshopify\\.com"
     ]
   },
+  "Shopify Basic": {
+    "description": "Shopify Basic is the entry-level plan of Shopify’s hosted ecommerce platform.",
+    "cats": [
+      6,
+      61
+    ],
+    "website": "https://www.shopify.com/pricing",
+    "icon": "Shopify.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "url": [
+      "^https?://[^/]+\\.myshopify\\.com(?:/|$)"
+    ],
+    "headers": {
+      "x-shopify-stage": ".+",
+      "x-sorting-hat-shopid": ".+"
+    },
+    "cookies": {
+      "secure_customer_sig": "",
+      "_shopify_y": "",
+      "_shopify_s": "",
+      "cart_sig": ""
+    },
+    "js": {
+      "Shopify.routes.root": "",
+      "Shopify": ""
+    },
+    "scriptSrc": [
+      "cdn\\.shopify\\.com/shopifycloud/boomerang/shopify-boomerang-[0-9.]+(?:\\.min)?\\.js",
+      "cdn\\.shopify\\.com/shopifycloud/.*"
+    ],
+    "dom": {
+      "div[id^='shopify-section-']": {
+        "exists": ""
+      },
+      "link[href*='cdn.shopify.com/s/files/']": {
+        "exists": ""
+      }
+    },
+    "xhr": [
+      "/cart\\.js"
+    ],
+    "implies": [
+      "Shopify"
+    ],
+    "requires": [],
+    "excludes": []
+  },
   "Shopify Buy Button": {
     "cats": [
       100
@@ -3973,6 +5624,85 @@
       "sdk\\. shopifycdn\\.com/buy-button/latest/"
     ],
     "website": "https://apps.shopify.com/buy-button"
+  },
+  "Shopify Business": {
+    "description": "Shopify is a hosted ecommerce platform for building and running online stores, checkout, and POS.",
+    "cats": [
+      6,
+      61
+    ],
+    "website": "https://www.shopify.com/",
+    "icon": "Shopify.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "recurring",
+      "mid",
+      "high"
+    ],
+    "url": [
+      "myshopify\\.com"
+    ],
+    "xhr": [
+      "/cart(?:/add|/update|/change|/clear)?\\.js",
+      "/search/suggest\\.json",
+      "/recommendations/products\\.json",
+      "/api/[0-9]{4}-[0-9]{2}/graphql\\.json",
+      "monorail-edge\\.shopifysvc\\.com/(?:v1|unstable)/produce(?:_batch)?"
+    ],
+    "headers": {
+      "X-Shopify-Stage": ".+",
+      "X-Sorting-Hat-PodId": ".+",
+      "X-Storefront-Renderer-Rendered": ".+",
+      "X-ShopId": ".+",
+      "Powered-By": "Shopify",
+      "X-Shopify-API-Version": ".+"
+    },
+    "cookies": {
+      "secure_customer_sig": ".+",
+      "cart_currency": ".+",
+      "cart_sig": ".+",
+      "storefront_digest": ".+",
+      "localization": ".+",
+      "keep_alive": ".+",
+      "_shop_app_essential": ".+",
+      "_shopify_essential": ".+",
+      "_shopify_s": ".+\\;confidence:5",
+      "_shopify_y": ".+\\;confidence:5",
+      "shopify_pay_redirect": ".+"
+    },
+    "scriptSrc": [
+      "cdn\\.shopify\\.com/.*\\.(?:js|mjs)(?:\\?.*)?$",
+      "cdn\\.shopify\\.com/shopifycloud/.*\\.(?:js|mjs)(?:\\?.*)?$",
+      "fonts\\.shopifycdn\\.com/.*"
+    ],
+    "js": {
+      "Shopify.shop": "",
+      "Shopify.routes.root": "",
+      "Shopify.cdnHost": "",
+      "Shopify.theme.name": "",
+      "ShopifyAnalytics.meta.page.pageType": ""
+    },
+    "dom": {
+      "div[id^=\"shopify-section-\"]": {
+        "exists": ""
+      }
+    },
+    "text": [
+      "Powered by Shopify"
+    ],
+    "css": [
+      "\\.shopify-section"
+    ],
+    "meta": {
+      "shopify-digital-wallet": ".+"
+    },
+    "implies": [
+      "Cloudflare",
+      "Ruby on Rails"
+    ],
+    "requires": [],
+    "excludes": []
   },
   "Shopify Chat": {
     "cats": [
@@ -4004,6 +5734,43 @@
     ],
     "website": "https://apps.shopify.com/customer-privacy-banner"
   },
+  "Shopify Dormant": {
+    "description": "Shopify storefronts in a paused/frozen (dormant) state, typically displaying 'This shop is currently unavailable'.",
+    "cats": [
+      6,
+      61
+    ],
+    "website": "https://help.shopify.com/en/manual/your-account/manage-orgs-and-stores/manage-pricing-plan/pause-store",
+    "icon": "Shopify.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "headers": {
+      "X-Sorting-Hat-ShopId": ".+",
+      "X-ShopId": ".+",
+      "X-ShardId": ".+",
+      "X-Shopify-Stage": "(?:production|canary)"
+    },
+    "dom": {
+      "h1": {
+        "text": "(?:Sorry,\\s*)?This shop is currently unavailable!?"
+      },
+      "title": {
+        "text": "Only one step left!"
+      }
+    },
+    "text": [
+      "This shop is currently unavailable",
+      "Create an Ecommerce Website and Sell Online! Ecommerce Software by Shopify"
+    ],
+    "requires": [
+      "Shopify"
+    ],
+    "excludes": []
+  },
   "Shopify Geolocation App": {
     "cats": [
       100,
@@ -4018,6 +5785,68 @@
       "geolocation-recommendations\\.shopifycloud\\.com/"
     ],
     "website": "https://apps.shopify.com/geolocation"
+  },
+  "Shopify Hosted": {
+    "description": "Hosted online-store platform by Shopify (Liquid themes). Identifies storefronts running on Shopify’s Online Store rather than headless.",
+    "cats": [
+      6,
+      61,
+      88
+    ],
+    "website": "https://www.shopify.com/",
+    "icon": "Shopify.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "recurring",
+      "mid",
+      "enterprise"
+    ],
+    "url": [
+      "^https?://[^/]+\\.myshopify\\.com(?:/|$)"
+    ],
+    "headers": {
+      "x-shopify-stage": ".+",
+      "x-sorting-hat-shopid": ".+",
+      "x-shopid": ".+"
+    },
+    "cookies": {
+      "secure_customer_sig": ".+",
+      "cart_sig": ".+",
+      "storefront_digest": ".+",
+      "_secure_session_id": ".+",
+      "shopify_pay_redirect": ".+"
+    },
+    "scriptSrc": [
+      "cdn\\.shopify\\.com/shopifycloud/consent-tracking-api(?:/v[0-9.]+)?/consent-tracking-api\\.js",
+      "cdn\\.shopify\\.com/shopifycloud/privacy-banner/storefront-banner\\.js",
+      "cdn\\.shopify\\.com/s/files/1/\\d{1,12}/\\d{1,12}/t/\\d+/assets/.*\\.js"
+    ],
+    "xhr": [
+      "/cart\\.js"
+    ],
+    "js": {
+      "Shopify.routes.root": "\\/",
+      "Shopify.theme.name": ".+"
+    },
+    "dom": {
+      "div.shopify-section": {
+        "exists": ""
+      },
+      "[id^='shopify-section-']": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "shopify-digital-wallet": ".+"
+    },
+    "implies": [
+      "Shopify"
+    ],
+    "excludes": [
+      "Hydrogen"
+    ],
+    "requires": []
   },
   "Shopify Product Reviews": {
     "cats": [
@@ -4036,6 +5865,51 @@
       "productreviews\\.shopifycdn\\.com"
     ],
     "website": "https://apps.shopify.com/product-reviews"
+  },
+  "Shopify Npo": {
+    "description": "Shopify Nonprofit (NPO) plans — discounted Shopify subscription tiers for verified charities.",
+    "cats": [
+      6,
+      61
+    ],
+    "website": "https://www.shopify.com/nonprofits",
+    "icon": "Shopify.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "recurring",
+      "low",
+      "mid"
+    ],
+    "headers": {
+      "X-Shopify-Stage": ".+"
+    },
+    "scriptSrc": [
+      "cdn\\.shopify\\.com"
+    ],
+    "text": [
+      "Registered Charity",
+      "501\\(c\\)\\(3\\)",
+      "Non-profit organization",
+      "Nonprofit organization"
+    ],
+    "dom": {
+      "meta[name=\"keywords\"]": {
+        "content": "charity|nonprofit|ngo|philanthropy|fundraising"
+      },
+      "meta[name=\"description\"]": {
+        "content": "charity|nonprofit|ngo|501\\(c\\)\\(3\\)"
+      },
+      "footer": {
+        "text": "Charity|Non-profit|Nonprofit|501\\(c\\)\\(3\\)"
+      }
+    },
+    "implies": [
+      "Shopify"
+    ],
+    "requires": [
+      "Shopify"
+    ]
   },
   "Shopistry": {
     "cats": [
@@ -7296,6 +9170,124 @@
       "trk\\.softwaresuggest\\.com"
     ],
     "website": "https://www.softwaresuggest.com"
+  },
+  "Software AG CentraSite": {
+    "cats": [
+      47,
+      19
+    ],
+    "description": "CentraSite is an enterprise SOA/API governance registry and metadata repository (originally by Software AG, now IBM) providing lifecycle, policy, and asset management.",
+    "dom": {
+      "h1": {
+        "text": "CentraSite"
+      },
+      "title": {
+        "text": "CentraSite"
+      }
+    },
+    "icon": "CentraSite.svg",
+    "implies": [],
+    "oss": false,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "saas": false,
+    "scriptSrc": [
+      "/BusinessUI/.*"
+    ],
+    "text": [
+      "CentraSite"
+    ],
+    "url": [
+      ":53307/",
+      "/(?:BusinessUI|CentraSite/CentraSite|PluggableUI/Control)(?:/|$)"
+    ],
+    "website": "https://www.ibm.com/docs/en/centrasite",
+    "xhr": [
+      "/CentraSite/CentraSite",
+      "/PluggableUI/Control"
+    ]
+  },
+  "Software AG NATURAL": {
+    "description": "Software AG Natural is a 4GL application development environment. On the web it surfaces via Natural for Ajax and the Natural Web I/O Interface.",
+    "cats": [
+      27,
+      18
+    ],
+    "website": "https://www.softwareag.com/en/resources/adabas-natural/application-development-natural-for-zos/",
+    "icon": "SoftwareAG-Natural.svg",
+    "oss": false,
+    "saas": false,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "(?:^|/)(?:cisnatural|natuniweb|cis)/"
+    ],
+    "xhr": [
+      "(?:cisnatural|cis)/servlet/StartCISPage",
+      "natuniweb/(?:natural\\.jsp|conf_index\\.jsp)"
+    ],
+    "scriptSrc": [
+      "natuni(?:c)?script\\.js",
+      "/cisnatural/scripts/",
+      "/natuniweb/scripts/"
+    ],
+    "text": [
+      "Software AG Natural",
+      "Natural for Ajax",
+      "njxruntimetoolsmain.html",
+      "NatLogon.html"
+    ],
+    "dom": {
+      "title": {
+        "text": "Software AG Natural|Natural for Ajax"
+      },
+      "h1": {
+        "text": "Software AG Natural|Natural for Ajax"
+      }
+    },
+    "implies": [],
+    "requires": [],
+    "excludes": []
+  },
+  "Software AG Terracotta": {
+    "description": "Distributed in-memory data platform and clustered cache by Software AG (Terracotta Server / Terracotta DB).",
+    "cats": [
+      23,
+      34
+    ],
+    "website": "https://www.terracotta.org/",
+    "icon": "Terracotta.svg",
+    "oss": true,
+    "saas": false,
+    "pricing": [
+      "free",
+      "poa",
+      "enterprise"
+    ],
+    "xhr": [
+      "tc-management-api(?:/v2)?/"
+    ],
+    "text": [
+      "Terracotta Management Console",
+      "Terracotta Server",
+      "Terracotta DB"
+    ],
+    "dom": {
+      "title": {
+        "text": "Terracotta Management Console|Terracotta Server"
+      }
+    },
+    "implies": [
+      "Java"
+    ],
+    "requires": [],
+    "excludes": []
   },
   "Soisy": {
     "cats": [

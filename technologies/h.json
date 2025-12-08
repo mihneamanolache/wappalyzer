@@ -837,6 +837,47 @@
     "saas": true,
     "website": "https://helixo.co/upsell-funnel-engine/"
   },
+  "Helm": {
+    "description": "Helm is the open-source package manager for Kubernetes that uses versioned Charts.",
+    "cats": [
+      60,
+      47
+    ],
+    "website": "https://helm.sh",
+    "icon": "Helm.svg",
+    "oss": true,
+    "saas": false,
+    "pricing": [
+      "free"
+    ],
+    "cpe": "cpe:2.3:a:helm:helm:*:*:*:*:*:*:*:*",
+    "url": [
+      ".*/index\\.yaml$",
+      ".*/charts/.*\\.tgz(?:\\?|$)",
+      ".*/chartrepo/index\\.yaml$"
+    ],
+    "headers": {
+      "content-type": "(?:text|application)/(?:x-)?ya?ml"
+    },
+    "text": [
+      "apiVersion: v1",
+      "entries:"
+    ],
+    "dom": {
+      "title": {
+        "text": "Helm"
+      },
+      "h1": {
+        "text": "Helm"
+      },
+      "meta[name=\"description\"]": {
+        "content": "Kubernetes Package Manager"
+      }
+    },
+    "implies": [],
+    "requires": [],
+    "excludes": []
+  },
   "Hello Bar": {
     "cats": [
       5

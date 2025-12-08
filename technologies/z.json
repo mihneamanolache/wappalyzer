@@ -353,6 +353,56 @@
     ],
     "website": "https://zendesk.com"
   },
+  "Zendesk Answer Bot": {
+    "description": "Zendesk Answer Bot is a machine-learning virtual assistant (now part of Zendesk AI agents) that recommends Help Center articles and automates customer support.",
+    "cats": [
+      52,
+      103,
+      99,
+      61
+    ],
+    "website": "https://developer.zendesk.com/api-reference/answer-bot/answer-bot-api/",
+    "icon": "Zendesk.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "recurring",
+      "payg",
+      "enterprise"
+    ],
+    "cookies": {
+      "_answer_bot_service_session": ".+"
+    },
+    "js": {
+      "zESettings.webWidget.answerBot": ""
+    },
+    "xhr": [
+      "/api/v2/answer_bot/(?:answers/articles|rejection|resolution)"
+    ],
+    "scriptSrc": [
+      "static\\.zdassets\\.com/ekr/snippet\\.js\\;confidence:10"
+    ],
+    "html": [
+      "webWidget\\s*:\\s*\\{[\\s\\S]*?answerBot"
+    ],
+    "text": [
+      "Zendesk Answer Bot",
+      "Zendesk AI agents"
+    ],
+    "dom": {
+      "title": {
+        "text": "Answer Bot|Zendesk AI agents"
+      },
+      "h1": {
+        "text": "Answer Bot|Zendesk AI agents"
+      }
+    },
+    "implies": [
+      "Zendesk"
+    ],
+    "requires": [],
+    "excludes": []
+  },
   "Zendesk Chat": {
     "cats": [
       52

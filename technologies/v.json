@@ -1906,6 +1906,58 @@
     ],
     "website": "https://www.vizury.com"
   },
+  "VMware Tanzu": {
+    "description": "VMware Tanzu is a cloud-native application platform from Broadcom that unifies and manages application runtimes (Cloud Foundry and Kubernetes).",
+    "cats": [
+      62,
+      61
+    ],
+    "website": "https://tanzu.vmware.com",
+    "icon": "VMwareTanzu.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "recurring",
+      "enterprise",
+      "poa"
+    ],
+    "url": [
+      "^https?://(?:[a-z0-9-]+\\.)?tmc\\.cloud\\.vmware\\.com/?"
+    ],
+    "xhr": [
+      "tmc\\.cloud\\.vmware\\.com"
+    ],
+    "headers": {
+      "X-VCAP-Request-ID": ".+",
+      "X-Cf-Routererror": ".+",
+      "X-Cf-App-Instance": ".+",
+      "X-Cf-Process-Instance": ".+",
+      "X-CF-Forwarded-Url": ".+",
+      "X-CF-Proxy-Signature": ".+",
+      "X-CF-Proxy-Metadata": ".+"
+    },
+    "cookies": {
+      "X-Uaa-Csrf": ".+"
+    },
+    "text": [
+      "404 Not Found: Requested route \\('.*?'\\) does not exist\\.",
+      "VMware Tanzu"
+    ],
+    "dom": {
+      "title": {
+        "text": "VMware Tanzu|Tanzu"
+      },
+      "h1": {
+        "text": "VMware Tanzu|Tanzu"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Tanzu|VMware"
+      }
+    },
+    "implies": [],
+    "requires": [],
+    "excludes": []
+  },
   "Vnda": {
     "cats": [
       6

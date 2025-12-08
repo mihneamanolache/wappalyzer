@@ -596,6 +596,87 @@
     ],
     "website": "https://www.datadoghq.com"
   },
+  "Databricks (AWS)": {
+    "description": "Databricks workspace hosted on AWS. Detects *.cloud.databricks.com (and PrivateLink) plus characteristic REST API calls.",
+    "website": "https://docs.databricks.com/aws/",
+    "icon": "Databricks.svg",
+    "oss": false,
+    "saas": true,
+    "cats": [10, 34],
+    "url": [
+      "\\.cloud\\.databricks\\.com($|/)",
+      "\\.privatelink\\.cloud\\.databricks\\.com($|/)",
+      "accounts\\.cloud\\.databricks\\.com($|/)"
+    ],
+    "xhr": [
+      "/api/2\\.0/",
+      "/api/2\\.1/",
+      "/api/2\\.0/preview/"
+    ],
+    "scriptSrc": [
+      "databricks-prod-cloudfront\\.cloud\\.databricks\\.com"
+    ],
+    "pricing": ["enterprise"]
+  },
+  "Databricks": {
+    "description": "Databricks is a unified data, analytics, and AI platform (Lakehouse) offering managed data engineering, SQL, and machine learning workloads.",
+    "cats": [
+      10,
+      99,
+      101,
+      102,
+      61,
+      62
+    ],
+    "website": "https://www.databricks.com",
+    "icon": "Databricks.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "(?:azuredatabricks\\.net|cloud\\.databricks\\.com|gcp\\.databricks\\.com|databricksapps\\.com)"
+    ],
+    "xhr": [
+      "/api/2\\.[01]/(?:jobs|clusters|dbfs|workspace|permissions|sql|secrets|mlflow|serving-endpoints)(?:/|$)"
+    ],
+    "headers": {
+      "server": "databricks",
+      "x-databricks-reason-phrase": ".+",
+      "x-databricks-account-console-api-version": ".+"
+    },
+    "scriptSrc": [
+      "ui-assets\\.(?:cloud|gcp)\\.databricks\\.com/.+",
+      "ui-assets\\.azuredatabricks\\.net/.+",
+      "databricks-ui-assets[^/]*\\.azurefd\\.net/.+",
+      "(?:^|/)static/js/login/login\\.[a-f0-9]+\\.js",
+      "\\.cloud\\.databricksusercontent\\.com/.+"
+    ],
+    "text": [
+      "Databricks - Sign In",
+      "Databricks Lakehouse",
+      "Data Intelligence Platform"
+    ],
+    "dom": {
+      "title": {
+        "text": "Databricks"
+      },
+      "h1": {
+        "text": "Databricks"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Databricks|Lakehouse|Apache Spark"
+      }
+    },
+    "implies": [
+      "Delta Lake"
+    ],
+    "requires": [],
+    "excludes": []
+  },
   "Datalitics": {
     "cats": [
       32
@@ -1016,6 +1097,44 @@
       "cdn\\.delm\\.io/"
     ],
     "website": "https://delm.io"
+  },
+  "Delta Lake": {
+    "description": "Open-source table storage framework that adds ACID transactions, scalable metadata, and time travel to data lakes by maintaining a transaction log.",
+    "cats": [
+      34
+    ],
+    "website": "https://delta.io/",
+    "icon": "DeltaLake.svg",
+    "oss": true,
+    "saas": false,
+    "pricing": [
+      "free"
+    ],
+    "url": [
+      "(?:^|/)_delta_log/(?:$|[0-9]{20}\\.json|[0-9]{20}\\.checkpoint|.*parquet|_last_checkpoint)",
+      "(?:^|/)_change_data/(?:$|cdc-[^/]+\\.parquet)"
+    ],
+    "xhr": [
+      "/_delta_log/_last_checkpoint",
+      "/_delta_log/.*\\.json"
+    ],
+    "text": [
+      "Delta Lake",
+      "_delta_log"
+    ],
+    "dom": {
+      "title": {
+        "text": "Delta Lake"
+      },
+      "h1": {
+        "text": "Delta Lake"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Delta Lake|Lakehouse"
+      }
+    },
+    "requires": [],
+    "excludes": []
   },
   "Dema": {
     "cats": [
@@ -2747,6 +2866,54 @@
       "\\.bizible\\.com/"
     ],
     "website": "https://dreamdata.io"
+  },
+  "Dremio": {
+    "description": "Dremio is a lakehouse platform and SQL query engine for federated analytics across data lakes, warehouses, and databases.",
+    "cats": [
+      34,
+      102,
+      101,
+      61
+    ],
+    "website": "https://www.dremio.com/",
+    "icon": "Dremio.svg",
+    "oss": true,
+    "saas": true,
+    "pricing": [
+      "freemium",
+      "payg",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "https?://(?:app|app\\.eu|api|api\\.eu|login|sql|data|catalog|scim)\\.dremio\\.cloud(?:/|$)",
+      ":9047(?:/|$)"
+    ],
+    "xhr": [
+      "/apiv2/(?:server_status|login|socket)",
+      "api(?:\\.eu)?\\.dremio\\.cloud"
+    ],
+    "scriptSrc": [
+      "app(?:\\.eu)?\\.dremio\\.cloud/.*"
+    ],
+    "text": [
+      "Dremio Cloud",
+      "Dremio Software",
+      "Dremio Lakehouse"
+    ],
+    "dom": {
+      "title": {
+        "text": "Dremio"
+      },
+      "h1": {
+        "text": "Dremio"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Dremio"
+      }
+    },
+    "requires": [],
+    "excludes": []
   },
   "Drift": {
     "cats": [

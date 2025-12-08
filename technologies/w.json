@@ -3509,6 +3509,55 @@
     "saas": true,
     "website": "https://www.workarea.com"
   },
+  "Workday Integration Cloud Platform": {
+    "description": "Workday Integration Cloud provides enterprise-grade tools and managed runtime to build, run, and monitor integrations using Workday Web Services.",
+    "cats": [
+      102,
+      61
+    ],
+    "website": "https://www.workday.com/en-us/products/platform-product-extensions/integrations.html",
+    "icon": "Workday.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "url": [
+      "^(?:https?:\\/\\/)?(?:wd\\d+(?:-impl)?-services\\d+\\.|services\\d+\\.)?(?:myworkday|workday)\\.com(?:\\/|$)"
+    ],
+    "xhr": [
+      "^https?://(?:[\\w-]+\\.)?(?:workday|myworkday)\\.com/ccx/service/[^\\s\"'<>]+$",
+      "^https?://(?:[\\w-]+\\.)?(?:workday|myworkday)\\.com/ccx/api/(?:v\\d+(?:\\.\\d+)?/)?[^\\s\"'<>]+$",
+      "^https?://(?:[\\w-]+\\.)?(?:workday|myworkday)\\.com/ccx/oauth2/[^/]+/token(?:\\b|/|\\?)"
+    ],
+    "text": [
+      "Workday Integration Cloud",
+      "Workday Web Services",
+      "Workday Studio"
+    ],
+    "dom": {
+      "a[href*=\"/ccx/service/\"]": {
+        "exists": ""
+      },
+      "a[href*=\"/ccx/api/\"]": {
+        "exists": ""
+      },
+      "form[action*=\"/ccx/oauth2/\"]": {
+        "exists": ""
+      },
+      "title": {
+        "text": "Workday Integration Cloud"
+      },
+      "h1": {
+        "text": "Workday Integration Cloud"
+      }
+    },
+    "implies": [],
+    "requires": [],
+    "excludes": []
+  },
   "Workstand": {
     "cats": [
       6,
