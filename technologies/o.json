@@ -1601,6 +1601,58 @@
     ],
     "website": "https://openresty.org"
   },
+  "Open Source Presto": {
+    "description": "Presto (PrestoDB) is an open-source distributed SQL query engine for interactive analytics that queries data across multiple sources via a REST API.",
+    "cats": [
+      34,
+      10,
+      102
+    ],
+    "website": "https://prestodb.io",
+    "icon": "Presto.svg",
+    "oss": true,
+    "saas": false,
+    "pricing": [
+      "free"
+    ],
+    "url": [
+      ".*/ui/dev/index\\.html",
+      ".*/ui/",
+      ".*/v1/info"
+    ],
+    "xhr": [
+      "/v1/(?:statement|query|task|info|cluster|node)"
+    ],
+    "headers": {
+      "x-presto-(?:set-catalog|set-schema|set-session|clear-session|set-role|started-transaction-id)": ".+"
+    },
+    "scriptSrc": [
+      "/ui/.*\\.(?:js|css)"
+    ],
+    "text": [
+      "Presto Console",
+      "Query Viewer",
+      "SQL Client"
+    ],
+    "dom": {
+      "title": {
+        "text": "Presto|PrestoDB"
+      },
+      "h1": {
+        "text": "Presto"
+      },
+      "meta[name=\"description\"]": {
+        "content": "Distributed SQL|Presto"
+      }
+    },
+    "implies": [
+      "Java"
+    ],
+    "requires": [],
+    "excludes": [
+      "Trino"
+    ]
+  },
   "OpenSSL": {
     "cats": [
       33

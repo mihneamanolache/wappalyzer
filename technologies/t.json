@@ -1558,6 +1558,54 @@
     "icon": "Tengine.png",
     "website": "https://tengine.taobao.org"
   },
+  "Teradata Vantage": {
+    "description": "Teradata Vantage (VantageCloud) is an enterprise cloud data and analytics platform with ClearScape Analytics.",
+    "cats": [
+      34,
+      61,
+      99
+    ],
+    "website": "https://www.teradata.com/platform/vantagecloud",
+    "icon": "TeradataVantage.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg",
+      "enterprise",
+      "poa"
+    ],
+    "url": [
+      "innovationlabs\\.teradata\\.com",
+      "clearscape\\.teradata\\.com"
+    ],
+    "xhr": [
+      "/(?:api/query|qs)/systems/[^/]+/(?:queries|sessions|databases|views)",
+      "systems?/[^/]+/queries",
+      ":(?:1443|8443)/(?:api/query|qs)/systems/"
+    ],
+    "headers": {
+      "content-type": "application/vnd\\.com\\.teradata\\.rest-v1\\.0\\+json"
+    },
+    "text": [
+      "Teradata Vantage",
+      "VantageCloud",
+      "ClearScape Analytics"
+    ],
+    "dom": {
+      "title": {
+        "text": "Teradata Vantage|VantageCloud"
+      },
+      "h1": {
+        "text": "Teradata Vantage|VantageCloud"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Teradata Vantage|VantageCloud"
+      }
+    },
+    "implies": [],
+    "requires": [],
+    "excludes": []
+  },
   "TerMed": {
     "cats": [
       72
@@ -4183,6 +4231,53 @@
       "//trinitymedia\\.ai/"
     ],
     "website": "https://www.trinityaudio.ai"
+  },
+  "Trino": {
+    "description": "Trino (formerly PrestoSQL) is an open-source distributed SQL query engine for analytics across data lakes and warehouses.",
+    "cats": [
+      34,
+      10,
+      102
+    ],
+    "website": "https://trino.io",
+    "icon": "Trino.svg",
+    "oss": true,
+    "saas": false,
+    "pricing": [
+      "free"
+    ],
+    "url": [
+      ".*/ui/login\\.html",
+      ".*/ui/index\\.html"
+    ],
+    "xhr": [
+      "/v1/(?:info|status|statement|query|cluster|node)"
+    ],
+    "headers": {
+      "X-Trino-(?:Set-Session|Clear-Session|Set-Role|Transaction-Id|Set-Catalog|Set-Schema|User)": ".+"
+    },
+    "text": [
+      "Trino Console",
+      "Trino Coordinator"
+    ],
+    "dom": {
+      "title": {
+        "text": "Trino"
+      },
+      "h1": {
+        "text": "Trino"
+      },
+      "meta[name=\"description\"]": {
+        "content": "Trino"
+      }
+    },
+    "implies": [
+      "Java"
+    ],
+    "requires": [],
+    "excludes": [
+      "Open Source Presto"
+    ]
   },
   "Tripadviser.Widget": {
     "cats": [

@@ -2538,6 +2538,53 @@
     ],
     "website": "https://support.google.com/merchants/answer/7105655?hl=en"
   },
+  "Google Dataproc": {
+    "description": "Managed Apache Spark and Hadoop service on Google Cloud providing cluster-based and serverless batch processing.",
+    "cats": [
+      62,
+      101,
+      102
+    ],
+    "website": "https://cloud.google.com/dataproc",
+    "icon": "GoogleDataproc.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg",
+      "enterprise"
+    ],
+    "url": [
+      "\\.dataproc\\.googleusercontent\\.com",
+      "dataproc\\.googleapis\\.com"
+    ],
+    "xhr": [
+      "dataproc\\.googleapis\\.com"
+    ],
+    "js": {
+      "gapi.client.dataproc": ""
+    },
+    "text": [
+      "Google Dataproc",
+      "Dataproc Serverless"
+    ],
+    "dom": {
+      "title": {
+        "text": "Dataproc"
+      },
+      "h1": {
+        "text": "Dataproc"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Dataproc|Hadoop|Spark|Google Cloud"
+      }
+    },
+    "implies": [
+      "Google Cloud",
+      "Google APIs"
+    ],
+    "requires": [],
+    "excludes": []
+  },
   "Google Font API": {
     "cats": [
       17
@@ -2574,6 +2621,55 @@
     ],
     "icon": "Google Forms.svg",
     "website": "https://www.google.com/forms/about/"
+  },
+  "Google GKE": {
+    "description": "Google Kubernetes Engine (GKE) is Google Cloud’s managed Kubernetes service for deploying, scaling and operating containerized applications.",
+    "cats": [
+      60,
+      62,
+      88
+    ],
+    "website": "https://cloud.google.com/kubernetes-engine",
+    "icon": "GoogleGKE.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg",
+      "recurring",
+      "poa",
+      "enterprise"
+    ],
+    "headers": {
+      "via": "^1\\.1 google",
+      "x-cloud-trace-context": "^[0-9a-f]{32}/\\d+",
+      "x-kubernetes-pf-flowschema-uid": ".+",
+      "x-kubernetes-pf-prioritylevel-uid": ".+"
+    },
+    "cookies": {
+      "GCLB": ".+"
+    },
+    "text": [
+      "default backend - 404",
+      "Google Kubernetes Engine",
+      "GKE"
+    ],
+    "dom": {
+      "title": {
+        "text": "Google Kubernetes Engine|GKE"
+      },
+      "h1": {
+        "text": "Google Kubernetes Engine|GKE"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "GKE|Kubernetes|Google Cloud"
+      }
+    },
+    "implies": [
+      "Google Cloud"
+    ],
+    "excludes": [
+      "Google App Engine"
+    ]
   },
   "Google Hosted Libraries": {
     "cats": [

@@ -1650,6 +1650,100 @@
     ],
     "website": "https://www.pendo.io"
   },
+  "PeopleSoft Program Management": {
+    "description": "Oracle PeopleSoft Program Management provides tools to plan and manage programs, projects, resources, forecasting, risks and reporting.",
+    "cats": [
+      91
+    ],
+    "website": "https://docs.oracle.com/cd/E40049_01/psft/html/doclist.html",
+    "icon": "Oracle-PeopleSoft.svg",
+    "oss": false,
+    "saas": false,
+    "pricing": [
+      "enterprise",
+      "poa"
+    ],
+    "url": [
+      "(?:^|/)(?:psp|psc)/[^/]+/(?:EMPLOYEE|HRMS|FSCM|FINANCIALS|ERP|CS)/c/PGM_[A-Z0-9_]+\\.GBL",
+      "(?:^|/)(?:psp|psc)/[^/]+/(?:EMPLOYEE|HRMS|FSCM|FINANCIALS|ERP|CS)/c/PROJECT_GEN_02\\.GBL"
+    ],
+    "xhr": [
+      "/PSIGW/PeopleSoftServiceListeningConnector"
+    ],
+    "cookies": {
+      "PS_TOKEN": ".+",
+      "PS_DEVICEFEATURES": ".*",
+      "PS_LOGINLIST": ".*"
+    },
+    "dom": {
+      "title": {
+        "text": "PeopleSoft Program Management|PeopleSoft.*Program"
+      },
+      "span[id*=\"PGM_\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "PeopleSoft Program Management",
+      "keywords": "PeopleSoft|Program Management"
+    },
+    "implies": [
+      "PeopleSoft"
+    ],
+    "requires": [
+      "PeopleSoft"
+    ],
+    "excludes": []
+  },
+  "Peoplesoft Project Portfolio Management": {
+    "description": "Oracle PeopleSoft Project Portfolio Management (PPM) helps organizations evaluate, prioritize, and monitor project requests and portfolios.",
+    "cats": [
+      91,
+      19
+    ],
+    "website": "https://www.oracle.com/us/products/applications/peoplesoft-enterprise/financial-management/061830.html",
+    "icon": "Oracle-PeopleSoft.svg",
+    "oss": false,
+    "saas": false,
+    "pricing": [
+      "enterprise",
+      "poa",
+      "recurring"
+    ],
+    "url": [
+      "(?:psp|psc)/.+?/c/.+(?:BC_PROJ_REQUEST|BC_EST_COST_BENFT|BC_PROJ_ROL_ST|PPK_INITYPE_TBL|PGM_VIEW_EPT|PROJECT_GENERAL)\\.GBL(?:\\?|$)"
+    ],
+    "xhr": [
+      "/PSIGW/(?:RESTListeningConnector|PeopleSoftListeningConnector|HttpListeningConnector)(?:/|$)"
+    ],
+    "dom": {
+      "title": {
+        "text": "PeopleSoft Project Portfolio Management|Project Portfolio Management"
+      },
+      "h1": {
+        "text": "PeopleSoft Project Portfolio Management|Project Portfolio Management"
+      },
+      "span[id*=\"BC_PROJ_REQUEST\"]": {
+        "exists": ""
+      },
+      "div[id*=\"win0divBC_PROJ_\"]": {
+        "exists": ""
+      },
+      "p": {
+        "text": "PeopleSoft Project Portfolio Management"
+      }
+    },
+    "meta": {
+      "keywords": "PeopleSoft Project Portfolio Management",
+      "description": "Project Portfolio Management"
+    },
+    "implies": [
+      "PeopleSoft"
+    ],
+    "requires": [
+      "PeopleSoft"
+    ]
+  },
   "Pepperjam": {
     "cats": [
       71

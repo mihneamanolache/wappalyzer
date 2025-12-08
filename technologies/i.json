@@ -370,6 +370,85 @@
     "saas": true,
     "website": "https://ifdo.co.kr/"
   },
+  "IFS Aircraft Maintenance & Engineering": {
+    "description": "IFS Aircraft Maintenance & Engineering (IFS Maintenix) is an aviation maintenance and engineering (M&E) management system for airlines, MROs, and defense operators.",
+    "cats": [
+      61,
+      100,
+      19
+    ],
+    "website": "https://www.ifs.com/industries/aerospace-and-defense",
+    "icon": "IFS.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "poa",
+      "recurring"
+    ],
+    "cpe": "",
+    "url": [
+      "\\/(?:maintenix|mcmapi|mxapi|mxapiext|mxcorews|jobcard\\-management\\-api|recxfrapi|wpl\\-web|amapi|lmocweb|aerobuy|arc|procurement|pubsub)(?:\\/|$)",
+      "/maintenix/common/security/login\\.jsp"
+    ],
+    "xhr": [
+      "mcmapi\\/",
+      "mxapi\\/",
+      "pubsub\\/"
+    ],
+    "dom": {
+      "title": {
+        "text": "Maintenix|IFS Maintenix|Aviation Maintenance|Aerospace.*Defense|IFS Cloud"
+      },
+      "form[action*=\"/maintenix/\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "Maintenix|IFS Maintenix|Aviation Maintenance|MRO|Aerospace.*Defense",
+      "keywords": "Maintenix|IFS|Aviation|Aircraft Maintenance|Aerospace"
+    }
+  },
+  "IFS Enterprise Asset Management": {
+    "description": "IFS Cloud EAM (Enterprise Asset Management) — asset lifecycle, maintenance and reliability management as part of the IFS Cloud suite.",
+    "cats": [
+      100,
+      61
+    ],
+    "website": "https://www.ifs.com/solutions/ifs-cloud-eam",
+    "icon": "IFS.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "enterprise",
+      "poa",
+      "recurring"
+    ],
+    "url": [
+      "/(?:main|b2b|int)/ifsapplications/.*",
+      "/main/ifsapplications/web/iconlibrary",
+      "/main/ifsapplications/projection/v1/AllProjections\\.svc/Projections",
+      "/main/ifsapplications/projection/oauth2/callback/"
+    ],
+    "xhr": [
+      "/(?:main|b2b|int)/ifsapplications/(?:projection|entity)/v1/[^/]+\\.svc(?:/|\\?|$)",
+      "/(?:main|b2b|int)/ifsapplications/projection/v1/AllProjections\\.svc/Projections",
+      "/int/ifsapplications/projection/v1/[^/]+\\.svc/(?:\\$openapi|\\$batch)"
+    ],
+    "scriptSrc": [
+      "/main/ifsapplications/web/main\\.[a-f0-9]{8,}\\.js",
+      "/main/ifsapplications/web/\\d+\\.[a-f0-9]{8,}\\.js"
+    ],
+    "dom": {
+      "title": {
+        "text": "IFS Cloud EAM|Enterprise Asset Management|Asset Lifecycle"
+      }
+    },
+    "meta": {
+      "description": "Enterprise Asset Management|IFS Cloud EAM|Asset Lifecycle",
+      "keywords": "EAM|Asset Management|IFS Cloud"
+    }
+  },
   "Ignition": {
     "cats": [
       55
@@ -738,6 +817,52 @@
     "saas": true,
     "website": "https://www.imunify360.com"
   },
+  "Immuta": {
+    "description": "Immuta is a data security and access control platform for cloud analytics, providing automated data discovery, fine-grained policy enforcement, masking, and activity monitoring.",
+    "cats": [
+      16,
+      61
+    ],
+    "website": "https://www.immuta.com/",
+    "icon": "Immuta.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "poa",
+      "enterprise",
+      "recurring"
+    ],
+    "url": [
+      "^https?://[^/]+\\.hosted\\.immutacloud\\.com(?:/|$)",
+      "^https?://app\\.immutacloud\\.com/marketplace(?:/|$)",
+      "^https?://[^/]+\\.immuta\\.com/(?:integrations|bim|api/v2|login)(?:/|$)"
+    ],
+    "xhr": [
+      "hosted\\.immutacloud\\.com",
+      "app\\.immutacloud\\.com",
+      "\\.immuta\\.com"
+    ],
+    "scriptSrc": [
+      "immutacloud\\.com/.+\\.js"
+    ],
+    "text": [
+      "Immuta Console"
+    ],
+    "dom": {
+      "title": {
+        "text": "Immuta"
+      },
+      "meta[name=\"keywords\"]": {
+        "content": "Immuta"
+      }
+    },
+    "meta": {
+      "description": "Immuta|Data Security"
+    },
+    "implies": [],
+    "requires": [],
+    "excludes": []
+  },
   "Imweb": {
     "cats": [
       6
@@ -993,6 +1118,44 @@
       "infinite-?scroll(?:\\.pkgd)?(?:\\.min)?\\.js(?:\\?v(?:er)?=((?:\\d+\\.)+\\d+))?\\;version:\\1"
     ],
     "website": "https://infinite-scroll.com/"
+  },
+  "Informatica Business Process Management": {
+    "description": "Informatica Business Process Management (formerly ActiveVOS) is Informatica’s BPM/workflow and application integration engine for automating processes with BPMN/BPEL and human tasks.",
+    "cats": [
+      61,
+      62,
+      19
+    ],
+    "website": "https://www.informatica.com/products/cloud-integration/cloud-application-integration.html",
+    "icon": "InformaticaBPM.svg",
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "payg",
+      "recurring",
+      "enterprise"
+    ],
+    "url": [
+      "/activevos(?:-central)?(?:/|$)",
+      "/active-bpel/(?:services|catalog|i18n)(?:/|\\?|$)",
+      "(?:^|\\.)[a-z0-9-]+-cai\\.dm-[a-z0-9-]+\\.informaticacloud\\.com(?:/|$)"
+    ],
+    "xhr": [
+      "/active-bpel/services/(?:JSON|REST|XML|soap12/)?(?:AvosCentralApi|ActiveBpelAdmin|AeB4PTaskClient-(?:aeTaskOperations|taskOperations)|[A-Za-z0-9_.-]+)(?:\\?.*)?$",
+      "/active-bpel/restadmin/(?:processes|.*)$"
+    ],
+    "dom": {
+      "title": {
+        "text": "ActiveVOS|Informatica.*Process|Cloud Application Integration|Informatica.*BPM"
+      },
+      "form[action*=\"activevos\"]": {
+        "exists": ""
+      }
+    },
+    "meta": {
+      "description": "ActiveVOS|Cloud Application Integration|Informatica BPM|Business Process Management",
+      "keywords": "ActiveVOS|Informatica|BPM|Process Automation|Application Integration"
+    }
   },
   "Influence": {
     "cats": [
