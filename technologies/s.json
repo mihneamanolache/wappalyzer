@@ -1250,49 +1250,33 @@
   },
   "Salesforce Remedyforce": {
     "description": "BMC Helix Remedyforce (formerly Salesforce.com Remedyforce) is a cloud-based IT service management suite built on the Salesforce platform.",
-    "cats": [
-      103,
-      61
-    ],
+    "cats": [103, 61],
     "website": "https://www.bmc.com/it-solutions/bmc-helix-remedyforce.html",
     "icon": "BMC-Remedyforce.svg",
-    "oss": false,
-    "saas": true,
-    "pricing": [
-      "poa",
-      "recurring",
-      "enterprise"
-    ],
     "url": [
+      "/apex/BMCServiceDesk__RemedyforceConsole",
       "/apex/BMCServiceDesk__",
-      "/one/one\\.app.*/apex/BMCServiceDesk__",
-      "[?&]startURL=.*BMCServiceDesk__"
+      "/one/one\\.app#/(?:alohaRedirect/)?apex/BMCServiceDesk__",
+      "\\?startURL=/one/one\\.app#/alohaRedirect/apex/BMCServiceDesk__"
     ],
     "xhr": [
-      "/services/apexrest/BMCServiceDesk/"
+      "/services/apexrest/BMCServiceDesk/",
+      "/services/apexrest/BMCServiceDesk/\\d+\\.\\d+/(?:ServiceUtil|ServiceRequest|Knowledge|Category|Queue|Approval|cmdb)"
     ],
     "dom": {
       "title": {
         "text": "Remedyforce|BMCServiceDesk"
-      },
-      "h1": {
-        "text": "Remedyforce"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Remedyforce"
       }
     },
-    "meta": {
-      "description": "Remedyforce",
-      "keywords": "Remedyforce"
-    },
-    "implies": [
-      "Salesforce"
+    "text": [
+      "BMCServiceDesk",
+      "Remedyforce Console"
     ],
-    "requires": [
-      "Salesforce"
-    ],
-    "excludes": []
+    "oss": false,
+    "saas": true,
+    "pricing": ["poa", "recurring", "enterprise"],
+    "implies":  ["Salesforce"],
+    "requires": ["Salesforce"]
   },
   "Salesforce Service Cloud": {
     "description": "Salesforce Service Cloud is Salesforce’s customer service and support platform, offering case management, live chat (Embedded Service/Live Agent), messaging, and knowledge base.",
@@ -5557,19 +5541,10 @@
     ]
   },
   "Shopify Basic": {
-    "description": "Shopify Basic is the entry-level plan of Shopify’s hosted ecommerce platform.",
-    "cats": [
-      6,
-      61
-    ],
+    "description": "Shopify Basic is the entry-level plan of Shopify's hosted ecommerce platform. Plan-level signals aren't exposed publicly, so detection relies on generic Shopify storefront fingerprints.",
+    "cats": [6, 61],
     "website": "https://www.shopify.com/pricing",
     "icon": "Shopify.svg",
-    "oss": false,
-    "saas": true,
-    "pricing": [
-      "low",
-      "recurring"
-    ],
     "url": [
       "^https?://[^/]+\\.myshopify\\.com(?:/|$)"
     ],
@@ -5577,36 +5552,32 @@
       "x-shopify-stage": ".+",
       "x-sorting-hat-shopid": ".+"
     },
-    "cookies": {
-      "secure_customer_sig": "",
-      "_shopify_y": "",
-      "_shopify_s": "",
-      "cart_sig": ""
-    },
     "js": {
-      "Shopify.routes.root": "",
-      "Shopify": ""
+      "Shopify.routes.root": ". +",
+      "Shopify":  ""
     },
     "scriptSrc": [
-      "cdn\\.shopify\\.com/shopifycloud/boomerang/shopify-boomerang-[0-9.]+(?:\\.min)?\\.js",
-      "cdn\\.shopify\\.com/shopifycloud/.*"
+      "cdn\\.shopify\\.com\\/shopifycloud\\/boomerang\\/shopify-boomerang-[0-9.]+(?:\\.min)?\\.js",
+      "cdn\\.shopify\\.com\\/shopifycloud\\/.*"
     ],
-    "dom": {
-      "div[id^='shopify-section-']": {
-        "exists": ""
-      },
-      "link[href*='cdn.shopify.com/s/files/']": {
-        "exists": ""
-      }
+    "dom": [
+      "div[id^='shopify-section-']"
+    ],
+    "html": [
+      "<link[^>]+href=\\\"https?:\\/\\/cdn\\.shopify\\.com\\/s\\/files\\/.*\\\"",
+      "<script[^>]+src=\\\"https?:\\/\\/cdn\\.shopify(?:cdn\\.net|\\.com)\\/.*\\\""
+    ],
+    "cookies": {
+      "secure_customer_sig": ".+",
+      "_shopify_y": ".+",
+      "_shopify_s": ".+",
+      "cart_sig": ".+"
     },
-    "xhr": [
-      "/cart\\.js"
-    ],
-    "implies": [
-      "Shopify"
-    ],
-    "requires": [],
-    "excludes": []
+    "implies": ["Shopify"],
+    "requires": ["Shopify"],
+    "oss": false,
+    "saas": true,
+    "pricing": ["low", "recurring"]
   },
   "Shopify Buy Button": {
     "cats": [
@@ -5626,31 +5597,27 @@
     "website": "https://apps.shopify.com/buy-button"
   },
   "Shopify Business": {
-    "description": "Shopify is a hosted ecommerce platform for building and running online stores, checkout, and POS.",
-    "cats": [
-      6,
-      61
-    ],
+    "description": "Shopify's hosted ecommerce platform for building and running online stores, checkout, and POS with built‑in storefront, payments, apps, and APIs.",
+    "cats": [6, 61],
     "website": "https://www.shopify.com/",
     "icon": "Shopify.svg",
-    "oss": false,
-    "saas": true,
-    "pricing": [
-      "recurring",
-      "mid",
-      "high"
-    ],
     "url": [
       "myshopify\\.com"
     ],
     "xhr": [
-      "/cart(?:/add|/update|/change|/clear)?\\.js",
+      "/cart\\.js",
+      "/cart/(?:add|update|change|clear)\\.js",
       "/search/suggest\\.json",
       "/recommendations/products\\.json",
       "/api/[0-9]{4}-[0-9]{2}/graphql\\.json",
       "monorail-edge\\.shopifysvc\\.com/(?:v1|unstable)/produce(?:_batch)?"
     ],
-    "headers": {
+    "scriptSrc": [
+      "cdn\\.shopify\\.com/.*\\.(?:js|mjs)(?:\\?.*)?$",
+      "cdn\\.shopify\\.com/shopifycloud/.*\\.(?:js|mjs)(?:\\?.*)?$",
+      "fonts\\.shopifycdn\\.com/.*"
+    ],
+    "headers":  {
       "X-Shopify-Stage": ".+",
       "X-Sorting-Hat-PodId": ".+",
       "X-Storefront-Renderer-Rendered": ".+",
@@ -5658,33 +5625,31 @@
       "Powered-By": "Shopify",
       "X-Shopify-API-Version": ".+"
     },
-    "cookies": {
+    "cookies":  {
       "secure_customer_sig": ".+",
       "cart_currency": ".+",
       "cart_sig": ".+",
       "storefront_digest": ".+",
       "localization": ".+",
-      "keep_alive": ".+",
+      "keep_alive":  ".+",
       "_shop_app_essential": ".+",
       "_shopify_essential": ".+",
-      "_shopify_s": ".+\\;confidence:5",
-      "_shopify_y": ".+\\;confidence:5",
+      "_shopify_s": ".+",
+      "_shopify_y": ".+",
       "shopify_pay_redirect": ".+"
     },
-    "scriptSrc": [
-      "cdn\\.shopify\\.com/.*\\.(?:js|mjs)(?:\\?.*)?$",
-      "cdn\\.shopify\\.com/shopifycloud/.*\\.(?:js|mjs)(?:\\?.*)?$",
-      "fonts\\.shopifycdn\\.com/.*"
-    ],
+    "meta": {
+      "shopify-digital-wallet": ".+"
+    },
     "js": {
-      "Shopify.shop": "",
-      "Shopify.routes.root": "",
+      "Shopify.shop":  "",
+      "Shopify. routes.root": "",
       "Shopify.cdnHost": "",
-      "Shopify.theme.name": "",
-      "ShopifyAnalytics.meta.page.pageType": ""
+      "Shopify.theme. name": "",
+      "ShopifyAnalytics.meta.page. pageType": ""
     },
     "dom": {
-      "div[id^=\"shopify-section-\"]": {
+      "div[id^=\"shopify-section-\"]":  {
         "exists": ""
       }
     },
@@ -5694,15 +5659,13 @@
     "css": [
       "\\.shopify-section"
     ],
-    "meta": {
-      "shopify-digital-wallet": ".+"
-    },
+    "oss": false,
+    "saas": true,
+    "pricing":  ["recurring", "mid", "high"],
     "implies": [
-      "Cloudflare",
       "Ruby on Rails"
     ],
-    "requires": [],
-    "excludes": []
+    "requires": ["Shopify"]
   },
   "Shopify Chat": {
     "cats": [
@@ -5735,41 +5698,34 @@
     "website": "https://apps.shopify.com/customer-privacy-banner"
   },
   "Shopify Dormant": {
-    "description": "Shopify storefronts in a paused/frozen (dormant) state, typically displaying 'This shop is currently unavailable'.",
-    "cats": [
-      6,
-      61
-    ],
-    "website": "https://help.shopify.com/en/manual/your-account/manage-orgs-and-stores/manage-pricing-plan/pause-store",
+    "description": "Shopify storefronts in a paused/frozen (dormant) state, typically when a merchant uses Pause and Build or the shop is unavailable.",
+    "cats": [6, 61],
+    "website":  "https://help.shopify.com/en/manual/your-account/manage-orgs-and-stores/manage-pricing-plan/pause-store",
     "icon": "Shopify.svg",
-    "oss": false,
-    "saas": true,
-    "pricing": [
-      "low",
-      "recurring"
+    "dom": {
+      "h1":  {
+        "text": "(?:Sorry,\\s*)?This shop is currently unavailable! ?"
+      }
+    },
+    "html": [
+      "<h1[^>]*>\\s*(?:Sorry,\\s*)?This shop is currently unavailable!?\\s*</h1>",
+      "<title>\\s*Create an Ecommerce Website and Sell Online!  Ecommerce Software by Shopify\\s*</title>"
     ],
     "headers": {
       "X-Sorting-Hat-ShopId": ".+",
       "X-ShopId": ".+",
       "X-ShardId": ".+",
-      "X-Shopify-Stage": "(?:production|canary)"
+      "X-Shopify-Stage": "(?:production|canary)",
+      "Report-To": "shopifycloud\\.com"
     },
-    "dom": {
-      "h1": {
-        "text": "(?:Sorry,\\s*)?This shop is currently unavailable!?"
-      },
-      "title": {
-        "text": "Only one step left!"
-      }
-    },
-    "text": [
-      "This shop is currently unavailable",
-      "Create an Ecommerce Website and Sell Online! Ecommerce Software by Shopify"
+    "scriptSrc": [
+      "monorail-edge\\.shopifycloud\\.com",
+      "cdn\\.shopify\\.com"
     ],
-    "requires": [
-      "Shopify"
-    ],
-    "excludes": []
+    "oss": false,
+    "saas": true,
+    "pricing": ["low", "recurring"],
+    "requires": ["Shopify"]
   },
   "Shopify Geolocation App": {
     "cats": [
@@ -5787,66 +5743,50 @@
     "website": "https://apps.shopify.com/geolocation"
   },
   "Shopify Hosted": {
-    "description": "Hosted online-store platform by Shopify (Liquid themes). Identifies storefronts running on Shopify’s Online Store rather than headless.",
-    "cats": [
-      6,
-      61,
-      88
-    ],
-    "website": "https://www.shopify.com/",
-    "icon": "Shopify.svg",
-    "oss": false,
-    "saas": true,
-    "pricing": [
-      "recurring",
-      "mid",
-      "enterprise"
-    ],
+    "description":  "Hosted online-store platform by Shopify (Liquid themes and Shopify Checkout). Identifies storefronts running on Shopify's Online Store rather than headless/custom storefronts.",
+    "cats": [6, 61, 88],
+    "website":  "https://www.shopify.com/",
+    "icon":  "Shopify.svg",
     "url": [
       "^https?://[^/]+\\.myshopify\\.com(?:/|$)"
+    ],
+    "scriptSrc": [
+      "cdn\\.shopify\\.com\\/shopifycloud\\/consent-tracking-api(?:\\/v[0-9.]+)?\\/consent-tracking-api\\.js",
+      "cdn\\.shopify\\.com\\/shopifycloud\\/privacy-banner\\/storefront-banner\\.js",
+      "cdn\\.shopify\\.com\\/s\\/files\\/1\\/\\d{1,12}\\/\\d{1,12}\\/t\\/\\d+\\/assets\\/.*\\.js"
     ],
     "headers": {
       "x-shopify-stage": ".+",
       "x-sorting-hat-shopid": ".+",
       "x-shopid": ".+"
     },
-    "cookies": {
+    "cookies":  {
       "secure_customer_sig": ".+",
       "cart_sig": ".+",
       "storefront_digest": ".+",
       "_secure_session_id": ".+",
-      "shopify_pay_redirect": ".+"
-    },
-    "scriptSrc": [
-      "cdn\\.shopify\\.com/shopifycloud/consent-tracking-api(?:/v[0-9.]+)?/consent-tracking-api\\.js",
-      "cdn\\.shopify\\.com/shopifycloud/privacy-banner/storefront-banner\\.js",
-      "cdn\\.shopify\\.com/s/files/1/\\d{1,12}/\\d{1,12}/t/\\d+/assets/.*\\.js"
-    ],
-    "xhr": [
-      "/cart\\.js"
-    ],
-    "js": {
-      "Shopify.routes.root": "\\/",
-      "Shopify.theme.name": ".+"
-    },
-    "dom": {
-      "div.shopify-section": {
-        "exists": ""
-      },
-      "[id^='shopify-section-']": {
-        "exists": ""
-      }
+      "shopify_pay_redirect":  ".+"
     },
     "meta": {
       "shopify-digital-wallet": ".+"
     },
-    "implies": [
-      "Shopify"
-    ],
-    "excludes": [
-      "Hydrogen"
-    ],
-    "requires": []
+    "js": {
+      "Shopify.routes.root": "\\/",
+      "Shopify.theme.name": ".+"
+    },
+    "dom":  {
+      "div. shopify-section": {
+        "exists": ""
+      },
+      "[id^='shopify-section-']": {
+        "exists":  ""
+      }
+    },
+    "oss": false,
+    "saas": true,
+    "pricing": ["recurring", "mid", "enterprise"],
+    "implies": ["Shopify"],
+    "excludes": []
   },
   "Shopify Product Reviews": {
     "cats": [
@@ -5867,49 +5807,16 @@
     "website": "https://apps.shopify.com/product-reviews"
   },
   "Shopify Npo": {
-    "description": "Shopify Nonprofit (NPO) plans — discounted Shopify subscription tiers for verified charities.",
-    "cats": [
-      6,
-      61
-    ],
-    "website": "https://www.shopify.com/nonprofits",
+    "description": "Shopify Nonprofit (NPO) plans — discounted Shopify subscription tiers for verified charities.  These are billing plans on top of Shopify; storefronts remain standard Shopify and are not publicly distinguishable by plan.",
+    "cats": [6, 61],
+    "website": "https://www.shopify.com/",
     "icon": "Shopify.svg",
     "oss": false,
     "saas": true,
-    "pricing": [
-      "recurring",
-      "low",
-      "mid"
-    ],
-    "headers": {
-      "X-Shopify-Stage": ".+"
-    },
-    "scriptSrc": [
-      "cdn\\.shopify\\.com"
-    ],
-    "text": [
-      "Registered Charity",
-      "501\\(c\\)\\(3\\)",
-      "Non-profit organization",
-      "Nonprofit organization"
-    ],
-    "dom": {
-      "meta[name=\"keywords\"]": {
-        "content": "charity|nonprofit|ngo|philanthropy|fundraising"
-      },
-      "meta[name=\"description\"]": {
-        "content": "charity|nonprofit|ngo|501\\(c\\)\\(3\\)"
-      },
-      "footer": {
-        "text": "Charity|Non-profit|Nonprofit|501\\(c\\)\\(3\\)"
-      }
-    },
-    "implies": [
-      "Shopify"
-    ],
-    "requires": [
-      "Shopify"
-    ]
+    "pricing": ["recurring", "low", "mid"],
+    "implies": ["Shopify"],
+    "requires": ["Shopify"],
+    "excludes": []
   },
   "Shopistry": {
     "cats": [
@@ -9172,59 +9079,39 @@
     "website": "https://www.softwaresuggest.com"
   },
   "Software AG CentraSite": {
-    "cats": [
-      47,
-      19
-    ],
     "description": "CentraSite is an enterprise SOA/API governance registry and metadata repository (originally by Software AG, now IBM) providing lifecycle, policy, and asset management.",
-    "dom": {
-      "h1": {
-        "text": "CentraSite"
-      },
-      "title": {
-        "text": "CentraSite"
-      }
-    },
+    "cats": [47, 19],
+    "website": "https://www.ibm.com/docs/en/centrasite",
     "icon": "CentraSite.svg",
-    "implies": [],
-    "oss": false,
-    "pricing": [
-      "enterprise",
-      "recurring",
-      "poa"
+    "url": [
+      ": 53307/(?:BusinessUI|CentraSite/CentraSite|PluggableUI/Control)",
+      "/(?:BusinessUI|CentraSite/CentraSite|PluggableUI/Control)(?:$|/)"
     ],
-    "saas": false,
+    "xhr": [
+      "/CentraSite/CentraSite",
+      "/PluggableUI/Control"
+    ],
     "scriptSrc": [
       "/BusinessUI/.*"
     ],
     "text": [
-      "CentraSite"
+      "CentraSite Business UI",
+      "CentraSite Control"
     ],
-    "url": [
-      ":53307/",
-      "/(?:BusinessUI|CentraSite/CentraSite|PluggableUI/Control)(?:/|$)"
-    ],
-    "website": "https://www.ibm.com/docs/en/centrasite",
-    "xhr": [
-      "/CentraSite/CentraSite",
-      "/PluggableUI/Control"
-    ]
+    "dom": {
+      "title": {
+        "text": "CentraSite"
+      }
+    },
+    "oss": false,
+    "saas": false,
+    "pricing": ["enterprise", "recurring", "poa"]
   },
   "Software AG NATURAL": {
     "description": "Software AG Natural is a 4GL application development environment. On the web it surfaces via Natural for Ajax and the Natural Web I/O Interface.",
-    "cats": [
-      27,
-      18
-    ],
-    "website": "https://www.softwareag.com/en/resources/adabas-natural/application-development-natural-for-zos/",
+    "cats": [27, 18],
+    "website":  "https://www.softwareag.com/en/resources/adabas-natural/application-development-natural-for-zos/",
     "icon": "SoftwareAG-Natural.svg",
-    "oss": false,
-    "saas": false,
-    "pricing": [
-      "enterprise",
-      "recurring",
-      "poa"
-    ],
     "url": [
       "(?:^|/)(?:cisnatural|natuniweb|cis)/"
     ],
@@ -9234,60 +9121,46 @@
     ],
     "scriptSrc": [
       "natuni(?:c)?script\\.js",
-      "/cisnatural/scripts/",
-      "/natuniweb/scripts/"
+      "/cisnatural/scripts/(?: user)?natuni(?:c)?script\\.js",
+      "/natuniweb/scripts/(?:user)?natuni(?:c)?script\\.js"
     ],
     "text": [
-      "Software AG Natural",
-      "Natural for Ajax",
-      "njxruntimetoolsmain.html",
-      "NatLogon.html"
+      "njxruntimetools/njxruntimetoolsmain\\.html",
+      "NatLogon\\.html",
+      "Natural for Ajax"
     ],
     "dom": {
       "title": {
         "text": "Software AG Natural|Natural for Ajax"
-      },
-      "h1": {
-        "text": "Software AG Natural|Natural for Ajax"
       }
     },
-    "implies": [],
-    "requires": [],
-    "excludes": []
+    "oss":  false,
+    "saas":  false,
+    "pricing": ["enterprise", "poa", "recurring"]
   },
   "Software AG Terracotta": {
-    "description": "Distributed in-memory data platform and clustered cache by Software AG (Terracotta Server / Terracotta DB).",
-    "cats": [
-      23,
-      34
-    ],
+    "description": "Distributed in-memory data platform and clustered cache by Software AG (Terracotta Server / Terracotta DB) used with Ehcache and TCStore.",
+    "cats": [23, 34],
     "website": "https://www.terracotta.org/",
     "icon": "Terracotta.svg",
-    "oss": true,
-    "saas": false,
-    "pricing": [
-      "free",
-      "poa",
-      "enterprise"
-    ],
     "xhr": [
-      "tc-management-api(?:/v2)?/"
-    ],
-    "text": [
-      "Terracotta Management Console",
-      "Terracotta Server",
-      "Terracotta DB"
+      "tc-management-api(?:/v2)?/",
+      "/tc-management-api/v2/agents/info",
+      "/tc-management-api/v2/agents/topologies"
     ],
     "dom": {
       "title": {
-        "text": "Terracotta Management Console|Terracotta Server"
+        "text": "Terracotta Management Console"
       }
     },
-    "implies": [
-      "Java"
+    "text":  [
+      "Terracotta Management Console",
+      "Terracotta Server"
     ],
-    "requires": [],
-    "excludes": []
+    "oss": true,
+    "saas": false,
+    "pricing": ["free", "poa", "enterprise"],
+    "implies": ["Java"]
   },
   "Soisy": {
     "cats": [

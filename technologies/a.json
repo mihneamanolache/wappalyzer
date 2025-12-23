@@ -4537,16 +4537,24 @@
     "implies": ["Amazon Web Services"]
   },
   "Amazon Link Enhancer": {
-    "description": "Amazon Link Enhancer (Product Previews) is an Amazon Associates script that decorates Amazon text/image links and shows hover product previews. It’s served from amazon-adsystem.com or assoc-amazon.* domains via link-enhancer-common.js.",
-    "cats": [36, 71, 5], 
+    "description": "Amazon Link Enhancer (Product Previews) is an Amazon Associates script that decorates Amazon text/image links and shows hover product previews.",
+    "cats": [36, 71, 5],
     "website": "https://affiliate-program.amazon.com",
     "icon": "Amazon.svg",
-    "scriptSrc": ["wms-(?:na|eu|in|fe)\\.amazon-adsystem\\.com\\/20070822\\/[A-Z]{2}\\/js\\/link-enhancer-common\\.js", "wms\\.assoc-amazon\\.com\\/20070822\\/[A-Z]{2}\\/js\\/link-enhancer-common\\.js", "assoc-amazon\\.(?:com|co\\.uk|de|fr|it|es|in|com\\.br|ca|nl|co\\.jp|com\\.au)\\/s\\/link-enhancer(?:\\?|$)"],
-    "text": ["link-enhancer-common\\.js(?:\\?|$)", "amazon-adsystem\\.com\\/20070822\\/[A-Z]{2}\\/img\\/noscript\\.gif\\?tag=", "assoc-amazon\\.(?:com|co\\.uk|de|fr|it|es|in|com\\.br|ca|nl|co\\.jp|com\\.au)\\/s\\/noscript\\?tag="],
+    "scriptSrc": [
+      "wms-(?:na|eu|in|fe)\\.amazon-adsystem\\.com\\/20070822\\/[A-Z]{2}\\/js\\/link-enhancer-common\\.js",
+      "wms\\.assoc-amazon\\.com\\/20070822\\/[A-Z]{2}\\/js\\/link-enhancer-common\\.js",
+      "assoc-amazon\\.(?:com|co\\.uk|de|fr|it|es|in|com\\.br|ca|nl|co\\.jp|com\\.au)\\/s\\/link-enhancer(?:\\?|$)"
+    ],
+    "text": [
+      "link-enhancer-common\\.js(?:\\?|$)",
+      "amazon-adsystem\\.com\\/20070822\\/[A-Z]{2}\\/img\\/noscript\\.gif\\?tag=",
+      "assoc-amazon\\.(?:com|co\\.uk|de|fr|it|es|in|com\\.br|ca|nl|co\\.jp|com\\.au)\\/s\\/noscript\\?tag="
+    ],
     "oss": false,
     "saas": true,
     "pricing": ["free"],
-    "implies": ["Amazon Associates:95"]
+    "implies": ["Amazon Associates"]
   },
   "Amazon Pay": {
     "cats": [
@@ -4580,7 +4588,7 @@
     ]
   },
   "Amazon Publisher Services": {
-    "description": "Amazon Publisher Services (APS) is Amazon Ads' supply-side platform for web, app, and streaming TV publishers.",
+    "description": "Amazon Publisher Services (APS) is Amazon Ads' supply-side platform for web, app, and streaming TV publishers. It provides server-side header bidding via apstag.js library.",
     "cats": [36, 61],
     "website": "https://aps.amazon.com/aps/",
     "icon": "AmazonPublisherServices.svg",
@@ -4588,12 +4596,12 @@
     "saas": true,
     "pricing": ["poa", "enterprise"],
     "scriptSrc": [
-      "c\\.amazon-adsystem\\.com/(?:aax2/)?apstag\\.js",
-      "c\\.aps\\.amazon-adsystem\\.com/apstag\\.js"
+      "c\\.amazon-adsystem\\.com\\/(?:aax2\\/)?apstag\\.js",
+      "c\\.aps\\.amazon-adsystem\\.com\\/apstag\\.js"
     ],
     "xhr": [
-      "aax(?:-[a-z0-9-]+)?\\.amazon-adsystem\\.com/e/dtb/bid",
-      "aax-ott(?:-c2s)?\\.amazon-adsystem\\.com/e/(?:mdtb|c2s)/ads"
+      "aax(?:-[a-z0-9\\-]+)?\\.amazon-adsystem\\.com\\/e\\/dtb\\/bid",
+      "aax-ott(?:-c2s)?\\.amazon-adsystem\\.com\\/e\\/(?:mdtb|c2s)\\/ads"
     ],
     "js": {
       "apstag.init": "",
@@ -4609,34 +4617,14 @@
       "apstag\\.setDisplayBids\\("
     ]
   },
-"Amazon Reseller": {
-    "description": "Indicates the site uses Amazon Advertising systems (Amazon Publisher Services or Amazon Ad System) likely establishing a reseller or direct relationship.",
+  "Amazon Reseller": {
+    "description":  "Indicates the site authorizes Amazon to resell its ad inventory via ads.txt or app-ads.txt (RESELLER relationship through Amazon Publisher Services).",
     "cats": [36],
     "website": "https://aps.amazon.com/",
     "icon": "AmazonAds.svg",
-    "scriptSrc": [
-      "c\\.amazon-adsystem\\.com",
-      "s\\.amazon-adsystem\\.com",
-      "aax\\.amazon-adsystem\\.com",
-      "aps\\.amazon\\.com"
-    ],
-    "xhr": [
-      "amazon-adsystem\\.com",
-      "aps\\.amazon\\.com"
-    ],
-    "dom": [
-      "iframe[src*='amazon-adsystem.com']",
-      "div[id^='div-gpt-ad']" 
-    ],
-    "js": {
-      "apstag": "\\;confidence:50"
-    },
     "oss": false,
     "saas": true,
-    "pricing": ["poa"],
-    "implies": [
-      "Amazon Advertising"
-    ]
+    "pricing": ["poa"]
   },
   "Amazon S3": {
     "cats": [
@@ -5519,36 +5507,18 @@
     "website": "https://apisix.apache.org"
   },
   "Apache Beam": {
-    "description": "Apache Beam is an open-source, unified model for defining both batch and streaming data-parallel processing pipelines.",
-    "cats": [
-      47
-    ],
+    "description":  "Unified SDK and model for batch & streaming data processing.  Detection leverages the official Apache Beam Playground embed.",
     "website": "https://beam.apache.org",
     "icon": "Apache Beam.svg",
     "oss": true,
-    "saas": false,
-    "pricing": [
-      "free"
-    ],
-    "url": [
-      "play\\.beam\\.apache\\.org"
-    ],
+    "cats": [47],
     "dom": {
       "iframe[src*=\"play.beam.apache.org/embedded\"]": {
         "exists": ""
-      },
-      "title": {
-        "text": "Apache Beam"
-      },
-      "h1": {
-        "text": "Apache Beam"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Apache Beam"
       }
     },
-    "text": [
-      "Apache Beam"
+    "url": [
+      "play\\.beam\\.apache\\.org"
     ]
   },
   "Apache HTTP Server": {
@@ -5565,65 +5535,50 @@
     "website": "https://httpd.apache.org/"
   },
   "Apache Hudi": {
-    "description": "Apache Hudi is an open-source data management framework used to simplify incremental data processing and data pipeline development.",
-    "cats": [
-      34
-    ],
+    "description": "Open-source data lakehouse (table format + services) that exposes a Timeline Service over HTTP for file-system view and metadata operations.",
+    "cats": [34],
     "website": "https://hudi.apache.org",
     "icon": "ApacheHudi.svg",
     "oss": true,
-    "saas": false,
-    "pricing": [
-      "free"
+    "url": [
+      "hudi\\.apache\\.org"
     ],
     "xhr": [
-      "/v1/hoodie/view/(?:refresh|datafiles|compactions|timeline)"
-    ],
-    "text": [
-      "Apache Hudi"
+      "/v1/hoodie/view/refresh",
+      "/v1/hoodie/view/datafiles/",
+      "/v1/hoodie/view/compactions/"
     ],
     "dom": {
+      "a[href*='hudi.apache.org']":  {
+        "exists": ""
+      },
       "title": {
         "text": "Apache Hudi"
-      },
-      "h1": {
-        "text": "Apache Hudi"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Apache Hudi|Hudi"
       }
     }
   },
   "Apache Iceberg": {
-    "description": "High-performance open table format for huge analytic datasets. Detection targets the Iceberg REST Catalog API.",
-    "cats": [
-      34
-    ],
+    "description": "High‑performance open table format.  Detection targets the Iceberg REST Catalog API.",
     "website": "https://iceberg.apache.org",
     "icon": "ApacheIceberg.svg",
     "oss": true,
-    "saas": false,
-    "pricing": [
-      "free"
+    "cats": [34],
+    "url": [
+      "iceberg\\.apache\\.org"
     ],
     "xhr": [
       "/v1/config",
       "/v1/namespaces",
-      "/iceberg/v1/(?:config|restcatalog/config)",
-      "/iceberg/v1/tables"
-    ],
-    "text": [
-      "Apache Iceberg"
+      "/v1/tables",
+      "/iceberg/v1/config",
+      "/iceberg/v1/restcatalog/config"
     ],
     "dom": {
+      "a[href*='iceberg.apache.org']": {
+        "exists":  ""
+      },
       "title": {
         "text": "Apache Iceberg"
-      },
-      "h1": {
-        "text": "Apache Iceberg"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Iceberg|Table Format"
       }
     }
   },

@@ -3445,51 +3445,28 @@
     "website": "https://clickhelp.com"
   },
   "ClickHouse": {
-    "description": "ClickHouse is an open-source, column-oriented OLAP database for real-time analytics.",
-    "cats": [
-      34
-    ],
+    "description": "ClickHouse is an open‑source, column‑oriented OLAP database (originally developed at Yandex, now maintained by ClickHouse, Inc.) with an HTTP API that exposes distinctive X-ClickHouse-* headers and health endpoints.",
+    "cats": [34],
     "website": "https://clickhouse.com",
     "icon": "ClickHouse.svg",
-    "oss": true,
-    "saas": false,
-    "pricing": [
-      "free",
-      "payg",
-      "enterprise"
-    ],
-    "cpe": "cpe:2.3:a:clickhouse:clickhouse:*:*:*:*:*:*:*:*",
-    "url": [
-      "^https?://play\\.clickhouse\\.com(?:/|\\?|$)",
-      "console-api\\.clickhouse\\.cloud"
-    ],
-    "xhr": [
-      "/ping",
-      "/replicas_status",
-      "console-api\\.clickhouse\\.cloud/\\.api/query-endpoints/.+?/run"
-    ],
     "headers": {
       "x-clickhouse-query-id": ".+",
       "x-clickhouse-server-display-name": ".+",
       "x-clickhouse-format": ".+",
-      "x-clickhouse-summary": ".+",
-      "server": "^ClickHouse"
+      "x-clickhouse-timezone": ".+",
+      "x-clickhouse-progress": ".+",
+      "access-control-expose-headers": "X-ClickHouse-(?:Query-Id|Summary|Server-Display-Name|Format|Timezone|Exception-Code|Exception-Tag)"
     },
-    "text": [
-      "ClickHouse Cloud",
-      "ClickHouse OLAP"
+    "url": [
+      "^https?://play\\.clickhouse\\.com(?:/|\\?|$)"
     ],
-    "dom": {
-      "title": {
-        "text": "ClickHouse"
-      },
-      "h1": {
-        "text": "ClickHouse"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "ClickHouse|OLAP"
-      }
-    }
+    "xhr": [
+      "console-api\\.clickhouse\\.cloud/\\.api/query-endpoints/. +?/run"
+    ],
+    "oss": true,
+    "saas": false,
+    "pricing": ["free"],
+    "cpe": "cpe:2.3:a:clickhouse:clickhouse"
   },
   "ClickOnce": {
     "cats": [

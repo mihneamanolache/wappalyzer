@@ -1559,52 +1559,26 @@
     "website": "https://tengine.taobao.org"
   },
   "Teradata Vantage": {
-    "description": "Teradata Vantage (VantageCloud) is an enterprise cloud data and analytics platform with ClearScape Analytics.",
-    "cats": [
-      34,
-      61,
-      99
-    ],
+    "description": "Teradata Vantage (VantageCloud Lake & VantageCloud Enterprise) is Teradata's enterprise cloud data and analytics platform with ClearScape Analytics. It exposes a RESTful Query Service to run SQL over HTTP/JSON.",
+    "cats": [34, 61, 99],
     "website": "https://www.teradata.com/platform/vantagecloud",
     "icon": "TeradataVantage.svg",
-    "oss": false,
-    "saas": true,
-    "pricing": [
-      "payg",
-      "enterprise",
-      "poa"
-    ],
-    "url": [
-      "innovationlabs\\.teradata\\.com",
-      "clearscape\\.teradata\\.com"
+    "url":  [
+      "^https?://([\\w-]+\\.)?innovationlabs\\.teradata\\.com($|/)",
+      "^https?://clearscape\\.teradata\\.com($|/)"
     ],
     "xhr": [
-      "/(?:api/query|qs)/systems/[^/]+/(?:queries|sessions|databases|views)",
-      "systems?/[^/]+/queries",
-      ":(?:1443|8443)/(?:api/query|qs)/systems/"
+      "/(?:api/query|qs)/systems/[^/]+/(?:queries|sessions|databases|views)(?:[/?]|$)",
+      "/systems?/[^/]+/queries(?:[/?]|$)",
+      ":1443/(?:api/query|qs)/systems/",
+      ":8443/(?:api/query|qs)/systems/"
     ],
-    "headers": {
-      "content-type": "application/vnd\\.com\\.teradata\\.rest-v1\\.0\\+json"
-    },
     "text": [
-      "Teradata Vantage",
-      "VantageCloud",
-      "ClearScape Analytics"
+      "application/vnd.com.teradata.rest-v1.0+json"
     ],
-    "dom": {
-      "title": {
-        "text": "Teradata Vantage|VantageCloud"
-      },
-      "h1": {
-        "text": "Teradata Vantage|VantageCloud"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Teradata Vantage|VantageCloud"
-      }
-    },
-    "implies": [],
-    "requires": [],
-    "excludes": []
+    "oss": false,
+    "saas": true,
+    "pricing": ["payg", "enterprise", "poa"]
   },
   "TerMed": {
     "cats": [
@@ -4233,51 +4207,48 @@
     "website": "https://www.trinityaudio.ai"
   },
   "Trino": {
-    "description": "Trino (formerly PrestoSQL) is an open-source distributed SQL query engine for analytics across data lakes and warehouses.",
-    "cats": [
-      34,
-      10,
-      102
-    ],
+    "description": "Open‑source distributed SQL query engine for analytics across data lakes and warehouses.",
     "website": "https://trino.io",
     "icon": "Trino.svg",
     "oss": true,
-    "saas": false,
-    "pricing": [
-      "free"
-    ],
+    "cats": [34, 10, 102],
+    "headers": {
+      "X-Trino-Set-Session": ".+",
+      "X-Trino-Clear-Session": ".+",
+      "X-Trino-Set-Role": ".+",
+      "X-Trino-Started-Transaction-Id": ".+",
+      "X-Trino-Transaction-Id": ".+",
+      "X-Trino-Clear-Transaction-Id": ".+",
+      "X-Trino-Added-Prepare": ".+",
+      "X-Trino-Deallocated-Prepare": ".+",
+      "X-Trino-Set-Catalog": ".+",
+      "X-Trino-Set-Schema": ".+",
+      "X-Trino-Set-Authorization-User": ".+",
+      "X-Trino-Reset-Authorization-User": ".+",
+      "X-Trino-Set-Original-Roles": ".+"
+    },
     "url": [
-      ".*/ui/login\\.html",
-      ".*/ui/index\\.html"
+      "/ui/",
+      "/v1/info",
+      "/v1/status"
     ],
     "xhr": [
-      "/v1/(?:info|status|statement|query|cluster|node)"
-    ],
-    "headers": {
-      "X-Trino-(?:Set-Session|Clear-Session|Set-Role|Transaction-Id|Set-Catalog|Set-Schema|User)": ".+"
-    },
-    "text": [
-      "Trino Console",
-      "Trino Coordinator"
+      "/v1/info",
+      "/v1/status",
+      "/v1/statement",
+      "/v1/query"
     ],
     "dom": {
       "title": {
         "text": "Trino"
-      },
-      "h1": {
-        "text": "Trino"
-      },
-      "meta[name=\"description\"]": {
-        "content": "Trino"
       }
     },
-    "implies": [
-      "Java"
+    "text": [
+      "Trino Coordinator",
+      "Trino Console"
     ],
-    "requires": [],
-    "excludes": [
-      "Open Source Presto"
-    ]
+    "implies":  ["Java"],
+    "excludes": ["Open Source Presto"]
   },
   "Tripadviser.Widget": {
     "cats": [

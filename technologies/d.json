@@ -1099,42 +1099,25 @@
     "website": "https://delm.io"
   },
   "Delta Lake": {
-    "description": "Open-source table storage framework that adds ACID transactions, scalable metadata, and time travel to data lakes by maintaining a transaction log.",
-    "cats": [
-      34
-    ],
+    "description": "Open-source table storage framework that adds ACID transactions, scalable metadata, and time travel to data lakes by maintaining a transaction log in a _delta_log directory alongside Parquet data.",
+    "cats": [34],
     "website": "https://delta.io/",
     "icon": "DeltaLake.svg",
-    "oss": true,
-    "saas": false,
-    "pricing": [
-      "free"
-    ],
-    "url": [
-      "(?:^|/)_delta_log/(?:$|[0-9]{20}\\.json|[0-9]{20}\\.checkpoint|.*parquet|_last_checkpoint)",
+    "url":  [
+      "(?:^|/)_delta_log/(?:$|[0-9]{20}\\.json|[0-9]{20}\\.checkpoint(?:\\.[0-9]{10})?\\.parquet|_last_checkpoint)",
       "(?:^|/)_change_data/(?:$|cdc-[^/]+\\.parquet)"
     ],
     "xhr": [
       "/_delta_log/_last_checkpoint",
-      "/_delta_log/.*\\.json"
+      "/_delta_log/[0-9]{20}\\.json"
     ],
     "text": [
-      "Delta Lake",
-      "_delta_log"
+      "_delta_log",
+      "Delta Lake"
     ],
-    "dom": {
-      "title": {
-        "text": "Delta Lake"
-      },
-      "h1": {
-        "text": "Delta Lake"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Delta Lake|Lakehouse"
-      }
-    },
-    "requires": [],
-    "excludes": []
+    "oss": true,
+    "saas": false,
+    "pricing": ["free"]
   },
   "Dema": {
     "cats": [
@@ -2868,52 +2851,36 @@
     "website": "https://dreamdata.io"
   },
   "Dremio": {
-    "description": "Dremio is a lakehouse platform and SQL query engine for federated analytics across data lakes, warehouses, and databases.",
-    "cats": [
-      34,
-      102,
-      101,
-      61
-    ],
+    "description": "Dremio is a lakehouse platform and SQL query engine for federated analytics across data lakes, warehouses, and databases. Available as self-hosted software and as Dremio Cloud.",
+    "cats": [34, 102, 101, 61],
     "website": "https://www.dremio.com/",
     "icon": "Dremio.svg",
-    "oss": true,
-    "saas": true,
-    "pricing": [
-      "freemium",
-      "payg",
-      "recurring",
-      "enterprise"
-    ],
     "url": [
-      "https?://(?:app|app\\.eu|api|api\\.eu|login|sql|data|catalog|scim)\\.dremio\\.cloud(?:/|$)",
-      ":9047(?:/|$)"
+      "^https?://(?:app|app\\.eu|api|api\\.eu|login|sql|data|catalog|scim)\\.dremio\\.cloud(?:/|$)",
+      "^https?://[^/]+:9047(?:/|$)"
     ],
     "xhr": [
-      "/apiv2/(?:server_status|login|socket)",
-      "api(?:\\.eu)?\\.dremio\\.cloud"
+      "api\\.dremio\\.cloud",
+      "api\\.eu\\.dremio\\.cloud",
+      "/apiv2/server_status",
+      "/apiv2/login"
     ],
     "scriptSrc": [
-      "app(?:\\.eu)?\\.dremio\\.cloud/.*"
-    ],
-    "text": [
-      "Dremio Cloud",
-      "Dremio Software",
-      "Dremio Lakehouse"
+      "app\\.dremio\\.cloud/.*",
+      "app\\.eu\\.dremio\\.cloud/.*"
     ],
     "dom": {
       "title": {
         "text": "Dremio"
-      },
-      "h1": {
-        "text": "Dremio"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Dremio"
       }
     },
-    "requires": [],
-    "excludes": []
+    "text": [
+      "Dremio Cloud",
+      "Dremio Software"
+    ],
+    "oss": true,
+    "saas": true,
+    "pricing": ["freemium", "payg", "recurring", "enterprise"]
   },
   "Drift": {
     "cats": [
