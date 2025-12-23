@@ -2623,53 +2623,29 @@
     "website": "https://www.google.com/forms/about/"
   },
   "Google GKE": {
-    "description": "Google Kubernetes Engine (GKE) is Google Cloud’s managed Kubernetes service for deploying, scaling and operating containerized applications.",
-    "cats": [
-      60,
-      62,
-      88
-    ],
+    "description":  "Google Kubernetes Engine (GKE) is Google Cloud's managed Kubernetes service for deploying, scaling and operating containerized applications with integrated load balancing and cluster management.",
+    "cats": [60, 62, 88],
     "website": "https://cloud.google.com/kubernetes-engine",
-    "icon": "GoogleGKE.svg",
-    "oss": false,
-    "saas": true,
-    "pricing": [
-      "payg",
-      "recurring",
-      "poa",
-      "enterprise"
-    ],
+    "icon":  "GoogleGKE.svg",
     "headers": {
-      "via": "^1\\.1 google",
-      "x-cloud-trace-context": "^[0-9a-f]{32}/\\d+",
       "x-kubernetes-pf-flowschema-uid": ".+",
       "x-kubernetes-pf-prioritylevel-uid": ".+"
     },
     "cookies": {
       "GCLB": ".+"
     },
-    "text": [
-      "default backend - 404",
-      "Google Kubernetes Engine",
-      "GKE"
+    "html": [
+      "default backend - 404"
     ],
-    "dom": {
-      "title": {
-        "text": "Google Kubernetes Engine|GKE"
-      },
-      "h1": {
-        "text": "Google Kubernetes Engine|GKE"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "GKE|Kubernetes|Google Cloud"
-      }
-    },
-    "implies": [
-      "Google Cloud"
+    "oss": false,
+    "saas": true,
+    "pricing": ["payg", "recurring", "poa", "enterprise"],
+    "implies":  [
+      "Google Cloud",
+      "Google Cloud Load Balancing"
     ],
-    "excludes": [
-      "Google App Engine"
-    ]
+    "requires": ["Google Cloud"],
+    "excludes": ["Google App Engine"]
   },
   "Google Hosted Libraries": {
     "cats": [
