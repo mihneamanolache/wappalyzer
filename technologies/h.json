@@ -876,7 +876,33 @@
     },
     "implies": [],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "probe": [
+      {
+        "path": "/index.yaml",
+        "status": 200,
+        "headers": {
+          "content-type": "(?:text|application)/(?:x-)?ya?ml"
+        },
+        "body": "apiVersion:\\s*v1[\\s\\S]*entries:"
+      },
+      {
+        "path": "/charts/index.yaml",
+        "status": 200,
+        "headers": {
+          "content-type": "(?:text|application)/(?:x-)?ya?ml"
+        },
+        "body": "apiVersion:\\s*v1[\\s\\S]*entries:"
+      },
+      {
+        "path": "/chartrepo/index.yaml",
+        "status": 200,
+        "headers": {
+          "content-type": "(?:text|application)/(?:x-)?ya?ml"
+        },
+        "body": "apiVersion:\\s*v1[\\s\\S]*entries:"
+      }
+    ]
   },
   "Hello Bar": {
     "cats": [

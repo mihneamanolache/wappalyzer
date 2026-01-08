@@ -4227,6 +4227,11 @@
       "X-Trino-Reset-Authorization-User": ".+",
       "X-Trino-Set-Original-Roles": ".+"
     },
+    "probe": {
+      "/v1/info": "nodeVersion|coordinator|environment",
+      "/v1/status": "coordinator|starting",
+      "/ui/": "Trino"
+    },
     "url": [
       "/ui/",
       "/v1/info",

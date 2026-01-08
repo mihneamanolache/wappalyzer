@@ -3938,7 +3938,11 @@
   },
   "AWS Artifact": {
     "description": "AWS Artifact is an AWS service that provides on‑demand access to AWS and ISV security and compliance reports and lets you review, accept, and manage agreements for your AWS accounts.",
-    "cats": [16, 50, 61],
+    "cats": [
+      16,
+      50,
+      61
+    ],
     "website": "https://aws.amazon.com/artifact/",
     "icon": "AWSArtifact.svg",
     "url": "^https?:\\/\\/(?:console\\.aws\\.amazon\\.com|console\\.amazonaws-us-gov\\.com)\\/artifact(?:[\\\\/?#]|$)",
@@ -3971,7 +3975,11 @@
   },
   "AWS Cloud Data Migration": {
     "description": "AWS Cloud Data Migration refers to AWS-managed services for moving databases, files, and objects into, from, and between AWS.",
-    "cats": [61, 101, 102],
+    "cats": [
+      61,
+      101,
+      102
+    ],
     "website": "https://aws.amazon.com/what-is/data-migration/",
     "icon": "AWS-Cloud-Data-Migration.svg",
     "xhr": [
@@ -4002,13 +4010,22 @@
   },
   "AWS Elemental MediaTailor": {
     "description": "AWS managed service for channel assembly and server-side ad insertion (SSAI).",
-    "cats": [36, 38, 62],
+    "cats": [
+      36,
+      38,
+      62
+    ],
     "website": "https://aws.amazon.com/mediatailor/",
     "icon": "AWS-Elemental-MediaTailor.svg",
     "oss": false,
     "saas": true,
-    "pricing": ["payg", "enterprise"],
-    "implies": ["Amazon Web Services"],
+    "pricing": [
+      "payg",
+      "enterprise"
+    ],
+    "implies": [
+      "Amazon Web Services"
+    ],
     "url": [
       "mediatailor\\.[a-z0-9-]+\\.amazonaws\\.com",
       "^https?:\\/\\/aws\\.amazon\\.com\\/mediatailor(?:[\\/?#]|$)"
@@ -4031,7 +4048,11 @@
   },
   "AWS IoT Device Defender": {
     "description": "Fully managed AWS IoT security service to audit device configurations and monitor metrics.",
-    "cats": [16, 37, 63],
+    "cats": [
+      16,
+      37,
+      63
+    ],
     "website": "https://aws.amazon.com/iot-device-defender/",
     "icon": "AmazonWebServices.svg",
     "xhr": [
@@ -4047,8 +4068,13 @@
     ],
     "oss": false,
     "saas": true,
-    "pricing": ["payg", "freemium"],
-    "implies": ["Amazon Web Services"]
+    "pricing": [
+      "payg",
+      "freemium"
+    ],
+    "implies": [
+      "Amazon Web Services"
+    ]
   },
   "Amazon ALB": {
     "cats": [
@@ -4122,7 +4148,11 @@
     "website": "https://aws.amazon.com/rds/aurora"
   },
   "Amazon Augmented AI (Amazon A2I)": {
-    "cats": [99, 62, 61],
+    "cats": [
+      99,
+      62,
+      61
+    ],
     "description": "Amazon Augmented AI (A2I) is an AWS service that adds human review (human-in-the-loop) to machine learning predictions, with built-in workflows for services like Textract and Rekognition and APIs for custom models.",
     "icon": "Amazon-A2I.svg",
     "implies": [
@@ -4131,7 +4161,10 @@
       "Amazon Cognito"
     ],
     "oss": false,
-    "pricing": ["freemium", "payg"],
+    "pricing": [
+      "freemium",
+      "payg"
+    ],
     "saas": true,
     "scriptSrc": [
       "assets\\.crowd\\.aws/crowd-html-elements\\.js"
@@ -4144,10 +4177,14 @@
     "xhr": [
       "a2i-runtime\\.sagemaker\\.[a-z0-9-]+\\.(?:amazonaws\\.com|api\\.aws)(?:/.*)?"
     ]
-  }, 
+  },
   "Amazon AWS Identity And Access Management (IAM)": {
     "description": "AWS Identity and Access Management (IAM) is a web service that lets you securely manage identities and permissions for access to AWS services and resources.",
-    "cats": [16, 61, 63],
+    "cats": [
+      16,
+      61,
+      63
+    ],
     "website": "https://aws.amazon.com/iam/",
     "icon": "AWS IAM.svg",
     "url": [
@@ -4169,8 +4206,13 @@
     },
     "oss": false,
     "saas": true,
-    "pricing": ["free", "payg"],
-    "implies": ["Amazon Web Services"]
+    "pricing": [
+      "free",
+      "payg"
+    ],
+    "implies": [
+      "Amazon Web Services"
+    ]
   },
   "Amazon AWS Managed Services": {
     "cats": [
@@ -4201,7 +4243,6 @@
     ],
     "excludes": []
   },
-
   "Amazon AWS Service Catalog": {
     "cats": [
       62
@@ -4218,21 +4259,17 @@
       "payg"
     ],
     "website": "https://aws.amazon.com/servicecatalog/",
-
     "url": [
       "servicecatalog(?:-fips)?\\.[a-z0-9-]+\\.amazonaws\\.com(?:\\.cn)?"
     ],
-
     "xhr": [
       "servicecatalog(?:-fips)?\\.[a-z0-9-]+\\.amazonaws\\.com(?:\\.cn)?"
     ],
-
     "js": {
-      "AWS.ServiceCatalog": ";confidence:50"
+      "AWS.ServiceCatalog": ""
     },
-
     "scriptSrc": [
-      "sdk\\.amazonaws\\.com\\/js\\/aws-sdk(?:-[0-9.]+)?(?:\\.min)?\\.js;confidence:10"
+      "sdk\\.amazonaws\\.com\\/js\\/aws-sdk(?:-[0-9.]+)?(?:\\.min)?\\.js"
     ]
   },
   "Amazon Cloud Directory": {
@@ -4251,19 +4288,15 @@
       "payg"
     ],
     "website": "https://aws.amazon.com/cloud-directory/",
-
     "url": [
       "clouddirectory(?:-fips)?\\.[a-z0-9-]+\\.amazonaws\\.com(?:\\.cn)?"
     ],
-
     "xhr": [
       "clouddirectory(?:-fips)?\\.[a-z0-9-]+\\.amazonaws\\.com(?:\\.cn)?"
     ],
-
     "js": {
       "AWS.CloudDirectory": ""
     },
-
     "scriptSrc": [
       "sdk\\.amazonaws\\.com\\/js\\/aws-sdk(?:-[0-9.]+)?(?:\\.min)?\\.js"
     ]
@@ -4328,10 +4361,18 @@
     "description": "Amazon Vendor Central Direct Fulfillment (DF) — Amazon’s invite-only dropship program allowing vendors to ship customer orders directly via Vendor Central, EDI, or the Selling Partner API (Direct Fulfillment APIs).",
     "website": "https://developer-docs.amazon.com/sp-api/docs/vendor-direct-fulfillment-apis-use-case-guide",
     "icon": "AmazonDirectFulfillment.svg",
-    "cats": [61, 100, 6, 107],
+    "cats": [
+      61,
+      100,
+      6,
+      107
+    ],
     "saas": true,
     "oss": false,
-    "pricing": ["enterprise", "poa"],
+    "pricing": [
+      "enterprise",
+      "poa"
+    ],
     "url": [
       "vendorcentral\\.amazon\\.(?:com|ca|com\\.mx|co\\.uk|de|fr|it|es|co\\.jp|com\\.au)"
     ],
@@ -4368,10 +4409,16 @@
     "description": "Amazon EC2 pricing option that applies a discounted rate to matching EC2 instance usage and can optionally reserve capacity in a specific Availability Zone.",
     "website": "https://aws.amazon.com/ec2/pricing/reserved-instances/",
     "icon": "Amazon-EC2.svg",
-    "cats": [63, 88],
+    "cats": [
+      63,
+      88
+    ],
     "saas": false,
     "oss": false,
-    "pricing": ["onetime", "recurring"],
+    "pricing": [
+      "onetime",
+      "recurring"
+    ],
     "url": [
       "aws\\.amazon\\.com/ec2/pricing/reserved-instances",
       "console\\.aws\\.amazon\\.com/ec2/home\\?region=[a-z0-9-]+#ReservedInstances",
@@ -4439,10 +4486,15 @@
     "description": "Managed Kubernetes service by AWS (Amazon EKS). Clusters expose managed Kubernetes API endpoints (*.region.eks.amazonaws.com, eks.region.api.aws), OIDC issuers (oidc.eks.region.amazonaws.com/id/...), eks-auth/eks-auth.*.api.aws and related service endpoints.",
     "website": "https://aws.amazon.com/eks/",
     "icon": "AmazonEKS.svg",
-    "cats": [60, 62],
+    "cats": [
+      60,
+      62
+    ],
     "oss": false,
     "saas": true,
-    "pricing": ["payg"],
+    "pricing": [
+      "payg"
+    ],
     "url": [
       "\\.eks\\.[\\w.-]+\\.amazonaws\\.com",
       "[\\w.-]+\\.eks\\.[\\w.-]+\\.amazonaws\\.com",
@@ -4473,13 +4525,21 @@
   },
   "Amazon Elastic File System (EFS)": {
     "description": "Fully managed, elastic NFS file storage service on AWS that provides shared file systems for EC2, containers, serverless and on-premises via AWS networking.",
-    "cats": [48, 63],
+    "cats": [
+      48,
+      63
+    ],
     "website": "https://aws.amazon.com/efs/",
     "icon": "AmazonEFS.svg",
     "oss": false,
     "saas": true,
-    "pricing": ["payg", "mid"],
-    "implies": ["Amazon Web Services"],
+    "pricing": [
+      "payg",
+      "mid"
+    ],
+    "implies": [
+      "Amazon Web Services"
+    ],
     "url": [
       "console\\.aws\\.amazon\\.com/efs"
     ],
@@ -4503,7 +4563,11 @@
     "description": "AWS managed service for real-time and batch fraud detection using machine learning models, rules, and event data.",
     "website": "https://aws.amazon.com/fraud-detector/",
     "icon": "Amazon-Fraud-Detector.svg",
-    "cats": [99, 16, 61],
+    "cats": [
+      99,
+      16,
+      61
+    ],
     "xhr": [
       "https?:\\/\\/frauddetector\\.[-a-z0-9]+\\.amazonaws\\.com(?:\\/|\\?|$)",
       "https?:\\/\\/frauddetector\\.[-a-z0-9]+\\.amazonaws\\.com.*(?:\\?|&)Action=(?:GetEventPrediction|GetEventPredictionMetadata|GetEvent|GetDetectors|GetDetectorVersion|ListEventPredictions)\\b"
@@ -4517,28 +4581,63 @@
     },
     "oss": false,
     "saas": true,
-    "pricing": ["payg", "freemium"],
-    "implies": ["Amazon Web Services"]
+    "pricing": [
+      "payg",
+      "freemium"
+    ],
+    "implies": [
+      "Amazon Web Services"
+    ]
   },
   "Amazon FSx for Windows File Server": {
-    "description": "Fully managed, highly available Windows file storage on AWS built on Windows Server and accessible over SMB, integrating with Microsoft Active Directory.", 
-    "cats": [48, 63], 
-    "website": "https://aws.amazon.com/fsx/windows/", 
+    "description": "Fully managed, highly available Windows file storage on AWS built on Windows Server and accessible over SMB, integrating with Microsoft Active Directory.",
+    "cats": [
+      48,
+      63
+    ],
+    "website": "https://aws.amazon.com/fsx/windows/",
     "icon": "Amazon-FSx.svg",
-    "url": ["fsx\\.[a-z0-9-]+\\.amazonaws\\.com", "fsx-api\\.(?:cn-north-1|cn-northwest-1)\\.amazonaws\\.com\\.cn"],
-    "xhr": ["fsx\\.[a-z0-9-]+\\.amazonaws\\.com", "fsx-api\\.(?:cn-north-1|cn-northwest-1)\\.amazonaws\\.com\\.cn"],
-    "scripts": ["new\\s+AWS\\.FSx\\b;confidence:60", "\\bnew\\s+FSxClient\\b;confidence:60", "@aws-sdk/client-fsx;confidence:40"],
-    "scriptSrc": ["sdk\\.amazonaws\\.com/js/aws-sdk-2\\.[0-9.]+\\.min\\.js;confidence:10", "unpkg\\.com/@aws-sdk/client-fsx;confidence:40", "jsdelivr\\.net/npm/@aws-sdk/client-fsx;confidence:40"],
-    "js": {"AWS.FSx": ";confidence:25"},
-    "text": ["\\\\fs\\-[0-9a-f]{17}\\\\.[^\\s<\"']+;confidence:80", "\\\\amznfsx[a-z0-9]{6,16}\\\\.[^\\s<\"']+;confidence:80"],
+    "url": [
+      "fsx\\.[a-z0-9-]+\\.amazonaws\\.com",
+      "fsx-api\\.(?:cn-north-1|cn-northwest-1)\\.amazonaws\\.com\\.cn"
+    ],
+    "xhr": [
+      "fsx\\.[a-z0-9-]+\\.amazonaws\\.com",
+      "fsx-api\\.(?:cn-north-1|cn-northwest-1)\\.amazonaws\\.com\\.cn"
+    ],
+    "scripts": [
+      "new\\s+AWS\\.FSx\\b",
+      "\\bnew\\s+FSxClient\\b",
+      "@aws-sdk/client-fsx"
+    ],
+    "scriptSrc": [
+      "sdk\\.amazonaws\\.com/js/aws-sdk-2\\.[0-9.]+\\.min\\.js",
+      "unpkg\\.com/@aws-sdk/client-fsx",
+      "jsdelivr\\.net/npm/@aws-sdk/client-fsx"
+    ],
+    "js": {
+      "AWS.FSx": ""
+    },
+    "text": [
+      "\\\\fs\\-[0-9a-f]{17}\\\\.[^\\s<\"']+",
+      "\\\\amznfsx[a-z0-9]{6,16}\\\\.[^\\s<\"']+"
+    ],
     "oss": false,
     "saas": false,
-    "pricing": ["payg"],
-    "implies": ["Amazon Web Services"]
+    "pricing": [
+      "payg"
+    ],
+    "implies": [
+      "Amazon Web Services"
+    ]
   },
-  "Amazon Link Enhancer": {
-    "description": "Amazon Link Enhancer (Product Previews) is an Amazon Associates script that decorates Amazon text/image links and shows hover product previews.",
-    "cats": [36, 71, 5],
+  "Amazon Link Enchancer": {
+    "description": "Amazon Link Enhancer (Product Previews) is an Amazon Associates script that decorates Amazon text/image links and shows hover product previews. It's served from amazon-adsystem.com or assoc-amazon.* domains via link-enhancer-common.js.",
+    "cats": [
+      36,
+      71,
+      5
+    ],
     "website": "https://affiliate-program.amazon.com",
     "icon": "Amazon.svg",
     "scriptSrc": [
@@ -4553,8 +4652,14 @@
     ],
     "oss": false,
     "saas": true,
-    "pricing": ["free"],
-    "implies": ["Amazon Associates"]
+    "pricing": [
+      "free"
+    ],
+    "implies": [
+      "Amazon Associates"
+    ],
+    "requires": [],
+    "excludes": []
   },
   "Amazon Pay": {
     "cats": [
@@ -4589,12 +4694,18 @@
   },
   "Amazon Publisher Services": {
     "description": "Amazon Publisher Services (APS) is Amazon Ads' supply-side platform for web, app, and streaming TV publishers. It provides server-side header bidding via apstag.js library.",
-    "cats": [36, 61],
+    "cats": [
+      36,
+      61
+    ],
     "website": "https://aps.amazon.com/aps/",
     "icon": "AmazonPublisherServices.svg",
     "oss": false,
     "saas": true,
-    "pricing": ["poa", "enterprise"],
+    "pricing": [
+      "poa",
+      "enterprise"
+    ],
     "scriptSrc": [
       "c\\.amazon-adsystem\\.com\\/(?:aax2\\/)?apstag\\.js",
       "c\\.aps\\.amazon-adsystem\\.com\\/apstag\\.js"
@@ -4618,13 +4729,17 @@
     ]
   },
   "Amazon Reseller": {
-    "description":  "Indicates the site authorizes Amazon to resell its ad inventory via ads.txt or app-ads.txt (RESELLER relationship through Amazon Publisher Services).",
-    "cats": [36],
+    "description": "Indicates the site authorizes Amazon to resell its ad inventory via ads.txt or app-ads.txt (RESELLER relationship through Amazon Publisher Services).",
+    "cats": [
+      36
+    ],
     "website": "https://aps.amazon.com/",
     "icon": "AmazonAds.svg",
     "oss": false,
     "saas": true,
-    "pricing": ["poa"]
+    "pricing": [
+      "poa"
+    ]
   },
   "Amazon S3": {
     "cats": [
@@ -4646,22 +4761,32 @@
     ],
     "website": "https://aws.amazon.com/s3/"
   },
-"Amazon Simple Workflow (SWF)": {
+  "Amazon Simple Workflow (SWF)": {
     "description": "Managed workflow orchestration service by AWS for coordinating distributed background jobs, tracking state and task execution via APIs.",
-    "cats": [62, 61],
+    "cats": [
+      62,
+      61
+    ],
     "website": "https://aws.amazon.com/swf/",
     "icon": "Amazon Web Services.svg",
     "saas": true,
     "oss": false,
-    "pricing": ["payg", "free"],
+    "pricing": [
+      "payg",
+      "free"
+    ],
     "url": [
       "^https?://(?:swf|swf-fips)\\.[a-z0-9-]+\\.(?:amazonaws\\.com|api\\.aws)(?:[:/]|$)"
     ],
     "xhr": [
       "^https?://(?:swf|swf-fips)\\.[a-z0-9-]+\\.(?:amazonaws\\.com|api\\.aws)(?:[:/]|$)"
     ],
-    "js": {"AWS.SWF": "\\;confidence:50"},
-    "implies": ["Amazon Web Services"]
+    "js": {
+      "AWS.SWF": ""
+    },
+    "implies": [
+      "Amazon Web Services"
+    ]
   },
   "Amazon SES": {
     "cats": [
@@ -4718,7 +4843,11 @@
   },
   "Amazon Widgets": {
     "description": "Amazon Associates ‘Widgets’ and Native Shopping Ads (OneJS).",
-    "cats": [36, 71, 5],
+    "cats": [
+      36,
+      71,
+      5
+    ],
     "website": "https://affiliate-program.amazon.com",
     "icon": "AmazonWidgets.svg",
     "scriptSrc": [
@@ -4739,12 +4868,18 @@
       "amzn_assoc_placement": ""
     },
     "dom": {
-      "div[id^='amzn-assoc-ad-']": { "exists": true },
-      "iframe[src*='amazon-adsystem.com/widgets']": { "exists": true }
+      "div[id^='amzn-assoc-ad-']": {
+        "exists": true
+      },
+      "iframe[src*='amazon-adsystem.com/widgets']": {
+        "exists": true
+      }
     },
     "oss": false,
     "saas": true,
-    "pricing": ["free"]
+    "pricing": [
+      "free"
+    ]
   },
   "Ambassador": {
     "cats": [
@@ -5507,11 +5642,13 @@
     "website": "https://apisix.apache.org"
   },
   "Apache Beam": {
-    "description":  "Unified SDK and model for batch & streaming data processing.  Detection leverages the official Apache Beam Playground embed.",
+    "description": "Unified SDK and model for batch & streaming data processing.  Detection leverages the official Apache Beam Playground embed.",
     "website": "https://beam.apache.org",
     "icon": "Apache Beam.svg",
     "oss": true,
-    "cats": [47],
+    "cats": [
+      47
+    ],
     "dom": {
       "iframe[src*=\"play.beam.apache.org/embedded\"]": {
         "exists": ""
@@ -5536,10 +5673,17 @@
   },
   "Apache Hudi": {
     "description": "Open-source data lakehouse (table format + services) that exposes a Timeline Service over HTTP for file-system view and metadata operations.",
-    "cats": [34],
+    "cats": [
+      34
+    ],
     "website": "https://hudi.apache.org",
     "icon": "ApacheHudi.svg",
     "oss": true,
+    "probe": {
+      "/v1/hoodie/view/refresh": "Basepath is invalid",
+      "/v1/hoodie/view/datafiles/beforeoron/latest/": "Basepath is invalid",
+      "/v1/hoodie/view/compactions/pending/": "Basepath is invalid"
+    },
     "url": [
       "hudi\\.apache\\.org"
     ],
@@ -5549,7 +5693,7 @@
       "/v1/hoodie/view/compactions/"
     ],
     "dom": {
-      "a[href*='hudi.apache.org']":  {
+      "a[href*='hudi.apache.org']": {
         "exists": ""
       },
       "title": {
@@ -5562,7 +5706,14 @@
     "website": "https://iceberg.apache.org",
     "icon": "ApacheIceberg.svg",
     "oss": true,
-    "cats": [34],
+    "cats": [
+      34
+    ],
+    "probe": {
+      "/v1/config": "\"defaults\"|\"overrides\"|\"endpoints\"",
+      "/iceberg/v1/config": "\"defaults\"|\"overrides\"|\"endpoints\"",
+      "/iceberg/v1/restcatalog/config": "\"defaults\"|\"overrides\"|\"endpoints\""
+    },
     "url": [
       "iceberg\\.apache\\.org"
     ],
@@ -5575,7 +5726,7 @@
     ],
     "dom": {
       "a[href*='iceberg.apache.org']": {
-        "exists":  ""
+        "exists": ""
       },
       "title": {
         "text": "Apache Iceberg"
@@ -7172,7 +7323,10 @@
   },
   "Atlassian Crucible": {
     "description": "Atlassian Crucible is an on‑premises, web‑based code review tool for Git, Subversion, Mercurial, CVS, and Perforce with deep Jira integration.",
-    "cats": [47, 91],
+    "cats": [
+      47,
+      91
+    ],
     "website": "https://www.atlassian.com/software/crucible",
     "icon": "Atlassian-Crucible.svg",
     "cookies": {
@@ -7254,7 +7408,11 @@
   },
   "Atlassian Jira Capture": {
     "description": "Capture for Jira (formerly Atlassian Bonfire) is a browser-based visual feedback and exploratory testing add-on for Jira that lets teams capture annotated screenshots, run test sessions and file issues directly to Jira. Ownership transferred to Zephyr/SmartBear in 2017.",
-    "cats": [13, 47, 83],
+    "cats": [
+      13,
+      47,
+      83
+    ],
     "website": "https://www.atlassian.com/software/jira/capture",
     "icon": "CaptureForJira.svg",
     "url": "secure/(?:GetBonfire|BonfireGettingStarted|SessionNavigator)\\.jspa",
@@ -7264,21 +7422,33 @@
       "/download/batch/com.atlassian.bonfire.plugin:"
     ],
     "dom": {
-      "#bonfire-build-info": { "exists": "" },
-      "#bonfire_top_menu_dropdown": { "exists": "" },
-      "#bonfire_get_extension_link": { "exists": "" }
+      "#bonfire-build-info": {
+        "exists": ""
+      },
+      "#bonfire_top_menu_dropdown": {
+        "exists": ""
+      },
+      "#bonfire_get_extension_link": {
+        "exists": ""
+      }
     },
+    "oss": false,
+    "saas": true,
+    "pricing": [
+      "recurring"
+    ],
+    "implies": [
+      "Atlassian Jira"
+    ],
+    "requires": [
+      "Atlassian Jira"
+    ],
+    "excludes": [],
     "probe": {
       "/secure/GetBonfire.jspa": "",
       "/secure/BonfireGettingStarted.jspa": "",
       "/rest/bonfire/1.0/sessions": ""
-    },
-    "oss": false,
-    "saas": true,
-    "pricing": ["recurring"],
-    "implies": ["Atlassian Jira"],
-    "requires": ["Atlassian Jira"],
-    "excludes": []
+    }
   },
   "Atlassian Statuspage": {
     "cats": [
@@ -8223,7 +8393,10 @@
       "Azure"
     ],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/api/v1/clusters": ""
+    }
   },
   "Azure Monitor": {
     "cats": [

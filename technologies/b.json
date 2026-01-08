@@ -2309,10 +2309,48 @@
       "/UIMLogon$",
       "/htpcmd\\.html$"
     ],
+    "probe": {
+      "/commandcenter/index.html": "BMC\\s+AMI\\s+Command\\s+Center\\s+for\\s+Db2",
+      "/cra/ServiceGateway/Services/.*/products": "(Recovery Manager|BMC\\s+AMI\\s+Recovery\\s+Manager)",
+      "/UIMLogon": "(BMC\\s*UIM|UIM\\s*Logon)"
+    },
     "website": "https://docs.bmc.com/xwiki/bin/view/Mainframe/Data-for-Db2/BMC-AMI-Recovery-Manager-for-Db2/",
     "xhr": [
       "cra/ServiceGateway/Services/.+/products"
     ]
+  },
+  "BMC Release": {
+    "cats": [
+      44,
+      47
+    ],
+    "description": "BMC Release (BMC Release Process Management, part of the BMC Release Lifecycle Management suite) is an enterprise release orchestration tool for planning, coordinating, and automating application deployments.",
+    "html": [
+      "<title[^>]*>.*BMC Release Process Management.*</title>",
+      "<title[^>]*>.*(?:RLM|RPM) Requester UI.*</title>"
+    ],
+    "icon": "BMC.svg",
+    "implies": [
+      "Java",
+      "JBoss"
+    ],
+    "oss": false,
+    "pricing": [
+      "poa",
+      "enterprise"
+    ],
+    "saas": false,
+    "scriptSrc": [
+      "/brpm/(?:assets|javascripts)/.+\\.js"
+    ],
+    "url": [
+      "/(?:brpm|rlmui|brlm)(?:/|$|[?#])"
+    ],
+    "probe": {
+      "/brpm/v1/components": "",
+      "/brpm/v2/requests": ""
+    },
+    "website": "https://docs.bmc.com/xwiki/bin/view/More-Products/Release-Lifecycle-Management/BMC-Release-Process-Management/"
   },
   "BMC Remedy Change Management": {
     "cats": [

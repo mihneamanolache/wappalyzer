@@ -159,8 +159,7 @@
     "meta": {
       "keywords": "Linear Asset Management|Linear Reference Pattern"
     },
-    "implies": [
-    ],
+    "implies": [],
     "excludes": []
   },
   "SDL Tridion": {
@@ -1089,7 +1088,14 @@
       "Salesforce"
     ],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "paths": [
+        {
+          "path": "/s/sfsites/auraFW/javascript/aura_prod.js"
+        }
+      ]
+    }
   },
   "Salesforce Desk": {
     "cats": [
@@ -1248,9 +1254,36 @@
     "saas": true,
     "website": "https://www.salesforce.com/products/marketing-cloud/email-marketing"
   },
+  "Salesforce Mobile Push": {
+    "cats": [
+      32,
+      26,
+      61
+    ],
+    "description": "Salesforce MobilePush (Marketing Cloud Engagement) is a mobile messaging SDK and service for iOS and Android that registers devices and delivers push notifications, in-app messages, inbox, and location-based messaging.",
+    "icon": "Salesforce.svg",
+    "implies": [
+      "Salesforce Marketing Cloud"
+    ],
+    "oss": false,
+    "pricing": [
+      "poa",
+      "recurring",
+      "enterprise"
+    ],
+    "saas": true,
+    "website": "https://developer.salesforce.com/docs/marketing/mobilepush/guide/overview.html",
+    "xhr": [
+      "https?://([a-z0-9-]+\\.)?device\\.marketingcloudapis\\.com/device/v1/registration",
+      "https?://consumer\\.exacttargetapis\\.com/device/v1/registration"
+    ]
+  },
   "Salesforce Remedyforce": {
     "description": "BMC Helix Remedyforce (formerly Salesforce.com Remedyforce) is a cloud-based IT service management suite built on the Salesforce platform.",
-    "cats": [103, 61],
+    "cats": [
+      103,
+      61
+    ],
     "website": "https://www.bmc.com/it-solutions/bmc-helix-remedyforce.html",
     "icon": "BMC-Remedyforce.svg",
     "url": [
@@ -1274,9 +1307,17 @@
     ],
     "oss": false,
     "saas": true,
-    "pricing": ["poa", "recurring", "enterprise"],
-    "implies":  ["Salesforce"],
-    "requires": ["Salesforce"]
+    "pricing": [
+      "poa",
+      "recurring",
+      "enterprise"
+    ],
+    "implies": [
+      "Salesforce"
+    ],
+    "requires": [
+      "Salesforce"
+    ]
   },
   "Salesforce Service Cloud": {
     "description": "Salesforce Service Cloud is Salesforce’s customer service and support platform, offering case management, live chat (Embedded Service/Live Agent), messaging, and knowledge base.",
@@ -1339,7 +1380,7 @@
     ]
   },
   "Salesforce Sales Cloud Einstein": {
-    "description": "AI features for Salesforce Sales Cloud that automate and augment selling with lead and opportunity scoring, forecasting insights, and generative AI (Einstein GPT).",
+    "description": "AI features for Salesforce Sales Cloud that automate and augment selling with lead and opportunity scoring, forecasting insights, activity capture, and generative AI for sellers (Einstein GPT/Copilot for Sales).",
     "cats": [
       53,
       104,
@@ -1365,21 +1406,18 @@
       "x-sfdc-app-context": "EinsteinGPT",
       "x-client-feature-id": "ai-platform-models-connected-app"
     },
-    "dom": {
-      "title": {
-        "text": "Sales Cloud Einstein|Einstein GPT|Salesforce Einstein|Sales AI"
-      },
-      "h1": {
-        "text": "Sales Cloud Einstein|Salesforce Einstein|Sales AI"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Einstein GPT|Salesforce AI|Sales AI"
-      }
+    "cookies": {
+      "sfdc_lv2": ".+",
+      "sfdc-stream": ".+",
+      "sid_Client": ".+",
+      "BrowserId": ".+",
+      "inst": ".+",
+      "oid": ".+"
     },
-    "meta": {
-      "description": "Sales Cloud Einstein|generative AI for sales|Sales AI",
-      "keywords": "Sales Cloud Einstein|Einstein GPT|Sales AI"
-    },
+    "url": "[\\w-]+\\.(?:my\\.)?salesforce\\.com",
+    "scriptSrc": [
+      "a\\.sfdcstatic\\.com/.+"
+    ],
     "implies": [
       "Salesforce"
     ],
@@ -1429,7 +1467,11 @@
       "Salesforce"
     ],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/.well-known/security.txt": "_spf\\.salesforce\\.com",
+      "/security.txt": "_spf\\.salesforce\\.com"
+    }
   },
   "Salesforce Work.Com": {
     "description": "Salesforce Work.com is an employee experience and workplace management suite built on Salesforce Customer 360, including Command Center, Employee Workspace, and concierge capabilities.",
@@ -1478,7 +1520,12 @@
       "Akamai"
     ],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/form/contact/workplace-command-center/": "",
+      "/form/conf/workplace-command-center-contact/": "",
+      "/company/news-press/press-releases/2020/05/04/salesforce-announces-work-com-to-help-businesses-and-communities-safely-reopen-2/": "Work\\.com"
+    }
   },
   "Salesloft": {
     "cats": [
@@ -3266,7 +3313,10 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/$agile_board.do": ""
+    }
   },
   "ServiceNow Application Portfolio Management (APM)": {
     "description": "ServiceNow’s Application Portfolio Management (APM)—renamed Enterprise Architecture in recent releases—helps inventory, rationalise, and score business applications.",
@@ -3316,7 +3366,13 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/api/now/table/apm_application_indicator?sysparm_limit=1": "",
+      "/api/now/table/apm_application_indicator_score?sysparm_limit=1": "",
+      "/api/now/table/sn_apm_tpm_discovered_technology?sysparm_limit=1": "",
+      "/api/now/table/sn_apm_trm_standards_product?sysparm_limit=1": ""
+    }
   },
   "ServiceNow Automated Test Framework": {
     "description": "ServiceNow Automated Test Framework (ATF) is the built-in testing framework on the Now Platform that automates UI, server, and REST tests.",
@@ -3430,7 +3486,10 @@
       "ServiceNow"
     ],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/now/bcm": ""
+    }
   },
   "ServiceNow Change Management": {
     "description": "ServiceNow Change Management is the ITSM module on the Now Platform for planning, approving, scheduling, and implementing changes with risk assessment and CAB workbench.",
@@ -3535,7 +3594,12 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/api/now/cmdb/instance/cmdb_ci?sysparm_limit=1": "User Not Authenticated|status|failure",
+      "/api/now/cimodel/cmdb_ci/fullclasshierarchy": "User Not Authenticated|status|failure",
+      "/api/now/table/cmdb_ci?sysparm_limit=1": "User Not Authenticated|status|failure"
+    }
   },
   "SessionStack": {
     "cats": [
@@ -3598,7 +3662,10 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/api/now/table/sn_cld_spend_core_monthly_provider_agg_cost": ""
+    }
   },
   "ServiceNow Demand Management": {
     "description": "ServiceNow Demand Management centralized business and IT demands, provides a Demand Workbench for assessment and prioritization.",
@@ -3703,7 +3770,31 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "\\/now\\/risk": {
+        "status": [
+          200,
+          302,
+          401,
+          403
+        ]
+      },
+      "\\/api\\/now\\/table\\/sn_risk_risk\\?sysparm_limit=1": {
+        "status": [
+          401,
+          403
+        ],
+        "body": "User Not Authenticated|\\\"status\\\":\\\"failure\\\""
+      },
+      "\\/api\\/now\\/table\\/sn_grc_item\\?sysparm_limit=1": {
+        "status": [
+          401,
+          403
+        ],
+        "body": "User Not Authenticated|\\\"status\\\":\\\"failure\\\""
+      }
+    }
   },
   "ServiceNow IT Operations Management": {
     "description": "ServiceNow IT Operations Management (ITOM) is a SaaS suite on the Now Platform that provides discovery, service mapping, event management (AIOps), and operational capabilities.",
@@ -3918,7 +4009,22 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/login.do": {
+        "status": [
+          200,
+          302
+        ]
+      },
+      "/api/now/table/sys_properties?sysparm_limit=1": {
+        "status": [
+          200,
+          401,
+          403
+        ]
+      }
+    }
   },
   "ServiceNow Problem Management": {
     "description": "ServiceNow Problem Management is an ITSM application on the ServiceNow platform used to identify root causes, coordinate remediation, and prevent recurring incidents with dashboards and known error management.",
@@ -4048,7 +4154,14 @@
     },
     "implies": [
       "ServiceNow"
-    ]
+    ],
+    "probe": {
+      "paths": [
+        "/sp?id=sc_home",
+        "/esc?id=sc_home",
+        "/nav_to.do?uri=sc_request.do"
+      ]
+    }
   },
   "ServiceNow Resource Management": {
     "description": "ServiceNow Resource Management helps organizations plan capacity, allocate people to work, and track availability and actuals across projects and demands.",
@@ -4099,7 +4212,10 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/api/sn_rm_ws/resource_management_workspace/createResourceBoard": ""
+    }
   },
   "ServiceNow Security Incident Response": {
     "description": "ServiceNow Security Incident Response (SIR) is a SecOps application on the Now Platform to triage, investigate, and orchestrate response to security incidents.",
@@ -4199,7 +4315,18 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/api/now/table/sn_si_incident": {
+        "status": 401
+      },
+      "/api/now/table/sn_vul_vulnerable_item": {
+        "status": 401
+      },
+      "/api/now/table/sn_ti_observable": {
+        "status": 401
+      }
+    }
   },
   "ServiceNow Service Catalog": {
     "description": "ServiceNow Service Catalog provides an enterprise storefront for requesting services and products on the Now Platform, typically surfaced via Service Portal or Employee Center.",
@@ -4301,7 +4428,41 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "paths": {
+        "/api/now/table/task_sla": {
+          "status": [
+            401,
+            403
+          ],
+          "headers": {
+            "server": "^(?:snow_adc|ServiceNow)$",
+            "x-is-logged-in": ".+"
+          }
+        },
+        "/task_sla_list.do": {
+          "status": [
+            200,
+            302,
+            401
+          ],
+          "headers": {
+            "server": "^(?:snow_adc|ServiceNow)$"
+          }
+        },
+        "/contract_sla_list.do": {
+          "status": [
+            200,
+            302,
+            401
+          ],
+          "headers": {
+            "server": "^(?:snow_adc|ServiceNow)$"
+          }
+        }
+      }
+    }
   },
   "Servicenow Vendor Risk Management": {
     "description": "ServiceNow Vendor Risk Management (renamed Third-party Risk Management) is a Now Platform application for assessing and monitoring third‑party/vendor risk.",
@@ -4347,7 +4508,11 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/svdp": "",
+      "/vdp": ""
+    }
   },
   "ServiceNow Visual Task Boards": {
     "description": "Kanban-style boards within ServiceNow to visualize and manage tasks via drag-and-drop lanes, labels, checklists, and activity streams.",
@@ -4446,7 +4611,11 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "/api/now/table/sn_vul_vulnerable_item?sysparm_limit=1": "",
+      "/api/now/table/sn_vulnerability?sysparm_limit=1": ""
+    }
   },
   "Setmore": {
     "cats": [
@@ -5542,7 +5711,10 @@
   },
   "Shopify Basic": {
     "description": "Shopify Basic is the entry-level plan of Shopify's hosted ecommerce platform. Plan-level signals aren't exposed publicly, so detection relies on generic Shopify storefront fingerprints.",
-    "cats": [6, 61],
+    "cats": [
+      6,
+      61
+    ],
     "website": "https://www.shopify.com/pricing",
     "icon": "Shopify.svg",
     "url": [
@@ -5554,7 +5726,7 @@
     },
     "js": {
       "Shopify.routes.root": ". +",
-      "Shopify":  ""
+      "Shopify": ""
     },
     "scriptSrc": [
       "cdn\\.shopify\\.com\\/shopifycloud\\/boomerang\\/shopify-boomerang-[0-9.]+(?:\\.min)?\\.js",
@@ -5573,11 +5745,21 @@
       "_shopify_s": ".+",
       "cart_sig": ".+"
     },
-    "implies": ["Shopify"],
-    "requires": ["Shopify"],
+    "implies": [
+      "Shopify"
+    ],
+    "requires": [
+      "Shopify"
+    ],
     "oss": false,
     "saas": true,
-    "pricing": ["low", "recurring"]
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "probe": {
+      "/cart.js": "\\{\\s*\\\"items\\\"\\s*:\\s*\\["
+    }
   },
   "Shopify Buy Button": {
     "cats": [
@@ -5598,7 +5780,10 @@
   },
   "Shopify Business": {
     "description": "Shopify's hosted ecommerce platform for building and running online stores, checkout, and POS with built‑in storefront, payments, apps, and APIs.",
-    "cats": [6, 61],
+    "cats": [
+      6,
+      61
+    ],
     "website": "https://www.shopify.com/",
     "icon": "Shopify.svg",
     "url": [
@@ -5617,7 +5802,7 @@
       "cdn\\.shopify\\.com/shopifycloud/.*\\.(?:js|mjs)(?:\\?.*)?$",
       "fonts\\.shopifycdn\\.com/.*"
     ],
-    "headers":  {
+    "headers": {
       "X-Shopify-Stage": ".+",
       "X-Sorting-Hat-PodId": ".+",
       "X-Storefront-Renderer-Rendered": ".+",
@@ -5625,13 +5810,13 @@
       "Powered-By": "Shopify",
       "X-Shopify-API-Version": ".+"
     },
-    "cookies":  {
+    "cookies": {
       "secure_customer_sig": ".+",
       "cart_currency": ".+",
       "cart_sig": ".+",
       "storefront_digest": ".+",
       "localization": ".+",
-      "keep_alive":  ".+",
+      "keep_alive": ".+",
       "_shop_app_essential": ".+",
       "_shopify_essential": ".+",
       "_shopify_s": ".+",
@@ -5642,14 +5827,14 @@
       "shopify-digital-wallet": ".+"
     },
     "js": {
-      "Shopify.shop":  "",
+      "Shopify.shop": "",
       "Shopify. routes.root": "",
       "Shopify.cdnHost": "",
       "Shopify.theme. name": "",
       "ShopifyAnalytics.meta.page. pageType": ""
     },
     "dom": {
-      "div[id^=\"shopify-section-\"]":  {
+      "div[id^=\"shopify-section-\"]": {
         "exists": ""
       }
     },
@@ -5661,11 +5846,20 @@
     ],
     "oss": false,
     "saas": true,
-    "pricing":  ["recurring", "mid", "high"],
+    "pricing": [
+      "recurring",
+      "mid",
+      "high"
+    ],
     "implies": [
       "Ruby on Rails"
     ],
-    "requires": ["Shopify"]
+    "requires": [
+      "Shopify"
+    ],
+    "probe": {
+      "/cart.js": ""
+    }
   },
   "Shopify Chat": {
     "cats": [
@@ -5698,18 +5892,21 @@
     "website": "https://apps.shopify.com/customer-privacy-banner"
   },
   "Shopify Dormant": {
-    "description": "Shopify storefronts in a paused/frozen (dormant) state, typically when a merchant uses Pause and Build or the shop is unavailable.",
-    "cats": [6, 61],
-    "website":  "https://help.shopify.com/en/manual/your-account/manage-orgs-and-stores/manage-pricing-plan/pause-store",
+    "description": "Shopify storefronts in a paused/frozen (dormant) state, typically when a merchant uses Pause and Build or the shop is unavailable; pages often display 'This shop is currently unavailable' while Shopify checkout and sales features are disabled.",
+    "cats": [
+      6,
+      61
+    ],
+    "website": "https://help.shopify.com/en/manual/your-account/manage-orgs-and-stores/manage-pricing-plan/pause-store",
     "icon": "Shopify.svg",
     "dom": {
-      "h1":  {
-        "text": "(?:Sorry,\\s*)?This shop is currently unavailable! ?"
+      "h1": {
+        "text": "(?:Sorry,\\s*)?This shop is currently unavailable!?"
       }
     },
     "html": [
       "<h1[^>]*>\\s*(?:Sorry,\\s*)?This shop is currently unavailable!?\\s*</h1>",
-      "<title>\\s*Create an Ecommerce Website and Sell Online!  Ecommerce Software by Shopify\\s*</title>"
+      "<title>\\s*Create an Ecommerce Website and Sell Online! Ecommerce Software by Shopify\\s*</title>"
     ],
     "headers": {
       "X-Sorting-Hat-ShopId": ".+",
@@ -5722,10 +5919,18 @@
       "monorail-edge\\.shopifycloud\\.com",
       "cdn\\.shopify\\.com"
     ],
+    "url": "^https?://[^/]+\\.myshopify\\.com(?:/|$)",
     "oss": false,
     "saas": true,
-    "pricing": ["low", "recurring"],
-    "requires": ["Shopify"]
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "implies": [],
+    "requires": [
+      "Shopify"
+    ],
+    "excludes": []
   },
   "Shopify Geolocation App": {
     "cats": [
@@ -5743,10 +5948,14 @@
     "website": "https://apps.shopify.com/geolocation"
   },
   "Shopify Hosted": {
-    "description":  "Hosted online-store platform by Shopify (Liquid themes and Shopify Checkout). Identifies storefronts running on Shopify's Online Store rather than headless/custom storefronts.",
-    "cats": [6, 61, 88],
-    "website":  "https://www.shopify.com/",
-    "icon":  "Shopify.svg",
+    "description": "Hosted online-store platform by Shopify (Liquid themes and Shopify Checkout). Identifies storefronts running on Shopify's Online Store rather than headless/custom storefronts.",
+    "cats": [
+      6,
+      61,
+      88
+    ],
+    "website": "https://www.shopify.com/",
+    "icon": "Shopify.svg",
     "url": [
       "^https?://[^/]+\\.myshopify\\.com(?:/|$)"
     ],
@@ -5760,12 +5969,12 @@
       "x-sorting-hat-shopid": ".+",
       "x-shopid": ".+"
     },
-    "cookies":  {
+    "cookies": {
       "secure_customer_sig": ".+",
       "cart_sig": ".+",
       "storefront_digest": ".+",
       "_secure_session_id": ".+",
-      "shopify_pay_redirect":  ".+"
+      "shopify_pay_redirect": ".+"
     },
     "meta": {
       "shopify-digital-wallet": ".+"
@@ -5774,19 +5983,28 @@
       "Shopify.routes.root": "\\/",
       "Shopify.theme.name": ".+"
     },
-    "dom":  {
+    "dom": {
       "div. shopify-section": {
         "exists": ""
       },
       "[id^='shopify-section-']": {
-        "exists":  ""
+        "exists": ""
       }
     },
     "oss": false,
     "saas": true,
-    "pricing": ["recurring", "mid", "enterprise"],
-    "implies": ["Shopify"],
-    "excludes": []
+    "pricing": [
+      "recurring",
+      "mid",
+      "enterprise"
+    ],
+    "implies": [
+      "Shopify"
+    ],
+    "excludes": [],
+    "probe": {
+      "/cart.js": "\"items\"\\s*:\\s*\\[|\"token\"\\s*:\\s*\""
+    }
   },
   "Shopify Product Reviews": {
     "cats": [
@@ -5808,14 +6026,25 @@
   },
   "Shopify Npo": {
     "description": "Shopify Nonprofit (NPO) plans — discounted Shopify subscription tiers for verified charities.  These are billing plans on top of Shopify; storefronts remain standard Shopify and are not publicly distinguishable by plan.",
-    "cats": [6, 61],
+    "cats": [
+      6,
+      61
+    ],
     "website": "https://www.shopify.com/",
     "icon": "Shopify.svg",
     "oss": false,
     "saas": true,
-    "pricing": ["recurring", "low", "mid"],
-    "implies": ["Shopify"],
-    "requires": ["Shopify"],
+    "pricing": [
+      "recurring",
+      "low",
+      "mid"
+    ],
+    "implies": [
+      "Shopify"
+    ],
+    "requires": [
+      "Shopify"
+    ],
     "excludes": []
   },
   "Shopistry": {
@@ -9080,7 +9309,10 @@
   },
   "Software AG CentraSite": {
     "description": "CentraSite is an enterprise SOA/API governance registry and metadata repository (originally by Software AG, now IBM) providing lifecycle, policy, and asset management.",
-    "cats": [47, 19],
+    "cats": [
+      47,
+      19
+    ],
     "website": "https://www.ibm.com/docs/en/centrasite",
     "icon": "CentraSite.svg",
     "url": [
@@ -9105,12 +9337,24 @@
     },
     "oss": false,
     "saas": false,
-    "pricing": ["enterprise", "recurring", "poa"]
+    "pricing": [
+      "enterprise",
+      "recurring",
+      "poa"
+    ],
+    "probe": {
+      "/BusinessUI/": "",
+      "/PluggableUI/Control": "",
+      "/CentraSite/CentraSite": ""
+    }
   },
   "Software AG NATURAL": {
     "description": "Software AG Natural is a 4GL application development environment. On the web it surfaces via Natural for Ajax and the Natural Web I/O Interface.",
-    "cats": [27, 18],
-    "website":  "https://www.softwareag.com/en/resources/adabas-natural/application-development-natural-for-zos/",
+    "cats": [
+      27,
+      18
+    ],
+    "website": "https://www.softwareag.com/en/resources/adabas-natural/application-development-natural-for-zos/",
     "icon": "SoftwareAG-Natural.svg",
     "url": [
       "(?:^|/)(?:cisnatural|natuniweb|cis)/"
@@ -9134,13 +9378,29 @@
         "text": "Software AG Natural|Natural for Ajax"
       }
     },
-    "oss":  false,
-    "saas":  false,
-    "pricing": ["enterprise", "poa", "recurring"]
+    "oss": false,
+    "saas": false,
+    "pricing": [
+      "enterprise",
+      "poa",
+      "recurring"
+    ],
+    "probe": {
+      "paths": [
+        "/cisnatural/index.html",
+        "/cisnatural/conf_index.jsp",
+        "/cisnatural/servlet/StartCISPage?PAGEURL=/cisnatural/NatLogon.html",
+        "/natuniweb/conf_index.jsp",
+        "/natuniweb/natural.jsp"
+      ]
+    }
   },
   "Software AG Terracotta": {
     "description": "Distributed in-memory data platform and clustered cache by Software AG (Terracotta Server / Terracotta DB) used with Ehcache and TCStore.",
-    "cats": [23, 34],
+    "cats": [
+      23,
+      34
+    ],
     "website": "https://www.terracotta.org/",
     "icon": "Terracotta.svg",
     "xhr": [
@@ -9153,14 +9413,24 @@
         "text": "Terracotta Management Console"
       }
     },
-    "text":  [
+    "text": [
       "Terracotta Management Console",
       "Terracotta Server"
     ],
     "oss": true,
     "saas": false,
-    "pricing": ["free", "poa", "enterprise"],
-    "implies": ["Java"]
+    "pricing": [
+      "free",
+      "poa",
+      "enterprise"
+    ],
+    "implies": [
+      "Java"
+    ],
+    "probe": {
+      "/tc-management-api/v2/agents/info": "\"apiVersion\"\\s*:\\s*\"v2\"",
+      "/tc-management-api/v2/agents/topologies": "\"agentId\"|\"entities\""
+    }
   },
   "Soisy": {
     "cats": [

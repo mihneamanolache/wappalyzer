@@ -3171,7 +3171,9 @@
       "description": "Microsoft Entra ID|Azure Active Directory",
       "keywords": "Entra ID|Azure AD|Identity"
     },
-    "implies": ["Azure" ],
+    "implies": [
+      "Azure"
+    ],
     "excludes": []
   },
   "Microsoft Azure ExpressRoute": {
@@ -3211,7 +3213,9 @@
       "description": "ExpressRoute|private connections to Azure|Azure ExpressRoute",
       "keywords": "ExpressRoute|Azure Networking|Private Connectivity"
     },
-    "implies": ["Azure"],
+    "implies": [
+      "Azure"
+    ],
     "excludes": []
   },
   "Microsoft Azure File Storage Service": {
@@ -3259,7 +3263,9 @@
       "description": "Azure Files|managed file share|SMB|NFS",
       "keywords": "Azure Files|File Storage|SMB|NFS"
     },
-    "implies": ["Azure"],
+    "implies": [
+      "Azure"
+    ],
     "excludes": []
   },
   "Microsoft Azure Maps": {
@@ -3318,8 +3324,13 @@
       "description": "Service Fabric|microservices|Azure Service Fabric",
       "keywords": "Service Fabric|Azure|Microservices"
     },
-    "implies": ["Azure"],
-    "excludes": []
+    "implies": [
+      "Azure"
+    ],
+    "excludes": [],
+    "probe": {
+      "/Explorer": "(?:\\bService Fabric Explorer\\b|index\\.html|old\\.html)"
+    }
   },
   "Microsoft Azure Site Recovery": {
     "description": "Azure-native disaster recovery as a service (DRaaS) that orchestrates replication, failover and recovery for Azure VMs and on-premises VMware/Hyper-V/physical servers to Azure.",
@@ -3357,7 +3368,9 @@
       "description": "Azure Site Recovery|Disaster Recovery|DRaaS",
       "keywords": "Azure Site Recovery|Disaster Recovery"
     },
-    "implies": ["Azure"],
+    "implies": [
+      "Azure"
+    ],
     "excludes": []
   },
   "Microsoft Azure Table storage": {
@@ -3409,7 +3422,17 @@
     "implies": [
       "Azure"
     ],
-    "excludes": []
+    "excludes": [],
+    "probe": {
+      "paths": [
+        {
+          "path": "/?restype=service&comp=properties",
+          "mustHeaders": {
+            "server": "Windows-Azure-Table"
+          }
+        }
+      ]
+    }
   },
   "Microsoft Azure Virtual Network": {
     "description": "Azure Virtual Network (VNet) provides isolated private networking for Azure resources, supporting subnets, routing, network security groups, peering, and VPN/ExpressRoute connectivity.",
