@@ -4266,10 +4266,10 @@
       "servicecatalog(?:-fips)?\\.[a-z0-9-]+\\.amazonaws\\.com(?:\\.cn)?"
     ],
     "js": {
-      "AWS.ServiceCatalog": ";confidence:50"
+      "AWS.ServiceCatalog": ""
     },
     "scriptSrc": [
-      "sdk\\.amazonaws\\.com\\/js\\/aws-sdk(?:-[0-9.]+)?(?:\\.min)?\\.js;confidence:10"
+      "sdk\\.amazonaws\\.com\\/js\\/aws-sdk(?:-[0-9.]+)?(?:\\.min)?\\.js"
     ]
   },
   "Amazon Cloud Directory": {
@@ -4606,21 +4606,21 @@
       "fsx-api\\.(?:cn-north-1|cn-northwest-1)\\.amazonaws\\.com\\.cn"
     ],
     "scripts": [
-      "new\\s+AWS\\.FSx\\b;confidence:60",
-      "\\bnew\\s+FSxClient\\b;confidence:60",
-      "@aws-sdk/client-fsx;confidence:40"
+      "new\\s+AWS\\.FSx\\b",
+      "\\bnew\\s+FSxClient\\b",
+      "@aws-sdk/client-fsx"
     ],
     "scriptSrc": [
-      "sdk\\.amazonaws\\.com/js/aws-sdk-2\\.[0-9.]+\\.min\\.js;confidence:10",
-      "unpkg\\.com/@aws-sdk/client-fsx;confidence:40",
-      "jsdelivr\\.net/npm/@aws-sdk/client-fsx;confidence:40"
+      "sdk\\.amazonaws\\.com/js/aws-sdk-2\\.[0-9.]+\\.min\\.js",
+      "unpkg\\.com/@aws-sdk/client-fsx",
+      "jsdelivr\\.net/npm/@aws-sdk/client-fsx"
     ],
     "js": {
-      "AWS.FSx": ";confidence:25"
+      "AWS.FSx": ""
     },
     "text": [
-      "\\\\fs\\-[0-9a-f]{17}\\\\.[^\\s<\"']+;confidence:80",
-      "\\\\amznfsx[a-z0-9]{6,16}\\\\.[^\\s<\"']+;confidence:80"
+      "\\\\fs\\-[0-9a-f]{17}\\\\.[^\\s<\"']+",
+      "\\\\amznfsx[a-z0-9]{6,16}\\\\.[^\\s<\"']+"
     ],
     "oss": false,
     "saas": false,

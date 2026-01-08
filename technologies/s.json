@@ -1469,8 +1469,8 @@
     "requires": [],
     "excludes": [],
     "probe": {
-      "/.well-known/security.txt": "_spf\\.salesforce\\.com\\b\\;confidence:25",
-      "/security.txt": "_spf\\.salesforce\\.com\\b\\;confidence:25"
+      "/.well-known/security.txt": "_spf\\.salesforce\\.com",
+      "/security.txt": "_spf\\.salesforce\\.com"
     }
   },
   "Salesforce Work.Com": {
