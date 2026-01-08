@@ -407,6 +407,10 @@
     "meta": {
       "description": "Maintenix|IFS Maintenix|Aviation Maintenance|MRO|Aerospace.*Defense",
       "keywords": "Maintenix|IFS|Aviation|Aircraft Maintenance|Aerospace"
+    },
+    "probe": {
+      "/maintenix/common/security/logout.jsp": "Logged Out|Industrial and Financial Systems, IFS AB",
+      "/maintenix/common/security/login.jsp": "Sign In|Please Login|Maintenix"
     }
   },
   "IFS Enterprise Asset Management": {
@@ -447,7 +451,18 @@
     "meta": {
       "description": "Enterprise Asset Management|IFS Cloud EAM|Asset Lifecycle",
       "keywords": "EAM|Asset Management|IFS Cloud"
-    }
+    },
+    "probe": [
+      {
+        "path": "/main/ifsapplications/web/iconlibrary"
+      },
+      {
+        "path": "/main/ifsapplications/projection/v1/AllProjections.svc/Projections?$format=json"
+      },
+      {
+        "path": "/main/ifsapplications/projection/oauth2/callback/"
+      }
+    ]
   },
   "Ignition": {
     "cats": [

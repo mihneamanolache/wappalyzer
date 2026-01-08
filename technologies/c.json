@@ -75,6 +75,31 @@
     "meta": {
       "description": "Service Desk Manager|Clarity Service Management|IT Service Management|ITSM",
       "keywords": "Service Desk|ITSM|CA Technologies"
+    },
+    "probe": {
+      "paths": [
+        {
+          "path": "/CAisd/pdmweb.exe",
+          "status": [
+            200,
+            302
+          ]
+        },
+        {
+          "path": "/axis/servlet/AxisServlet",
+          "status": [
+            200
+          ],
+          "body": "Some\\s+Services|Axis"
+        },
+        {
+          "path": "/usm/services",
+          "status": [
+            200
+          ],
+          "body": "(AdminService|RequestService|Version)"
+        }
+      ]
     }
   },
   "CCV Shop": {
@@ -3443,30 +3468,6 @@
     ],
     "saas": true,
     "website": "https://clickhelp.com"
-  },
-  "ClickHouse": {
-    "description": "ClickHouse is an open‑source, column‑oriented OLAP database (originally developed at Yandex, now maintained by ClickHouse, Inc.) with an HTTP API that exposes distinctive X-ClickHouse-* headers and health endpoints.",
-    "cats": [34],
-    "website": "https://clickhouse.com",
-    "icon": "ClickHouse.svg",
-    "headers": {
-      "x-clickhouse-query-id": ".+",
-      "x-clickhouse-server-display-name": ".+",
-      "x-clickhouse-format": ".+",
-      "x-clickhouse-timezone": ".+",
-      "x-clickhouse-progress": ".+",
-      "access-control-expose-headers": "X-ClickHouse-(?:Query-Id|Summary|Server-Display-Name|Format|Timezone|Exception-Code|Exception-Tag)"
-    },
-    "url": [
-      "^https?://play\\.clickhouse\\.com(?:/|\\?|$)"
-    ],
-    "xhr": [
-      "console-api\\.clickhouse\\.cloud/\\.api/query-endpoints/. +?/run"
-    ],
-    "oss": true,
-    "saas": false,
-    "pricing": ["free"],
-    "cpe": "cpe:2.3:a:clickhouse:clickhouse"
   },
   "ClickOnce": {
     "cats": [

@@ -1,4 +1,35 @@
 {
+  "Yandex ClickHouse": {
+    "description": "ClickHouse is an open‑source, column‑oriented OLAP database (originally developed at Yandex, now maintained by ClickHouse, Inc.) with an HTTP API that exposes distinctive X-ClickHouse-* headers and health endpoints.",
+    "cats": [34],
+    "website": "https://clickhouse.com",
+    "icon": "ClickHouse.svg",
+    "headers": {
+      "x-clickhouse-query-id": ".+",
+      "x-clickhouse-server-display-name": ".+",
+      "x-clickhouse-format": ".+",
+      "x-clickhouse-timezone": ".+",
+      "x-clickhouse-progress": ".+",
+      "access-control-expose-headers": "X-ClickHouse-(?:Query-Id|Summary|Server-Display-Name|Format|Timezone|Exception-Code|Exception-Tag)"
+    },
+    "url": [
+      "^https?://play\\.clickhouse\\.com(?:/|\\?|$)"
+    ],
+    "xhr": [
+      "console-api\\.clickhouse\\.cloud/\\.api/query-endpoints/.+?/run"
+    ],
+    "probe": {
+      "/ping": "Ok\\.",
+      "/replicas_status": "Ok\\."
+    },
+    "oss": true,
+    "saas": false,
+    "pricing": ["free"],
+    "cpe": "cpe:2.3:a:clickhouse:clickhouse",
+    "implies": [],
+    "requires": [],
+    "excludes": []
+  },
   "YMQ Product Options Variant Option": {
     "cats": [
       100

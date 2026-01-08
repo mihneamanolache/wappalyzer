@@ -602,7 +602,10 @@
     "icon": "Databricks.svg",
     "oss": false,
     "saas": true,
-    "cats": [10, 34],
+    "cats": [
+      10,
+      34
+    ],
     "url": [
       "\\.cloud\\.databricks\\.com($|/)",
       "\\.privatelink\\.cloud\\.databricks\\.com($|/)",
@@ -616,7 +619,9 @@
     "scriptSrc": [
       "databricks-prod-cloudfront\\.cloud\\.databricks\\.com"
     ],
-    "pricing": ["enterprise"]
+    "pricing": [
+      "enterprise"
+    ]
   },
   "Databricks": {
     "description": "Databricks is a unified data, analytics, and AI platform (Lakehouse) offering managed data engineering, SQL, and machine learning workloads.",
@@ -670,6 +675,11 @@
       "meta[name=\"keywords\"]": {
         "content": "Databricks|Lakehouse|Apache Spark"
       }
+    },
+    "probe": {
+      "/config": "",
+      "/api/2.0/jobs/runs/list": "",
+      "/api/2.0/sql/queries": ""
     },
     "implies": [
       "Delta Lake"
@@ -1100,10 +1110,12 @@
   },
   "Delta Lake": {
     "description": "Open-source table storage framework that adds ACID transactions, scalable metadata, and time travel to data lakes by maintaining a transaction log in a _delta_log directory alongside Parquet data.",
-    "cats": [34],
+    "cats": [
+      34
+    ],
     "website": "https://delta.io/",
     "icon": "DeltaLake.svg",
-    "url":  [
+    "url": [
       "(?:^|/)_delta_log/(?:$|[0-9]{20}\\.json|[0-9]{20}\\.checkpoint(?:\\.[0-9]{10})?\\.parquet|_last_checkpoint)",
       "(?:^|/)_change_data/(?:$|cdc-[^/]+\\.parquet)"
     ],
@@ -1117,7 +1129,12 @@
     ],
     "oss": true,
     "saas": false,
-    "pricing": ["free"]
+    "pricing": [
+      "free"
+    ],
+    "probe": {
+      "/_delta_log/_last_checkpoint": "\"version\"\\s*:\\s*\\d+"
+    }
   },
   "Dema": {
     "cats": [
@@ -2852,7 +2869,12 @@
   },
   "Dremio": {
     "description": "Dremio is a lakehouse platform and SQL query engine for federated analytics across data lakes, warehouses, and databases. Available as self-hosted software and as Dremio Cloud.",
-    "cats": [34, 102, 101, 61],
+    "cats": [
+      34,
+      102,
+      101,
+      61
+    ],
     "website": "https://www.dremio.com/",
     "icon": "Dremio.svg",
     "url": [
@@ -2878,9 +2900,17 @@
       "Dremio Cloud",
       "Dremio Software"
     ],
+    "probe": {
+      "/apiv2/server_status": "OK"
+    },
     "oss": true,
     "saas": true,
-    "pricing": ["freemium", "payg", "recurring", "enterprise"]
+    "pricing": [
+      "freemium",
+      "payg",
+      "recurring",
+      "enterprise"
+    ]
   },
   "Drift": {
     "cats": [
