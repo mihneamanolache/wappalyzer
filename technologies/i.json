@@ -372,95 +372,45 @@
   },
   "IFS Aircraft Maintenance & Engineering": {
     "description": "IFS Aircraft Maintenance & Engineering (IFS Maintenix) is an aviation maintenance and engineering (M&E) management system for airlines, MROs, and defense operators.",
-    "cats": [
-      61,
-      100,
-      19
-    ],
+    "cats": [61, 100, 19],
     "website": "https://www.ifs.com/industries/aerospace-and-defense",
     "icon": "IFS.svg",
     "oss": false,
     "saas": true,
-    "pricing": [
-      "enterprise",
-      "poa",
-      "recurring"
-    ],
-    "cpe": "",
+    "pricing": ["enterprise", "poa", "recurring"],
     "url": [
-      "\\/(?:maintenix|mcmapi|mxapi|mxapiext|mxcorews|jobcard\\-management\\-api|recxfrapi|wpl\\-web|amapi|lmocweb|aerobuy|arc|procurement|pubsub)(?:\\/|$)",
-      "/maintenix/common/security/login\\.jsp"
+      "/maintenix/common/security/login\\.jsp",
+      "/maintenix/web/"
     ],
-    "xhr": [
-      "mcmapi\\/",
-      "mxapi\\/",
-      "pubsub\\/"
-    ],
+    "text": "Maintenix",
     "dom": {
-      "title": {
-        "text": "Maintenix|IFS Maintenix|Aviation Maintenance|Aerospace.*Defense|IFS Cloud"
-      },
       "form[action*=\"/maintenix/\"]": {
         "exists": ""
       }
     },
-    "meta": {
-      "description": "Maintenix|IFS Maintenix|Aviation Maintenance|MRO|Aerospace.*Defense",
-      "keywords": "Maintenix|IFS|Aviation|Aircraft Maintenance|Aerospace"
-    },
     "probe": {
-      "/maintenix/common/security/logout.jsp": "Logged Out|Industrial and Financial Systems, IFS AB",
-      "/maintenix/common/security/login.jsp": "Sign In|Please Login|Maintenix"
+      "/maintenix/common/security/login.jsp": "Maintenix"
     }
   },
   "IFS Enterprise Asset Management": {
     "description": "IFS Cloud EAM (Enterprise Asset Management) — asset lifecycle, maintenance and reliability management as part of the IFS Cloud suite.",
-    "cats": [
-      100,
-      61
-    ],
+    "cats": [100, 61],
     "website": "https://www.ifs.com/solutions/ifs-cloud-eam",
     "icon": "IFS.svg",
     "oss": false,
     "saas": true,
-    "pricing": [
-      "enterprise",
-      "poa",
-      "recurring"
-    ],
+    "pricing": ["enterprise", "poa", "recurring"],
     "url": [
-      "/(?:main|b2b|int)/ifsapplications/.*",
-      "/main/ifsapplications/web/iconlibrary",
-      "/main/ifsapplications/projection/v1/AllProjections\\.svc/Projections",
-      "/main/ifsapplications/projection/oauth2/callback/"
-    ],
-    "xhr": [
-      "/(?:main|b2b|int)/ifsapplications/(?:projection|entity)/v1/[^/]+\\.svc(?:/|\\?|$)",
-      "/(?:main|b2b|int)/ifsapplications/projection/v1/AllProjections\\.svc/Projections",
-      "/int/ifsapplications/projection/v1/[^/]+\\.svc/(?:\\$openapi|\\$batch)"
+      "/ifsapplications/projection/v1/AllProjections\\.svc",
+      "/ifsapplications/web/iconlibrary"
     ],
     "scriptSrc": [
-      "/main/ifsapplications/web/main\\.[a-f0-9]{8,}\\.js",
-      "/main/ifsapplications/web/\\d+\\.[a-f0-9]{8,}\\.js"
+      "/ifsapplications/web/main\\.[a-f0-9]{8,}\\.js"
     ],
-    "dom": {
-      "title": {
-        "text": "IFS Cloud EAM|Enterprise Asset Management|Asset Lifecycle"
-      }
-    },
-    "meta": {
-      "description": "Enterprise Asset Management|IFS Cloud EAM|Asset Lifecycle",
-      "keywords": "EAM|Asset Management|IFS Cloud"
-    },
+    "text": "IFS Cloud",
     "probe": [
       {
-        "path": "/main/ifsapplications/web/iconlibrary"
-      },
-      {
-        "path": "/main/ifsapplications/projection/v1/AllProjections.svc/Projections?$format=json"
-      },
-      {
-        "path": "/main/ifsapplications/projection/oauth2/callback/"
+        "path": "/main/ifsapplications/projection/v1/AllProjections.svc/Projections"
       }
     ]
   },

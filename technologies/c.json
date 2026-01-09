@@ -22,7 +22,7 @@
     "website": "https://c3js.org/"
   },
   "CA Clarity Service Manager": {
-    "description": "Broadcom’s CA Service Management suite (briefly branded Clarity Service Management) for IT service management. It includes Service Desk Manager (SDM), Service Catalog (USM), and the xFlow/Service Point UI, typically deployed on‑premises.",
+    "description": "Broadcom's CA Service Management suite for IT service management.",
     "cats": [
       103
     ],
@@ -40,67 +40,18 @@
       "Java",
       "Apache Tomcat"
     ],
-    "excludes": [],
-    "requires": [],
     "url": [
-      "/CAisd/pdmweb\\.exe",
-      "/axis/services/USD_R11_WebService(?:\\?wsdl)?",
-      "/usm/(?:wpf|services)(?:/|\\?|$)",
-      ":(?:9002|9444)(?:/|$)",
-      "/axis/servlet/AxisServlet"
-    ],
-    "xhr": [
-      ":(?:9002|9444)/(?:api|bui)(?:/|$)",
-      "/usm/services/(?:AdminService|RequestService|Version)\\?wsdl",
-      "/axis/services/USD_R11_WebService\\?wsdl",
-      "/axis/servlet/AxisServlet"
+      "/CAisd/pdmweb\\.exe"
     ],
     "scriptSrc": [
       "conf/casm\\.conf\\.js"
     ],
-    "cookies": {
-      "loggedUser": ".+"
-    },
-    "js": {
-      "casm_admin": ".*"
-    },
     "dom": {
       "form[action*=\"/CAisd/pdmweb.exe\"]": {
         "exists": ""
-      },
-      "title": {
-        "text": "Service Desk Manager|Clarity Service Management|CA Service Management|IT Service Management"
       }
     },
-    "meta": {
-      "description": "Service Desk Manager|Clarity Service Management|IT Service Management|ITSM",
-      "keywords": "Service Desk|ITSM|CA Technologies"
-    },
-    "probe": {
-      "paths": [
-        {
-          "path": "/CAisd/pdmweb.exe",
-          "status": [
-            200,
-            302
-          ]
-        },
-        {
-          "path": "/axis/servlet/AxisServlet",
-          "status": [
-            200
-          ],
-          "body": "Some\\s+Services|Axis"
-        },
-        {
-          "path": "/usm/services",
-          "status": [
-            200
-          ],
-          "body": "(AdminService|RequestService|Version)"
-        }
-      ]
-    }
+    "text": "CA Service Desk Manager"
   },
   "CCV Shop": {
     "cats": [
@@ -597,7 +548,7 @@
       "cakephp": ""
     },
     "cpe": "cpe:2.3:a:cakephp:cakephp:*:*:*:*:*:*:*:*",
-    "description": "CakePHP is an open-source web framework. It follows the model–view–controller (MVC) approach and is written in PHP.",
+    "description": "CakePHP is an open-source web framework. It follows the model\u2013view\u2013controller (MVC) approach and is written in PHP.",
     "icon": "CakePHP.svg",
     "implies": [
       "PHP"
@@ -1797,29 +1748,12 @@
       "onetime"
     ],
     "cpe": "cpe:2.3:a:linuxfoundation:ceph:*:*:*:*:*:*:*:*",
-    "xhr": [
-      "/api/(?:auth|health|summary|cluster|osd|rgw/.*)",
-      "/auth/saml2(?:/metadata)?$"
-    ],
     "headers": {
       "x-rgw-object-type": ".+",
       "x-rgw-replicated-at": ".+",
       "x-rgw-replicated-from": ".+"
     },
-    "text": [
-      "Ceph Dashboard"
-    ],
-    "dom": {
-      "title": {
-        "text": "Ceph"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Ceph"
-      }
-    },
-    "meta": {
-      "description": "Ceph"
-    },
+    "text": "Ceph Dashboard",
     "requires": [],
     "excludes": []
   },
@@ -4058,7 +3992,7 @@
     "cats": [
       92
     ],
-    "description": "Cloudflare Zaraz gives you complete control over third-party tools and services for your website, and allows you to offload them to Cloudflare’s edge, improving the speed and security of your website.",
+    "description": "Cloudflare Zaraz gives you complete control over third-party tools and services for your website, and allows you to offload them to Cloudflare\u2019s edge, improving the speed and security of your website.",
     "icon": "CloudFlare.svg",
     "js": {
       "zaraz": "",
@@ -4294,7 +4228,7 @@
     "cats": [
       21
     ],
-    "description": "Coachy is a platform for creating and selling online courses with integrated payment systems and GDPR-compliant data storage​.",
+    "description": "Coachy is a platform for creating and selling online courses with integrated payment systems and GDPR-compliant data storage\u200b.",
     "dom": [
       "iframe[src*='embed.coachy.net/']"
     ],
@@ -4492,7 +4426,7 @@
       16,
       56
     ],
-    "description": "Coinhive Captcha provides captcha service that is simple to integrate, where your users’ devices need to solve a number of hashes, adjustable by you, in order to login or post a comment to your site.",
+    "description": "Coinhive Captcha provides captcha service that is simple to integrate, where your users\u2019 devices need to solve a number of hashes, adjustable by you, in order to login or post a comment to your site.",
     "dom": [
       "div.coinhive-captcha"
     ],
@@ -4583,17 +4517,17 @@
     ],
     "website": "https://colibriwp.com"
   },
-  "Colis Privé": {
+  "Colis Priv\u00e9": {
     "cats": [
       99
     ],
-    "description": "Colis Privé is a private parcel delivery service provider specialised in last-mile delivery.",
+    "description": "Colis Priv\u00e9 is a private parcel delivery service provider specialised in last-mile delivery.",
     "icon": "Colis Prive.svg",
     "requiresCategory": [
       6
     ],
     "text": [
-      "\\bColis Priv[eé]\\b"
+      "\\bColis Priv[e\u00e9]\\b"
     ],
     "website": "https://www.colisprive.fr"
   },

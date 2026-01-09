@@ -1603,11 +1603,7 @@
   },
   "Open Source Presto": {
     "description": "Presto (PrestoDB) is an open-source distributed SQL query engine for interactive analytics that queries data across multiple sources via a REST API.",
-    "cats": [
-      34,
-      10,
-      102
-    ],
+    "cats": [34, 10, 102],
     "website": "https://prestodb.io",
     "icon": "Presto.svg",
     "headers": {
@@ -1619,46 +1615,22 @@
       "x-presto-started-transaction-id": ".+",
       "x-presto-clear-transaction-id": ".+"
     },
-    "xhr": [
-      "/v1/statement",
-      "/v1/query",
-      "/v1/task",
-      "/v1/info",
-      "/v1/info/metrics"
-    ],
-    "scriptSrc": [
-      "/ui/.*\\.(?:js|css)"
-    ],
-    "url": [
-      ".*\\/(?:ui\\/dev\\/index\\.html|ui\\/|v1\\/info).*"
-    ],
-    "text": [
-      "Presto Console|SQL Client"
-    ],
+    "text": "Presto Console",
     "oss": true,
     "saas": false,
-    "pricing": [
-      "free"
-    ],
-    "implies": [
-      "Java"
-    ],
-    "excludes": [],
+    "pricing": ["free"],
+    "implies": ["Java\\;confidence:50"],
+    "excludes": ["Trino"],
     "probe": {
       "paths": {
         "/v1/info": {
           "body": "\"nodeVersion\"|\"coordinator\"|\"starting\""
         },
         "/v1/task": {
-          "status": [
-            200,
-            401,
-            403,
-            405
-          ]
+          "status": [200, 401, 403, 405]
         },
         "/ui/dev/index.html": {
-          "body": "Presto Console|Query Viewer|SQL Client"
+          "body": "Presto Console|Query Viewer"
         }
       }
     }

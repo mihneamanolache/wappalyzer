@@ -2353,18 +2353,7 @@
     "website": "https://docs.bmc.com/xwiki/bin/view/More-Products/Release-Lifecycle-Management/BMC-Release-Process-Management/"
   },
   "BMC Remedy Change Management": {
-    "cats": [
-      13,
-      61,
-      103
-    ],
-    "cookies": {
-      "G": "",
-      "GKW": "",
-      "JSESSIONID": "",
-      "P": "",
-      "Q": ""
-    },
+    "cats": [13, 61, 103],
     "cpe": "cpe:2.3:a:bmc:remedy_action_request_system:*:*:*:*:*:*:*:*",
     "description": "BMC Remedy Change Management (now BMC Helix ITSM: Change Management) is an ITIL-aligned module for planning, approving, implementing, and tracking IT changes.",
     "icon": "BMC-Remedy-Change-Management.svg",
@@ -2373,30 +2362,20 @@
       "title": "BMC Helix ITSM"
     },
     "oss": false,
-    "pricing": [
-      "enterprise",
-      "poa"
-    ],
+    "pricing": ["enterprise", "poa"],
     "saas": true,
     "scriptSrc": [
       "arsys/resources/standard/javascript/LocalizedMessages\\.js"
     ],
     "text": [
-      "Change Management console",
-      "Infrastructure Change ID",
-      "BMC Helix ITSM"
+      "BMC Helix ITSM",
+      "BMC Remedy"
     ],
     "url": [
       "arsys/(?:home|forms|apps)",
-      "arsys/shared/(?:login|logout)\\.jsp",
-      "bmc-helix-itsm\\.html"
+      "arsys/shared/(?:login|logout)\\.jsp"
     ],
-    "website": "https://www.bmc.com/it-solutions/bmc-helix-itsm.html",
-    "xhr": [
-      "api/jwt/login",
-      "arsys/services/ARService\\?server=[^&]+&webService=CHG_",
-      "api/arsys/(?:v1(?:\\.0)?)?/entry/CHG:(?:ChangeInterface(?:_Create)?|Infrastructure%20Change)"
-    ]
+    "website": "https://www.bmc.com/it-solutions/bmc-helix-itsm.html"
   },
   "Bnovo": {
     "cats": [
