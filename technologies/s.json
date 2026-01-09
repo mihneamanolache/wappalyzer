@@ -3919,38 +3919,17 @@
       "service-now\\.com",
       "servicenowservices\\.com"
     ],
-    "xhr": [
-      "/api/now/",
-      "oauth_token\\.do",
-      "login\\.do"
-    ],
     "headers": {
       "Server": "^ServiceNow$",
       "X-Is-Logged-In": ".+"
     },
     "cookies": {
       "glide_user_route": ".+",
-      "glide_session_store": ".+",
-      "JSESSIONID": ".+"
+      "glide_session_store": ".+"
     },
     "js": {
       "g_form": "",
-      "NOW": "",
       "GlideAjax": ""
-    },
-    "dom": {
-      "a[href*=\"nav_to.do\"]": {
-        "exists": ""
-      },
-      "form[action*=\"login.do\"]": {
-        "exists": ""
-      },
-      "title": {
-        "text": "ServiceNow"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "ServiceNow"
-      }
     },
     "meta": {
       "description": "ServiceNow"
