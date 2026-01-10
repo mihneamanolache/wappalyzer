@@ -1615,8 +1615,14 @@
       "x-presto-started-transaction-id": ".+",
       "x-presto-clear-transaction-id": ".+"
     },
+    "xhr": {
+      "/v1/statement\\?": "",
+      "/v1/query/[a-z0-9_]+": "",
+      "/v1/info\\?": ""
+    },
+    "url":  "prestodb\\.io|presto\\..*\\.com|:8080/ui/|:8443/ui/",
     "text": "Presto Console",
-    "oss": true,
+    "oss": true, 
     "saas": false,
     "pricing": ["free"],
     "implies": ["Java\\;confidence:50"],
