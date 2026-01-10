@@ -1621,7 +1621,7 @@
       "/v1/info\\?": ""
     },
     "url":  "prestodb\\.io|presto\\..*\\.com|:8080/ui/|:8443/ui/",
-    "text": "Presto Console",
+    "text": "Presto Console|PrestoDB|Presto Query",
     "oss": true, 
     "saas": false,
     "pricing": ["free"],
