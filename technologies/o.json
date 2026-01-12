@@ -1607,20 +1607,21 @@
     "website": "https://prestodb.io",
     "icon": "Presto.svg",
     "headers": {
-      "x-presto-set-catalog": ".+",
-      "x-presto-set-schema": ".+",
-      "x-presto-set-session": ".+",
-      "x-presto-clear-session": ".+",
-      "x-presto-set-role": ".+",
-      "x-presto-started-transaction-id": ".+",
-      "x-presto-clear-transaction-id": ".+"
+      "x-presto-set-catalog": "",
+      "x-presto-set-schema": "",
+      "x-presto-set-session": "",
+      "x-presto-clear-session": "",
+      "x-presto-set-role": "",
+      "x-presto-started-transaction-id": "",
+      "x-presto-clear-transaction-id": ""
     },
-    "xhr": {
-      "/v1/statement\\?": "",
-      "/v1/query/[a-z0-9_]+": "",
-      "/v1/info\\?": ""
-    },
-    "url":  "prestodb\\.io|presto\\..*\\.com|:8080/ui/|:8443/ui/",
+    "scriptSrc": [
+      "presto.*\\.js"
+    ],
+    "url": [
+      "/ui/(?:index\\.html)?(?:\\?|$)",
+      "/v1/(?:info|query|statement)"
+    ],
     "text": "Presto Console|PrestoDB|Presto Query",
     "oss": true, 
     "saas": false,
@@ -1628,17 +1629,8 @@
     "implies": ["Java\\;confidence:50"],
     "excludes": ["Trino"],
     "probe": {
-      "paths": {
-        "/v1/info": {
-          "body": "\"nodeVersion\"|\"coordinator\"|\"starting\""
-        },
-        "/v1/task": {
-          "status": [200, 401, 403, 405]
-        },
-        "/ui/dev/index.html": {
-          "body": "Presto Console|Query Viewer"
-        }
-      }
+      "/v1/info": "nodeVersion|coordinator|starting",
+      "/ui/dev/index.html": "Presto Console|Query Viewer|SQL Client"
     }
   },
   "OpenSSL": {
