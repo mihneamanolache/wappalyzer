@@ -70,6 +70,23 @@
     ],
     "website": "https://www.quic.cloud"
   },
+  "QUV": {
+    "cats": [
+      51
+    ],
+    "description": "QUV is a Korean no-code website builder platform that enables website creation through drag-and-drop functionality.",
+    "icon": "QUV.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.quv\\.kr/"
+    ],
+    "website": "https://quv.kr"
+  },
   "Qbrick": {
     "cats": [
       36
@@ -150,6 +167,35 @@
     ],
     "website": "https://www.qiscus.com"
   },
+  "Qiyeku": {
+    "cats": [
+      34
+    ],
+    "description": "Qiyeku is a Chinese enterprise database that provides business information, company listings, and industry resources for market research and trade connections.",
+    "icon": "Qiyeku.svg",
+    "saas": true,
+    "scriptSrc": [
+      "\\.qiyeku\\.cn"
+    ],
+    "website": "https://www.qiyeku.cn"
+  },
+  "Qomon": {
+    "cats": [
+      53
+    ],
+    "description": "Qomon is a Saas software and citizen engagement platform and mobile app for NGOs, movements, campaigns, advocacy groups, and citizen-driven organisations.",
+    "icon": "Qomon.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "scripts\\.qomon\\.org"
+    ],
+    "website": "https://qomon.com"
+  },
   "Qonnex": {
     "cats": [
       6,
@@ -183,6 +229,59 @@
       "api\\.qooqie\\.com"
     ],
     "website": "https://qooqie.com"
+  },
+  "QoreAI": {
+    "cats": [
+      1
+    ],
+    "description": "QoreAI is an all-in-one collaboration operating system designed for the automotive industry.",
+    "icon": "QoreAI.svg",
+    "js": {
+      "QoreAI.execute": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "app\\.qoreai\\.com"
+    ],
+    "website": "https://www.qoreai.com"
+  },
+  "Qpien": {
+    "cats": [
+      52
+    ],
+    "description": "Qpien is a SaaS platform that provides multi-channel customer communication management with AI reply automation, smart inbox, call center integration, and workflow orchestration.",
+    "icon": "Qpien.svg",
+    "js": {
+      "QpienWidget": "",
+      "qpienIframeAction": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://qpien.com"
+  },
+  "Qshop": {
+    "cats": [
+      6
+    ],
+    "description": "Qshop is a Korean ecommerce platform that enables the creation of online stores.",
+    "icon": "Qshop.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": [
+      "cdn\\.qshop\\.ai"
+    ],
+    "website": "https://qshop.ai"
   },
   "Qstomizer": {
     "cats": [
@@ -264,6 +363,22 @@
     "saas": true,
     "website": "https://www.qualitelis.septeo.com"
   },
+  "Quality Unit Help Desk": {
+    "cats": [
+      52
+    ],
+    "description": "Quality Unit Help Desk is a customer support and help desk software designed to manage and streamline customer service operations.",
+    "icon": "QualityUnitHelpDesk.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": [
+      "\\.qualityunit\\.liveagent"
+    ],
+    "website": "https://www.qualityunit.com"
+  },
   "Qualtrics": {
     "cats": [
       73
@@ -282,6 +397,18 @@
       "\\.qualtrics\\.com/"
     ],
     "website": "https://www.qualtrics.com"
+  },
+  "Quandoo": {
+    "cats": [
+      93
+    ],
+    "description": "Quandoo is a platform that allows users to find and reserve restaurants.",
+    "icon": "Quandoo.svg",
+    "saas": true,
+    "scriptSrc": [
+      "booking-widget\\.quandoo\\.com"
+    ],
+    "website": "https://www.quandoo.co.uk"
   },
   "Quant": {
     "cats": [
@@ -420,23 +547,22 @@
   },
   "Qubit": {
     "cats": [
-      74,
       76
     ],
-    "description": "Qubit is a SaaS based persuasive personalisation at scale services.",
-    "icon": "Qubit.png",
+    "description": "Qubit is a platform that enables personalized ecommerce experiences through data-driven insights and intelligent automation.",
+    "icon": "Qubit.svg",
     "js": {
-      "__qubit": "",
-      "onQubitReady": ""
+      "QUBIT_WORKER": ""
     },
     "pricing": [
-      "poa"
+      "low",
+      "recurring"
     ],
     "saas": true,
     "scriptSrc": [
-      "static\\.goqubit\\.com"
+      "\\.goqubit\\.com"
     ],
-    "website": "https://www.qubit.com"
+    "website": "https://www.coveo.com/en/qubit"
   },
   "Querlo": {
     "cats": [
@@ -739,6 +865,23 @@
     "saas": true,
     "website": "https://www.quintype.com"
   },
+  "Quiq Messaging": {
+    "cats": [
+      52
+    ],
+    "description": "Quiq Messaging is a business messaging solution designed to facilitate customer communication across multiple channels.",
+    "icon": "QuiqMessaging.svg",
+    "js": {
+      "Quiq": "",
+      "QuiqUtils": "",
+      "QuiqUtils._.VERSION": "([\\d.]+)\\;version:\\1"
+    },
+    "saas": true,
+    "scriptSrc": [
+      "\\.goquiq\\.com"
+    ],
+    "website": "https://quiq.com"
+  },
   "Quixchat": {
     "cats": [
       52
@@ -758,6 +901,26 @@
       "api\\.quixchat\\.com/assets/js/quixchat\\.js\\?ver=(\\d+\\.\\d+)(?:\\.\\d+)*\\;version:\\1"
     ],
     "website": "https://quixchat.com"
+  },
+  "Quizitri": {
+    "cats": [
+      32
+    ],
+    "description": "Quizitri is a tool for creating unlimited quizzes aimed at increasing conversions, website traffic, lead generation, and sales.",
+    "icon": "Quizitri.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "onetime"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "app\\.quizitri\\.com"
+    ],
+    "scripts": [
+      "app\\.quizitri\\.com"
+    ],
+    "website": "https://www.quizitri.com"
   },
   "Qukasoft": {
     "cats": [
