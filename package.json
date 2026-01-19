@@ -2,7 +2,10 @@
     "name": "wappalyzer",
     "description": "Identify technology on websites",
     "scripts": {
-        "download": "rm -rf ./technologies && git clone git@github.com:enthec/webappanalyzer.git && mv webappanalyzer/src/technologies ./ && mv webappanalyzer/src/categories.json ./ && rm -rf webappanalyzer"
+        "download": "rm -rf ./technologies && git clone git@github.com:enthec/webappanalyzer.git && mv webappanalyzer/src/technologies ./ && mv webappanalyzer/src/categories.json ./ && rm -rf webappanalyzer",
+        "update": "node scripts/merge-update.js",
+        "update:dry-run": "node scripts/merge-update.js --dry-run",
+        "update:report": "node scripts/merge-update.js --report"
     },
     "keywords": [
         "analyze",
