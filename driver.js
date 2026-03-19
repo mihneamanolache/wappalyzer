@@ -474,6 +474,8 @@ class Driver {
 }
 
 class Site {
+    #analyzedUrls = []
+
     constructor(url, headers = {}, driver) {
         ;({
             options: this.options,
@@ -494,7 +496,6 @@ class Site {
             throw new Error(error.toString())
         }
 
-        this.analyzedUrls = {}
         this.analyzedXhr = {}
         this.analyzedRequires = {}
         this.detections = []
@@ -506,6 +507,35 @@ class Site {
         this.cache = {}
 
         this.probed = false
+    }
+
+    get analyzedUrls() {
+        const copy = structuredClone(this.#analyzedUrls)
+
+        for (const url of copy) {
+            Object.freeze(url)
+        }
+        Object.freeze(copy)
+
+        return copy;
+    }
+
+    setUrl(url, status, error) {
+        let obj = this.#analyzedUrls.find((o) => o.url === url)
+        const isMissing = !obj;
+
+        obj ??= {}
+
+        obj.url = url
+        obj.status = status ?? 0
+
+        if (error) {
+            obj.error = error;
+        }
+
+        if (isMissing) {
+            this.#analyzedUrls.push(obj)
+        }
     }
 
     log(message, source = 'driver', type = 'log') {
@@ -579,15 +609,13 @@ class Site {
 
     async goto(url) {
         // Return when the URL is a duplicate or maxUrls has been reached
-        if (this.analyzedUrls[url.href]) {
+        if (this.analyzedUrls.find((o) => o.url === url.href)) {
             return []
         }
 
         this.log(`Navigate to ${url}`)
 
-        this.analyzedUrls[url.href] = {
-            status: 0,
-        }
+        this.setUrl(url.href)
 
         const page = await this.newPage(url)
 
@@ -684,9 +712,7 @@ class Site {
 
             try {
                 if (response.url() === url.href) {
-                    this.analyzedUrls[url.href] = {
-                        status: response.status(),
-                    }
+                    this.setUrl(url.href, response.status())
 
                     const rawHeaders = response.headers()
                     const headers = {}
@@ -705,7 +731,7 @@ class Site {
                         if (headers.location) {
                             const _url = new URL(headers.location.slice(-1), url)
 
-                            const redirects = Object.keys(this.analyzedUrls).length - 1
+                            const redirects = this.analyzedUrls.length - 1
 
                             if (
                                 _url.hostname.replace(/^www\./, '') ===
@@ -1142,28 +1168,29 @@ class Site {
             (async () => {
                 try {
                     const links = ((await this.goto(url)) || []).filter(
-                        ({ href }) => !this.analyzedUrls[href]
+                        ({ href }) => !this.analyzedUrls
+                                        .find((o) => o.url === href)
                     )
 
                     if (
                         links.length &&
                             this.options.recursive &&
-                            Object.keys(this.analyzedUrls).length < this.options.maxUrls &&
+                            this.analyzedUrls.length < this.options.maxUrls &&
                             depth < this.options.maxDepth
                     ) {
                         await this.batch(
                             links.slice(
                                 0,
-                                this.options.maxUrls - Object.keys(this.analyzedUrls).length
+                                this.options.maxUrls - this.analyzedUrls.length
                             ),
                             depth + 1
                         )
                     }
                 } catch (error) {
-                    this.analyzedUrls[url.href] = {
-                        status: this.analyzedUrls[url.href]?.status || 0,
-                        error: error.message || error.toString(),
-                    }
+                    this.setUrl(url.href,
+                                this.analyzedUrls[url.href]?.status,
+                                error.message || error.toString()
+                    )
 
                     error.message += ` (${url})`
 
