@@ -18,7 +18,8 @@
  * Usage:
  *   node scripts/catalog-delta.js              # write changeset/catalog-delta.{json,md}
  *   node scripts/catalog-delta.js --check      # verify the artifacts are current
- *   node scripts/catalog-delta.js --base=<rev> # default HEAD
+ *   node scripts/catalog-delta.js --base=<rev> # default: the base recorded in
+ *                                              # the artifact, else HEAD
  */
 
 const fs = require('fs')
@@ -36,8 +37,34 @@ const OUT_MD = path.join(ROOT, 'changeset/catalog-delta.md')
 
 const args = process.argv.slice(2)
 const CHECK_ONLY = args.includes('--check')
-const BASE =
-    (args.find((arg) => arg.startsWith('--base=')) || '--base=HEAD').split('=')[1]
+const BASE_ARG = (args.find((arg) => arg.startsWith('--base=')) || '').split('=')[1]
+
+/**
+ * The revision the delta is measured against.
+ *
+ * Defaulting to HEAD is wrong once the work is committed: HEAD then points at the
+ * change itself and the delta collapses to empty. So the base recorded in the
+ * existing artifact wins, which keeps `--check` meaningful across commits. An
+ * explicit `--base=` always overrides, and HEAD is only the fallback for a first
+ * run with no artifact.
+ */
+function resolveBase() {
+    if (BASE_ARG) {
+        return BASE_ARG
+    }
+
+    try {
+        const recorded = JSON.parse(fs.readFileSync(OUT_JSON, 'utf8')).base
+
+        if (recorded) {
+            return recorded
+        }
+    } catch (error) {
+        // No usable artifact yet.
+    }
+
+    return 'HEAD'
+}
 
 const git = (...argv) =>
     execFileSync('git', argv, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
@@ -70,6 +97,7 @@ const channelsOf = (entry) =>
     Object.keys(CHANNELS).filter((channel) => entry[channel] !== undefined)
 
 function build() {
+    const BASE = resolveBase()
     const base = loadAtRevision(BASE)
     const head = {
         technologies: loadCatalog(path.join(ROOT, 'technologies')).technologies,
