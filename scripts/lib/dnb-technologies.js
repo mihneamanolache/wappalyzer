@@ -2924,6 +2924,8 @@ for (const [name, entry] of Object.entries(TECHNOLOGIES)) {
     }
 }
 
+const { isLiteralPattern } = require('./normalize')
+
 /**
  * Tokens deliberately superseded during normalization, and the pattern that
  * replaced each one.
@@ -2972,21 +2974,51 @@ const sweep = (() => {
 /**
  * Does `candidate` genuinely cover `token`?
  *
- * True only when `candidate` is a strict literal substring of `token`. Both are
- * substring regexes, so any record matching `token` also matches `candidate` —
- * which is what makes observing the candidate valid evidence for the superseded
- * token. Sharing a technology name proves nothing on its own.
+ * Three conditions, all required:
+ *
+ *   1. Both operands are **literal** patterns. Containment only implies a
+ *      matching superset for literals; with alternation, anchors or quantifiers
+ *      involved, `token.includes(candidate)` says nothing about what each
+ *      matches. The function previously claimed to require this but only tested
+ *      containment, which left the invariant weaker than documented.
+ *   2. `candidate` is a strict substring of `token`, which is the subsumption
+ *      relation that removed the token: any record matching `token` also matches
+ *      `candidate`, so observing the candidate covers it.
+ *   3. The pair appears in `EXPECTED_SUPERSESSIONS`. Even a provable containment
+ *      should not silently grant evidence to a marker nobody reviewed, so the
+ *      substitution has to be declared.
+ *
+ * Sharing a technology name is never sufficient on its own.
  *
  * @param {string} token the original, superseded pattern
  * @param {string} candidate an observed pattern for the same technology
+ * @param {?string} technology when given, the pair must be declared for it
  */
-function supersedes(token, candidate) {
-    return (
-        typeof candidate === 'string' &&
+function supersedes(token, candidate, technology) {
+    if (typeof candidate !== 'string' || typeof token !== 'string') {
+        return false
+    }
+
+    if (!isLiteralPattern(token) || !isLiteralPattern(candidate)) {
+        return false
+    }
+
+    const contains =
         candidate.length > 0 &&
         candidate.length < token.length &&
         token.includes(candidate)
-    )
+
+    if (!contains) {
+        return false
+    }
+
+    // Declared-substitution gate. Omitting `technology` checks containment alone,
+    // which is what the unit tests exercise.
+    if (technology !== undefined) {
+        return EXPECTED_SUPERSESSIONS[technology] === candidate
+    }
+
+    return true
 }
 
 /**
@@ -3030,7 +3062,7 @@ function txtVerification(name, token) {
     const superseding = [...sweep.observed.keys()]
         .filter((key) => key.startsWith(`${name} `))
         .map((key) => key.slice(name.length + 1))
-        .filter((candidate) => supersedes(token, candidate))
+        .filter((candidate) => supersedes(token, candidate, name))
 
     if (superseding.length) {
         return {

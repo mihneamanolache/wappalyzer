@@ -822,4 +822,3 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | jQuery Masked Input Plugin | js | env | - |
 | jQuery Unobtrusive Ajax | - | npm | - |
 | noUiSlider | - | npm | - |
-

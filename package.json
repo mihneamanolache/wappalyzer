@@ -17,7 +17,8 @@
         "sweep": "node scripts/dns-sweep.js",
         "sweep:check": "node scripts/dns-sweep.js --check",
         "audit:xhr": "node scripts/xhr-audit.js",
-        "audit:xhr:check": "node scripts/xhr-audit.js --check"
+        "audit:xhr:check": "node scripts/xhr-audit.js --check",
+        "check:whitespace": "node scripts/check-whitespace.js"
     },
     "keywords": [
         "analyze",

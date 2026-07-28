@@ -291,6 +291,65 @@ test('supersession requires literal containment, not a shared name', () => {
     assert.equal(supersedes('abc', ''), false, 'an empty candidate cannot cover')
 })
 
+test('supersession requires both operands to be literal patterns', () => {
+    // Containment only implies a matching superset for literals. With alternation,
+    // anchors or quantifiers involved, `token.includes(candidate)` says nothing
+    // about what each pattern matches.
+    const { supersedes } = require('../scripts/lib/dnb-technologies')
+
+    assert.equal(
+        supersedes('a|bc', 'a|b'),
+        false,
+        'alternation makes containment meaningless'
+    )
+    assert.equal(supersedes('^abc$', '^abc'), false, 'anchors are not literal')
+    assert.equal(supersedes('abc+d', 'abc+'), false, 'quantifiers are not literal')
+    assert.equal(supersedes('ab[0-9]c', 'ab[0-9]'), false, 'classes are not literal')
+
+    // Escaped dots are literal, which is how the catalog writes hostnames.
+    assert.equal(supersedes('cdn\\.example\\.com', 'example\\.com'), true)
+})
+
+test('runtime supersession is gated by the declared map', () => {
+    // Provable containment alone should not silently grant evidence to a marker
+    // nobody reviewed; the substitution has to be declared.
+    const { supersedes, EXPECTED_SUPERSESSIONS } = require(
+        '../scripts/lib/dnb-technologies'
+    )
+
+    assert.equal(
+        supersedes('mixpanel-domain-verify=', 'mixpanel-domain-verify', 'Mixpanel'),
+        true,
+        'the declared substitution passes'
+    )
+    assert.equal(
+        supersedes('mixpanel-domain-verify=', 'mixpanel-domain', 'Mixpanel'),
+        false,
+        'an undeclared candidate is refused even though it is contained'
+    )
+    assert.equal(
+        supersedes('docusign=', 'docusign', 'SomeNewVendor'),
+        false,
+        'an undeclared technology is refused'
+    )
+
+    // Every declared entry is either null (nothing superseded) or a genuine
+    // literal cover of the token it replaces.
+    const { TXT, TXT_ENRICH } = require('../scripts/lib/dnb-technologies')
+    const tokens = { ...TXT, ...TXT_ENRICH }
+
+    for (const [technology, replacement] of Object.entries(EXPECTED_SUPERSESSIONS)) {
+        if (replacement === null) {
+            continue
+        }
+
+        assert.ok(
+            supersedes(tokens[technology], replacement, technology),
+            `${technology}: ${replacement} should cover ${tokens[technology]}`
+        )
+    }
+})
+
 test('the five superseded markers are exactly the expected ones', () => {
     const {
         EVIDENCE,

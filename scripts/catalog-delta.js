@@ -263,6 +263,12 @@ function markdown(delta) {
     }
     lines.push('')
 
+    // Trailing blank entries would emit a blank line at EOF, which `git diff
+    // --check` reports. Join exactly one terminating newline.
+    while (lines.length && lines[lines.length - 1] === '') {
+        lines.pop()
+    }
+
     return `${lines.join('\n')}\n`
 }
 
