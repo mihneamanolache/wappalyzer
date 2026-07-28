@@ -8,9 +8,12 @@ committed as the range **`22c1cc7..HEAD`**:
 | `e99bc1e` | Make the catalog coherent with the engine and add emerging-tech coverage |
 | `94ae0db` | Measure the catalog delta against its recorded base, not HEAD |
 | `c4559ab` | Fix two whitespace warnings and enforce the check over the commit range |
+| `ad5992a` | Rewrite the handoff around the commit range and enforce supersession |
 
-`git diff 22c1cc7..HEAD` is the authoritative diff: **84 files changed** (48 added,
-36 modified), +93,854 / −36,931 lines.
+Plus one further commit refreshing this file's own figures — which is why
+`git log 22c1cc7..HEAD` is authoritative for the commit list, and this table can
+be one entry behind. `git diff 22c1cc7..HEAD` is the authoritative diff:
+**84 files changed** (48 added, 36 modified).
 
 | Area | Files | Notes |
 | --- | --- | --- |
