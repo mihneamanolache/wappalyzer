@@ -1,14 +1,13 @@
-# New source files (untracked)
+# New source files — capture of 22c1cc7..HEAD
 #
-# Rendered with 'git diff --no-index /dev/null <file>' so the git index is
-# untouched. EXCLUDES this directory and generated artifacts
-# (docs/coverage.*, data/*-results.json). See MANIFEST.md 'Worktree scope'.
+# A point-in-time capture of files added in the range, excluding catalog
+# data, this directory, and generated artifacts.
 
-diff --git .github/workflows/ci.yml .github/workflows/ci.yml
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
 new file mode 100644
 index 0000000..84f49e7
 --- /dev/null
-+++ .github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
 @@ -0,0 +1,105 @@
 +name: CI
 +
@@ -115,35 +114,35 @@ index 0000000..84f49e7
 +            echo 'guard leaked a stack trace' >&2
 +            exit 1
 +          fi
-diff --git .node-version .node-version
+diff --git a/.node-version b/.node-version
 new file mode 100644
 index 0000000..1d9b783
 --- /dev/null
-+++ .node-version
++++ b/.node-version
 @@ -0,0 +1 @@
 +22.12.0
-diff --git .npmrc .npmrc
+diff --git a/.npmrc b/.npmrc
 new file mode 100644
 index 0000000..b940cce
 --- /dev/null
-+++ .npmrc
++++ b/.npmrc
 @@ -0,0 +1,4 @@
 +# Refuse to install on a Node version that package.json#engines rules out.
 +# Without this, npm only warns and the failure surfaces later as ERR_REQUIRE_ESM
 +# from inside Puppeteer.
 +engine-strict=true
-diff --git .nvmrc .nvmrc
+diff --git a/.nvmrc b/.nvmrc
 new file mode 100644
 index 0000000..1d9b783
 --- /dev/null
-+++ .nvmrc
++++ b/.nvmrc
 @@ -0,0 +1 @@
 +22.12.0
-diff --git data/dnb-request.json data/dnb-request.json
+diff --git a/data/dnb-request.json b/data/dnb-request.json
 new file mode 100644
 index 0000000..d5b4199
 --- /dev/null
-+++ data/dnb-request.json
++++ b/data/dnb-request.json
 @@ -0,0 +1,2028 @@
 +{
 +  "source": "AI technology_products_for_veridion_070226.xlsx",
@@ -2174,11 +2173,11 @@ index 0000000..d5b4199
 +  ]
 +}
 \ No newline at end of file
-diff --git data/dns-sweep-domains.txt data/dns-sweep-domains.txt
+diff --git a/data/dns-sweep-domains.txt b/data/dns-sweep-domains.txt
 new file mode 100644
 index 0000000..412b5eb
 --- /dev/null
-+++ data/dns-sweep-domains.txt
++++ b/data/dns-sweep-domains.txt
 @@ -0,0 +1,550 @@
 +# DNS TXT sweep corpus
 +#
@@ -2730,11 +2729,11 @@ index 0000000..412b5eb
 +zoominfo.com
 +zscaler.com
 +zscaler.comnike.com
-diff --git data/xhr-audit-urls.txt data/xhr-audit-urls.txt
+diff --git a/data/xhr-audit-urls.txt b/data/xhr-audit-urls.txt
 new file mode 100644
 index 0000000..31adb7e
 --- /dev/null
-+++ data/xhr-audit-urls.txt
++++ b/data/xhr-audit-urls.txt
 @@ -0,0 +1,46 @@
 +# Pages scanned by scripts/xhr-audit.js to measure whether xhr-only markers
 +# actually fire in a browser.
@@ -2782,11 +2781,11 @@ index 0000000..31adb7e
 +
 +# AI coding
 +https://www.tabnine.com/
-diff --git docs/CATALOG.md docs/CATALOG.md
+diff --git a/docs/CATALOG.md b/docs/CATALOG.md
 new file mode 100644
 index 0000000..6a5bd74
 --- /dev/null
-+++ docs/CATALOG.md
++++ b/docs/CATALOG.md
 @@ -0,0 +1,290 @@
 +# Catalog maintenance
 +
@@ -3078,11 +3077,11 @@ index 0000000..6a5bd74
 +alongside whatever already detected the technology. Then add a detection test to
 +`test/dnb-technologies.test.js` — including a negative case proving the pattern
 +does not over-match.
-diff --git docs/live-evidence.md docs/live-evidence.md
+diff --git a/docs/live-evidence.md b/docs/live-evidence.md
 new file mode 100644
 index 0000000..84311fb
 --- /dev/null
-+++ docs/live-evidence.md
++++ b/docs/live-evidence.md
 @@ -0,0 +1,256 @@
 +# Live marker audit
 +
@@ -3340,11 +3339,11 @@ index 0000000..84311fb
 +The runtime was upgraded from unsupported Puppeteer 19 to 25.4.0. This raises
 +the required Node version to 22.12.0 and reduces `npm audit` from seven high
 +severity advisories to zero vulnerabilities.
-diff --git scripts/add-technologies.js scripts/add-technologies.js
+diff --git a/scripts/add-technologies.js b/scripts/add-technologies.js
 new file mode 100644
 index 0000000..016ac77
 --- /dev/null
-+++ scripts/add-technologies.js
++++ b/scripts/add-technologies.js
 @@ -0,0 +1,141 @@
 +#!/usr/bin/env node
 +
@@ -3487,12 +3486,12 @@ index 0000000..016ac77
 +}
 +
 +main()
-diff --git scripts/catalog-delta.js scripts/catalog-delta.js
+diff --git a/scripts/catalog-delta.js b/scripts/catalog-delta.js
 new file mode 100644
-index 0000000..e09891b
+index 0000000..e365b71
 --- /dev/null
-+++ scripts/catalog-delta.js
-@@ -0,0 +1,292 @@
++++ b/scripts/catalog-delta.js
+@@ -0,0 +1,326 @@
 +#!/usr/bin/env node
 +
 +'use strict'
@@ -3513,7 +3512,8 @@ index 0000000..e09891b
 + * Usage:
 + *   node scripts/catalog-delta.js              # write changeset/catalog-delta.{json,md}
 + *   node scripts/catalog-delta.js --check      # verify the artifacts are current
-+ *   node scripts/catalog-delta.js --base=<rev> # default HEAD
++ *   node scripts/catalog-delta.js --base=<rev> # default: the base recorded in
++ *                                              # the artifact, else HEAD
 + */
 +
 +const fs = require('fs')
@@ -3531,8 +3531,34 @@ index 0000000..e09891b
 +
 +const args = process.argv.slice(2)
 +const CHECK_ONLY = args.includes('--check')
-+const BASE =
-+    (args.find((arg) => arg.startsWith('--base=')) || '--base=HEAD').split('=')[1]
++const BASE_ARG = (args.find((arg) => arg.startsWith('--base=')) || '').split('=')[1]
++
++/**
++ * The revision the delta is measured against.
++ *
++ * Defaulting to HEAD is wrong once the work is committed: HEAD then points at the
++ * change itself and the delta collapses to empty. So the base recorded in the
++ * existing artifact wins, which keeps `--check` meaningful across commits. An
++ * explicit `--base=` always overrides, and HEAD is only the fallback for a first
++ * run with no artifact.
++ */
++function resolveBase() {
++    if (BASE_ARG) {
++        return BASE_ARG
++    }
++
++    try {
++        const recorded = JSON.parse(fs.readFileSync(OUT_JSON, 'utf8')).base
++
++        if (recorded) {
++            return recorded
++        }
++    } catch (error) {
++        // No usable artifact yet.
++    }
++
++    return 'HEAD'
++}
 +
 +const git = (...argv) =>
 +    execFileSync('git', argv, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
@@ -3565,6 +3591,7 @@ index 0000000..e09891b
 +    Object.keys(CHANNELS).filter((channel) => entry[channel] !== undefined)
 +
 +function build() {
++    const BASE = resolveBase()
 +    const base = loadAtRevision(BASE)
 +    const head = {
 +        technologies: loadCatalog(path.join(ROOT, 'technologies')).technologies,
@@ -3730,6 +3757,12 @@ index 0000000..e09891b
 +    }
 +    lines.push('')
 +
++    // Trailing blank entries would emit a blank line at EOF, which `git diff
++    // --check` reports. Join exactly one terminating newline.
++    while (lines.length && lines[lines.length - 1] === '') {
++        lines.pop()
++    }
++
 +    return `${lines.join('\n')}\n`
 +}
 +
@@ -3785,11 +3818,113 @@ index 0000000..e09891b
 +}
 +
 +main()
-diff --git scripts/coverage-report.js scripts/coverage-report.js
+diff --git a/scripts/check-whitespace.js b/scripts/check-whitespace.js
+new file mode 100644
+index 0000000..8eadd36
+--- /dev/null
++++ b/scripts/check-whitespace.js
+@@ -0,0 +1,96 @@
++#!/usr/bin/env node
++
++'use strict'
++
++/**
++ * Whitespace check over the branch's commit range.
++ *
++ * `git diff --check` on a clean worktree compares the worktree to HEAD and so
++ * checks nothing at all — quoting its exit code after committing is meaningless.
++ * The meaningful comparison is the base of the branch against HEAD.
++ *
++ * `changeset/*.diff` are excluded because they are verbatim captures of other
++ * files' diffs: the whitespace inside them belongs to the captured content, not to
++ * anything authored here. Everything else must be clean.
++ *
++ * Usage:
++ *   node scripts/check-whitespace.js              # base from changeset/catalog-delta.json
++ *   node scripts/check-whitespace.js --base=<rev>
++ */
++
++const fs = require('fs')
++const path = require('path')
++const { execFileSync, spawnSync } = require('child_process')
++
++const ROOT = path.resolve(__dirname, '..')
++const DELTA = path.join(ROOT, 'changeset/catalog-delta.json')
++
++/** Files whose content is literal diff text, so whitespace in them is data. */
++const CAPTURED_DIFFS = /^changeset\/\d+-.*\.diff$/
++
++const args = process.argv.slice(2)
++const baseArg = (args.find((arg) => arg.startsWith('--base=')) || '').split('=')[1]
++
++function resolveBase() {
++    if (baseArg) {
++        return baseArg
++    }
++
++    try {
++        return JSON.parse(fs.readFileSync(DELTA, 'utf8')).base
++    } catch (error) {
++        throw new Error(
++            'No base revision available. Pass --base=<rev> or generate ' +
++                'changeset/catalog-delta.json with `npm run delta`.'
++        )
++    }
++}
++
++function main() {
++    const base = resolveBase()
++
++    // --check exits 2 when it finds problems, so the status is expected, not fatal.
++    const result = spawnSync(
++        'git',
++        ['diff', '--check', `${base}..HEAD`],
++        { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
++    )
++
++    if (result.error) {
++        throw result.error
++    }
++
++    // Only `path:line: message` lines are warnings; the rest is offending content.
++    const warnings = (result.stdout || '')
++        .split('\n')
++        .filter((line) => /^[^\s+-][^:]*:\d+: /.test(line))
++
++    const captured = warnings.filter((line) =>
++        CAPTURED_DIFFS.test(line.slice(0, line.indexOf(':')))
++    )
++    const authored = warnings.filter((line) => !captured.includes(line))
++
++    const range = `${base}..HEAD`
++
++    console.log(`git diff --check ${range}`)
++    console.log(`  total warnings:              ${warnings.length}`)
++    console.log(`  inside captured diff files:  ${captured.length} (ignored)`)
++    console.log(`  in authored files:           ${authored.length}`)
++
++    if (authored.length) {
++        console.error('\nWhitespace problems in authored files:')
++        for (const warning of authored) {
++            console.error(`  ${warning}`)
++        }
++        process.exit(1)
++    }
++
++    console.log('\nNo whitespace problems in authored files.')
++}
++
++try {
++    main()
++} catch (error) {
++    console.error(error.message || String(error))
++    process.exit(1)
++}
+diff --git a/scripts/coverage-report.js b/scripts/coverage-report.js
 new file mode 100644
 index 0000000..9e41828
 --- /dev/null
-+++ scripts/coverage-report.js
++++ b/scripts/coverage-report.js
 @@ -0,0 +1,575 @@
 +#!/usr/bin/env node
 +
@@ -4366,11 +4501,11 @@ index 0000000..9e41828
 +}
 +
 +main()
-diff --git scripts/dns-sweep.js scripts/dns-sweep.js
+diff --git a/scripts/dns-sweep.js b/scripts/dns-sweep.js
 new file mode 100644
 index 0000000..2a0e124
 --- /dev/null
-+++ scripts/dns-sweep.js
++++ b/scripts/dns-sweep.js
 @@ -0,0 +1,363 @@
 +#!/usr/bin/env node
 +
@@ -4735,11 +4870,11 @@ index 0000000..2a0e124
 +    console.error(error)
 +    process.exit(1)
 +})
-diff --git scripts/lib/catalog.js scripts/lib/catalog.js
+diff --git a/scripts/lib/catalog.js b/scripts/lib/catalog.js
 new file mode 100644
 index 0000000..673d49a
 --- /dev/null
-+++ scripts/lib/catalog.js
++++ b/scripts/lib/catalog.js
 @@ -0,0 +1,128 @@
 +'use strict'
 +
@@ -4869,11 +5004,11 @@ index 0000000..673d49a
 +    mergeCategories,
 +    saveCatalog,
 +}
-diff --git scripts/lib/categories-extra.js scripts/lib/categories-extra.js
+diff --git a/scripts/lib/categories-extra.js b/scripts/lib/categories-extra.js
 new file mode 100644
 index 0000000..0024026
 --- /dev/null
-+++ scripts/lib/categories-extra.js
++++ b/scripts/lib/categories-extra.js
 @@ -0,0 +1,81 @@
 +'use strict'
 +
@@ -4956,11 +5091,11 @@ index 0000000..0024026
 +}
 +
 +module.exports = { EXTRA_CATEGORIES }
-diff --git scripts/lib/channels.js scripts/lib/channels.js
+diff --git a/scripts/lib/channels.js b/scripts/lib/channels.js
 new file mode 100644
 index 0000000..60d1892
 --- /dev/null
-+++ scripts/lib/channels.js
++++ b/scripts/lib/channels.js
 @@ -0,0 +1,134 @@
 +'use strict'
 +
@@ -5096,11 +5231,11 @@ index 0000000..60d1892
 +    isScalar,
 +    toArray,
 +}
-diff --git scripts/lib/dnb-mapping.js scripts/lib/dnb-mapping.js
+diff --git a/scripts/lib/dnb-mapping.js b/scripts/lib/dnb-mapping.js
 new file mode 100644
 index 0000000..01fea66
 --- /dev/null
-+++ scripts/lib/dnb-mapping.js
++++ b/scripts/lib/dnb-mapping.js
 @@ -0,0 +1,612 @@
 +'use strict'
 +
@@ -5714,12 +5849,12 @@ index 0000000..01fea66
 +}
 +
 +module.exports = { ALIASES, RULES, classify, normalize }
-diff --git scripts/lib/dnb-technologies.js scripts/lib/dnb-technologies.js
+diff --git a/scripts/lib/dnb-technologies.js b/scripts/lib/dnb-technologies.js
 new file mode 100644
-index 0000000..16fba38
+index 0000000..625efcb
 --- /dev/null
-+++ scripts/lib/dnb-technologies.js
-@@ -0,0 +1,3189 @@
++++ b/scripts/lib/dnb-technologies.js
+@@ -0,0 +1,3221 @@
 +'use strict'
 +
 +/**
@@ -8646,6 +8781,8 @@ index 0000000..16fba38
 +    }
 +}
 +
++const { isLiteralPattern } = require('./normalize')
++
 +/**
 + * Tokens deliberately superseded during normalization, and the pattern that
 + * replaced each one.
@@ -8694,21 +8831,51 @@ index 0000000..16fba38
 +/**
 + * Does `candidate` genuinely cover `token`?
 + *
-+ * True only when `candidate` is a strict literal substring of `token`. Both are
-+ * substring regexes, so any record matching `token` also matches `candidate` —
-+ * which is what makes observing the candidate valid evidence for the superseded
-+ * token. Sharing a technology name proves nothing on its own.
++ * Three conditions, all required:
++ *
++ *   1. Both operands are **literal** patterns. Containment only implies a
++ *      matching superset for literals; with alternation, anchors or quantifiers
++ *      involved, `token.includes(candidate)` says nothing about what each
++ *      matches. The function previously claimed to require this but only tested
++ *      containment, which left the invariant weaker than documented.
++ *   2. `candidate` is a strict substring of `token`, which is the subsumption
++ *      relation that removed the token: any record matching `token` also matches
++ *      `candidate`, so observing the candidate covers it.
++ *   3. The pair appears in `EXPECTED_SUPERSESSIONS`. Even a provable containment
++ *      should not silently grant evidence to a marker nobody reviewed, so the
++ *      substitution has to be declared.
++ *
++ * Sharing a technology name is never sufficient on its own.
 + *
 + * @param {string} token the original, superseded pattern
 + * @param {string} candidate an observed pattern for the same technology
++ * @param {?string} technology when given, the pair must be declared for it
 + */
-+function supersedes(token, candidate) {
-+    return (
-+        typeof candidate === 'string' &&
++function supersedes(token, candidate, technology) {
++    if (typeof candidate !== 'string' || typeof token !== 'string') {
++        return false
++    }
++
++    if (!isLiteralPattern(token) || !isLiteralPattern(candidate)) {
++        return false
++    }
++
++    const contains =
 +        candidate.length > 0 &&
 +        candidate.length < token.length &&
 +        token.includes(candidate)
-+    )
++
++    if (!contains) {
++        return false
++    }
++
++    // Declared-substitution gate. Omitting `technology` checks containment alone,
++    // which is what the unit tests exercise.
++    if (technology !== undefined) {
++        return EXPECTED_SUPERSESSIONS[technology] === candidate
++    }
++
++    return true
 +}
 +
 +/**
@@ -8752,7 +8919,7 @@ index 0000000..16fba38
 +    const superseding = [...sweep.observed.keys()]
 +        .filter((key) => key.startsWith(`${name} `))
 +        .map((key) => key.slice(name.length + 1))
-+        .filter((candidate) => supersedes(token, candidate))
++        .filter((candidate) => supersedes(token, candidate, name))
 +
 +    if (superseding.length) {
 +        return {
@@ -8909,11 +9076,11 @@ index 0000000..16fba38
 +    TXT,
 +    TXT_ENRICH,
 +}
-diff --git scripts/lib/engine.js scripts/lib/engine.js
+diff --git a/scripts/lib/engine.js b/scripts/lib/engine.js
 new file mode 100644
 index 0000000..5f67ad5
 --- /dev/null
-+++ scripts/lib/engine.js
++++ b/scripts/lib/engine.js
 @@ -0,0 +1,87 @@
 +'use strict'
 +
@@ -9002,11 +9169,11 @@ index 0000000..5f67ad5
 +    parseVersion,
 +    satisfiesMinimum,
 +}
-diff --git scripts/lib/merge.js scripts/lib/merge.js
+diff --git a/scripts/lib/merge.js b/scripts/lib/merge.js
 new file mode 100644
 index 0000000..71ab46b
 --- /dev/null
-+++ scripts/lib/merge.js
++++ b/scripts/lib/merge.js
 @@ -0,0 +1,267 @@
 +'use strict'
 +
@@ -9275,11 +9442,11 @@ index 0000000..71ab46b
 +    sameMeaning,
 +    unionPatterns,
 +}
-diff --git scripts/lib/normalize.js scripts/lib/normalize.js
+diff --git a/scripts/lib/normalize.js b/scripts/lib/normalize.js
 new file mode 100644
 index 0000000..54b2094
 --- /dev/null
-+++ scripts/lib/normalize.js
++++ b/scripts/lib/normalize.js
 @@ -0,0 +1,965 @@
 +'use strict'
 +
@@ -10246,11 +10413,11 @@ index 0000000..54b2094
 +    normalizeEntry,
 +    normalizeProbe,
 +}
-diff --git scripts/lib/text-signals.js scripts/lib/text-signals.js
+diff --git a/scripts/lib/text-signals.js b/scripts/lib/text-signals.js
 new file mode 100644
 index 0000000..cd23150
 --- /dev/null
-+++ scripts/lib/text-signals.js
++++ b/scripts/lib/text-signals.js
 @@ -0,0 +1,202 @@
 +'use strict'
 +
@@ -10454,12 +10621,12 @@ index 0000000..cd23150
 +    analyzeText,
 +    isEligiblePage,
 +}
-diff --git scripts/run-tests.js scripts/run-tests.js
+diff --git a/scripts/run-tests.js b/scripts/run-tests.js
 new file mode 100644
-index 0000000..68f7f99
+index 0000000..ea277bf
 --- /dev/null
-+++ scripts/run-tests.js
-@@ -0,0 +1,30 @@
++++ b/scripts/run-tests.js
+@@ -0,0 +1,29 @@
 +#!/usr/bin/env node
 +
 +'use strict'
@@ -10489,12 +10656,11 @@ index 0000000..68f7f99
 +}
 +
 +process.exit(result.status === null ? 1 : result.status)
-+
-diff --git scripts/smoke-cli.js scripts/smoke-cli.js
+diff --git a/scripts/smoke-cli.js b/scripts/smoke-cli.js
 new file mode 100644
 index 0000000..19db0fa
 --- /dev/null
-+++ scripts/smoke-cli.js
++++ b/scripts/smoke-cli.js
 @@ -0,0 +1,128 @@
 +#!/usr/bin/env node
 +
@@ -10624,11 +10790,11 @@ index 0000000..19db0fa
 +console.log(`\n${checks.length - failed}/${checks.length} CLI smoke checks passed`)
 +
 +process.exit(failed ? 1 : 0)
-diff --git scripts/validate.js scripts/validate.js
+diff --git a/scripts/validate.js b/scripts/validate.js
 new file mode 100644
 index 0000000..79190d1
 --- /dev/null
-+++ scripts/validate.js
++++ b/scripts/validate.js
 @@ -0,0 +1,709 @@
 +#!/usr/bin/env node
 +
@@ -11339,11 +11505,11 @@ index 0000000..79190d1
 +}
 +
 +main()
-diff --git scripts/xhr-audit.js scripts/xhr-audit.js
+diff --git a/scripts/xhr-audit.js b/scripts/xhr-audit.js
 new file mode 100644
 index 0000000..c1a4159
 --- /dev/null
-+++ scripts/xhr-audit.js
++++ b/scripts/xhr-audit.js
 @@ -0,0 +1,312 @@
 +#!/usr/bin/env node
 +
@@ -11657,11 +11823,11 @@ index 0000000..c1a4159
 +    console.error(error)
 +    process.exit(1)
 +})
-diff --git test/catalog.test.js test/catalog.test.js
+diff --git a/test/catalog.test.js b/test/catalog.test.js
 new file mode 100644
 index 0000000..7d33f64
 --- /dev/null
-+++ test/catalog.test.js
++++ b/test/catalog.test.js
 @@ -0,0 +1,254 @@
 +'use strict'
 +
@@ -11917,11 +12083,11 @@ index 0000000..7d33f64
 +        'run `npm run delta` to regenerate changeset/catalog-delta.{json,md}'
 +    )
 +})
-diff --git test/coverage.test.js test/coverage.test.js
+diff --git a/test/coverage.test.js b/test/coverage.test.js
 new file mode 100644
 index 0000000..a8a76fd
 --- /dev/null
-+++ test/coverage.test.js
++++ b/test/coverage.test.js
 @@ -0,0 +1,281 @@
 +'use strict'
 +
@@ -12204,11 +12370,11 @@ index 0000000..a8a76fd
 +        ].sort()
 +    )
 +})
-diff --git test/dnb-technologies.test.js test/dnb-technologies.test.js
+diff --git a/test/dnb-technologies.test.js b/test/dnb-technologies.test.js
 new file mode 100644
 index 0000000..6532009
 --- /dev/null
-+++ test/dnb-technologies.test.js
++++ b/test/dnb-technologies.test.js
 @@ -0,0 +1,756 @@
 +'use strict'
 +
@@ -12966,12 +13132,12 @@ index 0000000..6532009
 +
 +    assert.deepEqual(incomplete, [])
 +})
-diff --git test/dns-sweep.test.js test/dns-sweep.test.js
+diff --git a/test/dns-sweep.test.js b/test/dns-sweep.test.js
 new file mode 100644
-index 0000000..bf90eaa
+index 0000000..a0081c8
 --- /dev/null
-+++ test/dns-sweep.test.js
-@@ -0,0 +1,342 @@
++++ b/test/dns-sweep.test.js
+@@ -0,0 +1,401 @@
 +'use strict'
 +
 +/**
@@ -13265,6 +13431,65 @@ index 0000000..bf90eaa
 +    assert.equal(supersedes('abc', ''), false, 'an empty candidate cannot cover')
 +})
 +
++test('supersession requires both operands to be literal patterns', () => {
++    // Containment only implies a matching superset for literals. With alternation,
++    // anchors or quantifiers involved, `token.includes(candidate)` says nothing
++    // about what each pattern matches.
++    const { supersedes } = require('../scripts/lib/dnb-technologies')
++
++    assert.equal(
++        supersedes('a|bc', 'a|b'),
++        false,
++        'alternation makes containment meaningless'
++    )
++    assert.equal(supersedes('^abc$', '^abc'), false, 'anchors are not literal')
++    assert.equal(supersedes('abc+d', 'abc+'), false, 'quantifiers are not literal')
++    assert.equal(supersedes('ab[0-9]c', 'ab[0-9]'), false, 'classes are not literal')
++
++    // Escaped dots are literal, which is how the catalog writes hostnames.
++    assert.equal(supersedes('cdn\\.example\\.com', 'example\\.com'), true)
++})
++
++test('runtime supersession is gated by the declared map', () => {
++    // Provable containment alone should not silently grant evidence to a marker
++    // nobody reviewed; the substitution has to be declared.
++    const { supersedes, EXPECTED_SUPERSESSIONS } = require(
++        '../scripts/lib/dnb-technologies'
++    )
++
++    assert.equal(
++        supersedes('mixpanel-domain-verify=', 'mixpanel-domain-verify', 'Mixpanel'),
++        true,
++        'the declared substitution passes'
++    )
++    assert.equal(
++        supersedes('mixpanel-domain-verify=', 'mixpanel-domain', 'Mixpanel'),
++        false,
++        'an undeclared candidate is refused even though it is contained'
++    )
++    assert.equal(
++        supersedes('docusign=', 'docusign', 'SomeNewVendor'),
++        false,
++        'an undeclared technology is refused'
++    )
++
++    // Every declared entry is either null (nothing superseded) or a genuine
++    // literal cover of the token it replaces.
++    const { TXT, TXT_ENRICH } = require('../scripts/lib/dnb-technologies')
++    const tokens = { ...TXT, ...TXT_ENRICH }
++
++    for (const [technology, replacement] of Object.entries(EXPECTED_SUPERSESSIONS)) {
++        if (replacement === null) {
++            continue
++        }
++
++        assert.ok(
++            supersedes(tokens[technology], replacement, technology),
++            `${technology}: ${replacement} should cover ${tokens[technology]}`
++        )
++    }
++})
++
 +test('the five superseded markers are exactly the expected ones', () => {
 +    const {
 +        EVIDENCE,
@@ -13314,11 +13539,11 @@ index 0000000..bf90eaa
 +    assert.match(results.corpusSha256, /^[0-9a-f]{64}$/, 'corpus digest')
 +    assert.match(results.markerSetSha256, /^[0-9a-f]{64}$/, 'marker set digest')
 +})
-diff --git test/engine.test.js test/engine.test.js
+diff --git a/test/engine.test.js b/test/engine.test.js
 new file mode 100644
 index 0000000..f682023
 --- /dev/null
-+++ test/engine.test.js
++++ b/test/engine.test.js
 @@ -0,0 +1,144 @@
 +'use strict'
 +
@@ -13464,11 +13689,11 @@ index 0000000..f682023
 +    // The whole point: a unit-only `npm test` is what let the broken runtime ship.
 +    assert.match(pkg.scripts.test, /smoke-cli/, 'npm test must include the CLI check')
 +})
-diff --git test/merge.test.js test/merge.test.js
+diff --git a/test/merge.test.js b/test/merge.test.js
 new file mode 100644
 index 0000000..9436824
 --- /dev/null
-+++ test/merge.test.js
++++ b/test/merge.test.js
 @@ -0,0 +1,252 @@
 +'use strict'
 +
@@ -13722,11 +13947,11 @@ index 0000000..9436824
 +        assert.ok(result.technologies[name], `${name} must survive the merge`)
 +    }
 +})
-diff --git test/normalize.test.js test/normalize.test.js
+diff --git a/test/normalize.test.js b/test/normalize.test.js
 new file mode 100644
 index 0000000..e21bd22
 --- /dev/null
-+++ test/normalize.test.js
++++ b/test/normalize.test.js
 @@ -0,0 +1,578 @@
 +'use strict'
 +
@@ -14306,11 +14531,11 @@ index 0000000..e21bd22
 +
 +    assert.ok(detection, 'the flattened chain matches a collected property')
 +})
-diff --git test/text-signals.test.js test/text-signals.test.js
+diff --git a/test/text-signals.test.js b/test/text-signals.test.js
 new file mode 100644
 index 0000000..08b955c
 --- /dev/null
-+++ test/text-signals.test.js
++++ b/test/text-signals.test.js
 @@ -0,0 +1,265 @@
 +'use strict'
 +
@@ -14577,11 +14802,11 @@ index 0000000..08b955c
 +        'every taxonomy-only entry should have a text signal, and vice versa'
 +    )
 +})
-diff --git test/wappalyzer.test.js test/wappalyzer.test.js
+diff --git a/test/wappalyzer.test.js b/test/wappalyzer.test.js
 new file mode 100644
 index 0000000..a8ddefa
 --- /dev/null
-+++ test/wappalyzer.test.js
++++ b/test/wappalyzer.test.js
 @@ -0,0 +1,569 @@
 +'use strict'
 +
@@ -15152,11 +15377,11 @@ index 0000000..a8ddefa
 +
 +    assert.equal(detections.length, 2)
 +})
-diff --git test/xhr-audit.test.js test/xhr-audit.test.js
+diff --git a/test/xhr-audit.test.js b/test/xhr-audit.test.js
 new file mode 100644
 index 0000000..3716ec9
 --- /dev/null
-+++ test/xhr-audit.test.js
++++ b/test/xhr-audit.test.js
 @@ -0,0 +1,146 @@
 +'use strict'
 +
