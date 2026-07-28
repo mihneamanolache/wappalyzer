@@ -1,0 +1,46 @@
+# Pages scanned by scripts/xhr-audit.js to measure whether xhr-only markers
+# actually fire in a browser.
+#
+# Chosen as the MOST FAVOURABLE case: vendors' own sites, playgrounds and
+# AI-forward products, where a client-side call to the vendor's own API is most
+# likely. If a marker does not fire here it will not fire on an ordinary company
+# website. One page per site, no crawling.
+
+# Generative AI vendors (own sites / product pages)
+https://www.anthropic.com/
+https://ai.google.dev/
+https://cohere.com/
+https://groq.com/
+https://www.together.ai/
+https://www.deepseek.com/
+https://www.assemblyai.com/
+https://replicate.com/
+https://writer.com/
+https://www.copy.ai/
+https://www.jasper.ai/
+https://character.ai/
+https://you.com/
+https://www.harvey.ai/
+
+# Vector databases and AI infrastructure
+https://www.pinecone.io/
+https://qdrant.tech/
+https://weaviate.io/
+https://www.trychroma.com/
+https://www.langchain.com/langsmith
+https://modal.com/
+
+# Data platforms
+https://clickhouse.com/
+https://www.cockroachlabs.com/
+https://neon.tech/
+https://turso.tech/
+
+# Cloud AI control planes
+https://aws.amazon.com/bedrock/
+https://cloud.google.com/vertex-ai
+https://azure.microsoft.com/en-us/products/ai-services/openai-service
+https://www.ibm.com/watsonx
+
+# AI coding
+https://www.tabnine.com/

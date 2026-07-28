@@ -1,0 +1,2028 @@
+{
+  "source": "AI technology_products_for_veridion_070226.xlsx",
+  "priorities": [
+    "Samsara  and product versions",
+    "Verizon Connect - currently track Verizon, but need Connect separately."
+  ],
+  "categories": [
+    "Generative AI platforms (ChatGPT, Claude, Gemini, Copilot, etc.)",
+    "AI development and agent frameworks",
+    "Vector databases and AI infrastructure",
+    "Modern cloud and data platforms",
+    "Fleet, IoT, and connected operations technologies (Samsara, Verizon Connect, Motive, etc.)",
+    "Emerging cybersecurity platforms",
+    "Product-level and version-level technology detection"
+  ],
+  "products": [
+    {
+      "product": "6sense Revenue AI",
+      "vendor": "6sense",
+      "vendorUrl": "https://6sense.com/platform/"
+    },
+    {
+      "product": "Abnormal Security AI",
+      "vendor": "Abnormal Security",
+      "vendorUrl": "https://abnormalsecurity.com/"
+    },
+    {
+      "product": "Adobe Firefly",
+      "vendor": "Adobe",
+      "vendorUrl": "https://www.adobe.com/products/firefly.html"
+    },
+    {
+      "product": "Adobe Express AI",
+      "vendor": "Adobe",
+      "vendorUrl": "https://www.adobe.com/express/"
+    },
+    {
+      "product": "Adobe GenStudio",
+      "vendor": "Adobe",
+      "vendorUrl": "https://business.adobe.com/products/genstudio.html"
+    },
+    {
+      "product": "Adobe Acrobat AI Assistant",
+      "vendor": "Adobe",
+      "vendorUrl": "https://www.adobe.com/acrobat/ai-assistant.html"
+    },
+    {
+      "product": "Figma",
+      "vendor": "Adobe",
+      "vendorUrl": "https://www.figma.com/"
+    },
+    {
+      "product": "Adobe Sensei GenAI",
+      "vendor": "Adobe Inc.",
+      "vendorUrl": "https://www.adobe.com/sensei.html"
+    },
+    {
+      "product": "Adobe Experience Platform AI Assistant",
+      "vendor": "Adobe Inc.",
+      "vendorUrl": "https://business.adobe.com/products/experience-platform/ai-assistant.html"
+    },
+    {
+      "product": "AI21 Jamba",
+      "vendor": "AI21 Labs",
+      "vendorUrl": "https://www.ai21.com/"
+    },
+    {
+      "product": "Airbyte",
+      "vendor": "Airbyte",
+      "vendorUrl": "https://airbyte.com/"
+    },
+    {
+      "product": "Airtable AI",
+      "vendor": "Airtable",
+      "vendorUrl": "https://www.airtable.com/platform/ai"
+    },
+    {
+      "product": "Airtable",
+      "vendor": "Airtable",
+      "vendorUrl": "https://www.airtable.com/"
+    },
+    {
+      "product": "Aleph Alpha Luminous",
+      "vendor": "Aleph Alpha",
+      "vendorUrl": "https://aleph-alpha.com/"
+    },
+    {
+      "product": "Qwen 2.5",
+      "vendor": "Alibaba",
+      "vendorUrl": "https://qwenlm.github.io/"
+    },
+    {
+      "product": "Amazon CodeWhisperer",
+      "vendor": "Amazon",
+      "vendorUrl": "https://aws.amazon.com/codewhisperer/"
+    },
+    {
+      "product": "Redshift",
+      "vendor": "Amazon",
+      "vendorUrl": "https://aws.amazon.com/redshift/"
+    },
+    {
+      "product": "Amazon Bedrock",
+      "vendor": "Amazon Web Services",
+      "vendorUrl": "https://aws.amazon.com/bedrock/"
+    },
+    {
+      "product": "Amazon Q Business",
+      "vendor": "Amazon Web Services",
+      "vendorUrl": "https://aws.amazon.com/q/business/"
+    },
+    {
+      "product": "Amazon Q Developer",
+      "vendor": "Amazon Web Services",
+      "vendorUrl": "https://aws.amazon.com/q/developer/"
+    },
+    {
+      "product": "Amazon Nova",
+      "vendor": "Amazon Web Services",
+      "vendorUrl": "https://aws.amazon.com/ai/generative-ai/nova/"
+    },
+    {
+      "product": "Amazon SageMaker AI",
+      "vendor": "Amazon Web Services",
+      "vendorUrl": "https://aws.amazon.com/sagemaker-ai/"
+    },
+    {
+      "product": "Claude Opus 4",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/"
+    },
+    {
+      "product": "Claude Sonnet 4",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/"
+    },
+    {
+      "product": "Claude Code",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/claude-code"
+    },
+    {
+      "product": "Claude Enterprise",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/enterprise"
+    },
+    {
+      "product": "Claude Fable 5",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/claude/fable"
+    },
+    {
+      "product": "Claude 3.5 Sonnet",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/claude"
+    },
+    {
+      "product": "Claude 3.5 Haiku",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/claude"
+    },
+    {
+      "product": "Anthropic MCP",
+      "vendor": "Anthropic",
+      "vendorUrl": "https://www.anthropic.com/mcp"
+    },
+    {
+      "product": "Anyscale Endpoints",
+      "vendor": "Anyscale",
+      "vendorUrl": "https://www.anyscale.com/endpoints"
+    },
+    {
+      "product": "Ray",
+      "vendor": "Anyscale",
+      "vendorUrl": "https://www.ray.io/"
+    },
+    {
+      "product": "Cursor",
+      "vendor": "Anysphere",
+      "vendorUrl": "https://www.cursor.com/"
+    },
+    {
+      "product": "Apache Spark",
+      "vendor": "Apache Software Foundation",
+      "vendorUrl": "https://spark.apache.org/"
+    },
+    {
+      "product": "Apache Kafka",
+      "vendor": "Apache Software Foundation",
+      "vendorUrl": "https://kafka.apache.org/"
+    },
+    {
+      "product": "Apache Airflow",
+      "vendor": "Apache Software Foundation",
+      "vendorUrl": "https://airflow.apache.org/"
+    },
+    {
+      "product": "Apache Flink",
+      "vendor": "Apache Software Foundation",
+      "vendorUrl": "https://flink.apache.org/"
+    },
+    {
+      "product": "Apache Iceberg",
+      "vendor": "Apache Software Foundation",
+      "vendorUrl": "https://iceberg.apache.org/"
+    },
+    {
+      "product": "Apache Hudi",
+      "vendor": "Apache Software Foundation",
+      "vendorUrl": "https://hudi.apache.org/"
+    },
+    {
+      "product": "Superset",
+      "vendor": "Apache Software Foundation",
+      "vendorUrl": "https://superset.apache.org/"
+    },
+    {
+      "product": "Apollo AI",
+      "vendor": "Apollo.io",
+      "vendorUrl": "https://www.apollo.io/ai"
+    },
+    {
+      "product": "Appsmith",
+      "vendor": "Appsmith",
+      "vendorUrl": "https://www.appsmith.com/"
+    },
+    {
+      "product": "ArgoCD",
+      "vendor": "Argo Project",
+      "vendorUrl": "https://argo-cd.readthedocs.io/"
+    },
+    {
+      "product": "Asana AI",
+      "vendor": "Asana",
+      "vendorUrl": "https://asana.com/product/ai"
+    },
+    {
+      "product": "Asana",
+      "vendor": "Asana",
+      "vendorUrl": "https://asana.com/"
+    },
+    {
+      "product": "Assembly AI",
+      "vendor": "AssemblyAI",
+      "vendorUrl": "https://www.assemblyai.com/"
+    },
+    {
+      "product": "Atlassian Intelligence",
+      "vendor": "Atlassian",
+      "vendorUrl": "https://www.atlassian.com/software/artificial-intelligence"
+    },
+    {
+      "product": "Confluence AI",
+      "vendor": "Atlassian",
+      "vendorUrl": "https://www.atlassian.com/software/confluence/features/ai"
+    },
+    {
+      "product": "Jira AI",
+      "vendor": "Atlassian",
+      "vendorUrl": "https://www.atlassian.com/software/jira/features/ai"
+    },
+    {
+      "product": "Atlassian Rovo",
+      "vendor": "Atlassian",
+      "vendorUrl": "https://www.atlassian.com/software/rovo"
+    },
+    {
+      "product": "Atlassian Rovo Dev",
+      "vendor": "Atlassian",
+      "vendorUrl": "https://www.atlassian.com/software/rovo/dev"
+    },
+    {
+      "product": "Bitbucket",
+      "vendor": "Atlassian",
+      "vendorUrl": "https://bitbucket.org/"
+    },
+    {
+      "product": "Jira",
+      "vendor": "Atlassian",
+      "vendorUrl": "https://www.atlassian.com/software/jira"
+    },
+    {
+      "product": "Autodesk Assistant",
+      "vendor": "Autodesk",
+      "vendorUrl": "https://www.autodesk.com/solutions/autodesk-ai"
+    },
+    {
+      "product": "Autodesk Neural CAD",
+      "vendor": "Autodesk",
+      "vendorUrl": "https://www.autodesk.com/solutions/autodesk-ai"
+    },
+    {
+      "product": "Autodesk Forma AI",
+      "vendor": "Autodesk",
+      "vendorUrl": "https://www.autodesk.com/products/forma/"
+    },
+    {
+      "product": "Automation Anywhere Autopilot",
+      "vendor": "Automation Anywhere",
+      "vendorUrl": "https://www.automationanywhere.com/products/ai-automation"
+    },
+    {
+      "product": "Ernie 4.0",
+      "vendor": "Baidu",
+      "vendorUrl": "https://yiyan.baidu.com/"
+    },
+    {
+      "product": "BentoML",
+      "vendor": "BentoML",
+      "vendorUrl": "https://www.bentoml.com/"
+    },
+    {
+      "product": "FLUX.1",
+      "vendor": "Black Forest Labs",
+      "vendorUrl": "https://blackforestlabs.ai/"
+    },
+    {
+      "product": "Box AI",
+      "vendor": "Box",
+      "vendorUrl": "https://www.box.com/ai"
+    },
+    {
+      "product": "Box AI Agents",
+      "vendor": "Box",
+      "vendorUrl": "https://www.box.com/ai"
+    },
+    {
+      "product": "VMware Private AI",
+      "vendor": "Broadcom Inc.",
+      "vendorUrl": "https://www.vmware.com/products/vsphere/ai-ml.html"
+    },
+    {
+      "product": "VMware Cloud Foundation AI Services",
+      "vendor": "Broadcom Inc.",
+      "vendorUrl": "https://www.vmware.com/products/cloud-foundation.html"
+    },
+    {
+      "product": "Bubble",
+      "vendor": "Bubble",
+      "vendorUrl": "https://bubble.io/"
+    },
+    {
+      "product": "Buildkite",
+      "vendor": "Buildkite",
+      "vendorUrl": "https://buildkite.com/"
+    },
+    {
+      "product": "Linkerd",
+      "vendor": "Buoyant",
+      "vendorUrl": "https://linkerd.io/"
+    },
+    {
+      "product": "Doubao",
+      "vendor": "ByteDance",
+      "vendorUrl": "https://www.doubao.com/"
+    },
+    {
+      "product": "C3 Generative AI",
+      "vendor": "C3 AI",
+      "vendorUrl": "https://c3.ai/c3-generative-ai/"
+    },
+    {
+      "product": "Canva Magic Studio",
+      "vendor": "Canva",
+      "vendorUrl": "https://www.canva.com/magic/"
+    },
+    {
+      "product": "Cerebras Inference",
+      "vendor": "Cerebras",
+      "vendorUrl": "https://www.cerebras.ai/"
+    },
+    {
+      "product": "Cerebras",
+      "vendor": "Cerebras Systems",
+      "vendorUrl": "https://www.cerebras.net/"
+    },
+    {
+      "product": "Character.AI",
+      "vendor": "Character.AI",
+      "vendorUrl": "https://character.ai/"
+    },
+    {
+      "product": "Chroma",
+      "vendor": "Chroma",
+      "vendorUrl": "https://www.trychroma.com/"
+    },
+    {
+      "product": "Chronosphere",
+      "vendor": "Chronosphere",
+      "vendorUrl": "https://chronosphere.io/"
+    },
+    {
+      "product": "CircleCI",
+      "vendor": "CircleCI",
+      "vendorUrl": "https://circleci.com/"
+    },
+    {
+      "product": "Cisco AI Assistant",
+      "vendor": "Cisco",
+      "vendorUrl": "https://www.cisco.com/site/us/en/solutions/artificial-intelligence/"
+    },
+    {
+      "product": "Cisco AI Network Analytics",
+      "vendor": "Cisco",
+      "vendorUrl": "https://www.cisco.com/site/us/en/solutions/networking/ai-networking.html"
+    },
+    {
+      "product": "Splunk AI Assistant",
+      "vendor": "Cisco",
+      "vendorUrl": "https://www.splunk.com/en_us/products/ai-assistant.html"
+    },
+    {
+      "product": "Splunk AI Agents",
+      "vendor": "Cisco",
+      "vendorUrl": "https://www.splunk.com/"
+    },
+    {
+      "product": "Splunk",
+      "vendor": "Cisco",
+      "vendorUrl": "https://www.splunk.com/"
+    },
+    {
+      "product": "Clari Copilot",
+      "vendor": "Clari",
+      "vendorUrl": "https://www.clari.com/products/copilot/"
+    },
+    {
+      "product": "ClickHouse",
+      "vendor": "ClickHouse",
+      "vendorUrl": "https://clickhouse.com/"
+    },
+    {
+      "product": "ClickUp Brain",
+      "vendor": "ClickUp",
+      "vendorUrl": "https://clickup.com/ai"
+    },
+    {
+      "product": "ClickUp",
+      "vendor": "ClickUp",
+      "vendorUrl": "https://clickup.com/"
+    },
+    {
+      "product": "Prometheus",
+      "vendor": "CNCF",
+      "vendorUrl": "https://prometheus.io/"
+    },
+    {
+      "product": "OpenTelemetry",
+      "vendor": "CNCF",
+      "vendorUrl": "https://opentelemetry.io/"
+    },
+    {
+      "product": "Kubernetes",
+      "vendor": "CNCF",
+      "vendorUrl": "https://kubernetes.io/"
+    },
+    {
+      "product": "Helm",
+      "vendor": "CNCF",
+      "vendorUrl": "https://helm.sh/"
+    },
+    {
+      "product": "CockroachDB",
+      "vendor": "Cockroach Labs",
+      "vendorUrl": "https://www.cockroachlabs.com/"
+    },
+    {
+      "product": "Coda",
+      "vendor": "Coda",
+      "vendorUrl": "https://coda.io/"
+    },
+    {
+      "product": "Codeium",
+      "vendor": "Codeium",
+      "vendorUrl": "https://codeium.com/"
+    },
+    {
+      "product": "Windsurf",
+      "vendor": "Cognition",
+      "vendorUrl": "https://windsurf.com/"
+    },
+    {
+      "product": "Cohere Command R",
+      "vendor": "Cohere",
+      "vendorUrl": "https://cohere.com/command"
+    },
+    {
+      "product": "Cohere North",
+      "vendor": "Cohere",
+      "vendorUrl": "https://cohere.com/"
+    },
+    {
+      "product": "Command R+",
+      "vendor": "Cohere",
+      "vendorUrl": "https://cohere.com/"
+    },
+    {
+      "product": "Command A",
+      "vendor": "Cohere",
+      "vendorUrl": "https://cohere.com/"
+    },
+    {
+      "product": "Cohere Embed",
+      "vendor": "Cohere",
+      "vendorUrl": "https://cohere.com/"
+    },
+    {
+      "product": "Cohere Rerank",
+      "vendor": "Cohere",
+      "vendorUrl": "https://cohere.com/"
+    },
+    {
+      "product": "Aya",
+      "vendor": "Cohere",
+      "vendorUrl": "https://cohere.com/research/aya"
+    },
+    {
+      "product": "Copy.ai",
+      "vendor": "Copy.ai",
+      "vendorUrl": "https://www.copy.ai/"
+    },
+    {
+      "product": "CrewAI",
+      "vendor": "CrewAI",
+      "vendorUrl": "https://www.crewai.com/"
+    },
+    {
+      "product": "CrowdStrike Charlotte AI",
+      "vendor": "CrowdStrike",
+      "vendorUrl": "https://www.crowdstrike.com/platform/charlotte-ai/"
+    },
+    {
+      "product": "CrowdStrike Falcon",
+      "vendor": "CrowdStrike",
+      "vendorUrl": "https://www.crowdstrike.com/"
+    },
+    {
+      "product": "Dagster",
+      "vendor": "Dagster Labs",
+      "vendorUrl": "https://dagster.io/"
+    },
+    {
+      "product": "Databricks Mosaic AI",
+      "vendor": "Databricks",
+      "vendorUrl": "https://www.databricks.com/product/machine-learning"
+    },
+    {
+      "product": "Databricks DBRX",
+      "vendor": "Databricks",
+      "vendorUrl": "https://www.databricks.com/blog/introducing-dbrx"
+    },
+    {
+      "product": "Databricks AI/BI Genie",
+      "vendor": "Databricks",
+      "vendorUrl": "https://www.databricks.com/product/ai-bi"
+    },
+    {
+      "product": "MLflow",
+      "vendor": "Databricks",
+      "vendorUrl": "https://mlflow.org/"
+    },
+    {
+      "product": "Delta Lake",
+      "vendor": "Databricks",
+      "vendorUrl": "https://delta.io/"
+    },
+    {
+      "product": "Databricks",
+      "vendor": "Databricks",
+      "vendorUrl": "https://www.databricks.com/"
+    },
+    {
+      "product": "Datadog Bits AI",
+      "vendor": "Datadog",
+      "vendorUrl": "https://www.datadoghq.com/product/ai/bits-ai/"
+    },
+    {
+      "product": "Datadog Bits AI Agents",
+      "vendor": "Datadog",
+      "vendorUrl": "https://www.datadoghq.com/product/ai/bits-ai-agents/"
+    },
+    {
+      "product": "Datadog",
+      "vendor": "Datadog",
+      "vendorUrl": "https://www.datadoghq.com/"
+    },
+    {
+      "product": "Dataiku LLM Mesh",
+      "vendor": "Dataiku",
+      "vendorUrl": "https://www.dataiku.com/product/key-capabilities/llm-mesh/"
+    },
+    {
+      "product": "DataRobot AI Platform",
+      "vendor": "DataRobot",
+      "vendorUrl": "https://www.datarobot.com/platform/"
+    },
+    {
+      "product": "dbt",
+      "vendor": "dbt Labs",
+      "vendorUrl": "https://www.getdbt.com/"
+    },
+    {
+      "product": "DeepSeek V3",
+      "vendor": "DeepSeek",
+      "vendorUrl": "https://www.deepseek.com/"
+    },
+    {
+      "product": "DeepSeek R1",
+      "vendor": "DeepSeek",
+      "vendorUrl": "https://www.deepseek.com/"
+    },
+    {
+      "product": "DeepSeek Coder",
+      "vendor": "DeepSeek",
+      "vendorUrl": "https://www.deepseek.com/"
+    },
+    {
+      "product": "Dell AI Factory",
+      "vendor": "Dell",
+      "vendorUrl": "https://www.dell.com/en-us/dt/solutions/artificial-intelligence/index.htm"
+    },
+    {
+      "product": "Dell PowerEdge AI Servers",
+      "vendor": "Dell",
+      "vendorUrl": "https://www.dell.com/en-us/shop/servers-storage-and-networking/sf/poweredge"
+    },
+    {
+      "product": "Descript",
+      "vendor": "Descript",
+      "vendorUrl": "https://www.descript.com/"
+    },
+    {
+      "product": "Docker",
+      "vendor": "Docker",
+      "vendorUrl": "https://www.docker.com/"
+    },
+    {
+      "product": "Dropbox Dash",
+      "vendor": "Dropbox",
+      "vendorUrl": "https://www.dropbox.com/dash"
+    },
+    {
+      "product": "Dropbox AI",
+      "vendor": "Dropbox",
+      "vendorUrl": "https://www.dropbox.com/features/ai"
+    },
+    {
+      "product": "DuckDB",
+      "vendor": "DuckDB Labs",
+      "vendorUrl": "https://duckdb.org/"
+    },
+    {
+      "product": "Dynatrace",
+      "vendor": "Dynatrace",
+      "vendorUrl": "https://www.dynatrace.com/"
+    },
+    {
+      "product": "Elastic Stack",
+      "vendor": "Elastic",
+      "vendorUrl": "https://www.elastic.co/"
+    },
+    {
+      "product": "ElevenLabs",
+      "vendor": "ElevenLabs",
+      "vendorUrl": "https://elevenlabs.io/"
+    },
+    {
+      "product": "Figma AI",
+      "vendor": "Figma",
+      "vendorUrl": "https://www.figma.com/ai/"
+    },
+    {
+      "product": "Fivetran",
+      "vendor": "Fivetran",
+      "vendorUrl": "https://www.fivetran.com/"
+    },
+    {
+      "product": "Lacework",
+      "vendor": "Fortinet",
+      "vendorUrl": "https://www.lacework.com/"
+    },
+    {
+      "product": "Geotab Ace",
+      "vendor": "Geotab",
+      "vendorUrl": "https://www.geotab.com/ace/"
+    },
+    {
+      "product": "Git",
+      "vendor": "Git",
+      "vendorUrl": "https://git-scm.com/"
+    },
+    {
+      "product": "GitHub Copilot",
+      "vendor": "GitHub",
+      "vendorUrl": "https://github.com/features/copilot"
+    },
+    {
+      "product": "GitHub Copilot Workspace",
+      "vendor": "GitHub",
+      "vendorUrl": "https://github.com/features/preview/copilot-workspace"
+    },
+    {
+      "product": "GitLab",
+      "vendor": "GitLab",
+      "vendorUrl": "https://about.gitlab.com/"
+    },
+    {
+      "product": "GitLab CI/CD",
+      "vendor": "GitLab",
+      "vendorUrl": "https://docs.gitlab.com/ee/ci/"
+    },
+    {
+      "product": "Glean",
+      "vendor": "Glean",
+      "vendorUrl": "https://www.glean.com/"
+    },
+    {
+      "product": "Gong AI",
+      "vendor": "Gong",
+      "vendorUrl": "https://www.gong.io/"
+    },
+    {
+      "product": "Gemini 2.5 Pro",
+      "vendor": "Google",
+      "vendorUrl": "https://gemini.google.com/"
+    },
+    {
+      "product": "Gemini Enterprise",
+      "vendor": "Google",
+      "vendorUrl": "https://cloud.google.com/products/gemini"
+    },
+    {
+      "product": "Google Vertex AI",
+      "vendor": "Google",
+      "vendorUrl": "https://cloud.google.com/vertex-ai"
+    },
+    {
+      "product": "Google AI Studio",
+      "vendor": "Google",
+      "vendorUrl": "https://aistudio.google.com/"
+    },
+    {
+      "product": "Google Vids",
+      "vendor": "Google",
+      "vendorUrl": "https://workspace.google.com/products/vids/"
+    },
+    {
+      "product": "NotebookLM",
+      "vendor": "Google",
+      "vendorUrl": "https://notebooklm.google/"
+    },
+    {
+      "product": "Gemini 2.0 Flash",
+      "vendor": "Google",
+      "vendorUrl": "https://deepmind.google/technologies/gemini/flash/"
+    },
+    {
+      "product": "Gemini Ultra",
+      "vendor": "Google",
+      "vendorUrl": "https://deepmind.google/technologies/gemini/ultra/"
+    },
+    {
+      "product": "Imagen 3",
+      "vendor": "Google",
+      "vendorUrl": "https://deepmind.google/technologies/imagen/"
+    },
+    {
+      "product": "Kubeflow",
+      "vendor": "Google",
+      "vendorUrl": "https://www.kubeflow.org/"
+    },
+    {
+      "product": "BigQuery",
+      "vendor": "Google",
+      "vendorUrl": "https://cloud.google.com/bigquery"
+    },
+    {
+      "product": "Apigee",
+      "vendor": "Google",
+      "vendorUrl": "https://cloud.google.com/apigee"
+    },
+    {
+      "product": "Looker",
+      "vendor": "Google",
+      "vendorUrl": "https://cloud.google.com/looker"
+    },
+    {
+      "product": "AlphaFold 3",
+      "vendor": "Google DeepMind",
+      "vendorUrl": "https://deepmind.google/technologies/alphafold/"
+    },
+    {
+      "product": "Veo 2",
+      "vendor": "Google DeepMind",
+      "vendorUrl": "https://deepmind.google/technologies/veo/"
+    },
+    {
+      "product": "Grafana",
+      "vendor": "Grafana Labs",
+      "vendorUrl": "https://grafana.com/"
+    },
+    {
+      "product": "GrammarlyGO",
+      "vendor": "Grammarly",
+      "vendorUrl": "https://www.grammarly.com/ai"
+    },
+    {
+      "product": "Grammarly AI",
+      "vendor": "Grammarly",
+      "vendorUrl": "https://www.grammarly.com/"
+    },
+    {
+      "product": "GroqCloud",
+      "vendor": "Groq",
+      "vendorUrl": "https://groq.com/"
+    },
+    {
+      "product": "Groq",
+      "vendor": "Groq",
+      "vendorUrl": "https://groq.com/"
+    },
+    {
+      "product": "H2O.ai h2oGPTe",
+      "vendor": "H2O.ai",
+      "vendorUrl": "https://h2o.ai/platform/enterprise-h2ogpte/"
+    },
+    {
+      "product": "Harness",
+      "vendor": "Harness",
+      "vendorUrl": "https://www.harness.io/"
+    },
+    {
+      "product": "Harvey",
+      "vendor": "Harvey",
+      "vendorUrl": "https://www.harvey.ai/"
+    },
+    {
+      "product": "Harvey AI",
+      "vendor": "Harvey",
+      "vendorUrl": "https://www.harvey.ai/"
+    },
+    {
+      "product": "Terraform",
+      "vendor": "HashiCorp",
+      "vendorUrl": "https://www.terraform.io/"
+    },
+    {
+      "product": "HashiCorp Vault",
+      "vendor": "HashiCorp",
+      "vendorUrl": "https://www.vaultproject.io/"
+    },
+    {
+      "product": "Hex",
+      "vendor": "Hex",
+      "vendorUrl": "https://hex.tech/"
+    },
+    {
+      "product": "Honeycomb",
+      "vendor": "Honeycomb",
+      "vendorUrl": "https://www.honeycomb.io/"
+    },
+    {
+      "product": "HubSpot Breeze",
+      "vendor": "HubSpot",
+      "vendorUrl": "https://www.hubspot.com/products/artificial-intelligence"
+    },
+    {
+      "product": "HubSpot Breeze AI",
+      "vendor": "HubSpot",
+      "vendorUrl": "https://www.hubspot.com/products/artificial-intelligence"
+    },
+    {
+      "product": "HubSpot Breeze Agents",
+      "vendor": "HubSpot",
+      "vendorUrl": "https://www.hubspot.com/products/artificial-intelligence/breeze-ai-agents"
+    },
+    {
+      "product": "HubSpot Breeze Copilot",
+      "vendor": "HubSpot",
+      "vendorUrl": "https://www.hubspot.com/products/artificial-intelligence/breeze-copilot"
+    },
+    {
+      "product": "Hugging Face Inference Endpoints",
+      "vendor": "Hugging Face",
+      "vendorUrl": "https://huggingface.co/inference-endpoints"
+    },
+    {
+      "product": "Hugging Face Enterprise Hub",
+      "vendor": "Hugging Face",
+      "vendorUrl": "https://huggingface.co/enterprise"
+    },
+    {
+      "product": "IBM watsonx.ai",
+      "vendor": "IBM",
+      "vendorUrl": "https://www.ibm.com/products/watsonx-ai"
+    },
+    {
+      "product": "IBM watsonx Orchestrate",
+      "vendor": "IBM",
+      "vendorUrl": "https://www.ibm.com/products/watsonx-orchestrate"
+    },
+    {
+      "product": "IBM Granite Models",
+      "vendor": "IBM",
+      "vendorUrl": "https://www.ibm.com/granite"
+    },
+    {
+      "product": "IBM watsonx.data",
+      "vendor": "IBM",
+      "vendorUrl": "https://www.ibm.com/products/watsonx-data"
+    },
+    {
+      "product": "IBM watsonx.governance",
+      "vendor": "IBM",
+      "vendorUrl": "https://www.ibm.com/products/watsonx-governance"
+    },
+    {
+      "product": "IBM watsonx BI",
+      "vendor": "IBM",
+      "vendorUrl": "https://www.ibm.com/products/watsonx-bi"
+    },
+    {
+      "product": "IBM Bob",
+      "vendor": "IBM",
+      "vendorUrl": "https://www.ibm.com/products/bob"
+    },
+    {
+      "product": "Ideogram 2.0",
+      "vendor": "Ideogram",
+      "vendorUrl": "https://ideogram.ai/"
+    },
+    {
+      "product": "Inflection Pi",
+      "vendor": "Inflection AI",
+      "vendorUrl": "https://inflection.ai/"
+    },
+    {
+      "product": "Intercom Fin",
+      "vendor": "Intercom",
+      "vendorUrl": "https://www.intercom.com/fin"
+    },
+    {
+      "product": "Intuit Assist",
+      "vendor": "Intuit",
+      "vendorUrl": "https://www.intuit.com/technology/intuit-assist/"
+    },
+    {
+      "product": "QuickBooks AI",
+      "vendor": "Intuit",
+      "vendorUrl": "https://quickbooks.intuit.com/"
+    },
+    {
+      "product": "TurboTax AI",
+      "vendor": "Intuit",
+      "vendorUrl": "https://turbotax.intuit.com/"
+    },
+    {
+      "product": "Island Enterprise Browser AI",
+      "vendor": "Island",
+      "vendorUrl": "https://www.island.io/"
+    },
+    {
+      "product": "Istio",
+      "vendor": "Istio",
+      "vendorUrl": "https://istio.io/"
+    },
+    {
+      "product": "DVC",
+      "vendor": "Iterative",
+      "vendorUrl": "https://dvc.org/"
+    },
+    {
+      "product": "Jasper",
+      "vendor": "Jasper",
+      "vendorUrl": "https://www.jasper.ai/"
+    },
+    {
+      "product": "Jasper AI",
+      "vendor": "Jasper",
+      "vendorUrl": "https://www.jasper.ai/"
+    },
+    {
+      "product": "Jenkins",
+      "vendor": "Jenkins",
+      "vendorUrl": "https://www.jenkins.io/"
+    },
+    {
+      "product": "JetBrains IDEs",
+      "vendor": "JetBrains",
+      "vendorUrl": "https://www.jetbrains.com/"
+    },
+    {
+      "product": "Klaviyo AI",
+      "vendor": "Klaviyo",
+      "vendorUrl": "https://www.klaviyo.com/ai"
+    },
+    {
+      "product": "Kong Gateway",
+      "vendor": "Kong",
+      "vendorUrl": "https://konghq.com/"
+    },
+    {
+      "product": "Kling AI",
+      "vendor": "Kuaishou",
+      "vendorUrl": "https://klingai.com/"
+    },
+    {
+      "product": "Lambda Cloud",
+      "vendor": "Lambda",
+      "vendorUrl": "https://lambda.ai/"
+    },
+    {
+      "product": "LangSmith",
+      "vendor": "LangChain",
+      "vendorUrl": "https://www.langchain.com/langsmith"
+    },
+    {
+      "product": "LangGraph",
+      "vendor": "LangChain",
+      "vendorUrl": "https://www.langchain.com/langgraph"
+    },
+    {
+      "product": "LangChain",
+      "vendor": "LangChain",
+      "vendorUrl": "https://www.langchain.com/"
+    },
+    {
+      "product": "LaunchDarkly",
+      "vendor": "LaunchDarkly",
+      "vendorUrl": "https://launchdarkly.com/"
+    },
+    {
+      "product": "Leonardo AI",
+      "vendor": "Leonardo.Ai",
+      "vendorUrl": "https://leonardo.ai/"
+    },
+    {
+      "product": "Linear",
+      "vendor": "Linear",
+      "vendorUrl": "https://linear.app/"
+    },
+    {
+      "product": "Luma Dream Machine",
+      "vendor": "Luma AI",
+      "vendorUrl": "https://lumalabs.ai/dream-machine"
+    },
+    {
+      "product": "Lytx Machine Vision + AI",
+      "vendor": "Lytx",
+      "vendorUrl": "https://www.lytx.com/en-us/fleet-management/machine-vision-ai"
+    },
+    {
+      "product": "Make AI Agents",
+      "vendor": "Make",
+      "vendorUrl": "https://www.make.com/en/ai"
+    },
+    {
+      "product": "Make",
+      "vendor": "Make",
+      "vendorUrl": "https://www.make.com/"
+    },
+    {
+      "product": "Kedro",
+      "vendor": "McKinsey QuantumBlack",
+      "vendorUrl": "https://kedro.org/"
+    },
+    {
+      "product": "Meta Llama 3",
+      "vendor": "Meta",
+      "vendorUrl": "https://ai.meta.com/llama/"
+    },
+    {
+      "product": "Meta AI",
+      "vendor": "Meta",
+      "vendorUrl": "https://www.meta.ai/"
+    },
+    {
+      "product": "Code Llama",
+      "vendor": "Meta",
+      "vendorUrl": "https://ai.meta.com/blog/code-llama-large-language-model-coding/"
+    },
+    {
+      "product": "Llama 4",
+      "vendor": "Meta",
+      "vendorUrl": "https://llama.meta.com/"
+    },
+    {
+      "product": "Llama 4 Scout",
+      "vendor": "Meta",
+      "vendorUrl": "https://llama.meta.com/"
+    },
+    {
+      "product": "Llama 4 Maverick",
+      "vendor": "Meta",
+      "vendorUrl": "https://llama.meta.com/"
+    },
+    {
+      "product": "Metabase",
+      "vendor": "Metabase",
+      "vendorUrl": "https://www.metabase.com/"
+    },
+    {
+      "product": "Microsoft 365 Copilot",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://www.microsoft.com/microsoft-365/copilot"
+    },
+    {
+      "product": "Microsoft Copilot Studio",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://www.microsoft.com/microsoft-copilot/microsoft-copilot-studio"
+    },
+    {
+      "product": "Azure AI Foundry",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://azure.microsoft.com/products/ai-foundry"
+    },
+    {
+      "product": "Azure OpenAI Service",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://azure.microsoft.com/products/ai-services/openai-service"
+    },
+    {
+      "product": "Microsoft Security Copilot",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot"
+    },
+    {
+      "product": "Microsoft Copilot for Sales",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://www.microsoft.com/microsoft-365/copilot/sales"
+    },
+    {
+      "product": "Copilot in Power BI",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://powerbi.microsoft.com/"
+    },
+    {
+      "product": "Synapse Analytics",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://azure.microsoft.com/en-us/products/synapse-analytics/"
+    },
+    {
+      "product": "Fabric",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://www.microsoft.com/en-us/microsoft-fabric"
+    },
+    {
+      "product": "VS Code",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://code.visualstudio.com/"
+    },
+    {
+      "product": "GitHub",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://github.com/"
+    },
+    {
+      "product": "GitHub Actions",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://github.com/features/actions"
+    },
+    {
+      "product": "Power BI",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://powerbi.microsoft.com/"
+    },
+    {
+      "product": "Microsoft Teams",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://www.microsoft.com/en-us/microsoft-teams/"
+    },
+    {
+      "product": "Microsoft Power Platform",
+      "vendor": "Microsoft",
+      "vendorUrl": "https://powerplatform.microsoft.com/"
+    },
+    {
+      "product": "Midjourney",
+      "vendor": "Midjourney",
+      "vendorUrl": "https://www.midjourney.com/"
+    },
+    {
+      "product": "Miro AI",
+      "vendor": "Miro",
+      "vendorUrl": "https://miro.com/ai/"
+    },
+    {
+      "product": "Miro",
+      "vendor": "Miro",
+      "vendorUrl": "https://miro.com/"
+    },
+    {
+      "product": "Mistral Large",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://mistral.ai/"
+    },
+    {
+      "product": "Le Chat",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://chat.mistral.ai/"
+    },
+    {
+      "product": "Mistral Medium 3.5",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://mistral.ai/"
+    },
+    {
+      "product": "Mistral Small 4",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://mistral.ai/"
+    },
+    {
+      "product": "Codestral",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://mistral.ai/"
+    },
+    {
+      "product": "Devstral 2",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://mistral.ai/"
+    },
+    {
+      "product": "Mixtral 8x22B",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://mistral.ai/"
+    },
+    {
+      "product": "Pixtral",
+      "vendor": "Mistral AI",
+      "vendorUrl": "https://mistral.ai/"
+    },
+    {
+      "product": "Modal",
+      "vendor": "Modal",
+      "vendorUrl": "https://modal.com/"
+    },
+    {
+      "product": "Monday AI",
+      "vendor": "Monday.com",
+      "vendorUrl": "https://monday.com/features/monday-ai"
+    },
+    {
+      "product": "Monday.com",
+      "vendor": "Monday.com",
+      "vendorUrl": "https://monday.com/"
+    },
+    {
+      "product": "MongoDB",
+      "vendor": "MongoDB",
+      "vendorUrl": "https://www.mongodb.com/"
+    },
+    {
+      "product": "Motive AI Dashcam",
+      "vendor": "Motive",
+      "vendorUrl": "https://gomotive.com/products/ai-dashcam/"
+    },
+    {
+      "product": "Moveworks",
+      "vendor": "Moveworks",
+      "vendorUrl": "https://www.moveworks.com/"
+    },
+    {
+      "product": "n8n",
+      "vendor": "n8n",
+      "vendorUrl": "https://n8n.io/"
+    },
+    {
+      "product": "Neon",
+      "vendor": "Neon",
+      "vendorUrl": "https://neon.tech/"
+    },
+    {
+      "product": "Neovim",
+      "vendor": "Neovim",
+      "vendorUrl": "https://neovim.io/"
+    },
+    {
+      "product": "Metaflow",
+      "vendor": "Netflix/Outerbounds",
+      "vendorUrl": "https://metaflow.org/"
+    },
+    {
+      "product": "Netskope SkopeAI",
+      "vendor": "Netskope",
+      "vendorUrl": "https://www.netskope.com/products/skopeai"
+    },
+    {
+      "product": "Notion AI",
+      "vendor": "Notion",
+      "vendorUrl": "https://www.notion.com/product/ai"
+    },
+    {
+      "product": "Notion",
+      "vendor": "Notion",
+      "vendorUrl": "https://www.notion.so/"
+    },
+    {
+      "product": "NVIDIA NIM",
+      "vendor": "NVIDIA",
+      "vendorUrl": "https://www.nvidia.com/en-us/ai/"
+    },
+    {
+      "product": "NVIDIA NeMo",
+      "vendor": "NVIDIA",
+      "vendorUrl": "https://www.nvidia.com/en-us/ai-data-science/products/nemo/"
+    },
+    {
+      "product": "NVIDIA AI Enterprise",
+      "vendor": "NVIDIA",
+      "vendorUrl": "https://www.nvidia.com/en-us/data-center/products/ai-enterprise/"
+    },
+    {
+      "product": "NVIDIA Jetson Orin",
+      "vendor": "NVIDIA",
+      "vendorUrl": "https://developer.nvidia.com/embedded/jetson-orin"
+    },
+    {
+      "product": "Observable",
+      "vendor": "Observable",
+      "vendorUrl": "https://observablehq.com/"
+    },
+    {
+      "product": "Okta",
+      "vendor": "Okta",
+      "vendorUrl": "https://www.okta.com/"
+    },
+    {
+      "product": "Auth0",
+      "vendor": "Okta",
+      "vendorUrl": "https://auth0.com/"
+    },
+    {
+      "product": "GPT-5",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/"
+    },
+    {
+      "product": "ChatGPT Enterprise",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/enterprise"
+    },
+    {
+      "product": "OpenAI API",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/api"
+    },
+    {
+      "product": "Sora",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/sora"
+    },
+    {
+      "product": "Codex",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/codex"
+    },
+    {
+      "product": "DALL-E 3",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/dall-e-3"
+    },
+    {
+      "product": "GPT-4o",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/gpt-4o"
+    },
+    {
+      "product": "GPT-4 Turbo",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/gpt-4"
+    },
+    {
+      "product": "OpenAI o1",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/o1"
+    },
+    {
+      "product": "OpenAI o3",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/o3"
+    },
+    {
+      "product": "Whisper",
+      "vendor": "OpenAI",
+      "vendorUrl": "https://openai.com/research/whisper"
+    },
+    {
+      "product": "Optimizely",
+      "vendor": "Optimizely",
+      "vendorUrl": "https://www.optimizely.com/"
+    },
+    {
+      "product": "Oracle AI Agent Studio",
+      "vendor": "Oracle",
+      "vendorUrl": "https://www.oracle.com/artificial-intelligence/"
+    },
+    {
+      "product": "Oracle Cloud Infrastructure Generative AI",
+      "vendor": "Oracle",
+      "vendorUrl": "https://www.oracle.com/artificial-intelligence/generative-ai/generative-ai-service/"
+    },
+    {
+      "product": "Oracle Database 23ai",
+      "vendor": "Oracle",
+      "vendorUrl": "https://www.oracle.com/database/"
+    },
+    {
+      "product": "Oracle AI Database 26ai",
+      "vendor": "Oracle",
+      "vendorUrl": "https://www.oracle.com/database/ai/"
+    },
+    {
+      "product": "Oracle AI Agents",
+      "vendor": "Oracle",
+      "vendorUrl": "https://www.oracle.com/artificial-intelligence/"
+    },
+    {
+      "product": "Orca Security",
+      "vendor": "Orca Security",
+      "vendorUrl": "https://orca.security/"
+    },
+    {
+      "product": "Otter AI Chat",
+      "vendor": "Otter.ai",
+      "vendorUrl": "https://otter.ai/"
+    },
+    {
+      "product": "Outreach Kaia",
+      "vendor": "Outreach",
+      "vendorUrl": "https://www.outreach.io/product/kaia"
+    },
+    {
+      "product": "OutSystems",
+      "vendor": "OutSystems",
+      "vendorUrl": "https://www.outsystems.com/"
+    },
+    {
+      "product": "Palo Alto Networks Cortex XSIAM",
+      "vendor": "Palo Alto Networks",
+      "vendorUrl": "https://www.paloaltonetworks.com/cortex/cortex-xsiam"
+    },
+    {
+      "product": "Palo Alto Cortex AgentiX",
+      "vendor": "Palo Alto Networks",
+      "vendorUrl": "https://www.paloaltonetworks.com/cortex"
+    },
+    {
+      "product": "Palo Alto Prisma AIRS",
+      "vendor": "Palo Alto Networks",
+      "vendorUrl": "https://www.paloaltonetworks.com/precision-ai-security"
+    },
+    {
+      "product": "Palo Alto Precision AI",
+      "vendor": "Palo Alto Networks",
+      "vendorUrl": "https://www.paloaltonetworks.com/precision-ai-security"
+    },
+    {
+      "product": "Perplexity Enterprise Pro",
+      "vendor": "Perplexity",
+      "vendorUrl": "https://www.perplexity.ai/enterprise"
+    },
+    {
+      "product": "Perplexity Pro",
+      "vendor": "Perplexity AI",
+      "vendorUrl": "https://www.perplexity.ai/"
+    },
+    {
+      "product": "Phind",
+      "vendor": "Phind",
+      "vendorUrl": "https://www.phind.com/"
+    },
+    {
+      "product": "Pika 2.0",
+      "vendor": "Pika Labs",
+      "vendorUrl": "https://pika.art/"
+    },
+    {
+      "product": "Pinecone",
+      "vendor": "Pinecone",
+      "vendorUrl": "https://www.pinecone.io/"
+    },
+    {
+      "product": "TiDB",
+      "vendor": "PingCAP",
+      "vendorUrl": "https://www.pingcap.com/"
+    },
+    {
+      "product": "PlanetScale",
+      "vendor": "PlanetScale",
+      "vendorUrl": "https://planetscale.com/"
+    },
+    {
+      "product": "pgvector",
+      "vendor": "PostgreSQL",
+      "vendorUrl": "https://github.com/pgvector/pgvector"
+    },
+    {
+      "product": "PostgreSQL",
+      "vendor": "PostgreSQL",
+      "vendorUrl": "https://www.postgresql.org/"
+    },
+    {
+      "product": "Postman",
+      "vendor": "Postman",
+      "vendorUrl": "https://www.postman.com/"
+    },
+    {
+      "product": "Prefect",
+      "vendor": "Prefect",
+      "vendorUrl": "https://www.prefect.io/"
+    },
+    {
+      "product": "PTC ThingWorx Navigate AI",
+      "vendor": "PTC",
+      "vendorUrl": "https://www.ptc.com/en/products/thingworx"
+    },
+    {
+      "product": "Pulumi",
+      "vendor": "Pulumi",
+      "vendorUrl": "https://www.pulumi.com/"
+    },
+    {
+      "product": "Qdrant",
+      "vendor": "Qdrant",
+      "vendorUrl": "https://qdrant.tech/"
+    },
+    {
+      "product": "Qualcomm AI Hub",
+      "vendor": "Qualcomm",
+      "vendorUrl": "https://aihub.qualcomm.com/"
+    },
+    {
+      "product": "Red Hat AI Enterprise",
+      "vendor": "Red Hat",
+      "vendorUrl": "https://www.redhat.com/en/products/ai/enterprise"
+    },
+    {
+      "product": "Red Hat OpenShift AI",
+      "vendor": "Red Hat",
+      "vendorUrl": "https://www.redhat.com/en/products/ai/openshift-ai"
+    },
+    {
+      "product": "Red Hat Enterprise Linux AI",
+      "vendor": "Red Hat",
+      "vendorUrl": "https://www.redhat.com/en/products/enterprise-linux/ai"
+    },
+    {
+      "product": "Redis",
+      "vendor": "Redis",
+      "vendorUrl": "https://redis.io/"
+    },
+    {
+      "product": "Reka AI",
+      "vendor": "Reka",
+      "vendorUrl": "https://www.reka.ai/"
+    },
+    {
+      "product": "Replicate",
+      "vendor": "Replicate",
+      "vendorUrl": "https://replicate.com/"
+    },
+    {
+      "product": "Replit Agent",
+      "vendor": "Replit",
+      "vendorUrl": "https://replit.com/ai"
+    },
+    {
+      "product": "Replit AI",
+      "vendor": "Replit",
+      "vendorUrl": "https://replit.com/ai"
+    },
+    {
+      "product": "Retool",
+      "vendor": "Retool",
+      "vendorUrl": "https://retool.com/"
+    },
+    {
+      "product": "Runway Gen-3 Alpha",
+      "vendor": "Runway",
+      "vendorUrl": "https://runwayml.com/"
+    },
+    {
+      "product": "Salesforce Agentforce",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.salesforce.com/agentforce/"
+    },
+    {
+      "product": "Einstein Copilot",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.salesforce.com/artificial-intelligence/"
+    },
+    {
+      "product": "Einstein GPT",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.salesforce.com/artificial-intelligence/"
+    },
+    {
+      "product": "Slack AI",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://slack.com/features/ai"
+    },
+    {
+      "product": "Tableau Pulse",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.tableau.com/products/tableau-next"
+    },
+    {
+      "product": "Salesforce Einstein GPT",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.salesforce.com/artificial-intelligence/"
+    },
+    {
+      "product": "Salesforce Data Cloud AI",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.salesforce.com/data/"
+    },
+    {
+      "product": "MuleSoft",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.mulesoft.com/"
+    },
+    {
+      "product": "Tableau",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://www.tableau.com/"
+    },
+    {
+      "product": "Slack",
+      "vendor": "Salesforce",
+      "vendorUrl": "https://slack.com/"
+    },
+    {
+      "product": "Salesloft Rhythm",
+      "vendor": "Salesloft",
+      "vendorUrl": "https://salesloft.com/platform/rhythm"
+    },
+    {
+      "product": "Samsara Assistant",
+      "vendor": "Samsara",
+      "vendorUrl": "https://www.samsara.com/platform/ai"
+    },
+    {
+      "product": "SAP Joule",
+      "vendor": "SAP",
+      "vendorUrl": "https://www.sap.com/products/artificial-intelligence/ai-assistant.html"
+    },
+    {
+      "product": "SAP Business AI",
+      "vendor": "SAP",
+      "vendorUrl": "https://www.sap.com/products/artificial-intelligence.html"
+    },
+    {
+      "product": "SAP AI Core",
+      "vendor": "SAP",
+      "vendorUrl": "https://help.sap.com/docs/sap-ai-core"
+    },
+    {
+      "product": "SAS Viya AI",
+      "vendor": "SAS Institute Inc.",
+      "vendorUrl": "https://www.sas.com/en_us/software/viya.html"
+    },
+    {
+      "product": "SAS Visual AI",
+      "vendor": "SAS Institute Inc.",
+      "vendorUrl": "https://www.sas.com/en_us/software/visual-data-mining-machine-learning.html"
+    },
+    {
+      "product": "Scale Data Engine",
+      "vendor": "Scale AI",
+      "vendorUrl": "https://scale.com/data-engine"
+    },
+    {
+      "product": "ScyllaDB",
+      "vendor": "ScyllaDB",
+      "vendorUrl": "https://www.scylladb.com/"
+    },
+    {
+      "product": "Seldon Core",
+      "vendor": "Seldon",
+      "vendorUrl": "https://www.seldon.io/"
+    },
+    {
+      "product": "SentinelOne Purple AI",
+      "vendor": "SentinelOne",
+      "vendorUrl": "https://www.sentinelone.com/platform/purple-ai/"
+    },
+    {
+      "product": "SentinelOne",
+      "vendor": "SentinelOne",
+      "vendorUrl": "https://www.sentinelone.com/"
+    },
+    {
+      "product": "ServiceNow Now Assist",
+      "vendor": "ServiceNow",
+      "vendorUrl": "https://www.servicenow.com/products/now-assist.html"
+    },
+    {
+      "product": "ServiceNow AI Agents",
+      "vendor": "ServiceNow",
+      "vendorUrl": "https://www.servicenow.com/now-platform/ai-agents.html"
+    },
+    {
+      "product": "Shopify Sidekick",
+      "vendor": "Shopify",
+      "vendorUrl": "https://www.shopify.com/magic"
+    },
+    {
+      "product": "Shopify Magic",
+      "vendor": "Shopify",
+      "vendorUrl": "https://www.shopify.com/magic"
+    },
+    {
+      "product": "Siemens Industrial Copilot",
+      "vendor": "Siemens",
+      "vendorUrl": "https://www.siemens.com/global/en/products/automation/topic-areas/industrial-copilot.html"
+    },
+    {
+      "product": "Mendix",
+      "vendor": "Siemens",
+      "vendorUrl": "https://www.mendix.com/"
+    },
+    {
+      "product": "Sigma Computing",
+      "vendor": "Sigma Computing",
+      "vendorUrl": "https://www.sigmacomputing.com/"
+    },
+    {
+      "product": "AutoGPT",
+      "vendor": "Significant Gravitas",
+      "vendorUrl": "https://autogpt.net/"
+    },
+    {
+      "product": "Snowflake Cortex AI",
+      "vendor": "Snowflake",
+      "vendorUrl": "https://www.snowflake.com/en/data-cloud/cortex-ai/"
+    },
+    {
+      "product": "Snowflake Cortex Analyst",
+      "vendor": "Snowflake",
+      "vendorUrl": "https://www.snowflake.com/en/data-cloud/cortex-ai/"
+    },
+    {
+      "product": "Snowflake Cortex Search",
+      "vendor": "Snowflake",
+      "vendorUrl": "https://www.snowflake.com/en/data-cloud/cortex-ai/"
+    },
+    {
+      "product": "Snowflake Arctic",
+      "vendor": "Snowflake",
+      "vendorUrl": "https://www.snowflake.com/blog/arctic-open-efficient-foundation-language-models-snowflake/"
+    },
+    {
+      "product": "Snowflake",
+      "vendor": "Snowflake",
+      "vendorUrl": "https://www.snowflake.com/"
+    },
+    {
+      "product": "Snyk AI Trust Platform",
+      "vendor": "Snyk",
+      "vendorUrl": "https://snyk.io/ai/"
+    },
+    {
+      "product": "Snyk",
+      "vendor": "Snyk",
+      "vendorUrl": "https://snyk.io/"
+    },
+    {
+      "product": "Cody",
+      "vendor": "Sourcegraph",
+      "vendorUrl": "https://sourcegraph.com/cody"
+    },
+    {
+      "product": "Sourcegraph Cody",
+      "vendor": "Sourcegraph",
+      "vendorUrl": "https://sourcegraph.com/cody"
+    },
+    {
+      "product": "Split",
+      "vendor": "Split",
+      "vendorUrl": "https://www.split.io/"
+    },
+    {
+      "product": "Stable Diffusion 3",
+      "vendor": "Stability AI",
+      "vendorUrl": "https://stability.ai/"
+    },
+    {
+      "product": "Stable Video Diffusion",
+      "vendor": "Stability AI",
+      "vendorUrl": "https://stability.ai/"
+    },
+    {
+      "product": "Stable Diffusion 3.5",
+      "vendor": "Stability AI",
+      "vendorUrl": "https://stability.ai/"
+    },
+    {
+      "product": "Statsig",
+      "vendor": "Statsig",
+      "vendorUrl": "https://statsig.com/"
+    },
+    {
+      "product": "Suno AI",
+      "vendor": "Suno",
+      "vendorUrl": "https://suno.ai/"
+    },
+    {
+      "product": "Supabase",
+      "vendor": "Supabase",
+      "vendorUrl": "https://supabase.com/"
+    },
+    {
+      "product": "Superblocks",
+      "vendor": "Superblocks",
+      "vendorUrl": "https://www.superblocks.com/"
+    },
+    {
+      "product": "Rancher",
+      "vendor": "SUSE",
+      "vendorUrl": "https://www.rancher.com/"
+    },
+    {
+      "product": "Synthesia",
+      "vendor": "Synthesia",
+      "vendorUrl": "https://www.synthesia.io/"
+    },
+    {
+      "product": "Tabnine",
+      "vendor": "Tabnine",
+      "vendorUrl": "https://www.tabnine.com/"
+    },
+    {
+      "product": "ThoughtSpot",
+      "vendor": "ThoughtSpot",
+      "vendorUrl": "https://www.thoughtspot.com/"
+    },
+    {
+      "product": "Tines AI",
+      "vendor": "Tines",
+      "vendorUrl": "https://www.tines.com/ai/"
+    },
+    {
+      "product": "Together Inference",
+      "vendor": "Together AI",
+      "vendorUrl": "https://www.together.ai/"
+    },
+    {
+      "product": "Tome",
+      "vendor": "Tome",
+      "vendorUrl": "https://tome.app/"
+    },
+    {
+      "product": "Travis CI",
+      "vendor": "Travis CI",
+      "vendorUrl": "https://www.travis-ci.com/"
+    },
+    {
+      "product": "Tray.io",
+      "vendor": "Tray.io",
+      "vendorUrl": "https://tray.io/"
+    },
+    {
+      "product": "Trino",
+      "vendor": "Trino Software Foundation",
+      "vendorUrl": "https://trino.io/"
+    },
+    {
+      "product": "Turso",
+      "vendor": "Turso",
+      "vendorUrl": "https://turso.tech/"
+    },
+    {
+      "product": "Udio",
+      "vendor": "Udio",
+      "vendorUrl": "https://www.udio.com/"
+    },
+    {
+      "product": "UiPath Autopilot",
+      "vendor": "UiPath",
+      "vendorUrl": "https://www.uipath.com/product/autopilot"
+    },
+    {
+      "product": "Unleash",
+      "vendor": "Unleash",
+      "vendorUrl": "https://www.getunleash.io/"
+    },
+    {
+      "product": "Crossplane",
+      "vendor": "Upbound",
+      "vendorUrl": "https://www.crossplane.io/"
+    },
+    {
+      "product": "Weaviate",
+      "vendor": "Weaviate",
+      "vendorUrl": "https://weaviate.io/"
+    },
+    {
+      "product": "Webflow",
+      "vendor": "Webflow",
+      "vendorUrl": "https://webflow.com/"
+    },
+    {
+      "product": "Weights & Biases Weave",
+      "vendor": "Weights & Biases",
+      "vendorUrl": "https://wandb.ai/site/weave"
+    },
+    {
+      "product": "Weights & Biases",
+      "vendor": "Weights & Biases",
+      "vendorUrl": "https://wandb.ai/"
+    },
+    {
+      "product": "Wiz AI-SPM",
+      "vendor": "Wiz",
+      "vendorUrl": "https://www.wiz.io/solutions/ai-security-posture-management"
+    },
+    {
+      "product": "Wiz",
+      "vendor": "Wiz",
+      "vendorUrl": "https://www.wiz.io/"
+    },
+    {
+      "product": "Workato",
+      "vendor": "Workato",
+      "vendorUrl": "https://www.workato.com/"
+    },
+    {
+      "product": "Workday Illuminate",
+      "vendor": "Workday",
+      "vendorUrl": "https://www.workday.com/en-us/products/artificial-intelligence.html"
+    },
+    {
+      "product": "Workday AI",
+      "vendor": "Workday",
+      "vendorUrl": "https://www.workday.com/en-us/artificial-intelligence.html"
+    },
+    {
+      "product": "Writer AI Studio",
+      "vendor": "Writer",
+      "vendorUrl": "https://writer.com/product/ai-studio/"
+    },
+    {
+      "product": "Writer",
+      "vendor": "Writer",
+      "vendorUrl": "https://writer.com/"
+    },
+    {
+      "product": "Grok 3",
+      "vendor": "xAI",
+      "vendorUrl": "https://x.ai/"
+    },
+    {
+      "product": "Grok-2",
+      "vendor": "xAI",
+      "vendorUrl": "https://x.ai/"
+    },
+    {
+      "product": "You.com",
+      "vendor": "You.com",
+      "vendorUrl": "https://you.com/"
+    },
+    {
+      "product": "Zapier AI",
+      "vendor": "Zapier",
+      "vendorUrl": "https://zapier.com/ai"
+    },
+    {
+      "product": "Zapier Agents",
+      "vendor": "Zapier",
+      "vendorUrl": "https://zapier.com/agents"
+    },
+    {
+      "product": "Zapier",
+      "vendor": "Zapier",
+      "vendorUrl": "https://zapier.com/"
+    },
+    {
+      "product": "Zed",
+      "vendor": "Zed Industries",
+      "vendorUrl": "https://zed.dev/"
+    },
+    {
+      "product": "Zendesk AI",
+      "vendor": "Zendesk",
+      "vendorUrl": "https://www.zendesk.com/service/ai/"
+    },
+    {
+      "product": "ZenML",
+      "vendor": "ZenML",
+      "vendorUrl": "https://www.zenml.io/"
+    },
+    {
+      "product": "GLM-4",
+      "vendor": "Zhipu AI",
+      "vendorUrl": "https://www.zhipuai.cn/"
+    },
+    {
+      "product": "Milvus",
+      "vendor": "Zilliz",
+      "vendorUrl": "https://zilliz.com/"
+    },
+    {
+      "product": "Zoho Zia",
+      "vendor": "Zoho Corporation Pvt. Ltd.",
+      "vendorUrl": "https://www.zoho.com/zia/"
+    },
+    {
+      "product": "Zoho Zia Voice",
+      "vendor": "Zoho Corporation Pvt. Ltd.",
+      "vendorUrl": "https://www.zoho.com/crm/zia-voice.html"
+    },
+    {
+      "product": "Zoom AI Companion",
+      "vendor": "Zoom",
+      "vendorUrl": "https://www.zoom.com/en/products/ai-companion/"
+    },
+    {
+      "product": "ZoomInfo Copilot",
+      "vendor": "ZoomInfo",
+      "vendorUrl": "https://www.zoominfo.com/products/copilot"
+    },
+    {
+      "product": "Zscaler AI",
+      "vendor": "Zscaler",
+      "vendorUrl": "https://www.zscaler.com/products/ai"
+    }
+  ]
+}

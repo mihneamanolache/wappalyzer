@@ -17,115 +17,33 @@
     ],
     "website": "https://n1ed.com"
   },
-  "NACEX": {
+  "n8n": {
     "cats": [
-      99
+      47
     ],
-    "description": "NACEX is an express courier company in Spain, Andorra and Portugal.",
-    "icon": "NACEX.svg",
-    "requiresCategory": [
-      6
-    ],
-    "text": [
-      "\\bNACEX\\b"
-    ],
-    "website": "https://www.nacex.es"
-  },
-  "NEO - Omnichannel Commerce Platform": {
-    "cats": [
-      6
-    ],
-    "description": "NEO is an ecommerce software that manages multiple online stores.",
-    "dom": [
-      "#svr[value^=\"NEOWEBV\"]"
-    ],
-    "headers": {
-      "powered": "jet-neo"
+    "cookies": {
+      "n8n-auth": ""
     },
-    "icon": "Plataforma NEO.svg",
-    "url": [
-      "\\.plataformaneo\\.com"
+    "description": "n8n is a source-available workflow automation tool that allows you to connect various services and build automated workflows with a visual node-based editor.",
+    "icon": "n8n.svg",
+    "implies": [
+      "Node.js"
     ],
-    "website": "https://www.jetecommerce.com.br"
-  },
-  "NET-RESULTS": {
-    "cats": [
-      32
-    ],
-    "description": "NET-RESULTS is a marketing automation platform for the data-driven marketer.",
-    "icon": "NET-RESULTS.svg",
-    "pricing": [
-      "high",
-      "recurring",
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "\\.net-results\\.io/"
-    ],
-    "website": "https://www.net-results.com"
-  },
-  "NProgress": {
-    "cats": [
-      59
-    ],
-    "description": "NProgress is a JavaScript library that displays a nanoscopic progress bar at the top of websites or web applications. It includes trickle animations to indicate loading activity, enhancing user experience by showing that content is being loaded.",
-    "icon": "NProgress.svg",
-    "js": {
-      "NProgress.version": "([\\d.]+)\\;version:\\1"
+    "meta": {
+      "n8n:config:rest-endpoint": "",
+      "n8n:config:sentry": ""
     },
     "oss": true,
-    "scriptSrc": [
-      "/nprogress\\.min\\.js"
+    "pricing": [
+      "freemium",
+      "recurring"
     ],
-    "website": "https://ricostacruz.com/nprogress/"
-  },
-  "NSW Design System": {
-    "cats": [
-      66
+    "saas": true,
+    "scripts": [
+      "N8N_DEBOUNCE_MULTIPLIER",
+      "N8N_PASSWORD_MIN_LENGTH"
     ],
-    "dom": [
-      ".nsw-container, .nsw-header, .nsw-icon, link[href*='nsw-design-system']"
-    ],
-    "icon": "NSW Design System.svg",
-    "js": {
-      "NSW.initSite": ""
-    },
-    "website": "https://www.digital.nsw.gov.au/digital-design-system"
-  },
-  "NTLM": {
-    "cats": [
-      16
-    ],
-    "description": "NTLM is an authentication method commonly used by Windows servers",
-    "headers": {
-      "WWW-Authenticate": "^NTLM"
-    },
-    "website": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-ntht/"
-  },
-  "NVD3": {
-    "cats": [
-      25
-    ],
-    "description": "NVD3 is a JavaScript visualisation library that is a free open-source tool.",
-    "dom": [
-      "link[href*='nv.d3.css'], link[href*='nv.d3.min.css']"
-    ],
-    "html": [
-      "<link[^>]* href=[^>]+nv\\.d3(?:\\.min)?\\.css"
-    ],
-    "icon": "NVD3.png",
-    "implies": [
-      "D3"
-    ],
-    "js": {
-      "nv.addGraph": "",
-      "nv.version": "^(.+)$\\;confidence:0\\;version:\\1"
-    },
-    "scriptSrc": [
-      "nv\\.d3(?:\\.min)?\\.js"
-    ],
-    "website": "https://nvd3.org"
+    "website": "https://n8n.io"
   },
   "Nabble": {
     "cats": [
@@ -170,6 +88,20 @@
     "xhr": [
       "storefront\\.api\\.nacelle\\.com"
     ]
+  },
+  "NACEX": {
+    "cats": [
+      99
+    ],
+    "description": "NACEX is an express courier company in Spain, Andorra and Portugal.",
+    "icon": "NACEX.svg",
+    "requiresCategory": [
+      6
+    ],
+    "text": [
+      "\\bNACEX\\b"
+    ],
+    "website": "https://www.nacex.es"
   },
   "NagaCommerce": {
     "cats": [
@@ -276,6 +208,31 @@
       "sdk\\.namastay\\.io"
     ],
     "website": "https://www.namastay.io"
+  },
+  "Namecheap": {
+    "cats": [
+      49
+    ],
+    "description": "Namecheap is an ICANN-accredited domain name registrar and technology company.",
+    "icon": "Namecheap.svg",
+    "website": "https://www.namecheap.com/"
+  },
+  "Namecheap DNS": {
+    "cats": [
+      62
+    ],
+    "description": "Namecheap provides domain name registration and web hosting services.",
+    "icon": "Namecheap DNS.svg",
+    "website": "https://www.namecheap.com/",
+    "dns": {
+      "NS": [
+        "parkingpage.namecheap.com",
+        "hostingplatform.namecheap.com",
+        "namecheaphosting.com",
+        "dns1.namecheaphosting.com",
+        "dns2.namecheaphosting.com"
+      ]
+    }
   },
   "NamelessMC": {
     "cats": [
@@ -421,6 +378,21 @@
     ],
     "website": "https://www.naturalint.com/"
   },
+  "Naukri": {
+    "cats": [
+      101
+    ],
+    "description": "Naukri is a job board that connects employers and job seekers by listing employment opportunities across industries and locations.",
+    "icon": "Naukri.svg",
+    "js": {
+      "naukriWidget": ""
+    },
+    "meta": {
+      "author": "www\\.naukri\\.com"
+    },
+    "saas": true,
+    "website": "https://www.naukri.com"
+  },
   "Navegg": {
     "cats": [
       10
@@ -518,6 +490,17 @@
       "\\.infomaker\\.io/"
     ],
     "website": "https://www.navigaglobal.com/"
+  },
+  "Navigator Geolocation": {
+    "cats": [
+      59
+    ],
+    "description": "Navigator Geolocation indicates the use of the Geolocation API to get the geographical position of a user.",
+    "icon": "Navigator Geolocation.svg",
+    "js": {
+      "navigator.geolocation": ""
+    },
+    "website": "https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API"
   },
   "Navu": {
     "cats": [
@@ -623,6 +606,15 @@
     ],
     "website": "https://negate.io"
   },
+  "Nelio A/B Testing": {
+    "cats": [
+      10
+    ],
+    "description": "Nelio A/B Testing is a complete A/B testing and conversion optimization service for WordPress sites.",
+    "icon": "nelio-ab-testing.svg",
+    "scriptSrc": "/wp-content/plugins/nelio-ab-testing/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?;version:\\1",
+    "website": "https://neliosoftware.com/ab-testing/"
+  },
   "Nelio Testing": {
     "cats": [
       74
@@ -663,6 +655,50 @@
       "trackings\\.nemu\\.com\\.br"
     ],
     "website": "https://usenemu.com"
+  },
+  "NEO - Omnichannel Commerce Platform": {
+    "cats": [
+      6
+    ],
+    "description": "NEO is an ecommerce software that manages multiple online stores.",
+    "dom": [
+      "#svr[value^=\"NEOWEBV\"]"
+    ],
+    "headers": {
+      "powered": "jet-neo"
+    },
+    "icon": "Plataforma NEO.svg",
+    "url": [
+      "\\.plataformaneo\\.com"
+    ],
+    "website": "https://www.jetecommerce.com.br"
+  },
+  "NeoAsist": {
+    "cats": [
+      52
+    ],
+    "description": "NeoAssist is an omnichannel customer service platform from Brazil focused on improving brand visibility across search engines and AI-driven platforms such as Google and GPT-based systems.",
+    "icon": "NeoAssist.svg",
+    "js": {
+      "NeoAssistTag": ""
+    },
+    "saas": true,
+    "scriptSrc": [
+      "\\.neoassist\\.com"
+    ],
+    "website": "https://neoassist.com"
+  },
+  "Neon": {
+    "cats": [
+      34,
+      204
+    ],
+    "description": "Neon is a serverless Postgres platform.",
+    "website": "https://neon.tech",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": true,
+    "xhr": "\\.neon\\.tech"
   },
   "Neon CRM": {
     "cats": [
@@ -724,6 +760,17 @@
     ],
     "website": "https://flow.neos.io"
   },
+  "Neovim": {
+    "cats": [
+      20,
+      47
+    ],
+    "description": "Neovim is a terminal text editor. A local editor has no web surface.",
+    "website": "https://neovim.io",
+    "icon": "default.svg",
+    "saas": false,
+    "oss": true
+  },
   "Neowize": {
     "cats": [
       10
@@ -736,6 +783,19 @@
     },
     "saas": true,
     "website": "https://www.neowize.com"
+  },
+  "Nepcha Analytics": {
+    "cats": [
+      10
+    ],
+    "description": "Nepcha Analytics is a privacy-focused analytics platform that collects and processes website usage data without relying on cookies or personal tracking, ensuring compliance with modern data protection standards.",
+    "icon": "NepchaAnalytics.svg",
+    "pricing": [],
+    "saas": true,
+    "scriptSrc": [
+      "api\\.nepcha\\.com"
+    ],
+    "website": "https://nepcha.com"
   },
   "Nepso": {
     "cats": [
@@ -774,21 +834,44 @@
     ],
     "website": "https://nestify.io"
   },
-  "NetSuite": {
+  "NET-RESULTS": {
     "cats": [
-      6
+      32
     ],
-    "cookies": {
-      "NS_VER": "^([\\d\\.]+)$\\;version:\\1"
-    },
-    "description": "NetSuite is a cloud-based enterprise resource planning (ERP) software suite that provides a comprehensive set of business management applications, including financial management, CRM, ecommerce, and more.",
-    "icon": "NetSuite.svg",
+    "description": "NET-RESULTS is a marketing automation platform for the data-driven marketer.",
+    "icon": "NET-RESULTS.svg",
     "pricing": [
-      "onetime",
-      "high"
+      "high",
+      "recurring",
+      "poa"
     ],
     "saas": true,
-    "website": "https://netsuite.com"
+    "scriptSrc": [
+      "\\.net-results\\.io/"
+    ],
+    "website": "https://www.net-results.com"
+  },
+  "NetApp Data ONTAP": {
+    "cats": [
+      62
+    ],
+    "description": "Data ONTAP is the operating system for NetApp storage filers.",
+    "headers": {
+      "server": "(?:NetApp[\\x20]Web[\\x20]Server|NetApp|Data ONTAP)"
+    },
+    "icon": "NetApp.svg",
+    "website": "https://www.netapp.com"
+  },
+  "NetCache": {
+    "cats": [
+      22
+    ],
+    "description": "NetCache, developed by NetApp and later owned by Blue Coat Systems, is a web cache.",
+    "headers": {
+      "via": "NetCache"
+    },
+    "icon": "NetApp.png",
+    "website": "https://en.wikipedia.org/wiki/NetCache"
   },
   "Netcore Cloud": {
     "cats": [
@@ -842,6 +925,17 @@
     "saas": true,
     "website": "https://nethouse.ru"
   },
+  "NetIQ Access Manager": {
+    "description": "NetIQ Access Manager (NAM) is a web access management solution.",
+    "headers": {
+      "Server": "NetIQ Access Manager"
+    },
+    "icon": "netiq-access-manager.svg",
+    "website": "https://www.netiq.com",
+    "cats": [
+      69
+    ]
+  },
   "Netlify": {
     "cats": [
       62,
@@ -865,7 +959,10 @@
     "website": "https://www.netlify.com/",
     "xhr": [
       "cdn\\.netlify\\.com"
-    ]
+    ],
+    "dns": {
+      "TXT": "netlify-domain-verification="
+    }
   },
   "Netlify Create": {
     "cats": [
@@ -941,6 +1038,14 @@
     ],
     "website": "https://netop.com"
   },
+  "Netop Live Guide": {
+    "cats": [
+      10
+    ],
+    "icon": "Netop Live Guide.png",
+    "scriptSrc": "/lg/(scripts|scripts_secure)/liveguidescript\\.ashx",
+    "website": "https://www.netop.com/live-guide"
+  },
   "Netrox": {
     "cats": [
       52
@@ -955,6 +1060,47 @@
       "\\.netroxsc\\.ru"
     ],
     "website": "https://netroxsc.ru"
+  },
+  "Netskope": {
+    "cats": [
+      16,
+      207
+    ],
+    "description": "Netskope is a security service edge and CASB platform. It operates inline on the network and is not observable from a public website.",
+    "website": "https://www.netskope.com",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false
+  },
+  "NetSuite": {
+    "cats": [
+      6
+    ],
+    "cookies": {
+      "NS_VER": "^([\\d\\.]+)$\\;version:\\1"
+    },
+    "description": "NetSuite is a cloud-based enterprise resource planning (ERP) software suite that provides a comprehensive set of business management applications, including financial management, CRM, ecommerce, and more.",
+    "icon": "NetSuite.svg",
+    "pricing": [
+      "onetime",
+      "high"
+    ],
+    "saas": true,
+    "website": "https://netsuite.com"
+  },
+  "NetSuite SuiteCloud": {
+    "cats": [
+      21
+    ],
+    "description": "NetSuite SuiteCloud is a cloud-based platform for integrating and extending NetSuite ERP functionalities.",
+    "icon": "netsuite.svg",
+    "website": "https://www.netsuite.com/",
+    "html": [
+      "powered by NetSuite SuiteCloud"
+    ],
+    "headers": {
+      "X-Powered-By": "NetSuite"
+    }
   },
   "Nette Framework": {
     "cats": [
@@ -1073,24 +1219,6 @@
     ],
     "website": "https://new-ui.com/"
   },
-  "NewStore": {
-    "cats": [
-      19
-    ],
-    "description": "NewStore is the only integrated platform offering omnichannel solutions for stores and consumers.",
-    "icon": "NewStore.png",
-    "js": {
-      "highstreetBanner.config": ""
-    },
-    "pricing": [
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "\\.api\\.highstreetapp\\.com/"
-    ],
-    "website": "https://www.newstore.com"
-  },
   "Newo": {
     "cats": [
       52
@@ -1107,6 +1235,34 @@
       "static\\.newo\\.ai"
     ],
     "website": "https://newo.ai"
+  },
+  "Newscoop": {
+    "cats": [
+      1
+    ],
+    "description": "Newscoop is an open content management system for professional journalists.",
+    "icon": "Newscoop.svg",
+    "meta": {
+      "generator": [
+        "Campsite (.*)",
+        "Newscoop (.*)"
+      ]
+    },
+    "website": "http://www.newscoop.org"
+  },
+  "Newsmag": {
+    "cats": [
+      61
+    ],
+    "description": "Newsmag is a modern WordPress theme that lets you write articles and blog posts with ease.",
+    "headers": {
+      "x-powered-by": "Newsmag"
+    },
+    "icon": "Newsmag.png",
+    "meta": {
+      "generator": "Newsmag(?:\\s*([\\d.]+))?;version:\\1"
+    },
+    "website": "http://themeforest.net/item/newsmag-news-magazine-newspaper/9512331"
   },
   "Newspack": {
     "cats": [
@@ -1138,6 +1294,24 @@
     ],
     "website": "https://newspack.pub/"
   },
+  "NewStore": {
+    "cats": [
+      19
+    ],
+    "description": "NewStore is the only integrated platform offering omnichannel solutions for stores and consumers.",
+    "icon": "NewStore.png",
+    "js": {
+      "highstreetBanner.config": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.api\\.highstreetapp\\.com/"
+    ],
+    "website": "https://www.newstore.com"
+  },
   "Newt": {
     "cats": [
       1
@@ -1155,23 +1329,6 @@
     "xhr": [
       "\\.newt\\.so"
     ]
-  },
-  "NexMind": {
-    "cats": [
-      10
-    ],
-    "description": "NexMind is a platform offering advanced analytics tools for businesses to make informed decisions and foster growth.",
-    "icon": "NexMind.svg",
-    "pricing": [
-      "low",
-      "recurring",
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "cdn\\.nexmind\\.ai/"
-    ],
-    "website": "https://www.nexmind.ai"
   },
   "Nexcess": {
     "cats": [
@@ -1198,6 +1355,23 @@
       "\\bNexive\\b"
     ],
     "website": "https://www.nexive.it"
+  },
+  "NexMind": {
+    "cats": [
+      10
+    ],
+    "description": "NexMind is a platform offering advanced analytics tools for businesses to make informed decisions and foster growth.",
+    "icon": "NexMind.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "cdn\\.nexmind\\.ai/"
+    ],
+    "website": "https://www.nexmind.ai"
   },
   "Next Basket": {
     "cats": [
@@ -1325,50 +1499,6 @@
     ],
     "website": "https://next-auth.js.org"
   },
-  "NextGEN Gallery": {
-    "cats": [
-      7,
-      87
-    ],
-    "cpe": "cpe:2.3:a:imagely:nextgen_gallery:*:*:*:*:*:*:*:*",
-    "description": "NextGEN Gallery is a free open-source image management plugin for the WordPress content management system.",
-    "html": [
-      "<!-- <meta name=\"NextGEN\" version=\"([\\d.]+)\" /> -->\\;version:\\1"
-    ],
-    "icon": "NextGEN Gallery.png",
-    "js": {
-      "nextgen_lightbox_settings.static_path": "/wp-content/plugins/nextgen-gallery/"
-    },
-    "meta": {
-      "NextGEN": "^([\\d.]+)\\;version:\\1"
-    },
-    "requires": [
-      "WordPress"
-    ],
-    "scriptSrc": [
-      "/nextgen-gallery/js/"
-    ],
-    "website": "https://www.imagely.com/wordpress-gallery-plugin"
-  },
-  "NextUI": {
-    "cats": [
-      66
-    ],
-    "css": [
-      "--nextui-(?:colors-accents1|colors-text|space-0|fonts-sans|fonts-mono)"
-    ],
-    "description": "NextUI allows you to make beautiful, modern, and fast websites/applications regardless of your design experience, created with React.js and Stitches, based on React Aria and inspired by Vuesax.",
-    "dom": [
-      "link[href*='nextui.org'][rel='canonical']"
-    ],
-    "icon": "NextUI.svg",
-    "implies": [
-      "React",
-      "Stitches"
-    ],
-    "oss": true,
-    "website": "https://nextui.org/"
-  },
   "Nextcloud": {
     "cats": [
       95,
@@ -1404,6 +1534,31 @@
       "ads\\.nextdoor\\.com/"
     ],
     "website": "https://help.nextdoor.com/s/article/About-Neighborhood-Ad-Center-NAC-Conversion-Pixel"
+  },
+  "NextGEN Gallery": {
+    "cats": [
+      7,
+      87
+    ],
+    "cpe": "cpe:2.3:a:imagely:nextgen_gallery:*:*:*:*:*:*:*:*",
+    "description": "NextGEN Gallery is a free open-source image management plugin for the WordPress content management system.",
+    "html": [
+      "<!-- <meta name=\"NextGEN\" version=\"([\\d.]+)\" /> -->\\;version:\\1"
+    ],
+    "icon": "NextGEN Gallery.png",
+    "js": {
+      "nextgen_lightbox_settings.static_path": "/wp-content/plugins/nextgen-gallery/"
+    },
+    "meta": {
+      "NextGEN": "^([\\d.]+)\\;version:\\1"
+    },
+    "requires": [
+      "WordPress"
+    ],
+    "scriptSrc": [
+      "/nextgen-gallery/js/"
+    ],
+    "website": "https://www.imagely.com/wordpress-gallery-plugin"
   },
   "Nextra": {
     "cats": [
@@ -1450,6 +1605,25 @@
     ],
     "website": "https://nextsale.io"
   },
+  "NextUI": {
+    "cats": [
+      66
+    ],
+    "css": [
+      "--nextui-(?:colors-accents1|colors-text|space-0|fonts-sans|fonts-mono)"
+    ],
+    "description": "NextUI allows you to make beautiful, modern, and fast websites/applications regardless of your design experience, created with React.js and Stitches, based on React Aria and inspired by Vuesax.",
+    "dom": [
+      "link[href*='nextui.org'][rel='canonical']"
+    ],
+    "icon": "NextUI.svg",
+    "implies": [
+      "React",
+      "Stitches"
+    ],
+    "oss": true,
+    "website": "https://nextui.org/"
+  },
   "NexusPHP": {
     "cats": [
       1
@@ -1494,6 +1668,18 @@
     ],
     "website": "https://www.nexxt.com"
   },
+  "Nexxtmove": {
+    "cats": [
+      32
+    ],
+    "description": "Nexxtmove is a marketing platform for real estate agencies that provides targeted, personalized communication tools designed to reach the appropriate audience and support improved campaign outcomes.",
+    "icon": "Nexxtmove.svg",
+    "saas": true,
+    "scripts": [
+      "nexxtmove-313510\\.web\\.app"
+    ],
+    "website": "https://nexxtmove.nl"
+  },
   "Ngage Live Chat": {
     "cats": [
       52
@@ -1509,6 +1695,15 @@
       "messenger\\.ngageics\\.com"
     ],
     "website": "https://www.ngagelive.com"
+  },
+  "nghttpx - HTTP/2 proxy": {
+    "cats": [
+      22
+    ],
+    "headers": {
+      "Server": "nghttpx nghttp2/?([\\d.]+)?\\;version:\\1"
+    },
+    "website": "https://nghttp2.org"
   },
   "Nginx": {
     "cats": [
@@ -1533,9 +1728,6 @@
       "x-powered-by": "Niagahoster"
     },
     "icon": "Niagahoster.svg",
-    "implies": [
-      "Niagahoster"
-    ],
     "pricing": [
       "low",
       "recurring"
@@ -1615,6 +1807,18 @@
       "assets\\.nidux\\.net/"
     ],
     "website": "https://nidux.com"
+  },
+  "Nielsen NetRatings SiteCensus": {
+    "cats": [
+      10
+    ],
+    "description": "Nielsen NetRatings SiteCensus is an audience measurement system that tracks and analyzes website traffic.",
+    "icon": "Nielsen SiteCensus.svg",
+    "js": {
+      "NOLCMB": ""
+    },
+    "website": "https://www.nielsen.com",
+    "scriptSrc": "/nol\\.js$"
   },
   "Nift": {
     "cats": [
@@ -1739,6 +1943,19 @@
     ],
     "website": "https://ninjaforms.com"
   },
+  "NinjaCat": {
+    "cats": [
+      10,
+      32
+    ],
+    "description": "NinjaCat is a marketing analytics platform that aggregates, analyzes, and reports performance data across multiple marketing channels.",
+    "icon": "NinjaCat.svg",
+    "saas": true,
+    "scriptSrc": [
+      "scripts\\.ninjacat\\.io"
+    ],
+    "website": "https://www.ninjacat.io"
+  },
   "NitroPack": {
     "cats": [
       23,
@@ -1751,39 +1968,22 @@
     },
     "website": "https://nitropack.io/"
   },
-  "NoFraud": {
-    "cats": [
-      16
-    ],
-    "description": "NoFraud is a fraud prevention solution for ecommerce businesses.",
-    "icon": "NoFraud.svg",
-    "pricing": [
-      "poa"
-    ],
-    "requiresCategory": [
-      6
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "services\\.nofraud\\.com/"
-    ],
-    "website": "https://www.nofraud.com"
-  },
-  "NoPaperForms": {
+  "NOCNOK": {
     "cats": [
       53
     ],
-    "description": "NoPaperForms is a cloud-based platform that automates and manages student enrollment processes.",
-    "icon": "NoPaperForms.svg",
+    "description": "NOCNOK is a CRM for real estate agencies that uses AI to automate lead responses, reduce response time, and support sales workflow management.",
+    "icon": "NOCNOK.svg",
     "pricing": [
+      "freemium",
       "mid",
       "recurring"
     ],
     "saas": true,
     "scripts": [
-      "track\\.nopaperforms\\.com"
+      "static\\.nocnok\\.com"
     ],
-    "website": "https://www.nopaperforms.com"
+    "website": "https://www.nocnok.com"
   },
   "Nocodelytics": {
     "cats": [
@@ -1893,6 +2093,24 @@
       "cdn\\.mujnody\\.cz"
     ],
     "website": "https://www.nody.cz"
+  },
+  "NoFraud": {
+    "cats": [
+      16
+    ],
+    "description": "NoFraud is a fraud prevention solution for ecommerce businesses.",
+    "icon": "NoFraud.svg",
+    "pricing": [
+      "poa"
+    ],
+    "requiresCategory": [
+      6
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "services\\.nofraud\\.com/"
+    ],
+    "website": "https://www.nofraud.com"
   },
   "Nogin": {
     "cats": [
@@ -2007,6 +2225,61 @@
     ],
     "website": "https://www.nootiz.com"
   },
+  "NoPaperForms": {
+    "cats": [
+      53
+    ],
+    "description": "NoPaperForms is a cloud-based platform that automates and manages student enrollment processes.",
+    "icon": "NoPaperForms.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": [
+      "track\\.nopaperforms\\.com"
+    ],
+    "website": "https://www.nopaperforms.com"
+  },
+  "nopCommerce": {
+    "cats": [
+      6
+    ],
+    "cookies": {
+      "Nop.customer": ""
+    },
+    "cpe": "cpe:2.3:a:nopcommerce:nopcommerce:*:*:*:*:*:*:*:*",
+    "description": "nopCommerce is an open-source ecommerce solution based on Microsoft's ASP​.NET Core framework and MS SQL Server 2012 (or higher) backend database.",
+    "html": [
+      "(?:<!--Powered by nopCommerce|Powered by: <a[^>]+nopcommerce)"
+    ],
+    "icon": "nopCommerce.svg",
+    "implies": [
+      "Microsoft ASP.NET"
+    ],
+    "meta": {
+      "generator": "^nopCommerce$"
+    },
+    "oss": true,
+    "website": "https://www.nopcommerce.com"
+  },
+  "nopStation": {
+    "cats": [
+      19
+    ],
+    "description": "nopStation is a one stop ecommerce solution with custom integrations and custom built plugins based on custom tailored requirements on top of nopCommerce.",
+    "dom": [
+      "a[href*='.nop-station.com/']"
+    ],
+    "icon": "nopStation.png",
+    "implies": [
+      "Microsoft ASP.NET"
+    ],
+    "requires": [
+      "nopCommerce"
+    ],
+    "website": "https://www.nop-station.com"
+  },
   "Norby": {
     "cats": [
       52
@@ -2097,17 +2370,20 @@
     ],
     "website": "https://normi.ca"
   },
-  "NorthStar Civic": {
+  "Norse Env": {
     "cats": [
       1
     ],
-    "description": "NorthStar Civic is a custom content and digital asset management system supporting news websites across the NorthStar Civic Media network.",
-    "icon": "NorthStarCivic.svg",
-    "meta": {
-      "cms": "^NorthStar CMS$"
+    "description": "Norse Env is a lightweight PHP CMS for content-driven websites, featuring a visual editor, media library, and custom admin URL.",
+    "headers": {
+      "X-Powered-By": "Norse Env"
     },
-    "saas": true,
-    "website": "https://northstarcivic.com"
+    "icon": "NorseEnv.png",
+    "meta": {
+      "generator": "Norse Env"
+    },
+    "oss": true,
+    "website": "https://esim.pe"
   },
   "Northbeam": {
     "cats": [
@@ -2127,6 +2403,18 @@
       "\\.northbeam\\.io/"
     ],
     "website": "https://www.northbeam.io"
+  },
+  "NorthStar Civic": {
+    "cats": [
+      1
+    ],
+    "description": "NorthStar Civic is a custom content and digital asset management system supporting news websites across the NorthStar Civic Media network.",
+    "icon": "NorthStarCivic.svg",
+    "meta": {
+      "cms": "^NorthStar CMS$"
+    },
+    "saas": true,
+    "website": "https://northstarcivic.com"
   },
   "Northstar Club Management": {
     "cats": [
@@ -2283,7 +2571,12 @@
       "poa"
     ],
     "saas": true,
-    "website": "https://notion.so"
+    "website": "https://notion.so",
+    "dns": {
+      "TXT": [
+        "notion-domain-verification="
+      ]
+    }
   },
   "Notix": {
     "cats": [
@@ -2303,6 +2596,17 @@
     ],
     "website": "https://notix.co"
   },
+  "noUiSlider": {
+    "cats": [
+      12
+    ],
+    "description": "noUiSlider is a lightweight JavaScript range slider with multi-touch support.",
+    "icon": "noUiSlider.svg",
+    "js": {
+      "noUiSlider": ""
+    },
+    "website": "https://refreshless.com/nouislider/"
+  },
   "Nova Busca": {
     "cats": [
       29
@@ -2314,6 +2618,43 @@
       "api\\.novabusca\\.com\\.br"
     ],
     "website": "https://novabusca.com.br"
+  },
+  "NovaDB": {
+    "cats": [
+      1
+    ],
+    "description": "NovaDB is a unified content cloud that combines headless CMS and product information management to create, manage, and deliver structured digital content.",
+    "icon": "NovaDB.svg",
+    "meta": {
+      "generator": "^NovaDB$"
+    },
+    "oss": true,
+    "pricing": [
+      "high",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.novadb.com"
+  },
+  "Novaresa": {
+    "cats": [
+      9
+    ],
+    "description": "Novaresa is a cloud-based platform designed to manage, operate, and promote hosting services through centralized tools for administration, service delivery, and customer engagement.",
+    "icon": "Novaresa.svg",
+    "js": {
+      "jquery_novaresa.Animation": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "www\\.novaresa\\.net/"
+    ],
+    "website": "https://www.novaresa.fr"
   },
   "Novel": {
     "cats": [
@@ -2334,6 +2675,55 @@
     ],
     "saas": true,
     "website": "https://www.novel.com"
+  },
+  "Novell GroupWise 8": {
+    "cats": [
+      10
+    ],
+    "description": "Novell GroupWise 8 is a messaging and collaboration platform that provides email, calendaring, instant messaging, and document management.",
+    "icon": "GroupWise.svg",
+    "website": "https://www.novell.com/products/groupwise/",
+    "html": "GroupWise(?:\\sWebAccess)?\\s8(?:[\\d\\.]+)?",
+    "headers": {
+      "Server": "GroupWise-8(?:[\\d\\.]+)?"
+    }
+  },
+  "Novell Vibe": {
+    "cats": [
+      27
+    ],
+    "description": "Novell Vibe is a collaboration platform that helps teams work together.",
+    "icon": "Novell_Vibe.svg",
+    "website": "https://www.microfocus.com/products/vibe/",
+    "html": "Novell Vibe"
+  },
+  "Novell ZENworks": {
+    "cats": [
+      14
+    ],
+    "description": "Novell ZENworks is a suite of endpoint management products for managing desktop PCs, laptops, and servers.",
+    "icon": "Novell ZENworks.svg",
+    "headers": {
+      "Server": "ZENworks"
+    },
+    "website": "https://www.microfocus.com/en-us/products/zenworks/"
+  },
+  "novomind iSHOP": {
+    "cats": [
+      6
+    ],
+    "description": "novomind iSHOP can be introduced rapidly, is highly scalable, has open APIs headless ecommerce and GDPR-compliant in the novomind Cloud.",
+    "icon": "novomind.svg",
+    "js": {
+      "_ishopevents": "",
+      "_ishopevents_url": "/ishop-api/events/",
+      "iShop.config.baseUrl": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.novomind.com/en/shopsystem/novomind-ishop-software"
   },
   "NowButtons": {
     "cats": [
@@ -2367,6 +2757,21 @@
     ],
     "website": "https://www.nowfloats.com"
   },
+  "NProgress": {
+    "cats": [
+      59
+    ],
+    "description": "NProgress is a JavaScript library that displays a nanoscopic progress bar at the top of websites or web applications. It includes trickle animations to indicate loading activity, enhancing user experience by showing that content is being loaded.",
+    "icon": "NProgress.svg",
+    "js": {
+      "NProgress.version": "([\\d.]+)\\;version:\\1"
+    },
+    "oss": true,
+    "scriptSrc": [
+      "/nprogress\\.min\\.js"
+    ],
+    "website": "https://ricostacruz.com/nprogress/"
+  },
   "Nrdevo": {
     "cats": [
       1
@@ -2385,6 +2790,29 @@
     ],
     "saas": true,
     "website": "https://nrdevo.com/"
+  },
+  "NSW Design System": {
+    "cats": [
+      66
+    ],
+    "dom": [
+      ".nsw-container, .nsw-header, .nsw-icon, link[href*='nsw-design-system']"
+    ],
+    "icon": "NSW Design System.svg",
+    "js": {
+      "NSW.initSite": ""
+    },
+    "website": "https://www.digital.nsw.gov.au/digital-design-system"
+  },
+  "NTLM": {
+    "cats": [
+      16
+    ],
+    "description": "NTLM is an authentication method commonly used by Windows servers",
+    "headers": {
+      "WWW-Authenticate": "^NTLM"
+    },
+    "website": "https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-ntht/"
   },
   "Nucleus CMS": {
     "cats": [
@@ -2444,6 +2872,33 @@
     },
     "oss": true,
     "website": "https://nukeviet.vn/en/"
+  },
+  "Numberly MarTech Platform": {
+    "cats": [
+      10
+    ],
+    "description": "Numberly MarTech Platform provides data-driven marketing and CRM solutions.",
+    "icon": "Numberly.svg",
+    "website": "https://numberly.com",
+    "js": {
+      "Numberly": ""
+    },
+    "scriptSrc": "numberly\\.com\\/.*\\.js"
+  },
+  "Nunjucks": {
+    "cats": [
+      64
+    ],
+    "description": "Nunjucks is a full-featured templating engine for JavaScript.",
+    "website": "https://mozilla.github.io/nunjucks/",
+    "icon": "Nunjucks.svg",
+    "html": [
+      "\\{\\%\\s*(block|endblock|extends|for|endfor|if|endif|include)\\s*.*?\\s*\\%\\}",
+      "\\{\\{\\s*.*?\\s*\\}\\}"
+    ],
+    "scripts": [
+      "nunjucks(?:\\.min)?\\.js"
+    ]
   },
   "Nuqlium": {
     "cats": [
@@ -2559,6 +3014,63 @@
     ],
     "website": "https://nuxt.com"
   },
+  "NVD3": {
+    "cats": [
+      25
+    ],
+    "description": "NVD3 is a JavaScript visualisation library that is a free open-source tool.",
+    "dom": [
+      "link[href*='nv.d3.css'], link[href*='nv.d3.min.css']"
+    ],
+    "html": [
+      "<link[^>]* href=[^>]+nv\\.d3(?:\\.min)?\\.css"
+    ],
+    "icon": "NVD3.png",
+    "implies": [
+      "D3"
+    ],
+    "js": {
+      "nv.addGraph": "",
+      "nv.version": "^(.+)$\\;confidence:0\\;version:\\1"
+    },
+    "scriptSrc": [
+      "nv\\.d3(?:\\.min)?\\.js"
+    ],
+    "website": "https://nvd3.org"
+  },
+  "NVIDIA AI Enterprise": {
+    "cats": [
+      203
+    ],
+    "description": "NVIDIA AI Enterprise packages NVIDIA’s AI software, including NIM and NeMo, delivered through its build and cloud-function hosts.",
+    "website": "https://www.nvidia.com/en-us/data-center/products/ai-enterprise/",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "xhr": "(?:build|api\\.nvcf)\\.nvidia\\.com"
+  },
+  "NVIDIA Jetson": {
+    "cats": [
+      206,
+      203
+    ],
+    "description": "NVIDIA Jetson is an edge AI hardware module family, including Jetson Orin. Hardware is not detectable over the web.",
+    "website": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/",
+    "icon": "default.svg",
+    "saas": false,
+    "oss": false
+  },
+  "NVIDIA NIM": {
+    "cats": [
+      203
+    ],
+    "description": "NVIDIA NIM provides hosted inference microservices for NVIDIA accelerated models.",
+    "website": "https://www.nvidia.com/en-us/ai/",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "xhr": "integrate\\.api\\.nvidia\\.com"
+  },
   "Nyehandel": {
     "cats": [
       6
@@ -2578,70 +3090,5 @@
     ],
     "saas": true,
     "website": "https://nyehandel.se"
-  },
-  "nghttpx - HTTP/2 proxy": {
-    "cats": [
-      22
-    ],
-    "headers": {
-      "Server": "nghttpx nghttp2/?([\\d.]+)?\\;version:\\1"
-    },
-    "website": "https://nghttp2.org"
-  },
-  "nopCommerce": {
-    "cats": [
-      6
-    ],
-    "cookies": {
-      "Nop.customer": ""
-    },
-    "cpe": "cpe:2.3:a:nopcommerce:nopcommerce:*:*:*:*:*:*:*:*",
-    "description": "nopCommerce is an open-source ecommerce solution based on Microsoft's ASP​.NET Core framework and MS SQL Server 2012 (or higher) backend database.",
-    "html": [
-      "(?:<!--Powered by nopCommerce|Powered by: <a[^>]+nopcommerce)"
-    ],
-    "icon": "nopCommerce.svg",
-    "implies": [
-      "Microsoft ASP.NET"
-    ],
-    "meta": {
-      "generator": "^nopCommerce$"
-    },
-    "oss": true,
-    "website": "https://www.nopcommerce.com"
-  },
-  "nopStation": {
-    "cats": [
-      19
-    ],
-    "description": "nopStation is a one stop ecommerce solution with custom integrations and custom built plugins based on custom tailored requirements on top of nopCommerce.",
-    "dom": [
-      "a[href*='.nop-station.com/']"
-    ],
-    "icon": "nopStation.png",
-    "implies": [
-      "Microsoft ASP.NET"
-    ],
-    "requires": [
-      "nopCommerce"
-    ],
-    "website": "https://www.nop-station.com"
-  },
-  "novomind iSHOP": {
-    "cats": [
-      6
-    ],
-    "description": "novomind iSHOP can be introduced rapidly, is highly scalable, has open APIs headless ecommerce and GDPR-compliant in the novomind Cloud.",
-    "icon": "novomind.svg",
-    "js": {
-      "_ishopevents": "",
-      "_ishopevents_url": "/ishop-api/events/",
-      "iShop.config.baseUrl": ""
-    },
-    "pricing": [
-      "poa"
-    ],
-    "saas": true,
-    "website": "https://www.novomind.com/en/shopsystem/novomind-ishop-software"
   }
 }

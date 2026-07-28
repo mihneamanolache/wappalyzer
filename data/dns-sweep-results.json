@@ -1,0 +1,968 @@
+{
+  "ranAt": "2026-07-28T20:39:36.336Z",
+  "corpus": "data/dns-sweep-domains.txt",
+  "corpusSha256": "9b37b89a06d10bcc553d6779cb4342b33c0c27cc73ff25a99a239a2e0ec3c7e9",
+  "markerSetSha256": "ad774f793b4626bf38b5a08e8702ac1524be905c123339c01c3fdd6aff41d236",
+  "resolver": {
+    "servers": [
+      "1.1.1.1",
+      "8.8.8.8",
+      "fd7a:115c:a1e0::53",
+      "172.18.18.1",
+      "100.100.100.100"
+    ],
+    "nodeVersion": "v24.18.0",
+    "platform": "darwin"
+  },
+  "corpusDomains": 536,
+  "domainsWithTxt": 513,
+  "txtRecordsSeen": 14962,
+  "resolutionOutcomes": {
+    "ok": 513,
+    "nodata": 23
+  },
+  "unresolvedDomains": [],
+  "markersChecked": 96,
+  "markersObserved": 94,
+  "markersUnobserved": 2,
+  "observed": [
+    {
+      "technology": "Atlassian Cloud",
+      "pattern": "atlassian-domain-verification=",
+      "domainCount": 335,
+      "examples": [
+        "abbvie.com",
+        "abnormalsecurity.com",
+        "adm.com"
+      ]
+    },
+    {
+      "technology": "Apple iCloud Mail",
+      "pattern": "apple-domain",
+      "domainCount": 320,
+      "examples": [
+        "abbvie.com",
+        "adm.com",
+        "airbnb.com"
+      ]
+    },
+    {
+      "technology": "Microsoft 365",
+      "pattern": "^MS=ms\\d+",
+      "domainCount": 310,
+      "examples": [
+        "airflow.apache.org",
+        "airbnb.com",
+        "aleph-alpha.com"
+      ]
+    },
+    {
+      "technology": "DocuSign",
+      "pattern": "docusign",
+      "domainCount": 267,
+      "examples": [
+        "abnormalsecurity.com",
+        "adm.com",
+        "airbnb.com"
+      ]
+    },
+    {
+      "technology": "Anthropic",
+      "pattern": "anthropic-domain-verification",
+      "domainCount": 248,
+      "examples": [
+        "abbvie.com",
+        "abnormalsecurity.com",
+        "adm.com"
+      ]
+    },
+    {
+      "technology": "Claude Enterprise",
+      "pattern": "anthropic-domain-verification-[a-z0-9]{6}=",
+      "domainCount": 248,
+      "examples": [
+        "abbvie.com",
+        "abnormalsecurity.com",
+        "adm.com"
+      ]
+    },
+    {
+      "technology": "Adobe Identity Management",
+      "pattern": "adobe-idp-site-verification=",
+      "domainCount": 218,
+      "examples": [
+        "abbvie.com",
+        "adm.com",
+        "airbnb.com"
+      ]
+    },
+    {
+      "technology": "OpenAI API",
+      "pattern": "openai-domain-verification=",
+      "domainCount": 192,
+      "examples": [
+        "abnormalsecurity.com",
+        "airbnb.com",
+        "apollo.io"
+      ]
+    },
+    {
+      "technology": "Docker",
+      "pattern": "docker-verification=",
+      "domainCount": 185,
+      "examples": [
+        "abbvie.com",
+        "adm.com",
+        "astrazeneca.com"
+      ]
+    },
+    {
+      "technology": "Cursor",
+      "pattern": "cursor-domain-verification",
+      "domainCount": 167,
+      "examples": [
+        "abnormalsecurity.com",
+        "aleph-alpha.com",
+        "apollo.io"
+      ]
+    },
+    {
+      "technology": "Cursor",
+      "pattern": "cursor-domain-verification-[a-z0-9]{6}=",
+      "domainCount": 167,
+      "examples": [
+        "abnormalsecurity.com",
+        "aleph-alpha.com",
+        "apollo.io"
+      ]
+    },
+    {
+      "technology": "Jamf",
+      "pattern": "jamf-site-verification=",
+      "domainCount": 167,
+      "examples": [
+        "abnormalsecurity.com",
+        "aleph-alpha.com",
+        "astrazeneca.com"
+      ]
+    },
+    {
+      "technology": "Stripe",
+      "pattern": "stripe-verification=",
+      "domainCount": 160,
+      "examples": [
+        "abbvie.com",
+        "airbnb.com",
+        "apollo.io"
+      ]
+    },
+    {
+      "technology": "OneTrust",
+      "pattern": "onetrust-domain-verification=",
+      "domainCount": 150,
+      "examples": [
+        "abbvie.com",
+        "adm.com",
+        "astrazeneca.com"
+      ]
+    },
+    {
+      "technology": "Miro",
+      "pattern": "miro-verification=",
+      "domainCount": 139,
+      "examples": [
+        "abbvie.com",
+        "airbnb.com",
+        "airproducts.com"
+      ]
+    },
+    {
+      "technology": "Salesforce",
+      "pattern": "salesforce\\.com",
+      "domainCount": 124,
+      "examples": [
+        "auth0.com",
+        "bamboohr.com",
+        "amd.com"
+      ]
+    },
+    {
+      "technology": "Smartsheet",
+      "pattern": "smartsheet-site-validation=",
+      "domainCount": 121,
+      "examples": [
+        "abbvie.com",
+        "anthem.com",
+        "astrazeneca.com"
+      ]
+    },
+    {
+      "technology": "Salesforce SPF",
+      "pattern": "_spf\\.salesforce\\.com",
+      "domainCount": 115,
+      "examples": [
+        "bamboohr.com",
+        "amd.com",
+        "ai21.com"
+      ]
+    },
+    {
+      "technology": "MongoDB",
+      "pattern": "mongodb-site-verification=",
+      "domainCount": 112,
+      "examples": [
+        "abbvie.com",
+        "astrazeneca.com",
+        "atlassian.com"
+      ]
+    },
+    {
+      "technology": "Cisco Cloud",
+      "pattern": "cisco-ci-domain-verification=",
+      "domainCount": 104,
+      "examples": [
+        "abbvie.com",
+        "adm.com",
+        "airbnb.com"
+      ]
+    },
+    {
+      "technology": "Canva",
+      "pattern": "canva-site-verification=",
+      "domainCount": 93,
+      "examples": [
+        "abbvie.com",
+        "airbnb.com",
+        "atlassian.com"
+      ]
+    },
+    {
+      "technology": "HackerOne",
+      "pattern": "h1-domain-verification=",
+      "domainCount": 90,
+      "examples": [
+        "abbvie.com",
+        "abnormalsecurity.com",
+        "automationanywhere.com"
+      ]
+    },
+    {
+      "technology": "Atlassian Statuspage",
+      "pattern": "status-page-domain-verification=",
+      "domainCount": 89,
+      "examples": [
+        "airbnb.com",
+        "atlassian.com",
+        "bentoml.com"
+      ]
+    },
+    {
+      "technology": "Notion",
+      "pattern": "notion-domain-verification=",
+      "domainCount": 87,
+      "examples": [
+        "apollo.io",
+        "assemblyai.com",
+        "atlassian.com"
+      ]
+    },
+    {
+      "technology": "Slack",
+      "pattern": "slack-domain-verification=",
+      "domainCount": 86,
+      "examples": [
+        "abnormalsecurity.com",
+        "aleph-alpha.com",
+        "apollo.io"
+      ]
+    },
+    {
+      "technology": "Zendesk",
+      "pattern": "mail\\.zendesk\\.com",
+      "domainCount": 81,
+      "examples": [
+        "bamboohr.com",
+        "appsmith.com",
+        "asana.com"
+      ]
+    },
+    {
+      "technology": "Box",
+      "pattern": "box-domain-verification=",
+      "domainCount": 76,
+      "examples": [
+        "anthem.com",
+        "astrazeneca.com",
+        "atlassian.com"
+      ]
+    },
+    {
+      "technology": "Zapier",
+      "pattern": "zapier-domain-verification-challenge=",
+      "domainCount": 73,
+      "examples": [
+        "abnormalsecurity.com",
+        "assemblyai.com",
+        "autodesk.com"
+      ]
+    },
+    {
+      "technology": "Postman",
+      "pattern": "postman-domain-verification=",
+      "domainCount": 70,
+      "examples": [
+        "atlassian.com",
+        "autodesk.com",
+        "block.xyz"
+      ]
+    },
+    {
+      "technology": "Wiz",
+      "pattern": "wiz-domain-verification=",
+      "domainCount": 70,
+      "examples": [
+        "abnormalsecurity.com",
+        "anthropic.com",
+        "bp.com"
+      ]
+    },
+    {
+      "technology": "Amazon SES",
+      "pattern": "amazonses\\.com",
+      "domainCount": 69,
+      "examples": [
+        "atlassian.com",
+        "auth0.com",
+        "appsmith.com"
+      ]
+    },
+    {
+      "technology": "Airtable",
+      "pattern": "airtable-verification=",
+      "domainCount": 66,
+      "examples": [
+        "abbvie.com",
+        "apollo.io",
+        "assemblyai.com"
+      ]
+    },
+    {
+      "technology": "Dynatrace",
+      "pattern": "dynatrace-site-verification=",
+      "domainCount": 64,
+      "examples": [
+        "adm.com",
+        "apple.com",
+        "autodesk.com"
+      ]
+    },
+    {
+      "technology": "1Password",
+      "pattern": "1password-site-verification=",
+      "domainCount": 61,
+      "examples": [
+        "astrazeneca.com",
+        "anthropic.com",
+        "block.xyz"
+      ]
+    },
+    {
+      "technology": "HubSpot",
+      "pattern": "hubspotemail\\.net",
+      "domainCount": 60,
+      "examples": [
+        "aleph-alpha.com",
+        "ai21.com",
+        "buildkite.com"
+      ]
+    },
+    {
+      "technology": "Figma",
+      "pattern": "figma-domain-verification=",
+      "domainCount": 57,
+      "examples": [
+        "aleph-alpha.com",
+        "assemblyai.com",
+        "autodesk.com"
+      ]
+    },
+    {
+      "technology": "Salesforce Marketing Cloud Account Engagement",
+      "pattern": "pardot",
+      "domainCount": 56,
+      "examples": [
+        "adm.com",
+        "atlassian.com",
+        "amd.com"
+      ]
+    },
+    {
+      "technology": "Mixpanel",
+      "pattern": "mixpanel-domain-verify",
+      "domainCount": 53,
+      "examples": [
+        "abbvie.com",
+        "att.com",
+        "autodesk.com"
+      ]
+    },
+    {
+      "technology": "Sendgrid",
+      "pattern": "sendgrid\\.net",
+      "domainCount": 53,
+      "examples": [
+        "bamboohr.com",
+        "c3.ai",
+        "checkmarx.com"
+      ]
+    },
+    {
+      "technology": "Segment",
+      "pattern": "segment-site-verification",
+      "domainCount": 51,
+      "examples": [
+        "airbnb.com",
+        "atlassian.com",
+        "autodesk.com"
+      ]
+    },
+    {
+      "technology": "Pendo",
+      "pattern": "pendo-domain-verification=",
+      "domainCount": 48,
+      "examples": [
+        "abnormalsecurity.com",
+        "atlassian.com",
+        "autodesk.com"
+      ]
+    },
+    {
+      "technology": "HubSpot",
+      "pattern": "hubspot-developer-verification",
+      "domainCount": 47,
+      "examples": [
+        "apollo.io",
+        "atlassian.com",
+        "appsmith.com"
+      ]
+    },
+    {
+      "technology": "Linear",
+      "pattern": "linear-domain-verification=",
+      "domainCount": 44,
+      "examples": [
+        "abnormalsecurity.com",
+        "buildkite.com",
+        "circleci.com"
+      ]
+    },
+    {
+      "technology": "Zoom",
+      "pattern": "zoom-domain-verification=",
+      "domainCount": 43,
+      "examples": [
+        "apollo.io",
+        "atlassian.com",
+        "appsmith.com"
+      ]
+    },
+    {
+      "technology": "Dropbox",
+      "pattern": "dropbox-domain-verification",
+      "domainCount": 41,
+      "examples": [
+        "atlassian.com",
+        "amd.com",
+        "amplitude.com"
+      ]
+    },
+    {
+      "technology": "Autodesk",
+      "pattern": "autodesk-domain-verification=",
+      "domainCount": 35,
+      "examples": [
+        "adm.com",
+        "amazon.com",
+        "akamai.com"
+      ]
+    },
+    {
+      "technology": "HashiCorp Cloud Platform",
+      "pattern": "hcp-domain-verification=",
+      "domainCount": 35,
+      "examples": [
+        "aleph-alpha.com",
+        "assemblyai.com",
+        "anysphere.co"
+      ]
+    },
+    {
+      "technology": "Palo Alto Networks",
+      "pattern": "paloaltonetworks-site-verification=",
+      "domainCount": 35,
+      "examples": [
+        "airbnb.com",
+        "airproducts.com",
+        "amd.com"
+      ]
+    },
+    {
+      "technology": "Wrike",
+      "pattern": "wrike-verification=",
+      "domainCount": 35,
+      "examples": [
+        "automationanywhere.com",
+        "bamboohr.com",
+        "amazon.com"
+      ]
+    },
+    {
+      "technology": "TeamViewer",
+      "pattern": "teamviewer-sso-verification=",
+      "domainCount": 34,
+      "examples": [
+        "astrazeneca.com",
+        "autodesk.com",
+        "bamboohr.com"
+      ]
+    },
+    {
+      "technology": "Mailgun",
+      "pattern": "mailgun\\.org",
+      "domainCount": 32,
+      "examples": [
+        "astrazeneca.com",
+        "block.xyz",
+        "checkmarx.com"
+      ]
+    },
+    {
+      "technology": "HubSpot",
+      "pattern": "hubspot-domain-verification",
+      "domainCount": 29,
+      "examples": [
+        "anyscale.com",
+        "canva.com",
+        "cisco.com"
+      ]
+    },
+    {
+      "technology": "JetBrains IDEs",
+      "pattern": "jetbrains-domain-verification=",
+      "domainCount": 29,
+      "examples": [
+        "aleph-alpha.com",
+        "bamboohr.com",
+        "anthropic.com"
+      ]
+    },
+    {
+      "technology": "VMware Cloud",
+      "pattern": "cloudhealth=",
+      "domainCount": 29,
+      "examples": [
+        "automationanywhere.com",
+        "bamboohr.com",
+        "amd.com"
+      ]
+    },
+    {
+      "technology": "LogMeIn",
+      "pattern": "logmein-verification-code=",
+      "domainCount": 27,
+      "examples": [
+        "bamboohr.com",
+        "checkmarx.com",
+        "arcticwolf.com"
+      ]
+    },
+    {
+      "technology": "MailChimp",
+      "pattern": "spf\\.mandrillapp\\.com",
+      "domainCount": 26,
+      "examples": [
+        "aleph-alpha.com",
+        "astrazeneca.com",
+        "auth0.com"
+      ]
+    },
+    {
+      "technology": "ElevenLabs",
+      "pattern": "elevenlabs=",
+      "domainCount": 25,
+      "examples": [
+        "airbnb.com",
+        "automationanywhere.com",
+        "amd.com"
+      ]
+    },
+    {
+      "technology": "Loom",
+      "pattern": "loom-site-verification=",
+      "domainCount": 25,
+      "examples": [
+        "abbvie.com",
+        "bubble.io",
+        "chime.com"
+      ]
+    },
+    {
+      "technology": "Adobe Acrobat Sign",
+      "pattern": "adobe-sign-verification=",
+      "domainCount": 24,
+      "examples": [
+        "abbvie.com",
+        "airproducts.com",
+        "automationanywhere.com"
+      ]
+    },
+    {
+      "technology": "Google Workspace",
+      "pattern": "google-gws-recovery-domain-verification=",
+      "domainCount": 20,
+      "examples": [
+        "autodesk.com",
+        "beyondtrust.com",
+        "elfbeauty.com"
+      ]
+    },
+    {
+      "technology": "HPE GreenLake",
+      "pattern": "hpe-greenlake-domain-verification=",
+      "domainCount": 17,
+      "examples": [
+        "amd.com",
+        "bp.com",
+        "aa.com"
+      ]
+    },
+    {
+      "technology": "IBM Cloud",
+      "pattern": "ibmid=",
+      "domainCount": 17,
+      "examples": [
+        "anthem.com",
+        "amd.com",
+        "blackrock.com"
+      ]
+    },
+    {
+      "technology": "Perplexity Enterprise",
+      "pattern": "perplexity-ai-domain-verification-[a-z0-9]{6}=",
+      "domainCount": 17,
+      "examples": [
+        "automationanywhere.com",
+        "bayer.com",
+        "datadoghq.com"
+      ]
+    },
+    {
+      "technology": "Schneider EcoStruxure",
+      "pattern": "ecostruxure-it-verification=",
+      "domainCount": 17,
+      "examples": [
+        "airbnb.com",
+        "cargill.com",
+        "carmax.com"
+      ]
+    },
+    {
+      "technology": "Bugcrowd",
+      "pattern": "bugcrowd-verification",
+      "domainCount": 16,
+      "examples": [
+        "atlassian.com",
+        "auth0.com",
+        "canva.com"
+      ]
+    },
+    {
+      "technology": "Klaviyo",
+      "pattern": "klaviyo-site-verification=",
+      "domainCount": 16,
+      "examples": [
+        "autodesk.com",
+        "bayer.com",
+        "gap.com"
+      ]
+    },
+    {
+      "technology": "Dell Technologies Cloud",
+      "pattern": "dell-technologies-domain-verification=",
+      "domainCount": 15,
+      "examples": [
+        "amazon.com",
+        "carmax.com",
+        "barracuda.com"
+      ]
+    },
+    {
+      "technology": "Workplace by Meta",
+      "pattern": "workplace-domain-verification=",
+      "domainCount": 15,
+      "examples": [
+        "cisco.com",
+        "booking.com",
+        "duo.com"
+      ]
+    },
+    {
+      "technology": "Zoho",
+      "pattern": "zoho-verification=",
+      "domainCount": 15,
+      "examples": [
+        "6sense.com",
+        "autozone.com",
+        "bigcommerce.com"
+      ]
+    },
+    {
+      "technology": "Lovable",
+      "pattern": "lovable_verification=",
+      "domainCount": 14,
+      "examples": [
+        "assemblyai.com",
+        "automationanywhere.com",
+        "dataiku.com"
+      ]
+    },
+    {
+      "technology": "Detectify",
+      "pattern": "detectify-verification",
+      "domainCount": 13,
+      "examples": [
+        "automationanywhere.com",
+        "bubble.io",
+        "canva.com"
+      ]
+    },
+    {
+      "technology": "LaunchDarkly",
+      "pattern": "launchdarkly-domain-verification=",
+      "domainCount": 12,
+      "examples": [
+        "chronosphere.io",
+        "descript.com",
+        "freshworks.com"
+      ]
+    },
+    {
+      "technology": "Monday.com",
+      "pattern": "monday-com-verification=",
+      "domainCount": 12,
+      "examples": [
+        "abbvie.com",
+        "carmax.com",
+        "canva.com"
+      ]
+    },
+    {
+      "technology": "SAP SuccessFactors",
+      "pattern": "successfactors-site-verification=",
+      "domainCount": 12,
+      "examples": [
+        "amd.com",
+        "cargill.com",
+        "aa.com"
+      ]
+    },
+    {
+      "technology": "Zoho",
+      "pattern": "\\.zoho\\.com",
+      "domainCount": 12,
+      "examples": [
+        "autozone.com",
+        "bigcommerce.com",
+        "fortinet.com"
+      ]
+    },
+    {
+      "technology": "Windsurf",
+      "pattern": "windsurf-verification=",
+      "domainCount": 9,
+      "examples": [
+        "att.com",
+        "cerebras.net",
+        "elevancehealth.com"
+      ]
+    },
+    {
+      "technology": "Keybase",
+      "pattern": "keybase-site-verification",
+      "domainCount": 8,
+      "examples": [
+        "buildkite.com",
+        "coinbase.com",
+        "hashicorp.com"
+      ]
+    },
+    {
+      "technology": "Loom",
+      "pattern": "loom-verification",
+      "domainCount": 8,
+      "examples": [
+        "gong.io",
+        "hotjar.com",
+        "klarna.com"
+      ]
+    },
+    {
+      "technology": "Mailjet",
+      "pattern": "mailjet\\.com",
+      "domainCount": 7,
+      "examples": [
+        "aleph-alpha.com",
+        "huggingface.co",
+        "mistral.ai"
+      ]
+    },
+    {
+      "technology": "Proton Mail",
+      "pattern": "protonmail-verification=",
+      "domainCount": 6,
+      "examples": [
+        "datadoghq.com",
+        "fullstory.com",
+        "hotjar.com"
+      ]
+    },
+    {
+      "technology": "Sourcegraph Amp",
+      "pattern": "amp-by-sourcegraph-domain-verification-[a-z0-9]{6}=",
+      "domainCount": 6,
+      "examples": [
+        "block.xyz",
+        "buildkite.com",
+        "coinbase.com"
+      ]
+    },
+    {
+      "technology": "Sendinblue",
+      "pattern": "Sendinblue-code",
+      "domainCount": 5,
+      "examples": [
+        "paccar.com",
+        "sanofi.com",
+        "synthesia.io"
+      ]
+    },
+    {
+      "technology": "Heroku",
+      "pattern": "heroku-domain-verification",
+      "domainCount": 4,
+      "examples": [
+        "auth0.com",
+        "klaviyo.com",
+        "plaid.com"
+      ]
+    },
+    {
+      "technology": "Intercom",
+      "pattern": "intercom-domain-validation=",
+      "domainCount": 4,
+      "examples": [
+        "blackrock.com",
+        "cisco.com",
+        "fullstory.com"
+      ]
+    },
+    {
+      "technology": "Make",
+      "pattern": "make-domain-verification=",
+      "domainCount": 4,
+      "examples": [
+        "bigcommerce.com",
+        "emerson.com",
+        "doordash.com"
+      ]
+    },
+    {
+      "technology": "ClickUp",
+      "pattern": "clickup-verification=",
+      "domainCount": 3,
+      "examples": [
+        "amd.com",
+        "crowdstrike.com",
+        "vmware.com"
+      ]
+    },
+    {
+      "technology": "SparkPost",
+      "pattern": "sparkpostmail\\.com",
+      "domainCount": 3,
+      "examples": [
+        "asana.com",
+        "observablehq.com",
+        "you.com"
+      ]
+    },
+    {
+      "technology": "Coda",
+      "pattern": "coda-verification=",
+      "domainCount": 2,
+      "examples": [
+        "harvey.ai",
+        "paloaltonetworks.com"
+      ]
+    },
+    {
+      "technology": "Mistral AI",
+      "pattern": "mistral-domain-verification=",
+      "domainCount": 2,
+      "examples": [
+        "mistral.ai",
+        "n8n.io"
+      ]
+    },
+    {
+      "technology": "Anyscale",
+      "pattern": "anyscale-domain-verification-[a-z0-9]{6}=",
+      "domainCount": 1,
+      "examples": [
+        "anysphere.co"
+      ]
+    },
+    {
+      "technology": "GitLab",
+      "pattern": "gitlab-pages-verification-code=",
+      "domainCount": 1,
+      "examples": [
+        "gitlab.com"
+      ]
+    },
+    {
+      "technology": "Island Enterprise Browser",
+      "pattern": "island-verification=",
+      "domainCount": 1,
+      "examples": [
+        "island.io"
+      ]
+    },
+    {
+      "technology": "Netlify",
+      "pattern": "netlify-domain-verification=",
+      "domainCount": 1,
+      "examples": [
+        "mongodb.com"
+      ]
+    },
+    {
+      "technology": "Sendinblue",
+      "pattern": "\\.sendinblue\\.com",
+      "domainCount": 1,
+      "examples": [
+        "unleash-hosted.com"
+      ]
+    }
+  ],
+  "unobserved": [
+    {
+      "technology": "Apple iCloud Mail",
+      "pattern": "redirect=icloud\\.com"
+    },
+    {
+      "technology": "Zoho Mail",
+      "pattern": "transmail\\.net"
+    }
+  ]
+}

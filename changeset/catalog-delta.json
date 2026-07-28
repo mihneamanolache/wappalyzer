@@ -1,0 +1,3873 @@
+{
+  "base": "22c1cc7",
+  "baseSubject": "Refactor urls output format to use Arrays instead of an Object",
+  "before": {
+    "technologies": 7911,
+    "categories": 111
+  },
+  "after": {
+    "technologies": 8429,
+    "categories": 124
+  },
+  "summary": {
+    "added": 518,
+    "removed": 0,
+    "changed": 246
+  },
+  "newCategories": [
+    {
+      "id": 112,
+      "name": "Artificial Intelligence",
+      "priority": 9
+    },
+    {
+      "id": 200,
+      "name": "Generative AI platforms",
+      "priority": 8
+    },
+    {
+      "id": 201,
+      "name": "AI development frameworks",
+      "priority": 7
+    },
+    {
+      "id": 202,
+      "name": "Vector databases",
+      "priority": 5
+    },
+    {
+      "id": 203,
+      "name": "AI infrastructure",
+      "priority": 6
+    },
+    {
+      "id": 204,
+      "name": "Data platforms",
+      "priority": 5
+    },
+    {
+      "id": 205,
+      "name": "Fleet & telematics",
+      "priority": 6
+    },
+    {
+      "id": 206,
+      "name": "IoT platforms",
+      "priority": 6
+    },
+    {
+      "id": 207,
+      "name": "Cloud security",
+      "priority": 8
+    },
+    {
+      "id": 208,
+      "name": "AI coding assistants",
+      "priority": 7
+    },
+    {
+      "id": 209,
+      "name": "AI agents & assistants",
+      "priority": 8
+    },
+    {
+      "id": 210,
+      "name": "Workflow automation",
+      "priority": 7
+    },
+    {
+      "id": 211,
+      "name": "Observability",
+      "priority": 7
+    }
+  ],
+  "addedFromUpstream": [
+    "321 CMS",
+    "AbanteCart",
+    "AboutMyClinic",
+    "AccessiWay",
+    "ActivEngage",
+    "Adenzo",
+    "Adwos CMS",
+    "Agendize",
+    "Akia",
+    "AllMyLinks",
+    "Angular Notitia",
+    "Anthropic",
+    "Anubis",
+    "Apanio",
+    "Apruvd",
+    "Armin",
+    "Artifi",
+    "AskHandle",
+    "Athos Commerce",
+    "Avasam",
+    "AvidAI",
+    "BITE",
+    "Balance",
+    "Bear Blog",
+    "BedBooking",
+    "Belliza",
+    "Benchmark",
+    "Bitmovin",
+    "Blankshield",
+    "Blockly",
+    "BlogHunch",
+    "Blue Corona",
+    "Boberdoo",
+    "BokaBord",
+    "Bomb Bomb",
+    "BookBanket",
+    "Booker",
+    "BookingKoala",
+    "Booklux",
+    "Botsplash",
+    "Brafton",
+    "Brivity",
+    "Bsport",
+    "CHIIRP",
+    "Callgear",
+    "Canyon",
+    "Capsule CRM",
+    "CarWeb",
+    "Caremerge",
+    "Cartline",
+    "Cartylabs",
+    "Chimpify",
+    "CitrusLime",
+    "Cloudflare Turnstile for WooCommerce",
+    "Commercy",
+    "ComplyAuto",
+    "Conduze",
+    "Convious",
+    "CookieBAR",
+    "Cool Popup",
+    "CoreMedia",
+    "Curated",
+    "Dapta",
+    "DataGrail",
+    "Databuddy",
+    "Devuelving",
+    "DialogTab",
+    "Divide",
+    "Doctena",
+    "DrChrono",
+    "DreamROI",
+    "DressOn",
+    "Droplabs",
+    "Eaglecart",
+    "EdgeOne",
+    "Elloha",
+    "Employment Hero",
+    "Enzuzo",
+    "Eviivo",
+    "EyeFitU",
+    "Famous.ai",
+    "Farazi Bilişim",
+    "FeatherPanel",
+    "Fider",
+    "Fieldd",
+    "FinConnect",
+    "Fixer",
+    "ForeUP",
+    "FormBucket",
+    "Formalize CSS",
+    "Formtoro",
+    "Forumbee",
+    "Full On Sport",
+    "GOb2b",
+    "GOrendezvous",
+    "Genially",
+    "Grappos",
+    "GuildQuality",
+    "GuppY",
+    "Hearth",
+    "Help.com",
+    "HelpCrunch",
+    "HigherMe HR",
+    "Hotbot",
+    "HumHub",
+    "Indeed",
+    "Influenster",
+    "Informizely",
+    "Innovorder",
+    "Inplayer",
+    "Inso",
+    "Interago",
+    "Intervo",
+    "Iteras",
+    "JamFeed",
+    "KRT CDN",
+    "KVCore",
+    "KYKLO",
+    "KaliCart Bridge",
+    "Kapa.ai",
+    "Kauz",
+    "Kiprotect",
+    "Kit",
+    "Kiwify",
+    "Kleecks",
+    "Leads2b",
+    "LeadsLeap",
+    "Leaky Paywall",
+    "Learnbase",
+    "Line-Up",
+    "Liscio",
+    "LocalSignal",
+    "LogMeIn",
+    "Logaholic",
+    "Lovi",
+    "MVD Studio",
+    "Maguru",
+    "Mailshake",
+    "Makeplans",
+    "Mangomint",
+    "Mega",
+    "Membership Toolkit",
+    "MembershipWorks",
+    "Menuu",
+    "MessageMedia",
+    "Mexty",
+    "Mico",
+    "MiniBC",
+    "Moofx",
+    "MoreVago",
+    "MyCred",
+    "MyPersonas",
+    "MyPlay",
+    "NOCNOK",
+    "Naukri",
+    "NeoAsist",
+    "Nepcha Analytics",
+    "Nexxtmove",
+    "NinjaCat",
+    "Norse Env",
+    "NovaDB",
+    "Novaresa",
+    "Omega Commerce",
+    "OnChat",
+    "Online Succes",
+    "OpnForm",
+    "Optinopoli",
+    "PageNudge",
+    "PagineGialle",
+    "Pancake",
+    "Partner Fleet",
+    "PatientLoop",
+    "Paycove",
+    "Paymattic",
+    "Payva",
+    "Peachie",
+    "Personyze",
+    "Pilera",
+    "Pixeleze",
+    "Premion",
+    "Printlane",
+    "Prosperous AI",
+    "Publive",
+    "Quadran",
+    "Qualitando",
+    "Qualva",
+    "Quicksprout",
+    "RE-OS.com",
+    "REsimpli",
+    "Rcode Vision",
+    "ReSpec",
+    "Read the Docs",
+    "Recommy",
+    "Recras",
+    "Refix",
+    "Remedo",
+    "ReplyBox",
+    "Resonate",
+    "Returnflows",
+    "Rezku",
+    "RhinoFit",
+    "Rispose",
+    "Robarov",
+    "Rofofk",
+    "RomanCart",
+    "Roya",
+    "Ruttl",
+    "Ruzuku",
+    "Sameday",
+    "Sanity.io",
+    "Satūs",
+    "SeedGrow",
+    "Segmetrics",
+    "Selligent",
+    "SeoToaster CMS",
+    "ShopStyle",
+    "Shopiteka",
+    "Shopsys",
+    "Singenuity",
+    "SiteGPT",
+    "SiteGalore",
+    "Sketchanet",
+    "SkyCMS by Netkoncept",
+    "SmartEmailing",
+    "SnatchBot",
+    "Socure",
+    "Soffront CRM",
+    "Sourcey",
+    "Sporcle",
+    "SquadUP",
+    "Stampede",
+    "Stockist",
+    "StoragePug",
+    "Store Vantage",
+    "Storenvy",
+    "StyleSeat",
+    "Subscrimia",
+    "Tagalys",
+    "Tanx",
+    "Tempus",
+    "Thinkstack",
+    "TimeTap",
+    "Timepad",
+    "TrackFox",
+    "Travello",
+    "Tulo",
+    "TuoTempo",
+    "TutorCruncher",
+    "Twsaa",
+    "UXSniff",
+    "Unblu Virtual Agent",
+    "Uniform Digital Experience",
+    "Ureserv",
+    "Useberry",
+    "Vagaro",
+    "Vera",
+    "VeraCore",
+    "VertaFlow",
+    "VertaFlow Analytics",
+    "VertaFlow Booking",
+    "VertaFlow Chat",
+    "VertaFlow Forms",
+    "VikaOn",
+    "VirtFusion",
+    "VisBook",
+    "Vizium",
+    "Voizee",
+    "Voucherify",
+    "W3 Ataiva",
+    "WP SEO AI",
+    "WebAdministrator CMS",
+    "WebAwesome",
+    "Weblate",
+    "Weezevent",
+    "Wehaa",
+    "Whelp",
+    "Wholesale Suite",
+    "WhosOn",
+    "Wishloop",
+    "Workplace by Meta",
+    "Wx3",
+    "Wyre",
+    "X-Clacks-Overhead",
+    "Yell eCommerce",
+    "Yomdel",
+    "YouLead",
+    "YourGPT",
+    "Zad",
+    "Zadarma",
+    "Zammad",
+    "Zapier",
+    "Zapnito",
+    "Zensical",
+    "Zevioo",
+    "Ziber",
+    "Zipleads",
+    "Znode",
+    "Zozi",
+    "Zulip",
+    "Zyratalk",
+    "autoship",
+    "bun",
+    "digi·access",
+    "doxo",
+    "eKonsilio",
+    "eZCater",
+    "eola",
+    "ezyVet",
+    "freewebstore",
+    "getUBetter",
+    "iMagaza",
+    "iTCHYROBOT",
+    "n8n",
+    "opentelemetry",
+    "theCut",
+    "tlooto",
+    "true",
+    "uSocial"
+  ],
+  "addedForRequest": [
+    {
+      "name": "1Password",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "AI21 Labs",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Adobe Acrobat Sign",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Adobe Identity Management",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Airbyte",
+      "channels": [
+        "html",
+        "meta",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Aleph Alpha",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Alibaba Cloud Model Studio",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "AlphaFold",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Amazon Bedrock",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Amazon Q",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Amazon SageMaker",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Anthropic API",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Anyscale",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Apache Airflow",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Apache Flink",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Apache Kafka",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Apache Spark",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Apache Superset",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Appsmith",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "ArgoCD",
+      "channels": [
+        "cookies",
+        "html"
+      ]
+    },
+    {
+      "name": "AssemblyAI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Atlassian Cloud",
+      "channels": [
+        "dns",
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "AutoGPT Platform",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Autodesk",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Automation Anywhere",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Azure AI Foundry",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Azure OpenAI Service",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Azure Synapse Analytics",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Baidu ERNIE",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "BentoML",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Box",
+      "channels": [
+        "dns",
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Buildkite",
+      "channels": [
+        "dom"
+      ]
+    },
+    {
+      "name": "C3 AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Cerebras",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Character.AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Chroma",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Chronosphere",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "CircleCI",
+      "channels": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Cisco Cloud",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Clari",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Claude Enterprise",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "ClickHouse",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "CockroachDB",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Coda",
+      "channels": [
+        "dns",
+        "dom"
+      ]
+    },
+    {
+      "name": "Cohere",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Copy.ai",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "CrewAI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Crossplane",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Cursor",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "DVC",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Dagster",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "DataRobot",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Dataiku",
+      "channels": [
+        "url",
+        "xhr"
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Dell Technologies Cloud",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Descript",
+      "channels": [
+        "dom",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "DuckDB",
+      "channels": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "ElevenLabs",
+      "channels": [
+        "dns",
+        "dom",
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Figma",
+      "channels": [
+        "dns",
+        "dom",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Fivetran",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Geotab",
+      "channels": [
+        "dom",
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "GitHub",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Glean",
+      "channels": [
+        "dom",
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Google BigQuery",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Google Gemini API",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Google Vertex AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Grammarly",
+      "channels": [
+        "dom",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Groq",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "H2O.ai",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "HPE GreenLake",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "HackerOne",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Harvey",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "HashiCorp Cloud Platform",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Hex",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Honeycomb",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Hugging Face",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "IBM Cloud",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "IBM watsonx",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Ideogram",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Inflection AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Intuit QuickBooks",
+      "channels": [
+        "dom",
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Island Enterprise Browser",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Istio",
+      "channels": [
+        "headers"
+      ]
+    },
+    {
+      "name": "Jamf",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Jasper",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "JetBrains IDEs",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Kedro",
+      "channels": []
+    },
+    {
+      "name": "Kedro-Viz",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Kiali",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Kling AI",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Kubeflow",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Kubernetes",
+      "channels": []
+    },
+    {
+      "name": "Lambda Cloud",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "LangGraph",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "LangSmith",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Leonardo AI",
+      "channels": [
+        "dom",
+        "html"
+      ]
+    },
+    {
+      "name": "Linkerd",
+      "channels": [
+        "headers"
+      ]
+    },
+    {
+      "name": "Llama API",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Luma AI",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Lytx",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "MLflow",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Make",
+      "channels": [
+        "dns",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Meta AI",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Metabase",
+      "channels": [
+        "cookies",
+        "html"
+      ]
+    },
+    {
+      "name": "Metaflow",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Midjourney",
+      "channels": [
+        "dom",
+        "html"
+      ]
+    },
+    {
+      "name": "Miro",
+      "channels": [
+        "dns",
+        "dom",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Mistral AI",
+      "channels": [
+        "dns",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Modal",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Monday.com",
+      "channels": [
+        "dns",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Moveworks",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "MuleSoft",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "NVIDIA NIM",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Neon",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Observable",
+      "channels": [
+        "dom",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "OpenAI API",
+      "channels": [
+        "dns",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Oracle Cloud Infrastructure",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Otter.ai",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Outreach",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "PTC ThingWorx",
+      "channels": [
+        "url",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Perplexity Enterprise",
+      "channels": [
+        "dns",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Pika",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Pinecone",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "PlanetScale",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Postman",
+      "channels": [
+        "dns",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Prefect",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Prometheus",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Pulumi",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Qdrant",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Qualcomm AI Hub",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Rancher",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Ray",
+      "channels": [
+        "html"
+      ]
+    },
+    {
+      "name": "Red Hat OpenShift",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Reka AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Replicate",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Runway",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "SAP SuccessFactors",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "SAS Viya",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Samsara",
+      "channels": [
+        "dom",
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Samsara Assistant",
+      "channels": []
+    },
+    {
+      "name": "Scale AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Schneider EcoStruxure",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "ScyllaDB",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Seldon Core",
+      "channels": [
+        "url"
+      ]
+    },
+    {
+      "name": "Siemens Xcelerator",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Sigma Computing",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Slack",
+      "channels": [
+        "dns",
+        "dom",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Smartsheet",
+      "channels": [
+        "dns",
+        "dom"
+      ]
+    },
+    {
+      "name": "Snowflake",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Snyk",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Sourcegraph Amp",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Stability AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Suno",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Superblocks",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Synthesia",
+      "channels": [
+        "dom",
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Tabnine",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "ThoughtSpot",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "TiDB",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Tines",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Together AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Tome",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Travis CI",
+      "channels": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Tray.io",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Turso",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Udio",
+      "channels": [
+        "dom"
+      ]
+    },
+    {
+      "name": "UiPath",
+      "channels": [
+        "scriptSrc",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Unleash",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "VMware Cloud",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "VS Code for the Web",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Verizon Connect",
+      "channels": [
+        "dom",
+        "scriptSrc",
+        "url",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Verizon Connect Reveal",
+      "channels": [
+        "scriptSrc",
+        "url"
+      ]
+    },
+    {
+      "name": "Volcengine Ark",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Weaviate",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Weights & Biases",
+      "channels": [
+        "dom",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Windsurf",
+      "channels": [
+        "dns",
+        "xhr"
+      ]
+    },
+    {
+      "name": "Wiz",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Workato",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Wrike",
+      "channels": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Writer",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "You.com",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "ZenML",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Zhipu AI",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Zoom",
+      "channels": [
+        "dns",
+        "dom",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "dbt",
+      "channels": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "fal.ai",
+      "channels": [
+        "html",
+        "xhr"
+      ]
+    },
+    {
+      "name": "xAI Grok",
+      "channels": [
+        "xhr"
+      ]
+    }
+  ],
+  "addedTaxonomyOnly": [
+    "Abnormal Security",
+    "CrowdStrike Falcon",
+    "Lacework",
+    "Model Context Protocol",
+    "NVIDIA Jetson",
+    "Neovim",
+    "Netskope",
+    "Orca Security",
+    "Phind",
+    "SentinelOne",
+    "Zed",
+    "Zscaler",
+    "pgvector"
+  ],
+  "removedTechnologies": [],
+  "changed": [
+    {
+      "name": ".NET Framework",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "scripts"
+      ],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "6sense",
+      "fieldsAdded": [
+        "oss",
+        "xhr"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "ADITION technologies",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "AWS AppSync",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "AWS Artifact",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "probe"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "AWStats",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Accenture Duck Creek",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "AdStir",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Adobe Media Optimizer",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "uncat",
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Airtable",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Alfahosting DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "All in One SEO",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Altcha",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "pricing"
+      ]
+    },
+    {
+      "name": "Amazon Ad System",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "keywords"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Amazon Augmented AI (Amazon A2I)",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "implies"
+      ]
+    },
+    {
+      "name": "Amazon Connect",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Amazon EC2 Reserved Instances",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Amazon Elastic Container Service For Kubernetes (Eks)",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Amazon Kinesis",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Amazon Redshift",
+      "fieldsAdded": [
+        "icon",
+        "saas",
+        "oss",
+        "xhr"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "Amazon Widgets",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Apache Iceberg",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Apple Numbers",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "mime"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Appwrite",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Atlassian Crucible",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Azure DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Azure HDI",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "text",
+        "dom"
+      ]
+    },
+    {
+      "name": "BMC Release",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "implies"
+      ]
+    },
+    {
+      "name": "Bing Maps",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Birdeye",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Blackbaud Luminate Online",
+      "fieldsAdded": [
+        "cookies"
+      ],
+      "fieldsRemoved": [
+        "regex"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Blackbaud TeamRaiser",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Blackboard",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "BlueKai",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Bootstrap",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "CCH Site Builder",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [
+        "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Canva",
+      "fieldsAdded": [
+        "oss",
+        "dns",
+        "dom"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "Casewise",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [
+        "scripts"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Certona",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Citrix NetScaler",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ClassiPress",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "keywords"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "ClickUp",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Contentstack",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Cosmoshop",
+      "fieldsAdded": [
+        "meta",
+        "url"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Crazy Domains DNS Hosting",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Customizr",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [
+        "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Databricks",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Databricks (AWS)",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Detectify",
+      "fieldsAdded": [
+        "saas",
+        "oss"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Digg Digg",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [
+        "env"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Digi Connect",
+      "fieldsAdded": [
+        "icon"
+      ],
+      "fieldsRemoved": [
+        "icons"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Dinahosting DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "DiskStation Manager",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script",
+        "ssl"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Docker",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "DocuSign",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Dropbox",
+      "fieldsAdded": [
+        "description",
+        "saas",
+        "oss",
+        "xhr",
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats",
+        "dns"
+      ]
+    },
+    {
+      "name": "Dynatrace",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Dynatrace Application Monitoring",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Easy FancyBox",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "dom",
+        "examples",
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Easy Social Share Buttons for WordPress",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "ElasticSuite",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Enfold",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts",
+        "css"
+      ]
+    },
+    {
+      "name": "FLV Player",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Facebook Comments",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "language",
+        "category"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Facebook Like Button",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Facebook Login Button",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Featherlight",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "npm"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Finsweet",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Fisheye",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "tags",
+        "excludes"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Force.com",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Forcepoint CASB",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "Forpsi DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "FortiWeb",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "version"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Frontpage Slideshow",
+      "fieldsAdded": [
+        "html"
+      ],
+      "fieldsRemoved": [
+        "tests"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Genesys Workforce Management",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "GitLab",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "GlobalSign EV",
+      "fieldsAdded": [
+        "certIssuer"
+      ],
+      "fieldsRemoved": [
+        "ssl"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "GoDaddy DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "GoToAssist",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Google APIs",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Google AdSense",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Google Consumer Surveys",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Google Dataproc",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Google Universal Analytics",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Google Workspace",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "HERE Maps API",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Helm",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom",
+        "probe"
+      ]
+    },
+    {
+      "name": "Henry Schein Rapport",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Hetzner DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "HiChina DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Hostpoint DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "IBM Cloudant",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "excludes"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "IFS Enterprise Asset Management",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "probe"
+      ]
+    },
+    {
+      "name": "Immuta",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom",
+        "meta"
+      ]
+    },
+    {
+      "name": "InstantSearch+",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "Intercom",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "JTL Shop",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "JW Player",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Juniper",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "excludes"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Kameleoon",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Kimonix",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts"
+      ]
+    },
+    {
+      "name": "Klaviyo",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Kubernetes Dashboard",
+      "fieldsAdded": [
+        "description",
+        "saas",
+        "oss",
+        "html",
+        "implies"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "LaunchDarkly",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Lightspeed eCom",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Lijit",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Linear",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "LinkedIn Insight Tag",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Livewire",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Locomotive Scroll",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Loom",
+      "fieldsAdded": [
+        "description",
+        "oss",
+        "dom"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats",
+        "dns"
+      ]
+    },
+    {
+      "name": "Lovable",
+      "fieldsAdded": [
+        "dns",
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "MadCap Flare",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "developer"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Magento Business Intelligence",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Matomo Analytics",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts"
+      ]
+    },
+    {
+      "name": "Maxymiser",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "MicroAd",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "MicroAd COMPASS",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Microsoft 365",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Microsoft Azure Site Recovery",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Microsoft Azure Table storage",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "probe"
+      ]
+    },
+    {
+      "name": "Microsoft Commerce Server",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cookies"
+      ]
+    },
+    {
+      "name": "Microsoft FrontPage",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [
+        "slug",
+        "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Microsoft Insider Risk Management",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Microsoft Power BI",
+      "fieldsAdded": [
+        "js",
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Microsoft SQL Server",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Mixpanel",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "MongoDB",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Motive",
+      "fieldsAdded": [
+        "oss",
+        "scriptSrc",
+        "xhr",
+        "dom"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "My Calendar",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Namecheap DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "NetIQ Access Manager",
+      "fieldsAdded": [
+        "cats"
+      ],
+      "fieldsRemoved": [
+        "categories"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Netlify",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Niagahoster",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "implies"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Nielsen NetRatings SiteCensus",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Notion",
+      "fieldsAdded": [
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Numberly MarTech Platform",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "OVH",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Office 365",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "apps"
+      ],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "OneTrust",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "OpenText WEM",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "regex",
+        "script"
+      ],
+      "valuesChanged": [
+        "headers"
+      ]
+    },
+    {
+      "name": "Oracle Eloqua",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Oracle Endeca Information Discovery",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [
+        "scripts"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Oracle WebCenter Sites",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "PHP",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "PRTG Network Monitor",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts"
+      ]
+    },
+    {
+      "name": "Palo Alto Networks",
+      "fieldsAdded": [
+        "description",
+        "saas",
+        "oss",
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "Pegasus Reservation Platform",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "html",
+        "scripts"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Pendo",
+      "fieldsAdded": [
+        "oss",
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Porto",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "css"
+      ]
+    },
+    {
+      "name": "PowerPress",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "examples"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Prepr",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "PrestaShop",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ProProfs Chat",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Qubit Universal Variable",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Quest Foglight",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Radix UI",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "css"
+      ]
+    },
+    {
+      "name": "Redux",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Remodal",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "examples",
+        "npm"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Riskified",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Salesforce Communities",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom",
+        "meta",
+        "probe"
+      ]
+    },
+    {
+      "name": "Salesforce Education Cloud",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "text",
+        "dom",
+        "meta"
+      ]
+    },
+    {
+      "name": "Salesforce Live Agent",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Salesforce Mobile Push",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "implies"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Salesforce Remedyforce",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "url"
+      ]
+    },
+    {
+      "name": "Salesforce SPF",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns",
+        "text"
+      ]
+    },
+    {
+      "name": "Salesforce Sales Cloud",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "scripts"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Salesforce Service Cloud",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "pricing",
+        "text"
+      ]
+    },
+    {
+      "name": "Salesforce Work.Com",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Salla",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Segment",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "ServiceNow Agile Development",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom",
+        "meta"
+      ]
+    },
+    {
+      "name": "ServiceNow Application Portfolio Management (APM)",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "xhr",
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Automated Test Framework",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Business Continuity",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "text",
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Change Management",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Configuration Management Database (CMDB)",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "text",
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Cost Management",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Demand Management",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Governance, Risk, and Compliance (GRC)",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom",
+        "probe"
+      ]
+    },
+    {
+      "name": "ServiceNow IT Operations Management",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "text",
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Now Platform App Engine",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "probe"
+      ]
+    },
+    {
+      "name": "ServiceNow Problem Management",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "text"
+      ]
+    },
+    {
+      "name": "ServiceNow Request Management",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "probe"
+      ]
+    },
+    {
+      "name": "ServiceNow Resource Management",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Security Incident Response",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "text",
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Security Operations (SecOps)",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "probe"
+      ]
+    },
+    {
+      "name": "ServiceNow Service Level Management (SLM)",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom",
+        "probe"
+      ]
+    },
+    {
+      "name": "ServiceNow Visual Task Boards",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "ServiceNow Vulnerability Response",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Servicenow Vendor Risk Management",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Shopware",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Sidr",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "keywords"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Siebel",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Simple Social Icons",
+      "fieldsAdded": [
+        "html"
+      ],
+      "fieldsRemoved": [
+        "stylesheets"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Sitecore",
+      "fieldsAdded": [
+        "headers",
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Sitelinks Search Box",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "enhanced",
+        "schemaOrg"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "SmarterStats",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [
+        "scripts"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "SocialShopWave",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "SockJS",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Software AG NATURAL",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "probe"
+      ]
+    },
+    {
+      "name": "SolidJS",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Spacious",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Spring Framework",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "name"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Stackify Retrace",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Stripe Checkout",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "SuccessFactors LMS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "slug"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Supabase",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Svelte",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Tailwind CSS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "TeamViewer",
+      "fieldsAdded": [
+        "oss",
+        "dns"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "Telerik UI for ASP.NET AJAX",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Tenrox",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "excludes"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Textalk Webshop",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "html"
+      ]
+    },
+    {
+      "name": "Thomson Reuters ONESOURCE",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "TomTom Maps API",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "TransIP DNS",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Turbopack",
+      "fieldsAdded": [
+        "oss",
+        "requires"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Twenty Twenty-Two",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Twilio Flex",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Twilio Video",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Twitter Conversion Tag",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Umbraco",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts"
+      ]
+    },
+    {
+      "name": "VMware Tanzu",
+      "fieldsAdded": [
+        "meta"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "VisitorTrack",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "WP Customer Reviews",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "WURFL.js",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "WebSocket",
+      "fieldsAdded": [
+        "headers"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Website Tonight",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "WiredMinds",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "WooCommerce",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Workday",
+      "fieldsAdded": [
+        "oss",
+        "dom",
+        "xhr"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "Xaxis",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": [
+        "dns"
+      ]
+    },
+    {
+      "name": "Xtime",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
+      "name": "Yandex Maps",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Yandex SmartCaptcha",
+      "fieldsAdded": [
+        "js",
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Yola",
+      "fieldsAdded": [
+        "dom"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "ZenBasket",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Zoho",
+      "fieldsAdded": [
+        "oss"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "cats",
+        "dns"
+      ]
+    },
+    {
+      "name": "anime.js",
+      "fieldsAdded": [
+        "headers"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "dc.js",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "jQuery",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "jQuery BlockUI",
+      "fieldsAdded": [
+        "requires",
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "npm"
+      ],
+      "valuesChanged": [
+        "cats"
+      ]
+    },
+    {
+      "name": "jQuery Masked Input Plugin",
+      "fieldsAdded": [
+        "js"
+      ],
+      "fieldsRemoved": [
+        "env"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "jQuery Unobtrusive Ajax",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "npm"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "noUiSlider",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "npm"
+      ],
+      "valuesChanged": []
+    }
+  ]
+}

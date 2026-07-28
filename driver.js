@@ -3,11 +3,31 @@ const dns = require('dns').promises
 const path = require('path')
 const http = require('http')
 const https = require('https')
+
+// Checked before Puppeteer is required. On an unsupported Node the require below
+// throws ERR_REQUIRE_ESM from inside Puppeteer's module graph, which gives no
+// clue that the Node version is the cause.
+const { assertSupportedNode } = require('./scripts/lib/engine')
+
+assertSupportedNode(
+    JSON.parse(
+        fs.readFileSync(path.resolve(`${__dirname}/package.json`), 'utf8')
+    ).engines.node
+)
+
 const puppeteer = require('puppeteer')
 const Wappalyzer = require('./wappalyzer')
 
-const { setTechnologies, setCategories, analyze, analyzeManyToMany, resolve } =
-    Wappalyzer
+const {
+    setTechnologies,
+    setCategories,
+    analyze,
+    analyzeJs,
+    analyzeDom,
+    resolve,
+} = Wappalyzer
+
+const { analyzeText } = require('./scripts/lib/text-signals')
 
 const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS } =
     process.env
@@ -47,8 +67,17 @@ for (const index of Array(27).keys()) {
     }
 }
 
-setTechnologies(technologies)
 setCategories(categories)
+setTechnologies(technologies)
+
+// Catalog defects are collected rather than thrown so a single bad entry cannot
+// abort a scan. Surface them once at load time; `npm test` fails on any of them.
+if (Wappalyzer.errors.length && process.env.WAPPALYZER_DEBUG) {
+    for (const { type, technology, message } of Wappalyzer.errors) {
+        // eslint-disable-next-line no-console
+        console.error(`Catalog defect [${type}] ${technology}: ${message}`)
+    }
+}
 
 const xhrDebounce = []
 
@@ -66,25 +95,34 @@ function getJs(page, technologies = Wappalyzer.technologies) {
                     chain = chain.replace(/\[([^\]]+)\]/g, '.$1')
 
                     const parts = chain.split('.')
+                    let root
+                    let value
 
-                    const root = /^[a-z_$][a-z0-9_$]*$/i.test(parts[0])
-                        ? // eslint-disable-next-line no-new-func
-                        new Function(
-                            `return typeof ${
+                    try {
+                        root = /^[a-z_$][a-z0-9_$]*$/i.test(parts[0])
+                            ? // eslint-disable-next-line no-new-func
+                            new Function(
+                                `return typeof ${
 parts[0]
 } === 'undefined' ? undefined : ${parts.shift()}`
-                        )()
-                        : window
+                            )()
+                            : window
 
-                    const value = parts.reduce(
-                        (value, method) =>
-                            value &&
-                                value instanceof Object &&
-                                Object.prototype.hasOwnProperty.call(value, method)
-                                ? value[method]
-                                : '__UNDEFINED__',
-                        root || '__UNDEFINED__'
-                    )
+                        value = parts.reduce(
+                            (value, method) =>
+                                value &&
+                                    value instanceof Object &&
+                                    Object.prototype.hasOwnProperty.call(value, method)
+                                    ? value[method]
+                                    : '__UNDEFINED__',
+                            root || '__UNDEFINED__'
+                        )
+                    } catch (error) {
+                        // Some cross-origin or sandboxed documents throw on
+                        // globals such as sessionStorage. One inaccessible
+                        // property must not abort the whole page scan.
+                        return
+                    }
 
                     if (value !== '__UNDEFINED__') {
                         technologies.push({
@@ -101,18 +139,6 @@ parts[0]
                 return technologies
             }, [])
     }, technologies)
-}
-
-function analyzeJs(js, technologies = Wappalyzer.technologies) {
-    return js
-        .map(({ name, chain, value }) => {
-            return analyzeManyToMany(
-                technologies.find(({ name: _name }) => name === _name),
-                'js',
-                { [chain]: [value] }
-            )
-        })
-        .flat()
 }
 
 function getDom(page, technologies = Wappalyzer.technologies) {
@@ -250,38 +276,6 @@ function getDom(page, technologies = Wappalyzer.technologies) {
     }, technologies)
 }
 
-function analyzeDom(dom, technologies = Wappalyzer.technologies) {
-    return dom
-        .map(({ name, selector, exists, text, property, attribute, value }) => {
-            const technology = technologies.find(({ name: _name }) => name === _name)
-
-            if (typeof exists !== 'undefined') {
-                return analyzeManyToMany(technology, 'dom.exists', {
-                    [selector]: [''],
-                })
-            }
-
-            if (typeof text !== 'undefined') {
-                return analyzeManyToMany(technology, 'dom.text', {
-                    [selector]: [text],
-                })
-            }
-
-            if (typeof property !== 'undefined') {
-                return analyzeManyToMany(technology, `dom.properties.${property}`, {
-                    [selector]: [value],
-                })
-            }
-
-            if (typeof attribute !== 'undefined') {
-                return analyzeManyToMany(technology, `dom.attributes.${attribute}`, {
-                    [selector]: [value],
-                })
-            }
-        })
-        .flat()
-}
-
 function get(url, options = {}) {
     const timeout =
         options.timeout ||
@@ -340,6 +334,7 @@ class Driver {
             maxWait: 30000,
             recursive: false,
             probe: false,
+            textSignals: false,
             proxy: false,
             noScripts: false,
             userAgent:
@@ -365,6 +360,7 @@ class Driver {
         this.options.htmlMaxRows = parseInt(this.options.htmlMaxRows, 10)
         this.options.noScripts = Boolean(+this.options.noScripts)
         this.options.extended = Boolean(+this.options.extended)
+        this.options.textSignals = Boolean(+this.options.textSignals)
 
         if (this.options.proxy) {
             chromiumArgs.push(`--proxy-server=${this.options.proxy}`)
@@ -429,8 +425,11 @@ class Driver {
 
     async open(url, headers = {}, storage = {}) {
         const site = new Site(url.split('#')[0], headers, this)
+        const hasStorage = ['local', 'session'].some(
+            (type) => Object.keys(storage[type] || {}).length
+        )
 
-        if (storage.local || storage.session) {
+        if (hasStorage) {
             this.log('Setting storage...')
 
             const page = await site.newPage(site.originalUrl)
@@ -497,6 +496,7 @@ class Site {
         }
 
         this.analyzedXhr = {}
+        this.textSignals = []
         this.analyzedRequires = {}
         this.detections = []
 
@@ -1015,6 +1015,21 @@ class Site {
                 meta,
             }
 
+            // Text-mined signals are an inference about the company, not a
+            // detection of this page, so they are collected separately and never
+            // merged into this.detections. See scripts/lib/text-signals.js.
+            if (this.options.textSignals) {
+                for (const signal of analyzeText({ text, url: url.href })) {
+                    const seen = this.textSignals.find(
+                        ({ technology }) => technology === signal.technology
+                    )
+
+                    if (!seen) {
+                        this.textSignals.push({ ...signal, url: url.href })
+                    }
+                }
+            }
+
             await this.onDetect(
                 url,
                 [
@@ -1236,6 +1251,9 @@ class Site {
 
         const results = {
             urls: this.analyzedUrls,
+            // Kept separate from `technologies`: a hiring signal is an inference
+            // about the company, not a detection of the site.
+            signals: this.textSignals,
             technologies: resolve(this.detections).map(
                 ({
                     slug,
@@ -1246,6 +1264,8 @@ class Site {
                     icon,
                     website,
                     cpe,
+                    saas,
+                    oss,
                     categories,
                     rootPath,
                 }) => ({
@@ -1257,6 +1277,8 @@ class Site {
                         icon,
                         website,
                         cpe,
+                        saas,
+                        oss,
                         categories: categories.map(({ id, slug, name }) => ({
                             id,
                             slug,

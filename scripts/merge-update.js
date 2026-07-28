@@ -1,36 +1,46 @@
 #!/usr/bin/env node
 
 /**
- * Script to update technologies from upstream WITHOUT losing custom technologies.
- * 
- * What it does:
- * 1. Downloads new technologies from GitHub (enthec/webappanalyzer)
- * 2. Preserves custom technologies (that don't exist in upstream)
- * 3. Updates existing technologies with versions from upstream
- * 4. Adds new technologies from upstream
- * 
- * Usage: 
- *   node scripts/merge-update.js           # Performs the actual update
- *   node scripts/merge-update.js --dry-run # Shows what it would do without modifying
- *   node scripts/merge-update.js --report  # Only difference report
+ * Pulls technology definitions from upstream (enthec/webappanalyzer) into this
+ * fork without losing local work, then normalizes and validates the result.
+ *
+ * The merge is additive at field level. The previous version replaced any shared
+ * technology with upstream's copy, which quietly discarded locally-authored
+ * fingerprints: Salesforce Service Cloud and Microsoft Application Insights, for
+ * example, both carry local cookie/dom/meta/xhr patterns and far more specific
+ * scriptSrc lists than upstream ships. See scripts/lib/merge.js for the policy.
+ *
+ * Usage:
+ *   node scripts/merge-update.js              # merge, normalize, validate
+ *   node scripts/merge-update.js --dry-run    # report only, touch nothing
+ *   node scripts/merge-update.js --report     # upstream diff summary and stop
+ *   node scripts/merge-update.js --no-backup  # skip the timestamped backup
+ *   node scripts/merge-update.js --normalize  # normalize locally, no clone
  */
 
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+const fs = require('fs')
+const os = require('os')
+const path = require('path')
+const { execFileSync } = require('child_process')
 
-const UPSTREAM_REPO = 'https://github.com/enthec/webappanalyzer.git';
-const TEMP_DIR = '/tmp/webappanalyzer_update';
-const TECHNOLOGIES_DIR = path.resolve(__dirname, '../technologies');
-const CATEGORIES_FILE = path.resolve(__dirname, '../categories.json');
-const BACKUP_DIR = path.resolve(__dirname, '../backup');
+const { loadCatalog, saveCatalog, mergeCategories } = require('./lib/catalog')
+const { mergeCatalog } = require('./lib/merge')
+const { normalizeCatalog } = require('./lib/normalize')
+const { EXTRA_CATEGORIES } = require('./lib/categories-extra')
 
-// Parse arguments
-const args = process.argv.slice(2);
-const DRY_RUN = args.includes('--dry-run');
-const REPORT_ONLY = args.includes('--report');
+const UPSTREAM_REPO = 'https://github.com/enthec/webappanalyzer.git'
+const ROOT = path.resolve(__dirname, '..')
+const TECHNOLOGIES_DIR = path.join(ROOT, 'technologies')
+const CATEGORIES_FILE = path.join(ROOT, 'categories.json')
+const BACKUP_DIR = path.join(ROOT, 'backup')
 
-// Colors for output
+const args = process.argv.slice(2)
+const DRY_RUN = args.includes('--dry-run')
+const REPORT_ONLY = args.includes('--report')
+const NO_BACKUP = args.includes('--no-backup')
+const NORMALIZE_ONLY = args.includes('--normalize')
+const VERBOSE = args.includes('--verbose')
+
 const colors = {
     reset: '\x1b[0m',
     red: '\x1b[31m',
@@ -39,356 +49,263 @@ const colors = {
     blue: '\x1b[34m',
     magenta: '\x1b[35m',
     cyan: '\x1b[36m',
-};
+}
 
 function log(message, color = 'reset') {
-    console.log(`${colors[color]}${message}${colors.reset}`);
+    console.log(`${colors[color]}${message}${colors.reset}`)
 }
 
-function logSection(title) {
-    console.log('\n' + '='.repeat(60));
-    log(title, 'cyan');
-    console.log('='.repeat(60));
+function section(title) {
+    console.log(`\n${'='.repeat(64)}`)
+    log(title, 'cyan')
+    console.log('='.repeat(64))
 }
 
-/**
- * Downloads the upstream repository to a temporary folder
- */
-function downloadUpstream() {
-    logSection('📥 Downloading from GitHub...');
-
-    if (fs.existsSync(TEMP_DIR)) {
-        fs.rmSync(TEMP_DIR, { recursive: true });
+function list(items, limit, color) {
+    for (const item of items.slice(0, limit)) {
+        log(`   - ${item}`, color)
     }
 
-    log(`Cloning ${UPSTREAM_REPO}...`, 'blue');
-    try {
-        execSync(`git clone --depth=1 ${UPSTREAM_REPO} ${TEMP_DIR}`, { stdio: 'pipe' });
-        log('Download complete', 'green');
-    } catch (error) {
-        log(`Download error: ${error.message}`, 'red');
-        process.exit(1);
+    if (items.length > limit) {
+        log(`   ... and ${items.length - limit} more`, color)
     }
 }
 
-/**
- * Loads all technologies from a folder
- */
-function loadTechnologies(folder) {
-    const technologies = {};
-    const files = fs.readdirSync(folder).filter(f => f.endsWith('.json'));
+/** Clone upstream into a fresh temporary directory and return its path. */
+function cloneUpstream() {
+    section('Fetching upstream')
 
-    for (const file of files) {
-        const filePath = path.join(folder, file);
-        try {
-            const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            Object.assign(technologies, content);
-        } catch (error) {
-            log(`Error parsing ${file}: ${error.message}`, 'yellow');
-        }
-    }
-    return technologies;
+    const target = fs.mkdtempSync(path.join(os.tmpdir(), 'webappanalyzer-'))
+
+    log(`Cloning ${UPSTREAM_REPO}`, 'blue')
+
+    execFileSync(
+        'git',
+        ['clone', '--depth=1', '--quiet', UPSTREAM_REPO, target],
+        { stdio: 'pipe' }
+    )
+
+    const revision = execFileSync('git', ['-C', target, 'rev-parse', '--short', 'HEAD'], {
+        encoding: 'utf8',
+    }).trim()
+
+    log(`Cloned at ${revision}`, 'green')
+
+    return target
 }
 
-/**
- * Loads technologies by file
- */
-function loadTechnologiesByFile(folder) {
-    const techByFile = {};
-    const files = fs.readdirSync(folder).filter(f => f.endsWith('.json'));
-
-    for (const file of files) {
-        const filePath = path.join(folder, file);
-        try {
-            techByFile[file] = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        } catch (error) {
-            log(`Error parsing ${file}: ${error.message}`, 'yellow');
-            techByFile[file] = {};
-        }
-    }
-
-    return techByFile;
-}
-
-/**
- * Compares two technology objects and returns the differences
- */
-function compareTechnologies(local, upstream) {
-    const localNames = new Set(Object.keys(local));
-    const upstreamNames = new Set(Object.keys(upstream));
-
-    const onlyLocal = [...localNames].filter(name => !upstreamNames.has(name));
-    const onlyUpstream = [...upstreamNames].filter(name => !localNames.has(name));
-    const inBoth = [...localNames].filter(name => upstreamNames.has(name));
-
-    const modified = inBoth.filter(name => {
-        return JSON.stringify(local[name]) !== JSON.stringify(upstream[name]);
-    });
-
-    return { onlyLocal, onlyUpstream, inBoth, modified };
-}
-
-/**
- * Generates difference report
- */
-function generateReport(diff, local, upstream) {
-    logSection('Difference Report');
-
-    console.log('\nSTATISTICS:');
-    console.log(`   Total local technologies: ${Object.keys(local).length}`);
-    console.log(`   Total technologies in GitHub: ${Object.keys(upstream).length}`);
-    console.log(`   CUSTOM technologies (only yours): ${diff.onlyLocal.length}`);
-    console.log(`   NEW technologies in GitHub: ${diff.onlyUpstream.length}`);
-    console.log(`   MODIFIED technologies in GitHub: ${diff.modified.length}`);
-
-    if (diff.onlyLocal.length > 0) {
-        console.log('\nCUSTOM TECHNOLOGIES (will be PRESERVED):');
-        diff.onlyLocal.slice(0, 50).forEach(name => {
-            log(`   • ${name}`, 'green');
-        });
-        if (diff.onlyLocal.length > 50) {
-            log(`   ... and ${diff.onlyLocal.length - 50} more custom technologies`, 'green');
-        }
-    }
-
-    if (diff.onlyUpstream.length > 0) {
-        console.log('\nNEW TECHNOLOGIES (will be ADDED):');
-        diff.onlyUpstream.slice(0, 30).forEach(name => {
-            log(`   • ${name}`, 'blue');
-        });
-        if (diff.onlyUpstream.length > 30) {
-            log(`   ... and ${diff.onlyUpstream.length - 30} more new technologies`, 'blue');
-        }
-    }
-
-    if (diff.modified.length > 0) {
-        console.log('\nMODIFIED TECHNOLOGIES (will be UPDATED):');
-        diff.modified.slice(0, 20).forEach(name => {
-            log(`   • ${name}`, 'yellow');
-        });
-        if (diff.modified.length > 20) {
-            log(`   ... and ${diff.modified.length - 20} more modified technologies`, 'yellow');
-        }
-    }
-}
-
-/**
- * Creates backup
- */
+/** Copy the current catalog to backup/backup-<timestamp>/. */
 function createBackup() {
-    logSection('Creating backup...');
+    section('Backing up')
 
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backupPath = path.join(BACKUP_DIR, `backup-${timestamp}`);
+    const stamp = new Date().toISOString().replace(/[:.]/g, '-')
+    const target = path.join(BACKUP_DIR, `backup-${stamp}`)
 
-    if (!fs.existsSync(BACKUP_DIR)) {
-        fs.mkdirSync(BACKUP_DIR, { recursive: true });
-    }
+    fs.mkdirSync(path.join(target, 'technologies'), { recursive: true })
 
-    fs.mkdirSync(backupPath);
-
-    const techBackupPath = path.join(backupPath, 'technologies');
-    fs.mkdirSync(techBackupPath);
-
-    const files = fs.readdirSync(TECHNOLOGIES_DIR).filter(f => f.endsWith('.json'));
-    for (const file of files) {
-        fs.copyFileSync(
-            path.join(TECHNOLOGIES_DIR, file),
-            path.join(techBackupPath, file)
-        );
-    }
-
-    // Backup categories.json
-    if (fs.existsSync(CATEGORIES_FILE)) {
-        fs.copyFileSync(CATEGORIES_FILE, path.join(backupPath, 'categories.json'));
-    }
-
-    log(`Backup created at: ${backupPath}`, 'green');
-    return backupPath;
-}
-
-/**
- * Determines in which file a technology should be
- */
-function getFileForTechnology(name) {
-    const firstChar = name.charAt(0).toLowerCase();
-    if (/[a-z]/.test(firstChar)) {
-        return `${firstChar}.json`;
-    }
-    return '_.json';
-}
-
-/**
- * Merges local and upstream technologies
- */
-function mergeTechnologies(localByFile, upstreamByFile, diff) {
-    logSection('Merging technologies...');
-
-    const mergedByFile = {};
-    const allFiles = new Set([...Object.keys(localByFile), ...Object.keys(upstreamByFile)]);
-
-    for (const file of allFiles) {
-        mergedByFile[file] = {};
-    }
-
-    // 1. Add CUSTOM technologies (local only) - THESE ARE PRESERVED
-    log(`\nPreserving ${diff.onlyLocal.length} custom technologies...`, 'green');
-    for (const name of diff.onlyLocal) {
-        const file = getFileForTechnology(name);
-        for (const [localFile, techs] of Object.entries(localByFile)) {
-            if (techs[name]) {
-                mergedByFile[file][name] = techs[name];
-                break;
-            }
+    for (const file of fs.readdirSync(TECHNOLOGIES_DIR)) {
+        if (file.endsWith('.json')) {
+            fs.copyFileSync(
+                path.join(TECHNOLOGIES_DIR, file),
+                path.join(target, 'technologies', file)
+            )
         }
     }
 
-    // 2. Add all technologies from upstream (new + updated)
-    log(`Adding technologies from GitHub...`, 'blue');
-    for (const [file, techs] of Object.entries(upstreamByFile)) {
-        for (const [name, data] of Object.entries(techs)) {
-            mergedByFile[file][name] = data;
+    fs.copyFileSync(CATEGORIES_FILE, path.join(target, 'categories.json'))
+
+    log(`Backup written to ${path.relative(ROOT, target)}`, 'green')
+
+    return target
+}
+
+function reportMerge(result, localCount, upstreamCount) {
+    section('Upstream diff')
+
+    console.log(`   local technologies:    ${localCount}`)
+    console.log(`   upstream technologies: ${upstreamCount}`)
+    console.log(`   local-only (kept):     ${result.localOnly.length}`)
+    console.log(`   new from upstream:     ${result.added.length}`)
+    console.log(`   enriched by upstream:  ${result.merged.length}`)
+
+    if (result.added.length) {
+        console.log('\nNEW FROM UPSTREAM')
+        list(result.added, VERBOSE ? result.added.length : 25, 'blue')
+    }
+
+    if (result.merged.length) {
+        console.log('\nENRICHED (local patterns kept, upstream patterns added)')
+        list(
+            result.merged.map(
+                ({ name, gained }) => `${name}: +${gained.join(', +')}`
+            ),
+            VERBOSE ? result.merged.length : 20,
+            'yellow'
+        )
+    }
+}
+
+function reportNormalize(changes) {
+    section('Normalization')
+
+    if (!changes.length) {
+        log('Nothing to normalize', 'green')
+
+        return
+    }
+
+    const total = changes.reduce((sum, { changes: list }) => sum + list.length, 0)
+
+    log(`${total} change(s) across ${changes.length} technologies`, 'yellow')
+
+    for (const { name, changes: entryChanges } of changes.slice(
+        0,
+        VERBOSE ? changes.length : 25
+    )) {
+        log(`   ${name}`, 'yellow')
+
+        for (const change of entryChanges) {
+            console.log(`      ${change}`)
         }
     }
 
-    // Sort technologies in each file
-    for (const file of Object.keys(mergedByFile)) {
-        const sorted = {};
-        const keys = Object.keys(mergedByFile[file]).sort((a, b) => 
-            a.toLowerCase().localeCompare(b.toLowerCase())
-        );
-        for (const key of keys) {
-            sorted[key] = mergedByFile[file][key];
-        }
-        mergedByFile[file] = sorted;
-    }
-
-    return mergedByFile;
-}
-
-/**
- * Saves technologies to files
- */
-function saveTechnologies(mergedByFile) {
-    logSection('Saving technologies...');
-
-    for (const [file, techs] of Object.entries(mergedByFile)) {
-        if (Object.keys(techs).length === 0) continue;
-
-        const filePath = path.join(TECHNOLOGIES_DIR, file);
-        const content = JSON.stringify(techs, null, 2);
-
-        if (DRY_RUN) {
-            log(`[DRY-RUN] Would save ${Object.keys(techs).length} technologies to ${file}`, 'yellow');
-        } else {
-            fs.writeFileSync(filePath, content);
-            log(`Saved ${Object.keys(techs).length} technologies to ${file}`, 'green');
-        }
+    if (!VERBOSE && changes.length > 25) {
+        log(`   ... and ${changes.length - 25} more (use --verbose)`, 'yellow')
     }
 }
 
-/**
- * Updates categories.json
- */
-function updateCategories() {
-    logSection('Updating categories.json...');
-
-    const upstreamCategoriesPath = path.join(TEMP_DIR, 'src/categories.json');
-
-    if (!fs.existsSync(upstreamCategoriesPath)) {
-        log('categories.json not found in upstream', 'yellow');
-        return;
-    }
-
-    if (DRY_RUN) {
-        log('[DRY-RUN] Would update categories.json', 'yellow');
-    } else {
-        fs.copyFileSync(upstreamCategoriesPath, CATEGORIES_FILE);
-        log('categories.json updated', 'green');
-    }
-}
-
-/**
- * Cleans up temporary resources
- */
-function cleanup() {
-    if (fs.existsSync(TEMP_DIR)) {
-        fs.rmSync(TEMP_DIR, { recursive: true });
-    }
-}
-
-/**
- * Main
- */
-async function main() {
-    log('WAPPALYZER SMART UPDATE', 'magenta');
-    log('Updates from GitHub PRESERVING custom technologies', 'magenta');
-
-    if (DRY_RUN) {
-        log('⚠️  DRY-RUN MODE - No changes will be made\n', 'yellow');
-    }
-    if (REPORT_ONLY) {
-        log('REPORT MODE - Statistics only\n', 'yellow');
-    }
+function runValidator() {
+    section('Validating')
 
     try {
-        // 1. Download upstream
-        downloadUpstream();
+        execFileSync(process.execPath, [path.join(__dirname, 'validate.js')], {
+            stdio: 'inherit',
+        })
 
-        // 2. Load technologies
-        logSection('Loading technologies...');
-        const localTechs = loadTechnologies(TECHNOLOGIES_DIR);
-        const upstreamTechs = loadTechnologies(path.join(TEMP_DIR, 'src/technologies'));
+        log('\nCatalog is coherent with the engine', 'green')
 
-        const localByFile = loadTechnologiesByFile(TECHNOLOGIES_DIR);
-        const upstreamByFile = loadTechnologiesByFile(path.join(TEMP_DIR, 'src/technologies'));
+        return true
+    } catch (error) {
+        log('\nValidation failed - see errors above', 'red')
 
-        log(`Local technologies: ${Object.keys(localTechs).length}`, 'blue');
-        log(`Technologies in GitHub: ${Object.keys(upstreamTechs).length}`, 'blue');
+        return false
+    }
+}
 
-        // 3. Compare and generate report
-        const diff = compareTechnologies(localTechs, upstreamTechs);
-        generateReport(diff, localTechs, upstreamTechs);
+function main() {
+    log('WAPPALYZER CATALOG UPDATE', 'magenta')
+
+    if (DRY_RUN) {
+        log('DRY RUN - nothing will be written', 'yellow')
+    }
+
+    const local = loadCatalog(TECHNOLOGIES_DIR)
+    const localCategories = JSON.parse(fs.readFileSync(CATEGORIES_FILE, 'utf8'))
+
+    if (local.duplicates.length) {
+        section('Duplicate definitions')
+        log(
+            `${local.duplicates.length} technology name(s) defined in more than one ` +
+                'file; the later file wins and the earlier copy is dropped',
+            'yellow'
+        )
+        list(
+            local.duplicates.map(({ name, files }) => `${name} (${files.join(', ')})`),
+            VERBOSE ? local.duplicates.length : 15,
+            'yellow'
+        )
+    }
+
+    let technologies = local.technologies
+    let categories = localCategories
+    let upstreamDir = null
+
+    if (!NORMALIZE_ONLY) {
+        upstreamDir = cloneUpstream()
+
+        const upstream = loadCatalog(path.join(upstreamDir, 'src/technologies'))
+        const upstreamCategories = JSON.parse(
+            fs.readFileSync(path.join(upstreamDir, 'src/categories.json'), 'utf8')
+        )
+
+        const result = mergeCatalog(local.technologies, upstream.technologies)
+
+        reportMerge(
+            result,
+            Object.keys(local.technologies).length,
+            Object.keys(upstream.technologies).length
+        )
+
+        technologies = result.technologies
+        categories = mergeCategories(
+            localCategories,
+            upstreamCategories,
+            EXTRA_CATEGORIES
+        )
 
         if (REPORT_ONLY) {
-            log('\n Report mode - no changes made', 'green');
-            cleanup();
-            return;
+            fs.rmSync(upstreamDir, { recursive: true, force: true })
+            log('\nReport mode - nothing written', 'green')
+
+            return
         }
+    } else {
+        categories = mergeCategories(localCategories, {}, EXTRA_CATEGORIES)
+    }
 
-        // 4. Create backup (if not dry-run)
-        if (!DRY_RUN) {
-            createBackup();
-        }
+    const normalized = normalizeCatalog(technologies)
 
-        // 5. Merge
-        const merged = mergeTechnologies(localByFile, upstreamByFile, diff);
+    reportNormalize(normalized.changes)
 
-        // 6. Save result
-        saveTechnologies(merged);
+    if (!DRY_RUN && !NO_BACKUP) {
+        createBackup()
+    }
 
-        // 7. Update categories
-        updateCategories();
+    section('Writing catalog')
 
-        // 8. Cleanup
-        cleanup();
+    const written = saveCatalog(TECHNOLOGIES_DIR, normalized.technologies, {
+        dryRun: DRY_RUN,
+    })
 
-        logSection('COMPLETE');
+    const total = Object.values(written).reduce((sum, count) => sum + count, 0)
 
-        if (!DRY_RUN) {
-            console.log('\nSUMMARY:');
-            log(`   • ${diff.onlyLocal.length} custom technologies PRESERVED`, 'green');
-            log(`   • ${diff.onlyUpstream.length} new technologies ADDED`, 'blue');
-            log(`   • ${diff.modified.length} technologies UPDATED`, 'yellow');
-            console.log('\nVerify changes and test before committing!');
-        }
+    log(
+        `${DRY_RUN ? '[dry run] ' : ''}${total} technologies across ` +
+            `${Object.keys(written).length} files`,
+        'green'
+    )
 
-    } catch (error) {
-        log(`\n✗ Error: ${error.message}`, 'red');
-        console.error(error);
-        cleanup();
-        process.exit(1);
+    if (!DRY_RUN) {
+        fs.writeFileSync(
+            CATEGORIES_FILE,
+            `${JSON.stringify(categories, null, 2)}\n`
+        )
+    }
+
+    log(
+        `${DRY_RUN ? '[dry run] ' : ''}${Object.keys(categories).length} categories`,
+        'green'
+    )
+
+    if (upstreamDir) {
+        fs.rmSync(upstreamDir, { recursive: true, force: true })
+    }
+
+    if (DRY_RUN) {
+        log('\nDry run complete', 'green')
+
+        return
+    }
+
+    if (!runValidator()) {
+        process.exitCode = 1
     }
 }
 
-main();
+try {
+    main()
+} catch (error) {
+    log(`\nFailed: ${error.message}`, 'red')
+    console.error(error)
+    process.exit(1)
+}

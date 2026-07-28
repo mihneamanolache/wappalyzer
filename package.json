@@ -2,10 +2,22 @@
     "name": "wappalyzer",
     "description": "Identify technology on websites",
     "scripts": {
-        "download": "rm -rf ./technologies && git clone git@github.com:enthec/webappanalyzer.git && mv webappanalyzer/src/technologies ./ && mv webappanalyzer/src/categories.json ./ && rm -rf webappanalyzer",
+        "test": "node scripts/run-tests.js && node scripts/smoke-cli.js",
+        "test:unit": "node scripts/run-tests.js",
+        "test:cli": "node scripts/smoke-cli.js",
+        "validate": "node scripts/validate.js",
+        "validate:json": "node scripts/validate.js --json",
         "update": "node scripts/merge-update.js",
         "update:dry-run": "node scripts/merge-update.js --dry-run",
-        "update:report": "node scripts/merge-update.js --report"
+        "update:report": "node scripts/merge-update.js --report",
+        "normalize": "node scripts/merge-update.js --normalize",
+        "coverage": "node scripts/coverage-report.js",
+        "delta": "node scripts/catalog-delta.js",
+        "delta:check": "node scripts/catalog-delta.js --check",
+        "sweep": "node scripts/dns-sweep.js",
+        "sweep:check": "node scripts/dns-sweep.js --check",
+        "audit:xhr": "node scripts/xhr-audit.js",
+        "audit:xhr:check": "node scripts/xhr-audit.js --check"
     },
     "keywords": [
         "analyze",
@@ -38,15 +50,17 @@
         "driver.js",
         "index.js",
         "technologies/*",
-        "wappalyzer.js"
+        "wappalyzer.js",
+        "scripts/lib/engine.js",
+        "scripts/lib/text-signals.js"
     ],
     "bin": {
         "wappalyzer": "./cli.js"
     },
     "dependencies": {
-        "puppeteer": "~19.7.0"
+        "puppeteer": "~25.4.0"
     },
     "engines": {
-        "node": ">=16"
+        "node": ">=22.12.0"
     }
 }

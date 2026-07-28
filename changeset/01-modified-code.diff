@@ -1,0 +1,2482 @@
+# Modified code/config files (tracked)
+#
+# Working tree vs 22c1cc7. This is the modified tracked
+# files EXCLUDING catalog data (technologies/*.json, categories.json), which
+# is described by catalog-delta.* and catalog.diffstat instead.
+# See MANIFEST.md 'Worktree scope' for the full counts.
+
+diff --git a/.gitignore b/.gitignore
+index 07e6e47..bddd558 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1 +1,3 @@
+ /node_modules
++/backup
++.DS_Store
+diff --git a/README.md b/README.md
+index f856e4b..44019f6 100644
+--- a/README.md
++++ b/README.md
+@@ -1,9 +1,59 @@
+ # Wappalyzer
+ 
+-[Wappalyzer](https://www.wappalyzer.com/) indentifies technologies on websites. 
++[Wappalyzer](https://www.wappalyzer.com/) identifies technologies on websites.
+ 
+ *Note:* The [wappalyzer-core](https://www.npmjs.com/package/wappalyzer-core) package provides a low-level API without dependencies.
+ 
++## This fork
++
++A fork of Wappalyzer with a locally maintained technology catalog. Technology
++definitions are pulled from [enthec/webappanalyzer](https://github.com/enthec/webappanalyzer)
++and merged additively with fork-local entries and enrichments.
++
++### Requirements
++
++Node **22.12.0 or newer** (pinned in `.nvmrc` / `.node-version`, enforced by
++`engines.node` with `engine-strict=true`). Puppeteer 25 is ESM-only and fails to
++load on older runtimes, so `driver.js` checks the version before requiring it and
++reports which Node you are on.
++
++```shell
++nvm use               # picks up .nvmrc
++npm ci
++```
++
++```shell
++npm test              # unit suite + CLI smoke test
++npm run test:unit     # unit suite only
++npm run test:cli      # CLI smoke test only (loads the real require chain)
++npm run validate      # is the catalog coherent with the engine?
++npm run update        # pull upstream, merge, normalize, validate
++npm run coverage      # coverage against the tracked request list
++```
++
++**[docs/CATALOG.md](docs/CATALOG.md)** documents the detection channels, the
++shapes the engine actually reads, the evidence standard for new fingerprints, and
++the maintenance workflow. Read it before editing `technologies/*.json` — the
++engine ignores unknown fields and wrong-shaped channels without erroring, so a
++mistake there costs a detection rather than raising one.
++
++Differences from upstream worth knowing about:
++
++- **Catalog defects are collected, not thrown.** A dangling `implies`/`excludes`
++  reference used to abort a whole scan. It is now recorded on
++  `Wappalyzer.errors` and surfaced by the validator, so one bad entry cannot take
++  down a run. `WAPPALYZER_DEBUG=1` prints them at load time.
++- **`saas` and `oss`** are curated in the catalog and included in the output.
++  Upstream drops them.
++- **Fork-local categories** start at id 200, splitting upstream's single
++  "Artificial Intelligence" bucket into finer distinctions.
++- **`analyzeJs` and `analyzeDom`** live in `wappalyzer.js` rather than
++  `driver.js`, so they are testable without a browser.
++- **Text-mined signals** (`textSignals: true`) add a second, lower-confidence
++  source for technologies that emit nothing observable — endpoint agents, a
++  Postgres extension, a terminal editor. They are returned in a separate
++  `signals` array and are never merged into `technologies`.
++
+ ## Command line
+ 
+ ### Installation
+@@ -42,6 +92,8 @@ wappalyzer <url> [options]
+ --local-storage=...        JSON object to use as local storage
+ --session-storage=...      JSON object to use as session storage
+ --defer=ms                 Defer scan for ms milliseconds after page load
++-T, --text-signals         Also infer technologies from careers/stack page text
++                           (returned separately as `signals`, confidence 30)
+ 
+ ```
+ 
+diff --git a/cli.js b/cli.js
+index 91224d8..e22c4c9 100755
+--- a/cli.js
++++ b/cli.js
+@@ -1,5 +1,22 @@
+ #!/usr/bin/env node
+ 
++// Checked before ./driver is required, because that is what pulls in Puppeteer.
++// driver.js throws for library consumers; a CLI should print one clear line and
++// exit rather than dump a stack trace from inside a dependency.
++try {
++    const path = require('path')
++    const { assertSupportedNode } = require('./scripts/lib/engine')
++
++    assertSupportedNode(
++        require(path.resolve(`${__dirname}/package.json`)).engines.node
++    )
++} catch (error) {
++    // eslint-disable-next-line no-console
++    console.error(error.message || String(error))
++
++    process.exit(1)
++}
++
+ const Wappalyzer = require('./driver')
+ 
+ const args = process.argv.slice(2)
+@@ -26,6 +43,7 @@ const aliases = {
+     n: 'noScripts',
+     N: 'noRedirect',
+     e: 'extended',
++    T: 'textSignals',
+ }
+ 
+ while (true) {
+@@ -95,6 +113,8 @@ Options:
+ --local-storage=...        JSON object to use as local storage
+ --session-storage=...      JSON object to use as session storage
+ --defer=ms                 Defer scan for ms milliseconds after page load
++-T, --text-signals         Also infer technologies from careers/stack page text
++                           (returned separately as 'signals', confidence 30)
+ `)
+     process.exit(options.help ? 0 : 1)
+ }
+diff --git a/driver.js b/driver.js
+index 1cc231b..816e7f8 100644
+--- a/driver.js
++++ b/driver.js
+@@ -3,11 +3,31 @@ const dns = require('dns').promises
+ const path = require('path')
+ const http = require('http')
+ const https = require('https')
++
++// Checked before Puppeteer is required. On an unsupported Node the require below
++// throws ERR_REQUIRE_ESM from inside Puppeteer's module graph, which gives no
++// clue that the Node version is the cause.
++const { assertSupportedNode } = require('./scripts/lib/engine')
++
++assertSupportedNode(
++    JSON.parse(
++        fs.readFileSync(path.resolve(`${__dirname}/package.json`), 'utf8')
++    ).engines.node
++)
++
+ const puppeteer = require('puppeteer')
+ const Wappalyzer = require('./wappalyzer')
+ 
+-const { setTechnologies, setCategories, analyze, analyzeManyToMany, resolve } =
+-    Wappalyzer
++const {
++    setTechnologies,
++    setCategories,
++    analyze,
++    analyzeJs,
++    analyzeDom,
++    resolve,
++} = Wappalyzer
++
++const { analyzeText } = require('./scripts/lib/text-signals')
+ 
+ const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS } =
+     process.env
+@@ -47,8 +67,17 @@ for (const index of Array(27).keys()) {
+     }
+ }
+ 
+-setTechnologies(technologies)
+ setCategories(categories)
++setTechnologies(technologies)
++
++// Catalog defects are collected rather than thrown so a single bad entry cannot
++// abort a scan. Surface them once at load time; `npm test` fails on any of them.
++if (Wappalyzer.errors.length && process.env.WAPPALYZER_DEBUG) {
++    for (const { type, technology, message } of Wappalyzer.errors) {
++        // eslint-disable-next-line no-console
++        console.error(`Catalog defect [${type}] ${technology}: ${message}`)
++    }
++}
+ 
+ const xhrDebounce = []
+ 
+@@ -66,25 +95,34 @@ function getJs(page, technologies = Wappalyzer.technologies) {
+                     chain = chain.replace(/\[([^\]]+)\]/g, '.$1')
+ 
+                     const parts = chain.split('.')
++                    let root
++                    let value
+ 
+-                    const root = /^[a-z_$][a-z0-9_$]*$/i.test(parts[0])
+-                        ? // eslint-disable-next-line no-new-func
+-                        new Function(
+-                            `return typeof ${
++                    try {
++                        root = /^[a-z_$][a-z0-9_$]*$/i.test(parts[0])
++                            ? // eslint-disable-next-line no-new-func
++                            new Function(
++                                `return typeof ${
+ parts[0]
+ } === 'undefined' ? undefined : ${parts.shift()}`
+-                        )()
+-                        : window
+-
+-                    const value = parts.reduce(
+-                        (value, method) =>
+-                            value &&
+-                                value instanceof Object &&
+-                                Object.prototype.hasOwnProperty.call(value, method)
+-                                ? value[method]
+-                                : '__UNDEFINED__',
+-                        root || '__UNDEFINED__'
+-                    )
++                            )()
++                            : window
++
++                        value = parts.reduce(
++                            (value, method) =>
++                                value &&
++                                    value instanceof Object &&
++                                    Object.prototype.hasOwnProperty.call(value, method)
++                                    ? value[method]
++                                    : '__UNDEFINED__',
++                            root || '__UNDEFINED__'
++                        )
++                    } catch (error) {
++                        // Some cross-origin or sandboxed documents throw on
++                        // globals such as sessionStorage. One inaccessible
++                        // property must not abort the whole page scan.
++                        return
++                    }
+ 
+                     if (value !== '__UNDEFINED__') {
+                         technologies.push({
+@@ -103,18 +141,6 @@ parts[0]
+     }, technologies)
+ }
+ 
+-function analyzeJs(js, technologies = Wappalyzer.technologies) {
+-    return js
+-        .map(({ name, chain, value }) => {
+-            return analyzeManyToMany(
+-                technologies.find(({ name: _name }) => name === _name),
+-                'js',
+-                { [chain]: [value] }
+-            )
+-        })
+-        .flat()
+-}
+-
+ function getDom(page, technologies = Wappalyzer.technologies) {
+     return page.evaluate((technologies) => {
+         return technologies
+@@ -250,38 +276,6 @@ function getDom(page, technologies = Wappalyzer.technologies) {
+     }, technologies)
+ }
+ 
+-function analyzeDom(dom, technologies = Wappalyzer.technologies) {
+-    return dom
+-        .map(({ name, selector, exists, text, property, attribute, value }) => {
+-            const technology = technologies.find(({ name: _name }) => name === _name)
+-
+-            if (typeof exists !== 'undefined') {
+-                return analyzeManyToMany(technology, 'dom.exists', {
+-                    [selector]: [''],
+-                })
+-            }
+-
+-            if (typeof text !== 'undefined') {
+-                return analyzeManyToMany(technology, 'dom.text', {
+-                    [selector]: [text],
+-                })
+-            }
+-
+-            if (typeof property !== 'undefined') {
+-                return analyzeManyToMany(technology, `dom.properties.${property}`, {
+-                    [selector]: [value],
+-                })
+-            }
+-
+-            if (typeof attribute !== 'undefined') {
+-                return analyzeManyToMany(technology, `dom.attributes.${attribute}`, {
+-                    [selector]: [value],
+-                })
+-            }
+-        })
+-        .flat()
+-}
+-
+ function get(url, options = {}) {
+     const timeout =
+         options.timeout ||
+@@ -340,6 +334,7 @@ class Driver {
+             maxWait: 30000,
+             recursive: false,
+             probe: false,
++            textSignals: false,
+             proxy: false,
+             noScripts: false,
+             userAgent:
+@@ -365,6 +360,7 @@ class Driver {
+         this.options.htmlMaxRows = parseInt(this.options.htmlMaxRows, 10)
+         this.options.noScripts = Boolean(+this.options.noScripts)
+         this.options.extended = Boolean(+this.options.extended)
++        this.options.textSignals = Boolean(+this.options.textSignals)
+ 
+         if (this.options.proxy) {
+             chromiumArgs.push(`--proxy-server=${this.options.proxy}`)
+@@ -429,8 +425,11 @@ class Driver {
+ 
+     async open(url, headers = {}, storage = {}) {
+         const site = new Site(url.split('#')[0], headers, this)
++        const hasStorage = ['local', 'session'].some(
++            (type) => Object.keys(storage[type] || {}).length
++        )
+ 
+-        if (storage.local || storage.session) {
++        if (hasStorage) {
+             this.log('Setting storage...')
+ 
+             const page = await site.newPage(site.originalUrl)
+@@ -497,6 +496,7 @@ class Site {
+         }
+ 
+         this.analyzedXhr = {}
++        this.textSignals = []
+         this.analyzedRequires = {}
+         this.detections = []
+ 
+@@ -1015,6 +1015,21 @@ class Site {
+                 meta,
+             }
+ 
++            // Text-mined signals are an inference about the company, not a
++            // detection of this page, so they are collected separately and never
++            // merged into this.detections. See scripts/lib/text-signals.js.
++            if (this.options.textSignals) {
++                for (const signal of analyzeText({ text, url: url.href })) {
++                    const seen = this.textSignals.find(
++                        ({ technology }) => technology === signal.technology
++                    )
++
++                    if (!seen) {
++                        this.textSignals.push({ ...signal, url: url.href })
++                    }
++                }
++            }
++
+             await this.onDetect(
+                 url,
+                 [
+@@ -1236,6 +1251,9 @@ class Site {
+ 
+         const results = {
+             urls: this.analyzedUrls,
++            // Kept separate from `technologies`: a hiring signal is an inference
++            // about the company, not a detection of the site.
++            signals: this.textSignals,
+             technologies: resolve(this.detections).map(
+                 ({
+                     slug,
+@@ -1246,6 +1264,8 @@ class Site {
+                     icon,
+                     website,
+                     cpe,
++                    saas,
++                    oss,
+                     categories,
+                     rootPath,
+                 }) => ({
+@@ -1257,6 +1277,8 @@ class Site {
+                         icon,
+                         website,
+                         cpe,
++                        saas,
++                        oss,
+                         categories: categories.map(({ id, slug, name }) => ({
+                             id,
+                             slug,
+diff --git a/package-lock.json b/package-lock.json
+index 6b7f8fa..2118a0a 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -14,824 +14,280 @@
+             ],
+             "license": "GPL-3.0",
+             "dependencies": {
+-                "puppeteer": "~19.7.0"
++                "puppeteer": "~25.4.0"
+             },
+             "bin": {
+                 "wappalyzer": "cli.js"
+             },
+             "engines": {
+-                "node": ">=16"
++                "node": ">=22.12.0"
+             }
+         },
+-        "node_modules/@babel/code-frame": {
+-            "version": "7.25.9",
+-            "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.25.9.tgz",
+-            "integrity": "sha512-z88xeGxnzehn2sqZ8UdGQEvYErF1odv2CftxInpSYJt6uHuPe9YjahKZITGs3l5LeI9d2ROG+obuDAoSlqbNfQ==",
++        "node_modules/@puppeteer/browsers": {
++            "version": "3.0.6",
++            "resolved": "https://registry.npmjs.org/@puppeteer/browsers/-/browsers-3.0.6.tgz",
++            "integrity": "sha512-B/gKoqlFkzhvzsI6jo9K1cZz9o5ypviVv/xu8CwA4grZzyVwN+XfkT+tu8T1zrauuEXv6VhS2oGX+6NL95WcKA==",
+             "dependencies": {
+-                "@babel/highlight": "^7.25.9",
+-                "picocolors": "^1.0.0"
++                "modern-tar": "^0.7.6",
++                "yargs": "^18.0.0"
+             },
+-            "engines": {
+-                "node": ">=6.9.0"
+-            }
+-        },
+-        "node_modules/@babel/helper-validator-identifier": {
+-            "version": "7.25.9",
+-            "resolved": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.25.9.tgz",
+-            "integrity": "sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==",
+-            "engines": {
+-                "node": ">=6.9.0"
+-            }
+-        },
+-        "node_modules/@babel/highlight": {
+-            "version": "7.25.9",
+-            "resolved": "https://registry.npmjs.org/@babel/highlight/-/highlight-7.25.9.tgz",
+-            "integrity": "sha512-llL88JShoCsth8fF8R4SJnIn+WLvR6ccFxu1H3FlMhDontdcmZWf2HgIZ7AIqV3Xcck1idlohrN4EUBQz6klbw==",
+-            "dependencies": {
+-                "@babel/helper-validator-identifier": "^7.25.9",
+-                "chalk": "^2.4.2",
+-                "js-tokens": "^4.0.0",
+-                "picocolors": "^1.0.0"
++            "bin": {
++                "browsers": "lib/main-cli.js"
+             },
+             "engines": {
+-                "node": ">=6.9.0"
+-            }
+-        },
+-        "node_modules/@types/node": {
+-            "version": "22.7.9",
+-            "resolved": "https://registry.npmjs.org/@types/node/-/node-22.7.9.tgz",
+-            "integrity": "sha512-jrTfRC7FM6nChvU7X2KqcrgquofrWLFDeYC1hKfwNWomVvrn7JIksqf344WN2X/y8xrgqBd2dJATZV4GbatBfg==",
+-            "optional": true,
+-            "dependencies": {
+-                "undici-types": "~6.19.2"
+-            }
+-        },
+-        "node_modules/@types/yauzl": {
+-            "version": "2.10.3",
+-            "resolved": "https://registry.npmjs.org/@types/yauzl/-/yauzl-2.10.3.tgz",
+-            "integrity": "sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==",
+-            "optional": true,
+-            "dependencies": {
+-                "@types/node": "*"
+-            }
+-        },
+-        "node_modules/agent-base": {
+-            "version": "6.0.2",
+-            "resolved": "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz",
+-            "integrity": "sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==",
+-            "dependencies": {
+-                "debug": "4"
++                "node": ">=22.12.0"
+             },
+-            "engines": {
+-                "node": ">= 6.0.0"
+-            }
+-        },
+-        "node_modules/ansi-styles": {
+-            "version": "3.2.1",
+-            "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-3.2.1.tgz",
+-            "integrity": "sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==",
+-            "dependencies": {
+-                "color-convert": "^1.9.0"
++            "peerDependencies": {
++                "proxy-agent": ">=8.0.1",
++                "yauzl": "^2.10.0 || ^3.4.0"
+             },
+-            "engines": {
+-                "node": ">=4"
+-            }
+-        },
+-        "node_modules/argparse": {
+-            "version": "2.0.1",
+-            "resolved": "https://registry.npmjs.org/argparse/-/argparse-2.0.1.tgz",
+-            "integrity": "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
+-        },
+-        "node_modules/balanced-match": {
+-            "version": "1.0.2",
+-            "resolved": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz",
+-            "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+-        },
+-        "node_modules/base64-js": {
+-            "version": "1.5.1",
+-            "resolved": "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz",
+-            "integrity": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==",
+-            "funding": [
+-                {
+-                    "type": "github",
+-                    "url": "https://github.com/sponsors/feross"
+-                },
+-                {
+-                    "type": "patreon",
+-                    "url": "https://www.patreon.com/feross"
+-                },
+-                {
+-                    "type": "consulting",
+-                    "url": "https://feross.org/support"
+-                }
+-            ]
+-        },
+-        "node_modules/bl": {
+-            "version": "4.1.0",
+-            "resolved": "https://registry.npmjs.org/bl/-/bl-4.1.0.tgz",
+-            "integrity": "sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==",
+-            "dependencies": {
+-                "buffer": "^5.5.0",
+-                "inherits": "^2.0.4",
+-                "readable-stream": "^3.4.0"
+-            }
+-        },
+-        "node_modules/brace-expansion": {
+-            "version": "2.0.1",
+-            "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz",
+-            "integrity": "sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==",
+-            "dependencies": {
+-                "balanced-match": "^1.0.0"
+-            }
+-        },
+-        "node_modules/buffer": {
+-            "version": "5.7.1",
+-            "resolved": "https://registry.npmjs.org/buffer/-/buffer-5.7.1.tgz",
+-            "integrity": "sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==",
+-            "funding": [
+-                {
+-                    "type": "github",
+-                    "url": "https://github.com/sponsors/feross"
+-                },
+-                {
+-                    "type": "patreon",
+-                    "url": "https://www.patreon.com/feross"
++            "peerDependenciesMeta": {
++                "proxy-agent": {
++                    "optional": true
+                 },
+-                {
+-                    "type": "consulting",
+-                    "url": "https://feross.org/support"
++                "yauzl": {
++                    "optional": true
+                 }
+-            ],
+-            "dependencies": {
+-                "base64-js": "^1.3.1",
+-                "ieee754": "^1.1.13"
+             }
+         },
+-        "node_modules/buffer-crc32": {
+-            "version": "0.2.13",
+-            "resolved": "https://registry.npmjs.org/buffer-crc32/-/buffer-crc32-0.2.13.tgz",
+-            "integrity": "sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==",
++        "node_modules/ansi-regex": {
++            "version": "6.2.2",
++            "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.2.2.tgz",
++            "integrity": "sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==",
+             "engines": {
+-                "node": "*"
++                "node": ">=12"
++            },
++            "funding": {
++                "url": "https://github.com/chalk/ansi-regex?sponsor=1"
+             }
+         },
+-        "node_modules/callsites": {
+-            "version": "3.1.0",
+-            "resolved": "https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz",
+-            "integrity": "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==",
++        "node_modules/ansi-styles": {
++            "version": "6.2.3",
++            "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.3.tgz",
++            "integrity": "sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==",
+             "engines": {
+-                "node": ">=6"
+-            }
+-        },
+-        "node_modules/chalk": {
+-            "version": "2.4.2",
+-            "resolved": "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz",
+-            "integrity": "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==",
+-            "dependencies": {
+-                "ansi-styles": "^3.2.1",
+-                "escape-string-regexp": "^1.0.5",
+-                "supports-color": "^5.3.0"
++                "node": ">=12"
+             },
+-            "engines": {
+-                "node": ">=4"
++            "funding": {
++                "url": "https://github.com/chalk/ansi-styles?sponsor=1"
+             }
+         },
+-        "node_modules/chownr": {
+-            "version": "1.1.4",
+-            "resolved": "https://registry.npmjs.org/chownr/-/chownr-1.1.4.tgz",
+-            "integrity": "sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg=="
+-        },
+         "node_modules/chromium-bidi": {
+-            "version": "0.4.5",
+-            "resolved": "https://registry.npmjs.org/chromium-bidi/-/chromium-bidi-0.4.5.tgz",
+-            "integrity": "sha512-rkav9YzRfAshSTG3wNXF7P7yNiI29QAo1xBXElPoCoSQR5n20q3cOyVhDv6S7+GlF/CJ/emUxlQiR0xOPurkGg==",
++            "version": "17.0.2",
++            "resolved": "https://registry.npmjs.org/chromium-bidi/-/chromium-bidi-17.0.2.tgz",
++            "integrity": "sha512-5v9GQFhTktFvotn/OFNJBmKLKRAb6n9r0bVCwf7sHgWc3/JryK0bj1nn93L3pHFrfgcsu6Be6EWsDi+1XHTGDg==",
+             "dependencies": {
+-                "mitt": "3.0.0"
++                "mitt": "^3.0.1",
++                "zod": "^3.24.1"
++            },
++            "engines": {
++                "node": ">=20.19.0 <22.0.0 || >=22.12.0"
+             },
+             "peerDependencies": {
+                 "devtools-protocol": "*"
+             }
+         },
+-        "node_modules/color-convert": {
+-            "version": "1.9.3",
+-            "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz",
+-            "integrity": "sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==",
++        "node_modules/cliui": {
++            "version": "9.0.1",
++            "resolved": "https://registry.npmjs.org/cliui/-/cliui-9.0.1.tgz",
++            "integrity": "sha512-k7ndgKhwoQveBL+/1tqGJYNz097I7WOvwbmmU2AR5+magtbjPWQTS1C5vzGkBC8Ym8UWRzfKUzUUqFLypY4Q+w==",
+             "dependencies": {
+-                "color-name": "1.1.3"
+-            }
+-        },
+-        "node_modules/color-name": {
+-            "version": "1.1.3",
+-            "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz",
+-            "integrity": "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw=="
+-        },
+-        "node_modules/cosmiconfig": {
+-            "version": "8.1.0",
+-            "resolved": "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-8.1.0.tgz",
+-            "integrity": "sha512-0tLZ9URlPGU7JsKq0DQOQ3FoRsYX8xDZ7xMiATQfaiGMz7EHowNkbU9u1coAOmnh9p/1ySpm0RB3JNWRXM5GCg==",
+-            "dependencies": {
+-                "import-fresh": "^3.2.1",
+-                "js-yaml": "^4.1.0",
+-                "parse-json": "^5.0.0",
+-                "path-type": "^4.0.0"
++                "string-width": "^7.2.0",
++                "strip-ansi": "^7.1.0",
++                "wrap-ansi": "^9.0.0"
+             },
+             "engines": {
+-                "node": ">=14"
+-            },
+-            "funding": {
+-                "url": "https://github.com/sponsors/d-fischer"
+-            }
+-        },
+-        "node_modules/cross-fetch": {
+-            "version": "3.1.5",
+-            "resolved": "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.5.tgz",
+-            "integrity": "sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==",
+-            "dependencies": {
+-                "node-fetch": "2.6.7"
++                "node": ">=20"
+             }
+         },
+-        "node_modules/debug": {
+-            "version": "4.3.7",
+-            "resolved": "https://registry.npmjs.org/debug/-/debug-4.3.7.tgz",
+-            "integrity": "sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==",
++        "node_modules/cliui/node_modules/string-width": {
++            "version": "7.2.0",
++            "resolved": "https://registry.npmjs.org/string-width/-/string-width-7.2.0.tgz",
++            "integrity": "sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==",
+             "dependencies": {
+-                "ms": "^2.1.3"
++                "emoji-regex": "^10.3.0",
++                "get-east-asian-width": "^1.0.0",
++                "strip-ansi": "^7.1.0"
+             },
+             "engines": {
+-                "node": ">=6.0"
++                "node": ">=18"
+             },
+-            "peerDependenciesMeta": {
+-                "supports-color": {
+-                    "optional": true
+-                }
++            "funding": {
++                "url": "https://github.com/sponsors/sindresorhus"
+             }
+         },
+         "node_modules/devtools-protocol": {
+-            "version": "0.0.1094867",
+-            "resolved": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1094867.tgz",
+-            "integrity": "sha512-pmMDBKiRVjh0uKK6CT1WqZmM3hBVSgD+N2MrgyV1uNizAZMw4tx6i/RTc+/uCsKSCmg0xXx7arCP/OFcIwTsiQ=="
+-        },
+-        "node_modules/end-of-stream": {
+-            "version": "1.4.4",
+-            "resolved": "https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.4.tgz",
+-            "integrity": "sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==",
+-            "dependencies": {
+-                "once": "^1.4.0"
+-            }
++            "version": "0.0.1653615",
++            "resolved": "https://registry.npmjs.org/devtools-protocol/-/devtools-protocol-0.0.1653615.tgz",
++            "integrity": "sha512-pGVkY3T/qXxAp2nFPodwYqOevk6ncNMSmvL8QfRCx5ZWGd6Vor7AFNmyaA8Zs6uJyP1QAfjuLandCgvSix1BNA=="
+         },
+-        "node_modules/error-ex": {
+-            "version": "1.3.2",
+-            "resolved": "https://registry.npmjs.org/error-ex/-/error-ex-1.3.2.tgz",
+-            "integrity": "sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==",
+-            "dependencies": {
+-                "is-arrayish": "^0.2.1"
+-            }
++        "node_modules/emoji-regex": {
++            "version": "10.6.0",
++            "resolved": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-10.6.0.tgz",
++            "integrity": "sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A=="
+         },
+-        "node_modules/escape-string-regexp": {
+-            "version": "1.0.5",
+-            "resolved": "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz",
+-            "integrity": "sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==",
++        "node_modules/escalade": {
++            "version": "3.2.0",
++            "resolved": "https://registry.npmjs.org/escalade/-/escalade-3.2.0.tgz",
++            "integrity": "sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==",
+             "engines": {
+-                "node": ">=0.8.0"
++                "node": ">=6"
+             }
+         },
+-        "node_modules/extract-zip": {
+-            "version": "2.0.1",
+-            "resolved": "https://registry.npmjs.org/extract-zip/-/extract-zip-2.0.1.tgz",
+-            "integrity": "sha512-GDhU9ntwuKyGXdZBUgTIe+vXnWj0fppUEtMDL0+idd5Sta8TGpHssn/eusA9mrPr9qNDym6SxAYZjNvCn/9RBg==",
+-            "dependencies": {
+-                "debug": "^4.1.1",
+-                "get-stream": "^5.1.0",
+-                "yauzl": "^2.10.0"
+-            },
+-            "bin": {
+-                "extract-zip": "cli.js"
+-            },
++        "node_modules/get-caller-file": {
++            "version": "2.0.5",
++            "resolved": "https://registry.npmjs.org/get-caller-file/-/get-caller-file-2.0.5.tgz",
++            "integrity": "sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==",
+             "engines": {
+-                "node": ">= 10.17.0"
+-            },
+-            "optionalDependencies": {
+-                "@types/yauzl": "^2.9.1"
+-            }
+-        },
+-        "node_modules/fd-slicer": {
+-            "version": "1.1.0",
+-            "resolved": "https://registry.npmjs.org/fd-slicer/-/fd-slicer-1.1.0.tgz",
+-            "integrity": "sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==",
+-            "dependencies": {
+-                "pend": "~1.2.0"
++                "node": "6.* || 8.* || >= 10.*"
+             }
+         },
+-        "node_modules/fs-constants": {
+-            "version": "1.0.0",
+-            "resolved": "https://registry.npmjs.org/fs-constants/-/fs-constants-1.0.0.tgz",
+-            "integrity": "sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow=="
+-        },
+-        "node_modules/fs.realpath": {
+-            "version": "1.0.0",
+-            "resolved": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz",
+-            "integrity": "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
+-        },
+-        "node_modules/get-stream": {
+-            "version": "5.2.0",
+-            "resolved": "https://registry.npmjs.org/get-stream/-/get-stream-5.2.0.tgz",
+-            "integrity": "sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==",
+-            "dependencies": {
+-                "pump": "^3.0.0"
+-            },
++        "node_modules/get-east-asian-width": {
++            "version": "1.6.0",
++            "resolved": "https://registry.npmjs.org/get-east-asian-width/-/get-east-asian-width-1.6.0.tgz",
++            "integrity": "sha512-QRbvDIbx6YklUe6RxeTeleMR0yv3cYH6PsPZHcnVn7xv7zO1BHN8r0XETu8n6Ye3Q+ahtSarc3WgtNWmehIBfA==",
+             "engines": {
+-                "node": ">=8"
++                "node": ">=18"
+             },
+             "funding": {
+                 "url": "https://github.com/sponsors/sindresorhus"
+             }
+         },
+-        "node_modules/glob": {
+-            "version": "9.3.5",
+-            "resolved": "https://registry.npmjs.org/glob/-/glob-9.3.5.tgz",
+-            "integrity": "sha512-e1LleDykUz2Iu+MTYdkSsuWX8lvAjAcs0Xef0lNIu0S2wOAzuTxCJtcd9S3cijlwYF18EsU3rzb8jPVobxDh9Q==",
+-            "dependencies": {
+-                "fs.realpath": "^1.0.0",
+-                "minimatch": "^8.0.2",
+-                "minipass": "^4.2.4",
+-                "path-scurry": "^1.6.1"
+-            },
++        "node_modules/lilconfig": {
++            "version": "3.1.3",
++            "resolved": "https://registry.npmjs.org/lilconfig/-/lilconfig-3.1.3.tgz",
++            "integrity": "sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==",
+             "engines": {
+-                "node": ">=16 || 14 >=14.17"
++                "node": ">=14"
+             },
+             "funding": {
+-                "url": "https://github.com/sponsors/isaacs"
+-            }
+-        },
+-        "node_modules/has-flag": {
+-            "version": "3.0.0",
+-            "resolved": "https://registry.npmjs.org/has-flag/-/has-flag-3.0.0.tgz",
+-            "integrity": "sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==",
+-            "engines": {
+-                "node": ">=4"
+-            }
+-        },
+-        "node_modules/https-proxy-agent": {
+-            "version": "5.0.1",
+-            "resolved": "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz",
+-            "integrity": "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==",
+-            "dependencies": {
+-                "agent-base": "6",
+-                "debug": "4"
+-            },
+-            "engines": {
+-                "node": ">= 6"
++                "url": "https://github.com/sponsors/antonk52"
+             }
+         },
+-        "node_modules/ieee754": {
+-            "version": "1.2.1",
+-            "resolved": "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz",
+-            "integrity": "sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==",
+-            "funding": [
+-                {
+-                    "type": "github",
+-                    "url": "https://github.com/sponsors/feross"
+-                },
+-                {
+-                    "type": "patreon",
+-                    "url": "https://www.patreon.com/feross"
+-                },
+-                {
+-                    "type": "consulting",
+-                    "url": "https://feross.org/support"
+-                }
+-            ]
++        "node_modules/mitt": {
++            "version": "3.0.1",
++            "resolved": "https://registry.npmjs.org/mitt/-/mitt-3.0.1.tgz",
++            "integrity": "sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw=="
+         },
+-        "node_modules/import-fresh": {
+-            "version": "3.3.0",
+-            "resolved": "https://registry.npmjs.org/import-fresh/-/import-fresh-3.3.0.tgz",
+-            "integrity": "sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==",
+-            "dependencies": {
+-                "parent-module": "^1.0.0",
+-                "resolve-from": "^4.0.0"
+-            },
++        "node_modules/modern-tar": {
++            "version": "0.7.7",
++            "resolved": "https://registry.npmjs.org/modern-tar/-/modern-tar-0.7.7.tgz",
++            "integrity": "sha512-t9VmxaqrmANnEOBhpSDI6HD192Ge48k8vmWqQQL7hSFEqHEYwZbbsu49+aKLWZeRvFs3j1pMhXOqqF4kPlvjkQ==",
+             "engines": {
+-                "node": ">=6"
+-            },
+-            "funding": {
+-                "url": "https://github.com/sponsors/sindresorhus"
++                "node": ">=18.0.0"
+             }
+         },
+-        "node_modules/inherits": {
+-            "version": "2.0.4",
+-            "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+-            "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+-        },
+-        "node_modules/is-arrayish": {
+-            "version": "0.2.1",
+-            "resolved": "https://registry.npmjs.org/is-arrayish/-/is-arrayish-0.2.1.tgz",
+-            "integrity": "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg=="
+-        },
+-        "node_modules/js-tokens": {
+-            "version": "4.0.0",
+-            "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
+-            "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
+-        },
+-        "node_modules/js-yaml": {
+-            "version": "4.1.0",
+-            "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-4.1.0.tgz",
+-            "integrity": "sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==",
++        "node_modules/puppeteer": {
++            "version": "25.4.0",
++            "resolved": "https://registry.npmjs.org/puppeteer/-/puppeteer-25.4.0.tgz",
++            "integrity": "sha512-xfQp8dFBcGaLc1hEMaVr7s+oW4ZkAurr8Y9H81ilKhu6QoLfSTkZjU7IavnyJ/VWpB9ni3KNJUQHUatslLWyGw==",
++            "hasInstallScript": true,
+             "dependencies": {
+-                "argparse": "^2.0.1"
++                "@puppeteer/browsers": "3.0.6",
++                "chromium-bidi": "17.0.2",
++                "devtools-protocol": "0.0.1653615",
++                "lilconfig": "^3.1.3",
++                "puppeteer-core": "25.4.0",
++                "typed-query-selector": "^2.12.2"
+             },
+             "bin": {
+-                "js-yaml": "bin/js-yaml.js"
+-            }
+-        },
+-        "node_modules/json-parse-even-better-errors": {
+-            "version": "2.3.1",
+-            "resolved": "https://registry.npmjs.org/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz",
+-            "integrity": "sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w=="
+-        },
+-        "node_modules/lines-and-columns": {
+-            "version": "1.2.4",
+-            "resolved": "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz",
+-            "integrity": "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg=="
+-        },
+-        "node_modules/lru-cache": {
+-            "version": "10.4.3",
+-            "resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-10.4.3.tgz",
+-            "integrity": "sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ=="
+-        },
+-        "node_modules/minimatch": {
+-            "version": "8.0.4",
+-            "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-8.0.4.tgz",
+-            "integrity": "sha512-W0Wvr9HyFXZRGIDgCicunpQ299OKXs9RgZfaukz4qAW/pJhcpUfupc9c+OObPOFueNy8VSrZgEmDtk6Kh4WzDA==",
+-            "dependencies": {
+-                "brace-expansion": "^2.0.1"
+-            },
+-            "engines": {
+-                "node": ">=16 || 14 >=14.17"
+-            },
+-            "funding": {
+-                "url": "https://github.com/sponsors/isaacs"
+-            }
+-        },
+-        "node_modules/minipass": {
+-            "version": "4.2.8",
+-            "resolved": "https://registry.npmjs.org/minipass/-/minipass-4.2.8.tgz",
+-            "integrity": "sha512-fNzuVyifolSLFL4NzpF+wEF4qrgqaaKX0haXPQEdQ7NKAN+WecoKMHV09YcuL/DHxrUsYQOK3MiuDf7Ip2OXfQ==",
+-            "engines": {
+-                "node": ">=8"
+-            }
+-        },
+-        "node_modules/mitt": {
+-            "version": "3.0.0",
+-            "resolved": "https://registry.npmjs.org/mitt/-/mitt-3.0.0.tgz",
+-            "integrity": "sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ=="
+-        },
+-        "node_modules/mkdirp-classic": {
+-            "version": "0.5.3",
+-            "resolved": "https://registry.npmjs.org/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz",
+-            "integrity": "sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A=="
+-        },
+-        "node_modules/ms": {
+-            "version": "2.1.3",
+-            "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
+-            "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
+-        },
+-        "node_modules/node-fetch": {
+-            "version": "2.6.7",
+-            "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.7.tgz",
+-            "integrity": "sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==",
+-            "dependencies": {
+-                "whatwg-url": "^5.0.0"
++                "puppeteer": "lib/puppeteer/node/cli.js"
+             },
+             "engines": {
+-                "node": "4.x || >=6.0.0"
+-            },
+-            "peerDependencies": {
+-                "encoding": "^0.1.0"
+-            },
+-            "peerDependenciesMeta": {
+-                "encoding": {
+-                    "optional": true
+-                }
+-            }
+-        },
+-        "node_modules/once": {
+-            "version": "1.4.0",
+-            "resolved": "https://registry.npmjs.org/once/-/once-1.4.0.tgz",
+-            "integrity": "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==",
+-            "dependencies": {
+-                "wrappy": "1"
++                "node": ">=22.12.0"
+             }
+         },
+-        "node_modules/parent-module": {
+-            "version": "1.0.1",
+-            "resolved": "https://registry.npmjs.org/parent-module/-/parent-module-1.0.1.tgz",
+-            "integrity": "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==",
++        "node_modules/puppeteer-core": {
++            "version": "25.4.0",
++            "resolved": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-25.4.0.tgz",
++            "integrity": "sha512-K1plkLOdeoUnGeT1OvdqF3qxl33v+Ra/uH5VyPEhXdMcpvGiEskHzxxEU3fgpccJpJLIipB/rPUsvkZRWeKqOA==",
+             "dependencies": {
+-                "callsites": "^3.0.0"
++                "@puppeteer/browsers": "3.0.6",
++                "chromium-bidi": "17.0.2",
++                "devtools-protocol": "0.0.1653615",
++                "typed-query-selector": "^2.12.2",
++                "webdriver-bidi-protocol": "0.4.2",
++                "ws": "^8.21.1"
+             },
+             "engines": {
+-                "node": ">=6"
++                "node": ">=22.12.0"
+             }
+         },
+-        "node_modules/parse-json": {
+-            "version": "5.2.0",
+-            "resolved": "https://registry.npmjs.org/parse-json/-/parse-json-5.2.0.tgz",
+-            "integrity": "sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==",
++        "node_modules/string-width": {
++            "version": "8.2.2",
++            "resolved": "https://registry.npmjs.org/string-width/-/string-width-8.2.2.tgz",
++            "integrity": "sha512-GaPUh5gfdrYzqeVNZvUfT23vYYxXzKYidUcnMtJg/3rxRV63EFZy3k6xfKlmfeJD0176lnUV/Usr3XcwSvFzpg==",
+             "dependencies": {
+-                "@babel/code-frame": "^7.0.0",
+-                "error-ex": "^1.3.1",
+-                "json-parse-even-better-errors": "^2.3.0",
+-                "lines-and-columns": "^1.1.6"
++                "get-east-asian-width": "^1.5.0",
++                "strip-ansi": "^7.1.2"
+             },
+             "engines": {
+-                "node": ">=8"
++                "node": ">=20"
+             },
+             "funding": {
+                 "url": "https://github.com/sponsors/sindresorhus"
+             }
+         },
+-        "node_modules/path-scurry": {
+-            "version": "1.11.1",
+-            "resolved": "https://registry.npmjs.org/path-scurry/-/path-scurry-1.11.1.tgz",
+-            "integrity": "sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==",
++        "node_modules/strip-ansi": {
++            "version": "7.2.0",
++            "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.2.0.tgz",
++            "integrity": "sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==",
+             "dependencies": {
+-                "lru-cache": "^10.2.0",
+-                "minipass": "^5.0.0 || ^6.0.2 || ^7.0.0"
++                "ansi-regex": "^6.2.2"
+             },
+             "engines": {
+-                "node": ">=16 || 14 >=14.18"
++                "node": ">=12"
+             },
+             "funding": {
+-                "url": "https://github.com/sponsors/isaacs"
+-            }
+-        },
+-        "node_modules/path-scurry/node_modules/minipass": {
+-            "version": "7.1.2",
+-            "resolved": "https://registry.npmjs.org/minipass/-/minipass-7.1.2.tgz",
+-            "integrity": "sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==",
+-            "engines": {
+-                "node": ">=16 || 14 >=14.17"
+-            }
+-        },
+-        "node_modules/path-type": {
+-            "version": "4.0.0",
+-            "resolved": "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz",
+-            "integrity": "sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==",
+-            "engines": {
+-                "node": ">=8"
+-            }
+-        },
+-        "node_modules/pend": {
+-            "version": "1.2.0",
+-            "resolved": "https://registry.npmjs.org/pend/-/pend-1.2.0.tgz",
+-            "integrity": "sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg=="
+-        },
+-        "node_modules/picocolors": {
+-            "version": "1.1.1",
+-            "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
+-            "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="
+-        },
+-        "node_modules/progress": {
+-            "version": "2.0.3",
+-            "resolved": "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz",
+-            "integrity": "sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==",
+-            "engines": {
+-                "node": ">=0.4.0"
+-            }
+-        },
+-        "node_modules/proxy-from-env": {
+-            "version": "1.1.0",
+-            "resolved": "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz",
+-            "integrity": "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="
+-        },
+-        "node_modules/pump": {
+-            "version": "3.0.2",
+-            "resolved": "https://registry.npmjs.org/pump/-/pump-3.0.2.tgz",
+-            "integrity": "sha512-tUPXtzlGM8FE3P0ZL6DVs/3P58k9nk8/jZeQCurTJylQA8qFYzHFfhBJkuqyE0FifOsQ0uKWekiZ5g8wtr28cw==",
+-            "dependencies": {
+-                "end-of-stream": "^1.1.0",
+-                "once": "^1.3.1"
++                "url": "https://github.com/chalk/strip-ansi?sponsor=1"
+             }
+         },
+-        "node_modules/puppeteer": {
+-            "version": "19.7.5",
+-            "resolved": "https://registry.npmjs.org/puppeteer/-/puppeteer-19.7.5.tgz",
+-            "integrity": "sha512-UqD8K+yaZa6/hwzP54AATCiHrEYGGxzQcse9cZzrtsVGd8wT0llCdYhsBp8n+zvnb1ofY0YFgI3TYZ/MiX5uXQ==",
+-            "deprecated": "< 22.8.2 is no longer supported",
+-            "hasInstallScript": true,
+-            "dependencies": {
+-                "cosmiconfig": "8.1.0",
+-                "https-proxy-agent": "5.0.1",
+-                "progress": "2.0.3",
+-                "proxy-from-env": "1.1.0",
+-                "puppeteer-core": "19.7.5"
+-            }
++        "node_modules/typed-query-selector": {
++            "version": "2.12.2",
++            "resolved": "https://registry.npmjs.org/typed-query-selector/-/typed-query-selector-2.12.2.tgz",
++            "integrity": "sha512-EOPFbyIub4ngnEdqi2yOcNeDLaX/0jcE1JoAXQDDMIthap7FoN795lc/SHfIq2d416VufXpM8z/lD+WRm2gfOQ=="
+         },
+-        "node_modules/puppeteer-core": {
+-            "version": "19.7.5",
+-            "resolved": "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-19.7.5.tgz",
+-            "integrity": "sha512-EJuNha+SxPfaYFbkoWU80H3Wb1SiQH5fFyb2xdbWda0ziax5mhV63UMlqNfPeTDIWarwtR4OIcq/9VqY8HPOsg==",
+-            "dependencies": {
+-                "chromium-bidi": "0.4.5",
+-                "cross-fetch": "3.1.5",
+-                "debug": "4.3.4",
+-                "devtools-protocol": "0.0.1094867",
+-                "extract-zip": "2.0.1",
+-                "https-proxy-agent": "5.0.1",
+-                "proxy-from-env": "1.1.0",
+-                "rimraf": "4.4.0",
+-                "tar-fs": "2.1.1",
+-                "unbzip2-stream": "1.4.3",
+-                "ws": "8.12.1"
+-            },
+-            "engines": {
+-                "node": ">=14.14.0"
+-            },
+-            "peerDependencies": {
+-                "typescript": ">= 4.7.4"
+-            },
+-            "peerDependenciesMeta": {
+-                "typescript": {
+-                    "optional": true
+-                }
+-            }
++        "node_modules/webdriver-bidi-protocol": {
++            "version": "0.4.2",
++            "resolved": "https://registry.npmjs.org/webdriver-bidi-protocol/-/webdriver-bidi-protocol-0.4.2.tgz",
++            "integrity": "sha512-VSV+fzfChirL3e7jay2yUC7B4HQCGtEWEg/MSSQbK+qWbqeGlRLlXTzPpYr3XGUvbpDHumWZBJxgesg4N7dbtA=="
+         },
+-        "node_modules/puppeteer-core/node_modules/debug": {
+-            "version": "4.3.4",
+-            "resolved": "https://registry.npmjs.org/debug/-/debug-4.3.4.tgz",
+-            "integrity": "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==",
++        "node_modules/wrap-ansi": {
++            "version": "9.0.2",
++            "resolved": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-9.0.2.tgz",
++            "integrity": "sha512-42AtmgqjV+X1VpdOfyTGOYRi0/zsoLqtXQckTmqTeybT+BDIbM/Guxo7x3pE2vtpr1ok6xRqM9OpBe+Jyoqyww==",
+             "dependencies": {
+-                "ms": "2.1.2"
++                "ansi-styles": "^6.2.1",
++                "string-width": "^7.0.0",
++                "strip-ansi": "^7.1.0"
+             },
+             "engines": {
+-                "node": ">=6.0"
+-            },
+-            "peerDependenciesMeta": {
+-                "supports-color": {
+-                    "optional": true
+-                }
+-            }
+-        },
+-        "node_modules/puppeteer-core/node_modules/ms": {
+-            "version": "2.1.2",
+-            "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz",
+-            "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+-        },
+-        "node_modules/readable-stream": {
+-            "version": "3.6.2",
+-            "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz",
+-            "integrity": "sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==",
+-            "dependencies": {
+-                "inherits": "^2.0.3",
+-                "string_decoder": "^1.1.1",
+-                "util-deprecate": "^1.0.1"
+-            },
+-            "engines": {
+-                "node": ">= 6"
+-            }
+-        },
+-        "node_modules/resolve-from": {
+-            "version": "4.0.0",
+-            "resolved": "https://registry.npmjs.org/resolve-from/-/resolve-from-4.0.0.tgz",
+-            "integrity": "sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==",
+-            "engines": {
+-                "node": ">=4"
+-            }
+-        },
+-        "node_modules/rimraf": {
+-            "version": "4.4.0",
+-            "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-4.4.0.tgz",
+-            "integrity": "sha512-X36S+qpCUR0HjXlkDe4NAOhS//aHH0Z+h8Ckf2auGJk3PTnx5rLmrHkwNdbVQuCSUhOyFrlRvFEllZOYE+yZGQ==",
+-            "dependencies": {
+-                "glob": "^9.2.0"
+-            },
+-            "bin": {
+-                "rimraf": "dist/cjs/src/bin.js"
+-            },
+-            "engines": {
+-                "node": ">=14"
++                "node": ">=18"
+             },
+             "funding": {
+-                "url": "https://github.com/sponsors/isaacs"
+-            }
+-        },
+-        "node_modules/safe-buffer": {
+-            "version": "5.2.1",
+-            "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
+-            "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==",
+-            "funding": [
+-                {
+-                    "type": "github",
+-                    "url": "https://github.com/sponsors/feross"
+-                },
+-                {
+-                    "type": "patreon",
+-                    "url": "https://www.patreon.com/feross"
+-                },
+-                {
+-                    "type": "consulting",
+-                    "url": "https://feross.org/support"
+-                }
+-            ]
+-        },
+-        "node_modules/string_decoder": {
+-            "version": "1.3.0",
+-            "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.3.0.tgz",
+-            "integrity": "sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==",
+-            "dependencies": {
+-                "safe-buffer": "~5.2.0"
++                "url": "https://github.com/chalk/wrap-ansi?sponsor=1"
+             }
+         },
+-        "node_modules/supports-color": {
+-            "version": "5.5.0",
+-            "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-5.5.0.tgz",
+-            "integrity": "sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==",
++        "node_modules/wrap-ansi/node_modules/string-width": {
++            "version": "7.2.0",
++            "resolved": "https://registry.npmjs.org/string-width/-/string-width-7.2.0.tgz",
++            "integrity": "sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==",
+             "dependencies": {
+-                "has-flag": "^3.0.0"
++                "emoji-regex": "^10.3.0",
++                "get-east-asian-width": "^1.0.0",
++                "strip-ansi": "^7.1.0"
+             },
+             "engines": {
+-                "node": ">=4"
+-            }
+-        },
+-        "node_modules/tar-fs": {
+-            "version": "2.1.1",
+-            "resolved": "https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.1.tgz",
+-            "integrity": "sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==",
+-            "dependencies": {
+-                "chownr": "^1.1.1",
+-                "mkdirp-classic": "^0.5.2",
+-                "pump": "^3.0.0",
+-                "tar-stream": "^2.1.4"
+-            }
+-        },
+-        "node_modules/tar-stream": {
+-            "version": "2.2.0",
+-            "resolved": "https://registry.npmjs.org/tar-stream/-/tar-stream-2.2.0.tgz",
+-            "integrity": "sha512-ujeqbceABgwMZxEJnk2HDY2DlnUZ+9oEcb1KzTVfYHio0UE6dG71n60d8D2I4qNvleWrrXpmjpt7vZeF1LnMZQ==",
+-            "dependencies": {
+-                "bl": "^4.0.3",
+-                "end-of-stream": "^1.4.1",
+-                "fs-constants": "^1.0.0",
+-                "inherits": "^2.0.3",
+-                "readable-stream": "^3.1.1"
++                "node": ">=18"
+             },
+-            "engines": {
+-                "node": ">=6"
+-            }
+-        },
+-        "node_modules/through": {
+-            "version": "2.3.8",
+-            "resolved": "https://registry.npmjs.org/through/-/through-2.3.8.tgz",
+-            "integrity": "sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg=="
+-        },
+-        "node_modules/tr46": {
+-            "version": "0.0.3",
+-            "resolved": "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz",
+-            "integrity": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw=="
+-        },
+-        "node_modules/unbzip2-stream": {
+-            "version": "1.4.3",
+-            "resolved": "https://registry.npmjs.org/unbzip2-stream/-/unbzip2-stream-1.4.3.tgz",
+-            "integrity": "sha512-mlExGW4w71ebDJviH16lQLtZS32VKqsSfk80GCfUlwT/4/hNRFsoscrF/c++9xinkMzECL1uL9DDwXqFWkruPg==",
+-            "dependencies": {
+-                "buffer": "^5.2.1",
+-                "through": "^2.3.8"
+-            }
+-        },
+-        "node_modules/undici-types": {
+-            "version": "6.19.8",
+-            "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-6.19.8.tgz",
+-            "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==",
+-            "optional": true
+-        },
+-        "node_modules/util-deprecate": {
+-            "version": "1.0.2",
+-            "resolved": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz",
+-            "integrity": "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw=="
+-        },
+-        "node_modules/webidl-conversions": {
+-            "version": "3.0.1",
+-            "resolved": "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz",
+-            "integrity": "sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ=="
+-        },
+-        "node_modules/whatwg-url": {
+-            "version": "5.0.0",
+-            "resolved": "https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz",
+-            "integrity": "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==",
+-            "dependencies": {
+-                "tr46": "~0.0.3",
+-                "webidl-conversions": "^3.0.0"
++            "funding": {
++                "url": "https://github.com/sponsors/sindresorhus"
+             }
+         },
+-        "node_modules/wrappy": {
+-            "version": "1.0.2",
+-            "resolved": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz",
+-            "integrity": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
+-        },
+         "node_modules/ws": {
+-            "version": "8.12.1",
+-            "resolved": "https://registry.npmjs.org/ws/-/ws-8.12.1.tgz",
+-            "integrity": "sha512-1qo+M9Ba+xNhPB+YTWUlK6M17brTut5EXbcBaMRN5pH5dFrXz7lzz1ChFSUq3bOUl8yEvSenhHmYUNJxFzdJew==",
++            "version": "8.21.1",
++            "resolved": "https://registry.npmjs.org/ws/-/ws-8.21.1.tgz",
++            "integrity": "sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw==",
+             "engines": {
+                 "node": ">=10.0.0"
+             },
+@@ -848,13 +304,44 @@
+                 }
+             }
+         },
+-        "node_modules/yauzl": {
+-            "version": "2.10.0",
+-            "resolved": "https://registry.npmjs.org/yauzl/-/yauzl-2.10.0.tgz",
+-            "integrity": "sha512-p4a9I6X6nu6IhoGmBqAcbJy1mlC4j27vEPZX9F4L4/vZT3Lyq1VkFHw/V/PUcB9Buo+DG3iHkT0x3Qya58zc3g==",
++        "node_modules/y18n": {
++            "version": "5.0.8",
++            "resolved": "https://registry.npmjs.org/y18n/-/y18n-5.0.8.tgz",
++            "integrity": "sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==",
++            "engines": {
++                "node": ">=10"
++            }
++        },
++        "node_modules/yargs": {
++            "version": "18.1.0",
++            "resolved": "https://registry.npmjs.org/yargs/-/yargs-18.1.0.tgz",
++            "integrity": "sha512-2rAgRKu54VsHkqI0/tYkmluGXHD4KW7yZoycuqDQ15QOTnc2VVfy0nN/1eMhnQLO00A+dwtK20xuCnc1YGeUyg==",
+             "dependencies": {
+-                "buffer-crc32": "~0.2.3",
+-                "fd-slicer": "~1.1.0"
++                "cliui": "^9.0.1",
++                "escalade": "^3.1.1",
++                "get-caller-file": "^2.0.5",
++                "string-width": "^8.2.1",
++                "y18n": "^5.0.5",
++                "yargs-parser": "^22.0.0"
++            },
++            "engines": {
++                "node": "^20.19.0 || ^22.12.0 || >=23"
++            }
++        },
++        "node_modules/yargs-parser": {
++            "version": "22.0.0",
++            "resolved": "https://registry.npmjs.org/yargs-parser/-/yargs-parser-22.0.0.tgz",
++            "integrity": "sha512-rwu/ClNdSMpkSrUb+d6BRsSkLUq1fmfsY6TOpYzTwvwkg1/NRG85KBy3kq++A8LKQwX6lsu+aWad+2khvuXrqw==",
++            "engines": {
++                "node": "^20.19.0 || ^22.12.0 || >=23"
++            }
++        },
++        "node_modules/zod": {
++            "version": "3.25.76",
++            "resolved": "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz",
++            "integrity": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==",
++            "funding": {
++                "url": "https://github.com/sponsors/colinhacks"
+             }
+         }
+     }
+diff --git a/package.json b/package.json
+index 1bb44ad..55aba86 100644
+--- a/package.json
++++ b/package.json
+@@ -2,10 +2,22 @@
+     "name": "wappalyzer",
+     "description": "Identify technology on websites",
+     "scripts": {
+-        "download": "rm -rf ./technologies && git clone git@github.com:enthec/webappanalyzer.git && mv webappanalyzer/src/technologies ./ && mv webappanalyzer/src/categories.json ./ && rm -rf webappanalyzer",
++        "test": "node scripts/run-tests.js && node scripts/smoke-cli.js",
++        "test:unit": "node scripts/run-tests.js",
++        "test:cli": "node scripts/smoke-cli.js",
++        "validate": "node scripts/validate.js",
++        "validate:json": "node scripts/validate.js --json",
+         "update": "node scripts/merge-update.js",
+         "update:dry-run": "node scripts/merge-update.js --dry-run",
+-        "update:report": "node scripts/merge-update.js --report"
++        "update:report": "node scripts/merge-update.js --report",
++        "normalize": "node scripts/merge-update.js --normalize",
++        "coverage": "node scripts/coverage-report.js",
++        "delta": "node scripts/catalog-delta.js",
++        "delta:check": "node scripts/catalog-delta.js --check",
++        "sweep": "node scripts/dns-sweep.js",
++        "sweep:check": "node scripts/dns-sweep.js --check",
++        "audit:xhr": "node scripts/xhr-audit.js",
++        "audit:xhr:check": "node scripts/xhr-audit.js --check"
+     },
+     "keywords": [
+         "analyze",
+@@ -38,15 +50,17 @@
+         "driver.js",
+         "index.js",
+         "technologies/*",
+-        "wappalyzer.js"
++        "wappalyzer.js",
++        "scripts/lib/engine.js",
++        "scripts/lib/text-signals.js"
+     ],
+     "bin": {
+         "wappalyzer": "./cli.js"
+     },
+     "dependencies": {
+-        "puppeteer": "~19.7.0"
++        "puppeteer": "~25.4.0"
+     },
+     "engines": {
+-        "node": ">=16"
++        "node": ">=22.12.0"
+     }
+ }
+diff --git a/scripts/merge-update.js b/scripts/merge-update.js
+index bfab9ea..c21b77d 100644
+--- a/scripts/merge-update.js
++++ b/scripts/merge-update.js
+@@ -1,36 +1,46 @@
+ #!/usr/bin/env node
+ 
+ /**
+- * Script to update technologies from upstream WITHOUT losing custom technologies.
+- * 
+- * What it does:
+- * 1. Downloads new technologies from GitHub (enthec/webappanalyzer)
+- * 2. Preserves custom technologies (that don't exist in upstream)
+- * 3. Updates existing technologies with versions from upstream
+- * 4. Adds new technologies from upstream
+- * 
+- * Usage: 
+- *   node scripts/merge-update.js           # Performs the actual update
+- *   node scripts/merge-update.js --dry-run # Shows what it would do without modifying
+- *   node scripts/merge-update.js --report  # Only difference report
++ * Pulls technology definitions from upstream (enthec/webappanalyzer) into this
++ * fork without losing local work, then normalizes and validates the result.
++ *
++ * The merge is additive at field level. The previous version replaced any shared
++ * technology with upstream's copy, which quietly discarded locally-authored
++ * fingerprints: Salesforce Service Cloud and Microsoft Application Insights, for
++ * example, both carry local cookie/dom/meta/xhr patterns and far more specific
++ * scriptSrc lists than upstream ships. See scripts/lib/merge.js for the policy.
++ *
++ * Usage:
++ *   node scripts/merge-update.js              # merge, normalize, validate
++ *   node scripts/merge-update.js --dry-run    # report only, touch nothing
++ *   node scripts/merge-update.js --report     # upstream diff summary and stop
++ *   node scripts/merge-update.js --no-backup  # skip the timestamped backup
++ *   node scripts/merge-update.js --normalize  # normalize locally, no clone
+  */
+ 
+-const fs = require('fs');
+-const path = require('path');
+-const { execSync } = require('child_process');
++const fs = require('fs')
++const os = require('os')
++const path = require('path')
++const { execFileSync } = require('child_process')
++
++const { loadCatalog, saveCatalog, mergeCategories } = require('./lib/catalog')
++const { mergeCatalog } = require('./lib/merge')
++const { normalizeCatalog } = require('./lib/normalize')
++const { EXTRA_CATEGORIES } = require('./lib/categories-extra')
++
++const UPSTREAM_REPO = 'https://github.com/enthec/webappanalyzer.git'
++const ROOT = path.resolve(__dirname, '..')
++const TECHNOLOGIES_DIR = path.join(ROOT, 'technologies')
++const CATEGORIES_FILE = path.join(ROOT, 'categories.json')
++const BACKUP_DIR = path.join(ROOT, 'backup')
++
++const args = process.argv.slice(2)
++const DRY_RUN = args.includes('--dry-run')
++const REPORT_ONLY = args.includes('--report')
++const NO_BACKUP = args.includes('--no-backup')
++const NORMALIZE_ONLY = args.includes('--normalize')
++const VERBOSE = args.includes('--verbose')
+ 
+-const UPSTREAM_REPO = 'https://github.com/enthec/webappanalyzer.git';
+-const TEMP_DIR = '/tmp/webappanalyzer_update';
+-const TECHNOLOGIES_DIR = path.resolve(__dirname, '../technologies');
+-const CATEGORIES_FILE = path.resolve(__dirname, '../categories.json');
+-const BACKUP_DIR = path.resolve(__dirname, '../backup');
+-
+-// Parse arguments
+-const args = process.argv.slice(2);
+-const DRY_RUN = args.includes('--dry-run');
+-const REPORT_ONLY = args.includes('--report');
+-
+-// Colors for output
+ const colors = {
+     reset: '\x1b[0m',
+     red: '\x1b[31m',
+@@ -39,356 +49,263 @@ const colors = {
+     blue: '\x1b[34m',
+     magenta: '\x1b[35m',
+     cyan: '\x1b[36m',
+-};
++}
+ 
+ function log(message, color = 'reset') {
+-    console.log(`${colors[color]}${message}${colors.reset}`);
++    console.log(`${colors[color]}${message}${colors.reset}`)
+ }
+ 
+-function logSection(title) {
+-    console.log('\n' + '='.repeat(60));
+-    log(title, 'cyan');
+-    console.log('='.repeat(60));
++function section(title) {
++    console.log(`\n${'='.repeat(64)}`)
++    log(title, 'cyan')
++    console.log('='.repeat(64))
+ }
+ 
+-/**
+- * Downloads the upstream repository to a temporary folder
+- */
+-function downloadUpstream() {
+-    logSection('📥 Downloading from GitHub...');
+-
+-    if (fs.existsSync(TEMP_DIR)) {
+-        fs.rmSync(TEMP_DIR, { recursive: true });
++function list(items, limit, color) {
++    for (const item of items.slice(0, limit)) {
++        log(`   - ${item}`, color)
+     }
+ 
+-    log(`Cloning ${UPSTREAM_REPO}...`, 'blue');
+-    try {
+-        execSync(`git clone --depth=1 ${UPSTREAM_REPO} ${TEMP_DIR}`, { stdio: 'pipe' });
+-        log('Download complete', 'green');
+-    } catch (error) {
+-        log(`Download error: ${error.message}`, 'red');
+-        process.exit(1);
++    if (items.length > limit) {
++        log(`   ... and ${items.length - limit} more`, color)
+     }
+ }
+ 
+-/**
+- * Loads all technologies from a folder
+- */
+-function loadTechnologies(folder) {
+-    const technologies = {};
+-    const files = fs.readdirSync(folder).filter(f => f.endsWith('.json'));
+-
+-    for (const file of files) {
+-        const filePath = path.join(folder, file);
+-        try {
+-            const content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+-            Object.assign(technologies, content);
+-        } catch (error) {
+-            log(`Error parsing ${file}: ${error.message}`, 'yellow');
+-        }
+-    }
+-    return technologies;
+-}
++/** Clone upstream into a fresh temporary directory and return its path. */
++function cloneUpstream() {
++    section('Fetching upstream')
+ 
+-/**
+- * Loads technologies by file
+- */
+-function loadTechnologiesByFile(folder) {
+-    const techByFile = {};
+-    const files = fs.readdirSync(folder).filter(f => f.endsWith('.json'));
+-
+-    for (const file of files) {
+-        const filePath = path.join(folder, file);
+-        try {
+-            techByFile[file] = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+-        } catch (error) {
+-            log(`Error parsing ${file}: ${error.message}`, 'yellow');
+-            techByFile[file] = {};
+-        }
+-    }
++    const target = fs.mkdtempSync(path.join(os.tmpdir(), 'webappanalyzer-'))
+ 
+-    return techByFile;
+-}
++    log(`Cloning ${UPSTREAM_REPO}`, 'blue')
+ 
+-/**
+- * Compares two technology objects and returns the differences
+- */
+-function compareTechnologies(local, upstream) {
+-    const localNames = new Set(Object.keys(local));
+-    const upstreamNames = new Set(Object.keys(upstream));
++    execFileSync(
++        'git',
++        ['clone', '--depth=1', '--quiet', UPSTREAM_REPO, target],
++        { stdio: 'pipe' }
++    )
+ 
+-    const onlyLocal = [...localNames].filter(name => !upstreamNames.has(name));
+-    const onlyUpstream = [...upstreamNames].filter(name => !localNames.has(name));
+-    const inBoth = [...localNames].filter(name => upstreamNames.has(name));
++    const revision = execFileSync('git', ['-C', target, 'rev-parse', '--short', 'HEAD'], {
++        encoding: 'utf8',
++    }).trim()
+ 
+-    const modified = inBoth.filter(name => {
+-        return JSON.stringify(local[name]) !== JSON.stringify(upstream[name]);
+-    });
++    log(`Cloned at ${revision}`, 'green')
+ 
+-    return { onlyLocal, onlyUpstream, inBoth, modified };
++    return target
+ }
+ 
+-/**
+- * Generates difference report
+- */
+-function generateReport(diff, local, upstream) {
+-    logSection('Difference Report');
+-
+-    console.log('\nSTATISTICS:');
+-    console.log(`   Total local technologies: ${Object.keys(local).length}`);
+-    console.log(`   Total technologies in GitHub: ${Object.keys(upstream).length}`);
+-    console.log(`   CUSTOM technologies (only yours): ${diff.onlyLocal.length}`);
+-    console.log(`   NEW technologies in GitHub: ${diff.onlyUpstream.length}`);
+-    console.log(`   MODIFIED technologies in GitHub: ${diff.modified.length}`);
+-
+-    if (diff.onlyLocal.length > 0) {
+-        console.log('\nCUSTOM TECHNOLOGIES (will be PRESERVED):');
+-        diff.onlyLocal.slice(0, 50).forEach(name => {
+-            log(`   • ${name}`, 'green');
+-        });
+-        if (diff.onlyLocal.length > 50) {
+-            log(`   ... and ${diff.onlyLocal.length - 50} more custom technologies`, 'green');
+-        }
+-    }
++/** Copy the current catalog to backup/backup-<timestamp>/. */
++function createBackup() {
++    section('Backing up')
+ 
+-    if (diff.onlyUpstream.length > 0) {
+-        console.log('\nNEW TECHNOLOGIES (will be ADDED):');
+-        diff.onlyUpstream.slice(0, 30).forEach(name => {
+-            log(`   • ${name}`, 'blue');
+-        });
+-        if (diff.onlyUpstream.length > 30) {
+-            log(`   ... and ${diff.onlyUpstream.length - 30} more new technologies`, 'blue');
+-        }
+-    }
++    const stamp = new Date().toISOString().replace(/[:.]/g, '-')
++    const target = path.join(BACKUP_DIR, `backup-${stamp}`)
++
++    fs.mkdirSync(path.join(target, 'technologies'), { recursive: true })
+ 
+-    if (diff.modified.length > 0) {
+-        console.log('\nMODIFIED TECHNOLOGIES (will be UPDATED):');
+-        diff.modified.slice(0, 20).forEach(name => {
+-            log(`   • ${name}`, 'yellow');
+-        });
+-        if (diff.modified.length > 20) {
+-            log(`   ... and ${diff.modified.length - 20} more modified technologies`, 'yellow');
++    for (const file of fs.readdirSync(TECHNOLOGIES_DIR)) {
++        if (file.endsWith('.json')) {
++            fs.copyFileSync(
++                path.join(TECHNOLOGIES_DIR, file),
++                path.join(target, 'technologies', file)
++            )
+         }
+     }
+-}
+-
+-/**
+- * Creates backup
+- */
+-function createBackup() {
+-    logSection('Creating backup...');
+ 
+-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+-    const backupPath = path.join(BACKUP_DIR, `backup-${timestamp}`);
++    fs.copyFileSync(CATEGORIES_FILE, path.join(target, 'categories.json'))
+ 
+-    if (!fs.existsSync(BACKUP_DIR)) {
+-        fs.mkdirSync(BACKUP_DIR, { recursive: true });
+-    }
++    log(`Backup written to ${path.relative(ROOT, target)}`, 'green')
+ 
+-    fs.mkdirSync(backupPath);
++    return target
++}
+ 
+-    const techBackupPath = path.join(backupPath, 'technologies');
+-    fs.mkdirSync(techBackupPath);
++function reportMerge(result, localCount, upstreamCount) {
++    section('Upstream diff')
+ 
+-    const files = fs.readdirSync(TECHNOLOGIES_DIR).filter(f => f.endsWith('.json'));
+-    for (const file of files) {
+-        fs.copyFileSync(
+-            path.join(TECHNOLOGIES_DIR, file),
+-            path.join(techBackupPath, file)
+-        );
+-    }
++    console.log(`   local technologies:    ${localCount}`)
++    console.log(`   upstream technologies: ${upstreamCount}`)
++    console.log(`   local-only (kept):     ${result.localOnly.length}`)
++    console.log(`   new from upstream:     ${result.added.length}`)
++    console.log(`   enriched by upstream:  ${result.merged.length}`)
+ 
+-    // Backup categories.json
+-    if (fs.existsSync(CATEGORIES_FILE)) {
+-        fs.copyFileSync(CATEGORIES_FILE, path.join(backupPath, 'categories.json'));
++    if (result.added.length) {
++        console.log('\nNEW FROM UPSTREAM')
++        list(result.added, VERBOSE ? result.added.length : 25, 'blue')
+     }
+ 
+-    log(`Backup created at: ${backupPath}`, 'green');
+-    return backupPath;
+-}
+-
+-/**
+- * Determines in which file a technology should be
+- */
+-function getFileForTechnology(name) {
+-    const firstChar = name.charAt(0).toLowerCase();
+-    if (/[a-z]/.test(firstChar)) {
+-        return `${firstChar}.json`;
++    if (result.merged.length) {
++        console.log('\nENRICHED (local patterns kept, upstream patterns added)')
++        list(
++            result.merged.map(
++                ({ name, gained }) => `${name}: +${gained.join(', +')}`
++            ),
++            VERBOSE ? result.merged.length : 20,
++            'yellow'
++        )
+     }
+-    return '_.json';
+ }
+ 
+-/**
+- * Merges local and upstream technologies
+- */
+-function mergeTechnologies(localByFile, upstreamByFile, diff) {
+-    logSection('Merging technologies...');
++function reportNormalize(changes) {
++    section('Normalization')
+ 
+-    const mergedByFile = {};
+-    const allFiles = new Set([...Object.keys(localByFile), ...Object.keys(upstreamByFile)]);
++    if (!changes.length) {
++        log('Nothing to normalize', 'green')
+ 
+-    for (const file of allFiles) {
+-        mergedByFile[file] = {};
++        return
+     }
+ 
+-    // 1. Add CUSTOM technologies (local only) - THESE ARE PRESERVED
+-    log(`\nPreserving ${diff.onlyLocal.length} custom technologies...`, 'green');
+-    for (const name of diff.onlyLocal) {
+-        const file = getFileForTechnology(name);
+-        for (const [localFile, techs] of Object.entries(localByFile)) {
+-            if (techs[name]) {
+-                mergedByFile[file][name] = techs[name];
+-                break;
+-            }
+-        }
+-    }
++    const total = changes.reduce((sum, { changes: list }) => sum + list.length, 0)
+ 
+-    // 2. Add all technologies from upstream (new + updated)
+-    log(`Adding technologies from GitHub...`, 'blue');
+-    for (const [file, techs] of Object.entries(upstreamByFile)) {
+-        for (const [name, data] of Object.entries(techs)) {
+-            mergedByFile[file][name] = data;
+-        }
+-    }
++    log(`${total} change(s) across ${changes.length} technologies`, 'yellow')
++
++    for (const { name, changes: entryChanges } of changes.slice(
++        0,
++        VERBOSE ? changes.length : 25
++    )) {
++        log(`   ${name}`, 'yellow')
+ 
+-    // Sort technologies in each file
+-    for (const file of Object.keys(mergedByFile)) {
+-        const sorted = {};
+-        const keys = Object.keys(mergedByFile[file]).sort((a, b) => 
+-            a.toLowerCase().localeCompare(b.toLowerCase())
+-        );
+-        for (const key of keys) {
+-            sorted[key] = mergedByFile[file][key];
++        for (const change of entryChanges) {
++            console.log(`      ${change}`)
+         }
+-        mergedByFile[file] = sorted;
+     }
+ 
+-    return mergedByFile;
+-}
+-
+-/**
+- * Saves technologies to files
+- */
+-function saveTechnologies(mergedByFile) {
+-    logSection('Saving technologies...');
+-
+-    for (const [file, techs] of Object.entries(mergedByFile)) {
+-        if (Object.keys(techs).length === 0) continue;
+-
+-        const filePath = path.join(TECHNOLOGIES_DIR, file);
+-        const content = JSON.stringify(techs, null, 2);
+-
+-        if (DRY_RUN) {
+-            log(`[DRY-RUN] Would save ${Object.keys(techs).length} technologies to ${file}`, 'yellow');
+-        } else {
+-            fs.writeFileSync(filePath, content);
+-            log(`Saved ${Object.keys(techs).length} technologies to ${file}`, 'green');
+-        }
++    if (!VERBOSE && changes.length > 25) {
++        log(`   ... and ${changes.length - 25} more (use --verbose)`, 'yellow')
+     }
+ }
+ 
+-/**
+- * Updates categories.json
+- */
+-function updateCategories() {
+-    logSection('Updating categories.json...');
++function runValidator() {
++    section('Validating')
+ 
+-    const upstreamCategoriesPath = path.join(TEMP_DIR, 'src/categories.json');
++    try {
++        execFileSync(process.execPath, [path.join(__dirname, 'validate.js')], {
++            stdio: 'inherit',
++        })
+ 
+-    if (!fs.existsSync(upstreamCategoriesPath)) {
+-        log('categories.json not found in upstream', 'yellow');
+-        return;
+-    }
++        log('\nCatalog is coherent with the engine', 'green')
+ 
+-    if (DRY_RUN) {
+-        log('[DRY-RUN] Would update categories.json', 'yellow');
+-    } else {
+-        fs.copyFileSync(upstreamCategoriesPath, CATEGORIES_FILE);
+-        log('categories.json updated', 'green');
+-    }
+-}
++        return true
++    } catch (error) {
++        log('\nValidation failed - see errors above', 'red')
+ 
+-/**
+- * Cleans up temporary resources
+- */
+-function cleanup() {
+-    if (fs.existsSync(TEMP_DIR)) {
+-        fs.rmSync(TEMP_DIR, { recursive: true });
++        return false
+     }
+ }
+ 
+-/**
+- * Main
+- */
+-async function main() {
+-    log('WAPPALYZER SMART UPDATE', 'magenta');
+-    log('Updates from GitHub PRESERVING custom technologies', 'magenta');
++function main() {
++    log('WAPPALYZER CATALOG UPDATE', 'magenta')
+ 
+     if (DRY_RUN) {
+-        log('⚠️  DRY-RUN MODE - No changes will be made\n', 'yellow');
++        log('DRY RUN - nothing will be written', 'yellow')
+     }
+-    if (REPORT_ONLY) {
+-        log('REPORT MODE - Statistics only\n', 'yellow');
++
++    const local = loadCatalog(TECHNOLOGIES_DIR)
++    const localCategories = JSON.parse(fs.readFileSync(CATEGORIES_FILE, 'utf8'))
++
++    if (local.duplicates.length) {
++        section('Duplicate definitions')
++        log(
++            `${local.duplicates.length} technology name(s) defined in more than one ` +
++                'file; the later file wins and the earlier copy is dropped',
++            'yellow'
++        )
++        list(
++            local.duplicates.map(({ name, files }) => `${name} (${files.join(', ')})`),
++            VERBOSE ? local.duplicates.length : 15,
++            'yellow'
++        )
+     }
+ 
+-    try {
+-        // 1. Download upstream
+-        downloadUpstream();
++    let technologies = local.technologies
++    let categories = localCategories
++    let upstreamDir = null
++
++    if (!NORMALIZE_ONLY) {
++        upstreamDir = cloneUpstream()
+ 
+-        // 2. Load technologies
+-        logSection('Loading technologies...');
+-        const localTechs = loadTechnologies(TECHNOLOGIES_DIR);
+-        const upstreamTechs = loadTechnologies(path.join(TEMP_DIR, 'src/technologies'));
++        const upstream = loadCatalog(path.join(upstreamDir, 'src/technologies'))
++        const upstreamCategories = JSON.parse(
++            fs.readFileSync(path.join(upstreamDir, 'src/categories.json'), 'utf8')
++        )
+ 
+-        const localByFile = loadTechnologiesByFile(TECHNOLOGIES_DIR);
+-        const upstreamByFile = loadTechnologiesByFile(path.join(TEMP_DIR, 'src/technologies'));
++        const result = mergeCatalog(local.technologies, upstream.technologies)
+ 
+-        log(`Local technologies: ${Object.keys(localTechs).length}`, 'blue');
+-        log(`Technologies in GitHub: ${Object.keys(upstreamTechs).length}`, 'blue');
++        reportMerge(
++            result,
++            Object.keys(local.technologies).length,
++            Object.keys(upstream.technologies).length
++        )
+ 
+-        // 3. Compare and generate report
+-        const diff = compareTechnologies(localTechs, upstreamTechs);
+-        generateReport(diff, localTechs, upstreamTechs);
++        technologies = result.technologies
++        categories = mergeCategories(
++            localCategories,
++            upstreamCategories,
++            EXTRA_CATEGORIES
++        )
+ 
+         if (REPORT_ONLY) {
+-            log('\n Report mode - no changes made', 'green');
+-            cleanup();
+-            return;
+-        }
++            fs.rmSync(upstreamDir, { recursive: true, force: true })
++            log('\nReport mode - nothing written', 'green')
+ 
+-        // 4. Create backup (if not dry-run)
+-        if (!DRY_RUN) {
+-            createBackup();
++            return
+         }
++    } else {
++        categories = mergeCategories(localCategories, {}, EXTRA_CATEGORIES)
++    }
+ 
+-        // 5. Merge
+-        const merged = mergeTechnologies(localByFile, upstreamByFile, diff);
++    const normalized = normalizeCatalog(technologies)
+ 
+-        // 6. Save result
+-        saveTechnologies(merged);
++    reportNormalize(normalized.changes)
+ 
+-        // 7. Update categories
+-        updateCategories();
++    if (!DRY_RUN && !NO_BACKUP) {
++        createBackup()
++    }
+ 
+-        // 8. Cleanup
+-        cleanup();
++    section('Writing catalog')
+ 
+-        logSection('COMPLETE');
++    const written = saveCatalog(TECHNOLOGIES_DIR, normalized.technologies, {
++        dryRun: DRY_RUN,
++    })
+ 
+-        if (!DRY_RUN) {
+-            console.log('\nSUMMARY:');
+-            log(`   • ${diff.onlyLocal.length} custom technologies PRESERVED`, 'green');
+-            log(`   • ${diff.onlyUpstream.length} new technologies ADDED`, 'blue');
+-            log(`   • ${diff.modified.length} technologies UPDATED`, 'yellow');
+-            console.log('\nVerify changes and test before committing!');
+-        }
++    const total = Object.values(written).reduce((sum, count) => sum + count, 0)
+ 
+-    } catch (error) {
+-        log(`\n✗ Error: ${error.message}`, 'red');
+-        console.error(error);
+-        cleanup();
+-        process.exit(1);
++    log(
++        `${DRY_RUN ? '[dry run] ' : ''}${total} technologies across ` +
++            `${Object.keys(written).length} files`,
++        'green'
++    )
++
++    if (!DRY_RUN) {
++        fs.writeFileSync(
++            CATEGORIES_FILE,
++            `${JSON.stringify(categories, null, 2)}\n`
++        )
++    }
++
++    log(
++        `${DRY_RUN ? '[dry run] ' : ''}${Object.keys(categories).length} categories`,
++        'green'
++    )
++
++    if (upstreamDir) {
++        fs.rmSync(upstreamDir, { recursive: true, force: true })
++    }
++
++    if (DRY_RUN) {
++        log('\nDry run complete', 'green')
++
++        return
++    }
++
++    if (!runValidator()) {
++        process.exitCode = 1
+     }
+ }
+ 
+-main();
++try {
++    main()
++} catch (error) {
++    log(`\nFailed: ${error.message}`, 'red')
++    console.error(error)
++    process.exit(1)
++}
+diff --git a/wappalyzer.js b/wappalyzer.js
+index 952f360..1d50ca8 100644
+--- a/wappalyzer.js
++++ b/wappalyzer.js
+@@ -67,12 +67,70 @@ function benchmarkSummary() {
+     })
+ }
+ 
++/**
++ * Does a regex match cover a whole DNS-label suffix of an observed hostname?
++ *
++ * XHR observations are hostnames, not arbitrary text, so a catalog pattern has to
++ * match whole labels at the right-hand end. Two distinct spoofs are rejected:
++ *
++ *   api.vendor.com.attacker.example   the match does not reach the end
++ *   nottome.app  (pattern tome\.app)  the match starts mid-label
++ *
++ * Tenant subdomains must still match, so a match may begin at the start of the
++ * hostname, at a dot, or immediately after one — `acme.api.vendor.com` and a
++ * pattern written as `\.vendor\.com` both remain valid.
++ *
++ * @param {string} value observed hostname
++ * @param {Array} matches result of RegExp#exec
++ */
++function isHostnameSuffix(value, matches) {
++    const hostname = String(value)
++    const { index } = matches
++    const reachesEnd = index + matches[0].length === hostname.length
++
++    if (!reachesEnd) {
++        return false
++    }
++
++    return index === 0 || hostname[index] === '.' || hostname[index - 1] === '.'
++}
++
+ const Wappalyzer = {
+     technologies: [],
+     categories: [],
+     requires: [],
+     categoryRequires: [],
+ 
++    /**
++     * Catalog defects found while loading or resolving technologies.
++     * A malformed entry must never abort a scan, so problems are collected
++     * here instead of thrown. `scripts/validate.js` asserts this stays empty.
++     * @type {Array<{type: string, technology: string, message: string}>}
++     */
++    errors: [],
++
++    /**
++     * Optional sink for catalog defects, set by consumers that want to log them.
++     * @type {?function({type: string, technology: string, message: string}): void}
++     */
++    onError: null,
++
++    /**
++     * Record a catalog defect.
++     * @param {string} type
++     * @param {string} technology
++     * @param {string} message
++     */
++    error(type, technology, message) {
++        const error = { type, technology, message }
++
++        Wappalyzer.errors.push(error)
++
++        if (Wappalyzer.onError) {
++            Wappalyzer.onError(error)
++        }
++    },
++
+     slugify: (string) =>
+         string
+         .toLowerCase()
+@@ -138,41 +196,73 @@ const Wappalyzer = {
+         Wappalyzer.resolveExcludes(resolved)
+         Wappalyzer.resolveImplies(resolved)
+ 
+-        const priority = ({ technology: { categories } }) =>
+-            categories.reduce(
+-                (max, id) => Math.max(max, Wappalyzer.getCategory(id).priority),
+-                0
+-            )
++        /**
++         * Categories an entry claims that actually exist. Reported here rather
++         * than in the priority sort below, because a sort comparator is not
++         * called at all when there is only one detection.
++         */
++        const categoriesOf = ({ name, categories }) =>
++            categories.reduce((valid, id) => {
++                const category = Wappalyzer.getCategory(id)
++
++                if (category) {
++                    valid.push(category)
++                } else {
++                    Wappalyzer.error(
++                        'unknown-category',
++                        name,
++                        `Category does not exist: ${id}`
++                    )
++                }
+ 
+-        return resolved
++                return valid
++            }, [])
++
++        // Resolve categories once per detection so an unknown id is reported a
++        // single time, then reuse them for both the sort and the output.
++        const withCategories = resolved.map((detection) => ({
++            detection,
++            categories: categoriesOf(detection.technology),
++        }))
++
++        const priority = ({ categories }) =>
++            categories.reduce((max, { priority }) => Math.max(max, priority), 0)
++
++        return withCategories
+             .sort((a, b) => (priority(a) > priority(b) ? 1 : -1))
+             .map(
+                 ({
+-                    technology: {
+-                        name,
+-                        description,
+-                        slug,
+-                        categories,
+-                        icon,
+-                        website,
+-                        pricing,
+-                        cpe,
++                    categories,
++                    detection: {
++                        technology: {
++                            name,
++                            description,
++                            slug,
++                            icon,
++                            website,
++                            pricing,
++                            cpe,
++                            saas,
++                            oss,
++                        },
++                        confidence,
++                        version,
++                        rootPath,
++                        lastUrl,
+                     },
+-                    confidence,
+-                    version,
+-                    rootPath,
+-                    lastUrl,
+                 }) => ({
+                         name,
+                         description,
+                         slug,
+-                        categories: categories.map((id) => Wappalyzer.getCategory(id)),
++                        categories,
+                         confidence,
+                         version,
+                         icon,
+                         website,
+                         pricing,
+                         cpe,
++                        saas,
++                        oss,
+                         rootPath,
+                         lastUrl,
+                     })
+@@ -232,7 +322,13 @@ const Wappalyzer = {
+                 const excluded = Wappalyzer.getTechnology(name)
+ 
+                 if (!excluded) {
+-                    throw new Error(`Excluded technology does not exist: ${name}`)
++                    Wappalyzer.error(
++                        'dangling-excludes',
++                        technology.name,
++                        `Excluded technology does not exist: ${name}`
++                    )
++
++                    return
+                 }
+ 
+                 let index
+@@ -266,7 +362,13 @@ const Wappalyzer = {
+                         const implied = Wappalyzer.getTechnology(name)
+ 
+                         if (!implied) {
+-                            throw new Error(`Implied technology does not exist: ${name}`)
++                            Wappalyzer.error(
++                                'dangling-implies',
++                                technology.name,
++                                `Implied technology does not exist: ${name}`
++                            )
++
++                            return
+                         }
+ 
+                         if (
+@@ -345,6 +447,12 @@ const Wappalyzer = {
+     setTechnologies(data) {
+         const transform = Wappalyzer.transformPatterns
+ 
++        // Reset derived state so setTechnologies() is idempotent and can be
++        // called more than once (e.g. by tests or a reload).
++        Wappalyzer.requires = []
++        Wappalyzer.categoryRequires = []
++        Wappalyzer.errors = []
++
+         Wappalyzer.technologies = Object.keys(data).reduce((technologies, name) => {
+             const {
+                 cats,
+@@ -362,11 +470,13 @@ const Wappalyzer = {
+                 implies,
+                 js,
+                 meta,
++                oss,
+                 pricing,
+                 probe,
+                 requires,
+                 requiresCategory,
+                 robots,
++                saas,
+                 scriptSrc,
+                 scripts,
+                 text,
+@@ -405,6 +515,10 @@ const Wappalyzer = {
+                 js: transform(js, true),
+                 meta: transform(meta),
+                 name,
++                // Deployment-model metadata curated in technologies/*.json.
++                // Kept verbatim (not a pattern) and surfaced through resolve().
++                oss: typeof oss === 'boolean' ? oss : null,
++                saas: typeof saas === 'boolean' ? saas : null,
+                 pricing: pricing || [],
+                 probe: transform(probe, true),
+                 requires: transform(requires).map(({ value }) => ({ name: value })),
+@@ -429,7 +543,15 @@ const Wappalyzer = {
+             .forEach((technology) =>
+                 technology.requires.forEach(({ name }) => {
+                     if (!Wappalyzer.getTechnology(name)) {
+-                        throw new Error(`Required technology does not exist: ${name}`)
++                        // A dangling reference must not make the catalog unloadable:
++                        // driver.js calls setTechnologies() at require time.
++                        Wappalyzer.error(
++                            'dangling-requires',
++                            technology.name,
++                            `Required technology does not exist: ${name}`
++                        )
++
++                        return
+                     }
+ 
+                     Wappalyzer.requires[name] = Wappalyzer.requires[name] || []
+@@ -592,6 +714,12 @@ const Wappalyzer = {
+ 
+             const matches = pattern.regex.exec(value)
+ 
++            if (matches && type === 'xhr' && !isHostnameSuffix(value, matches)) {
++                benchmark(Date.now() - startTime, pattern, value, technology)
++
++                return technologies
++            }
++
+             if (matches) {
+                 technologies.push({
+                     technology,
+@@ -655,10 +783,24 @@ const Wappalyzer = {
+    * @param {Array} items
+    */
+     analyzeManyToMany(technology, types, items = {}) {
++        if (!technology) {
++            return []
++        }
++
+         const [type, ...subtypes] = types.split('.')
+ 
+-        return Object.keys(technology[type]).reduce((technologies, key) => {
+-            const patterns = technology[type][key] || []
++        const channel = technology[type]
++
++        // Many-to-many channels must be keyed objects (header name, cookie name,
++        // DNS record type, JS chain, DOM selector). A string or array here means
++        // the catalog entry uses the wrong shape, so there is nothing to key on.
++        // scripts/validate.js reports these as `channel-shape` errors.
++        if (!channel || typeof channel !== 'object' || Array.isArray(channel)) {
++            return []
++        }
++
++        return Object.keys(channel).reduce((technologies, key) => {
++            const patterns = channel[key] || []
+             const values = items[key] || []
+             if (!Array.isArray(patterns)) {
+                 return technologies
+@@ -669,6 +811,12 @@ const Wappalyzer = {
+                     _pattern
+                 )
+ 
++                // Walking the subtype path can land on a branch the entry does
++                // not define, leaving no regex to match against.
++                if (!pattern || !pattern.regex) {
++                    return
++                }
++
+                 values.forEach((value) => {
+                     const startTime = Date.now()
+ 
+@@ -694,6 +842,74 @@ const Wappalyzer = {
+             return technologies
+         }, [])
+     },
++
++    /**
++   * Match JS property values collected from a page against the `js` channel.
++   * Kept here rather than in driver.js so it is testable without a browser.
++   * @param {Array} js Results of the in-page collector, as {name, chain, value}
++   * @param {Array} technologies
++   */
++    analyzeJs(js = [], technologies = Wappalyzer.technologies) {
++        return js
++            .map(({ name, chain, value }) =>
++                Wappalyzer.analyzeManyToMany(
++                    technologies.find(({ name: _name }) => name === _name),
++                    'js',
++                    { [chain]: [value] }
++                )
++            )
++            .flat()
++    },
++
++    /**
++   * Match DOM observations collected from a page against the `dom` channel.
++   * Kept here rather than in driver.js so it is testable without a browser.
++   * @param {Array} dom Results of the in-page collector
++   * @param {Array} technologies
++   */
++    analyzeDom(dom = [], technologies = Wappalyzer.technologies) {
++        return dom
++            .map(({ name, selector, exists, text, property, attribute, value }) => {
++                const technology = technologies.find(
++                    ({ name: _name }) => name === _name
++                )
++
++                if (!technology) {
++                    return []
++                }
++
++                if (typeof exists !== 'undefined') {
++                    return Wappalyzer.analyzeManyToMany(technology, 'dom.exists', {
++                        [selector]: [''],
++                    })
++                }
++
++                if (typeof text !== 'undefined') {
++                    return Wappalyzer.analyzeManyToMany(technology, 'dom.text', {
++                        [selector]: [text],
++                    })
++                }
++
++                if (typeof property !== 'undefined') {
++                    return Wappalyzer.analyzeManyToMany(
++                        technology,
++                        `dom.properties.${property}`,
++                        { [selector]: [value] }
++                    )
++                }
++
++                if (typeof attribute !== 'undefined') {
++                    return Wappalyzer.analyzeManyToMany(
++                        technology,
++                        `dom.attributes.${attribute}`,
++                        { [selector]: [value] }
++                    )
++                }
++
++                return []
++            })
++            .flat()
++    },
+ }
+ 
+ if (typeof module !== 'undefined') {

@@ -1,297 +1,15 @@
 {
-  "GBooking": {
+  "Gainsight PX": {
     "cats": [
-      72
+      10
     ],
-    "description": "GBooking is an online platform that provides booking and business management services for scheduling, reservations, and operational organization.",
-    "icon": "GBooking.svg",
-    "pricing": [],
-    "saas": true,
-    "scriptSrc": [
-      "cdn\\.gbooking\\.ru"
-    ],
-    "website": "https://gbooking.ru"
-  },
-  "GDPR Cookie Consent Plugin by Webtoffee": {
-    "cats": [
-      67
-    ],
-    "cookies": {
-      "wt_consent": ""
-    },
-    "description": "GDPR Cookie Consent Plugin by Webtoffee is a WordPress solution that ensures GDPR and CCPA compliance, supports IAB standards, and integrates with Google Consent Mode.",
-    "icon": "GDPRCookieConsent.svg",
+    "description": "Gainsight PX is a product experience platform that helps product teams understand and guide users.",
+    "icon": "GainsightPX.svg",
     "js": {
-      "webtoffee._wccConsentStore": ""
+      "_gs": ""
     },
-    "pricing": [
-      "low",
-      "recurring"
-    ],
-    "website": "https://www.webtoffee.com/product/gdpr-cookie-consent/"
-  },
-  "GEODIS": {
-    "cats": [
-      99
-    ],
-    "description": "GEODIS is a global transport and logistics company.",
-    "icon": "GEODIS.svg",
-    "requiresCategory": [
-      6
-    ],
-    "text": [
-      "\\bGeodis\\b"
-    ],
-    "website": "https://geodis.com"
-  },
-  "GEOvendas": {
-    "cats": [
-      6
-    ],
-    "description": "GEOvendas is an ecommerce platform with analytics, sales force, B2B and B2C products.",
-    "dom": [
-      "a[href*='geovendas.com.br'][target='_blank']"
-    ],
-    "icon": "GEOvendas.svg",
-    "pricing": [
-      "mid",
-      "recurring"
-    ],
-    "saas": true,
-    "website": "https://www.geovendas.com"
-  },
-  "GLPI": {
-    "cats": [
-      18,
-      53
-    ],
-    "cpe": "cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*",
-    "description": "GLPI is an open-source IT Asset Management, issue tracking and service desk system.",
-    "dom": {
-      "div[id*='footer-login'] > a": {
-        "text": "GLPI\\s+version\\s+([\\d\\.]+)\\;version:\\1"
-      },
-      "input[name='_glpi_csrf_token']": {
-        "exists": ""
-      }
-    },
-    "icon": "GLPI.svg",
-    "implies": [
-      "PHP"
-    ],
-    "js": {
-      "glpiUnsavedFormChanges": ""
-    },
-    "meta": {
-      "glpi:csrf_token": ""
-    },
-    "oss": true,
-    "pricing": [
-      "mid",
-      "recurring"
-    ],
-    "scriptSrc": [
-      "//.*glpi.+common\\.min\\.js\\?v=(\\d+\\.\\d+\\.\\d+)\\;version:\\1"
-    ],
-    "website": "https://glpi-project.org"
-  },
-  "GLS": {
-    "cats": [
-      99
-    ],
-    "description": "GLS offers parcel, logistics and express services, throughout Europe as well as in the US and in Canada.",
-    "icon": "GLS.svg",
-    "requiresCategory": [
-      6
-    ],
-    "text": [
-      "\\bGLS\\b"
-    ],
-    "website": "https://gls-group.eu"
-  },
-  "GOV.UK Elements": {
-    "cats": [
-      66
-    ],
-    "html": [
-      "<link[^>]+elements-page[^>\"]+css\\;confidence:25",
-      "<div[^>]+phase-banner-alpha\\;confidence:25",
-      "<div[^>]+phase-banner-beta\\;confidence:25",
-      "<div[^>]+govuk-box-highlight\\;confidence:25"
-    ],
-    "icon": "govuk.svg",
-    "implies": [
-      "GOV.UK Toolkit"
-    ],
-    "website": "https://github.com/alphagov/govuk_elements/"
-  },
-  "GOV.UK Frontend": {
-    "cats": [
-      66
-    ],
-    "html": [
-      "<link[^>]* href=[^>]*?govuk-frontend(?:[^>]*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)[^>]*?(?:\\.min)?\\.css\\;version:\\1",
-      "<body[^>]+govuk-template__body\\;confidence:80",
-      "<a[^>]+govuk-link\\;confidence:10"
-    ],
-    "icon": "govuk.svg",
-    "js": {
-      "GOVUKFrontend": ""
-    },
-    "scriptSrc": [
-      "govuk-frontend(?:[^>]*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)[^>]*?(?:\\.min)?\\.js\\;version:\\1"
-    ],
-    "website": "https://design-system.service.gov.uk/"
-  },
-  "GOV.UK Template": {
-    "cats": [
-      66
-    ],
-    "html": [
-      "<link[^>]+govuk-template[^>\"]+css",
-      "<link[^>]+govuk-template-print[^>\"]+css",
-      "<link[^>]+govuk-template-ie6[^>\"]+css",
-      "<link[^>]+govuk-template-ie7[^>\"]+css",
-      "<link[^>]+govuk-template-ie8[^>\"]+css"
-    ],
-    "icon": "govuk.svg",
-    "js": {
-      "GOVUK": ""
-    },
-    "scriptSrc": [
-      "govuk-template\\.js"
-    ],
-    "website": "https://github.com/alphagov/govuk_template/"
-  },
-  "GOV.UK Toolkit": {
-    "cats": [
-      66
-    ],
-    "icon": "govuk.svg",
-    "js": {
-      "GOVUK.details": "",
-      "GOVUK.modules": "",
-      "GOVUK.primaryLinks": ""
-    },
-    "website": "https://github.com/alphagov/govuk_frontend_toolkit"
-  },
-  "GPT AI Power": {
-    "cats": [
-      87
-    ],
-    "description": "GPT AI Power is a WordPress plugin that offers a comprehensive AI package.",
-    "icon": "GPT AI Power.png",
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "requires": [
-      "WordPress"
-    ],
-    "scriptSrc": [
-      "/wp-content/plugins/gpt3-ai-content-generator/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1"
-    ],
-    "website": "https://gptaipower.com"
-  },
-  "GReminders": {
-    "cats": [
-      72
-    ],
-    "description": "GReminders is an end-to-end meeting management platform designed for professionals to schedule, organize, and manage meetings.",
-    "dom": [
-      "iframe[src*='app.greminders.com/']"
-    ],
-    "icon": "GReminders.svg",
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring",
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "app\\.greminders\\.com/"
-    ],
-    "website": "https://www.greminders.com"
-  },
-  "GSAP": {
-    "cats": [
-      12
-    ],
-    "description": "GSAP is an animation library that allows you to create animations with JavaScript.",
-    "icon": "GSAP.svg",
-    "js": {
-      "TweenLite.version": "([\\d.]+)\\;version:\\1",
-      "TweenMax.version": "([\\d.]+)\\;version:\\1",
-      "gsap.version": "([\\d.]+)\\;version:\\1",
-      "gsapVersions": ""
-    },
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "scriptSrc": [
-      "TweenMax(?:\\.min)?\\.js"
-    ],
-    "website": "https://greensock.com/gsap"
-  },
-  "GTranslate": {
-    "cats": [
-      87,
-      89
-    ],
-    "description": "GTranslate is a website translator which can translate any website to any language automatically.",
-    "dom": [
-      "link[href*='/wp-content/plugins/gtranslate/'], img[src*='/wp-content/plugins/gtranslate/']"
-    ],
-    "icon": "GTranslate.svg",
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "requires": [
-      "WordPress"
-    ],
-    "website": "https://gtranslate.io"
-  },
-  "GTranslate app": {
-    "cats": [
-      100,
-      89
-    ],
-    "description": "GTranslate app is a website translator which can translate any website to any language automatically.",
-    "dom": [
-      "img[src*='gtranslate.io/shopify']"
-    ],
-    "icon": "GTranslate.svg",
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "requires": [
-      "Shopify"
-    ],
-    "scriptSrc": [
-      "gtranslate\\.io/shopify/"
-    ],
-    "website": "https://apps.shopify.com/multilingual-shop-by-gtranslate"
-  },
-  "GX WebManager": {
-    "cats": [
-      1
-    ],
-    "html": [
-      "<!--\\s+Powered by GX"
-    ],
-    "icon": "GX WebManager.svg",
-    "meta": {
-      "generator": "GX WebManager(?: ([\\d.]+))?\\;version:\\1"
-    },
-    "website": "https://www.gxsoftware.com/en/products/web-content-management.htm"
+    "scriptSrc": "px.gainsight.com/.*\\.js",
+    "website": "https://www.gainsight.com/px/"
   },
   "Gallabox": {
     "cats": [
@@ -525,6 +243,19 @@
     },
     "website": "https://get.gaug.es"
   },
+  "GBooking": {
+    "cats": [
+      72
+    ],
+    "description": "GBooking is an online platform that provides booking and business management services for scheduling, reservations, and operational organization.",
+    "icon": "GBooking.svg",
+    "pricing": [],
+    "saas": true,
+    "scriptSrc": [
+      "cdn\\.gbooking\\.ru"
+    ],
+    "website": "https://gbooking.ru"
+  },
   "Gcore": {
     "cats": [
       31
@@ -540,6 +271,24 @@
       "recurring"
     ],
     "website": "https://gcore.com"
+  },
+  "GDPR Cookie Consent Plugin by Webtoffee": {
+    "cats": [
+      67
+    ],
+    "cookies": {
+      "wt_consent": ""
+    },
+    "description": "GDPR Cookie Consent Plugin by Webtoffee is a WordPress solution that ensures GDPR and CCPA compliance, supports IAB standards, and integrates with Google Consent Mode.",
+    "icon": "GDPRCookieConsent.svg",
+    "js": {
+      "webtoffee._wccConsentStore": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "website": "https://www.webtoffee.com/product/gdpr-cookie-consent/"
   },
   "GeeTest": {
     "cats": [
@@ -606,6 +355,27 @@
     ],
     "website": "https://www.gelato.com"
   },
+  "Gemius": {
+    "cats": [
+      10
+    ],
+    "html": [
+      "<a [^>]*onclick=\"gemius_hit"
+    ],
+    "icon": "Gemius.svg",
+    "js": {
+      "gemius_hit": "",
+      "gemius_init": "",
+      "gemius_pending": "",
+      "pp_gemius_hit": ""
+    },
+    "scriptSrc": [
+      "hit\\.gemius\\.pl/xgemius\\.js",
+      "hit\\.gemius\\.pl\\;confidence:80",
+      "xgemius\\.js\\;confidence:30"
+    ],
+    "website": "https://www.gemius.com"
+  },
   "GemPages": {
     "cats": [
       100,
@@ -629,47 +399,6 @@
       "/files/gempagev\\d+\\.js"
     ],
     "website": "https://gempages.net"
-  },
-  "Gemius": {
-    "cats": [
-      10
-    ],
-    "html": [
-      "<a [^>]*onclick=\"gemius_hit"
-    ],
-    "icon": "Gemius.svg",
-    "js": {
-      "gemius_hit": "",
-      "gemius_init": "",
-      "gemius_pending": "",
-      "pp_gemius_hit": ""
-    },
-    "scriptSrc": [
-      "hit\\.gemius\\.pl/xgemius\\.js",
-      "hit\\.gemius\\.pl\\;confidence:80",
-      "xgemius\\.js\\;confidence:30"
-    ],
-    "website": "https://www.gemius.com"
-  },
-  "GeneXus": {
-    "cats": [
-      27
-    ],
-    "dom": [
-      "link[id^='gxtheme_css_reference']"
-    ],
-    "html": [
-      "<link[^>]+?id=\"gxtheme_css_reference\""
-    ],
-    "icon": "GeneXus.svg",
-    "js": {
-      "gx.gxVersion": "^(.+)-.*$\\;version:\\1"
-    },
-    "scriptSrc": [
-      "/static/gxgral\\.js",
-      "/static/gxtimezone\\.js"
-    ],
-    "website": "https://www.genexus.com/"
   },
   "GenerateBlocks": {
     "cats": [
@@ -791,6 +520,18 @@
     ],
     "website": "https://www.studiopress.com/themes/genesis"
   },
+  "Genesys": {
+    "cats": [
+      95
+    ],
+    "description": "Genesys is a customer experience and call center technology.",
+    "icon": "Genesys.svg",
+    "js": {
+      "genesys": ""
+    },
+    "scriptSrc": "/cby\\.genesys\\.com/(.*)\\.js",
+    "website": "https://www.genesys.com/"
+  },
   "Genesys Chat": {
     "cats": [
       52
@@ -827,21 +568,84 @@
     ],
     "website": "https://www.genesys.com"
   },
-  "GenieWords": {
+  "Genesys Cloud CX": {
     "cats": [
-      36
+      96
     ],
-    "description": "GenieWords is a tool that simplifies the process of advertising with Google Ads.",
-    "icon": "GenieWords.svg",
+    "description": "Genesys Cloud CX is a cloud-based customer experience platform that connects customers and employees in new, more meaningful ways.",
+    "icon": "GenesysCloudCX.svg",
+    "website": "https://www.genesys.com/",
+    "js": {
+      "Genesys": ""
+    },
+    "scriptSrc": "https?:\\/\\/apps\\.mypurecloud\\.com\\/.*"
+  },
+  "Genesys Workforce Management": {
+    "cats": [
+      6,
+      12
+    ],
+    "description": "Genesys Workforce Management is a solution for optimizing workforce schedules and forecasting.",
+    "website": "https://www.genesys.com/workforce-management",
+    "icon": "Genesys.svg",
+    "js": {
+      "Genesys.patterns.WorkforceManagement": ""
+    },
+    "saas": true
+  },
+  "GeneXus": {
+    "cats": [
+      27
+    ],
+    "dom": [
+      "link[id^='gxtheme_css_reference']"
+    ],
+    "html": [
+      "<link[^>]+?id=\"gxtheme_css_reference\""
+    ],
+    "icon": "GeneXus.svg",
+    "js": {
+      "gx.gxVersion": "^(.+)-.*$\\;version:\\1"
+    },
+    "scriptSrc": [
+      "/static/gxgral\\.js",
+      "/static/gxtimezone\\.js"
+    ],
+    "website": "https://www.genexus.com/"
+  },
+  "genezio": {
+    "cats": [
+      47
+    ],
+    "description": "Genezio is a code generation tool that facilitates app logic focus, organises backend API code in deployable classes, autogenerates class interfaces with JSON-RPC for typesafe API calls, supports REST and Webhooks, enables simple API code deployment on pre-configured infrastructure using a shell command, and provides an SDK that eliminates the need to handle URLs, headers.",
+    "headers": {
+      "X-Powered-By": "^genezio$"
+    },
+    "icon": "genezio.svg",
     "pricing": [
-      "mid",
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "website": "https://genez.io"
+  },
+  "Genially": {
+    "cats": [
+      21
+    ],
+    "description": "Genially is a platform that enables the creation of interactive and gamified digital experiences for presentations, training, and educational content.",
+    "headers": {
+      "Content-Security-Policy": "\\.genially\\.com",
+      "Server": "^Genially"
+    },
+    "icon": "Genially.svg",
+    "pricing": [
+      "freemium",
+      "low",
       "recurring"
     ],
     "saas": true,
-    "scriptSrc": [
-      "admin\\.geniewords\\.com/"
-    ],
-    "website": "https://geniewords.com"
+    "website": "https://genially.com"
   },
   "Geniee": {
     "cats": [
@@ -879,6 +683,32 @@
       "\\.chamo-chat\\.com/"
     ],
     "website": "https://chamo-chat.com"
+  },
+  "GenieeSSP": {
+    "cats": [
+      36
+    ],
+    "description": "Geniee SSP is an advertisement platform in Japan.",
+    "js": {
+      "GNAdSDK": ""
+    },
+    "scriptSrc": "(gne\\.ggpht|genieessp)\\.com"
+  },
+  "GenieWords": {
+    "cats": [
+      36
+    ],
+    "description": "GenieWords is a tool that simplifies the process of advertising with Google Ads.",
+    "icon": "GenieWords.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "admin\\.geniewords\\.com/"
+    ],
+    "website": "https://geniewords.com"
   },
   "Genoo": {
     "cats": [
@@ -947,6 +777,20 @@
     ],
     "website": "https://geobytes.com"
   },
+  "GEODIS": {
+    "cats": [
+      99
+    ],
+    "description": "GEODIS is a global transport and logistics company.",
+    "icon": "GEODIS.svg",
+    "requiresCategory": [
+      6
+    ],
+    "text": [
+      "\\bGeodis\\b"
+    ],
+    "website": "https://geodis.com"
+  },
   "Geonetric": {
     "cats": [
       1
@@ -959,6 +803,43 @@
     },
     "saas": true,
     "website": "https://www.geonetric.com"
+  },
+  "Geotab": {
+    "cats": [
+      205,
+      206
+    ],
+    "description": "Geotab is a fleet telematics platform providing GPS tracking, driver safety and vehicle diagnostics.",
+    "website": "https://www.geotab.com",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "scriptSrc": [
+      "my\\.geotab\\.com",
+      "geotab\\.com/sdk"
+    ],
+    "xhr": "my\\.geotab\\.com",
+    "dom": {
+      "iframe[src*='my.geotab.com']": {
+        "exists": ""
+      }
+    }
+  },
+  "GEOvendas": {
+    "cats": [
+      6
+    ],
+    "description": "GEOvendas is an ecommerce platform with analytics, sales force, B2B and B2C products.",
+    "dom": [
+      "a[href*='geovendas.com.br'][target='_blank']"
+    ],
+    "icon": "GEOvendas.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.geovendas.com"
   },
   "Gerrit": {
     "cats": [
@@ -1055,6 +936,18 @@
     "saas": true,
     "website": "https://getauto.com"
   },
+  "Getback": {
+    "cats": [
+      32
+    ],
+    "description": "Getback is a web push conversion optimization tool developed by AdFocus to help improve engagement and campaign performance through browser-based notifications.",
+    "icon": "Getback.svg",
+    "saas": true,
+    "scriptSrc": [
+      "www\\.getback\\.ch"
+    ],
+    "website": "https://www.getback.app"
+  },
   "GetButton": {
     "cats": [
       5,
@@ -1118,6 +1011,40 @@
       "usabilla_live": ""
     },
     "website": "https://www.getfeedback.com"
+  },
+  "Getgabs": {
+    "cats": [
+      32
+    ],
+    "description": "Getgabs is a WhatsApp marketing automation platform that enhances sales, marketing, and support through the WhatsApp Business API.",
+    "icon": "Getgabs.svg",
+    "implies": [
+      "WhatsApp Business Chat"
+    ],
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "app\\.getgabs\\.com"
+    ],
+    "website": "https://getgabs.com"
+  },
+  "Getintent": {
+    "cats": [
+      36
+    ],
+    "description": "Getintent is an adtech company that offers AI-powered programmatic suite for agencies, publishers, broadcasters and content owners.",
+    "icon": "Getintent.svg",
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://getintent.com",
+    "xhr": [
+      "\\.adhigh\\.net"
+    ]
   },
   "GetMeAShop": {
     "cats": [
@@ -1198,6 +1125,23 @@
     ],
     "website": "https://getreview.pl"
   },
+  "Getro": {
+    "cats": [
+      101
+    ],
+    "description": "Gentro is an automated job board and private talent network that removes the manual effort of linking individuals and companies within a network.",
+    "icon": "Getro.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "an\\.getro\\.com/"
+    ],
+    "website": "https://www.getro.com"
+  },
   "GetRooster": {
     "cats": [
       98
@@ -1229,6 +1173,23 @@
       "generator": "GetSimple"
     },
     "website": "https://get-simple.info"
+  },
+  "Getsitecontrol": {
+    "cats": [
+      5,
+      73
+    ],
+    "description": "Getsitecontrol is a form and popup builder.",
+    "icon": "Getsitecontrol.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.getsitecontrol\\.com/"
+    ],
+    "website": "https://getsitecontrol.com"
   },
   "GetSocial": {
     "cats": [
@@ -1268,6 +1229,18 @@
     ],
     "website": "https://getterms.io"
   },
+  "getUBetter": {
+    "cats": [
+      1
+    ],
+    "description": "getUBetter is a healthcare platform that provides online access to mental health support services.",
+    "icon": "getUBetter.svg",
+    "saas": true,
+    "scripts": [
+      "app\\.getubetter\\.com"
+    ],
+    "website": "https://www.getubetter.com"
+  },
   "GetYourGuide": {
     "cats": [
       72
@@ -1299,86 +1272,6 @@
       "\\.getyourguide\\.com/"
     ],
     "website": "https://partner.getyourguide.com"
-  },
-  "Getback": {
-    "cats": [
-      32
-    ],
-    "description": "Getback is a web push conversion optimization tool developed by AdFocus to help improve engagement and campaign performance through browser-based notifications.",
-    "icon": "Getback.svg",
-    "saas": true,
-    "scriptSrc": [
-      "www\\.getback\\.ch"
-    ],
-    "website": "https://www.getback.app"
-  },
-  "Getgabs": {
-    "cats": [
-      32
-    ],
-    "description": "Getgabs is a WhatsApp marketing automation platform that enhances sales, marketing, and support through the WhatsApp Business API.",
-    "icon": "Getgabs.svg",
-    "implies": [
-      "WhatsApp Business Chat"
-    ],
-    "pricing": [
-      "low",
-      "recurring"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "app\\.getgabs\\.com"
-    ],
-    "website": "https://getgabs.com"
-  },
-  "Getintent": {
-    "cats": [
-      36
-    ],
-    "description": "Getintent is an adtech company that offers AI-powered programmatic suite for agencies, publishers, broadcasters and content owners.",
-    "icon": "Getintent.svg",
-    "pricing": [
-      "payg"
-    ],
-    "saas": true,
-    "website": "https://getintent.com",
-    "xhr": [
-      "\\.adhigh\\.net"
-    ]
-  },
-  "Getro": {
-    "cats": [
-      101
-    ],
-    "description": "Gentro is an automated job board and private talent network that removes the manual effort of linking individuals and companies within a network.",
-    "icon": "Getro.svg",
-    "pricing": [
-      "mid",
-      "recurring",
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "an\\.getro\\.com/"
-    ],
-    "website": "https://www.getro.com"
-  },
-  "Getsitecontrol": {
-    "cats": [
-      5,
-      73
-    ],
-    "description": "Getsitecontrol is a form and popup builder.",
-    "icon": "Getsitecontrol.svg",
-    "pricing": [
-      "low",
-      "recurring"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "\\.getsitecontrol\\.com/"
-    ],
-    "website": "https://getsitecontrol.com"
   },
   "Gevme": {
     "cats": [
@@ -1439,6 +1332,17 @@
       "\\.gigalixirapp\\.com"
     ],
     "website": "https://gigalixir.com/"
+  },
+  "Gigya": {
+    "cats": [
+      18
+    ],
+    "description": "Gigya provides customer identity management and engagement tools.",
+    "icon": "Gigya.svg",
+    "js": {
+      "gigya": ""
+    },
+    "website": "https://www.gigya.com"
   },
   "Gijgo": {
     "cats": [
@@ -1544,6 +1448,17 @@
     "saas": true,
     "website": "https://gista.co"
   },
+  "git": {
+    "cats": [
+      47
+    ],
+    "cpe": "cpe:2.3:a:git-scm:git:*:*:*:*:*:*:*:*",
+    "icon": "git.svg",
+    "meta": {
+      "generator": "\\bgit/([\\d.]+\\d)\\;version:\\1"
+    },
+    "website": "https://git-scm.com"
+  },
   "GitBook": {
     "cats": [
       4
@@ -1569,63 +1484,6 @@
       "^https?://[^/]+\\.gitbook\\.com/"
     ],
     "website": "https://www.gitbook.com"
-  },
-  "GitHub Pages": {
-    "cats": [
-      62
-    ],
-    "description": "GitHub Pages is a static site hosting service.",
-    "headers": {
-      "Server": "^GitHub\\.com$",
-      "X-GitHub-Request-Id": ""
-    },
-    "icon": "GitHub.svg",
-    "url": [
-      "^https?://[^/]+\\.github\\.io"
-    ],
-    "website": "https://pages.github.com/"
-  },
-  "GitLab": {
-    "cats": [
-      13,
-      47
-    ],
-    "cookies": {
-      "_gitlab_session": ""
-    },
-    "cpe": "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*",
-    "description": "GitLab is a web-based DevOps lifecycle tool that provides a Git-repository manager providing wiki, issue-tracking and continuous integration and deployment pipeline features, using an open-source license.",
-    "html": [
-      "<meta content=\"https?://[^/]+/assets/gitlab_logo-",
-      "<header class=\"navbar navbar-fixed-top navbar-gitlab with-horizontal-nav\">"
-    ],
-    "icon": "GitLab.svg",
-    "implies": [
-      "Ruby on Rails",
-      "Vue.js"
-    ],
-    "js": {
-      "GitLab": "",
-      "gl.dashboardOptions": ""
-    },
-    "meta": {
-      "og:site_name": "^GitLab$"
-    },
-    "website": "https://about.gitlab.com"
-  },
-  "GitLab CI/CD": {
-    "cats": [
-      44,
-      47
-    ],
-    "icon": "GitLab.svg",
-    "implies": [
-      "Ruby on Rails"
-    ],
-    "meta": {
-      "description": "GitLab CI/CD is a tool built into GitLab for software development through continuous methodologies."
-    },
-    "website": "https://about.gitlab.com/gitlab-ci"
   },
   "Gitea": {
     "cats": [
@@ -1658,6 +1516,33 @@
     "saas": true,
     "website": "https://gitea.io"
   },
+  "GitHub": {
+    "cats": [
+      47
+    ],
+    "description": "GitHub is a code hosting and collaboration platform. GitHub Copilot and Actions are delivered through it.",
+    "website": "https://github.com",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "scriptSrc": "github\\.githubassets\\.com",
+    "xhr": "api\\.github\\.com"
+  },
+  "GitHub Pages": {
+    "cats": [
+      62
+    ],
+    "description": "GitHub Pages is a static site hosting service.",
+    "headers": {
+      "Server": "^GitHub\\.com$",
+      "X-GitHub-Request-Id": ""
+    },
+    "icon": "GitHub.svg",
+    "url": [
+      "^https?://[^/]+\\.github\\.io"
+    ],
+    "website": "https://pages.github.com/"
+  },
   "Gitiles": {
     "cats": [
       47
@@ -1671,6 +1556,65 @@
     ],
     "website": "https://gerrit.googlesource.com/gitiles/"
   },
+  "GitLab": {
+    "cats": [
+      13,
+      47
+    ],
+    "cookies": {
+      "_gitlab_session": ""
+    },
+    "cpe": "cpe:2.3:a:gitlab:gitlab:*:*:*:*:*:*:*:*",
+    "description": "GitLab is a web-based DevOps lifecycle tool that provides a Git-repository manager providing wiki, issue-tracking and continuous integration and deployment pipeline features, using an open-source license.",
+    "html": [
+      "<meta content=\"https?://[^/]+/assets/gitlab_logo-",
+      "<header class=\"navbar navbar-fixed-top navbar-gitlab with-horizontal-nav\">"
+    ],
+    "icon": "GitLab.svg",
+    "implies": [
+      "Ruby on Rails",
+      "Vue.js"
+    ],
+    "js": {
+      "GitLab": "",
+      "gl.dashboardOptions": ""
+    },
+    "meta": {
+      "og:site_name": "^GitLab$"
+    },
+    "website": "https://about.gitlab.com",
+    "dns": {
+      "TXT": "gitlab-pages-verification-code="
+    }
+  },
+  "GitLab CI/CD": {
+    "cats": [
+      44,
+      47
+    ],
+    "icon": "GitLab.svg",
+    "implies": [
+      "Ruby on Rails"
+    ],
+    "meta": {
+      "description": "GitLab CI/CD is a tool built into GitLab for software development through continuous methodologies."
+    },
+    "website": "https://about.gitlab.com/gitlab-ci"
+  },
+  "gitlist": {
+    "cats": [
+      47
+    ],
+    "cpe": "cpe:2.3:a:gitlist:gitlist:*:*:*:*:*:*:*:*",
+    "html": [
+      "<p>Powered by <a[^>]+>GitList ([\\d.]+)\\;version:\\1"
+    ],
+    "implies": [
+      "PHP",
+      "git"
+    ],
+    "website": "https://gitlist.org"
+  },
   "Gitter": {
     "cats": [
       52
@@ -1682,6 +1626,26 @@
     },
     "oss": true,
     "website": "https://gitter.im"
+  },
+  "gitweb": {
+    "cats": [
+      47
+    ],
+    "html": [
+      "<!-- git web interface version ([\\d.]+)?\\;version:\\1"
+    ],
+    "icon": "git.svg",
+    "implies": [
+      "Perl",
+      "git"
+    ],
+    "meta": {
+      "generator": "gitweb(?:/([\\d.]+\\d))?\\;version:\\1"
+    },
+    "scriptSrc": [
+      "static/gitweb\\.js$"
+    ],
+    "website": "https://git-scm.com"
   },
   "GiveCampus": {
     "cats": [
@@ -1701,6 +1665,24 @@
     ],
     "saas": true,
     "website": "https://go.givecampus.com"
+  },
+  "Giveffect": {
+    "cats": [
+      53
+    ],
+    "description": "Giveffect is a not-for-profit customer relationship management system designed to support organizational operations and engagement.",
+    "icon": "Giveffect.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.giveffect\\.com"
+    ],
+    "scripts": [
+      "\\.giveffect\\.com"
+    ],
+    "website": "https://www.giveffect.com"
   },
   "GiveSmart": {
     "cats": [
@@ -1742,24 +1724,6 @@
       "/wp-content/plugins/give/.+give\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1"
     ],
     "website": "https://givewp.com"
-  },
-  "Giveffect": {
-    "cats": [
-      53
-    ],
-    "description": "Giveffect is a not-for-profit customer relationship management system designed to support organizational operations and engagement.",
-    "icon": "Giveffect.svg",
-    "pricing": [
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "\\.giveffect\\.com"
-    ],
-    "scripts": [
-      "\\.giveffect\\.com"
-    ],
-    "website": "https://www.giveffect.com"
   },
   "GivingFuel": {
     "cats": [
@@ -1841,20 +1805,6 @@
     ],
     "website": "https://www.glance.cx"
   },
-  "GlassFish": {
-    "cats": [
-      22
-    ],
-    "cpe": "cpe:2.3:a:oracle:glassfish_server:*:*:*:*:*:*:*:*",
-    "headers": {
-      "Server": "GlassFish(?: Server)?(?: Open Source Edition)?(?: ?/?([\\d.]+))?\\;version:\\1"
-    },
-    "icon": "GlassFish.png",
-    "implies": [
-      "Java"
-    ],
-    "website": "https://glassfish.java.net"
-  },
   "Glassbox": {
     "cats": [
       10
@@ -1873,6 +1823,20 @@
       "cdn\\.glassboxcdn\\.com/"
     ],
     "website": "https://www.glassbox.com"
+  },
+  "GlassFish": {
+    "cats": [
+      22
+    ],
+    "cpe": "cpe:2.3:a:oracle:glassfish_server:*:*:*:*:*:*:*:*",
+    "headers": {
+      "Server": "GlassFish(?: Server)?(?: Open Source Edition)?(?: ?/?([\\d.]+))?\\;version:\\1"
+    },
+    "icon": "GlassFish.png",
+    "implies": [
+      "Java"
+    ],
+    "website": "https://glassfish.java.net"
   },
   "Glassix": {
     "cats": [
@@ -1906,6 +1870,24 @@
       "\\.gleamjs\\.io/"
     ],
     "website": "https://gleam.io"
+  },
+  "Glean": {
+    "cats": [
+      209,
+      200
+    ],
+    "description": "Glean is an enterprise search and AI assistant platform indexing internal company knowledge.",
+    "website": "https://www.glean.com",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "scriptSrc": "app\\.glean\\.com",
+    "xhr": "\\.glean\\.com",
+    "dom": {
+      "iframe[src*='glean.com']": {
+        "exists": ""
+      }
+    }
   },
   "Gleap": {
     "cats": [
@@ -2022,21 +2004,6 @@
     ],
     "website": "https://glitchtip.com"
   },
-  "GlobRes": {
-    "cats": [
-      93
-    ],
-    "description": "GlobRes is a hospitality management solution designed to streamline operations, reservations, and customer service for hotels and other lodging providers.",
-    "icon": "GlobRes.svg",
-    "saas": true,
-    "scriptSrc": [
-      "api\\.globres\\.io"
-    ],
-    "scripts": [
-      "\\.globres\\.io"
-    ],
-    "website": "https://globres.com"
-  },
   "Global-e": {
     "cats": [
       106
@@ -2079,6 +2046,25 @@
       "//globalshopex\\.com/"
     ],
     "website": "https://www.globalshopex.com"
+  },
+  "GlobalSign EV": {
+    "cats": [
+      59
+    ],
+    "description": "GlobalSign Extended Validation SSL certificate.",
+    "icon": "GlobalSign EV.svg",
+    "website": "https://www.globalsign.com/en/ssl/ev-ssl-certificates",
+    "certIssuer": "GlobalSign Extended Validation CA"
+  },
+  "GlobalSign Seal": {
+    "cats": [
+      27
+    ],
+    "icon": "GlobalSign.svg",
+    "html": [
+      "<a[^>]*href=\"https?://seal\\.globalsign\\.com/seal\\.js\""
+    ],
+    "website": "https://www.globalsign.com/"
   },
   "Globo Also Bought": {
     "cats": [
@@ -2158,6 +2144,21 @@
     ],
     "saas": true,
     "website": "https://apps.shopify.com/pre-order-pro"
+  },
+  "GlobRes": {
+    "cats": [
+      93
+    ],
+    "description": "GlobRes is a hospitality management solution designed to streamline operations, reservations, and customer service for hotels and other lodging providers.",
+    "icon": "GlobRes.svg",
+    "saas": true,
+    "scriptSrc": [
+      "api\\.globres\\.io"
+    ],
+    "scripts": [
+      "\\.globres\\.io"
+    ],
+    "website": "https://globres.com"
   },
   "Glofox": {
     "cats": [
@@ -2240,6 +2241,55 @@
     ],
     "website": "https://glowloyalty.com"
   },
+  "GLPI": {
+    "cats": [
+      18,
+      53
+    ],
+    "cpe": "cpe:2.3:a:glpi-project:glpi:*:*:*:*:*:*:*:*",
+    "description": "GLPI is an open-source IT Asset Management, issue tracking and service desk system.",
+    "dom": {
+      "div[id*='footer-login'] > a": {
+        "text": "GLPI\\s+version\\s+([\\d\\.]+)\\;version:\\1"
+      },
+      "input[name='_glpi_csrf_token']": {
+        "exists": ""
+      }
+    },
+    "icon": "GLPI.svg",
+    "implies": [
+      "PHP"
+    ],
+    "js": {
+      "glpiUnsavedFormChanges": ""
+    },
+    "meta": {
+      "glpi:csrf_token": ""
+    },
+    "oss": true,
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "scriptSrc": [
+      "//.*glpi.+common\\.min\\.js\\?v=(\\d+\\.\\d+\\.\\d+)\\;version:\\1"
+    ],
+    "website": "https://glpi-project.org"
+  },
+  "GLS": {
+    "cats": [
+      99
+    ],
+    "description": "GLS offers parcel, logistics and express services, throughout Europe as well as in the US and in Canada.",
+    "icon": "GLS.svg",
+    "requiresCategory": [
+      6
+    ],
+    "text": [
+      "\\bGLS\\b"
+    ],
+    "website": "https://gls-group.eu"
+  },
   "GlueUp": {
     "cats": [
       53
@@ -2270,6 +2320,23 @@
     ],
     "icon": "Glyphicons.svg",
     "website": "https://glyphicons.com"
+  },
+  "GMO Payment Gateway": {
+    "cats": [
+      35
+    ],
+    "js": {
+      "ReturnCode": "",
+      "OrderID": "",
+      "ErrInfo": "",
+      "ErrCode": ""
+    },
+    "description": "GMO Payment Gateway provides comprehensive payment services and financial related services to businesses.",
+    "icon": "GMO Payment Gateway.svg",
+    "pricing": [
+      "paid"
+    ],
+    "website": "https://www.gmo-pg.com"
   },
   "Gnuboard": {
     "cats": [
@@ -2378,6 +2445,83 @@
     },
     "website": "https://www.goanywhere.com/"
   },
+  "Goat Slider": {
+    "cats": [
+      59
+    ],
+    "description": "Goat Slider is a webflow library that enables users to construct advanced sliders for their sites.",
+    "icon": "GoatSlider.svg",
+    "js": {
+      "GoatSliderCarousel": "",
+      "GoatSliderSlider": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://goatslider.com"
+  },
+  "Goat Systems": {
+    "cats": [
+      32,
+      53
+    ],
+    "description": "Goat Systems is a provider of marketing automation and CRM software designed to support business growth.",
+    "icon": "GoatSystems.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": [
+      "app\\.thegoatsystems\\.com"
+    ],
+    "website": "https://www.thegoatsystems.com"
+  },
+  "GoatCounter": {
+    "cats": [
+      10
+    ],
+    "description": "GoatCounter is an open source web analytics platform available as a hosted service (free for non-commercial use) or self-hosted app. It aims to offer easy to use and meaningful privacy-friendly web analytics as an alternative to Google Analytics or Matomo.",
+    "icon": "goatcounter.svg",
+    "oss": true,
+    "scriptSrc": [
+      "gc\\.zgo\\.at/count\\.js"
+    ],
+    "website": "https://www.goatcounter.com/"
+  },
+  "GOb2b": {
+    "cats": [
+      6
+    ],
+    "description": "Gob2b is an ecommerce integration solution that connects an online store to a Sage ERP back-end system for streamlined data flow.",
+    "icon": "GOb2b.svg",
+    "saas": true,
+    "scriptSrc": [
+      "cdn\\.gob2b\\.com"
+    ],
+    "website": "https://gob2b.com"
+  },
+  "Gobot": {
+    "cats": [
+      52
+    ],
+    "cookies": {
+      "_gobot": ""
+    },
+    "description": "Gobot is a tool that increases website leads, sales, and engagement through a conversational bot.",
+    "icon": "Gobot.svg",
+    "js": {
+      "gobot": ""
+    },
+    "saas": true,
+    "scriptSrc": [
+      "\\.getgobot\\.com/"
+    ],
+    "website": "https://www.getgobot.com"
+  },
   "GoCache": {
     "cats": [
       31
@@ -2432,6 +2576,17 @@
     ],
     "website": "https://www.godaddy.com"
   },
+  "GoDaddy CDN": {
+    "cats": [
+      31
+    ],
+    "description": "GoDaddy CDN is a content delivery network provided by GoDaddy.",
+    "icon": "GoDaddy.svg",
+    "website": "https://www.godaddy.com/",
+    "headers": {
+      "server": "GoDaddy-CDN"
+    }
+  },
   "GoDaddy CoBlocks": {
     "cats": [
       87,
@@ -2450,6 +2605,20 @@
       "/wp-content/plugins/coblocks/"
     ],
     "website": "https://github.com/godaddy-wordpress/coblocks"
+  },
+  "GoDaddy DNS": {
+    "cats": [
+      55
+    ],
+    "icon": "GoDaddy.svg",
+    "website": "https://godaddy.com/",
+    "description": "GoDaddy DNS is a domain name system operated by GoDaddy.",
+    "saas": true,
+    "dns": {
+      "NS": [
+        "domaincontrol\\.com$"
+      ]
+    }
   },
   "GoDaddy Domain Parking": {
     "cats": [
@@ -2545,6 +2714,17 @@
     ],
     "website": "https://github.com/godaddy-wordpress/primer"
   },
+  "GoDaddy SSL Certificate": {
+    "cats": [
+      85
+    ],
+    "description": "GoDaddy SSL Certificates.",
+    "icon": "GoDaddy.svg",
+    "website": "https://www.godaddy.com/web-security/ssl-certificate",
+    "headers": {
+      "Server": "GoDaddy Secure Certificate Authority - G2"
+    }
+  },
   "GoDaddy Uptown Style": {
     "cats": [
       80
@@ -2578,204 +2758,6 @@
     ],
     "saas": true,
     "website": "https://www.godaddy.com/websites/website-builder"
-  },
-  "GoJS": {
-    "cats": [
-      25
-    ],
-    "icon": "GoJS.svg",
-    "js": {
-      "go.GraphObject": "",
-      "go.version": "(.*)\\;version:\\1"
-    },
-    "website": "https://gojs.net/"
-  },
-  "GoKwik": {
-    "cats": [
-      19
-    ],
-    "description": "GoKwik is a platform for solving shopping experience problems on ecommerce websites on the internet.",
-    "icon": "GoKwik.svg",
-    "js": {
-      "gokwikBuyNow": "",
-      "gokwikCheckoutApp": "",
-      "gokwikSdk": ""
-    },
-    "pricing": [
-      "poa"
-    ],
-    "requiresCategory": [
-      6
-    ],
-    "saas": true,
-    "website": "https://www.gokwik.co"
-  },
-  "GoMage": {
-    "cats": [
-      108
-    ],
-    "description": "GoMage is a Magento development company with 10 years of experience.",
-    "icon": "GoMage.svg",
-    "implies": [
-      "PWA",
-      "Magento\\;version:2"
-    ],
-    "js": {
-      "GomageNavigation": "",
-      "GomageNavigationClass": "",
-      "gomageSpinnerModal": "",
-      "gomage_navigation_loadinfo_text": "",
-      "gomage_navigation_urlhash": ""
-    },
-    "website": "https://www.gomage.com/magento-2-pwa"
-  },
-  "GoPrep": {
-    "cats": [
-      93
-    ],
-    "cookies": {
-      "goprep_session": ""
-    },
-    "description": "GoPrep is a meal prep software tailored for the Meal Preparation & Delivery industry.",
-    "icon": "GoPrep.svg",
-    "pricing": [
-      "low",
-      "recurring",
-      "poa"
-    ],
-    "saas": true,
-    "website": "https://goprep.com"
-  },
-  "GoSquared": {
-    "cats": [
-      10
-    ],
-    "description": "GoSquared is a web analytics platform positioned as an alternative to Google Analytics.",
-    "icon": "GoSquared.svg",
-    "js": {
-      "GoSquared": ""
-    },
-    "pricing": [
-      "low",
-      "recurring"
-    ],
-    "saas": true,
-    "scripts": [
-      "gosquared\\.js"
-    ],
-    "website": "https://www.gosquared.com"
-  },
-  "GoStats": {
-    "cats": [
-      10
-    ],
-    "icon": "GoStats.png",
-    "js": {
-      "_goStatsRun": "",
-      "_go_track_src": "",
-      "go_msie": ""
-    },
-    "website": "https://gostats.com/"
-  },
-  "GoVedia": {
-    "cats": [
-      6
-    ],
-    "description": "GoVedia is a provider of custom ecommerce development solutions tailored to specific business needs.",
-    "icon": "GoVedia.svg",
-    "saas": true,
-    "scripts": [
-      "\\.govedia\\.com"
-    ],
-    "website": "https://govedia.com"
-  },
-  "GoZen Forms": {
-    "cats": [
-      110
-    ],
-    "description": "GoZen Forms is an AI-powered no-code form builder that automates form creation, collects signup data, payments, and e-signatures.",
-    "icon": "GoZenForms.svg",
-    "js": {
-      "GzFormAjax.send": "",
-      "GzFormMain": "",
-      "GzFormPopup": "",
-      "GzForms": ""
-    },
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "signup-forms-cdn\\.app\\.gozen\\.io/"
-    ],
-    "website": "https://gozen.io/forms/"
-  },
-  "Goat Slider": {
-    "cats": [
-      59
-    ],
-    "description": "Goat Slider is a webflow library that enables users to construct advanced sliders for their sites.",
-    "icon": "GoatSlider.svg",
-    "js": {
-      "GoatSliderCarousel": "",
-      "GoatSliderSlider": ""
-    },
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "saas": true,
-    "website": "https://goatslider.com"
-  },
-  "Goat Systems": {
-    "cats": [
-      32,
-      53
-    ],
-    "description": "Goat Systems is a provider of marketing automation and CRM software designed to support business growth.",
-    "icon": "GoatSystems.svg",
-    "pricing": [
-      "low",
-      "recurring"
-    ],
-    "saas": true,
-    "scripts": [
-      "app\\.thegoatsystems\\.com"
-    ],
-    "website": "https://www.thegoatsystems.com"
-  },
-  "GoatCounter": {
-    "cats": [
-      10
-    ],
-    "description": "GoatCounter is an open source web analytics platform available as a hosted service (free for non-commercial use) or self-hosted app. It aims to offer easy to use and meaningful privacy-friendly web analytics as an alternative to Google Analytics or Matomo.",
-    "icon": "goatcounter.svg",
-    "oss": true,
-    "scriptSrc": [
-      "gc\\.zgo\\.at/count\\.js"
-    ],
-    "website": "https://www.goatcounter.com/"
-  },
-  "Gobot": {
-    "cats": [
-      52
-    ],
-    "cookies": {
-      "_gobot": ""
-    },
-    "description": "Gobot is a tool that increases website leads, sales, and engagement through a conversational bot.",
-    "icon": "Gobot.svg",
-    "js": {
-      "gobot": ""
-    },
-    "saas": true,
-    "scriptSrc": [
-      "\\.getgobot\\.com/"
-    ],
-    "website": "https://www.getgobot.com"
   },
   "Godot": {
     "cats": [
@@ -2843,6 +2825,37 @@
     ],
     "website": "https://gogs.io"
   },
+  "GoJS": {
+    "cats": [
+      25
+    ],
+    "icon": "GoJS.svg",
+    "js": {
+      "go.GraphObject": "",
+      "go.version": "(.*)\\;version:\\1"
+    },
+    "website": "https://gojs.net/"
+  },
+  "GoKwik": {
+    "cats": [
+      19
+    ],
+    "description": "GoKwik is a platform for solving shopping experience problems on ecommerce websites on the internet.",
+    "icon": "GoKwik.svg",
+    "js": {
+      "gokwikBuyNow": "",
+      "gokwikCheckoutApp": "",
+      "gokwikSdk": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "requiresCategory": [
+      6
+    ],
+    "saas": true,
+    "website": "https://www.gokwik.co"
+  },
   "Golden Volunteer": {
     "cats": [
       111
@@ -2886,6 +2899,25 @@
     ],
     "saas": true,
     "website": "https://www.gomag.ro"
+  },
+  "GoMage": {
+    "cats": [
+      108
+    ],
+    "description": "GoMage is a Magento development company with 10 years of experience.",
+    "icon": "GoMage.svg",
+    "implies": [
+      "PWA",
+      "Magento\\;version:2"
+    ],
+    "js": {
+      "GomageNavigation": "",
+      "GomageNavigationClass": "",
+      "gomageSpinnerModal": "",
+      "gomage_navigation_loadinfo_text": "",
+      "gomage_navigation_urlhash": ""
+    },
+    "website": "https://www.gomage.com/magento-2-pwa"
   },
   "Gong": {
     "cats": [
@@ -2951,6 +2983,22 @@
     ],
     "website": "https://goodapps.io"
   },
+  "Goodbits": {
+    "cats": [
+      75
+    ],
+    "cookies": {
+      "_goodbits_session": ""
+    },
+    "description": "Goodbits is email newsletter creation software designed to help collect and curate content for sending newsletters.",
+    "icon": "Goodbits.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://goodbits.io"
+  },
   "GoodEshop": {
     "cats": [
       6
@@ -2982,22 +3030,6 @@
     ],
     "website": "https://goodreviews.io"
   },
-  "Goodbits": {
-    "cats": [
-      75
-    ],
-    "cookies": {
-      "_goodbits_session": ""
-    },
-    "description": "Goodbits is email newsletter creation software designed to help collect and curate content for sending newsletters.",
-    "icon": "Goodbits.svg",
-    "pricing": [
-      "low",
-      "recurring"
-    ],
-    "saas": true,
-    "website": "https://goodbits.io"
-  },
   "Goodsearch": {
     "cats": [
       29
@@ -3009,31 +3041,6 @@
       "www\\.goodsearch\\.com"
     ],
     "website": "https://www.goodsearch.com"
-  },
-  "Google AdSense": {
-    "cats": [
-      36
-    ],
-    "description": "Google AdSense is a program run by Google through which website publishers serve advertisements that are targeted to the site content and audience.",
-    "dom": [
-      "amp-ad[type='adsense']"
-    ],
-    "icon": "Google AdSense.svg",
-    "js": {
-      "Goog_AdSense_": "",
-      "Goog_AdSense_OsdAdapter": "",
-      "__google_ad_urls": "",
-      "adsbygoogle": "",
-      "google_ad_": ""
-    },
-    "saas": true,
-    "scriptSrc": [
-      "googlesyndication\\.com/",
-      "ad\\.ca\\.doubleclick\\.net",
-      "2mdn\\.net",
-      "ad\\.ca\\.doubleclick\\.net"
-    ],
-    "website": "https://www.google.com/adsense/start/"
   },
   "Google Ads": {
     "cats": [
@@ -3070,6 +3077,41 @@
       "gtag\\([^)]+'(AW-)"
     ],
     "website": "https://support.google.com/google-ads/answer/1722022"
+  },
+  "Google AdSense": {
+    "cats": [
+      36
+    ],
+    "description": "Google AdSense is a program run by Google through which website publishers serve advertisements that are targeted to the site content and audience.",
+    "dom": [
+      "amp-ad[type='adsense']"
+    ],
+    "icon": "Google AdSense.svg",
+    "js": {
+      "Goog_AdSense_": "",
+      "Goog_AdSense_OsdAdapter": "",
+      "__google_ad_urls": "",
+      "adsbygoogle": "",
+      "google_ad_": ""
+    },
+    "saas": true,
+    "scriptSrc": [
+      "googlesyndication\\.com/",
+      "ad\\.ca\\.doubleclick\\.net",
+      "2mdn\\.net"
+    ],
+    "website": "https://www.google.com/adsense/start/"
+  },
+  "Google AdWords Conversion": {
+    "cats": [
+      10
+    ],
+    "description": "Conversion tracking is a free tool that shows you what happens after a customer clicks on your ads.",
+    "icon": "Google Ads.svg",
+    "js": {
+      "google_trackConversion": ""
+    },
+    "website": "https://support.google.com/google-ads/answer/1722054?hl=en"
   },
   "Google Analytics": {
     "cats": [
@@ -3118,12 +3160,33 @@
     ],
     "website": "https://developers.google.com/analytics/devguides/collection/analyticsjs/enhanced-ecommerce"
   },
+  "Google APIs": {
+    "cats": [
+      12
+    ],
+    "description": "Google APIs is a set of application programming interfaces developed by Google.",
+    "icon": "Google APIs.svg",
+    "website": "https://developers.google.com/apis-explorer",
+    "scriptSrc": "^(?:https?:\\/\\/)?apis\\.google\\.com\\/js\\/api\\.js"
+  },
   "Google App Engine": {
     "cats": [
       22
     ],
     "icon": "Google App Engine.svg",
     "website": "https://cloud.google.com/appengine"
+  },
+  "Google BigQuery": {
+    "cats": [
+      204,
+      34
+    ],
+    "description": "Google BigQuery is a serverless cloud data warehouse. Detected when a page queries it directly.",
+    "website": "https://cloud.google.com/bigquery",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "xhr": "bigquery(?:datatransfer|reservation)?\\.googleapis\\.com"
   },
   "Google Call Conversion Tracking": {
     "cats": [
@@ -3143,6 +3206,20 @@
       "gstatic\\.com/call-tracking/.+\\.js"
     ],
     "website": "https://support.google.com/google-ads/answer/6100664"
+  },
+  "Google Campaign Manager 360": {
+    "cats": [
+      10
+    ],
+    "description": "Google Campaign Manager 360 is a web-based ad management system for advertisers and agencies.",
+    "icon": "Google Campaign Manager 360.svg",
+    "website": "https://marketingplatform.google.com/about/campaign-manager-360/",
+    "scripts": [
+      "fls.doubleclick.net"
+    ],
+    "js": {
+      "_cm_pixel": ""
+    }
   },
   "Google Charts": {
     "cats": [
@@ -3178,6 +3255,17 @@
       "Google Cloud"
     ],
     "website": "https://cloud.google.com/cdn"
+  },
+  "Google Cloud Firestore": {
+    "cats": [
+      10
+    ],
+    "description": "Cloud Firestore is a fully-managed NoSQL document database for mobile, web, and server development from Firebase and Google Cloud Platform.",
+    "icon": "Google Cloud Firestore.png",
+    "js": {
+      "firebase.firestore": ""
+    },
+    "website": "https://firebase.google.com/docs/firestore"
   },
   "Google Cloud Load Balancing": {
     "cats": [
@@ -3235,6 +3323,26 @@
     },
     "website": "https://code.google.com/p/google-code-prettify"
   },
+  "Google Compute Engine": {
+    "cats": [
+      22
+    ],
+    "description": "Google Compute Engine is Google's Infrastructure-as-a-Service (IaaS) offering, providing virtual machine instances for workloads.",
+    "icon": "Google Cloud.svg",
+    "website": "https://cloud.google.com/compute/",
+    "headers": {
+      "Server": "(GSE|gws)"
+    }
+  },
+  "Google Consumer Surveys": {
+    "cats": [
+      10
+    ],
+    "description": "Google Consumer Surveys is a market research tool that allows businesses to create online surveys to share with their target audience.",
+    "icon": "Google Consumer Surveys.svg",
+    "website": "https://surveys.google.com",
+    "scriptSrc": "google.com/insights/consumersurveys/"
+  },
   "Google Customer Reviews": {
     "cats": [
       90
@@ -3284,9 +3392,6 @@
       },
       "h1": {
         "text": "Dataproc"
-      },
-      "meta[name=\"keywords\"]": {
-        "content": "Dataproc|Hadoop|Spark|Google Cloud"
       }
     },
     "implies": [
@@ -3294,7 +3399,30 @@
       "Google APIs"
     ],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "meta": {
+      "keywords": "Dataproc|Hadoop|Spark|Google Cloud"
+    }
+  },
+  "Google Dialogflow": {
+    "cats": [
+      40
+    ],
+    "description": "Dialogflow is a natural language understanding platform from Google, used to design and integrate conversational user interfaces.",
+    "icon": "Dialogflow.svg",
+    "js": {
+      "Dialogflow": ""
+    },
+    "website": "https://cloud.google.com/dialogflow"
+  },
+  "Google Docs": {
+    "cats": [
+      23
+    ],
+    "description": "Google Docs is a free, web-based office suite offered by Google.",
+    "icon": "Google Docs.svg",
+    "website": "https://docs.google.com",
+    "url": "docs\\.google\\.com"
   },
   "Google Font API": {
     "cats": [
@@ -3333,11 +3461,40 @@
     "icon": "Google Forms.svg",
     "website": "https://www.google.com/forms/about/"
   },
+  "Google Funding Choices": {
+    "cats": [
+      10
+    ],
+    "description": "Google Funding Choices helps publishers obtain user consent for personalized ads and funding alternatives.",
+    "icon": "Google Funding Choices.svg",
+    "scriptSrc": "fundingchoices.google.com",
+    "website": "https://fundingchoices.google.com/"
+  },
+  "Google Gemini API": {
+    "cats": [
+      200,
+      112
+    ],
+    "description": "The Google Gemini API provides access to the Gemini model family through Google AI Studio and Vertex AI.",
+    "website": "https://ai.google.dev",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "pricing": [
+      "payg",
+      "freemium"
+    ],
+    "xhr": "generativelanguage\\.googleapis\\.com"
+  },
   "Google GKE": {
-    "description":  "Google Kubernetes Engine (GKE) is Google Cloud's managed Kubernetes service for deploying, scaling and operating containerized applications with integrated load balancing and cluster management.",
-    "cats": [60, 62, 88],
+    "description": "Google Kubernetes Engine (GKE) is Google Cloud's managed Kubernetes service for deploying, scaling and operating containerized applications with integrated load balancing and cluster management.",
+    "cats": [
+      60,
+      62,
+      88
+    ],
     "website": "https://cloud.google.com/kubernetes-engine",
-    "icon":  "GoogleGKE.svg",
+    "icon": "GoogleGKE.svg",
     "headers": {
       "x-kubernetes-pf-flowschema-uid": ".+",
       "x-kubernetes-pf-prioritylevel-uid": ".+"
@@ -3350,13 +3507,22 @@
     ],
     "oss": false,
     "saas": true,
-    "pricing": ["payg", "recurring", "poa", "enterprise"],
-    "implies":  [
+    "pricing": [
+      "payg",
+      "recurring",
+      "poa",
+      "enterprise"
+    ],
+    "implies": [
       "Google Cloud",
       "Google Cloud Load Balancing"
     ],
-    "requires": ["Google Cloud"],
-    "excludes": ["Google App Engine"]
+    "requires": [
+      "Google Cloud"
+    ],
+    "excludes": [
+      "Google App Engine"
+    ]
   },
   "Google Hosted Libraries": {
     "cats": [
@@ -3371,6 +3537,17 @@
       "ajax\\.googleapis\\.com/ajax/libs/"
     ],
     "website": "https://developers.google.com/speed/libraries"
+  },
+  "Google Interactive Media Ads": {
+    "cats": [
+      10
+    ],
+    "description": "The Google Interactive Media Ads SDK allows developers to integrate video ads into their content on web, Android, and iOS.",
+    "icon": "Google.svg",
+    "js": {
+      "google.ima": ""
+    },
+    "website": "https://developers.google.com/interactive-media-ads/"
   },
   "Google Maps": {
     "cats": [
@@ -3456,6 +3633,29 @@
     ],
     "website": "https://developers.google.com/publisher-tag/guides/get-started"
   },
+  "Google Remarketing": {
+    "cats": [
+      36
+    ],
+    "description": "Google Remarketing is a Google Ads service that enables websites to show targeted ads to users who have previously visited their site.",
+    "icon": "Google Ads.svg",
+    "website": "https://ads.google.com/aw/remarketing/",
+    "js": {
+      "google_trackConversion": ""
+    },
+    "scriptSrc": "//www\\.googleadservices\\.com/pagead/conversion\\.js"
+  },
+  "Google Sign-In": {
+    "cats": [
+      63
+    ],
+    "description": "Google Sign-In is Google's authentication system that enables users to login to websites with their Google account.",
+    "icon": "Google.svg",
+    "website": "https://developers.google.com/identity/sign-in/web",
+    "js": {
+      "gapi.auth2": ""
+    }
+  },
   "Google Sign-in": {
     "cats": [
       69
@@ -3533,6 +3733,67 @@
     ],
     "website": "https://gtm4wp.com"
   },
+  "Google Translate": {
+    "cats": [
+      78
+    ],
+    "description": "Google Translate is a free multilingual statistical and neural machine translation service.",
+    "icon": "Google Translate.svg",
+    "js": {
+      "google.translate.TranslateElement": ""
+    },
+    "scripts": "/translate/releases/",
+    "website": "https://translate.google.com/"
+  },
+  "Google Translate Widget": {
+    "cats": [
+      62
+    ],
+    "description": "The Google Translate Widget allows website visitors to translate the site content into different languages.",
+    "icon": "Google Translate.svg",
+    "website": "https://translate.google.com/manager/website/",
+    "scriptSrc": "translate\\.google\\.com/translate_a/element\\.js",
+    "js": {
+      "google.translate.TranslateElement": ""
+    }
+  },
+  "Google Trusted Stores": {
+    "cats": [
+      10
+    ],
+    "description": "Google Trusted Stores helps shoppers identify online merchants that offer a great shopping experience.",
+    "icon": "Google Trusted Stores.png",
+    "website": "https://www.google.com/trustedstores/"
+  },
+  "Google Universal Analytics": {
+    "cats": [
+      10
+    ],
+    "description": "Universal Analytics offers a new set of features and brings the classic analytics to the new standard of today's world.",
+    "icon": "Google Analytics.svg",
+    "js": {
+      "ga": "",
+      "gaplugins": "",
+      "GoogleAnalyticsObject": ""
+    },
+    "website": "https://marketingplatform.google.com/about/analytics/",
+    "scriptSrc": "www.google-analytics.com/analytics.js"
+  },
+  "Google Vertex AI": {
+    "cats": [
+      200,
+      203
+    ],
+    "description": "Google Vertex AI is Google Cloud’s managed machine learning and generative AI platform. Detected when a page calls its endpoints.",
+    "website": "https://cloud.google.com/vertex-ai",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "pricing": [
+      "payg"
+    ],
+    "xhr": "(?:[a-z0-9-]+-)?aiplatform\\.googleapis\\.com"
+  },
   "Google Wallet": {
     "cats": [
       41
@@ -3544,6 +3805,15 @@
       "wallet\\.google\\.com"
     ],
     "website": "https://wallet.google.com"
+  },
+  "Google Web Elements": {
+    "cats": [
+      14
+    ],
+    "description": "Google Web Elements are a set of embeddable widgets provided by Google, allowing you to easily add Google services to your website.",
+    "website": "https://developers.google.com/web",
+    "icon": "Google Web Elements.svg",
+    "html": "(?:<script[^>]*src=[\"'](?:https?:)?//www\\.google\\.com/jsapi[\"'][^>]*>)|google\\.load\\("
   },
   "Google Web Server": {
     "cats": [
@@ -3589,7 +3859,8 @@
       "MX": [
         "aspmx\\.l\\.google\\.com",
         "googlemail\\.com"
-      ]
+      ],
+      "TXT": "google-gws-recovery-domain-verification="
     },
     "icon": "Google.svg",
     "website": "https://workspace.google.com/"
@@ -3609,6 +3880,35 @@
     ],
     "saas": true,
     "website": "https://goope.jp"
+  },
+  "GoPrep": {
+    "cats": [
+      93
+    ],
+    "cookies": {
+      "goprep_session": ""
+    },
+    "description": "GoPrep is a meal prep software tailored for the Meal Preparation & Delivery industry.",
+    "icon": "GoPrep.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://goprep.com"
+  },
+  "GOrendezvous": {
+    "cats": [
+      72
+    ],
+    "description": "GOrendezvous is an online scheduling and appointment booking software for managing availability, bookings, and calendar coordination across services and users.",
+    "icon": "GOrendezvous.svg",
+    "saas": true,
+    "scriptSrc": [
+      "www\\.gorendezvous\\.com"
+    ],
+    "website": "https://gorendezvous.com"
   },
   "Gorgias": {
     "cats": [
@@ -3661,6 +3961,37 @@
     ],
     "website": "https://www.goshly.com"
   },
+  "GoSquared": {
+    "cats": [
+      10
+    ],
+    "description": "GoSquared is a web analytics platform positioned as an alternative to Google Analytics.",
+    "icon": "GoSquared.svg",
+    "js": {
+      "GoSquared": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": [
+      "gosquared\\.js"
+    ],
+    "website": "https://www.gosquared.com"
+  },
+  "GoStats": {
+    "cats": [
+      10
+    ],
+    "icon": "GoStats.png",
+    "js": {
+      "_goStatsRun": "",
+      "_go_track_src": "",
+      "go_msie": ""
+    },
+    "website": "https://gostats.com/"
+  },
   "GotiPath": {
     "cats": [
       31
@@ -3679,6 +4010,81 @@
       "payg"
     ],
     "website": "https://gotipath.com"
+  },
+  "GoToAssist": {
+    "cats": [
+      32
+    ],
+    "description": "GoToAssist is a cloud-based service that enables IT professionals to provide technical support.",
+    "icon": "GoToAssist.svg",
+    "website": "https://www.gotoassist.com/",
+    "scripts": "goToAssistVariable"
+  },
+  "GOV.UK Elements": {
+    "cats": [
+      66
+    ],
+    "html": [
+      "<link[^>]+elements-page[^>\"]+css\\;confidence:25",
+      "<div[^>]+phase-banner-alpha\\;confidence:25",
+      "<div[^>]+phase-banner-beta\\;confidence:25",
+      "<div[^>]+govuk-box-highlight\\;confidence:25"
+    ],
+    "icon": "govuk.svg",
+    "implies": [
+      "GOV.UK Toolkit"
+    ],
+    "website": "https://github.com/alphagov/govuk_elements/"
+  },
+  "GOV.UK Frontend": {
+    "cats": [
+      66
+    ],
+    "html": [
+      "<link[^>]* href=[^>]*?govuk-frontend(?:[^>]*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)[^>]*?(?:\\.min)?\\.css\\;version:\\1",
+      "<body[^>]+govuk-template__body\\;confidence:80",
+      "<a[^>]+govuk-link\\;confidence:10"
+    ],
+    "icon": "govuk.svg",
+    "js": {
+      "GOVUKFrontend": ""
+    },
+    "scriptSrc": [
+      "govuk-frontend(?:[^>]*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)[^>]*?(?:\\.min)?\\.js\\;version:\\1"
+    ],
+    "website": "https://design-system.service.gov.uk/"
+  },
+  "GOV.UK Template": {
+    "cats": [
+      66
+    ],
+    "html": [
+      "<link[^>]+govuk-template[^>\"]+css",
+      "<link[^>]+govuk-template-print[^>\"]+css",
+      "<link[^>]+govuk-template-ie6[^>\"]+css",
+      "<link[^>]+govuk-template-ie7[^>\"]+css",
+      "<link[^>]+govuk-template-ie8[^>\"]+css"
+    ],
+    "icon": "govuk.svg",
+    "js": {
+      "GOVUK": ""
+    },
+    "scriptSrc": [
+      "govuk-template\\.js"
+    ],
+    "website": "https://github.com/alphagov/govuk_template/"
+  },
+  "GOV.UK Toolkit": {
+    "cats": [
+      66
+    ],
+    "icon": "govuk.svg",
+    "js": {
+      "GOVUK.details": "",
+      "GOVUK.modules": "",
+      "GOVUK.primaryLinks": ""
+    },
+    "website": "https://github.com/alphagov/govuk_frontend_toolkit"
   },
   "Govalo": {
     "cats": [
@@ -3703,6 +4109,84 @@
       "cdn\\.shopify\\.com/extensions/.+/([\\d\\.]+)/assets/govalo\\.min\\.js\\;version:\\1"
     ],
     "website": "https://govalo.com"
+  },
+  "govCMS": {
+    "cats": [
+      1
+    ],
+    "icon": "govCMS.svg",
+    "implies": [
+      "Drupal"
+    ],
+    "meta": {
+      "generator": "Drupal ([\\d]+) \\(http:\\/\\/drupal\\.org\\) \\+ govCMS\\;version:\\1"
+    },
+    "website": "https://www.govcms.gov.au"
+  },
+  "GovDelivery": {
+    "cats": [
+      67
+    ],
+    "description": "GovDelivery is a cloud-based email subscription management system for government agencies.",
+    "website": "https://granicus.com/government-communication-solutions/govdelivery/",
+    "icon": "GovDelivery.svg",
+    "html": "powered by GovDelivery",
+    "scriptSrc": "/scripts/wpn/",
+    "saas": true
+  },
+  "GoVedia": {
+    "cats": [
+      6
+    ],
+    "description": "GoVedia is a provider of custom ecommerce development solutions tailored to specific business needs.",
+    "icon": "GoVedia.svg",
+    "saas": true,
+    "scripts": [
+      "\\.govedia\\.com"
+    ],
+    "website": "https://govedia.com"
+  },
+  "GoZen Forms": {
+    "cats": [
+      110
+    ],
+    "description": "GoZen Forms is an AI-powered no-code form builder that automates form creation, collects signup data, payments, and e-signatures.",
+    "icon": "GoZenForms.svg",
+    "js": {
+      "GzFormAjax.send": "",
+      "GzFormMain": "",
+      "GzFormPopup": "",
+      "GzForms": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "signup-forms-cdn\\.app\\.gozen\\.io/"
+    ],
+    "website": "https://gozen.io/forms/"
+  },
+  "GPT AI Power": {
+    "cats": [
+      87
+    ],
+    "description": "GPT AI Power is a WordPress plugin that offers a comprehensive AI package.",
+    "icon": "GPT AI Power.png",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": [
+      "WordPress"
+    ],
+    "scriptSrc": [
+      "/wp-content/plugins/gpt3-ai-content-generator/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1"
+    ],
+    "website": "https://gptaipower.com"
   },
   "Grab Pay Later": {
     "cats": [
@@ -3796,6 +4280,22 @@
     ],
     "website": "https://graindata.com"
   },
+  "Grammarly": {
+    "cats": [
+      200
+    ],
+    "description": "Grammarly is an AI writing assistant. The Text Editor SDK embeds it into web applications.",
+    "website": "https://www.grammarly.com",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "scriptSrc": "js\\.grammarly\\.com",
+    "dom": {
+      "grammarly-editor-plugin": {
+        "exists": ""
+      }
+    }
+  },
   "GrandNode": {
     "cats": [
       6
@@ -3871,22 +4371,6 @@
       "\\.graphcms\\.com"
     ]
   },
-  "GraphQL": {
-    "cats": [
-      27
-    ],
-    "cpe": "cpe:2.3:a:graphql:graphql:*:*:*:*:*:*:*:*",
-    "description": "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.",
-    "icon": "GraphQL.svg",
-    "meta": {
-      "store-config": "graphqlMethod"
-    },
-    "oss": true,
-    "website": "https://graphql.org",
-    "xhr": [
-      "graphql\\.[\\w]+\\.(?:com|net)/"
-    ]
-  },
   "Graphene": {
     "cats": [
       80
@@ -3944,6 +4428,22 @@
     "saas": true,
     "website": "https://graphly.io"
   },
+  "GraphQL": {
+    "cats": [
+      27
+    ],
+    "cpe": "cpe:2.3:a:graphql:graphql:*:*:*:*:*:*:*:*",
+    "description": "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.",
+    "icon": "GraphQL.svg",
+    "meta": {
+      "store-config": "graphqlMethod"
+    },
+    "oss": true,
+    "website": "https://graphql.org",
+    "xhr": [
+      "graphql\\.[\\w]+\\.(?:com|net)/"
+    ]
+  },
   "Graphy": {
     "cats": [
       21
@@ -3959,6 +4459,26 @@
     ],
     "saas": true,
     "website": "https://graphy.com"
+  },
+  "Grappos": {
+    "cats": [
+      6
+    ],
+    "description": "Grappos is a feature-rich product locator that helps users find products through structured search and location-based discovery.",
+    "icon": "Grappos.svg",
+    "js": {
+      "grapposConfig.autoSearch": "",
+      "grapposLoadLocator": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "locator\\.grappos\\.com"
+    ],
+    "website": "https://www.grappos.com/"
   },
   "Grasp": {
     "cats": [
@@ -4122,6 +4642,28 @@
     },
     "website": "https://www.greenvalley.nl/Public/Producten/Content_Management/CMS"
   },
+  "Greenhouse": {
+    "cats": [
+      101
+    ],
+    "description": "Greenhouse is an applicant tracking and hiring tool. Greenhouse features automated workflow, recruitment analytics, CRM, and onboarding.",
+    "dom": [
+      "link[href*='cdn\\.greenhouse\\.io/']"
+    ],
+    "icon": "Greenhouse.svg",
+    "js": {
+      "populateGreenhouseJobs": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.greenhouse\\.io/"
+    ],
+    "website": "https://www.greenhouse.io"
+  },
   "GreenRope": {
     "cats": [
       53
@@ -4160,27 +4702,26 @@
     ],
     "website": "https://www.greenstory.io"
   },
-  "Greenhouse": {
+  "GReminders": {
     "cats": [
-      101
+      72
     ],
-    "description": "Greenhouse is an applicant tracking and hiring tool. Greenhouse features automated workflow, recruitment analytics, CRM, and onboarding.",
+    "description": "GReminders is an end-to-end meeting management platform designed for professionals to schedule, organize, and manage meetings.",
     "dom": [
-      "link[href*='cdn\\.greenhouse\\.io/']"
+      "iframe[src*='app.greminders.com/']"
     ],
-    "icon": "Greenhouse.svg",
-    "js": {
-      "populateGreenhouseJobs": ""
-    },
+    "icon": "GReminders.svg",
     "pricing": [
-      "mid",
-      "recurring"
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.greenhouse\\.io/"
+      "app\\.greminders\\.com/"
     ],
-    "website": "https://www.greenhouse.io"
+    "website": "https://www.greminders.com"
   },
   "Greyd.Suite": {
     "cats": [
@@ -4390,6 +4931,18 @@
     ],
     "website": "https://groove.cm/pages"
   },
+  "Groq": {
+    "cats": [
+      203,
+      200
+    ],
+    "description": "Groq provides low-latency language model inference on its LPU hardware via GroqCloud.",
+    "website": "https://groq.com",
+    "icon": "default.svg",
+    "saas": true,
+    "oss": false,
+    "xhr": "api\\.groq\\.com"
+  },
   "GroupBy": {
     "cats": [
       29
@@ -4402,25 +4955,14 @@
     ],
     "website": "https://groupbyinc.com/"
   },
-  "GrowSurf": {
+  "GroupWise WebAccess": {
     "cats": [
-      32
+      6
     ],
-    "description": "GrowSurf is a referral marketing software designed to automate viral growth for websites.",
-    "icon": "GrowSurf.svg",
-    "js": {
-      "growsurf.init": ""
-    },
-    "pricing": [
-      "mid",
-      "recurring",
-      "poa"
-    ],
-    "saas": true,
-    "scriptSrc": [
-      "\\.growsurf\\.com/"
-    ],
-    "website": "https://growsurf.com"
+    "description": "GroupWise is a messaging and collaboration platform from Micro Focus.",
+    "icon": "GroupWise.svg",
+    "html": "<title>GroupWise WebAccess",
+    "website": "https://www.microfocus.com/products/groupwise/"
   },
   "Growave": {
     "cats": [
@@ -4504,6 +5046,26 @@
     ],
     "website": "https://www.growingio.com/"
   },
+  "GrowSurf": {
+    "cats": [
+      32
+    ],
+    "description": "GrowSurf is a referral marketing software designed to automate viral growth for websites.",
+    "icon": "GrowSurf.svg",
+    "js": {
+      "growsurf.init": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.growsurf\\.com/"
+    ],
+    "website": "https://growsurf.com"
+  },
   "GrowthBook": {
     "cats": [
       74
@@ -4540,6 +5102,71 @@
     ],
     "saas": true,
     "website": "https://www.gruvi.tv"
+  },
+  "GSAP": {
+    "cats": [
+      12
+    ],
+    "description": "GSAP is an animation library that allows you to create animations with JavaScript.",
+    "icon": "GSAP.svg",
+    "js": {
+      "TweenLite.version": "([\\d.]+)\\;version:\\1",
+      "TweenMax.version": "([\\d.]+)\\;version:\\1",
+      "gsap.version": "([\\d.]+)\\;version:\\1",
+      "gsapVersions": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "scriptSrc": [
+      "TweenMax(?:\\.min)?\\.js"
+    ],
+    "website": "https://greensock.com/gsap"
+  },
+  "GTranslate": {
+    "cats": [
+      87,
+      89
+    ],
+    "description": "GTranslate is a website translator which can translate any website to any language automatically.",
+    "dom": [
+      "link[href*='/wp-content/plugins/gtranslate/'], img[src*='/wp-content/plugins/gtranslate/']"
+    ],
+    "icon": "GTranslate.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": [
+      "WordPress"
+    ],
+    "website": "https://gtranslate.io"
+  },
+  "GTranslate app": {
+    "cats": [
+      100,
+      89
+    ],
+    "description": "GTranslate app is a website translator which can translate any website to any language automatically.",
+    "dom": [
+      "img[src*='gtranslate.io/shopify']"
+    ],
+    "icon": "GTranslate.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": [
+      "Shopify"
+    ],
+    "scriptSrc": [
+      "gtranslate\\.io/shopify/"
+    ],
+    "website": "https://apps.shopify.com/multilingual-shop-by-gtranslate"
   },
   "GuardFlame": {
     "cats": [
@@ -4639,6 +5266,21 @@
     ],
     "website": "https://guideit.uk"
   },
+  "GuildQuality": {
+    "cats": [
+      73
+    ],
+    "description": "GuildQuality is a customer satisfaction surveying and performance reporting platform that collects feedback, measures service quality, and provides structured insights for operational improvement.",
+    "dom": [
+      "iframe[src*='guildquality.com']"
+    ],
+    "headers": {
+      "Access-Control-Allow-Origin": "www\\.guildquality\\.com"
+    },
+    "icon": "GuildQuality.svg",
+    "saas": true,
+    "website": "https://www.guildquality.com"
+  },
   "GumGum": {
     "cats": [
       36
@@ -4721,6 +5363,33 @@
     ],
     "website": "https://gumstack.com/"
   },
+  "gunicorn": {
+    "cats": [
+      22
+    ],
+    "cpe": "cpe:2.3:a:gunicorn:gunicorn:*:*:*:*:*:*:*:*",
+    "headers": {
+      "Server": "gunicorn(?:/([\\d.]+))?\\;version:\\1"
+    },
+    "icon": "gunicorn.png",
+    "implies": [
+      "Python"
+    ],
+    "website": "https://gunicorn.org"
+  },
+  "GuppY": {
+    "cats": [
+      57
+    ],
+    "description": "Guppy is a platform for generating an interactive website using a database-free architecture.",
+    "icon": "Guppy.svg",
+    "meta": {
+      "Author": "^GuppY$",
+      "Generator": "^GuppY$"
+    },
+    "saas": true,
+    "website": "https://www.freeguppy.org"
+  },
   "Gurucan": {
     "cats": [
       21
@@ -4776,92 +5445,17 @@
     "saas": true,
     "website": "https://www.guuru.com"
   },
-  "genezio": {
-    "cats": [
-      47
-    ],
-    "description": "Genezio is a code generation tool that facilitates app logic focus, organises backend API code in deployable classes, autogenerates class interfaces with JSON-RPC for typesafe API calls, supports REST and Webhooks, enables simple API code deployment on pre-configured infrastructure using a shell command, and provides an SDK that eliminates the need to handle URLs, headers.",
-    "headers": {
-      "X-Powered-By": "^genezio$"
-    },
-    "icon": "genezio.svg",
-    "pricing": [
-      "freemium",
-      "low",
-      "recurring"
-    ],
-    "website": "https://genez.io"
-  },
-  "git": {
-    "cats": [
-      47
-    ],
-    "cpe": "cpe:2.3:a:git-scm:git:*:*:*:*:*:*:*:*",
-    "icon": "git.svg",
-    "meta": {
-      "generator": "\\bgit/([\\d.]+\\d)\\;version:\\1"
-    },
-    "website": "https://git-scm.com"
-  },
-  "gitlist": {
-    "cats": [
-      47
-    ],
-    "cpe": "cpe:2.3:a:gitlist:gitlist:*:*:*:*:*:*:*:*",
-    "html": [
-      "<p>Powered by <a[^>]+>GitList ([\\d.]+)\\;version:\\1"
-    ],
-    "implies": [
-      "PHP",
-      "git"
-    ],
-    "website": "https://gitlist.org"
-  },
-  "gitweb": {
-    "cats": [
-      47
-    ],
-    "html": [
-      "<!-- git web interface version ([\\d.]+)?\\;version:\\1"
-    ],
-    "icon": "git.svg",
-    "implies": [
-      "Perl",
-      "git"
-    ],
-    "meta": {
-      "generator": "gitweb(?:/([\\d.]+\\d))?\\;version:\\1"
-    },
-    "scriptSrc": [
-      "static/gitweb\\.js$"
-    ],
-    "website": "https://git-scm.com"
-  },
-  "govCMS": {
+  "GX WebManager": {
     "cats": [
       1
     ],
-    "icon": "govCMS.svg",
-    "implies": [
-      "Drupal"
+    "html": [
+      "<!--\\s+Powered by GX"
     ],
+    "icon": "GX WebManager.svg",
     "meta": {
-      "generator": "Drupal ([\\d]+) \\(http:\\/\\/drupal\\.org\\) \\+ govCMS\\;version:\\1"
+      "generator": "GX WebManager(?: ([\\d.]+))?\\;version:\\1"
     },
-    "website": "https://www.govcms.gov.au"
-  },
-  "gunicorn": {
-    "cats": [
-      22
-    ],
-    "cpe": "cpe:2.3:a:gunicorn:gunicorn:*:*:*:*:*:*:*:*",
-    "headers": {
-      "Server": "gunicorn(?:/([\\d.]+))?\\;version:\\1"
-    },
-    "icon": "gunicorn.png",
-    "implies": [
-      "Python"
-    ],
-    "website": "https://gunicorn.org"
+    "website": "https://www.gxsoftware.com/en/products/web-content-management.htm"
   }
 }
