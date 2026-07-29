@@ -528,7 +528,10 @@ class Site {
         obj ??= {}
 
         obj.url = url
-        obj.status = status ?? 0
+        // `status ?? 0` alone erased a status already recorded for this url. The
+        // error path calls this with no status, so a page that responded 200 and
+        // then threw was reported as 0. Fall back to what is already known first.
+        obj.status = status ?? obj.status ?? 0
 
         if (error) {
             obj.error = error;
@@ -1218,9 +1221,12 @@ class Site {
                         )
                     }
                 } catch (error) {
-                    this.setUrl(url.href,
-                                this.analyzedUrls[url.href]?.status,
-                                error.message || error.toString()
+                    // analyzedUrls is an array, so it cannot be indexed by href.
+                    // setUrl keeps whatever status is already recorded.
+                    this.setUrl(
+                        url.href,
+                        undefined,
+                        error.message || error.toString()
                     )
 
                     error.message += ` (${url})`
@@ -1554,3 +1560,6 @@ class Site {
 }
 
 module.exports = Driver
+// Additive, for tests: Site owns the analyzedUrls bookkeeping and is otherwise
+// unreachable from outside. Does not change the default export.
+module.exports.Site = Site
