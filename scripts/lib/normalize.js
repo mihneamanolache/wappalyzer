@@ -26,6 +26,13 @@ const {
     isScalar,
     toArray,
 } = require('./channels')
+const {
+    CONTROL_URLS,
+    GUARDED_CHANNELS,
+    SUPPRESSED_PATTERNS,
+    URL_CHANNEL_EXEMPT,
+    matchesControl,
+} = require('./control-corpus')
 
 /** Aliases seen in the catalog for DNS record types the driver resolves. */
 const DNS_RECORD_ALIASES = {
@@ -502,25 +509,16 @@ function normalizeEntry(name, original) {
         }
     }
 
-    // Benign URLs no vendor should ever be detected from. A relocated pattern that
-    // matches one of these is a catch-all: harmless while it was dead in `xhr`,
-    // but a false-positive generator once `xhrUrl` makes it live. Those are
-    // dropped rather than moved.
-    const CONTROL_URLS = [
-        'https://example.com/',
-        'https://example.com/index.html',
-        'https://example.com/about/team',
-        'https://cdn.example.com/assets/app.js?v=2',
-        'https://example.com/api/v1/users',
-        'http://example.com/a/b/c',
-    ]
+    // The compiler for the URL-shaped gates below. CONTROL_URLS lives in
+    // scripts/lib/control-corpus.js, shared with the tests, so the merge and
+    // the suite cannot drift apart on what "too generic" means.
+    const compile = (pattern) => Wappalyzer.parsePattern(pattern).regex
 
     // `xhr` receives a bare hostname, so a pattern describing an API path cannot
     // fire there. Most were written expecting a full URL, which is what `xhrUrl`
     // carries — so relocate rather than delete, preserving the intent. Upstream
     // keeps shipping these, which is why it runs on every merge.
     if (entry.xhr !== undefined) {
-        const compile = (pattern) => Wappalyzer.parsePattern(pattern).regex
         const keep = []
         const relocate = []
 
@@ -575,6 +573,67 @@ function normalizeEntry(name, original) {
                         'which the hostname-only xhr channel never receives'
                 )
             }
+        }
+    }
+
+    // Durable false-positive policy for the URL-shaped channels. The additive
+    // merge restores any upstream pattern verbatim, so removal alone does not
+    // survive a sync — this pass re-applies the removals on every normalize.
+    // Exact suppressions first (the historical record), then the control
+    // corpus (the general rule).
+    for (const channel of GUARDED_CHANNELS) {
+        if (!(channel in entry)) {
+            continue
+        }
+
+        const suppressed = (SUPPRESSED_PATTERNS[name] || {})[channel] || []
+        const exempt = channel === 'url' && URL_CHANNEL_EXEMPT.has(name)
+        const kept = []
+        let dropped = false
+
+        for (const pattern of toArray(entry[channel])) {
+            if (!isScalar(pattern)) {
+                kept.push(pattern)
+
+                continue
+            }
+
+            if (suppressed.includes(String(pattern))) {
+                note(
+                    `suppressed ${channel} ${JSON.stringify(pattern)}: removed ` +
+                        'as a false-positive generator, see ' +
+                        'scripts/lib/control-corpus.js'
+                )
+                dropped = true
+
+                continue
+            }
+
+            const control = exempt ? null : matchesControl(pattern, compile)
+
+            if (control) {
+                note(
+                    `dropped ${channel} ${JSON.stringify(pattern)}: it matches ` +
+                        `the benign control URL ${control}`
+                )
+                dropped = true
+
+                continue
+            }
+
+            kept.push(pattern)
+        }
+
+        // Untouched entries keep their shape, so a normalize-only run does not
+        // rewrite scalar/array representation across the catalog.
+        if (!dropped) {
+            continue
+        }
+
+        if (kept.length) {
+            entry[channel] = kept.length === 1 && isScalar(kept[0]) ? kept[0] : kept
+        } else {
+            delete entry[channel]
         }
     }
 

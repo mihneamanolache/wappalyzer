@@ -579,14 +579,56 @@ test('a normalized nested js chain actually detects', () => {
 
 test('a path-requiring xhr pattern is relocated to xhrUrl', () => {
     // Deleting these would destroy the author's intent: they describe API calls.
-    // The hostname pattern in the same list stays where it is.
-    const entry = normalize('Trino', {
+    // The hostname pattern in the same list stays where it is. The paths carry
+    // a product-distinctive token — a generic shape would rightly be dropped
+    // by the control-corpus gate instead (see the tests below).
+    const entry = normalize('Example', {
         cats: [1],
-        xhr: ['/v1/info', '/v1/status', 'trino\\.example\\.com'],
+        xhr: [
+            '/exampleapp/api/info',
+            '/exampleapp/api/status',
+            'trino\\.example\\.com',
+        ],
     })
 
     assert.equal(entry.xhr, 'trino\\.example\\.com')
-    assert.deepEqual(entry.xhrUrl, ['/v1/info', '/v1/status'])
+    assert.deepEqual(entry.xhrUrl, ['/exampleapp/api/info', '/exampleapp/api/status'])
+})
+
+test('a generic path is dropped, not relocated, whatever the vendor', () => {
+    // /v1/info matches the control corpus: relocating it would detect Trino on
+    // any host exposing that unremarkable path.
+    const entry = normalize('Trino', {
+        cats: [1],
+        xhr: ['/v1/info', 'trino\\.example\\.com'],
+    })
+
+    assert.equal(entry.xhr, 'trino\\.example\\.com')
+    assert.equal(entry.xhrUrl, undefined)
+})
+
+test('a suppressed pattern shipped directly on a guarded channel is removed', () => {
+    // The additive merge restores upstream patterns verbatim; this is the
+    // layer that makes their removal stick across syncs.
+    const entry = normalize('Apache Iceberg', {
+        cats: [1],
+        xhrUrl: ['/v1/config', '/iceberg/v1/restcatalog/config'],
+    })
+
+    assert.equal(entry.xhrUrl, '/iceberg/v1/restcatalog/config')
+})
+
+test('an exempt technology keeps its deliberately generic url pattern', () => {
+    // Category-style entries describe a page kind, not a vendor; matching a
+    // control URL is their job.
+    const entry = normalize('Cart Functionality', {
+        cats: [1],
+        url: ['/(?:cart|order|basket|trolley|bag|shoppingbag|checkout)'],
+    })
+
+    assert.deepEqual(entry.url, [
+        '/(?:cart|order|basket|trolley|bag|shoppingbag|checkout)',
+    ])
 })
 
 test('a scheme-requiring xhr pattern is relocated too', () => {

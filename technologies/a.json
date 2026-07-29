@@ -7223,9 +7223,6 @@
       }
     },
     "xhrUrl": [
-      "/v1/config",
-      "/v1/namespaces",
-      "/v1/tables",
       "/iceberg/v1/restcatalog/config"
     ]
   },

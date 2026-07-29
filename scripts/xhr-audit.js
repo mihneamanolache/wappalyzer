@@ -29,6 +29,7 @@
  * One page per site, no crawling. Results land in data/xhr-audit-results.json.
  */
 
+const crypto = require('crypto')
 const fs = require('fs')
 const path = require('path')
 
@@ -39,6 +40,7 @@ const { TECHNOLOGIES } = require('./lib/emerging-technologies')
 const ROOT = path.resolve(__dirname, '..')
 const URLS = path.join(ROOT, 'data/xhr-audit-urls.txt')
 const RESULTS = path.join(ROOT, 'data/xhr-audit-results.json')
+const DRIVER = path.join(ROOT, 'driver.js')
 
 const args = process.argv.slice(2)
 const CHECK_ONLY = args.includes('--check')
@@ -49,6 +51,62 @@ const numeric = (flag, fallback) => {
 }
 const LIMIT = numeric('limit', Infinity)
 const TIMEOUT = numeric('timeout', 25000)
+
+/**
+ * What the retained figures were measured *with*. A result collected under an
+ * xhr-only driver says nothing about a driver that also feeds fetch traffic,
+ * so `--check` refuses to report numbers whose provenance no longer matches.
+ */
+function currentProvenance() {
+    // Loading the driver pulls puppeteer but launches nothing.
+    const Driver = require('../driver')
+
+    return {
+        requestTypes: [...(Driver.ANALYZED_REQUEST_TYPES || [])].sort(),
+        driverDigest: crypto
+            .createHash('sha256')
+            .update(fs.readFileSync(DRIVER))
+            .digest('hex'),
+    }
+}
+
+/**
+ * Why retained results cannot be reported under the current driver, or null
+ * when they can.
+ */
+function provenanceMismatch(retained) {
+    const current = currentProvenance()
+
+    if (!retained || !retained.provenance) {
+        return (
+            'the retained results carry no provenance (they predate ' +
+            'request-type tracking, so they were collected without fetch ' +
+            'traffic)'
+        )
+    }
+
+    const { requestTypes, driverDigest } = retained.provenance
+
+    if (
+        JSON.stringify([...(requestTypes || [])].sort()) !==
+        JSON.stringify(current.requestTypes)
+    ) {
+        return (
+            `the retained results analyzed [${(requestTypes || []).join(', ')}] ` +
+            `but the current driver analyzes [${current.requestTypes.join(', ')}]`
+        )
+    }
+
+    if (driverDigest !== current.driverDigest) {
+        return (
+            'driver.js changed since the results were collected ' +
+            `(recorded ${String(driverDigest).slice(0, 12)}…, ` +
+            `current ${current.driverDigest.slice(0, 12)}…)`
+        )
+    }
+
+    return null
+}
 
 /** Technologies whose only detection channel is xhr. */
 function xhrOnlyTechnologies() {
@@ -112,7 +170,7 @@ async function scan() {
             error: null,
         }
 
-        try {
+        const scanPage = async () => {
             await driver.init()
 
             const site = await driver.open(url)
@@ -147,14 +205,37 @@ async function scan() {
             record.xhrHosts = [
                 ...new Set(Object.values(site.analyzedXhr || {}).flat()),
             ]
+        }
+
+        // A page can wedge the scanner outside the driver's own maxWait —
+        // observed live at you.com, where teardown never returned and the whole
+        // audit hung. The watchdog turns a hung page into a recorded error so
+        // one bad page cannot cost the measurement.
+        const WATCHDOG = TIMEOUT + 30000
+
+        try {
+            const outcome = await Promise.race([
+                scanPage(),
+                new Promise((resolve) => {
+                    setTimeout(() => resolve('watchdog'), WATCHDOG).unref()
+                }),
+            ])
+
+            if (outcome === 'watchdog') {
+                record.error = `watchdog: scan still running after ${WATCHDOG}ms; abandoned`
+            }
         } catch (error) {
             record.error = String(error.message || error).slice(0, 200)
         } finally {
-            try {
-                await driver.destroy()
-            } catch (error) {
-                // Ignore teardown failures.
-            }
+            // destroy() can itself hang on a wedged browser; give it a bounded
+            // window and move on. The explicit exit in main() covers whatever
+            // a leaked connection would otherwise keep alive.
+            await Promise.race([
+                driver.destroy().catch(() => {}),
+                new Promise((resolve) => {
+                    setTimeout(resolve, 10000).unref()
+                }),
+            ])
         }
 
         for (const host of record.allHosts) {
@@ -194,6 +275,7 @@ async function scan() {
     const noStatus = pages.filter(({ error, status }) => !error && status === null)
 
     return {
+        provenance: currentProvenance(),
         urls: pages.length,
         pagesScanned: pages.filter(({ error }) => !error).length,
         pagesFailed: pages.filter(({ error }) => error).length,
@@ -305,7 +387,21 @@ async function main() {
             return
         }
 
-        report(JSON.parse(fs.readFileSync(RESULTS, 'utf8')))
+        const retained = JSON.parse(fs.readFileSync(RESULTS, 'utf8'))
+        const mismatch = provenanceMismatch(retained)
+
+        if (mismatch) {
+            console.error(
+                `STALE: ${path.relative(ROOT, RESULTS)} does not describe the ` +
+                    `current driver — ${mismatch}.\n` +
+                    'Rerun `npm run audit:xhr` before citing these figures.'
+            )
+            process.exitCode = 1
+
+            return
+        }
+
+        report(retained)
         console.log('\n(--check: retained results, no network access)')
 
         return
@@ -318,6 +414,10 @@ async function main() {
     fs.writeFileSync(RESULTS, `${JSON.stringify(results, null, 2)}\n`)
 
     console.log(`\nWrote ${path.relative(ROOT, RESULTS)}`)
+
+    // A page abandoned by the watchdog can leave a wedged browser connection
+    // holding the event loop open. Everything is written; exit explicitly.
+    process.exit(0)
 }
 
 main().catch((error) => {

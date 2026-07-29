@@ -1911,8 +1911,6 @@
       "poa"
     ],
     "xhrUrl": [
-      "/(?:api/query|qs)/systems/[^/]+/(?:queries|sessions|databases|views)(?:[/?]|$)",
-      "/systems?/[^/]+/queries(?:[/?]|$)",
       ":1443/(?:api/query|qs)/systems/",
       ":8443/(?:api/query|qs)/systems/"
     ]
@@ -6189,11 +6187,6 @@
       "/v1/status": "coordinator|starting",
       "/ui/": "Trino"
     },
-    "url": [
-      "/ui/",
-      "/v1/info",
-      "/v1/status"
-    ],
     "dom": {
       "title": {
         "text": "Trino"
@@ -6208,12 +6201,6 @@
     ],
     "excludes": [
       "Open Source Presto"
-    ],
-    "xhrUrl": [
-      "/v1/info",
-      "/v1/status",
-      "/v1/statement",
-      "/v1/query"
     ]
   },
   "Tripadviser.Widget": {

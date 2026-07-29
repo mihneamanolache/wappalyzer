@@ -81,6 +81,11 @@ if (Wappalyzer.errors.length && process.env.WAPPALYZER_DEBUG) {
 
 const xhrDebounce = []
 
+// Chromium reports fetch() traffic under a separate resource type from
+// XMLHttpRequest. Both carry the API-shaped requests the xhr and xhrUrl
+// channels exist to observe.
+const ANALYZED_REQUEST_TYPES = ['xhr', 'fetch']
+
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -633,7 +638,7 @@ class Site {
                     request.abort('blockedbyclient')
                     return
                 }
-                if (request.resourceType() === 'xhr') {
+                if (ANALYZED_REQUEST_TYPES.includes(request.resourceType())) {
                     let hostname
 
                     try {
@@ -1563,3 +1568,4 @@ module.exports = Driver
 // Additive, for tests: Site owns the analyzedUrls bookkeeping and is otherwise
 // unreachable from outside. Does not change the default export.
 module.exports.Site = Site
+module.exports.ANALYZED_REQUEST_TYPES = ANALYZED_REQUEST_TYPES

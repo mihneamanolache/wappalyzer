@@ -148,26 +148,36 @@ AI vendors' own sites and AI-forward products, where a client-side call to the
 vendor's own API is most likely. Results are retained in
 `data/xhr-audit-results.json`.
 
+The measurement was retaken on 2026-07-29 after the request channel started
+analyzing `fetch()` traffic alongside XHR (Chromium classifies them as separate
+resource types, and the earlier figure was collected from XHR alone). The
+results record the analyzed request types and a digest of `driver.js`, and both
+`--check` and the test suite reject the figures if either no longer matches.
+
 | | |
 | --- | --- |
 | Pages requested | 29 |
-| Status codes | 8× 200, 12× 304, 3× 301, 1× 308, 1× 403, 4× no status recorded |
-| Distinct hostnames observed | 161 |
-| Distinct hostnames reached via an `xhr` request | 47, on 23/29 pages |
-| **xhr-only markers seen** | **1 of 85** |
+| Status codes | 14× 200, 7× 304, 4× 301, 1× 302, 1× 308, 1× 403, 1× no status recorded |
+| Distinct hostnames observed | 164 |
+| Distinct hostnames reached via an `xhr` or `fetch` request | 123, on 29/29 pages |
+| **xhr-only markers seen** | **4 of 85** |
 
-The one seen was `Character.AI`, on `character.ai` itself.
+The four seen were `Character.AI`, `Chroma`, `Pinecone` and `Qdrant` — each on
+its own vendor's website, fired by first-party traffic to the vendor's domain,
+not by a customer integration. (Under the XHR-only driver the same corpus
+yielded 1 of 85 and 47 hostnames, so most of what the channel sees arrives via
+`fetch()`.)
 
 **This is not an observation rate, and must not be quoted as one.** The honest
-statement is: *1 of 85 xhr-only markers appeared in this 29-page corpus under the
+statement is: *4 of 85 xhr-only markers appeared in this 29-page corpus under the
 current request-aborting driver.* Four things stop it being a rate:
 
 - It is a yield against a convenience corpus. Nothing maps each marker to a page
   where its vendor is actually in use, so most markers had no real opportunity.
 - `driver.js` aborts every request that is not `document` or `script`. An aborted
-  XHR can prevent the follow-on application requests that would have exercised
+  request can prevent the follow-on application requests that would have exercised
   other markers, so the figure is a **lower bound** on what a normal browser sees.
-- Only 8 of 29 pages returned a clean `200`. Twelve returned `304`, where a cached
+- Only 14 of 29 pages returned a clean `200`. Seven returned `304`, where a cached
   response may fetch fewer subresources than a cold one, and one returned `403`.
 - A defensible rate needs controlled marker-to-page opportunities, or a
   representative crawl of company websites rather than vendor homepages.
@@ -175,8 +185,9 @@ current request-aborting driver.* Four things stop it being a rate:
 The retained results record the status distribution, the blocked page and the
 pages without a status, so none of this is hidden behind "29/29 scanned".
 
-The channel is demonstrably working — 50 xhr hostnames were collected — but what
-it collects is marketing and telemetry infrastructure, not vendor APIs:
+The channel is demonstrably working — 123 request hostnames were collected —
+but what it collects is overwhelmingly marketing and telemetry infrastructure,
+plus vendors' first-party traffic to their own domains, not vendor APIs:
 
 ```text
 px.ads.linkedin.com      pixel-config.reddit.com   cdn.cookielaw.org
@@ -186,10 +197,12 @@ browser-intake-datadoghq.com   www.google-analytics.com   cmp.osano.com
 ```
 
 Not one of `api.openai.com`, `api.anthropic.com`, `api.pinecone.io` or their
-equivalents appeared — not even on those vendors' own websites. This matches what
-the vendors document: OpenAI says API keys must not be exposed client-side, and
-Jasper tells client applications to proxy through a back end. The calls are
-server-side, so a passive crawler cannot see them.
+equivalents appeared — not even on those vendors' own websites. The markers that
+did fire (Pinecone, Qdrant, Chroma) matched broader vendor-domain traffic such
+as `www.pinecone.io` and `evs.analytics.qdrant.tech`, not API endpoints. This
+matches what the vendors document: OpenAI says API keys must not be exposed
+client-side, and Jasper tells client applications to proxy through a back end.
+The calls are server-side, so a passive crawler cannot see them.
 
 ### What was done about it
 

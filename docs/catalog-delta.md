@@ -13,7 +13,7 @@ Computed by parsing both revisions and comparing entries, not by reading the tex
 | --- | --- |
 | Added | 518 |
 | **Removed** | **0** |
-| Changed | 290 |
+| Changed | 291 |
 
 Nothing was removed from the catalog.
 
@@ -572,7 +572,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | 210 | Workflow automation | 7 |
 | 211 | Observability | 7 |
 
-## Changed (290)
+## Changed (291)
 
 | Technology | Fields added | Fields removed | Values changed |
 | --- | --- | --- | --- |
@@ -636,7 +636,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Cosmoshop | meta, url | - | scriptSrc |
 | Crazy Domains DNS Hosting | - | - | dns |
 | Customizr | meta | dom | - |
-| Databricks | meta, xhrUrl | xhr, probe | dom |
+| Databricks | meta, xhrUrl | xhr, probe | url, dom |
 | Databricks (AWS) | xhrUrl | xhr | - |
 | Delta Lake | xhrUrl | xhr | - |
 | Detectify | saas, oss | - | dns |
@@ -646,7 +646,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | DiskStation Manager | scriptSrc | script, ssl | - |
 | Docker | dns | - | - |
 | DocuSign | - | - | dns |
-| Dremio | xhrUrl | - | xhr |
+| Dremio | - | - | xhr |
 | Dropbox | description, saas, oss, xhr, scriptSrc | - | cats, dns |
 | Dynatrace | dns | - | - |
 | Dynatrace Application Monitoring | scriptSrc | script | - |
@@ -745,6 +745,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | OVH | - | - | dns |
 | Office 365 | - | apps | dns |
 | OneTrust | - | - | scriptSrc |
+| Open Source Presto | - | url | - |
 | OpenText WEM | scriptSrc | regex, script | headers |
 | Oracle Eloqua | scriptSrc | script | - |
 | Oracle Endeca Information Discovery | js | scripts | - |
@@ -801,7 +802,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | ServiceNow Vulnerability Response | meta, xhrUrl | xhr | dom |
 | Servicenow It Service Management | xhrUrl | xhr | - |
 | Servicenow Vendor Risk Management | meta, xhrUrl | xhr | dom |
-| Shopify Business | xhrUrl | xhr | - |
+| Shopify Business | xhrUrl | xhr | probe |
 | Shopware | scripts | - | - |
 | Sidr | - | keywords | - |
 | Siebel | scripts | script | - |
@@ -831,7 +832,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Thomson Reuters ONESOURCE | - | - | cats |
 | TomTom Maps API | scriptSrc | script | - |
 | TransIP DNS | - | - | dns |
-| Trino | xhrUrl | xhr | - |
+| Trino | - | url, xhr | - |
 | Turbopack | oss, requires | - | js |
 | Twenty Twenty-Two | - | - | dom |
 | Twilio Flex | scriptSrc | script | - |

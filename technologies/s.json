@@ -896,7 +896,7 @@
     "excludes": [],
     "xhrUrl": [
       "/services/data/v\\d+\\.\\d+/smartdatadiscovery/(?:predictions|predictionDefinitions|models|jobs)(?:/|$)",
-      "/models/[\\w\\.-]+/(?:generations|chat-generations|embeddings)(?:/|$)",
+      "/einstein/platform/v\\d+/models/[\\w\\.-]+/(?:generations|chat-generations|embeddings)(?:/|$)",
       "/einstein/ai-evaluations/(?:runs|runs/[^/]+)(?:/|$)"
     ]
   },
@@ -6748,13 +6748,10 @@
       "Shopify"
     ],
     "probe": {
-      "/cart.js": ""
+      "/cart.js": "\"items\"\\s*:\\s*\\[|\"token\"\\s*:\\s*\""
     },
     "xhrUrl": [
-      "/cart\\.js",
       "/cart/(?:add|update|change|clear)\\.js",
-      "/search/suggest\\.json",
-      "/recommendations/products\\.json",
       "/api/[0-9]{4}-[0-9]{2}/graphql\\.json",
       "monorail-edge\\.shopifysvc\\.com/(?:v1|unstable)/produce(?:_batch)?"
     ]

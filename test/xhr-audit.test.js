@@ -89,6 +89,36 @@ test('the measurement reflects a real scan, not a failed one', needsAudit, () =>
     )
 })
 
+test('the retained measurement matches the current driver', needsAudit, () => {
+    // A result collected under an xhr-only driver undercounts once fetch
+    // traffic is analyzed too. The scan records what it measured with;
+    // anything else is stale and must be regenerated, not cited.
+    const results = JSON.parse(fs.readFileSync(RESULTS, 'utf8'))
+    const Driver = require('../driver')
+
+    assert.ok(
+        results.provenance,
+        'results carry no provenance; rerun `npm run audit:xhr`'
+    )
+    assert.deepEqual(
+        [...results.provenance.requestTypes].sort(),
+        [...Driver.ANALYZED_REQUEST_TYPES].sort(),
+        'the retained measurement analyzed a different request-type set'
+    )
+
+    const crypto = require('crypto')
+    const digest = crypto
+        .createHash('sha256')
+        .update(fs.readFileSync(path.join(ROOT, 'driver.js')))
+        .digest('hex')
+
+    assert.equal(
+        results.provenance.driverDigest,
+        digest,
+        'driver.js changed since the measurement; rerun `npm run audit:xhr`'
+    )
+})
+
 test('every fired technology cites the pages it fired on', needsAudit, () => {
     const results = JSON.parse(fs.readFileSync(RESULTS, 'utf8'))
 

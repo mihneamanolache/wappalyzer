@@ -18,6 +18,10 @@ const { execFileSync } = require('child_process')
 const Wappalyzer = require('../wappalyzer')
 const { loadCatalog } = require('../scripts/lib/catalog')
 const { KNOWN_FIELDS, fileForTechnology } = require('../scripts/lib/channels')
+const {
+    CONTROL_URLS,
+    URL_CHANNEL_EXEMPT,
+} = require('../scripts/lib/control-corpus')
 
 const ROOT = path.resolve(__dirname, '..')
 const TECHNOLOGIES_DIR = path.join(ROOT, 'technologies')
@@ -280,15 +284,8 @@ test('no xhr pattern requires a path or scheme', () => {
 test('no xhrUrl pattern matches a benign control URL', () => {
     // Guards the risk introduced by relocation: a pattern that was harmlessly
     // dead in xhr becomes a false-positive generator once xhrUrl makes it live.
-    const controls = [
-        'https://example.com/',
-        'https://example.com/index.html',
-        'https://example.com/about/team',
-        'https://cdn.example.com/assets/app.js?v=2',
-        'https://example.com/api/v1/users',
-        'http://example.com/a/b/c',
-    ]
-
+    // The corpus lives in scripts/lib/control-corpus.js, shared with the
+    // normalizer, so the merge pipeline enforces the same rule this asserts.
     const overBroad = []
 
     for (const [name, entry] of Object.entries(catalog.technologies)) {
@@ -301,7 +298,37 @@ test('no xhrUrl pattern matches a benign control URL', () => {
                 : [value]) {
             const { regex } = Wappalyzer.parsePattern(pattern)
 
-            if (controls.some((control) => regex.test(control))) {
+            if (CONTROL_URLS.some((control) => regex.test(control))) {
+                overBroad.push(`${name}: ${pattern}`)
+            }
+        }
+    }
+
+    assert.deepEqual(overBroad, [])
+})
+
+test('no url pattern outside the exempt set matches a benign control URL', () => {
+    // The url channel has the same failure mode — a page-URL pattern like
+    // /ui/ or /v1/info tags any site with that path. Category-style entries
+    // (URL_CHANNEL_EXEMPT) intentionally describe generic page kinds and are
+    // the only allowed matches.
+    const overBroad = []
+
+    for (const [name, entry] of Object.entries(catalog.technologies)) {
+        if (URL_CHANNEL_EXEMPT.has(name)) {
+            continue
+        }
+
+        const value = entry.url
+
+        for (const pattern of value === undefined
+            ? []
+            : Array.isArray(value)
+                ? value
+                : [value]) {
+            const { regex } = Wappalyzer.parsePattern(pattern)
+
+            if (CONTROL_URLS.some((control) => regex.test(control))) {
                 overBroad.push(`${name}: ${pattern}`)
             }
         }

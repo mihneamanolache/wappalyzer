@@ -467,7 +467,7 @@
       "enterprise"
     ],
     "url": [
-      "(?:azuredatabricks\\.net|cloud\\.databricks\\.com|gcp\\.databricks\\.com|databricksapps\\.com)"
+      "[./](?:azuredatabricks\\.net|cloud\\.databricks\\.com|gcp\\.databricks\\.com|databricksapps\\.com)(?:[:/]|$)"
     ],
     "headers": {
       "server": "databricks",
@@ -502,7 +502,7 @@
     "meta": {
       "keywords": "Databricks|Lakehouse|Apache Spark"
     },
-    "xhrUrl": "/api/2\\.[01]/(?:jobs|clusters|dbfs|workspace|permissions|sql|secrets|mlflow|serving-endpoints)(?:/|$)"
+    "xhrUrl": "^https?://(?:[\\w-]+\\.)+(?:azuredatabricks\\.net|(?:cloud|gcp)\\.databricks\\.com)/api/2\\.[01]/(?:jobs|clusters|dbfs|workspace|permissions|sql|secrets|mlflow|serving-endpoints)(?:[/?#]|$)"
   },
   "Databricks (AWS)": {
     "description": "Databricks workspace hosted on AWS. Detects *.cloud.databricks.com (and PrivateLink) plus characteristic REST API calls.",
@@ -526,8 +526,7 @@
       "enterprise"
     ],
     "xhrUrl": [
-      "/api/2\\.0/",
-      "/api/2\\.1/"
+      "^https?://(?:[\\w-]+\\.)+cloud\\.databricks\\.com/api/2\\.[01]/"
     ]
   },
   "Databuddy": {
@@ -4260,10 +4259,6 @@
       "payg",
       "recurring",
       "enterprise"
-    ],
-    "xhrUrl": [
-      "/apiv2/server_status",
-      "/apiv2/login"
     ]
   },
   "DressOn": {
