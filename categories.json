@@ -791,5 +791,106 @@
     ],
     "name": "Fundraising & donations",
     "priority": 9
+  },
+  "112": {
+    "groups": [
+      5,
+      9
+    ],
+    "name": "Artificial Intelligence",
+    "priority": 9
+  },
+  "200": {
+    "name": "Generative AI platforms",
+    "priority": 8,
+    "groups": [
+      9,
+      16
+    ]
+  },
+  "201": {
+    "name": "AI development frameworks",
+    "priority": 7,
+    "groups": [
+      9
+    ]
+  },
+  "202": {
+    "name": "Vector databases",
+    "priority": 5,
+    "groups": [
+      5,
+      7
+    ]
+  },
+  "203": {
+    "name": "AI infrastructure",
+    "priority": 6,
+    "groups": [
+      7,
+      9
+    ]
+  },
+  "204": {
+    "name": "Data platforms",
+    "priority": 5,
+    "groups": [
+      5,
+      7
+    ]
+  },
+  "205": {
+    "name": "Fleet & telematics",
+    "priority": 6,
+    "groups": [
+      16,
+      17
+    ]
+  },
+  "206": {
+    "name": "IoT platforms",
+    "priority": 6,
+    "groups": [
+      7,
+      17
+    ]
+  },
+  "207": {
+    "name": "Cloud security",
+    "priority": 8,
+    "groups": [
+      11
+    ]
+  },
+  "208": {
+    "name": "AI coding assistants",
+    "priority": 7,
+    "groups": [
+      9
+    ]
+  },
+  "209": {
+    "name": "AI agents & assistants",
+    "priority": 8,
+    "groups": [
+      16,
+      2
+    ]
+  },
+  "210": {
+    "name": "Workflow automation",
+    "priority": 7,
+    "groups": [
+      9,
+      16
+    ]
+  },
+  "211": {
+    "name": "Observability",
+    "priority": 7,
+    "groups": [
+      7,
+      8
+    ]
   }
 }

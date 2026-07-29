@@ -1,5 +1,22 @@
 #!/usr/bin/env node
 
+// Checked before ./driver is required, because that is what pulls in Puppeteer.
+// driver.js throws for library consumers; a CLI should print one clear line and
+// exit rather than dump a stack trace from inside a dependency.
+try {
+    const path = require('path')
+    const { assertSupportedNode } = require('./scripts/lib/engine')
+
+    assertSupportedNode(
+        require(path.resolve(`${__dirname}/package.json`)).engines.node
+    )
+} catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error.message || String(error))
+
+    process.exit(1)
+}
+
 const Wappalyzer = require('./driver')
 
 const args = process.argv.slice(2)
@@ -26,6 +43,7 @@ const aliases = {
     n: 'noScripts',
     N: 'noRedirect',
     e: 'extended',
+    T: 'textSignals',
 }
 
 while (true) {
@@ -95,6 +113,8 @@ Options:
 --local-storage=...        JSON object to use as local storage
 --session-storage=...      JSON object to use as session storage
 --defer=ms                 Defer scan for ms milliseconds after page load
+-T, --text-signals         Also infer technologies from careers/stack page text
+                           (returned separately as 'signals', confidence 30)
 `)
     process.exit(options.help ? 0 : 1)
 }

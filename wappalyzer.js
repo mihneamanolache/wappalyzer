@@ -67,11 +67,72 @@ function benchmarkSummary() {
     })
 }
 
+/**
+ * Does a regex match cover a whole DNS-label suffix of an observed hostname?
+ *
+ * XHR observations are hostnames, not arbitrary text, so a catalog pattern has to
+ * match whole labels at the right-hand end. Two distinct spoofs are rejected:
+ *
+ *   api.vendor.com.attacker.example   the match does not reach the end
+ *   nottome.app  (pattern tome\.app)  the match starts mid-label
+ *
+ * Tenant subdomains must still match, so a match may begin at the start of the
+ * hostname, at a dot, or immediately after one — `acme.api.vendor.com` and a
+ * pattern written as `\.vendor\.com` both remain valid.
+ *
+ * This applies to `xhr` only. A pattern that needs a path belongs in `xhrUrl`,
+ * which receives the full request URL and is matched without this constraint.
+ *
+ * @param {string} value observed hostname
+ * @param {Array} matches result of RegExp#exec
+ */
+function isHostnameSuffix(value, matches) {
+    const hostname = String(value)
+    const { index } = matches
+    const reachesEnd = index + matches[0].length === hostname.length
+
+    if (!reachesEnd) {
+        return false
+    }
+
+    return index === 0 || hostname[index] === '.' || hostname[index - 1] === '.'
+}
+
 const Wappalyzer = {
     technologies: [],
     categories: [],
     requires: [],
     categoryRequires: [],
+
+    /**
+     * Catalog defects found while loading or resolving technologies.
+     * A malformed entry must never abort a scan, so problems are collected
+     * here instead of thrown. `scripts/validate.js` asserts this stays empty.
+     * @type {Array<{type: string, technology: string, message: string}>}
+     */
+    errors: [],
+
+    /**
+     * Optional sink for catalog defects, set by consumers that want to log them.
+     * @type {?function({type: string, technology: string, message: string}): void}
+     */
+    onError: null,
+
+    /**
+     * Record a catalog defect.
+     * @param {string} type
+     * @param {string} technology
+     * @param {string} message
+     */
+    error(type, technology, message) {
+        const error = { type, technology, message }
+
+        Wappalyzer.errors.push(error)
+
+        if (Wappalyzer.onError) {
+            Wappalyzer.onError(error)
+        }
+    },
 
     slugify: (string) =>
         string
@@ -138,41 +199,73 @@ const Wappalyzer = {
         Wappalyzer.resolveExcludes(resolved)
         Wappalyzer.resolveImplies(resolved)
 
-        const priority = ({ technology: { categories } }) =>
-            categories.reduce(
-                (max, id) => Math.max(max, Wappalyzer.getCategory(id).priority),
-                0
-            )
+        /**
+         * Categories an entry claims that actually exist. Reported here rather
+         * than in the priority sort below, because a sort comparator is not
+         * called at all when there is only one detection.
+         */
+        const categoriesOf = ({ name, categories }) =>
+            categories.reduce((valid, id) => {
+                const category = Wappalyzer.getCategory(id)
 
-        return resolved
+                if (category) {
+                    valid.push(category)
+                } else {
+                    Wappalyzer.error(
+                        'unknown-category',
+                        name,
+                        `Category does not exist: ${id}`
+                    )
+                }
+
+                return valid
+            }, [])
+
+        // Resolve categories once per detection so an unknown id is reported a
+        // single time, then reuse them for both the sort and the output.
+        const withCategories = resolved.map((detection) => ({
+            detection,
+            categories: categoriesOf(detection.technology),
+        }))
+
+        const priority = ({ categories }) =>
+            categories.reduce((max, { priority }) => Math.max(max, priority), 0)
+
+        return withCategories
             .sort((a, b) => (priority(a) > priority(b) ? 1 : -1))
             .map(
                 ({
-                    technology: {
-                        name,
-                        description,
-                        slug,
-                        categories,
-                        icon,
-                        website,
-                        pricing,
-                        cpe,
+                    categories,
+                    detection: {
+                        technology: {
+                            name,
+                            description,
+                            slug,
+                            icon,
+                            website,
+                            pricing,
+                            cpe,
+                            saas,
+                            oss,
+                        },
+                        confidence,
+                        version,
+                        rootPath,
+                        lastUrl,
                     },
-                    confidence,
-                    version,
-                    rootPath,
-                    lastUrl,
                 }) => ({
                         name,
                         description,
                         slug,
-                        categories: categories.map((id) => Wappalyzer.getCategory(id)),
+                        categories,
                         confidence,
                         version,
                         icon,
                         website,
                         pricing,
                         cpe,
+                        saas,
+                        oss,
                         rootPath,
                         lastUrl,
                     })
@@ -232,7 +325,13 @@ const Wappalyzer = {
                 const excluded = Wappalyzer.getTechnology(name)
 
                 if (!excluded) {
-                    throw new Error(`Excluded technology does not exist: ${name}`)
+                    Wappalyzer.error(
+                        'dangling-excludes',
+                        technology.name,
+                        `Excluded technology does not exist: ${name}`
+                    )
+
+                    return
                 }
 
                 let index
@@ -266,7 +365,13 @@ const Wappalyzer = {
                         const implied = Wappalyzer.getTechnology(name)
 
                         if (!implied) {
-                            throw new Error(`Implied technology does not exist: ${name}`)
+                            Wappalyzer.error(
+                                'dangling-implies',
+                                technology.name,
+                                `Implied technology does not exist: ${name}`
+                            )
+
+                            return
                         }
 
                         if (
@@ -315,6 +420,7 @@ const Wappalyzer = {
             text: oo,
             url: oo,
             xhr: oo,
+            xhrUrl: oo,
         }
 
         try {
@@ -345,6 +451,12 @@ const Wappalyzer = {
     setTechnologies(data) {
         const transform = Wappalyzer.transformPatterns
 
+        // Reset derived state so setTechnologies() is idempotent and can be
+        // called more than once (e.g. by tests or a reload).
+        Wappalyzer.requires = []
+        Wappalyzer.categoryRequires = []
+        Wappalyzer.errors = []
+
         Wappalyzer.technologies = Object.keys(data).reduce((technologies, name) => {
             const {
                 cats,
@@ -362,17 +474,20 @@ const Wappalyzer = {
                 implies,
                 js,
                 meta,
+                oss,
                 pricing,
                 probe,
                 requires,
                 requiresCategory,
                 robots,
+                saas,
                 scriptSrc,
                 scripts,
                 text,
                 url,
                 website,
                 xhr,
+                xhrUrl,
             } = data[name]
 
             technologies.push({
@@ -405,6 +520,10 @@ const Wappalyzer = {
                 js: transform(js, true),
                 meta: transform(meta),
                 name,
+                // Deployment-model metadata curated in technologies/*.json.
+                // Kept verbatim (not a pattern) and surfaced through resolve().
+                oss: typeof oss === 'boolean' ? oss : null,
+                saas: typeof saas === 'boolean' ? saas : null,
                 pricing: pricing || [],
                 probe: transform(probe, true),
                 requires: transform(requires).map(({ value }) => ({ name: value })),
@@ -419,6 +538,7 @@ const Wappalyzer = {
                 url: transform(url),
                 website: website || null,
                 xhr: transform(xhr),
+                xhrUrl: transform(xhrUrl),
             })
 
             return technologies
@@ -429,7 +549,15 @@ const Wappalyzer = {
             .forEach((technology) =>
                 technology.requires.forEach(({ name }) => {
                     if (!Wappalyzer.getTechnology(name)) {
-                        throw new Error(`Required technology does not exist: ${name}`)
+                        // A dangling reference must not make the catalog unloadable:
+                        // driver.js calls setTechnologies() at require time.
+                        Wappalyzer.error(
+                            'dangling-requires',
+                            technology.name,
+                            `Required technology does not exist: ${name}`
+                        )
+
+                        return
                     }
 
                     Wappalyzer.requires[name] = Wappalyzer.requires[name] || []
@@ -592,6 +720,12 @@ const Wappalyzer = {
 
             const matches = pattern.regex.exec(value)
 
+            if (matches && type === 'xhr' && !isHostnameSuffix(value, matches)) {
+                benchmark(Date.now() - startTime, pattern, value, technology)
+
+                return technologies
+            }
+
             if (matches) {
                 technologies.push({
                     technology,
@@ -655,10 +789,24 @@ const Wappalyzer = {
    * @param {Array} items
    */
     analyzeManyToMany(technology, types, items = {}) {
+        if (!technology) {
+            return []
+        }
+
         const [type, ...subtypes] = types.split('.')
 
-        return Object.keys(technology[type]).reduce((technologies, key) => {
-            const patterns = technology[type][key] || []
+        const channel = technology[type]
+
+        // Many-to-many channels must be keyed objects (header name, cookie name,
+        // DNS record type, JS chain, DOM selector). A string or array here means
+        // the catalog entry uses the wrong shape, so there is nothing to key on.
+        // scripts/validate.js reports these as `channel-shape` errors.
+        if (!channel || typeof channel !== 'object' || Array.isArray(channel)) {
+            return []
+        }
+
+        return Object.keys(channel).reduce((technologies, key) => {
+            const patterns = channel[key] || []
             const values = items[key] || []
             if (!Array.isArray(patterns)) {
                 return technologies
@@ -668,6 +816,12 @@ const Wappalyzer = {
                     (pattern, subtype) => pattern[subtype] || {},
                     _pattern
                 )
+
+                // Walking the subtype path can land on a branch the entry does
+                // not define, leaving no regex to match against.
+                if (!pattern || !pattern.regex) {
+                    return
+                }
 
                 values.forEach((value) => {
                     const startTime = Date.now()
@@ -693,6 +847,74 @@ const Wappalyzer = {
 
             return technologies
         }, [])
+    },
+
+    /**
+   * Match JS property values collected from a page against the `js` channel.
+   * Kept here rather than in driver.js so it is testable without a browser.
+   * @param {Array} js Results of the in-page collector, as {name, chain, value}
+   * @param {Array} technologies
+   */
+    analyzeJs(js = [], technologies = Wappalyzer.technologies) {
+        return js
+            .map(({ name, chain, value }) =>
+                Wappalyzer.analyzeManyToMany(
+                    technologies.find(({ name: _name }) => name === _name),
+                    'js',
+                    { [chain]: [value] }
+                )
+            )
+            .flat()
+    },
+
+    /**
+   * Match DOM observations collected from a page against the `dom` channel.
+   * Kept here rather than in driver.js so it is testable without a browser.
+   * @param {Array} dom Results of the in-page collector
+   * @param {Array} technologies
+   */
+    analyzeDom(dom = [], technologies = Wappalyzer.technologies) {
+        return dom
+            .map(({ name, selector, exists, text, property, attribute, value }) => {
+                const technology = technologies.find(
+                    ({ name: _name }) => name === _name
+                )
+
+                if (!technology) {
+                    return []
+                }
+
+                if (typeof exists !== 'undefined') {
+                    return Wappalyzer.analyzeManyToMany(technology, 'dom.exists', {
+                        [selector]: [''],
+                    })
+                }
+
+                if (typeof text !== 'undefined') {
+                    return Wappalyzer.analyzeManyToMany(technology, 'dom.text', {
+                        [selector]: [text],
+                    })
+                }
+
+                if (typeof property !== 'undefined') {
+                    return Wappalyzer.analyzeManyToMany(
+                        technology,
+                        `dom.properties.${property}`,
+                        { [selector]: [value] }
+                    )
+                }
+
+                if (typeof attribute !== 'undefined') {
+                    return Wappalyzer.analyzeManyToMany(
+                        technology,
+                        `dom.attributes.${attribute}`,
+                        { [selector]: [value] }
+                    )
+                }
+
+                return []
+            })
+            .flat()
     },
 }
 
