@@ -1,1 +1,18 @@
 /node_modules
+/backup
+.DS_Store
+
+# Local-only inputs. See scripts/lib/untracked.js — everything that reads these
+# degrades with a stated reason when they are absent.
+#
+# A third party's product list and the per-product coverage it generates:
+data/requested-products.json
+docs/coverage.json
+docs/coverage.md
+scripts/lib/requested-mapping.js
+#
+# Bulky generated measurements. Regenerate with `npm run sweep` / `npm run audit:xhr`:
+data/dns-sweep-domains.txt
+data/dns-sweep-results.json
+data/xhr-audit-urls.txt
+data/xhr-audit-results.json

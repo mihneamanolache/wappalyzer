@@ -1,8 +1,71 @@
 # Wappalyzer
 
-[Wappalyzer](https://www.wappalyzer.com/) indentifies technologies on websites. 
+[Wappalyzer](https://www.wappalyzer.com/) identifies technologies on websites.
 
 *Note:* The [wappalyzer-core](https://www.npmjs.com/package/wappalyzer-core) package provides a low-level API without dependencies.
+
+## This fork
+
+A fork of Wappalyzer with a locally maintained technology catalog. Technology
+definitions are pulled from [enthec/webappanalyzer](https://github.com/enthec/webappanalyzer)
+and merged additively with fork-local entries and enrichments.
+
+### Requirements
+
+Node **22.12.0 or newer** (pinned in `.nvmrc` / `.node-version`, enforced by
+`engines.node` with `engine-strict=true`). Puppeteer 25 is ESM-only and fails to
+load on older runtimes, so `driver.js` checks the version before requiring it and
+reports which Node you are on.
+
+```shell
+nvm use               # picks up .nvmrc
+npm ci
+```
+
+```shell
+npm test              # unit suite + CLI smoke test
+npm run test:unit     # unit suite only
+npm run test:cli      # CLI smoke test only (loads the real require chain)
+npm run validate      # is the catalog coherent with the engine?
+npm run update        # pull upstream, merge, normalize, validate
+npm run coverage      # coverage against the local request list, if present
+```
+
+`npm run coverage` cross-references a requested product list against the catalog.
+That list belongs to a third party, so `data/requested-products.json` and
+`scripts/lib/requested-mapping.js` are not tracked here and the command reports
+that it has nothing to do. The aggregate result is committed as
+**[docs/coverage-summary.md](docs/coverage-summary.md)**; the suites that need the
+per-product inputs skip with a reason rather than fail.
+
+The DNS sweep and xhr audit corpora and their retained results are likewise
+untracked — they are bulky generated measurements. Regenerate them with
+`npm run sweep` and `npm run audit:xhr`. `scripts/lib/untracked.js` is the single
+place that records which local-only inputs exist and what skips without them, so a
+clone runs a smaller suite with zero failures instead of a broken one.
+
+**[docs/CATALOG.md](docs/CATALOG.md)** documents the detection channels, the
+shapes the engine actually reads, the evidence standard for new fingerprints, and
+the maintenance workflow. Read it before editing `technologies/*.json` — the
+engine ignores unknown fields and wrong-shaped channels without erroring, so a
+mistake there costs a detection rather than raising one.
+
+Differences from upstream worth knowing about:
+
+- **Catalog defects are collected, not thrown.** A dangling `implies`/`excludes`
+  reference used to abort a whole scan. It is now recorded on
+  `Wappalyzer.errors` and surfaced by the validator, so one bad entry cannot take
+  down a run. `WAPPALYZER_DEBUG=1` prints them at load time.
+- **`saas` and `oss`** are curated in the catalog and included in the output.
+  Upstream drops them.
+- **Fork-local categories** start at id 200, splitting upstream's single
+  "Artificial Intelligence" bucket into finer distinctions.
+- **`analyzeJs` and `analyzeDom`** live in `wappalyzer.js` rather than
+  `driver.js`, so they are testable without a browser.
+- **Text-mined signals** (`textSignals: true`) add a second, lower-confidence
+  source for technologies that emit nothing observable — endpoint agents, a
+  Postgres extension, a terminal editor. They are returned in a separate
+  `signals` array and are never merged into `technologies`.
 
 ## Command line
 
@@ -42,6 +105,8 @@ wappalyzer <url> [options]
 --local-storage=...        JSON object to use as local storage
 --session-storage=...      JSON object to use as session storage
 --defer=ms                 Defer scan for ms milliseconds after page load
+-T, --text-signals         Also infer technologies from careers/stack page text
+                           (returned separately as `signals`, confidence 30)
 
 ```
 

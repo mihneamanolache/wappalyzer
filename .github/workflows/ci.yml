@@ -1,0 +1,117 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # Two runtimes on purpose. The floor proves `engines.node` is honest — nothing
+  # in the code quietly needs a newer Node than we claim. Current LTS proves we
+  # are not stuck on the floor. An unsupported runtime is covered separately
+  # below, because a passing test suite on Node 20 is exactly what let a broken
+  # CLI ship once already.
+  test:
+    name: test (node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node:
+          - '22.12.0'
+          - '24'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # scripts/catalog-delta.js diffs against a recorded base commit, so the
+          # default shallow clone cannot resolve it.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Unit tests
+        run: npm run test:unit
+
+      - name: CLI smoke test
+        run: npm run test:cli
+
+      - name: Catalog validation
+        run: npm run validate
+
+      - name: Coverage report
+        run: npm run coverage
+
+      - name: Audit
+        run: npm audit --audit-level=high
+
+  # The pin must match what CI actually runs, or it is decoration.
+  pin:
+    name: runtime pin is consistent
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # scripts/catalog-delta.js diffs against a recorded base commit, so the
+          # default shallow clone cannot resolve it.
+          fetch-depth: 0
+
+      - name: .nvmrc matches the matrix floor
+        run: |
+          pinned="$(tr -d '[:space:]' < .nvmrc)"
+          echo "pinned: $pinned"
+          test "$pinned" = "22.12.0"
+
+      - name: .node-version agrees with .nvmrc
+        run: diff <(tr -d '[:space:]' < .nvmrc) <(tr -d '[:space:]' < .node-version)
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: The pinned runtime can install and test
+        run: |
+          npm ci
+          npm test
+
+  # An unsupported runtime must fail with our message, not ERR_REQUIRE_ESM.
+  unsupported-runtime:
+    name: unsupported runtime fails clearly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # scripts/catalog-delta.js diffs against a recorded base commit, so the
+          # default shallow clone cannot resolve it.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install on a supported runtime
+        run: npm ci
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.9.0'
+
+      - name: The CLI refuses to run and says why
+        run: |
+          set +e
+          output="$(node cli.js https://example.com 2>&1)"
+          status=$?
+          set -e
+          echo "$output"
+          test "$status" -ne 0
+          echo "$output" | grep -q '22.12.0 or newer is required'
+          echo "$output" | grep -q '20.9.0'
+          if echo "$output" | grep -q 'at Object'; then
+            echo 'guard leaked a stack trace' >&2
+            exit 1
+          fi
