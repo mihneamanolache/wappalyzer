@@ -12,7 +12,7 @@
   "summary": {
     "added": 518,
     "removed": 0,
-    "changed": 290
+    "changed": 291
   },
   "newCategories": [
     {
@@ -2199,6 +2199,7 @@
         "probe"
       ],
       "valuesChanged": [
+        "url",
         "dom"
       ]
     },
@@ -2290,9 +2291,7 @@
     },
     {
       "name": "Dremio",
-      "fieldsAdded": [
-        "xhrUrl"
-      ],
+      "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
         "xhr"
@@ -3213,6 +3212,14 @@
       ]
     },
     {
+      "name": "Open Source Presto",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "url"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "OpenText WEM",
       "fieldsAdded": [
         "scriptSrc"
@@ -3834,7 +3841,9 @@
       "fieldsRemoved": [
         "xhr"
       ],
-      "valuesChanged": []
+      "valuesChanged": [
+        "probe"
+      ]
     },
     {
       "name": "Shopware",
@@ -4101,10 +4110,9 @@
     },
     {
       "name": "Trino",
-      "fieldsAdded": [
-        "xhrUrl"
-      ],
+      "fieldsAdded": [],
       "fieldsRemoved": [
+        "url",
         "xhr"
       ],
       "valuesChanged": []

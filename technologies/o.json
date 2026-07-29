@@ -1721,10 +1721,6 @@
     "scriptSrc": [
       "presto.*\\.js"
     ],
-    "url": [
-      "/ui/(?:index\\.html)?(?:\\?|$)",
-      "/v1/(?:info|query|statement)"
-    ],
     "text": "Presto Console|PrestoDB|Presto Query",
     "oss": true,
     "saas": false,

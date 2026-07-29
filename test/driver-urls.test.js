@@ -80,3 +80,30 @@ test('analyzedUrls is an array of {url, status} and is frozen', () => {
     assert.ok(Object.isFrozen(urls), 'the array should be frozen')
     assert.ok(Object.isFrozen(urls[0]), 'each entry should be frozen')
 })
+
+test('the request channel analyzes fetch traffic, not only XHR', () => {
+    // Chromium reports fetch() under its own resource type. A channel gated
+    // on 'xhr' alone silently drops most modern API calls, and any request
+    // audit run through it undercounts.
+    const types = Driver.ANALYZED_REQUEST_TYPES
+
+    assert.ok(Array.isArray(types))
+    assert.ok(types.includes('xhr'), "the list covers XMLHttpRequest traffic")
+    assert.ok(types.includes('fetch'), "the list covers fetch() traffic")
+})
+
+test('request interception gates on the shared type list, not an xhr literal', () => {
+    // The list above only protects the interception branch if the branch
+    // actually consults it. Guard against a regression to the old literal.
+    const fs = require('node:fs')
+    const source = fs.readFileSync(require.resolve('../driver'), 'utf8')
+
+    assert.ok(
+        source.includes('ANALYZED_REQUEST_TYPES.includes(request.resourceType())'),
+        'the interception branch consults ANALYZED_REQUEST_TYPES'
+    )
+    assert.ok(
+        !/resourceType\(\)\s*===\s*'xhr'/.test(source),
+        "no branch compares resourceType() to the 'xhr' literal alone"
+    )
+})

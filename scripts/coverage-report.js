@@ -486,15 +486,17 @@ function printMarkdown({
                 `driver**, while ${a.distinctXhrHostsObserved} distinct xhr ` +
                 'hostnames were collected.'
         )
+        const clean = (a.statusDistribution && a.statusDistribution['200']) || 0
+
         lines.push('')
         lines.push(
             '**That is a yield against a convenience corpus, not an observation ' +
                 'rate.** Nothing maps each marker to a page where its vendor is ' +
                 'in use; the driver aborts non-document/script requests, which ' +
-                'suppresses follow-on calls; and only 8 of 29 pages returned a ' +
-                'clean 200. Treat it as a lower bound on browser visibility, and ' +
-                'the catalog-matchable figure as an upper bound on coverage. ' +
-                'See `docs/live-evidence.md`.'
+                `suppresses follow-on calls; and only ${clean} of ${a.urls} ` +
+                'pages returned a clean 200. Treat it as a lower bound on ' +
+                'browser visibility, and the catalog-matchable figure as an ' +
+                'upper bound on coverage. See `docs/live-evidence.md`.'
         )
     }
 

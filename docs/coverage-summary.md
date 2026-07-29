@@ -19,4 +19,4 @@ so the per-product tables cannot be regenerated from a clone alone.
 
 - Live-observed: **4 of 262** unique mapped technologies. Everything else is hostname-verified and covered by synthetic tests only.
 - **126** products rest on a request channel alone, so they need a client-side call to a vendor API host to be seen at all.
-- Measured yield: **1 of 85** request-only markers fired across a 29-page corpus, while 47 distinct xhr hostnames were collected. That is a yield against a convenience corpus, not an observation rate.
+- Measured yield: **4 of 85** request-only markers fired across a 29-page corpus, while 123 distinct xhr hostnames were collected. That is a yield against a convenience corpus, not an observation rate.
