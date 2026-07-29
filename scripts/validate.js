@@ -97,6 +97,73 @@ const isScalarPattern = (value) =>
 
 const kindOf = (channel) => CHANNELS[channel]
 
+/** Flatten an xhr channel value into {trail, value} leaves. */
+function collectXhr(value) {
+    const leaves = []
+
+    for (const [index, pattern] of (Array.isArray(value) ? value : [value]).entries()) {
+        if (isScalarPattern(pattern)) {
+            leaves.push({
+                trail: Array.isArray(value) ? `xhr[${index}]` : 'xhr',
+                value: pattern,
+            })
+        }
+    }
+
+    return leaves
+}
+
+/**
+ * Hostname-shaped candidates used to prove an xhr pattern can still fire.
+ * Real hostnames observed during the xhr audit, plus generic shapes, plus a
+ * slash-free skeleton derived from the pattern itself.
+ */
+const HOSTNAME_CANDIDATES = [
+    'example.com',
+    'api.example.com',
+    'a.b.c.example.com',
+    'tenant.api.example.com',
+    'localhost',
+    '10.0.0.1',
+    'sub.domain.co.uk',
+    'x.amazonaws.com',
+    'eks.us-east-1.amazonaws.com',
+    'runtime.sagemaker.eu-west-1.amazonaws.com',
+    'acme.wd5.myworkday.com',
+    'gw.tidbcloud.com',
+]
+
+/** Crude slash-free expansion of a pattern's literal skeleton. */
+function hostnameSkeleton(pattern) {
+    const expanded = String(pattern)
+        .replace(/\\\//g, '/')
+        .replace(/\\\./g, '.')
+        .replace(/\(\?:([^)|]*)\|[^)]*\)/g, '$1')
+        .replace(/\(\?[:=!][^)]*\)/g, '')
+        .replace(/[()[\]{}^$?*+]/g, '')
+        .replace(/\\[dw]/g, '1')
+        .replace(/\\[sb]/g, '')
+
+    return expanded.split('/')[0]
+}
+
+/** Can this xhr pattern match at least one string containing no slash? */
+function canMatchHostname(pattern) {
+    let regex
+
+    try {
+        regex = Wappalyzer.parsePattern(pattern).regex
+    } catch (error) {
+        return true // an uncompilable pattern is reported elsewhere
+    }
+
+    const candidates = [...HOSTNAME_CANDIDATES, hostnameSkeleton(pattern)].filter(
+        (candidate) => candidate && !candidate.includes('/')
+    )
+
+    return candidates.some((candidate) => regex.test(candidate))
+}
+
 /** Values that may legally sit where a pattern is expected. */
 function collectScalars(value, trail, leaves, onBadShape) {
     if (isScalarPattern(value)) {
@@ -131,6 +198,44 @@ function walkChannel(name, channel, value, file) {
             }`,
             file
         )
+
+    // The xhr channel is fed bare hostnames (driver.js does
+    // `analyze({ xhr: hostname })`), so a pattern that requires a path or a URL
+    // scheme can never match. This is invisible to a shape check: the pattern is
+    // a well-formed string in the right channel, it just cannot fire.
+    //
+    // Only demonstrable cases are reported. A slash-free match is proof of life,
+    // so patterns are cleared by finding one; a leading slash or a mandatory
+    // scheme is proof of death; anything else is a warning for review.
+    if (channel === 'xhr') {
+        for (const { trail, value: pattern } of collectXhr(value)) {
+            const text = String(pattern)
+
+            if (canMatchHostname(text)) {
+                continue
+            }
+
+            if (/^\^?(?:\\?\/)/.test(text) || /:\\?\/\\?\//.test(text)) {
+                error(
+                    'E_XHR_NOT_A_HOSTNAME',
+                    name,
+                    `${trail} requires ${/:\\?\/\\?\//.test(text) ? 'a URL scheme' : 'a leading path'}, ` +
+                        'but the xhr channel is matched against bare hostnames, so ' +
+                        'it can never fire',
+                    file
+                )
+            } else {
+                warn(
+                    'W_XHR_PATH_DEPENDENT',
+                    name,
+                    `${trail} appears to require a path; no hostname-shaped match ` +
+                        'could be demonstrated. The xhr channel only ever sees a ' +
+                        'hostname',
+                    file
+                )
+            }
+        }
+    }
 
     if (kind === 'oo' || kind === 'om') {
         if (isPlainObject(value)) {

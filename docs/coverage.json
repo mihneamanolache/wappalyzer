@@ -2226,7 +2226,7 @@
       "evidence": {
         "class": "dns+script-url+dom+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern figma-domain-verification= observed on 57 of 536 corpus domains (e.g. aleph-alpha.com, assemblyai.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern figma-domain-verification= observed on 57 of 536 corpus domains (e.g. ai21.com, autodesk.com, assemblyai.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -2314,7 +2314,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern airtable-verification= observed on 66 of 536 corpus domains (e.g. abbvie.com, apollo.io, assemblyai.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern airtable-verification= observed on 66 of 536 corpus domains (e.g. apollo.io, assemblyai.com, adobe.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -2332,7 +2332,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern airtable-verification= observed on 66 of 536 corpus domains (e.g. abbvie.com, apollo.io, assemblyai.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern airtable-verification= observed on 66 of 536 corpus domains (e.g. apollo.io, assemblyai.com, adobe.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -2673,7 +2673,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern cursor-domain-verification-[a-z0-9]{6}= observed on 167 of 536 corpus domains (e.g. abnormalsecurity.com, aleph-alpha.com, apollo.io). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern cursor-domain-verification-[a-z0-9]{6}= observed on 167 of 536 corpus domains (e.g. apollo.io, ai21.com, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -2756,7 +2756,7 @@
         "dom",
         "probe",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -2771,7 +2771,7 @@
         "dom",
         "probe",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -3010,7 +3010,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern autodesk-domain-verification= observed on 35 of 536 corpus domains (e.g. adm.com, amazon.com, akamai.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern autodesk-domain-verification= observed on 35 of 536 corpus domains (e.g. amazon.com, akamai.com, cargill.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3027,7 +3027,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern autodesk-domain-verification= observed on 35 of 536 corpus domains (e.g. adm.com, amazon.com, akamai.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern autodesk-domain-verification= observed on 35 of 536 corpus domains (e.g. amazon.com, akamai.com, cargill.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3044,7 +3044,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern autodesk-domain-verification= observed on 35 of 536 corpus domains (e.g. adm.com, amazon.com, akamai.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern autodesk-domain-verification= observed on 35 of 536 corpus domains (e.g. amazon.com, akamai.com, cargill.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3132,7 +3132,7 @@
       "evidence": {
         "class": "dns+xhr-hostname+dom+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern box-domain-verification= observed on 76 of 536 corpus domains (e.g. anthem.com, astrazeneca.com, atlassian.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern box-domain-verification= observed on 76 of 536 corpus domains (e.g. amd.com, amazon.com, astrazeneca.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3151,7 +3151,7 @@
       "evidence": {
         "class": "dns+xhr-hostname+dom+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern box-domain-verification= observed on 76 of 536 corpus domains (e.g. anthem.com, astrazeneca.com, atlassian.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern box-domain-verification= observed on 76 of 536 corpus domains (e.g. amd.com, amazon.com, astrazeneca.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3285,7 +3285,7 @@
       "evidence": {
         "class": "dns+dom+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern canva-site-verification= observed on 93 of 536 corpus domains (e.g. abbvie.com, airbnb.com, atlassian.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern canva-site-verification= observed on 93 of 536 corpus domains (e.g. airbnb.com, amazon.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3405,7 +3405,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern cisco-ci-domain-verification= observed on 104 of 536 corpus domains (e.g. abbvie.com, adm.com, airbnb.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern cisco-ci-domain-verification= observed on 104 of 536 corpus domains (e.g. airbnb.com, amd.com, amazon.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3422,7 +3422,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern cisco-ci-domain-verification= observed on 104 of 536 corpus domains (e.g. abbvie.com, adm.com, airbnb.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern cisco-ci-domain-verification= observed on 104 of 536 corpus domains (e.g. airbnb.com, amd.com, amazon.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3592,12 +3592,7 @@
       "mapsTo": "Helm",
       "reason": "Catalog entry matches the requested name.",
       "channels": [
-        "dom",
-        "headers",
-        "meta",
-        "probe",
-        "text",
-        "url"
+        "probe"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -3650,7 +3645,7 @@
       "evidence": {
         "class": "dns+xhr-hostname+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern windsurf-verification= observed on 9 of 536 corpus domains (e.g. att.com, cerebras.net, elevancehealth.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern windsurf-verification= observed on 9 of 536 corpus domains (e.g. cerebras.net, att.com, codeium.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3668,7 +3663,7 @@
       "evidence": {
         "class": "dns+xhr-hostname+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern windsurf-verification= observed on 9 of 536 corpus domains (e.g. att.com, cerebras.net, elevancehealth.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern windsurf-verification= observed on 9 of 536 corpus domains (e.g. cerebras.net, att.com, codeium.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -3873,11 +3868,10 @@
         "dom",
         "headers",
         "meta",
-        "probe",
         "scriptSrc",
         "text",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -3892,11 +3886,10 @@
         "dom",
         "headers",
         "meta",
-        "probe",
         "scriptSrc",
         "text",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -3911,11 +3904,10 @@
         "dom",
         "headers",
         "meta",
-        "probe",
         "scriptSrc",
         "text",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -3947,7 +3939,7 @@
         "probe",
         "text",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -3962,11 +3954,10 @@
         "dom",
         "headers",
         "meta",
-        "probe",
         "scriptSrc",
         "text",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -4125,7 +4116,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern dell-technologies-domain-verification= observed on 15 of 536 corpus domains (e.g. amazon.com, carmax.com, barracuda.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern dell-technologies-domain-verification= observed on 15 of 536 corpus domains (e.g. amazon.com, barracuda.com, bunge.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -4142,7 +4133,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern dell-technologies-domain-verification= observed on 15 of 536 corpus domains (e.g. amazon.com, carmax.com, barracuda.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern dell-technologies-domain-verification= observed on 15 of 536 corpus domains (e.g. amazon.com, barracuda.com, bunge.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -4178,7 +4169,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern docker-verification= observed on 185 of 536 corpus domains (e.g. abbvie.com, adm.com, astrazeneca.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern docker-verification= observed on 184 of 536 corpus domains (e.g. amd.com, amazon.com, astrazeneca.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -4258,7 +4249,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern dynatrace-site-verification= observed on 64 of 536 corpus domains (e.g. adm.com, apple.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern dynatrace-site-verification= observed on 64 of 536 corpus domains (e.g. autodesk.com, apple.com, aa.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -4309,7 +4300,7 @@
       "evidence": {
         "class": "dns+script-url+dom+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern figma-domain-verification= observed on 57 of 536 corpus domains (e.g. aleph-alpha.com, assemblyai.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern figma-domain-verification= observed on 57 of 536 corpus domains (e.g. ai21.com, autodesk.com, assemblyai.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -4880,7 +4871,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern hcp-domain-verification= observed on 35 of 536 corpus domains (e.g. aleph-alpha.com, assemblyai.com, anysphere.co). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern hcp-domain-verification= observed on 35 of 536 corpus domains (e.g. assemblyai.com, aleph-alpha.com, anysphere.co). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -4897,7 +4888,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern hcp-domain-verification= observed on 35 of 536 corpus domains (e.g. aleph-alpha.com, assemblyai.com, anysphere.co). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern hcp-domain-verification= observed on 35 of 536 corpus domains (e.g. assemblyai.com, aleph-alpha.com, anysphere.co). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5377,7 +5368,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern jetbrains-domain-verification= observed on 29 of 536 corpus domains (e.g. aleph-alpha.com, bamboohr.com, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern jetbrains-domain-verification= observed on 29 of 536 corpus domains (e.g. anthropic.com, aleph-alpha.com, arcticwolf.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5396,7 +5387,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern klaviyo-site-verification= observed on 16 of 536 corpus domains (e.g. autodesk.com, bayer.com, gap.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern klaviyo-site-verification= observed on 16 of 536 corpus domains (e.g. autodesk.com, bayer.com, couchbase.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5551,7 +5542,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern linear-domain-verification= observed on 44 of 536 corpus domains (e.g. abnormalsecurity.com, buildkite.com, circleci.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern linear-domain-verification= observed on 44 of 536 corpus domains (e.g. abnormalsecurity.com, brex.com, buildkite.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5779,7 +5770,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airflow.apache.org, airbnb.com, aleph-alpha.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airbnb.com, apollo.io, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5796,7 +5787,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airflow.apache.org, airbnb.com, aleph-alpha.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airbnb.com, apollo.io, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5847,7 +5838,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airflow.apache.org, airbnb.com, aleph-alpha.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airbnb.com, apollo.io, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5864,7 +5855,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airflow.apache.org, airbnb.com, aleph-alpha.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airbnb.com, apollo.io, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -5993,7 +5984,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airflow.apache.org, airbnb.com, aleph-alpha.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airbnb.com, apollo.io, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6010,7 +6001,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airflow.apache.org, airbnb.com, aleph-alpha.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern ^MS=ms\\d+ observed on 310 of 536 corpus domains (e.g. airbnb.com, apollo.io, anthropic.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6047,7 +6038,7 @@
       "evidence": {
         "class": "dns+script-url+dom+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern miro-verification= observed on 139 of 536 corpus domains (e.g. abbvie.com, airbnb.com, airproducts.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern miro-verification= observed on 139 of 536 corpus domains (e.g. airbnb.com, astrazeneca.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6066,7 +6057,7 @@
       "evidence": {
         "class": "dns+script-url+dom+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern miro-verification= observed on 139 of 536 corpus domains (e.g. abbvie.com, airbnb.com, airproducts.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern miro-verification= observed on 139 of 536 corpus domains (e.g. airbnb.com, astrazeneca.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6245,7 +6236,7 @@
       "evidence": {
         "class": "dns+xhr-hostname+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern monday-com-verification= observed on 12 of 536 corpus domains (e.g. abbvie.com, carmax.com, canva.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern monday-com-verification= observed on 12 of 536 corpus domains (e.g. abbvie.com, canva.com, carmax.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6263,7 +6254,7 @@
       "evidence": {
         "class": "dns+xhr-hostname+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern monday-com-verification= observed on 12 of 536 corpus domains (e.g. abbvie.com, carmax.com, canva.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern monday-com-verification= observed on 12 of 536 corpus domains (e.g. abbvie.com, canva.com, carmax.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6280,7 +6271,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern mongodb-site-verification= observed on 112 of 536 corpus domains (e.g. abbvie.com, astrazeneca.com, atlassian.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern mongodb-site-verification= observed on 111 of 536 corpus domains (e.g. astrazeneca.com, autodesk.com, amplitude.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6404,7 +6395,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern notion-domain-verification= observed on 87 of 536 corpus domains (e.g. apollo.io, assemblyai.com, atlassian.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern notion-domain-verification= observed on 87 of 536 corpus domains (e.g. apollo.io, ai21.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6422,7 +6413,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern notion-domain-verification= observed on 87 of 536 corpus domains (e.g. apollo.io, assemblyai.com, atlassian.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern notion-domain-verification= observed on 87 of 536 corpus domains (e.g. apollo.io, ai21.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6917,7 +6908,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 35 of 536 corpus domains (e.g. airbnb.com, airproducts.com, amd.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 34 of 536 corpus domains (e.g. airbnb.com, amd.com, airproducts.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6935,7 +6926,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 35 of 536 corpus domains (e.g. airbnb.com, airproducts.com, amd.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 34 of 536 corpus domains (e.g. airbnb.com, amd.com, airproducts.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6953,7 +6944,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 35 of 536 corpus domains (e.g. airbnb.com, airproducts.com, amd.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 34 of 536 corpus domains (e.g. airbnb.com, amd.com, airproducts.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -6971,7 +6962,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 35 of 536 corpus domains (e.g. airbnb.com, airproducts.com, amd.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern paloaltonetworks-site-verification= observed on 34 of 536 corpus domains (e.g. airbnb.com, amd.com, airproducts.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -7126,7 +7117,7 @@
       "evidence": {
         "class": "dns+xhr-hostname+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern postman-domain-verification= observed on 70 of 536 corpus domains (e.g. atlassian.com, autodesk.com, block.xyz). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern postman-domain-verification= observed on 69 of 536 corpus domains (e.g. autodesk.com, adobe.com, airtable.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -7992,7 +7983,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern amp-by-sourcegraph-domain-verification-[a-z0-9]{6}= observed on 6 of 536 corpus domains (e.g. block.xyz, buildkite.com, coinbase.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern amp-by-sourcegraph-domain-verification-[a-z0-9]{6}= observed on 6 of 536 corpus domains (e.g. buildkite.com, block.xyz, coinbase.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -8009,7 +8000,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern amp-by-sourcegraph-domain-verification-[a-z0-9]{6}= observed on 6 of 536 corpus domains (e.g. block.xyz, buildkite.com, coinbase.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern amp-by-sourcegraph-domain-verification-[a-z0-9]{6}= observed on 6 of 536 corpus domains (e.g. buildkite.com, block.xyz, coinbase.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -8312,7 +8303,7 @@
         "probe",
         "text",
         "url",
-        "xhr"
+        "xhrUrl"
       ],
       "evidence": null,
       "weaklyObservable": false
@@ -8482,7 +8473,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern wiz-domain-verification= observed on 70 of 536 corpus domains (e.g. abnormalsecurity.com, anthropic.com, bp.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern wiz-domain-verification= observed on 70 of 536 corpus domains (e.g. anthropic.com, 6sense.com, adobe.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -8499,7 +8490,7 @@
       "evidence": {
         "class": "dns+dns-txt",
         "verification": "corpus-observed",
-        "observed": "TXT pattern wiz-domain-verification= observed on 70 of 536 corpus domains (e.g. abnormalsecurity.com, anthropic.com, bp.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern wiz-domain-verification= observed on 70 of 536 corpus domains (e.g. anthropic.com, 6sense.com, adobe.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -8658,7 +8649,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern zapier-domain-verification-challenge= observed on 73 of 536 corpus domains (e.g. abnormalsecurity.com, assemblyai.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern zapier-domain-verification-challenge= observed on 73 of 536 corpus domains (e.g. autodesk.com, assemblyai.com, adobe.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -8675,7 +8666,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern zapier-domain-verification-challenge= observed on 73 of 536 corpus domains (e.g. abnormalsecurity.com, assemblyai.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern zapier-domain-verification-challenge= observed on 73 of 536 corpus domains (e.g. autodesk.com, assemblyai.com, adobe.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false
@@ -8692,7 +8683,7 @@
       "evidence": {
         "class": "dns-txt+existing-catalog",
         "verification": "corpus-observed",
-        "observed": "TXT pattern zapier-domain-verification-challenge= observed on 73 of 536 corpus domains (e.g. abnormalsecurity.com, assemblyai.com, autodesk.com). Corpus: data/dns-sweep-domains.txt.",
+        "observed": "TXT pattern zapier-domain-verification-challenge= observed on 73 of 536 corpus domains (e.g. autodesk.com, assemblyai.com, adobe.com). Corpus: data/dns-sweep-domains.txt.",
         "signal": "tenant"
       },
       "weaklyObservable": false

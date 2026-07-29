@@ -588,9 +588,6 @@
     "js": {
       "zESettings.webWidget.answerBot": ""
     },
-    "xhr": [
-      "/api/v2/answer_bot/(?:answers/articles|rejection|resolution)"
-    ],
     "scriptSrc": [
       "static\\.zdassets\\.com/ekr/snippet\\.js\\;confidence:10"
     ],
@@ -613,7 +610,8 @@
       "Zendesk"
     ],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": "/api/v2/answer_bot/(?:answers/articles|rejection|resolution)"
   },
   "Zendesk Chat": {
     "cats": [

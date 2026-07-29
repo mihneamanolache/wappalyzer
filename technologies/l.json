@@ -3945,17 +3945,15 @@
     ],
     "saas": true,
     "website": "https://www.loom.com",
-    "xhr": [
-      "loom\\.com/api",
-      "luna\\.loom\\.com"
-    ],
+    "xhr": "luna\\.loom\\.com",
     "description": "Loom is an async video messaging platform with AI summaries.",
     "oss": false,
     "dom": {
       "iframe[src*='loom.com/embed']": {
         "exists": ""
       }
-    }
+    },
+    "xhrUrl": "loom\\.com/api"
   },
   "Loop Returns": {
     "cats": [

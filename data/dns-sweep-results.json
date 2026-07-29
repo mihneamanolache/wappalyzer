@@ -1,14 +1,14 @@
 {
-  "ranAt": "2026-07-28T20:39:36.336Z",
+  "ranAt": "2026-07-29T06:41:43.631Z",
   "corpus": "data/dns-sweep-domains.txt",
   "corpusSha256": "9b37b89a06d10bcc553d6779cb4342b33c0c27cc73ff25a99a239a2e0ec3c7e9",
   "markerSetSha256": "ad774f793b4626bf38b5a08e8702ac1524be905c123339c01c3fdd6aff41d236",
   "resolver": {
     "servers": [
-      "1.1.1.1",
       "8.8.8.8",
-      "fd7a:115c:a1e0::53",
+      "1.1.1.1",
       "172.18.18.1",
+      "fd7a:115c:a1e0::53",
       "100.100.100.100"
     ],
     "nodeVersion": "v24.18.0",
@@ -16,7 +16,7 @@
   },
   "corpusDomains": 536,
   "domainsWithTxt": 513,
-  "txtRecordsSeen": 14962,
+  "txtRecordsSeen": 14951,
   "resolutionOutcomes": {
     "ok": 513,
     "nodata": 23
@@ -31,9 +31,9 @@
       "pattern": "atlassian-domain-verification=",
       "domainCount": 335,
       "examples": [
-        "abbvie.com",
-        "abnormalsecurity.com",
-        "adm.com"
+        "airbnb.com",
+        "apollo.io",
+        "amd.com"
       ]
     },
     {
@@ -41,9 +41,9 @@
       "pattern": "apple-domain",
       "domainCount": 320,
       "examples": [
-        "abbvie.com",
-        "adm.com",
-        "airbnb.com"
+        "airbnb.com",
+        "apollo.io",
+        "amd.com"
       ]
     },
     {
@@ -51,9 +51,9 @@
       "pattern": "^MS=ms\\d+",
       "domainCount": 310,
       "examples": [
-        "airflow.apache.org",
         "airbnb.com",
-        "aleph-alpha.com"
+        "apollo.io",
+        "anthropic.com"
       ]
     },
     {
@@ -61,9 +61,9 @@
       "pattern": "docusign",
       "domainCount": 267,
       "examples": [
-        "abnormalsecurity.com",
-        "adm.com",
-        "airbnb.com"
+        "airbnb.com",
+        "apollo.io",
+        "astrazeneca.com"
       ]
     },
     {
@@ -71,9 +71,9 @@
       "pattern": "anthropic-domain-verification",
       "domainCount": 248,
       "examples": [
-        "abbvie.com",
-        "abnormalsecurity.com",
-        "adm.com"
+        "airbnb.com",
+        "apollo.io",
+        "ai21.com"
       ]
     },
     {
@@ -81,9 +81,9 @@
       "pattern": "anthropic-domain-verification-[a-z0-9]{6}=",
       "domainCount": 248,
       "examples": [
-        "abbvie.com",
-        "abnormalsecurity.com",
-        "adm.com"
+        "airbnb.com",
+        "apollo.io",
+        "ai21.com"
       ]
     },
     {
@@ -91,9 +91,9 @@
       "pattern": "adobe-idp-site-verification=",
       "domainCount": 218,
       "examples": [
-        "abbvie.com",
-        "adm.com",
-        "airbnb.com"
+        "airbnb.com",
+        "amd.com",
+        "astrazeneca.com"
       ]
     },
     {
@@ -101,18 +101,18 @@
       "pattern": "openai-domain-verification=",
       "domainCount": 192,
       "examples": [
-        "abnormalsecurity.com",
         "airbnb.com",
-        "apollo.io"
+        "apollo.io",
+        "amd.com"
       ]
     },
     {
       "technology": "Docker",
       "pattern": "docker-verification=",
-      "domainCount": 185,
+      "domainCount": 184,
       "examples": [
-        "abbvie.com",
-        "adm.com",
+        "amd.com",
+        "amazon.com",
         "astrazeneca.com"
       ]
     },
@@ -121,9 +121,9 @@
       "pattern": "cursor-domain-verification",
       "domainCount": 167,
       "examples": [
-        "abnormalsecurity.com",
-        "aleph-alpha.com",
-        "apollo.io"
+        "apollo.io",
+        "ai21.com",
+        "anthropic.com"
       ]
     },
     {
@@ -131,9 +131,9 @@
       "pattern": "cursor-domain-verification-[a-z0-9]{6}=",
       "domainCount": 167,
       "examples": [
-        "abnormalsecurity.com",
-        "aleph-alpha.com",
-        "apollo.io"
+        "apollo.io",
+        "ai21.com",
+        "anthropic.com"
       ]
     },
     {
@@ -141,9 +141,9 @@
       "pattern": "jamf-site-verification=",
       "domainCount": 167,
       "examples": [
-        "abnormalsecurity.com",
-        "aleph-alpha.com",
-        "astrazeneca.com"
+        "astrazeneca.com",
+        "autodesk.com",
+        "aa.com"
       ]
     },
     {
@@ -151,9 +151,9 @@
       "pattern": "stripe-verification=",
       "domainCount": 160,
       "examples": [
-        "abbvie.com",
         "airbnb.com",
-        "apollo.io"
+        "apollo.io",
+        "amazon.com"
       ]
     },
     {
@@ -161,9 +161,9 @@
       "pattern": "onetrust-domain-verification=",
       "domainCount": 150,
       "examples": [
-        "abbvie.com",
-        "adm.com",
-        "astrazeneca.com"
+        "amd.com",
+        "astrazeneca.com",
+        "autodesk.com"
       ]
     },
     {
@@ -171,9 +171,9 @@
       "pattern": "miro-verification=",
       "domainCount": 139,
       "examples": [
-        "abbvie.com",
         "airbnb.com",
-        "airproducts.com"
+        "astrazeneca.com",
+        "autodesk.com"
       ]
     },
     {
@@ -181,9 +181,9 @@
       "pattern": "salesforce\\.com",
       "domainCount": 124,
       "examples": [
-        "auth0.com",
-        "bamboohr.com",
-        "amd.com"
+        "amd.com",
+        "ai21.com",
+        "auth0.com"
       ]
     },
     {
@@ -191,9 +191,9 @@
       "pattern": "smartsheet-site-validation=",
       "domainCount": 121,
       "examples": [
-        "abbvie.com",
-        "anthem.com",
-        "astrazeneca.com"
+        "amd.com",
+        "astrazeneca.com",
+        "autodesk.com"
       ]
     },
     {
@@ -201,19 +201,19 @@
       "pattern": "_spf\\.salesforce\\.com",
       "domainCount": 115,
       "examples": [
-        "bamboohr.com",
         "amd.com",
-        "ai21.com"
+        "ai21.com",
+        "airtable.com"
       ]
     },
     {
       "technology": "MongoDB",
       "pattern": "mongodb-site-verification=",
-      "domainCount": 112,
+      "domainCount": 111,
       "examples": [
-        "abbvie.com",
         "astrazeneca.com",
-        "atlassian.com"
+        "autodesk.com",
+        "amplitude.com"
       ]
     },
     {
@@ -221,9 +221,9 @@
       "pattern": "cisco-ci-domain-verification=",
       "domainCount": 104,
       "examples": [
-        "abbvie.com",
-        "adm.com",
-        "airbnb.com"
+        "airbnb.com",
+        "amd.com",
+        "amazon.com"
       ]
     },
     {
@@ -231,9 +231,9 @@
       "pattern": "canva-site-verification=",
       "domainCount": 93,
       "examples": [
-        "abbvie.com",
         "airbnb.com",
-        "atlassian.com"
+        "amazon.com",
+        "autodesk.com"
       ]
     },
     {
@@ -241,9 +241,9 @@
       "pattern": "h1-domain-verification=",
       "domainCount": 90,
       "examples": [
-        "abbvie.com",
-        "abnormalsecurity.com",
-        "automationanywhere.com"
+        "anthropic.com",
+        "amplitude.com",
+        "6sense.com"
       ]
     },
     {
@@ -252,7 +252,7 @@
       "domainCount": 89,
       "examples": [
         "airbnb.com",
-        "atlassian.com",
+        "affirm.com",
         "bentoml.com"
       ]
     },
@@ -262,8 +262,8 @@
       "domainCount": 87,
       "examples": [
         "apollo.io",
-        "assemblyai.com",
-        "atlassian.com"
+        "ai21.com",
+        "autodesk.com"
       ]
     },
     {
@@ -271,9 +271,9 @@
       "pattern": "slack-domain-verification=",
       "domainCount": 86,
       "examples": [
-        "abnormalsecurity.com",
-        "aleph-alpha.com",
-        "apollo.io"
+        "apollo.io",
+        "amd.com",
+        "anthropic.com"
       ]
     },
     {
@@ -281,9 +281,9 @@
       "pattern": "mail\\.zendesk\\.com",
       "domainCount": 81,
       "examples": [
-        "bamboohr.com",
         "appsmith.com",
-        "asana.com"
+        "amplitude.com",
+        "arcticwolf.com"
       ]
     },
     {
@@ -291,9 +291,9 @@
       "pattern": "box-domain-verification=",
       "domainCount": 76,
       "examples": [
-        "anthem.com",
-        "astrazeneca.com",
-        "atlassian.com"
+        "amd.com",
+        "amazon.com",
+        "astrazeneca.com"
       ]
     },
     {
@@ -301,19 +301,9 @@
       "pattern": "zapier-domain-verification-challenge=",
       "domainCount": 73,
       "examples": [
-        "abnormalsecurity.com",
-        "assemblyai.com",
-        "autodesk.com"
-      ]
-    },
-    {
-      "technology": "Postman",
-      "pattern": "postman-domain-verification=",
-      "domainCount": 70,
-      "examples": [
-        "atlassian.com",
         "autodesk.com",
-        "block.xyz"
+        "assemblyai.com",
+        "adobe.com"
       ]
     },
     {
@@ -321,9 +311,9 @@
       "pattern": "wiz-domain-verification=",
       "domainCount": 70,
       "examples": [
-        "abnormalsecurity.com",
         "anthropic.com",
-        "bp.com"
+        "6sense.com",
+        "adobe.com"
       ]
     },
     {
@@ -331,9 +321,19 @@
       "pattern": "amazonses\\.com",
       "domainCount": 69,
       "examples": [
-        "atlassian.com",
-        "auth0.com",
-        "appsmith.com"
+        "amazon.com",
+        "appsmith.com",
+        "auth0.com"
+      ]
+    },
+    {
+      "technology": "Postman",
+      "pattern": "postman-domain-verification=",
+      "domainCount": 69,
+      "examples": [
+        "autodesk.com",
+        "adobe.com",
+        "airtable.com"
       ]
     },
     {
@@ -341,9 +341,9 @@
       "pattern": "airtable-verification=",
       "domainCount": 66,
       "examples": [
-        "abbvie.com",
         "apollo.io",
-        "assemblyai.com"
+        "assemblyai.com",
+        "adobe.com"
       ]
     },
     {
@@ -351,9 +351,9 @@
       "pattern": "dynatrace-site-verification=",
       "domainCount": 64,
       "examples": [
-        "adm.com",
+        "autodesk.com",
         "apple.com",
-        "autodesk.com"
+        "aa.com"
       ]
     },
     {
@@ -361,9 +361,9 @@
       "pattern": "1password-site-verification=",
       "domainCount": 61,
       "examples": [
-        "astrazeneca.com",
         "anthropic.com",
-        "block.xyz"
+        "astrazeneca.com",
+        "amplitude.com"
       ]
     },
     {
@@ -371,8 +371,8 @@
       "pattern": "hubspotemail\\.net",
       "domainCount": 60,
       "examples": [
-        "aleph-alpha.com",
         "ai21.com",
+        "aleph-alpha.com",
         "buildkite.com"
       ]
     },
@@ -381,9 +381,9 @@
       "pattern": "figma-domain-verification=",
       "domainCount": 57,
       "examples": [
-        "aleph-alpha.com",
-        "assemblyai.com",
-        "autodesk.com"
+        "ai21.com",
+        "autodesk.com",
+        "assemblyai.com"
       ]
     },
     {
@@ -391,19 +391,9 @@
       "pattern": "pardot",
       "domainCount": 56,
       "examples": [
-        "adm.com",
-        "atlassian.com",
-        "amd.com"
-      ]
-    },
-    {
-      "technology": "Mixpanel",
-      "pattern": "mixpanel-domain-verify",
-      "domainCount": 53,
-      "examples": [
-        "abbvie.com",
-        "att.com",
-        "autodesk.com"
+        "amd.com",
+        "amazon.com",
+        "affirm.com"
       ]
     },
     {
@@ -411,9 +401,19 @@
       "pattern": "sendgrid\\.net",
       "domainCount": 53,
       "examples": [
+        "brex.com",
         "bamboohr.com",
-        "c3.ai",
-        "checkmarx.com"
+        "c3.ai"
+      ]
+    },
+    {
+      "technology": "Mixpanel",
+      "pattern": "mixpanel-domain-verify",
+      "domainCount": 52,
+      "examples": [
+        "autodesk.com",
+        "bp.com",
+        "abbvie.com"
       ]
     },
     {
@@ -422,7 +422,7 @@
       "domainCount": 51,
       "examples": [
         "airbnb.com",
-        "atlassian.com",
+        "anthropic.com",
         "autodesk.com"
       ]
     },
@@ -431,9 +431,9 @@
       "pattern": "pendo-domain-verification=",
       "domainCount": 48,
       "examples": [
-        "abnormalsecurity.com",
-        "atlassian.com",
-        "autodesk.com"
+        "amazon.com",
+        "autodesk.com",
+        "6sense.com"
       ]
     },
     {
@@ -442,8 +442,8 @@
       "domainCount": 47,
       "examples": [
         "apollo.io",
-        "atlassian.com",
-        "appsmith.com"
+        "appsmith.com",
+        "amplitude.com"
       ]
     },
     {
@@ -452,8 +452,8 @@
       "domainCount": 44,
       "examples": [
         "abnormalsecurity.com",
-        "buildkite.com",
-        "circleci.com"
+        "brex.com",
+        "buildkite.com"
       ]
     },
     {
@@ -462,8 +462,8 @@
       "domainCount": 43,
       "examples": [
         "apollo.io",
-        "atlassian.com",
-        "appsmith.com"
+        "appsmith.com",
+        "atlassian.com"
       ]
     },
     {
@@ -471,9 +471,9 @@
       "pattern": "dropbox-domain-verification",
       "domainCount": 41,
       "examples": [
-        "atlassian.com",
         "amd.com",
-        "amplitude.com"
+        "amplitude.com",
+        "atlassian.com"
       ]
     },
     {
@@ -481,9 +481,9 @@
       "pattern": "autodesk-domain-verification=",
       "domainCount": 35,
       "examples": [
-        "adm.com",
         "amazon.com",
-        "akamai.com"
+        "akamai.com",
+        "cargill.com"
       ]
     },
     {
@@ -491,19 +491,9 @@
       "pattern": "hcp-domain-verification=",
       "domainCount": 35,
       "examples": [
-        "aleph-alpha.com",
         "assemblyai.com",
+        "aleph-alpha.com",
         "anysphere.co"
-      ]
-    },
-    {
-      "technology": "Palo Alto Networks",
-      "pattern": "paloaltonetworks-site-verification=",
-      "domainCount": 35,
-      "examples": [
-        "airbnb.com",
-        "airproducts.com",
-        "amd.com"
       ]
     },
     {
@@ -511,9 +501,19 @@
       "pattern": "wrike-verification=",
       "domainCount": 35,
       "examples": [
-        "automationanywhere.com",
-        "bamboohr.com",
-        "amazon.com"
+        "amazon.com",
+        "arcticwolf.com",
+        "booking.com"
+      ]
+    },
+    {
+      "technology": "Palo Alto Networks",
+      "pattern": "paloaltonetworks-site-verification=",
+      "domainCount": 34,
+      "examples": [
+        "airbnb.com",
+        "amd.com",
+        "airproducts.com"
       ]
     },
     {
@@ -523,7 +523,7 @@
       "examples": [
         "astrazeneca.com",
         "autodesk.com",
-        "bamboohr.com"
+        "brex.com"
       ]
     },
     {
@@ -532,8 +532,8 @@
       "domainCount": 32,
       "examples": [
         "astrazeneca.com",
-        "block.xyz",
-        "checkmarx.com"
+        "airtable.com",
+        "anysphere.co"
       ]
     },
     {
@@ -543,7 +543,7 @@
       "examples": [
         "anyscale.com",
         "canva.com",
-        "cisco.com"
+        "chime.com"
       ]
     },
     {
@@ -551,9 +551,9 @@
       "pattern": "jetbrains-domain-verification=",
       "domainCount": 29,
       "examples": [
+        "anthropic.com",
         "aleph-alpha.com",
-        "bamboohr.com",
-        "anthropic.com"
+        "arcticwolf.com"
       ]
     },
     {
@@ -561,9 +561,9 @@
       "pattern": "cloudhealth=",
       "domainCount": 29,
       "examples": [
+        "amd.com",
         "automationanywhere.com",
-        "bamboohr.com",
-        "amd.com"
+        "bamboohr.com"
       ]
     },
     {
@@ -571,9 +571,9 @@
       "pattern": "logmein-verification-code=",
       "domainCount": 27,
       "examples": [
+        "arcticwolf.com",
         "bamboohr.com",
-        "checkmarx.com",
-        "arcticwolf.com"
+        "box.com"
       ]
     },
     {
@@ -581,9 +581,9 @@
       "pattern": "spf\\.mandrillapp\\.com",
       "domainCount": 26,
       "examples": [
-        "aleph-alpha.com",
         "astrazeneca.com",
-        "auth0.com"
+        "auth0.com",
+        "aleph-alpha.com"
       ]
     },
     {
@@ -592,8 +592,8 @@
       "domainCount": 25,
       "examples": [
         "airbnb.com",
-        "automationanywhere.com",
-        "amd.com"
+        "amd.com",
+        "anthropic.com"
       ]
     },
     {
@@ -611,9 +611,9 @@
       "pattern": "adobe-sign-verification=",
       "domainCount": 24,
       "examples": [
+        "adobe.com",
         "abbvie.com",
-        "airproducts.com",
-        "automationanywhere.com"
+        "airproducts.com"
       ]
     },
     {
@@ -632,8 +632,8 @@
       "domainCount": 17,
       "examples": [
         "amd.com",
-        "bp.com",
-        "aa.com"
+        "aa.com",
+        "bp.com"
       ]
     },
     {
@@ -641,9 +641,9 @@
       "pattern": "ibmid=",
       "domainCount": 17,
       "examples": [
-        "anthem.com",
         "amd.com",
-        "blackrock.com"
+        "airtable.com",
+        "anthem.com"
       ]
     },
     {
@@ -662,8 +662,8 @@
       "domainCount": 17,
       "examples": [
         "airbnb.com",
-        "cargill.com",
-        "carmax.com"
+        "booking.com",
+        "cargill.com"
       ]
     },
     {
@@ -671,9 +671,9 @@
       "pattern": "bugcrowd-verification",
       "domainCount": 16,
       "examples": [
-        "atlassian.com",
         "auth0.com",
-        "canva.com"
+        "atlassian.com",
+        "brex.com"
       ]
     },
     {
@@ -683,7 +683,7 @@
       "examples": [
         "autodesk.com",
         "bayer.com",
-        "gap.com"
+        "couchbase.com"
       ]
     },
     {
@@ -692,8 +692,8 @@
       "domainCount": 15,
       "examples": [
         "amazon.com",
-        "carmax.com",
-        "barracuda.com"
+        "barracuda.com",
+        "bunge.com"
       ]
     },
     {
@@ -701,8 +701,8 @@
       "pattern": "workplace-domain-verification=",
       "domainCount": 15,
       "examples": [
-        "cisco.com",
         "booking.com",
+        "cisco.com",
         "duo.com"
       ]
     },
@@ -723,7 +723,7 @@
       "examples": [
         "assemblyai.com",
         "automationanywhere.com",
-        "dataiku.com"
+        "crowdstrike.com"
       ]
     },
     {
@@ -752,8 +752,8 @@
       "domainCount": 12,
       "examples": [
         "abbvie.com",
-        "carmax.com",
-        "canva.com"
+        "canva.com",
+        "carmax.com"
       ]
     },
     {
@@ -762,8 +762,8 @@
       "domainCount": 12,
       "examples": [
         "amd.com",
-        "cargill.com",
-        "aa.com"
+        "aa.com",
+        "cargill.com"
       ]
     },
     {
@@ -781,9 +781,9 @@
       "pattern": "windsurf-verification=",
       "domainCount": 9,
       "examples": [
-        "att.com",
         "cerebras.net",
-        "elevancehealth.com"
+        "att.com",
+        "codeium.com"
       ]
     },
     {
@@ -831,8 +831,8 @@
       "pattern": "amp-by-sourcegraph-domain-verification-[a-z0-9]{6}=",
       "domainCount": 6,
       "examples": [
-        "block.xyz",
         "buildkite.com",
+        "block.xyz",
         "coinbase.com"
       ]
     },
@@ -872,8 +872,8 @@
       "domainCount": 4,
       "examples": [
         "bigcommerce.com",
-        "emerson.com",
-        "doordash.com"
+        "doordash.com",
+        "emerson.com"
       ]
     },
     {

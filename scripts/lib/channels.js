@@ -39,6 +39,9 @@ const CHANNELS = {
     text: 'oo',
     url: 'oo',
     xhr: 'oo',
+    // Full request URL for the same requests `xhr` sees. `xhr` gets the bare
+    // hostname, which is why a pattern needing a path belongs here instead.
+    xhrUrl: 'oo',
 }
 
 /** Channels whose value is a string, number or array of them. */
@@ -98,6 +101,72 @@ const DOM_RULES = ['exists', 'text', 'properties', 'attributes']
  */
 const DNS_RECORDS = ['cname', 'mx', 'ns', 'soa', 'txt']
 
+/**
+ * Hostname-shaped candidates used to prove an `xhr` pattern can still fire.
+ * Real hostnames observed during the xhr audit, plus generic shapes.
+ */
+const HOSTNAME_CANDIDATES = [
+    'example.com',
+    'api.example.com',
+    'a.b.c.example.com',
+    'tenant.api.example.com',
+    'localhost',
+    '10.0.0.1',
+    'sub.domain.co.uk',
+    'x.amazonaws.com',
+    'eks.us-east-1.amazonaws.com',
+    'runtime.sagemaker.eu-west-1.amazonaws.com',
+    'acme.wd5.myworkday.com',
+    'gw.tidbcloud.com',
+]
+
+/** Crude slash-free expansion of a pattern's literal skeleton. */
+function hostnameSkeleton(pattern) {
+    const expanded = String(pattern)
+        .replace(/\\\//g, '/')
+        .replace(/\\\./g, '.')
+        .replace(/\(\?:([^)|]*)\|[^)]*\)/g, '$1')
+        .replace(/\(\?[:=!][^)]*\)/g, '')
+        .replace(/[()[\]{}^$?*+]/g, '')
+        .replace(/\\[dw]/g, '1')
+        .replace(/\\[sb]/g, '')
+
+    return expanded.split('/')[0]
+}
+
+/**
+ * Can this pattern match at least one string containing no slash?
+ *
+ * `xhr` is fed bare hostnames, so a pattern requiring a path or a URL scheme can
+ * never fire there and belongs in `xhrUrl`. Finding a slash-free match is proof of
+ * life; failing to find one is evidence, not proof, so callers treat an
+ * unambiguous case (leading slash, mandatory scheme) as certain and the rest as
+ * suspect.
+ *
+ * @param {string} pattern
+ * @param {function(string): RegExp} compile how the engine compiles a pattern
+ */
+function canMatchHostname(pattern, compile) {
+    let regex
+
+    try {
+        regex = compile(pattern)
+    } catch (error) {
+        return true // an uncompilable pattern is reported elsewhere
+    }
+
+    return [...HOSTNAME_CANDIDATES, hostnameSkeleton(pattern)]
+        .filter((candidate) => candidate && !candidate.includes('/'))
+        .some((candidate) => regex.test(candidate))
+}
+
+/** Is the pattern unambiguously a path or URL rather than a hostname? */
+function requiresPathOrScheme(pattern) {
+    const text = String(pattern)
+
+    return /^\^?(?:\\?\/)/.test(text) || /:\\?\/\\?\//.test(text)
+}
+
 const isPlainObject = (value) =>
     value !== null && typeof value === 'object' && !Array.isArray(value)
 
@@ -118,6 +187,10 @@ function fileForTechnology(name) {
 
 module.exports = {
     CHANNELS,
+    HOSTNAME_CANDIDATES,
+    canMatchHostname,
+    hostnameSkeleton,
+    requiresPathOrScheme,
     DNS_RECORDS,
     DOM_RULES,
     FLAT_CHANNELS,

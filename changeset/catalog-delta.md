@@ -13,7 +13,7 @@ Computed by parsing both revisions and comparing entries, not by reading the tex
 | --- | --- |
 | Added | 518 |
 | **Removed** | **0** |
-| Changed | 246 |
+| Changed | 290 |
 
 Nothing was removed from the catalog.
 
@@ -572,7 +572,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | 210 | Workflow automation | 7 |
 | 211 | Observability | 7 |
 
-## Changed (246)
+## Changed (290)
 
 | Technology | Fields added | Fields removed | Values changed |
 | --- | --- | --- | --- |
@@ -580,7 +580,10 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | 6sense | oss, xhr | - | cats, scriptSrc |
 | ADITION technologies | scriptSrc | script | - |
 | AWS AppSync | - | dom | - |
-| AWS Artifact | - | probe | - |
+| AWS Artifact | xhrUrl | xhr, probe | - |
+| AWS Cloud Data Migration | xhrUrl | xhr | - |
+| AWS Elemental MediaTailor | xhrUrl | xhr | - |
+| AWS IoT Device Defender | xhrUrl | xhr | - |
 | AWStats | scriptSrc | - | - |
 | Accenture Duck Creek | - | - | cats |
 | AdStir | scriptSrc | script | - |
@@ -592,17 +595,25 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Amazon Ad System | - | keywords | - |
 | Amazon Augmented AI (Amazon A2I) | - | - | implies |
 | Amazon Connect | - | - | js |
-| Amazon EC2 Reserved Instances | scriptSrc | script | - |
-| Amazon Elastic Container Service For Kubernetes (Eks) | scriptSrc | script | - |
+| Amazon Direct | xhrUrl | xhr | - |
+| Amazon EC2 Reserved Instances | scriptSrc, xhrUrl | xhr, script | - |
+| Amazon Elastic Container Service For Kubernetes (Eks) | scriptSrc, xhrUrl | script | xhr |
+| Amazon Elastic File System (EFS) | xhrUrl | xhr | - |
+| Amazon Fraud Detector | xhrUrl | xhr | - |
 | Amazon Kinesis | scripts | script | - |
+| Amazon Publisher Services | xhrUrl | xhr | - |
 | Amazon Redshift | icon, saas, oss, xhr | - | cats |
-| Amazon Widgets | - | - | dom |
-| Apache Iceberg | - | - | xhr |
+| Amazon Simple Workflow (SWF) | xhrUrl | xhr | - |
+| Amazon Widgets | xhrUrl | xhr | dom |
+| Apache Hudi | xhrUrl | xhr | - |
+| Apache Iceberg | xhrUrl | xhr | - |
 | Apple Numbers | - | mime | - |
 | Appwrite | scripts | - | - |
-| Atlassian Crucible | - | dom | - |
+| Atlassian Crucible | xhrUrl | xhr, dom | - |
+| Atlassian Jira Capture | xhrUrl | xhr | - |
 | Azure DNS | - | - | dns |
-| Azure HDI | meta | - | text, dom |
+| Azure HDI | meta, xhrUrl | xhr | text, dom |
+| BMC Recovery Manager | xhrUrl | xhr | - |
 | BMC Release | - | - | implies |
 | Bing Maps | scriptSrc | script | - |
 | Birdeye | - | - | scriptSrc |
@@ -615,15 +626,19 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Canva | oss, dns, dom | - | cats |
 | Casewise | js | scripts | - |
 | Certona | scriptSrc | script | - |
+| Chatra | xhrUrl | xhr | - |
+| Checkly | xhrUrl | xhr | - |
 | Citrix NetScaler | - | - | dom |
 | ClassiPress | - | keywords | - |
 | ClickUp | dns | - | - |
+| Commerce Engine | xhrUrl | xhr | - |
 | Contentstack | scripts | - | - |
 | Cosmoshop | meta, url | - | scriptSrc |
 | Crazy Domains DNS Hosting | - | - | dns |
 | Customizr | meta | dom | - |
-| Databricks | meta | - | dom |
-| Databricks (AWS) | - | - | xhr |
+| Databricks | meta, xhrUrl | xhr, probe | dom |
+| Databricks (AWS) | xhrUrl | xhr | - |
+| Delta Lake | xhrUrl | xhr | - |
 | Detectify | saas, oss | - | dns |
 | Digg Digg | js | env | - |
 | Digi Connect | icon | icons | - |
@@ -631,10 +646,13 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | DiskStation Manager | scriptSrc | script, ssl | - |
 | Docker | dns | - | - |
 | DocuSign | - | - | dns |
+| Dremio | xhrUrl | - | xhr |
 | Dropbox | description, saas, oss, xhr, scriptSrc | - | cats, dns |
 | Dynatrace | dns | - | - |
 | Dynatrace Application Monitoring | scriptSrc | script | - |
+| Dyte | xhrUrl | xhr | - |
 | Easy FancyBox | scriptSrc | dom, examples, script | - |
+| Easy Orders | xhrUrl | xhr | - |
 | Easy Social Share Buttons for WordPress | scriptSrc | script | - |
 | ElasticSuite | scripts | - | - |
 | Enfold | - | - | scripts, css |
@@ -642,6 +660,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Facebook Comments | - | language, category | - |
 | Facebook Like Button | scriptSrc | script | - |
 | Facebook Login Button | scriptSrc | script | - |
+| Facebook Pixel Advanced Matching | xhrUrl | xhr | - |
 | Featherlight | - | npm | - |
 | Finsweet | js | - | - |
 | Fisheye | - | tags, excludes | - |
@@ -661,15 +680,18 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Google Dataproc | meta | - | dom |
 | Google Universal Analytics | scriptSrc | script | - |
 | Google Workspace | - | - | dns |
+| GraphQL | xhrUrl | xhr | - |
 | HERE Maps API | scriptSrc | script | - |
-| Helm | meta | - | dom, probe |
+| Helm | - | url, headers, text, dom | probe |
 | Henry Schein Rapport | scriptSrc | script | - |
 | Hetzner DNS | - | - | dns |
 | HiChina DNS | - | - | dns |
 | Hostpoint DNS | - | - | dns |
 | IBM Cloudant | - | excludes | - |
 | IFS Enterprise Asset Management | - | - | probe |
+| IPinfo | xhrUrl | xhr | - |
 | Immuta | - | - | dom, meta |
+| Informatica Business Process Management | xhrUrl | xhr | - |
 | InstantSearch+ | - | - | cats |
 | Intercom | dns | - | - |
 | JTL Shop | js | - | - |
@@ -686,7 +708,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | LinkedIn Insight Tag | scriptSrc | script | - |
 | Livewire | - | - | js |
 | Locomotive Scroll | - | - | js |
-| Loom | description, oss, dom | - | cats, dns |
+| Loom | description, oss, dom, xhrUrl | - | cats, dns, xhr |
 | Lovable | dns, scriptSrc | - | cats |
 | MadCap Flare | - | developer | - |
 | Magento Business Intelligence | scriptSrc | script | - |
@@ -695,17 +717,24 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | MicroAd | scriptSrc | script | - |
 | MicroAd COMPASS | scriptSrc | script | - |
 | Microsoft 365 | - | - | dns |
-| Microsoft Azure Site Recovery | - | - | xhr |
-| Microsoft Azure Table storage | - | - | probe |
+| Microsoft Application Insights | xhrUrl | xhr | - |
+| Microsoft Azure Active Directory Premium | xhrUrl | xhr | - |
+| Microsoft Azure ExpressRoute | xhrUrl | xhr | - |
+| Microsoft Azure Service Fabric | xhrUrl | xhr | - |
+| Microsoft Azure Site Recovery | xhrUrl | - | xhr |
+| Microsoft Azure Table storage | - | - | xhr, probe |
+| Microsoft Azure Virtual Network | xhrUrl | xhr | - |
 | Microsoft Commerce Server | - | - | cookies |
 | Microsoft FrontPage | meta | slug, dom | - |
-| Microsoft Insider Risk Management | - | - | dom |
+| Microsoft Insider Risk Management | xhrUrl | xhr | dom |
 | Microsoft Power BI | js, scriptSrc | - | - |
 | Microsoft SQL Server | - | - | dns |
+| Miso | xhrUrl | xhr | - |
 | Mixpanel | - | - | dns |
 | MongoDB | dns | - | - |
 | Motive | oss, scriptSrc, xhr, dom | - | cats |
 | My Calendar | scriptSrc | script | - |
+| MyFonts | xhrUrl | xhr | - |
 | Namecheap DNS | - | - | dns |
 | NetIQ Access Manager | cats | categories | - |
 | Netlify | dns | - | - |
@@ -725,6 +754,8 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Palo Alto Networks | description, saas, oss, dns | - | cats |
 | Pegasus Reservation Platform | - | html, scripts | - |
 | Pendo | oss, dns | - | scriptSrc |
+| PeopleSoft Program Management | xhrUrl | xhr | - |
+| Peoplesoft Project Portfolio Management | xhrUrl | xhr | - |
 | Porto | - | - | css |
 | PowerPress | - | examples | - |
 | Prepr | scripts | - | - |
@@ -736,37 +767,41 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Redux | - | - | js |
 | Remodal | - | examples, npm | - |
 | Riskified | scriptSrc | - | - |
-| Salesforce Communities | - | - | dom, meta, probe |
-| Salesforce Education Cloud | - | - | text, dom, meta |
+| Salesforce Communities | xhrUrl | xhr | dom, meta, probe |
+| Salesforce Education Cloud | xhrUrl | xhr | text, dom, meta |
 | Salesforce Live Agent | scriptSrc | script | - |
-| Salesforce Mobile Push | - | implies | - |
-| Salesforce Remedyforce | - | - | url |
+| Salesforce Mobile Push | xhrUrl | implies, xhr | - |
+| Salesforce Remedyforce | xhrUrl | xhr | url |
 | Salesforce SPF | - | - | dns, text |
 | Salesforce Sales Cloud | - | scripts | - |
-| Salesforce Service Cloud | - | - | pricing, text |
-| Salesforce Work.Com | meta | - | dom |
+| Salesforce Sales Cloud Einstein | xhrUrl | xhr | - |
+| Salesforce Service Cloud | xhrUrl | xhr | pricing, text |
+| Salesforce Work.Com | meta, xhrUrl | xhr | dom |
 | Salla | scriptSrc | - | - |
 | Segment | - | - | dns |
-| ServiceNow Agile Development | - | - | dom, meta |
-| ServiceNow Application Portfolio Management (APM) | meta | - | xhr, dom |
-| ServiceNow Automated Test Framework | meta | - | dom |
-| ServiceNow Business Continuity | meta | - | text, dom |
-| ServiceNow Change Management | meta | - | dom |
-| ServiceNow Configuration Management Database (CMDB) | meta | - | text, dom |
-| ServiceNow Cost Management | meta | - | dom |
-| ServiceNow Demand Management | meta | - | dom |
-| ServiceNow Governance, Risk, and Compliance (GRC) | meta | - | dom, probe |
-| ServiceNow IT Operations Management | meta | - | text, dom |
-| ServiceNow Now Platform App Engine | - | - | probe |
-| ServiceNow Problem Management | - | - | text |
-| ServiceNow Request Management | - | - | probe |
-| ServiceNow Resource Management | meta | - | dom |
-| ServiceNow Security Incident Response | meta | - | text, dom |
-| ServiceNow Security Operations (SecOps) | - | - | probe |
-| ServiceNow Service Level Management (SLM) | meta | - | dom, probe |
-| ServiceNow Visual Task Boards | meta | - | dom |
-| ServiceNow Vulnerability Response | meta | - | dom |
-| Servicenow Vendor Risk Management | meta | - | dom |
+| ServiceNow Agile Development | xhrUrl | xhr | dom, meta |
+| ServiceNow Application Portfolio Management (APM) | meta, xhrUrl | xhr | dom |
+| ServiceNow Automated Test Framework | meta, xhrUrl | xhr | dom |
+| ServiceNow Business Continuity | meta, xhrUrl | xhr | text, dom |
+| ServiceNow Change Management | meta, xhrUrl | xhr | dom |
+| ServiceNow Configuration Management Database (CMDB) | meta, xhrUrl | xhr | text, dom |
+| ServiceNow Cost Management | meta, xhrUrl | xhr | dom |
+| ServiceNow Demand Management | meta, xhrUrl | xhr | dom |
+| ServiceNow Governance, Risk, and Compliance (GRC) | meta, xhrUrl | xhr | dom, probe |
+| ServiceNow IT Operations Management | meta, xhrUrl | xhr | text, dom |
+| ServiceNow Now Platform App Engine | xhrUrl | - | xhr, probe |
+| ServiceNow Problem Management | xhrUrl | xhr | text |
+| ServiceNow Request Management | xhrUrl | xhr | probe |
+| ServiceNow Resource Management | meta, xhrUrl | xhr | dom |
+| ServiceNow Security Incident Response | meta, xhrUrl | xhr | text, dom |
+| ServiceNow Security Operations (SecOps) | xhrUrl | xhr | probe |
+| ServiceNow Service Catalog | xhrUrl | xhr | - |
+| ServiceNow Service Level Management (SLM) | meta, xhrUrl | xhr | dom, probe |
+| ServiceNow Visual Task Boards | meta, xhrUrl | xhr | dom |
+| ServiceNow Vulnerability Response | meta, xhrUrl | xhr | dom |
+| Servicenow It Service Management | xhrUrl | xhr | - |
+| Servicenow Vendor Risk Management | meta, xhrUrl | xhr | dom |
+| Shopify Business | xhrUrl | xhr | - |
 | Shopware | scripts | - | - |
 | Sidr | - | keywords | - |
 | Siebel | scripts | script | - |
@@ -776,7 +811,9 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | SmarterStats | js | scripts | - |
 | SocialShopWave | scriptSrc | script | - |
 | SockJS | js | - | - |
-| Software AG NATURAL | - | - | probe |
+| Software AG CentraSite | xhrUrl | xhr | - |
+| Software AG NATURAL | xhrUrl | xhr | probe |
+| Software AG Terracotta | xhrUrl | xhr | - |
 | SolidJS | scriptSrc | - | - |
 | Spacious | scriptSrc | script | - |
 | Spring Framework | - | name | - |
@@ -789,16 +826,18 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | TeamViewer | oss, dns | - | cats |
 | Telerik UI for ASP.NET AJAX | - | dom | - |
 | Tenrox | - | excludes | - |
+| Teradata Vantage | xhrUrl | xhr | - |
 | Textalk Webshop | - | - | html |
 | Thomson Reuters ONESOURCE | - | - | cats |
 | TomTom Maps API | scriptSrc | script | - |
 | TransIP DNS | - | - | dns |
+| Trino | xhrUrl | xhr | - |
 | Turbopack | oss, requires | - | js |
 | Twenty Twenty-Two | - | - | dom |
 | Twilio Flex | scriptSrc | script | - |
 | Twilio Video | scriptSrc | script | - |
 | Twitter Conversion Tag | scriptSrc | script | - |
-| Umbraco | - | - | scripts |
+| Umbraco | xhrUrl | xhr | scripts |
 | VMware Tanzu | meta | - | dom |
 | VisitorTrack | scriptSrc | script | - |
 | WP Customer Reviews | scriptSrc | script | - |
@@ -808,15 +847,20 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | WiredMinds | scriptSrc | script | - |
 | WooCommerce | - | - | scriptSrc |
 | Workday | oss, dom, xhr | - | cats |
+| Workday Integration Cloud Platform | xhrUrl | xhr | - |
 | Xaxis | scriptSrc | script | dns |
 | Xtime | - | - | dom |
+| Yandex ClickHouse | xhrUrl | xhr | - |
 | Yandex Maps | scriptSrc | script | - |
 | Yandex SmartCaptcha | js, scripts | - | - |
 | Yola | dom | - | - |
 | ZenBasket | scripts | - | - |
+| Zendesk Answer Bot | xhrUrl | xhr | - |
 | Zoho | oss | - | cats, dns |
 | anime.js | headers | - | js |
+| commercetools | xhrUrl | xhr | - |
 | dc.js | - | - | scriptSrc |
+| ipapi.co | xhrUrl | xhr | - |
 | jQuery | - | - | scriptSrc |
 | jQuery BlockUI | requires, scriptSrc | npm | cats |
 | jQuery Masked Input Plugin | js | env | - |

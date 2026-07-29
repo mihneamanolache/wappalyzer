@@ -48,8 +48,8 @@ Measured by `scripts/xhr-audit.js`: **1 of 85 xhr-only markers appeared in a 29-
 | Apache Kafka | Apache Kafka | xhr |
 | Apache Airflow | Apache Airflow | html |
 | Apache Flink | Apache Flink | html |
-| Apache Iceberg | Apache Iceberg | dom, probe, url, xhr |
-| Apache Hudi | Apache Hudi | dom, probe, url, xhr |
+| Apache Iceberg | Apache Iceberg | dom, probe, url, xhrUrl |
+| Apache Hudi | Apache Hudi | dom, probe, url, xhrUrl |
 | Appsmith | Appsmith | dom, xhr |
 | ArgoCD | ArgoCD | cookies, html |
 | Asana | Asana | dom |
@@ -69,7 +69,7 @@ Measured by `scripts/xhr-audit.js`: **1 of 85 xhr-only markers appeared in a 29-
 | Prometheus | Prometheus | html |
 | OpenTelemetry | opentelemetry | js, scriptSrc |
 | Kubernetes | Kubernetes | implies |
-| Helm | Helm | dom, headers, meta, probe, text, url |
+| Helm | Helm | probe |
 | CockroachDB | CockroachDB | xhr |
 | Coda | Coda | dns, dom |
 | Windsurf | Windsurf | dns, xhr |
@@ -77,8 +77,8 @@ Measured by `scripts/xhr-audit.js`: **1 of 85 xhr-only markers appeared in a 29-
 | CrewAI | CrewAI | xhr |
 | Dagster | Dagster | xhr |
 | MLflow | MLflow | html |
-| Delta Lake | Delta Lake | probe, text, url, xhr |
-| Databricks | Databricks | dom, headers, meta, probe, scriptSrc, text, url, xhr |
+| Delta Lake | Delta Lake | probe, text, url, xhrUrl |
+| Databricks | Databricks | dom, headers, meta, scriptSrc, text, url, xhrUrl |
 | Datadog | Datadog | js, scriptSrc |
 | dbt | dbt | xhr |
 | Descript | Descript | dom, scriptSrc |
@@ -172,7 +172,7 @@ Measured by `scripts/xhr-audit.js`: **1 of 85 xhr-only markers appeared in a 29-
 | Tome | Tome | dom, xhr |
 | Travis CI | Travis CI | dom |
 | Tray.io | Tray.io | scriptSrc, xhr |
-| Trino | Trino | dom, headers, probe, text, url, xhr |
+| Trino | Trino | dom, headers, probe, text, url, xhrUrl |
 | Turso | Turso | xhr |
 | Udio | Udio | dom |
 | Unleash | Unleash | xhr |
@@ -254,9 +254,9 @@ Measured by `scripts/xhr-audit.js`: **1 of 85 xhr-only markers appeared in a 29-
 | Cohere Embed | Cohere | xhr |
 | Cohere Rerank | Cohere | xhr |
 | Aya | Cohere | xhr |
-| Databricks Mosaic AI | Databricks | dom, headers, meta, probe, scriptSrc, text, url, xhr |
-| Databricks DBRX | Databricks | dom, headers, meta, probe, scriptSrc, text, url, xhr |
-| Databricks AI/BI Genie | Databricks | dom, headers, meta, probe, scriptSrc, text, url, xhr |
+| Databricks Mosaic AI | Databricks | dom, headers, meta, scriptSrc, text, url, xhrUrl |
+| Databricks DBRX | Databricks | dom, headers, meta, scriptSrc, text, url, xhrUrl |
+| Databricks AI/BI Genie | Databricks | dom, headers, meta, scriptSrc, text, url, xhrUrl |
 | Datadog Bits AI | Datadog | js, scriptSrc |
 | Datadog Bits AI Agents | Datadog | js, scriptSrc |
 | Dataiku LLM Mesh | Dataiku | url, xhr |

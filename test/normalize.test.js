@@ -576,3 +576,51 @@ test('a normalized nested js chain actually detects', () => {
 
     assert.ok(detection, 'the flattened chain matches a collected property')
 })
+
+test('a path-requiring xhr pattern is relocated to xhrUrl', () => {
+    // Deleting these would destroy the author's intent: they describe API calls.
+    // The hostname pattern in the same list stays where it is.
+    const entry = normalize('Trino', {
+        cats: [1],
+        xhr: ['/v1/info', '/v1/status', 'trino\\.example\\.com'],
+    })
+
+    assert.equal(entry.xhr, 'trino\\.example\\.com')
+    assert.deepEqual(entry.xhrUrl, ['/v1/info', '/v1/status'])
+})
+
+test('a scheme-requiring xhr pattern is relocated too', () => {
+    const entry = normalize('Example', {
+        cats: [1],
+        xhr: 'https?://efs\\.[a-z0-9-]+\\.api\\.aws/v1',
+    })
+
+    assert.equal(entry.xhr, undefined, 'nothing left that can match a hostname')
+    assert.equal(entry.xhrUrl, 'https?://efs\\.[a-z0-9-]+\\.api\\.aws/v1')
+})
+
+test('a hostname-matchable xhr pattern is left alone', () => {
+    const entry = normalize('Example', { cats: [1], xhr: 'api\\.example\\.com' })
+
+    assert.equal(entry.xhr, 'api\\.example\\.com')
+    assert.equal(entry.xhrUrl, undefined)
+})
+
+test('an over-broad pattern is dropped rather than relocated', () => {
+    // Relocating makes a dead pattern live. This one matched any path, which was
+    // harmless in xhr and a false-positive generator in xhrUrl.
+    const entry = normalize('Microsoft Azure Table storage', {
+        cats: [1],
+        xhr: [
+            'table\\.core\\.windows\\.net',
+            '/(?:Tables|\\$metadata|[A-Za-z0-9._%-]+)(?:\\?.*)?$',
+        ],
+    })
+
+    assert.equal(entry.xhr, 'table\\.core\\.windows\\.net')
+    assert.equal(
+        entry.xhrUrl,
+        undefined,
+        'the catch-all must not be promoted to a live channel'
+    )
+})

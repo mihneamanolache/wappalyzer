@@ -3341,9 +3341,7 @@
       "/UIMLogon": "(BMC\\s*UIM|UIM\\s*Logon)"
     },
     "website": "https://docs.bmc.com/xwiki/bin/view/Mainframe/Data-for-Db2/BMC-AMI-Recovery-Manager-for-Db2/",
-    "xhr": [
-      "cra/ServiceGateway/Services/.+/products"
-    ]
+    "xhrUrl": "cra/ServiceGateway/Services/.+/products"
   },
   "BMC Release": {
     "cats": [

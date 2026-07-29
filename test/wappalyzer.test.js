@@ -567,3 +567,60 @@ test('dom shorthand promotes a selector list to existence rules', () => {
 
     assert.equal(detections.length, 2)
 })
+
+test('xhrUrl matches the full request URL, unlike xhr', () => {
+    // `xhr` receives a bare hostname, so a pattern describing an API path can
+    // never fire there. 168 catalog patterns were written that way; they live in
+    // `xhrUrl`, which carries the whole URL.
+    load({
+        Example: { cats: [1], xhrUrl: '/api/2\\.0/jobs' },
+    })
+
+    assert.equal(
+        Wappalyzer.analyze({ xhrUrl: 'https://acme.example.com/api/2.0/jobs/list' })
+            .length,
+        1
+    )
+    assert.equal(
+        Wappalyzer.analyze({ xhrUrl: 'https://acme.example.com/other' }).length,
+        0
+    )
+    assert.equal(
+        Wappalyzer.analyze({ xhr: 'acme.example.com' }).length,
+        0,
+        'the hostname channel must not satisfy a path pattern'
+    )
+})
+
+test('the hostname suffix rule does not apply to xhrUrl', () => {
+    // A URL does not end at the hostname, so requiring the match to reach the end
+    // of the value would break every path pattern.
+    load({ Example: { cats: [1], xhrUrl: 'api\\.example\\.com' } })
+
+    assert.equal(
+        Wappalyzer.analyze({ xhrUrl: 'https://api.example.com/v1/things?x=1' })
+            .length,
+        1,
+        'a mid-string match is correct for a URL'
+    )
+})
+
+test('xhr and xhrUrl are independent channels', () => {
+    load({
+        Host: { cats: [1], xhr: 'api\\.example\\.com' },
+        Path: { cats: [1], xhrUrl: '/v1/things' },
+    })
+
+    assert.deepEqual(
+        Wappalyzer.analyze({ xhr: 'api.example.com' }).map(
+            ({ technology }) => technology.name
+        ),
+        ['Host']
+    )
+    assert.deepEqual(
+        Wappalyzer.analyze({ xhrUrl: 'https://other.example.com/v1/things' }).map(
+            ({ technology }) => technology.name
+        ),
+        ['Path']
+    )
+})

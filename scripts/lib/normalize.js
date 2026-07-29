@@ -14,9 +14,12 @@
  * same shapes, so this is maintenance, not a one-off migration.
  */
 
+const Wappalyzer = require('../../wappalyzer')
 const {
     CHANNELS,
     DNS_RECORDS,
+    canMatchHostname,
+    requiresPathOrScheme,
     DOM_RULES,
     FLAT_CHANNELS,
     isPlainObject,
@@ -118,6 +121,26 @@ const OVERRIDES = {
     // a CNAME target, which is the record the driver resolves for the host.
     'Microsoft SQL Server': {
         dns: { CNAME: '\\.database\\.windows\\.net' },
+    },
+
+    // Channels are OR'd, so any one of Helm's markers alone was enough to detect
+    // it. `content-type: yaml` fires on any YAML endpoint, `entries:` on any page
+    // containing that word, and a `<title>Helm</title>` on any page about Helm.
+    // The probe patterns are the real signal: a chart repository index whose body
+    // carries the `apiVersion: v1 ... entries:` signature.
+    Helm: {
+        headers: undefined,
+        text: undefined,
+        dom: undefined,
+        url: undefined,
+        meta: undefined,
+    },
+
+    // A probe with an empty pattern matches any 2xx response at that path, and
+    // `/config` returning 200 is unremarkable. The specific API paths remain on
+    // xhrUrl, and the header and hostname markers are untouched.
+    Databricks: {
+        probe: undefined,
     },
 }
 
@@ -476,6 +499,82 @@ function normalizeEntry(name, original) {
         } else {
             addFlat(entry, channel, keys)
             note(`${channel} object keys -> ${channel} patterns`)
+        }
+    }
+
+    // Benign URLs no vendor should ever be detected from. A relocated pattern that
+    // matches one of these is a catch-all: harmless while it was dead in `xhr`,
+    // but a false-positive generator once `xhrUrl` makes it live. Those are
+    // dropped rather than moved.
+    const CONTROL_URLS = [
+        'https://example.com/',
+        'https://example.com/index.html',
+        'https://example.com/about/team',
+        'https://cdn.example.com/assets/app.js?v=2',
+        'https://example.com/api/v1/users',
+        'http://example.com/a/b/c',
+    ]
+
+    // `xhr` receives a bare hostname, so a pattern describing an API path cannot
+    // fire there. Most were written expecting a full URL, which is what `xhrUrl`
+    // carries — so relocate rather than delete, preserving the intent. Upstream
+    // keeps shipping these, which is why it runs on every merge.
+    if (entry.xhr !== undefined) {
+        const compile = (pattern) => Wappalyzer.parsePattern(pattern).regex
+        const keep = []
+        const relocate = []
+
+        for (const pattern of toArray(entry.xhr)) {
+            if (!isScalar(pattern)) {
+                keep.push(pattern)
+            } else if (canMatchHostname(pattern, compile)) {
+                keep.push(pattern)
+            } else {
+                relocate.push(pattern)
+            }
+        }
+
+        // Relocating makes a dead pattern live, so over-broad ones must be
+        // dropped instead of promoted.
+        const tooBroad = []
+
+        for (let index = relocate.length - 1; index >= 0; index--) {
+            let regex
+
+            try {
+                regex = compile(relocate[index])
+            } catch (error) {
+                continue
+            }
+
+            if (CONTROL_URLS.some((control) => regex.test(control))) {
+                tooBroad.push(relocate.splice(index, 1)[0])
+            }
+        }
+
+        if (relocate.length || tooBroad.length) {
+            if (keep.length) {
+                entry.xhr = keep.length === 1 ? keep[0] : keep
+            } else {
+                delete entry.xhr
+            }
+
+            for (const pattern of tooBroad) {
+                note(
+                    `dropped xhr ${JSON.stringify(pattern)}: it matches benign ` +
+                        'URLs, so relocating it to xhrUrl would generate false ' +
+                        'positives'
+                )
+            }
+
+            for (const pattern of relocate) {
+                addFlat(entry, 'xhrUrl', pattern)
+                note(
+                    `xhr -> xhrUrl: ${JSON.stringify(pattern)} needs ` +
+                        `${requiresPathOrScheme(pattern) ? 'a path or scheme' : 'a path'}, ` +
+                        'which the hostname-only xhr channel never receives'
+                )
+            }
         }
     }
 

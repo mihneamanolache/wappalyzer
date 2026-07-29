@@ -3041,9 +3041,7 @@
       "call\\.chatra\\.io/chatra\\.js"
     ],
     "website": "https://chatra.com",
-    "xhr": [
-      "chat\\.chatra\\.io/"
-    ]
+    "xhrUrl": "chat\\.chatra\\.io/"
   },
   "Chatroll": {
     "cats": [
@@ -3319,9 +3317,7 @@
     ],
     "saas": true,
     "website": "https://www.checklyhq.com",
-    "xhr": [
-      "api\\.checklyhq\\.com/"
-    ]
+    "xhrUrl": "api\\.checklyhq\\.com/"
   },
   "Checkout Champ": {
     "cats": [
@@ -7186,9 +7182,7 @@
     ],
     "saas": true,
     "website": "https://www.commercengine.io",
-    "xhr": [
-      "prod\\.api\\.commercengine\\.io/"
-    ]
+    "xhrUrl": "prod\\.api\\.commercengine\\.io/"
   },
   "Commerce Server": {
     "cats": [
@@ -7323,9 +7317,7 @@
       "\\.commercetools\\.com"
     ],
     "website": "https://commercetools.com",
-    "xhr": [
-      "\\.commercetools\\.com/"
-    ]
+    "xhrUrl": "\\.commercetools\\.com/"
   },
   "Commercio": {
     "cats": [

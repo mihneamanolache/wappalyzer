@@ -496,6 +496,7 @@ class Site {
         }
 
         this.analyzedXhr = {}
+        this.analyzedXhrUrl = []
         this.textSignals = []
         this.analyzedRequires = {}
         this.detections = []
@@ -655,6 +656,21 @@ class Site {
                                 await this.onDetect(url, analyze({ xhr: hostname }))
                             }
                         }, 1000)
+                    }
+
+                    // The same request, as a full URL. `xhr` only ever receives a
+                    // hostname, so a pattern describing an API path — which is how
+                    // most of them are written — cannot fire there. Debounced by
+                    // URL rather than host so distinct endpoints on one host are
+                    // each analysed once.
+                    const requestUrl = request.url()
+
+                    this.analyzedXhrUrl = this.analyzedXhrUrl || []
+
+                    if (!this.analyzedXhrUrl.includes(requestUrl)) {
+                        this.analyzedXhrUrl.push(requestUrl)
+
+                        await this.onDetect(url, analyze({ xhrUrl: requestUrl }))
                     }
                 }
 

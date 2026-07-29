@@ -2418,9 +2418,6 @@
       "(?:^|/)(?:psp|psc)/[^/]+/(?:EMPLOYEE|HRMS|FSCM|FINANCIALS|ERP|CS)/c/PGM_[A-Z0-9_]+\\.GBL",
       "(?:^|/)(?:psp|psc)/[^/]+/(?:EMPLOYEE|HRMS|FSCM|FINANCIALS|ERP|CS)/c/PROJECT_GEN_02\\.GBL"
     ],
-    "xhr": [
-      "/PSIGW/PeopleSoftServiceListeningConnector"
-    ],
     "cookies": {
       "PS_TOKEN": ".+",
       "PS_DEVICEFEATURES": ".*",
@@ -2444,7 +2441,8 @@
     "requires": [
       "PeopleSoft"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": "/PSIGW/PeopleSoftServiceListeningConnector"
   },
   "Peoplesoft Project Portfolio Management": {
     "description": "Oracle PeopleSoft Project Portfolio Management (PPM) helps organizations evaluate, prioritize, and monitor project requests and portfolios.",
@@ -2463,9 +2461,6 @@
     ],
     "url": [
       "(?:psp|psc)/.+?/c/.+(?:BC_PROJ_REQUEST|BC_EST_COST_BENFT|BC_PROJ_ROL_ST|PPK_INITYPE_TBL|PGM_VIEW_EPT|PROJECT_GENERAL)\\.GBL(?:\\?|$)"
-    ],
-    "xhr": [
-      "/PSIGW/(?:RESTListeningConnector|PeopleSoftListeningConnector|HttpListeningConnector)(?:/|$)"
     ],
     "dom": {
       "title": {
@@ -2493,7 +2488,8 @@
     ],
     "requires": [
       "PeopleSoft"
-    ]
+    ],
+    "xhrUrl": "/PSIGW/(?:RESTListeningConnector|PeopleSoftListeningConnector|HttpListeningConnector)(?:/|$)"
   },
   "Pepper Cloud": {
     "cats": [

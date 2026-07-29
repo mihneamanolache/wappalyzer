@@ -12,7 +12,7 @@
   "summary": {
     "added": 518,
     "removed": 0,
-    "changed": 246
+    "changed": 290
   },
   "newCategories": [
     {
@@ -1652,9 +1652,42 @@
     },
     {
       "name": "AWS Artifact",
-      "fieldsAdded": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
       "fieldsRemoved": [
+        "xhr",
         "probe"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "AWS Cloud Data Migration",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "AWS Elemental MediaTailor",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "AWS IoT Device Defender",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
       ],
       "valuesChanged": []
     },
@@ -1752,11 +1785,23 @@
       ]
     },
     {
-      "name": "Amazon EC2 Reserved Instances",
+      "name": "Amazon Direct",
       "fieldsAdded": [
-        "scriptSrc"
+        "xhrUrl"
       ],
       "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Amazon EC2 Reserved Instances",
+      "fieldsAdded": [
+        "scriptSrc",
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr",
         "script"
       ],
       "valuesChanged": []
@@ -1764,10 +1809,33 @@
     {
       "name": "Amazon Elastic Container Service For Kubernetes (Eks)",
       "fieldsAdded": [
-        "scriptSrc"
+        "scriptSrc",
+        "xhrUrl"
       ],
       "fieldsRemoved": [
         "script"
+      ],
+      "valuesChanged": [
+        "xhr"
+      ]
+    },
+    {
+      "name": "Amazon Elastic File System (EFS)",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Amazon Fraud Detector",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
       ],
       "valuesChanged": []
     },
@@ -1778,6 +1846,16 @@
       ],
       "fieldsRemoved": [
         "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Amazon Publisher Services",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
       ],
       "valuesChanged": []
     },
@@ -1795,20 +1873,46 @@
       ]
     },
     {
+      "name": "Amazon Simple Workflow (SWF)",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Amazon Widgets",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
     },
     {
-      "name": "Apache Iceberg",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
-      "valuesChanged": [
+      "name": "Apache Hudi",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
         "xhr"
-      ]
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Apache Iceberg",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "Apple Numbers",
@@ -1828,9 +1932,22 @@
     },
     {
       "name": "Atlassian Crucible",
-      "fieldsAdded": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
       "fieldsRemoved": [
+        "xhr",
         "dom"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Atlassian Jira Capture",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
       ],
       "valuesChanged": []
     },
@@ -1845,13 +1962,26 @@
     {
       "name": "Azure HDI",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "text",
         "dom"
       ]
+    },
+    {
+      "name": "BMC Recovery Manager",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "BMC Release",
@@ -1968,6 +2098,26 @@
       "valuesChanged": []
     },
     {
+      "name": "Chatra",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Checkly",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Citrix NetScaler",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -1989,6 +2139,16 @@
         "dns"
       ],
       "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Commerce Engine",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": []
     },
     {
@@ -2031,20 +2191,36 @@
     {
       "name": "Databricks",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr",
+        "probe"
+      ],
       "valuesChanged": [
         "dom"
       ]
     },
     {
       "name": "Databricks (AWS)",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
-      "valuesChanged": [
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
         "xhr"
-      ]
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Delta Lake",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "Detectify",
@@ -2113,6 +2289,16 @@
       ]
     },
     {
+      "name": "Dremio",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "xhr"
+      ]
+    },
+    {
       "name": "Dropbox",
       "fieldsAdded": [
         "description",
@@ -2146,6 +2332,16 @@
       "valuesChanged": []
     },
     {
+      "name": "Dyte",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Easy FancyBox",
       "fieldsAdded": [
         "scriptSrc"
@@ -2154,6 +2350,16 @@
         "dom",
         "examples",
         "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Easy Orders",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
       ],
       "valuesChanged": []
     },
@@ -2220,6 +2426,16 @@
       ],
       "fieldsRemoved": [
         "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Facebook Pixel Advanced Matching",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
       ],
       "valuesChanged": []
     },
@@ -2393,6 +2609,16 @@
       ]
     },
     {
+      "name": "GraphQL",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "HERE Maps API",
       "fieldsAdded": [
         "scriptSrc"
@@ -2404,12 +2630,14 @@
     },
     {
       "name": "Helm",
-      "fieldsAdded": [
-        "meta"
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "url",
+        "headers",
+        "text",
+        "dom"
       ],
-      "fieldsRemoved": [],
       "valuesChanged": [
-        "dom",
         "probe"
       ]
     },
@@ -2464,6 +2692,16 @@
       ]
     },
     {
+      "name": "IPinfo",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Immuta",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -2471,6 +2709,16 @@
         "dom",
         "meta"
       ]
+    },
+    {
+      "name": "Informatica Business Process Management",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "InstantSearch+",
@@ -2615,12 +2863,14 @@
       "fieldsAdded": [
         "description",
         "oss",
-        "dom"
+        "dom",
+        "xhrUrl"
       ],
       "fieldsRemoved": [],
       "valuesChanged": [
         "cats",
-        "dns"
+        "dns",
+        "xhr"
       ]
     },
     {
@@ -2699,8 +2949,50 @@
       ]
     },
     {
+      "name": "Microsoft Application Insights",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Microsoft Azure Active Directory Premium",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Microsoft Azure ExpressRoute",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Microsoft Azure Service Fabric",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Microsoft Azure Site Recovery",
-      "fieldsAdded": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
       "fieldsRemoved": [],
       "valuesChanged": [
         "xhr"
@@ -2711,8 +3003,19 @@
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
+        "xhr",
         "probe"
       ]
+    },
+    {
+      "name": "Microsoft Azure Virtual Network",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "Microsoft Commerce Server",
@@ -2735,8 +3038,12 @@
     },
     {
       "name": "Microsoft Insider Risk Management",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -2757,6 +3064,16 @@
       "valuesChanged": [
         "dns"
       ]
+    },
+    {
+      "name": "Miso",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "Mixpanel",
@@ -2794,6 +3111,16 @@
       ],
       "fieldsRemoved": [
         "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "MyFonts",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
       ],
       "valuesChanged": []
     },
@@ -2976,6 +3303,26 @@
       ]
     },
     {
+      "name": "PeopleSoft Program Management",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Peoplesoft Project Portfolio Management",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Porto",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -3070,8 +3417,12 @@
     },
     {
       "name": "Salesforce Communities",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom",
         "meta",
@@ -3080,8 +3431,12 @@
     },
     {
       "name": "Salesforce Education Cloud",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "text",
         "dom",
@@ -3100,16 +3455,23 @@
     },
     {
       "name": "Salesforce Mobile Push",
-      "fieldsAdded": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
       "fieldsRemoved": [
-        "implies"
+        "implies",
+        "xhr"
       ],
       "valuesChanged": []
     },
     {
       "name": "Salesforce Remedyforce",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "url"
       ]
@@ -3132,9 +3494,23 @@
       "valuesChanged": []
     },
     {
+      "name": "Salesforce Sales Cloud Einstein",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Salesforce Service Cloud",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "pricing",
         "text"
@@ -3143,9 +3519,12 @@
     {
       "name": "Salesforce Work.Com",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -3168,8 +3547,12 @@
     },
     {
       "name": "ServiceNow Agile Development",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom",
         "meta"
@@ -3178,20 +3561,25 @@
     {
       "name": "ServiceNow Application Portfolio Management (APM)",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
-        "xhr",
         "dom"
       ]
     },
     {
       "name": "ServiceNow Automated Test Framework",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -3199,9 +3587,12 @@
     {
       "name": "ServiceNow Business Continuity",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "text",
         "dom"
@@ -3210,9 +3601,12 @@
     {
       "name": "ServiceNow Change Management",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -3220,9 +3614,12 @@
     {
       "name": "ServiceNow Configuration Management Database (CMDB)",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "text",
         "dom"
@@ -3231,9 +3628,12 @@
     {
       "name": "ServiceNow Cost Management",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -3241,9 +3641,12 @@
     {
       "name": "ServiceNow Demand Management",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -3251,9 +3654,12 @@
     {
       "name": "ServiceNow Governance, Risk, and Compliance (GRC)",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom",
         "probe"
@@ -3262,9 +3668,12 @@
     {
       "name": "ServiceNow IT Operations Management",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "text",
         "dom"
@@ -3272,24 +3681,35 @@
     },
     {
       "name": "ServiceNow Now Platform App Engine",
-      "fieldsAdded": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
       "fieldsRemoved": [],
       "valuesChanged": [
+        "xhr",
         "probe"
       ]
     },
     {
       "name": "ServiceNow Problem Management",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "text"
       ]
     },
     {
       "name": "ServiceNow Request Management",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "probe"
       ]
@@ -3297,9 +3717,12 @@
     {
       "name": "ServiceNow Resource Management",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -3307,9 +3730,12 @@
     {
       "name": "ServiceNow Security Incident Response",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "text",
         "dom"
@@ -3317,18 +3743,35 @@
     },
     {
       "name": "ServiceNow Security Operations (SecOps)",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "probe"
       ]
     },
     {
+      "name": "ServiceNow Service Catalog",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "ServiceNow Service Level Management (SLM)",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom",
         "probe"
@@ -3337,9 +3780,12 @@
     {
       "name": "ServiceNow Visual Task Boards",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
@@ -3347,22 +3793,48 @@
     {
       "name": "ServiceNow Vulnerability Response",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
     },
     {
+      "name": "Servicenow It Service Management",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Servicenow Vendor Risk Management",
       "fieldsAdded": [
-        "meta"
+        "meta",
+        "xhrUrl"
       ],
-      "fieldsRemoved": [],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "dom"
       ]
+    },
+    {
+      "name": "Shopify Business",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "Shopware",
@@ -3447,12 +3919,36 @@
       "valuesChanged": []
     },
     {
+      "name": "Software AG CentraSite",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Software AG NATURAL",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "probe"
       ]
+    },
+    {
+      "name": "Software AG Terracotta",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "SolidJS",
@@ -3560,6 +4056,16 @@
       "valuesChanged": []
     },
     {
+      "name": "Teradata Vantage",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Textalk Webshop",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -3592,6 +4098,16 @@
       "valuesChanged": [
         "dns"
       ]
+    },
+    {
+      "name": "Trino",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "Turbopack",
@@ -3644,8 +4160,12 @@
     },
     {
       "name": "Umbraco",
-      "fieldsAdded": [],
-      "fieldsRemoved": [],
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
       "valuesChanged": [
         "scripts"
       ]
@@ -3739,6 +4259,16 @@
       ]
     },
     {
+      "name": "Workday Integration Cloud Platform",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Xaxis",
       "fieldsAdded": [
         "scriptSrc"
@@ -3757,6 +4287,16 @@
       "valuesChanged": [
         "dom"
       ]
+    },
+    {
+      "name": "Yandex ClickHouse",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "Yandex Maps",
@@ -3794,6 +4334,16 @@
       "valuesChanged": []
     },
     {
+      "name": "Zendesk Answer Bot",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Zoho",
       "fieldsAdded": [
         "oss"
@@ -3815,12 +4365,32 @@
       ]
     },
     {
+      "name": "commercetools",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "dc.js",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
         "scriptSrc"
       ]
+    },
+    {
+      "name": "ipapi.co",
+      "fieldsAdded": [
+        "xhrUrl"
+      ],
+      "fieldsRemoved": [
+        "xhr"
+      ],
+      "valuesChanged": []
     },
     {
       "name": "jQuery",

@@ -4230,10 +4230,6 @@
       "^https?://az416426\\.vo\\.msecnd\\.net/scripts/.*\\bai\\.(?:0|1|2)\\..*\\.js$",
       "^https://js\\.monitor\\.azure\\.com/(?:scripts|beta|next|nightly)/ext/ai\\.(?:clck|dbg|prfmm-mgr)\\.(?:2|3)(?:\\.[\\d.-]+)?(?:\\.gbl)?(?:\\.min)?\\.js$"
     ],
-    "xhr": [
-      "^https://dc\\.services\\.visualstudio\\.com/v2(?:\\.1)?/track",
-      "^https://[a-z0-9.-]+\\.in\\.applicationinsights\\.azure\\.com/v2(?:\\.1)?/track"
-    ],
     "headers": {
       "request-context": "appId=cid-v1:"
     },
@@ -4258,7 +4254,11 @@
     "meta": {
       "description": "Application Insights|Azure Monitor|APM|Real User Monitoring",
       "keywords": "Application Insights|Azure Monitor"
-    }
+    },
+    "xhrUrl": [
+      "^https://dc\\.services\\.visualstudio\\.com/v2(?:\\.1)?/track",
+      "^https://[a-z0-9.-]+\\.in\\.applicationinsights\\.azure\\.com/v2(?:\\.1)?/track"
+    ]
   },
   "Microsoft ASP.NET": {
     "cats": [
@@ -4325,10 +4325,6 @@
       "^https?://secure\\.aadcdn\\.microsoftonline-p\\.com/lib/\\d+(?:\\.\\d+){2}/js/adal(?:-angular)?(?:\\.min)?\\.js$",
       "^https?://(?:aadcdn|logincdn)\\.(?:msauth|msftauth)\\.net/.*$"
     ],
-    "xhr": [
-      "https?://login\\.microsoftonline\\.com/(?:[0-9a-f-]{36}|common|organizations)/v2\\.0/(?:authorize|token|devicecode)",
-      "https?://login\\.microsoftonline\\.com/(?:[0-9a-f-]{36}|common|organizations)/(?:saml2|login\\.srf|oauth2/authorize|oauth2/token)"
-    ],
     "dom": {
       "a[href*=\"login.microsoftonline.com/\"]": {
         "exists": ""
@@ -4360,7 +4356,11 @@
     "implies": [
       "Azure"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": [
+      "https?://login\\.microsoftonline\\.com/(?:[0-9a-f-]{36}|common|organizations)/v2\\.0/(?:authorize|token|devicecode)",
+      "https?://login\\.microsoftonline\\.com/(?:[0-9a-f-]{36}|common|organizations)/(?:saml2|login\\.srf|oauth2/authorize|oauth2/token)"
+    ]
   },
   "Microsoft Azure ExpressRoute": {
     "description": "Microsoft Azure ExpressRoute is a private, dedicated connectivity service that links on‑premises or colocation networks to Azure over private circuits, bypassing the public internet.",
@@ -4381,12 +4381,6 @@
       "portal\\.azure\\.(?:com|us|cn)/.*(?:Microsoft\\.Network|microsoft\\.network)(?:%2F|/)expressRoute",
       "portal\\.microsoftazure\\.de/.*(?:Microsoft\\.Network|microsoft\\.network)(?:%2F|/)expressRoute"
     ],
-    "xhr": [
-      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRouteCircuits|expressroutecircuits)(?:/|\\?|$)",
-      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRoutePorts|expressrouteports)(?:/|\\?|$)",
-      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRouteGateways|expressroutegateways)(?:/|\\?|$)",
-      "https?://management\\.(?:usgovcloudapi\\.net|chinacloudapi\\.cn|microsoftazure\\.de)/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRoute(?:Circuits|Ports|Gateways)|expressroute(?:circuits|ports|gateways))(?:/|\\?|$)"
-    ],
     "dom": {
       "title": {
         "text": "ExpressRoute|Azure ExpressRoute"
@@ -4402,7 +4396,13 @@
     "implies": [
       "Azure"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": [
+      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRouteCircuits|expressroutecircuits)(?:/|\\?|$)",
+      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRoutePorts|expressrouteports)(?:/|\\?|$)",
+      "https?://management\\.azure\\.com/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRouteGateways|expressroutegateways)(?:/|\\?|$)",
+      "https?://management\\.(?:usgovcloudapi\\.net|chinacloudapi\\.cn|microsoftazure\\.de)/.*providers/(?:Microsoft\\.Network|microsoft\\.network)/(?:expressRoute(?:Circuits|Ports|Gateways)|expressroute(?:circuits|ports|gateways))(?:/|\\?|$)"
+    ]
   },
   "Microsoft Azure File Storage Service": {
     "description": "Azure Files is Microsoft Azure's fully managed file share service accessible over SMB and NFS, and via the FileREST API.",
@@ -4492,9 +4492,6 @@
       ":19081(?:/|$)",
       "/Explorer(?:/|$)"
     ],
-    "xhr": [
-      "/EventsStore/(?:Cluster|Applications|Services|Partitions|Nodes)/"
-    ],
     "headers": {
       "X-ServiceFabric": "^ResourceNotFound$"
     },
@@ -4516,7 +4513,8 @@
     "excludes": [],
     "probe": {
       "/Explorer": "(?:\\bService Fabric Explorer\\b|index\\.html|old\\.html)"
-    }
+    },
+    "xhrUrl": "/EventsStore/(?:Cluster|Applications|Services|Partitions|Nodes)/"
   },
   "Microsoft Azure Site Recovery": {
     "description": "Azure-native disaster recovery as a service (DRaaS) that orchestrates replication, failover and recovery for Azure VMs and on-premises VMware/Hyper-V/physical servers to Azure.",
@@ -4540,9 +4538,7 @@
     ],
     "xhr": [
       "siterecovery\\.windowsazure\\.com",
-      "hypervrecoverymanager\\.windowsazure\\.com",
-      "providers/Microsoft\\.RecoveryServices/vaults/.+/(?:replication(?:Fabrics|ProtectionContainers|Policies|Jobs|MigrationItems|RecoveryServicesProviders|NetworkMappings|AlertSettings|Events)|replicationFabrics)",
-      "management\\.azure\\.com/.+/providers/Microsoft\\.RecoveryServices/vaults"
+      "hypervrecoverymanager\\.windowsazure\\.com"
     ],
     "dom": {
       "title": {
@@ -4556,7 +4552,11 @@
     "implies": [
       "Azure"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": [
+      "providers/Microsoft\\.RecoveryServices/vaults/.+/(?:replication(?:Fabrics|ProtectionContainers|Policies|Jobs|MigrationItems|RecoveryServicesProviders|NetworkMappings|AlertSettings|Events)|replicationFabrics)",
+      "management\\.azure\\.com/.+/providers/Microsoft\\.RecoveryServices/vaults"
+    ]
   },
   "Microsoft Azure Table storage": {
     "description": "Azure Table storage is a fully managed NoSQL key–value store in Azure Storage, exposing an OData-compatible REST API for scalable, semi-structured datasets.",
@@ -4576,10 +4576,7 @@
     "url": [
       "^https?://[^/]*\\btable\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)(?:/|$)"
     ],
-    "xhr": [
-      "table\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)",
-      "/(?:Tables|\\$metadata|[A-Za-z0-9._%-]+)(?:\\?.*)?$"
-    ],
+    "xhr": "table\\.core\\.(?:windows\\.net|usgovcloudapi\\.net|chinacloudapi\\.cn|cloudapi\\.de)",
     "scriptSrc": [
       "azure-storage\\.table(?:\\.min)?\\.js",
       "(?:unpkg|cdn\\.jsdelivr|esm\\.sh)/@azure/data-tables"
@@ -4632,9 +4629,6 @@
       "portal\\.azure\\.(?:com|cn|us)/#.*Microsoft\\.Network%2FvirtualNetworks",
       "portal\\.microsoftazure\\.de/#.*Microsoft\\.Network%2FvirtualNetworks"
     ],
-    "xhr": [
-      "management\\.(?:azure\\.com|usgovcloudapi\\.net|chinacloudapi\\.cn|microsoftazure\\.de)/.+/providers/Microsoft\\.Network/virtualNetworks"
-    ],
     "dom": {
       "title": {
         "text": "Azure Virtual Network|VNet"
@@ -4650,7 +4644,8 @@
     "implies": [
       "Azure"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": "management\\.(?:azure\\.com|usgovcloudapi\\.net|chinacloudapi\\.cn|microsoftazure\\.de)/.+/providers/Microsoft\\.Network/virtualNetworks"
   },
   "Microsoft Clarity": {
     "cats": [
@@ -4830,11 +4825,6 @@
       "^https?://compliance\\.microsoft\\.(?:com|us)/solutioncatalog/solution/insiderriskmgmt(?:\\?.*)?$",
       "^https?://www\\.microsoft\\.com/.*/microsoft-purview-insider-risk-management(?:/|$)"
     ],
-    "xhr": [
-      "manage(?:-gcc)?\\.office\\.com/api/v1\\.0/[^/]+/activity/feed/(?:subscriptions/(?:start|content)|alerts|audit).*",
-      "manage\\.office365\\.us/api/v1\\.0/[^/]+/activity/feed/.*",
-      "manage\\.protection\\.apps\\.mil/api/v1\\.0/[^/]+/activity/feed/.*"
-    ],
     "scriptSrc": [
       "res\\.cdn\\.office\\.net/scc-resources/resources/ww(?:-v2)?/scc/static/",
       "scc\\.azureedge\\.net/scc/(?:scripts|static)/"
@@ -4857,7 +4847,12 @@
     "requires": [
       "Microsoft 365"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": [
+      "manage(?:-gcc)?\\.office\\.com/api/v1\\.0/[^/]+/activity/feed/(?:subscriptions/(?:start|content)|alerts|audit).*",
+      "manage\\.office365\\.us/api/v1\\.0/[^/]+/activity/feed/.*",
+      "manage\\.protection\\.apps\\.mil/api/v1\\.0/[^/]+/activity/feed/.*"
+    ]
   },
   "Microsoft Power BI": {
     "cats": [
@@ -5702,9 +5697,7 @@
     ],
     "saas": true,
     "website": "https://miso.ai",
-    "xhr": [
-      "\\.askmiso\\.com/"
-    ]
+    "xhrUrl": "\\.askmiso\\.com/"
   },
   "MissionSuite": {
     "cats": [
@@ -8327,9 +8320,7 @@
       "onetime"
     ],
     "website": "https://www.myfonts.com",
-    "xhr": [
-      "\\.myfonts\\.net/"
-    ]
+    "xhrUrl": "\\.myfonts\\.net/"
   },
   "Myhkw player": {
     "cats": [

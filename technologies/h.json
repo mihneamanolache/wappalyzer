@@ -1153,26 +1153,6 @@
       "free"
     ],
     "cpe": "cpe:2.3:a:helm:helm:*:*:*:*:*:*:*:*",
-    "url": [
-      ".*/index\\.yaml$",
-      ".*/charts/.*\\.tgz(?:\\?|$)",
-      ".*/chartrepo/index\\.yaml$"
-    ],
-    "headers": {
-      "content-type": "(?:text|application)/(?:x-)?ya?ml"
-    },
-    "text": [
-      "apiVersion: v1",
-      "entries:"
-    ],
-    "dom": {
-      "title": {
-        "text": "Helm"
-      },
-      "h1": {
-        "text": "Helm"
-      }
-    },
     "implies": [],
     "requires": [],
     "excludes": [],
@@ -1180,9 +1160,6 @@
       "/index.yaml": "apiVersion:\\s*v1[\\s\\S]*entries:",
       "/charts/index.yaml": "apiVersion:\\s*v1[\\s\\S]*entries:",
       "/chartrepo/index.yaml": "apiVersion:\\s*v1[\\s\\S]*entries:"
-    },
-    "meta": {
-      "description": "Kubernetes Package Manager"
     }
   },
   "Help Scout": {

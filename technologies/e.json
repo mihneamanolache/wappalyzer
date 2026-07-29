@@ -303,9 +303,7 @@
     ],
     "saas": true,
     "website": "https://www.easy-orders.net",
-    "xhr": [
-      "api\\.easy-orders\\.net/"
-    ]
+    "xhrUrl": "api\\.easy-orders\\.net/"
   },
   "Easy Pie Chart": {
     "cats": [

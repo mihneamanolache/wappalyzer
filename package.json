@@ -52,6 +52,7 @@
         "index.js",
         "technologies/*",
         "wappalyzer.js",
+        "scripts/lib/channels.js",
         "scripts/lib/engine.js",
         "scripts/lib/text-signals.js"
     ],

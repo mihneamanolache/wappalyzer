@@ -80,6 +80,9 @@ function benchmarkSummary() {
  * hostname, at a dot, or immediately after one — `acme.api.vendor.com` and a
  * pattern written as `\.vendor\.com` both remain valid.
  *
+ * This applies to `xhr` only. A pattern that needs a path belongs in `xhrUrl`,
+ * which receives the full request URL and is matched without this constraint.
+ *
  * @param {string} value observed hostname
  * @param {Array} matches result of RegExp#exec
  */
@@ -417,6 +420,7 @@ const Wappalyzer = {
             text: oo,
             url: oo,
             xhr: oo,
+            xhrUrl: oo,
         }
 
         try {
@@ -483,6 +487,7 @@ const Wappalyzer = {
                 url,
                 website,
                 xhr,
+                xhrUrl,
             } = data[name]
 
             technologies.push({
@@ -533,6 +538,7 @@ const Wappalyzer = {
                 url: transform(url),
                 website: website || null,
                 xhr: transform(xhr),
+                xhrUrl: transform(xhrUrl),
             })
 
             return technologies

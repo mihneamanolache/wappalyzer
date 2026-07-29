@@ -30,7 +30,8 @@ engine matches them, and using the wrong one is the most common defect.
 | `css` | string or array | stylesheet rule text |
 | `text` | string or array | visible page text |
 | `url` | string or array | the page URL |
-| `xhr` | string or array | hostnames the page made requests to |
+| `xhr` | string or array | **bare hostnames** the page made requests to |
+| `xhrUrl` | string or array | the **full URL** of those same requests |
 | `robots` | string or array | `robots.txt` contents |
 | `certIssuer` | string or array | the TLS certificate issuer |
 | `headers` | `{ "header-name": pattern }` | that response header's value |
@@ -40,6 +41,41 @@ engine matches them, and using the wrong one is the most common defect.
 | `js` | `{ "window.chain": pattern }` | that JS property's value |
 | `dom` | selector list, or `{ selector: rule }` | the rendered DOM |
 | `probe` | `{ "/path": pattern }` | the body of a request to that path |
+
+### `xhr` versus `xhrUrl`
+
+This distinction is the single easiest way to write a pattern that can never fire.
+`xhr` receives a **bare hostname** — `driver.js` does `analyze({ xhr: hostname })`
+— so a pattern mentioning a path or a scheme cannot match there:
+
+```jsonc
+// WRONG: a hostname never contains a slash, so this is dead
+{ "xhr": "/api/2.0/jobs" }
+{ "xhr": "https://efs.us-east-1.api.aws/v1" }
+// RIGHT
+{ "xhrUrl": "/api/2.0/jobs" }
+{ "xhr": "efs\.[a-z0-9-]+\.api\.aws" }
+```
+
+168 catalog patterns across 85 technologies were written the wrong way and could
+never fire. `scripts/lib/normalize.js` now **relocates** them to `xhrUrl` rather
+than deleting them, because the intent — "a request to this URL" — is clear and
+recoverable. It runs on every merge, since upstream keeps adding them.
+
+`validate.js` reports the remainder: `E_XHR_NOT_A_HOSTNAME` for an unambiguous
+path or scheme, `W_XHR_PATH_DEPENDENT` where no hostname-shaped match could be
+demonstrated. A slash-free match is treated as proof of life, so a pattern is only
+flagged when none can be found.
+
+Two safeguards apply because relocation *wakes a dead pattern up*:
+
+- **The hostname-suffix anchoring is `xhr`-only.** A URL does not end at the
+  hostname, so applying it to `xhrUrl` would break every path pattern.
+- **An over-broad pattern is dropped, not promoted.** `Microsoft Azure Table
+  storage` carried `/(?:Tables|\$metadata|[A-Za-z0-9._%-]+)(?:\?.*)?$`, which
+  matches any path. Harmless while dead; a false-positive generator once live. Any
+  relocation candidate matching a benign control URL is discarded instead, and
+  `test/catalog.test.js` asserts none survives.
 
 Keyed channels (`headers`, `cookies`, `meta`, `dns`, `js`) look the key up
 **literally** — `analyzeManyToMany` does `items[key]`. A regex in the key never

@@ -2004,10 +2004,6 @@
       "/active-bpel/(?:services|catalog|i18n)(?:/|\\?|$)",
       "(?:^|\\.)[a-z0-9-]+-cai\\.dm-[a-z0-9-]+\\.informaticacloud\\.com(?:/|$)"
     ],
-    "xhr": [
-      "/active-bpel/services/(?:JSON|REST|XML|soap12/)?(?:AvosCentralApi|ActiveBpelAdmin|AeB4PTaskClient-(?:aeTaskOperations|taskOperations)|[A-Za-z0-9_.-]+)(?:\\?.*)?$",
-      "/active-bpel/restadmin/(?:processes|.*)$"
-    ],
     "dom": {
       "title": {
         "text": "ActiveVOS|Informatica.*Process|Cloud Application Integration|Informatica.*BPM"
@@ -2019,7 +2015,11 @@
     "meta": {
       "description": "ActiveVOS|Cloud Application Integration|Informatica BPM|Business Process Management",
       "keywords": "ActiveVOS|Informatica|BPM|Process Automation|Application Integration"
-    }
+    },
+    "xhrUrl": [
+      "/active-bpel/services/(?:JSON|REST|XML|soap12/)?(?:AvosCentralApi|ActiveBpelAdmin|AeB4PTaskClient-(?:aeTaskOperations|taskOperations)|[A-Za-z0-9_.-]+)(?:\\?.*)?$",
+      "/active-bpel/restadmin/(?:processes|.*)$"
+    ]
   },
   "Informizely": {
     "cats": [
@@ -3306,9 +3306,7 @@
     ],
     "saas": true,
     "website": "https://ipapi.co",
-    "xhr": [
-      "ipapi\\.co/"
-    ]
+    "xhrUrl": "ipapi\\.co/"
   },
   "IPB": {
     "cats": [
@@ -3442,9 +3440,7 @@
       "ipinfo\\.io/"
     ],
     "website": "https://ipinfo.io",
-    "xhr": [
-      "ipinfo\\.io/"
-    ]
+    "xhrUrl": "ipinfo\\.io/"
   },
   "IPInfoDB": {
     "cats": [

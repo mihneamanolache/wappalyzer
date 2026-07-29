@@ -469,9 +469,6 @@
     "url": [
       "(?:azuredatabricks\\.net|cloud\\.databricks\\.com|gcp\\.databricks\\.com|databricksapps\\.com)"
     ],
-    "xhr": [
-      "/api/2\\.[01]/(?:jobs|clusters|dbfs|workspace|permissions|sql|secrets|mlflow|serving-endpoints)(?:/|$)"
-    ],
     "headers": {
       "server": "databricks",
       "x-databricks-reason-phrase": ".+",
@@ -497,11 +494,6 @@
         "text": "Databricks"
       }
     },
-    "probe": {
-      "/config": "",
-      "/api/2.0/jobs/runs/list": "",
-      "/api/2.0/sql/queries": ""
-    },
     "implies": [
       "Delta Lake"
     ],
@@ -509,7 +501,8 @@
     "excludes": [],
     "meta": {
       "keywords": "Databricks|Lakehouse|Apache Spark"
-    }
+    },
+    "xhrUrl": "/api/2\\.[01]/(?:jobs|clusters|dbfs|workspace|permissions|sql|secrets|mlflow|serving-endpoints)(?:/|$)"
   },
   "Databricks (AWS)": {
     "description": "Databricks workspace hosted on AWS. Detects *.cloud.databricks.com (and PrivateLink) plus characteristic REST API calls.",
@@ -526,15 +519,15 @@
       "\\.privatelink\\.cloud\\.databricks\\.com($|/)",
       "accounts\\.cloud\\.databricks\\.com($|/)"
     ],
-    "xhr": [
-      "/api/2\\.0/",
-      "/api/2\\.1/"
-    ],
     "scriptSrc": [
       "databricks-prod-cloudfront\\.cloud\\.databricks\\.com"
     ],
     "pricing": [
       "enterprise"
+    ],
+    "xhrUrl": [
+      "/api/2\\.0/",
+      "/api/2\\.1/"
     ]
   },
   "Databuddy": {
@@ -1491,10 +1484,6 @@
       "(?:^|/)_delta_log/(?:$|[0-9]{20}\\.json|[0-9]{20}\\.checkpoint(?:\\.[0-9]{10})?\\.parquet|_last_checkpoint)",
       "(?:^|/)_change_data/(?:$|cdc-[^/]+\\.parquet)"
     ],
-    "xhr": [
-      "/_delta_log/_last_checkpoint",
-      "/_delta_log/[0-9]{20}\\.json"
-    ],
     "text": [
       "_delta_log",
       "Delta Lake"
@@ -1506,7 +1495,11 @@
     ],
     "probe": {
       "/_delta_log/_last_checkpoint": "\"version\"\\s*:\\s*\\d+"
-    }
+    },
+    "xhrUrl": [
+      "/_delta_log/_last_checkpoint",
+      "/_delta_log/[0-9]{20}\\.json"
+    ]
   },
   "Delta Media": {
     "cats": [
@@ -4242,9 +4235,7 @@
     ],
     "xhr": [
       "api\\.dremio\\.cloud",
-      "api\\.eu\\.dremio\\.cloud",
-      "/apiv2/server_status",
-      "/apiv2/login"
+      "api\\.eu\\.dremio\\.cloud"
     ],
     "scriptSrc": [
       "app\\.dremio\\.cloud/.*",
@@ -4269,6 +4260,10 @@
       "payg",
       "recurring",
       "enterprise"
+    ],
+    "xhrUrl": [
+      "/apiv2/server_status",
+      "/apiv2/login"
     ]
   },
   "DressOn": {
@@ -5035,8 +5030,6 @@
     ],
     "saas": true,
     "website": "https://dyte.io",
-    "xhr": [
-      "cdn\\.dyte\\.in/"
-    ]
+    "xhrUrl": "cdn\\.dyte\\.in/"
   }
 }

@@ -1900,12 +1900,6 @@
       "^https?://([\\w-]+\\.)?innovationlabs\\.teradata\\.com($|/)",
       "^https?://clearscape\\.teradata\\.com($|/)"
     ],
-    "xhr": [
-      "/(?:api/query|qs)/systems/[^/]+/(?:queries|sessions|databases|views)(?:[/?]|$)",
-      "/systems?/[^/]+/queries(?:[/?]|$)",
-      ":1443/(?:api/query|qs)/systems/",
-      ":8443/(?:api/query|qs)/systems/"
-    ],
     "text": [
       "application/vnd.com.teradata.rest-v1.0+json"
     ],
@@ -1915,6 +1909,12 @@
       "payg",
       "enterprise",
       "poa"
+    ],
+    "xhrUrl": [
+      "/(?:api/query|qs)/systems/[^/]+/(?:queries|sessions|databases|views)(?:[/?]|$)",
+      "/systems?/[^/]+/queries(?:[/?]|$)",
+      ":1443/(?:api/query|qs)/systems/",
+      ":8443/(?:api/query|qs)/systems/"
     ]
   },
   "TerMed": {
@@ -6194,12 +6194,6 @@
       "/v1/info",
       "/v1/status"
     ],
-    "xhr": [
-      "/v1/info",
-      "/v1/status",
-      "/v1/statement",
-      "/v1/query"
-    ],
     "dom": {
       "title": {
         "text": "Trino"
@@ -6214,6 +6208,12 @@
     ],
     "excludes": [
       "Open Source Presto"
+    ],
+    "xhrUrl": [
+      "/v1/info",
+      "/v1/status",
+      "/v1/statement",
+      "/v1/query"
     ]
   },
   "Tripadviser.Widget": {

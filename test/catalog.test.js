@@ -252,3 +252,60 @@ test('the committed catalog delta describes the current tree', () => {
         'run `npm run delta` to regenerate changeset/catalog-delta.{json,md}'
     )
 })
+
+test('no xhr pattern requires a path or scheme', () => {
+    // The xhr channel only ever receives a bare hostname. 123 patterns across 56
+    // technologies required a path and could never fire; they now live in xhrUrl.
+    const { canMatchHostname } = require('../scripts/lib/channels')
+    const compile = (pattern) => Wappalyzer.parsePattern(pattern).regex
+    const unmatchable = []
+
+    for (const [name, entry] of Object.entries(catalog.technologies)) {
+        const value = entry.xhr
+
+        for (const pattern of value === undefined
+            ? []
+            : Array.isArray(value)
+                ? value
+                : [value]) {
+            if (typeof pattern === 'string' && !canMatchHostname(pattern, compile)) {
+                unmatchable.push(`${name}: ${pattern}`)
+            }
+        }
+    }
+
+    assert.deepEqual(unmatchable.slice(0, 10), [])
+})
+
+test('no xhrUrl pattern matches a benign control URL', () => {
+    // Guards the risk introduced by relocation: a pattern that was harmlessly
+    // dead in xhr becomes a false-positive generator once xhrUrl makes it live.
+    const controls = [
+        'https://example.com/',
+        'https://example.com/index.html',
+        'https://example.com/about/team',
+        'https://cdn.example.com/assets/app.js?v=2',
+        'https://example.com/api/v1/users',
+        'http://example.com/a/b/c',
+    ]
+
+    const overBroad = []
+
+    for (const [name, entry] of Object.entries(catalog.technologies)) {
+        const value = entry.xhrUrl
+
+        for (const pattern of value === undefined
+            ? []
+            : Array.isArray(value)
+                ? value
+                : [value]) {
+            const { regex } = Wappalyzer.parsePattern(pattern)
+
+            if (controls.some((control) => regex.test(control))) {
+                overBroad.push(`${name}: ${pattern}`)
+            }
+        }
+    }
+
+    assert.deepEqual(overBroad, [])
+})

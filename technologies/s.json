@@ -554,10 +554,6 @@
       "^https?://[^/]+\\.force\\.com/(?:s/|[^/]+/s/)?",
       "^https?://[^/]+\\.live\\.siteforce\\.com(/|$)"
     ],
-    "xhr": [
-      "/s/sfsites/auraCmpDef(?:[^\\s\"']+)?aura\\.app=markup://siteforce:communityApp",
-      "/s/sfsites/auraFW/javascript/[^/]+/aura_prod\\.js"
-    ],
     "scriptSrc": [
       "/s/sfsites/auraFW/javascript/[^/]+/aura_prod\\.js",
       "/sfsites/c/resource/",
@@ -591,7 +587,11 @@
     "excludes": [],
     "probe": {
       "/s/sfsites/auraFW/javascript/aura_prod.js": ""
-    }
+    },
+    "xhrUrl": [
+      "/s/sfsites/auraCmpDef(?:[^\\s\"']+)?aura\\.app=markup://siteforce:communityApp",
+      "/s/sfsites/auraFW/javascript/[^/]+/aura_prod\\.js"
+    ]
   },
   "Salesforce Desk": {
     "cats": [
@@ -634,10 +634,6 @@
       "^https?://[^/]+\\.my\\.site\\.com",
       "/apex/hed__"
     ],
-    "xhr": [
-      "s/sfsites/aura",
-      "webto\\.salesforce\\.com/servlet/servlet\\.(?:WebToLead|WebToCase)"
-    ],
     "scriptSrc": [
       "s/sfsites/auraFW/javascript/.+/aura_prod\\.js",
       "static\\.lightning\\.force\\.com/.+/auraFW/.+"
@@ -673,6 +669,10 @@
     ],
     "requires": [
       "Salesforce"
+    ],
+    "xhrUrl": [
+      "s/sfsites/aura",
+      "webto\\.salesforce\\.com/servlet/servlet\\.(?:WebToLead|WebToCase)"
     ]
   },
   "Salesforce Experience Cloud": {
@@ -797,7 +797,7 @@
     ],
     "saas": true,
     "website": "https://developer.salesforce.com/docs/marketing/mobilepush/guide/overview.html",
-    "xhr": [
+    "xhrUrl": [
       "https?://([a-z0-9-]+\\.)?device\\.marketingcloudapis\\.com/device/v1/registration",
       "https?://consumer\\.exacttargetapis\\.com/device/v1/registration"
     ]
@@ -814,10 +814,6 @@
       "/apex/BMCServiceDesk__",
       "/one/one\\.app#/(?:alohaRedirect/)?apex/BMCServiceDesk__",
       "\\?startURL=/one/one\\.app#/alohaRedirect/apex/BMCServiceDesk__"
-    ],
-    "xhr": [
-      "/services/apexrest/BMCServiceDesk/",
-      "/services/apexrest/BMCServiceDesk/\\d+\\.\\d+/(?:ServiceUtil|ServiceRequest|Knowledge|Category|Queue|Approval|cmdb)"
     ],
     "dom": {
       "title": {
@@ -840,6 +836,10 @@
     ],
     "requires": [
       "Salesforce"
+    ],
+    "xhrUrl": [
+      "/services/apexrest/BMCServiceDesk/",
+      "/services/apexrest/BMCServiceDesk/\\d+\\.\\d+/(?:ServiceUtil|ServiceRequest|Knowledge|Category|Queue|Approval|cmdb)"
     ]
   },
   "Salesforce Sales Cloud": {
@@ -871,11 +871,6 @@
       "recurring",
       "poa"
     ],
-    "xhr": [
-      "/services/data/v\\d+\\.\\d+/smartdatadiscovery/(?:predictions|predictionDefinitions|models|jobs)(?:/|$)",
-      "/models/[\\w\\.-]+/(?:generations|chat-generations|embeddings)(?:/|$)",
-      "/einstein/ai-evaluations/(?:runs|runs/[^/]+)(?:/|$)"
-    ],
     "headers": {
       "x-sfdc-app-context": "EinsteinGPT",
       "x-client-feature-id": "ai-platform-models-connected-app"
@@ -898,7 +893,12 @@
     "requires": [
       "Salesforce"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": [
+      "/services/data/v\\d+\\.\\d+/smartdatadiscovery/(?:predictions|predictionDefinitions|models|jobs)(?:/|$)",
+      "/models/[\\w\\.-]+/(?:generations|chat-generations|embeddings)(?:/|$)",
+      "/einstein/ai-evaluations/(?:runs|runs/[^/]+)(?:/|$)"
+    ]
   },
   "Salesforce Service Cloud": {
     "description": "Salesforce Service Cloud is Salesforce’s customer service and support platform, offering case management, live chat (Embedded Service/Live Agent), messaging, and knowledge base.",
@@ -923,10 +923,6 @@
       "service\\.force\\.com/embeddedservice/\\d+(?:\\.\\d+)?/esw(?:\\.min)?\\.js",
       "salesforceliveagent\\.com/content/g/js/\\d+\\.\\d+/(?:deployment|prechat)\\.js",
       "service\\.force\\.com"
-    ],
-    "xhr": [
-      "salesforceliveagent\\.com/chat/rest(?:/|$)",
-      "salesforceliveagent\\.com/chat/rest/(?:Visitor/Availability|System/Messages|Chasitor/(?:ChasitorInit|ChatMessage|ChatEnd))"
     ],
     "cookies": {
       "liveagent_vc": ".+",
@@ -956,6 +952,10 @@
     },
     "implies": [
       "Salesforce"
+    ],
+    "xhrUrl": [
+      "salesforceliveagent\\.com/chat/rest(?:/|$)",
+      "salesforceliveagent\\.com/chat/rest/(?:Visitor/Availability|System/Messages|Chasitor/(?:ChasitorInit|ChatMessage|ChatEnd))"
     ]
   },
   "Salesforce SPF": {
@@ -1022,10 +1022,6 @@
       "^https?://(?:www\\.)?salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/(?:contact|conf)/workplace-command-center(?:-contact)?/(?:.*)?",
       "^https?://(?:www\\.)?salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?company/news-press/press-releases/.*work-com.*"
     ],
-    "xhr": [
-      "salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/(?:contact|conf)/workplace-command-center(?:-contact)?/",
-      "salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/conf/contact-tracing/"
-    ],
     "text": [
       "Salesforce Work.com",
       "Workplace Command Center"
@@ -1051,7 +1047,11 @@
     },
     "meta": {
       "keywords": "Work.com"
-    }
+    },
+    "xhrUrl": [
+      "salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/(?:contact|conf)/workplace-command-center(?:-contact)?/",
+      "salesforce\\.com/(?:[a-z]{2}(?:-[A-Z]{2})?/)?form/conf/contact-tracing/"
+    ]
   },
   "Salesloft": {
     "cats": [
@@ -4165,9 +4165,6 @@
       "/\\$agile_board\\.do",
       "agile_board\\.do"
     ],
-    "xhr": [
-      "/api/now/(?:(?:table)|(?:ui/meta))/rm_(?:story|sprint|epic|release_scrum|scrum_task|defect|enhancement)\\b"
-    ],
     "text": [
       "ServiceNow Agile Development",
       "Agile Development 2.0"
@@ -4193,7 +4190,8 @@
     "excludes": [],
     "probe": {
       "/$agile_board.do": ""
-    }
+    },
+    "xhrUrl": "/api/now/(?:(?:table)|(?:ui/meta))/rm_(?:story|sprint|epic|release_scrum|scrum_task|defect|enhancement)\\b"
   },
   "ServiceNow Application Portfolio Management (APM)": {
     "description": "ServiceNow's Application Portfolio Management (APM)—renamed Enterprise Architecture in recent releases—helps inventory, rationalise, and score business applications.",
@@ -4214,11 +4212,6 @@
     "url": [
       "nav_to\\.do\\?uri=%2F(?:apm_|sn_apm)",
       "now/workspace/(?:enterprise|.*apm)"
-    ],
-    "xhr": [
-      "/api/now/table/apm_application_indicator",
-      "/api/now/table/sn_apm_tpm_discovered_technology",
-      "/api/now/table/sn_apm_trm_standards_product"
     ],
     "text": [
       "Application Portfolio Management",
@@ -4248,7 +4241,12 @@
     },
     "meta": {
       "keywords": "Application Portfolio Management|APM"
-    }
+    },
+    "xhrUrl": [
+      "/api/now/table/apm_application_indicator",
+      "/api/now/table/sn_apm_tpm_discovered_technology",
+      "/api/now/table/sn_apm_trm_standards_product"
+    ]
   },
   "ServiceNow Automated Test Framework": {
     "description": "ServiceNow Automated Test Framework (ATF) is the built-in testing framework on the Now Platform that automates UI, server, and REST tests.",
@@ -4267,10 +4265,6 @@
     "url": [
       "nav_to\\.do\\?uri=(?:sys_atf|sn_atf|atf)[^&]*",
       "(?:^|/)(?:sys_atf_(?:test|step|test_suite|test_result))\\.do"
-    ],
-    "xhr": [
-      "/api/now/table/sys_atf_(?:test|test_result|step|suite|test_suite|step_result)\\b",
-      "/api/sn_atf/(?:test_suite_runner(?:/run)?|test_runner)\\b"
     ],
     "scriptSrc": [
       ".*/sn_atf/.*",
@@ -4304,7 +4298,11 @@
     "excludes": [],
     "meta": {
       "keywords": "Automated Test Framework|ATF"
-    }
+    },
+    "xhrUrl": [
+      "/api/now/table/sys_atf_(?:test|test_result|step|suite|test_suite|step_result)\\b",
+      "/api/sn_atf/(?:test_suite_runner(?:/run)?|test_runner)\\b"
+    ]
   },
   "ServiceNow Business Continuity": {
     "description": "ServiceNow Business Continuity Management (BCM) is an enterprise resilience product on the ServiceNow platform for business impact analysis and continuity planning.",
@@ -4325,10 +4323,6 @@
     "url": [
       "/now/bcm(?:/|$)",
       "nav_to\\.do\\?uri=%2Fnow%2Fbcm"
-    ],
-    "xhr": [
-      "/api/now/table/sn_bcp_(?:plan|plan_asset|plan_task)",
-      "/api/now/table/sn_bcm_.*"
     ],
     "headers": {
       "Server": "^ServiceNow$",
@@ -4364,7 +4358,11 @@
     },
     "meta": {
       "keywords": "Business Continuity Management|BCM"
-    }
+    },
+    "xhrUrl": [
+      "/api/now/table/sn_bcp_(?:plan|plan_asset|plan_task)",
+      "/api/now/table/sn_bcm_.*"
+    ]
   },
   "ServiceNow Change Management": {
     "description": "ServiceNow Change Management is the ITSM module on the Now Platform for planning, approving, scheduling, and implementing changes with risk assessment and CAB workbench.",
@@ -4385,9 +4383,6 @@
     "url": [
       "change_request(?:_list)?\\.do",
       "nav_to\\.do\\?uri=.*?change_request",
-      "/api/now/(?:v\\d+/)?table/change_request"
-    ],
-    "xhr": [
       "/api/now/(?:v\\d+/)?table/change_request"
     ],
     "headers": {
@@ -4421,7 +4416,8 @@
     "excludes": [],
     "meta": {
       "keywords": "Change Management|CAB"
-    }
+    },
+    "xhrUrl": "/api/now/(?:v\\d+/)?table/change_request"
   },
   "ServiceNow Configuration Management Database (CMDB)": {
     "description": "ServiceNow’s Configuration Management Database (CMDB) is a SaaS repository for configuration items (CIs) and their relationships, part of Service Graph on the Now Platform.",
@@ -4437,11 +4433,6 @@
       "enterprise",
       "poa",
       "recurring"
-    ],
-    "xhr": [
-      "/api/now/cmdb/instance/cmdb_ci",
-      "/api/now/cimodel/cmdb_ci/fullclasshierarchy",
-      "/api/now/table/cmdb_ci"
     ],
     "headers": {
       "Server": "^ServiceNow$",
@@ -4473,7 +4464,12 @@
     },
     "meta": {
       "keywords": "CMDB|Configuration Management"
-    }
+    },
+    "xhrUrl": [
+      "/api/now/cmdb/instance/cmdb_ci",
+      "/api/now/cimodel/cmdb_ci/fullclasshierarchy",
+      "/api/now/table/cmdb_ci"
+    ]
   },
   "ServiceNow Cost Management": {
     "description": "ServiceNow Cloud Cost Management (formerly Cloud Insights) provides FinOps capabilities to analyze and optimize cloud spend across SaaS, IaaS, and PaaS.",
@@ -4493,11 +4489,6 @@
     ],
     "url": [
       "now/workspace/.*(?:cloud|cost|spend)"
-    ],
-    "xhr": [
-      "/api/now/table/sn_cld_spend_core_monthly_provider_agg_cost",
-      "/api/now/table/sn_cld_spend_core_monthly_aggregated_cost",
-      "/api/now/table/sn_cld_spend_core_(?:daily|monthly)_(?:provider_agg|aggregated)_cost"
     ],
     "text": [
       "Cloud Spend Analytics",
@@ -4524,7 +4515,12 @@
     },
     "meta": {
       "keywords": "Cloud Cost|FinOps|Cloud Insights"
-    }
+    },
+    "xhrUrl": [
+      "/api/now/table/sn_cld_spend_core_monthly_provider_agg_cost",
+      "/api/now/table/sn_cld_spend_core_monthly_aggregated_cost",
+      "/api/now/table/sn_cld_spend_core_(?:daily|monthly)_(?:provider_agg|aggregated)_cost"
+    ]
   },
   "ServiceNow Demand Management": {
     "description": "ServiceNow Demand Management centralized business and IT demands, provides a Demand Workbench for assessment and prioritization.",
@@ -4546,9 +4542,6 @@
       "nav_to\\.do\\?uri=.*?dmn_demand",
       "dmn_demand(?:_list)?\\.do",
       "demand_workbench\\.do"
-    ],
-    "xhr": [
-      "/api/now/table/dmn_demand"
     ],
     "text": [
       "ServiceNow Demand Management",
@@ -4574,7 +4567,8 @@
     "excludes": [],
     "meta": {
       "keywords": "Demand Management"
-    }
+    },
+    "xhrUrl": "/api/now/table/dmn_demand"
   },
   "ServiceNow Governance, Risk, and Compliance (GRC)": {
     "description": "ServiceNow Governance, Risk, and Compliance (GRC) is a suite of integrated risk, compliance, audit, and third‑party risk applications built on the Now Platform.",
@@ -4597,9 +4591,6 @@
     "url": [
       "/now/(?:risk|compliance|audit)(?:/|$)",
       "/now/risk/risk/risk-assessment-homepage(?:/|$)"
-    ],
-    "xhr": [
-      "/api/now/table/sn_(?:grc|risk|compliance|audit|vdr)_[a-z_]+"
     ],
     "text": [
       "ServiceNow GRC",
@@ -4634,7 +4625,8 @@
     },
     "meta": {
       "keywords": "GRC|Integrated Risk Management|ServiceNow Risk"
-    }
+    },
+    "xhrUrl": "/api/now/table/sn_(?:grc|risk|compliance|audit|vdr)_[a-z_]+"
   },
   "ServiceNow IT Operations Management": {
     "description": "ServiceNow IT Operations Management (ITOM) is a SaaS suite on the Now Platform that provides discovery, service mapping, event management (AIOps), and operational capabilities.",
@@ -4651,12 +4643,6 @@
       "enterprise",
       "recurring",
       "poa"
-    ],
-    "xhr": [
-      "/api/sn_em_connector/em/inbound_event",
-      "/api/global/em/jsonv2",
-      "/api/mid/em/inbound_event",
-      "/api/now/table/(?:em_event|em_alert)"
     ],
     "text": [
       "IT Operations Management",
@@ -4680,7 +4666,13 @@
     "excludes": [],
     "meta": {
       "keywords": "ITOM|IT Operations"
-    }
+    },
+    "xhrUrl": [
+      "/api/sn_em_connector/em/inbound_event",
+      "/api/global/em/jsonv2",
+      "/api/mid/em/inbound_event",
+      "/api/now/table/(?:em_event|em_alert)"
+    ]
   },
   "Servicenow It Service Management": {
     "description": "ServiceNow IT Service Management (ITSM) is a cloud-based suite for managing incidents, problems, changes, requests, and related workflows on the Now Platform.",
@@ -4704,10 +4696,6 @@
       "change_request\\.do",
       "nav_to\\.do\\?uri=%2Fincident",
       "/sp\\?id=ticket&table=incident"
-    ],
-    "xhr": [
-      "/api/now/table/(?:incident|problem|change_request|sc_request|sc_task)\\b",
-      "/api/now/import/(?:incident|problem|change_request)"
     ],
     "text": [
       "ServiceNow IT Service Management",
@@ -4734,7 +4722,11 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": [
+      "/api/now/table/(?:incident|problem|change_request|sc_request|sc_task)\\b",
+      "/api/now/import/(?:incident|problem|change_request)"
+    ]
   },
   "ServiceNow Now Platform": {
     "description": "ServiceNow Now Platform is a cloud‑based workflow and IT service management platform.",
@@ -4797,9 +4789,6 @@
       "/(?:^|/)(?:sp|esc)(?:/|\\?|$)"
     ],
     "xhr": [
-      "/api/now/(?:table|aggregate|stats|import)/",
-      "/api/now/processflow/",
-      "/api/(?:sn_|x_)[a-z0-9_]/",
       "login\\.do",
       "oauth_token\\.do"
     ],
@@ -4831,7 +4820,12 @@
     "probe": {
       "/login.do": "",
       "/api/now/table/sys_properties?sysparm_limit=1": ""
-    }
+    },
+    "xhrUrl": [
+      "/api/now/(?:table|aggregate|stats|import)/",
+      "/api/now/processflow/",
+      "/api/(?:sn_|x_)[a-z0-9_]/"
+    ]
   },
   "ServiceNow Problem Management": {
     "description": "ServiceNow Problem Management is an ITSM application on the ServiceNow platform used to identify root causes, coordinate remediation, and prevent recurring incidents with dashboards and known error management.",
@@ -4853,10 +4847,6 @@
     "url": [
       "https?://[^/]*\\.service-now\\.com/(?:.*/)?nav_to\\.do\\?uri=problem(?:_list)?\\.do",
       "https?://[^/]*\\.service-now\\.com/(?:.*/)?problem(?:_list)?\\.do"
-    ],
-    "xhr": [
-      "/api/now/(?:v[0-9]+/)?table/problem(?:/|\\?|$)",
-      "/api/now/(?:v[0-9]+/)?stats/problem(?:/|\\?|$)"
     ],
     "dom": {
       "a[href*=\"problem_list.do\"]": {
@@ -4882,7 +4872,11 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": [
+      "/api/now/(?:v[0-9]+/)?table/problem(?:/|\\?|$)",
+      "/api/now/(?:v[0-9]+/)?stats/problem(?:/|\\?|$)"
+    ]
   },
   "ServiceNow Request Management": {
     "description": "ServiceNow Request Management delivers self-service request intake and fulfillment via the Service Catalog and portals (Service Portal/Employee Center).",
@@ -4903,10 +4897,6 @@
       "service-now\\.com/(?:sp|esc|ec)\\?id=sc_(?:home|cat_item|category|order_guide)",
       "service-now\\.com/(?:sc_request|sc_req_item|sc_cat_item)\\.do",
       "service-now\\.com/nav_to\\.do\\?uri=sc_cat_item|sc_request|sc_category"
-    ],
-    "xhr": [
-      "/api/sn_sc/servicecatalog/(?:items|cart|categories|order_guide)",
-      "/api/now/(?:v2/)?table/(?:sc_request|sc_req_item)"
     ],
     "scriptSrc": [
       "/scripts/(?:app\\.|sp|service-portal).*\\.js",
@@ -4945,7 +4935,11 @@
       "/sp?id=sc_home": "",
       "/esc?id=sc_home": "",
       "/nav_to.do?uri=sc_request.do": ""
-    }
+    },
+    "xhrUrl": [
+      "/api/sn_sc/servicecatalog/(?:items|cart|categories|order_guide)",
+      "/api/now/(?:v2/)?table/(?:sc_request|sc_req_item)"
+    ]
   },
   "ServiceNow Resource Management": {
     "description": "ServiceNow Resource Management helps organizations plan capacity, allocate people to work, and track availability and actuals across projects and demands.",
@@ -4965,11 +4959,6 @@
     "url": [
       "/now/workspace/.+resource.+management",
       "/resource_allocation_workbench\\.do"
-    ],
-    "xhr": [
-      "/api/sn_rm_ws/resource_management_workspace/createResourceBoard",
-      "/api/now/table/resource_plan",
-      "/api/now/table/resource_allocation"
     ],
     "scriptSrc": [
       "sn_rm_ws"
@@ -4999,7 +4988,12 @@
     },
     "meta": {
       "keywords": "Resource Management|Capacity Planning|Resource Allocation"
-    }
+    },
+    "xhrUrl": [
+      "/api/sn_rm_ws/resource_management_workspace/createResourceBoard",
+      "/api/now/table/resource_plan",
+      "/api/now/table/resource_allocation"
+    ]
   },
   "ServiceNow Security Incident Response": {
     "description": "ServiceNow Security Incident Response (SIR) is a SecOps application on the Now Platform to triage, investigate, and orchestrate response to security incidents.",
@@ -5021,11 +5015,6 @@
       "sn_si_incident\\.do",
       "sn_si_task\\.do",
       "sn_sec_cmn_risk_score_weight_list\\.do"
-    ],
-    "xhr": [
-      "/api/now/table/sn_si_incident(?:\\b|/)",
-      "/api/now/table/sn_si_task(?:\\b|/)",
-      "/api/now/table/sn_si_incident_import(?:\\b|/)"
     ],
     "text": [
       "Security Incident Response",
@@ -5049,7 +5038,12 @@
     "excludes": [],
     "meta": {
       "keywords": "SIR|SecOps|Security Incident"
-    }
+    },
+    "xhrUrl": [
+      "/api/now/table/sn_si_incident(?:\\b|/)",
+      "/api/now/table/sn_si_task(?:\\b|/)",
+      "/api/now/table/sn_si_incident_import(?:\\b|/)"
+    ]
   },
   "ServiceNow Security Operations (SecOps)": {
     "description": "ServiceNow Security Operations (SecOps) is a suite for security incident response, vulnerability response, threat intelligence, and security posture management.",
@@ -5070,11 +5064,6 @@
       "sn_si_",
       "sn_vul_",
       "sn_ti_"
-    ],
-    "xhr": [
-      "/api/now/table/sn_si_(?:incident(?:_import)?|task)(?:\\b|/)",
-      "/api/now/table/sn_vul_(?:vulnerable_item|detection|vulnerability|entry|group|ci_scan)(?:\\b|/)",
-      "/api/now/table/sn_ti_(?:observable|case|m2m_task_observable)(?:\\b|/)"
     ],
     "text": [
       "Security Operations",
@@ -5103,7 +5092,12 @@
       "/api/now/table/sn_si_incident": "",
       "/api/now/table/sn_vul_vulnerable_item": "",
       "/api/now/table/sn_ti_observable": ""
-    }
+    },
+    "xhrUrl": [
+      "/api/now/table/sn_si_(?:incident(?:_import)?|task)(?:\\b|/)",
+      "/api/now/table/sn_vul_(?:vulnerable_item|detection|vulnerability|entry|group|ci_scan)(?:\\b|/)",
+      "/api/now/table/sn_ti_(?:observable|case|m2m_task_observable)(?:\\b|/)"
+    ]
   },
   "ServiceNow Service Catalog": {
     "description": "ServiceNow Service Catalog provides an enterprise storefront for requesting services and products on the Now Platform, typically surfaced via Service Portal or Employee Center.",
@@ -5124,9 +5118,6 @@
       "(?:sp|esc|ec)\\?id=sc_(?:home|category|cat_item|request|req_item|order_guide)",
       "/com\\.glideapp\\.servicecatalog_cat_item_view\\.do",
       "/sc_catalog\\.do"
-    ],
-    "xhr": [
-      "/api/sn_sc/(?:v\\d+/)?servicecatalog/(?:items|cart|catalogs|categories)"
     ],
     "js": {
       "g_service_catalog": ""
@@ -5155,7 +5146,8 @@
     "requires": [
       "ServiceNow"
     ],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": "/api/sn_sc/(?:v\\d+/)?servicecatalog/(?:items|cart|catalogs|categories)"
   },
   "ServiceNow Service Level Management (SLM)": {
     "description": "ServiceNow Service Level Management (SLM) is a ServiceNow platform application for defining, tracking, and reporting service level agreements (SLAs).",
@@ -5176,9 +5168,6 @@
       "task_sla_list\\.do",
       "contract_sla_list\\.do",
       "nav_to\\.do\\?uri=(?:task_sla|contract_sla)"
-    ],
-    "xhr": [
-      "/api/now/(?:v\\d+/)?table/(?:task_sla|contract_sla)(?:\\?|$)"
     ],
     "text": [
       "Show SLA timeline",
@@ -5210,7 +5199,8 @@
     },
     "meta": {
       "keywords": "Service Level Management|SLA"
-    }
+    },
+    "xhrUrl": "/api/now/(?:v\\d+/)?table/(?:task_sla|contract_sla)(?:\\?|$)"
   },
   "ServiceNow Service Portal": {
     "cats": [
@@ -5244,9 +5234,6 @@
     "url": [
       "/(?:svdp|vdp)(?:/|$)"
     ],
-    "xhr": [
-      "api/now/sp/(?:page\\?.*request_uri=%2F|widget.*)(?:svdp|vdp)"
-    ],
     "text": [
       "Vendor Risk Management",
       "Third-party Risk Management",
@@ -5273,7 +5260,8 @@
     },
     "meta": {
       "keywords": "Vendor Risk|TPRM|VRM"
-    }
+    },
+    "xhrUrl": "api/now/sp/(?:page\\?.*request_uri=%2F|widget.*)(?:svdp|vdp)"
   },
   "ServiceNow Visual Task Boards": {
     "description": "Kanban-style boards within ServiceNow to visualize and manage tasks via drag-and-drop lanes, labels, checklists, and activity streams.",
@@ -5295,9 +5283,6 @@
       "nav_to\\.do\\?uri=.*(?:%2F|/)(?:\\$)?vtb\\.do",
       "(?:^|/)(?:\\$)?vtb_add_to_board\\.do"
     ],
-    "xhr": [
-      "/api/now/table/vtb_(?:board|card|lane|task|board_member|board_label)(?:[?#]|$)"
-    ],
     "text": [
       "Visual Task Boards"
     ],
@@ -5318,7 +5303,8 @@
     "excludes": [],
     "meta": {
       "keywords": "Visual Task Boards"
-    }
+    },
+    "xhrUrl": "/api/now/table/vtb_(?:board|card|lane|task|board_member|board_label)(?:[?#]|$)"
   },
   "ServiceNow Vulnerability Response": {
     "description": "ServiceNow Vulnerability Response (VR) is a Security Operations product that ingests scanner detections, correlates with CMDB context, prioritizes risk, and orchestrates remediation.",
@@ -5339,10 +5325,6 @@
       "nav_to\\.do\\?uri=sn_vul",
       "sn_vul_[a-z_]+\\.do",
       "/now/(?:ui|workspace)/[^?#]*(?:Vulnerability|vulnerability)"
-    ],
-    "xhr": [
-      "/api/now/table/sn_vul_vulnerable_item",
-      "/api/now/table/sn_vulnerability"
     ],
     "text": [
       "ServiceNow Vulnerability Response",
@@ -5376,7 +5358,11 @@
     },
     "meta": {
       "keywords": "Vulnerability Response"
-    }
+    },
+    "xhrUrl": [
+      "/api/now/table/sn_vul_vulnerable_item",
+      "/api/now/table/sn_vulnerability"
+    ]
   },
   "Session Rewind": {
     "cats": [
@@ -6701,14 +6687,6 @@
     "url": [
       "myshopify\\.com"
     ],
-    "xhr": [
-      "/cart\\.js",
-      "/cart/(?:add|update|change|clear)\\.js",
-      "/search/suggest\\.json",
-      "/recommendations/products\\.json",
-      "/api/[0-9]{4}-[0-9]{2}/graphql\\.json",
-      "monorail-edge\\.shopifysvc\\.com/(?:v1|unstable)/produce(?:_batch)?"
-    ],
     "scriptSrc": [
       "cdn\\.shopify\\.com/.*\\.(?:js|mjs)(?:\\?.*)?$",
       "cdn\\.shopify\\.com/shopifycloud/.*\\.(?:js|mjs)(?:\\?.*)?$",
@@ -6771,7 +6749,15 @@
     ],
     "probe": {
       "/cart.js": ""
-    }
+    },
+    "xhrUrl": [
+      "/cart\\.js",
+      "/cart/(?:add|update|change|clear)\\.js",
+      "/search/suggest\\.json",
+      "/recommendations/products\\.json",
+      "/api/[0-9]{4}-[0-9]{2}/graphql\\.json",
+      "monorail-edge\\.shopifysvc\\.com/(?:v1|unstable)/produce(?:_batch)?"
+    ]
   },
   "Shopify Buy Button": {
     "cats": [
@@ -12147,10 +12133,6 @@
       ": 53307/(?:BusinessUI|CentraSite/CentraSite|PluggableUI/Control)",
       "/(?:BusinessUI|CentraSite/CentraSite|PluggableUI/Control)(?:$|/)"
     ],
-    "xhr": [
-      "/CentraSite/CentraSite",
-      "/PluggableUI/Control"
-    ],
     "scriptSrc": [
       "/BusinessUI/.*"
     ],
@@ -12174,7 +12156,11 @@
       "/BusinessUI/": "",
       "/PluggableUI/Control": "",
       "/CentraSite/CentraSite": ""
-    }
+    },
+    "xhrUrl": [
+      "/CentraSite/CentraSite",
+      "/PluggableUI/Control"
+    ]
   },
   "Software AG NATURAL": {
     "description": "Software AG Natural is a 4GL application development environment. On the web it surfaces via Natural for Ajax and the Natural Web I/O Interface.",
@@ -12186,10 +12172,6 @@
     "icon": "SoftwareAG-Natural.svg",
     "url": [
       "(?:^|/)(?:cisnatural|natuniweb|cis)/"
-    ],
-    "xhr": [
-      "(?:cisnatural|cis)/servlet/StartCISPage",
-      "natuniweb/(?:natural\\.jsp|conf_index\\.jsp)"
     ],
     "scriptSrc": [
       "natuni(?:c)?script\\.js",
@@ -12219,7 +12201,11 @@
       "/cisnatural/servlet/StartCISPage?PAGEURL=/cisnatural/NatLogon.html": "",
       "/natuniweb/conf_index.jsp": "",
       "/natuniweb/natural.jsp": ""
-    }
+    },
+    "xhrUrl": [
+      "(?:cisnatural|cis)/servlet/StartCISPage",
+      "natuniweb/(?:natural\\.jsp|conf_index\\.jsp)"
+    ]
   },
   "Software AG Terracotta": {
     "description": "Distributed in-memory data platform and clustered cache by Software AG (Terracotta Server / Terracotta DB) used with Ehcache and TCStore.",
@@ -12229,11 +12215,6 @@
     ],
     "website": "https://www.terracotta.org/",
     "icon": "Terracotta.svg",
-    "xhr": [
-      "tc-management-api(?:/v2)?/",
-      "/tc-management-api/v2/agents/info",
-      "/tc-management-api/v2/agents/topologies"
-    ],
     "dom": {
       "title": {
         "text": "Terracotta Management Console"
@@ -12256,7 +12237,12 @@
     "probe": {
       "/tc-management-api/v2/agents/info": "\"apiVersion\"\\s*:\\s*\"v2\"",
       "/tc-management-api/v2/agents/topologies": "\"agentId\"|\"entities\""
-    }
+    },
+    "xhrUrl": [
+      "tc-management-api(?:/v2)?/",
+      "/tc-management-api/v2/agents/info",
+      "/tc-management-api/v2/agents/topologies"
+    ]
   },
   "SoftwareSuggest": {
     "cats": [

@@ -570,9 +570,7 @@
       "/umbraco/login\\.aspx(?:$|\\?)"
     ],
     "website": "https://umbraco.com/",
-    "xhr": [
-      "/umbraco/api/"
-    ]
+    "xhrUrl": "/umbraco/api/"
   },
   "UMI.CMS": {
     "cats": [

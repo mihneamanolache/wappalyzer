@@ -215,9 +215,6 @@
     "url": [
       "^https?://play\\.clickhouse\\.com(?:/|\\?|$)"
     ],
-    "xhr": [
-      "console-api\\.clickhouse\\.cloud/\\.api/query-endpoints/.+?/run"
-    ],
     "probe": {
       "/ping": "Ok\\.",
       "/replicas_status": "Ok\\."
@@ -230,7 +227,8 @@
     "cpe": "cpe:2.3:a:clickhouse:clickhouse",
     "implies": [],
     "requires": [],
-    "excludes": []
+    "excludes": [],
+    "xhrUrl": "console-api\\.clickhouse\\.cloud/\\.api/query-endpoints/.+?/run"
   },
   "Yandex Maps": {
     "cats": [
