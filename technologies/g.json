@@ -4939,6 +4939,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
+    "url": "^https?://chat\\.groq\\.com(?:[:/]|$)",
     "xhr": "api\\.groq\\.com"
   },
   "GroupBy": {

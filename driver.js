@@ -79,8 +79,6 @@ if (Wappalyzer.errors.length && process.env.WAPPALYZER_DEBUG) {
     }
 }
 
-const xhrDebounce = []
-
 // Chromium reports fetch() traffic under a separate resource type from
 // XMLHttpRequest. Both carry the API-shaped requests the xhr and xhrUrl
 // channels exist to observe.
@@ -515,6 +513,29 @@ class Site {
         this.probed = false
     }
 
+    /**
+     * Record and analyze one request hostname for this site.
+     *
+     * This used to be a process-global one-second debounce with the detection
+     * delayed behind a timer. That could suppress the same vendor on a second
+     * site and could let a fast page finish before its xhr detection reached
+     * `this.detections`. The per-site map already provides the required
+     * deduplication without either race.
+     */
+    async analyzeXhrHost(url, hostname) {
+        this.analyzedXhr[url.hostname] = this.analyzedXhr[url.hostname] || []
+
+        if (this.analyzedXhr[url.hostname].includes(hostname)) {
+            return false
+        }
+
+        this.analyzedXhr[url.hostname].push(hostname)
+
+        await this.onDetect(url, analyze({ xhr: hostname }))
+
+        return true
+    }
+
     get analyzedUrls() {
         const copy = structuredClone(this.#analyzedUrls)
 
@@ -649,22 +670,7 @@ class Site {
                         return
                     }
 
-                    if (!xhrDebounce.includes(hostname)) {
-                        xhrDebounce.push(hostname)
-
-                        setTimeout(async () => {
-                            xhrDebounce.splice(xhrDebounce.indexOf(hostname), 1)
-
-                            this.analyzedXhr[url.hostname] =
-                                this.analyzedXhr[url.hostname] || []
-
-                            if (!this.analyzedXhr[url.hostname].includes(hostname)) {
-                                this.analyzedXhr[url.hostname].push(hostname)
-
-                                await this.onDetect(url, analyze({ xhr: hostname }))
-                            }
-                        }, 1000)
-                    }
+                    await this.analyzeXhrHost(url, hostname)
 
                     // The same request, as a full URL. `xhr` only ever receives a
                     // hostname, so a pattern describing an API path — which is how

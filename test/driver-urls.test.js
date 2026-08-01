@@ -19,7 +19,6 @@ const test = require('node:test')
 const assert = require('node:assert/strict')
 
 const Driver = require('../driver')
-
 const { Site } = Driver
 
 /** A Site backed by a stub driver, so no browser is involved. */
@@ -105,5 +104,69 @@ test('request interception gates on the shared type list, not an xhr literal', (
     assert.ok(
         !/resourceType\(\)\s*===\s*'xhr'/.test(source),
         "no branch compares resourceType() to the 'xhr' literal alone"
+    )
+})
+
+test('xhr host detections are deduplicated per site and analyzed immediately', async () => {
+    const site = new Site('https://first.example.com/', {}, {
+        options: {
+            headers: {},
+            maxWait: 1000,
+            fast: false,
+        },
+        browser: {},
+        init: async () => {},
+    })
+    const detected = []
+
+    site.onDetect = async (_url, detections) => {
+        detected.push(...detections)
+    }
+
+    const first = await site.analyzeXhrHost(
+        new URL('https://first.example.com/'),
+        'api.pinecone.io'
+    )
+    const duplicate = await site.analyzeXhrHost(
+        new URL('https://first.example.com/'),
+        'api.pinecone.io'
+    )
+
+    assert.equal(first, true)
+    assert.equal(duplicate, false)
+    assert.equal(detected.length, 1, 'the first host is analyzed before the call returns')
+    assert.equal(detected[0].technology.name, 'Pinecone')
+    assert.deepEqual(site.analyzedXhr, {
+        'first.example.com': ['api.pinecone.io'],
+    })
+})
+
+test('the same xhr host is not suppressed across sites', async () => {
+    const makeSite = (origin) => new Site(origin, {}, {
+        options: {
+            headers: {},
+            maxWait: 1000,
+            fast: false,
+        },
+        browser: {},
+        init: async () => {},
+    })
+
+    const first = makeSite('https://first.example.com/')
+    const second = makeSite('https://second.example.com/')
+
+    assert.equal(
+        await first.analyzeXhrHost(
+            new URL('https://first.example.com/'),
+            'api.pinecone.io'
+        ),
+        true
+    )
+    assert.equal(
+        await second.analyzeXhrHost(
+            new URL('https://second.example.com/'),
+            'api.pinecone.io'
+        ),
+        true
     )
 })

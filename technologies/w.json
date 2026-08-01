@@ -704,6 +704,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": true,
+    "url": "^https?://console\\.weaviate\\.cloud(?:[:/]|$)",
     "xhr": "\\.weaviate\\.(?:io|network|cloud)"
   },
   "Web CEO": {

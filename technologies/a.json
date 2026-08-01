@@ -6870,6 +6870,7 @@
         "anthropic-domain-verification"
       ]
     },
+    "url": "^https?://claude\\.ai(?:[:/]|$)",
     "icon": "Anthropic.svg",
     "pricing": [
       "payg",

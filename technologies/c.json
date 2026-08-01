@@ -2592,6 +2592,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
+    "url": "^https?://(?:www\\.)?character\\.ai(?:[:/]|$)",
     "xhr": "(?:^|\\.)character\\.ai"
   },
   "ChargeAfter": {
@@ -9249,6 +9250,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
+    "url": "^https?://app\\.copy\\.ai(?:[:/]|$)",
     "xhr": "api\\.copy\\.ai"
   },
   "CopyPoison": {

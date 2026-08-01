@@ -4734,7 +4734,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "api\\.together\\.xyz"
+    "url": "^https?://api\\.together\\.ai(?:[:/]|$)",
+    "xhr": "api\\.together\\.(?:ai|xyz)"
   },
   "TogetherJS": {
     "cats": [

@@ -224,6 +224,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
+    "url": "^https?://app\\.jasper\\.ai(?:[:/]|$)",
     "xhr": "api\\.jasper\\.ai"
   },
   "Java": {

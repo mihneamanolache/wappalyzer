@@ -382,7 +382,7 @@ Nothing was removed from the catalog.
 | Buildkite | dom |
 | C3 AI | xhr |
 | Cerebras | xhr |
-| Character.AI | xhr |
+| Character.AI | url, xhr |
 | Chroma | xhr |
 | Chronosphere | xhr |
 | CircleCI | dom |
@@ -393,7 +393,7 @@ Nothing was removed from the catalog.
 | CockroachDB | xhr |
 | Coda | dns, dom |
 | Cohere | xhr |
-| Copy.ai | xhr |
+| Copy.ai | url, xhr |
 | CrewAI | xhr |
 | Crossplane | xhr |
 | Cursor | dns |
@@ -415,7 +415,7 @@ Nothing was removed from the catalog.
 | Google Gemini API | xhr |
 | Google Vertex AI | xhr |
 | Grammarly | dom, scriptSrc |
-| Groq | xhr |
+| Groq | url, xhr |
 | H2O.ai | xhr |
 | HPE GreenLake | dns |
 | HackerOne | dns |
@@ -432,7 +432,7 @@ Nothing was removed from the catalog.
 | Island Enterprise Browser | dns |
 | Istio | headers |
 | Jamf | dns |
-| Jasper | xhr |
+| Jasper | url, xhr |
 | JetBrains IDEs | dns |
 | Kedro | (none) |
 | Kedro-Viz | html |
@@ -442,7 +442,7 @@ Nothing was removed from the catalog.
 | Kubernetes | (none) |
 | Lambda Cloud | xhr |
 | LangGraph | xhr |
-| LangSmith | xhr |
+| LangSmith | url, xhr |
 | Leonardo AI | dom, html |
 | Linkerd | headers |
 | Llama API | xhr |
@@ -471,13 +471,13 @@ Nothing was removed from the catalog.
 | PTC ThingWorx | url, xhr |
 | Perplexity Enterprise | dns, xhr |
 | Pika | html, xhr |
-| Pinecone | xhr |
+| Pinecone | url, xhr |
 | PlanetScale | xhr |
 | Postman | dns, xhr |
 | Prefect | html, xhr |
 | Prometheus | html |
 | Pulumi | xhr |
-| Qdrant | xhr |
+| Qdrant | url, xhr |
 | Qualcomm AI Hub | xhr |
 | Rancher | html |
 | Ray | html |
@@ -508,7 +508,7 @@ Nothing was removed from the catalog.
 | ThoughtSpot | scriptSrc, xhr |
 | TiDB | xhr |
 | Tines | xhr |
-| Together AI | xhr |
+| Together AI | url, xhr |
 | Tome | dom, xhr |
 | Travis CI | dom |
 | Tray.io | scriptSrc, xhr |
@@ -521,7 +521,7 @@ Nothing was removed from the catalog.
 | Verizon Connect | dom, scriptSrc, url, xhr |
 | Verizon Connect Reveal | scriptSrc, url |
 | Volcengine Ark | xhr |
-| Weaviate | xhr |
+| Weaviate | url, xhr |
 | Weights & Biases | dom, xhr |
 | Windsurf | dns, xhr |
 | Wiz | dns |

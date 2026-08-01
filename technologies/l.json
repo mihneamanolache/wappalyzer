@@ -214,6 +214,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
+    "url": "^https?://smith\\.langchain\\.com(?:[:/]|$)",
     "xhr": "api\\.smith\\.langchain\\.com"
   },
   "Lapis": {

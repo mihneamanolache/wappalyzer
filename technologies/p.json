@@ -4094,6 +4094,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
+    "url": "^https?://(?:app|login)\\.pinecone\\.io(?:[:/]|$)",
     "xhr": "\\.pinecone\\.io"
   },
   "Ping Parrot": {

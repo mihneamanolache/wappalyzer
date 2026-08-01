@@ -78,6 +78,7 @@
     "icon": "default.svg",
     "saas": true,
     "oss": true,
+    "url": "^https?://(?:login\\.)?cloud\\.qdrant\\.io(?:[:/]|$)",
     "xhr": "(?:api\\.)?qdrant\\.(?:tech|io)"
   },
   "QForm": {
