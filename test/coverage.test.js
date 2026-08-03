@@ -289,6 +289,27 @@ test('the report distinguishes catalog reachability from retained live evidence'
             'Samsara',
             'Verizon Connect',
             'Verizon Connect Reveal',
+            // Customer-visible markers fetched on 2026-08-03 in response to the
+            // DQ. Each observation is recorded in REVIEWED_EVIDENCE.
+            'Amazon Q',
+            'Autodesk',
+            'ClickHouse',
+            'Google Vertex AI',
+            'IBM Cloud',
+            'IBM watsonx',
+            'Ideogram',
+            'Kedro',
+            'Make',
+            'Metaflow',
+            'Monday.com',
+            'Postman',
+            'Replicate',
+            'SAP SuccessFactors',
+            'Superblocks',
+            'Unleash',
+            'Zapier',
+            'ZenML',
+            'dbt',
         ].sort()
     )
 })

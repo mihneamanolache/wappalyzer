@@ -3792,7 +3792,9 @@
     "pricing": [
       "payg"
     ],
-    "xhr": "(?:[a-z0-9-]+-)?aiplatform\\.googleapis\\.com"
+    "xhr": "(?:[a-z0-9-]+-)?aiplatform\\.googleapis\\.com",
+    "scriptSrc": "www\\.gstatic\\.com/dialogflow-console/fast/(?:df-)?messenger[/.]",
+    "dom": "df-messenger[agent-id], df-messenger[project-id], df-messenger[chat-title]"
   },
   "Google Wallet": {
     "cats": [

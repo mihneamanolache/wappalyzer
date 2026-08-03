@@ -1023,7 +1023,14 @@
     "icon": "default.svg",
     "saas": true,
     "oss": true,
-    "xhr": "\\.getunleash\\.io"
+    "xhr": [
+      "\\.getunleash\\.io",
+      "[a-z0-9-]+\\.app\\.unleash-hosted\\.com"
+    ],
+    "meta": {
+      "unleashToken": "",
+      "uiFlags": ""
+    }
   },
   "Unless": {
     "cats": [

@@ -233,7 +233,12 @@
       "freemium"
     ],
     "saas": true,
-    "website": "https://zapier.com"
+    "website": "https://zapier.com",
+    "scriptSrc": [
+      "zapier\\.com/apps/embed/widget\\.js",
+      "interfaces\\.zapier\\.com/assets/web-components/"
+    ],
+    "dom": "zapier-interfaces-chatbot-embed, zapier-interfaces-page-embed"
   },
   "Zapiet": {
     "cats": [
@@ -713,7 +718,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": true,
-    "xhr": "cloud\\.zenml\\.io"
+    "xhr": "cloud\\.zenml\\.io",
+    "html": "ZenML Deployment\\s*</title>"
   },
   "Zenoti": {
     "cats": [

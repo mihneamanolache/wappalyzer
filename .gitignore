@@ -16,3 +16,6 @@ data/dns-sweep-domains.txt
 data/dns-sweep-results.json
 data/xhr-audit-urls.txt
 data/xhr-audit-results.json
+
+# Puppeteer's downloaded browser.
+/chrome

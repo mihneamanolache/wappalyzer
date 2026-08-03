@@ -11,11 +11,15 @@
 
 const test = require('node:test')
 const assert = require('node:assert/strict')
+const path = require('path')
 
+const { loadCatalog } = require('../scripts/lib/catalog')
 const {
+    COMPLEMENTARY,
     VENDORS,
     analyzeText,
     isEligiblePage,
+    probeFor,
 } = require('../scripts/lib/text-signals')
 
 const names = (signals) => signals.map(({ technology }) => technology).sort()
@@ -225,25 +229,9 @@ test('every vendor pattern compiles and can produce a signal', () => {
     const unreachable = []
 
     for (const name of Object.keys(VENDORS)) {
-        const probe = {
-            'CrowdStrike Falcon': 'experience with CrowdStrike Falcon',
-            SentinelOne: 'experience with SentinelOne',
-            Zscaler: 'experience with Zscaler',
-            Netskope: 'experience with Netskope',
-            'Orca Security': 'experience with Orca Security',
-            Lacework: 'experience with Lacework',
-            'Abnormal Security': 'experience with Abnormal Security',
-            pgvector: 'experience with pgvector',
-            'NVIDIA Jetson': 'experience with NVIDIA Jetson Orin',
-            'Model Context Protocol': 'experience with Model Context Protocol',
-            Neovim: 'experience with Neovim',
-            Zed: 'experience with the Zed editor',
-            Phind: 'experience with Phind',
-        }[name]
-
         const signals = analyzeText({
             url: 'https://acme.com/careers/1',
-            text: posting(probe),
+            text: posting(probeFor(name)),
         })
 
         if (!names(signals).includes(name)) {
@@ -254,12 +242,73 @@ test('every vendor pattern compiles and can produce a signal', () => {
     assert.deepEqual(unreachable, [])
 })
 
-test('the layer covers exactly the products the catalog cannot detect', () => {
-    const { CATALOG_ONLY } = require('../scripts/lib/emerging-technologies')
+test('every vendor names a real catalog technology', () => {
+    const catalog = loadCatalog(
+        path.join(path.resolve(__dirname, '..'), 'technologies')
+    ).technologies
 
     assert.deepEqual(
-        Object.keys(VENDORS).sort(),
-        Object.keys(CATALOG_ONLY).sort(),
-        'every taxonomy-only entry should have a text signal, and vice versa'
+        Object.keys(VENDORS).filter((name) => !catalog[name]),
+        [],
+        'a renamed entry would silently orphan its signal'
+    )
+})
+
+/**
+ * The layer used to be pinned to exactly CATALOG_ONLY. The 2026-08-02 DQ made
+ * that too narrow: 70 AI entries had a pattern, but it matched a back-end API
+ * hostname the browser never contacts, so in practice they were as unreachable
+ * as the entries with no pattern at all. The rule is now stated in terms of
+ * *why* a text signal is allowed, and every case has to fall into one of three
+ * declared buckets — which still stops the layer from quietly duplicating the
+ * catalog for products that are detected on ordinary pages.
+ */
+test('every text signal is justified: no pattern, no page-visible pattern, or declared complementary', () => {
+    const { CATALOG_ONLY } = require('../scripts/lib/emerging-technologies')
+    const catalog = loadCatalog(
+        path.join(path.resolve(__dirname, '..'), 'technologies')
+    ).technologies
+
+    const PAGE_VISIBLE = [
+        'scriptSrc',
+        'scripts',
+        'html',
+        'dom',
+        'meta',
+        'headers',
+        'cookies',
+        'js',
+        'css',
+        'text',
+        'url',
+        'xhrUrl',
+        'robots',
+        'certIssuer',
+    ]
+
+    const unjustified = Object.keys(VENDORS).filter((name) => {
+        if (CATALOG_ONLY[name] || COMPLEMENTARY[name]) {
+            return false
+        }
+
+        return PAGE_VISIBLE.some((channel) => catalog[name][channel])
+    })
+
+    assert.deepEqual(
+        unjustified,
+        [],
+        'a vendor already detected on ordinary pages needs a declared reason'
+    )
+
+    assert.deepEqual(
+        Object.keys(CATALOG_ONLY).filter((name) => !VENDORS[name]),
+        [],
+        'every taxonomy-only entry must stay reachable through the text layer'
+    )
+
+    assert.deepEqual(
+        Object.keys(COMPLEMENTARY).filter((name) => !VENDORS[name]),
+        [],
+        'a declared complementary reason with no vendor pattern is dead documentation'
     )
 })

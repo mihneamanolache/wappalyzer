@@ -956,7 +956,11 @@
     "icon": "default.svg",
     "saas": true,
     "oss": true,
-    "xhr": "(?:metadata\\.)?cloud\\.getdbt\\.com"
+    "xhr": "(?:metadata\\.)?cloud\\.getdbt\\.com",
+    "html": [
+      "ng-app=['\"]dbt['\"]",
+      "<title>\\s*dbt Docs\\s*</title>"
+    ]
   },
   "dc.js": {
     "cats": [

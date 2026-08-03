@@ -1913,7 +1913,8 @@
     "oss": false,
     "dns": {
       "TXT": "adobe-sign-verification="
-    }
+    },
+    "html": "secure\\.[a-z0-9]+\\.adobesign\\.com/public/esignWidget"
   },
   "Adobe Analytics": {
     "cats": [
@@ -5655,7 +5656,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "qbusiness\\.[a-z0-9-]+\\.on\\.aws|q\\.[a-z0-9-]+\\.amazonaws\\.com"
+    "xhr": "qbusiness\\.[a-z0-9-]+\\.on\\.aws|q\\.[a-z0-9-]+\\.amazonaws\\.com",
+    "html": "chat\\.qbusiness\\.[a-z0-9-]+\\.on\\.aws"
   },
   "Amazon Redshift": {
     "cats": [
@@ -10400,7 +10402,8 @@
     "oss": false,
     "dns": {
       "TXT": "autodesk-domain-verification="
-    }
+    },
+    "scriptSrc": "developer\\.api\\.autodesk\\.com/modelderivative/v[0-9]+/viewers/"
   },
   "AutoGPT Platform": {
     "cats": [

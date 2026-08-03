@@ -3024,7 +3024,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "api\\.replicate\\.com"
+    "xhr": "api\\.replicate\\.com",
+    "html": "replicate\\.delivery/"
   },
   "Replit": {
     "cats": [
