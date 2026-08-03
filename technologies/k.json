@@ -731,7 +731,8 @@
     "website": "https://kedro.org",
     "icon": "default.svg",
     "saas": false,
-    "oss": true
+    "oss": true,
+    "html": "<title>\\s*Kedro-Viz\\s*</title>"
   },
   "Kedro-Viz": {
     "cats": [

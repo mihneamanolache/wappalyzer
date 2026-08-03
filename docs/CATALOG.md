@@ -164,6 +164,33 @@ for the entries in `scripts/lib/emerging-technologies.js`:
   Dashboard, OpenShift). These are read from source, not guessed.
 - **`badge`** — a status or vulnerability badge image served from the vendor's
   own host (CircleCI, Buildkite, Travis CI, Snyk).
+- **`customer-page`** — something the vendor puts on *its customers'* pages: an
+  embedded widget, a form iframe, a run-button, a generated-image host, a
+  response header, or a tenant link. Added 2026-08-03 and collected in
+  `CUSTOMER_VISIBLE` in `scripts/lib/emerging-technologies.js`.
+
+### Whose page is the marker on?
+
+This is the distinction the 2026-08-02 DQ turned into a measurement. 128 of the
+154 AI entries never fired across 1.87M crawled domains, and the reason was not
+crawl quality:
+
+| Where the marker lives | Fires on a crawl of company root domains? |
+| --- | --- |
+| The customer's own page (widget, iframe, header, tenant link) | Yes |
+| A request the customer's own front end makes (`*.cloudhub.io`) | Yes |
+| The vendor's console (`app.pinecone.io`) | Only if the vendor's domain is in the crawl list — once, for the vendor |
+| An operator UI on an internal subdomain | Only if subdomains are crawled |
+| A back-end API hostname (`\.pinecone\.io`, `\.snowflakecomputing\.com`) | **Never** — the browser does not make that call |
+
+An `xhr` rule is not automatically dead: `hook.eu1.make.com` and
+`*.cloudhub.io` are called *by the customer's page*. What is dead is an `xhr`
+rule for an API only a server calls. Before adding one, ask which of these rows
+it lands in and record the answer in the evidence record's `signal` field.
+
+Where the answer is the last row and nothing else exists — Pinecone, Snowflake,
+the EDR agents, local editors — the honest route is the text-signal layer
+below, not a pattern that cannot fire.
 
 Every custom entry has an `EVIDENCE` record with a verification level:
 `live-observed`, `official-documented`, `unreproduced-prior-sweep`,
@@ -243,6 +270,24 @@ Either gate alone produces false positives. `test/text-signals.test.js` is mostl
 negative cases for this reason, including press releases, comparison pages, and
 ambiguity guards (Orca the screen reader, MCP the Microsoft certification, "Zed"
 without editor context).
+
+The layer was pinned to exactly the taxonomy-only entries until 2026-08-03. The
+DQ made that too narrow — an entry whose only pattern matches a back-end API
+hostname is, in practice, as unreachable as one with no pattern. It now covers
+102 vendors, and every one of them has to fall into a declared bucket:
+
+1. taxonomy-only (`CATALOG_ONLY`), or
+2. no page-visible channel in the catalog at all, or
+3. listed in `COMPLEMENTARY` with a one-line reason why the catalog pattern
+   only fires on a surface a root-domain crawl usually will not see — dbt docs
+   that only some teams publish, a `X-ClickHouse-*` header that needs an
+   exposed endpoint, an operator UI on an internal subdomain.
+
+`test/text-signals.test.js` enforces this, so the layer cannot quietly grow into
+a duplicate of the catalog for products that are already detected on ordinary
+pages. Each vendor also carries a probe sentence (`PROBE_OVERRIDES`, defaulting
+to "experience with <name>") that must produce a signal, which is what catches a
+pattern that compiles but can never match.
 
 ### Products that genuinely cannot be detected
 

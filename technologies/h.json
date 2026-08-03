@@ -56,7 +56,8 @@
     "oss": false,
     "dns": {
       "TXT": "h1-domain-verification="
-    }
+    },
+    "html": "hackerone\\.com/[a-z0-9_.-]+/embedded_submissions/new"
   },
   "Haddock": {
     "cats": [

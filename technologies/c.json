@@ -5026,7 +5026,13 @@
     "icon": "default.svg",
     "saas": true,
     "oss": true,
-    "xhr": "\\.clickhouse\\.(?:cloud|com)"
+    "xhr": "\\.clickhouse\\.(?:cloud|com)",
+    "headers": {
+      "X-ClickHouse-Server-Display-Name": "",
+      "X-ClickHouse-Summary": "",
+      "X-ClickHouse-Query-Id": ""
+    },
+    "html": "<title>ClickHouse Query</title>"
   },
   "clickio": {
     "cats": [

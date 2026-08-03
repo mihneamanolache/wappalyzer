@@ -350,14 +350,14 @@ Nothing was removed from the catalog.
 | --- | --- |
 | 1Password | dns |
 | AI21 Labs | xhr |
-| Adobe Acrobat Sign | dns |
+| Adobe Acrobat Sign | dns, html |
 | Adobe Identity Management | dns |
 | Airbyte | html, meta, xhr |
 | Aleph Alpha | xhr |
 | Alibaba Cloud Model Studio | xhr |
 | AlphaFold | html, xhr |
 | Amazon Bedrock | xhr |
-| Amazon Q | xhr |
+| Amazon Q | html, xhr |
 | Amazon SageMaker | xhr |
 | Anthropic API | xhr |
 | Anyscale | dns |
@@ -371,7 +371,7 @@ Nothing was removed from the catalog.
 | AssemblyAI | xhr |
 | Atlassian Cloud | dns, scriptSrc, xhr |
 | AutoGPT Platform | html |
-| Autodesk | dns |
+| Autodesk | dns, scriptSrc |
 | Automation Anywhere | xhr |
 | Azure AI Foundry | xhr |
 | Azure OpenAI Service | xhr |
@@ -389,7 +389,7 @@ Nothing was removed from the catalog.
 | Cisco Cloud | dns |
 | Clari | xhr |
 | Claude Enterprise | dns |
-| ClickHouse | xhr |
+| ClickHouse | headers, html, xhr |
 | CockroachDB | xhr |
 | Coda | dns, dom |
 | Cohere | xhr |
@@ -413,20 +413,20 @@ Nothing was removed from the catalog.
 | Glean | dom, scriptSrc, xhr |
 | Google BigQuery | xhr |
 | Google Gemini API | xhr |
-| Google Vertex AI | xhr |
+| Google Vertex AI | dom, scriptSrc, xhr |
 | Grammarly | dom, scriptSrc |
 | Groq | url, xhr |
 | H2O.ai | xhr |
 | HPE GreenLake | dns |
-| HackerOne | dns |
+| HackerOne | dns, html |
 | Harvey | xhr |
 | HashiCorp Cloud Platform | dns |
 | Hex | dom, xhr |
 | Honeycomb | xhr |
 | Hugging Face | scriptSrc, xhr |
-| IBM Cloud | dns |
-| IBM watsonx | xhr |
-| Ideogram | xhr |
+| IBM Cloud | dns, url, xhr |
+| IBM watsonx | scriptSrc, xhr |
+| Ideogram | html, xhr |
 | Inflection AI | xhr |
 | Intuit QuickBooks | dom, scriptSrc, xhr |
 | Island Enterprise Browser | dns |
@@ -434,7 +434,7 @@ Nothing was removed from the catalog.
 | Jamf | dns |
 | Jasper | url, xhr |
 | JetBrains IDEs | dns |
-| Kedro | (none) |
+| Kedro | html |
 | Kedro-Viz | html |
 | Kiali | html |
 | Kling AI | html, xhr |
@@ -449,15 +449,15 @@ Nothing was removed from the catalog.
 | Luma AI | html, xhr |
 | Lytx | scriptSrc, xhr |
 | MLflow | html |
-| Make | dns, xhr |
+| Make | dns, html, xhr |
 | Meta AI | dom, xhr |
 | Metabase | cookies, html |
-| Metaflow | xhr |
+| Metaflow | html, xhr |
 | Midjourney | dom, html |
 | Miro | dns, dom, scriptSrc |
 | Mistral AI | dns, xhr |
 | Modal | xhr |
-| Monday.com | dns, xhr |
+| Monday.com | dns, html, xhr |
 | Moveworks | xhr |
 | MuleSoft | xhr |
 | NVIDIA AI Enterprise | xhr |
@@ -473,7 +473,7 @@ Nothing was removed from the catalog.
 | Pika | html, xhr |
 | Pinecone | url, xhr |
 | PlanetScale | xhr |
-| Postman | dns, xhr |
+| Postman | dns, html, scriptSrc, xhr |
 | Prefect | html, xhr |
 | Prometheus | html |
 | Pulumi | xhr |
@@ -483,9 +483,9 @@ Nothing was removed from the catalog.
 | Ray | html |
 | Red Hat OpenShift | html, xhr |
 | Reka AI | xhr |
-| Replicate | xhr |
+| Replicate | html, xhr |
 | Runway | xhr |
-| SAP SuccessFactors | dns |
+| SAP SuccessFactors | dns, html |
 | SAS Viya | xhr |
 | Samsara | dom, scriptSrc, xhr |
 | Samsara Assistant | (none) |
@@ -502,7 +502,7 @@ Nothing was removed from the catalog.
 | Sourcegraph Amp | dns |
 | Stability AI | xhr |
 | Suno | html, xhr |
-| Superblocks | xhr |
+| Superblocks | html, xhr |
 | Synthesia | dom, html, xhr |
 | Tabnine | xhr |
 | ThoughtSpot | scriptSrc, xhr |
@@ -515,7 +515,7 @@ Nothing was removed from the catalog.
 | Turso | xhr |
 | Udio | dom |
 | UiPath | scriptSrc, xhr |
-| Unleash | xhr |
+| Unleash | meta, xhr |
 | VMware Cloud | dns |
 | VS Code for the Web | html, xhr |
 | Verizon Connect | dom, scriptSrc, url, xhr |
@@ -526,13 +526,13 @@ Nothing was removed from the catalog.
 | Windsurf | dns, xhr |
 | Wiz | dns |
 | Workato | xhr |
-| Wrike | dns |
+| Wrike | dns, html |
 | Writer | xhr |
 | You.com | xhr |
-| ZenML | xhr |
+| ZenML | html, xhr |
 | Zhipu AI | xhr |
 | Zoom | dns, dom, scriptSrc |
-| dbt | xhr |
+| dbt | html, xhr |
 | fal.ai | html, xhr |
 | xAI Grok | xhr |
 

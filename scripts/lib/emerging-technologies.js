@@ -126,6 +126,176 @@ const TXT_ENRICH = {
 }
 
 /**
+ * Markers a *customer's own public page* carries.
+ *
+ * The 2026-08-02 DQ measured the AI additions over 1.87M crawled domains: 128
+ * of 154 never fired once. The cause was structural, not statistical. 70 of
+ * them were `xhr`-only rules matching a **back-end** API hostname —
+ * `\.pinecone\.io`, `\.snowflakecomputing\.com`, `aiplatform\.googleapis\.com`.
+ * A visitor's browser never issues those requests; the customer's servers do.
+ * The rule cannot fire on a page crawl no matter how good the crawl is.
+ *
+ * Everything below is the opposite kind of evidence: something the vendor puts
+ * on its customers' pages — an embedded widget, a form iframe, a run-button, a
+ * generated-image host, a tenant careers link, a response header, or the markup
+ * of a UI the customer publishes themselves. Each was fetched on 2026-08-03 and
+ * the observation is recorded in REVIEWED_EVIDENCE below; nothing here is
+ * inferred from a vendor's marketing copy.
+ *
+ * These are merged into whatever the entry already has rather than replacing
+ * it. The back-end hostname stays: it is honest evidence *when* a crawl happens
+ * to observe that traffic, it just cannot be the only channel.
+ *
+ * Applied by scripts/add-technologies.js, so an entry that already exists in
+ * the catalog under its own name (Zapier) is patched the same way as one
+ * authored here.
+ */
+const CUSTOMER_VISIBLE = {
+    // Dialogflow CX / Conversational Agents is the customer-facing half of
+    // Vertex AI Agent Builder. The <df-messenger> element and its gstatic
+    // bootstrap sit on the customer's marketing site.
+    'Google Vertex AI': {
+        scriptSrc: 'www\\.gstatic\\.com/dialogflow-console/fast/(?:df-)?messenger[/.]',
+        dom: 'df-messenger[agent-id], df-messenger[project-id], df-messenger[chat-title]',
+    },
+
+    // watsonx Assistant's web chat, embedded by the customer.
+    'IBM watsonx': {
+        scriptSrc: 'web-chat\\.global\\.assistant\\.watson\\.appdomain\\.cloud/',
+    },
+
+    // IBM Cloud's application domain. A page served from, or calling,
+    // *.appdomain.cloud is running on IBM Cloud.
+    'IBM Cloud': {
+        xhr: '[a-z0-9-]+\\.appdomain\\.cloud',
+        url: '^https?://[a-z0-9.-]+\\.appdomain\\.cloud[:/]',
+    },
+
+    // MuleSoft's CloudHub is where customer APIs are actually served from, so a
+    // front end calling its own API hits *.cloudhub.io from the browser.
+    MuleSoft: {
+        xhr: '[a-z0-9-]+\\.cloudhub\\.io',
+    },
+
+    // "Run in Postman" button on a customer's developer/API docs page.
+    Postman: {
+        scriptSrc: 'run\\.pstmn\\.io/button\\.js',
+        html: 'run\\.pstmn\\.io/button\\.svg',
+    },
+
+    // monday.com work forms and board views, embedded as iframes.
+    'Monday.com': {
+        html: ['forms\\.monday\\.com/forms/embed/', 'view\\.monday\\.com/embed/'],
+    },
+
+    // Wrike request forms, embedded as an iframe.
+    Wrike: {
+        html: 'wrike\\.com/frontend/requestforms/',
+    },
+
+    // Zapier's embeddable widgets: the app-directory widget and the Interfaces
+    // web components (chatbot embed).
+    Zapier: {
+        scriptSrc: [
+            'zapier\\.com/apps/embed/widget\\.js',
+            'interfaces\\.zapier\\.com/assets/web-components/',
+        ],
+        dom: 'zapier-interfaces-chatbot-embed, zapier-interfaces-page-embed',
+    },
+
+    // Make (formerly Integromat) webhooks are the target of forms and fetches
+    // on the customer's own page.
+    Make: {
+        // The entry already carries hook.<region>.make.com; only the legacy
+        // Integromat host is missing from the xhr side. The html pattern is
+        // the new part: a form whose action points at the webhook is visible
+        // in the markup even when the crawl never submits it.
+        xhr: 'hook\\.(?:[a-z0-9-]+\\.)?integromat\\.com',
+        html: 'hook\\.(?:[a-z0-9-]+\\.)?(?:make\\.com|integromat\\.com)/',
+    },
+
+    // Adobe Acrobat Sign web forms, embedded as an iframe on the customer's
+    // own page.
+    'Adobe Acrobat Sign': {
+        html: 'secure\\.[a-z0-9]+\\.adobesign\\.com/public/esignWidget',
+    },
+
+    // Superblocks applications embedded into a customer page.
+    Superblocks: {
+        html: 'app\\.superblocks\\.com/embed/applications/',
+    },
+
+    // Amazon Q Business anonymous web experience, embedded as an iframe. AWS
+    // documents the iframe embed and the allowed-origin configuration.
+    'Amazon Q': {
+        html: 'chat\\.qbusiness\\.[a-z0-9-]+\\.on\\.aws',
+    },
+
+    // The Autodesk Platform Services (Forge) viewer, embedded to show CAD/BIM
+    // models on a customer site.
+    Autodesk: {
+        scriptSrc: 'developer\\.api\\.autodesk\\.com/modelderivative/v[0-9]+/viewers/',
+    },
+
+    // A tenant careers link — the exception to "a link to a vendor is not
+    // evidence": this URL only exists because the company has the tenant.
+    'SAP SuccessFactors': {
+        html: '(?:career|performancemanager|jobs)[0-9]*\\.successfactors\\.(?:com|eu)/(?:career|sfcareer)',
+    },
+
+    // HackerOne's embedded submission form, on the customer's security page.
+    HackerOne: {
+        html: 'hackerone\\.com/[a-z0-9_.-]+/embedded_submissions/new',
+    },
+
+    // Images generated through Replicate are served from replicate.delivery.
+    Replicate: {
+        html: 'replicate\\.delivery/',
+    },
+
+    // Ideogram serves generated images through its own image path.
+    Ideogram: {
+        html: 'ideogram\\.ai/assets/image/',
+    },
+
+    // ClickHouse's HTTP interface stamps every response, and its bundled /play
+    // console ships a fixed title.
+    ClickHouse: {
+        headers: {
+            'X-ClickHouse-Server-Display-Name': '',
+            'X-ClickHouse-Summary': '',
+            'X-ClickHouse-Query-Id': '',
+        },
+        html: '<title>ClickHouse Query</title>',
+    },
+
+    // `dbt docs generate` produces a static site companies publish themselves.
+    // Anchored to the Angular app attribute plus the fixed title, not to prose.
+    dbt: {
+        html: ['ng-app=[\'"]dbt[\'"]', '<title>\\s*dbt Docs\\s*</title>'],
+    },
+
+    // Unleash's own UI ships these meta tags, and its browser SDK talks to the
+    // hosted frontend API from the customer's page.
+    Unleash: {
+        meta: { unleashToken: '', uiFlags: '' },
+        xhr: '[a-z0-9-]+\\.app\\.unleash-hosted\\.com',
+    },
+
+    // Operator UIs published by the customer. Shipped markup, read from each
+    // project's own index template.
+    Metaflow: {
+        html: '<title>\\s*Metaflow UI\\s*</title>',
+    },
+    Kedro: {
+        html: '<title>\\s*Kedro-Viz\\s*</title>',
+    },
+    ZenML: {
+        html: 'ZenML Deployment\\s*</title>',
+    },
+}
+
+/**
  * New technologies. Kept as data so the shape is obvious and every entry goes
  * through the same validation as the rest of the catalog.
  */
@@ -354,7 +524,11 @@ const TECHNOLOGIES = {
         icon: 'default.svg',
         saas: true,
         oss: false,
-        xhr: 'api\\.together\\.xyz',
+        // Current .ai host plus the retained legacy .xyz one. Kept as a single
+        // alternation so re-running add-technologies.js does not append a
+        // second, redundant pattern to the catalog entry.
+        xhr: 'api\\.together\\.(?:ai|xyz)',
+        url: '^https?://api\\.together\\.ai(?:[:/]|$)',
     },
 
     DeepSeek: {
@@ -2897,6 +3071,77 @@ const CATALOG_ONLY = {
     },
 }
 
+/**
+ * Union a patch channel into an entry's existing channel.
+ *
+ * Non-keyed channels (`html`, `scriptSrc`, `xhr`, ...) collapse to a string
+ * when there is one pattern and an array when there are several, which is the
+ * shape the engine and the validator expect. Keyed channels (`headers`,
+ * `meta`) merge key by key. The existing value always survives — a back-end
+ * hostname is not wrong, it is just insufficient on its own.
+ */
+function unionChannel(existing, addition) {
+    if (
+        addition &&
+        typeof addition === 'object' &&
+        !Array.isArray(addition)
+    ) {
+        return { ...(existing || {}), ...addition }
+    }
+
+    const before = existing === undefined
+        ? []
+        : Array.isArray(existing)
+            ? existing
+            : [existing]
+    const added = Array.isArray(addition) ? addition : [addition]
+    const merged = [...before]
+
+    for (const pattern of added) {
+        if (!merged.includes(pattern)) {
+            merged.push(pattern)
+        }
+    }
+
+    return merged.length === 1 ? merged[0] : merged
+}
+
+/**
+ * Apply the customer-visible markers to one entry, in place.
+ * @param {object} entry a catalog entry
+ * @param {object} patch a CUSTOMER_VISIBLE value
+ */
+function applyCustomerVisible(entry, patch) {
+    const gained = []
+
+    for (const [channel, pattern] of Object.entries(patch)) {
+        const before = JSON.stringify(entry[channel])
+
+        entry[channel] = unionChannel(entry[channel], pattern)
+
+        if (JSON.stringify(entry[channel]) !== before) {
+            gained.push(channel)
+        }
+    }
+
+    return gained
+}
+
+/**
+ * Names patched here that this file does not author. They exist in the catalog
+ * already, so scripts/add-technologies.js applies their patch to the loaded
+ * catalog instead — the same split TXT_ENRICH uses.
+ */
+const CUSTOMER_VISIBLE_ENRICH = {}
+
+for (const [name, patch] of Object.entries(CUSTOMER_VISIBLE)) {
+    if (TECHNOLOGIES[name]) {
+        applyCustomerVisible(TECHNOLOGIES[name], patch)
+    } else {
+        CUSTOMER_VISIBLE_ENRICH[name] = patch
+    }
+}
+
 /** Evidence quality for every technology authored in this file. */
 const EVIDENCE = {}
 
@@ -3201,6 +3446,221 @@ const REVIEWED_EVIDENCE = {
         signal: 'browser-visible-api-call',
         reviewedAt: '2026-07-28',
     },
+
+    /* ------------------------------------------------------------------ */
+    /* Customer-visible markers added 2026-08-03 in response to the DQ.    */
+    /*                                                                     */
+    /* Each `observed` line is a fetch made that day. The `signal` field is */
+    /* the important one: `customer-page` means the marker appears on the  */
+    /* site of a company *using* the product, which is the only signal a   */
+    /* root-domain crawl can ever see.                                     */
+    /* ------------------------------------------------------------------ */
+
+    'Google Vertex AI': {
+        class: 'embedded-widget+xhr-hostname',
+        verification: 'live-observed',
+        observed: [
+            'https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js returns 200 (536 KB, text/javascript).',
+            'https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js returns 200, the older Dialogflow Messenger loader.',
+            'Both are loaded by the <df-messenger> element a customer places on its own site; Dialogflow CX/Conversational Agents is the customer-facing surface of Vertex AI Agent Builder.',
+            'The pre-existing aiplatform.googleapis.com xhr rule is retained but is a back-end call and cannot fire on a page crawl.',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    'IBM watsonx': {
+        class: 'embedded-widget+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js returns 200 (application/x-javascript). This is the watsonx Assistant web chat entry point a customer embeds on its own page.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    'IBM Cloud': {
+        class: 'hosting-hostname+dns-txt',
+        verification: 'live-observed',
+        observed:
+            'appdomain.cloud is IBM Cloud\'s application domain; web-chat.global.assistant.watson.appdomain.cloud resolves and serves. A page served from, or calling, a *.appdomain.cloud host is running on IBM Cloud.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    MuleSoft: {
+        class: 'hosting-hostname+xhr-hostname',
+        verification: 'official-documented',
+        observed:
+            'CloudHub deploys customer applications to <app>.<region>.cloudhub.io, so a customer front end calling its own MuleSoft API issues a browser request to that host. The anypoint.mulesoft.com console (200) is the back-end surface and is retained separately.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Postman: {
+        class: 'embedded-widget+dns-txt',
+        verification: 'live-observed',
+        observed: [
+            'https://run.pstmn.io/button.js returns 200 (application/javascript, 50 KB) and contains the postman-run-button critical CSS.',
+            'https://run.pstmn.io/button.svg returns 200 (image/svg+xml).',
+            'This is the "Run in Postman" button a company places on its own API documentation.',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    'Monday.com': {
+        class: 'embedded-widget+dns-txt',
+        verification: 'live-observed',
+        observed: [
+            'https://forms.monday.com/forms/embed/1234 returns 200 (text/html).',
+            'https://view.monday.com/embed/1234 returns 200 (text/html).',
+            'Both are iframe embeds a customer places on its own site.',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Wrike: {
+        class: 'embedded-widget+dns-txt',
+        verification: 'live-observed',
+        observed:
+            'https://www.wrike.com/frontend/requestforms/index.html?key=test returns 200 (text/html). Wrike request forms are embedded as an iframe on the customer\'s own page.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Zapier: {
+        class: 'embedded-widget+dns-txt',
+        verification: 'live-observed',
+        observed: [
+            'https://zapier.com/apps/embed/widget.js returns 200 (application/javascript).',
+            'https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js returns 200 and is the module backing <zapier-interfaces-chatbot-embed>.',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Make: {
+        class: 'webhook-hostname+dns-txt',
+        verification: 'live-observed',
+        observed:
+            'hook.eu1.make.com, hook.us1.make.com and hook.integromat.com all answer (404 "Not found" from the webhook router, i.e. the host is live). A Make-backed form or fetch on the customer\'s own page targets that host.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    'Adobe Acrobat Sign': {
+        class: 'embedded-widget+dns-txt',
+        verification: 'live-observed',
+        observed: [
+            'https://secure.na1.adobesign.com/public/login and https://secure.eu1.adobesign.com/public/login both return 200, confirming the regional host shape.',
+            'Adobe documents the web-form embed as <iframe src="https://secure.na4.adobesign.com/public/esignWidget?wid=...">, placed on the customer\'s own site.',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Superblocks: {
+        class: 'embedded-widget+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'https://app.superblocks.com/embed/applications/test returns 200 and serves the embed shell. Superblocks applications are embedded into customer pages at this path.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    'Amazon Q': {
+        class: 'embedded-widget+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'chat.qbusiness.us-east-1.on.aws resolves. AWS documents embedding the Amazon Q Business anonymous web experience in an iframe on a public website, with the customer\'s domain configured as an allowed origin.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Autodesk: {
+        class: 'embedded-viewer+dns-txt',
+        verification: 'live-observed',
+        observed:
+            'https://developer.api.autodesk.com/modelderivative/v2/viewers/7.108.0/viewer3D.min.js returns 200 (823 KB). This is the APS/Forge viewer bundle a customer loads to show models on its own site.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    'SAP SuccessFactors': {
+        class: 'tenant-link+dns-txt',
+        verification: 'live-observed',
+        observed: [
+            'https://career5.successfactors.eu/career returns 200 and renders the SuccessFactors careers runtime.',
+            'https://performancemanager.successfactors.eu/career returns 200.',
+            'A link to this host from a company site only exists because that company has the tenant — the same exception already applied to *.myworkdayjobs.com.',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    HackerOne: {
+        class: 'embedded-widget+dns-txt',
+        verification: 'live-observed',
+        observed:
+            'https://hackerone.com/<program>/embedded_submissions/new is a real route: it rejects a non-uuid parameter with HTTP 400 "uuid must match ...". Companies iframe it on their own security page.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Replicate: {
+        class: 'generated-media-host+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'https://replicate.delivery/ answers (200, application/json). Model output served on a customer page comes from this host — the same reasoning already applied to cdn.midjourney.com.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Ideogram: {
+        class: 'generated-media-host+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'https://ideogram.ai/assets/image/... is the generated-image path; a missing id returns Ideogram\'s own "ERROR 9404: Could not fetch the image" rather than a generic 404, confirming the image service.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    ClickHouse: {
+        class: 'response-header+shipped-markup',
+        verification: 'live-observed',
+        observed: [
+            'X-ClickHouse-Server-Display-Name, X-ClickHouse-Summary and X-ClickHouse-Query-Id are emitted by src/Server/HTTPHandler.cpp in the ClickHouse source.',
+            'The bundled console programs/server/play.html ships <title>ClickHouse Query</title>; https://play.clickhouse.com/play serves it (200).',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    dbt: {
+        class: 'shipped-markup+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'dbt-labs/dbt-docs src/index.html opens <html ... ng-app=\'dbt\'> and carries <title>dbt Docs</title>. `dbt docs generate` output is routinely published by the company that runs dbt, which makes it a customer-side artefact rather than a back-end call to cloud.getdbt.com.',
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Unleash: {
+        class: 'shipped-markup+frontend-api-hostname',
+        verification: 'live-observed',
+        observed: [
+            'Unleash/unleash frontend/index.html ships <meta name="unleashToken"> and <meta name="uiFlags">.',
+            'app.unleash-hosted.com, eu.app.unleash-hosted.com and us.app.unleash-hosted.com all return 200; the browser SDK calls the frontend API on that host from the customer\'s page.',
+        ],
+        signal: 'customer-page',
+        reviewedAt: '2026-08-03',
+    },
+    Metaflow: {
+        class: 'shipped-markup+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'Netflix/metaflow-ui public/index.html ships <title>Metaflow UI</title>. Fires where the customer publishes the UI; it will not fire on a root-domain-only crawl.',
+        signal: 'operator-ui',
+        reviewedAt: '2026-08-03',
+    },
+    Kedro: {
+        class: 'shipped-markup',
+        verification: 'live-observed',
+        observed:
+            'kedro-org/kedro-viz public/index.html ships <title>Kedro-Viz</title>. Kedro-Viz is commonly exported as a static site. Operator-UI signal, not a root-domain one.',
+        signal: 'operator-ui',
+        reviewedAt: '2026-08-03',
+    },
+    ZenML: {
+        class: 'shipped-markup+xhr-hostname',
+        verification: 'live-observed',
+        observed:
+            'zenml-io/zenml src/zenml/deployers/server/dashboard/index.html titles every deployment "<pipeline> - ZenML Deployment". Operator-UI signal, not a root-domain one.',
+        signal: 'operator-ui',
+        reviewedAt: '2026-08-03',
+    },
 }
 
 for (const [name, evidence] of Object.entries(REVIEWED_EVIDENCE)) {
@@ -3211,7 +3671,10 @@ for (const [name, evidence] of Object.entries(REVIEWED_EVIDENCE)) {
 }
 
 module.exports = {
+    applyCustomerVisible,
     CATALOG_ONLY,
+    CUSTOMER_VISIBLE,
+    CUSTOMER_VISIBLE_ENRICH,
     EVIDENCE,
     EXPECTED_SUPERSESSIONS,
     supersedes,

@@ -6584,7 +6584,9 @@
     "xhr": "api\\.(?:get)?postman\\.com",
     "dns": {
       "TXT": "postman-domain-verification="
-    }
+    },
+    "scriptSrc": "run\\.pstmn\\.io/button\\.js",
+    "html": "run\\.pstmn\\.io/button\\.svg"
   },
   "Postman API Documentation": {
     "cats": [

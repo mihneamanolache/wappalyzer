@@ -1017,10 +1017,14 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "hook\\.[a-z0-9-]+\\.make\\.com",
+    "xhr": [
+      "hook\\.[a-z0-9-]+\\.make\\.com",
+      "hook\\.(?:[a-z0-9-]+\\.)?integromat\\.com"
+    ],
     "dns": {
       "TXT": "make-domain-verification="
-    }
+    },
+    "html": "hook\\.(?:[a-z0-9-]+\\.)?(?:make\\.com|integromat\\.com)/"
   },
   "Make-Sense": {
     "cats": [
@@ -3590,7 +3594,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": true,
-    "xhr": "(?:api\\.)?outerbounds\\.(?:com|dev)"
+    "xhr": "(?:api\\.)?outerbounds\\.(?:com|dev)",
+    "html": "<title>\\s*Metaflow UI\\s*</title>"
   },
   "MetaMap": {
     "cats": [
@@ -6837,7 +6842,11 @@
     "dns": {
       "TXT": "monday-com-verification="
     },
-    "xhr": "api\\.monday\\.com"
+    "xhr": "api\\.monday\\.com",
+    "html": [
+      "forms\\.monday\\.com/forms/embed/",
+      "view\\.monday\\.com/embed/"
+    ]
   },
   "Mondial Relay": {
     "cats": [
@@ -7979,7 +7988,10 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "anypoint\\.mulesoft\\.com"
+    "xhr": [
+      "anypoint\\.mulesoft\\.com",
+      "[a-z0-9-]+\\.cloudhub\\.io"
+    ]
   },
   "Mura CMS": {
     "cats": [

@@ -137,7 +137,9 @@
     "oss": false,
     "dns": {
       "TXT": "ibmid="
-    }
+    },
+    "xhr": "[a-z0-9-]+\\.appdomain\\.cloud",
+    "url": "^https?://[a-z0-9.-]+\\.appdomain\\.cloud[:/]"
   },
   "IBM Cloudant": {
     "cats": [
@@ -280,7 +282,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "\\.ml\\.cloud\\.ibm\\.com"
+    "xhr": "\\.ml\\.cloud\\.ibm\\.com",
+    "scriptSrc": "web-chat\\.global\\.assistant\\.watson\\.appdomain\\.cloud/"
   },
   "IBM Web Content Manager": {
     "cats": [
@@ -616,7 +619,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "(?:api\\.)?ideogram\\.ai"
+    "xhr": "(?:api\\.)?ideogram\\.ai",
+    "html": "ideogram\\.ai/assets/image/"
   },
   "Ideta": {
     "cats": [

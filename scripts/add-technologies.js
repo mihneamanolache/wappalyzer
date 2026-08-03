@@ -22,7 +22,9 @@ const { loadCatalog, saveCatalog } = require('./lib/catalog')
 const { mergeEntry } = require('./lib/merge')
 const { normalizeCatalog } = require('./lib/normalize')
 const {
+    applyCustomerVisible,
     CATALOG_ONLY,
+    CUSTOMER_VISIBLE_ENRICH,
     TECHNOLOGIES,
     TXT_ENRICH,
 } = require('./lib/emerging-technologies')
@@ -97,6 +99,25 @@ function main() {
 
         entry.dns = dns
         enriched.push(`${name}: dns.TXT += ${token}`)
+    }
+
+    // Customer-visible markers for technologies the catalog already tracks
+    // under their own name. Entries authored in emerging-technologies.js are
+    // patched there, so only the remainder is handled here.
+    for (const [name, patch] of Object.entries(CUSTOMER_VISIBLE_ENRICH)) {
+        const entry = technologies[name]
+
+        if (!entry) {
+            console.log(`  skipped ${name}: not in the catalog under that name`)
+
+            continue
+        }
+
+        const gained = applyCustomerVisible(entry, patch)
+
+        if (gained.length) {
+            enriched.push(`${name}: +${gained.join(', +')}`)
+        }
     }
 
     console.log(`ADDED (${added.length})`)

@@ -1572,7 +1572,8 @@
     "oss": false,
     "dns": {
       "TXT": "successfactors-site-verification="
-    }
+    },
+    "html": "(?:career|performancemanager|jobs)[0-9]*\\.successfactors\\.(?:com|eu)/(?:career|sfcareer)"
   },
   "SAP Upscale Commerce": {
     "cats": [
@@ -17140,7 +17141,8 @@
     "icon": "default.svg",
     "saas": true,
     "oss": false,
-    "xhr": "(?:app|agent)\\.superblocks\\.com"
+    "xhr": "(?:app|agent)\\.superblocks\\.com",
+    "html": "app\\.superblocks\\.com/embed/applications/"
   },
   "Superblog": {
     "cats": [
