@@ -280,11 +280,9 @@ function getDom(page, technologies = Wappalyzer.technologies) {
 }
 
 function get(url, options = {}) {
-    const timeout =
-        options.timeout ||
-            (this.options.fast
-                ? this.Math.min(this.options.maxWait, 3000)
-                : this.options.maxWait)
+    // `get` is a bare function, not a method — `this` is undefined here, so the
+    // options fallback can only ever come from the caller.
+    const timeout = options.timeout || 3000
 
     if (['http:', 'https:'].includes(url.protocol)) {
         const { get } = url.protocol === 'http:' ? http : https
@@ -335,6 +333,19 @@ class Driver {
             maxDepth: 3,
             maxUrls: 10,
             maxWait: 30000,
+            // Navigation budget for a single page. Distinct from `maxWait`,
+            // which is the ceiling for the whole analysis: a page that has not
+            // committed a document within `pageTimeout` is never going to, and
+            // holding the whole maxWait budget open for it just burns a worker.
+            pageTimeout: 0,
+            // How long to let scripts run after navigation before reading the
+            // DOM. Was hardcoded at 3000 (1000 under `fast`); named so callers
+            // can tune it without opting into everything else `fast` implies.
+            settleMs: 0,
+            // Default ceiling for individual sub-operations (html/link/js/dom
+            // evaluation). Was `maxWait`, which let one stuck evaluate consume
+            // the entire per-domain budget.
+            evalTimeoutMs: 0,
             recursive: false,
             probe: false,
             textSignals: false,
@@ -359,6 +370,18 @@ class Driver {
         this.options.maxDepth = parseInt(this.options.maxDepth, 10)
         this.options.maxUrls = parseInt(this.options.maxUrls, 10)
         this.options.maxWait = parseInt(this.options.maxWait, 10)
+        // Zero means "not set" for each of these; each falls back to the
+        // behaviour that was hardcoded before it existed.
+        this.options.pageTimeout =
+            parseInt(this.options.pageTimeout, 10) || this.options.maxWait
+        this.options.settleMs =
+            parseInt(this.options.settleMs, 10) ||
+            (this.options.fast ? 1000 : 3000)
+        this.options.evalTimeoutMs =
+            parseInt(this.options.evalTimeoutMs, 10) ||
+            (this.options.fast
+                ? Math.min(this.options.maxWait, 2000)
+                : this.options.maxWait)
         this.options.htmlMaxCols = parseInt(this.options.htmlMaxCols, 10)
         this.options.htmlMaxRows = parseInt(this.options.htmlMaxRows, 10)
         this.options.noScripts = Boolean(+this.options.noScripts)
@@ -428,6 +451,11 @@ class Driver {
 
     async open(url, headers = {}, storage = {}) {
         const site = new Site(url.split('#')[0], headers, this)
+
+        // Tracked so a caller that ran out of budget can still harvest
+        // whatever this site detected. See `collectPartialResults`.
+        this.site = site
+
         const hasStorage = ['local', 'session'].some(
             (type) => Object.keys(storage[type] || {}).length
         )
@@ -465,6 +493,25 @@ class Driver {
         }
 
         return site
+    }
+
+    /**
+     * Whatever the current site has detected so far, or null if nothing was
+     * ever opened. Lets a caller whose own timeout fired emit a partial result
+     * rather than throwing away a nearly-complete analysis.
+     */
+    collectPartialResults() {
+        if (!this.site) {
+            return null
+        }
+
+        try {
+            return this.site.collectResults()
+        } catch (error) {
+            this.log(`collectPartialResults failed: ${error.message || error}`)
+
+            return null
+        }
     }
 
     log(message, source = 'driver') {
@@ -601,9 +648,7 @@ class Site {
         promise,
         fallback,
         errorMessage = 'Operation took too long to complete',
-        maxWait = this.options.fast
-            ? Math.min(this.options.maxWait, 2000)
-            : this.options.maxWait
+        maxWait = this.options.evalTimeoutMs
     ) {
         let timeout = null
 
@@ -793,7 +838,15 @@ class Site {
         })
 
         try {
-            await page.goto(url.href)
+            // `load` waits for every subresource, so a single slow image or
+            // beacon held the page for the full maxWait. Everything analysed
+            // here is available at `domcontentloaded` plus the settle window
+            // below, and the explicit timeout bounds a hung navigation instead
+            // of letting it consume the whole per-domain budget.
+            await page.goto(url.href, {
+                waitUntil: 'domcontentloaded',
+                timeout: this.options.pageTimeout,
+            })
 
             if (page.url() === 'about:blank') {
                 const error = new Error(`The page failed to load (${url})`)
@@ -804,7 +857,7 @@ class Site {
             }
 
             if (!this.options.noScripts) {
-                await sleep(this.options.fast ? 1000 : 3000)
+                await sleep(this.options.settleMs)
             }
 
             // page.on('console', (message) => this.log(message.text()))
@@ -1184,6 +1237,7 @@ class Site {
         page.setJavaScriptEnabled(!this.options.noScripts)
 
         page.setDefaultTimeout(this.options.maxWait)
+        page.setDefaultNavigationTimeout(this.options.pageTimeout)
 
         await page.setUserAgent(this.options.userAgent)
 
@@ -1254,6 +1308,22 @@ class Site {
             })(),
         ])
 
+        const results = this.collectResults()
+
+        await this.emit('analyze', results)
+
+        return results
+    }
+
+    /**
+     * Builds the result object from whatever has been detected so far.
+     *
+     * Split out of `analyze` so a caller whose own budget expired can still
+     * harvest the partial detections instead of discarding the work. Reads
+     * only accumulated state, never touches the page, and is safe to call
+     * after the browser has gone away.
+     */
+    collectResults() {
         const patterns = this.options.extended
             ? this.detections.reduce(
                 (
@@ -1322,8 +1392,6 @@ class Site {
             ),
             patterns,
         }
-
-        await this.emit('analyze', results)
 
         return results
     }
