@@ -436,15 +436,25 @@ class Driver {
     }
 
     async destroy() {
-        if (this.browser) {
+        // Taken and cleared up front so a second destroy is a no-op. Callers
+        // routinely tear down from both a `finally` and a cancellation path,
+        // and closing an already-closed target throws.
+        const browser = this.browser
+
+        this.browser = undefined
+
+        if (browser) {
             try {
                 await sleep(1)
 
-                await this.browser.close()
+                await browser.close()
 
                 this.log('Browser closed')
             } catch (error) {
-                throw new Error(error.toString())
+                // Teardown failing because the target is already gone is not
+                // something a caller can act on, and throwing from here
+                // escapes as an unhandled rejection.
+                this.log(`Browser close failed: ${error.message || error}`)
             }
         }
     }
