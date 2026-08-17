@@ -1244,7 +1244,21 @@ class Site {
 
         this.pages.push(page)
 
-        page.setJavaScriptEnabled(!this.options.noScripts)
+        // Awaited, and tolerant of engines that do not implement it.
+        //
+        // This returns a promise (it sends Emulation.setScriptExecutionDisabled)
+        // and was fired without await, so a failure had nowhere to go and
+        // surfaced as an unhandled rejection at the top of the process. When a
+        // remote browser drops the socket mid-call the rejection is
+        // TargetCloseError, which in production killed workers outright: 12% of
+        // one fleet was found exited-but-alive, holding partitions nobody
+        // consumed. Not every CDP implementation has the method either, so a
+        // failure here is logged rather than propagated.
+        try {
+            await page.setJavaScriptEnabled(!this.options.noScripts)
+        } catch (error) {
+            this.log(`setJavaScriptEnabled unavailable: ${error.message || error}`)
+        }
 
         page.setDefaultTimeout(this.options.maxWait)
         page.setDefaultNavigationTimeout(this.options.pageTimeout)
