@@ -4770,6 +4770,29 @@
     },
     "website": "https://www.microsoft.com/exchange/2010/"
   },
+  "Microsoft Fabric": {
+    "cats": [
+      204,
+      10
+    ],
+    "description": "Microsoft Fabric is Microsoft's unified data and analytics platform, combining data engineering, warehousing, real-time analytics and Power BI on a shared OneLake storage layer.",
+    "dom": [
+      "iframe[src*='app.fabric.microsoft.com']"
+    ],
+    "headers": {
+      "Content-Security-Policy": "(?:app|api)\\.fabric\\.microsoft\\.com|onelake\\.(?:dfs|blob)\\.fabric\\.microsoft\\.com"
+    },
+    "icon": "default.svg",
+    "oss": false,
+    "pricing": [
+      "payg",
+      "recurring",
+      "high"
+    ],
+    "saas": true,
+    "website": "https://www.microsoft.com/microsoft-fabric",
+    "xhr": "api\\.fabric\\.microsoft\\.com|onelake\\.(?:dfs|blob)\\.fabric\\.microsoft\\.com"
+  },
   "Microsoft Forefront TMG": {
     "cats": [
       22
