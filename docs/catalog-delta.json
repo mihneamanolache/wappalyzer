@@ -6,11 +6,11 @@
     "categories": 111
   },
   "after": {
-    "technologies": 8429,
+    "technologies": 8430,
     "categories": 124
   },
   "summary": {
-    "added": 518,
+    "added": 519,
     "removed": 0,
     "changed": 291
   },
@@ -229,6 +229,7 @@
     "MessageMedia",
     "Mexty",
     "Mico",
+    "Microsoft Fabric",
     "MiniBC",
     "Moofx",
     "MoreVago",

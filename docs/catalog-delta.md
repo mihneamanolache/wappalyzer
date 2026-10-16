@@ -6,20 +6,20 @@ Computed by parsing both revisions and comparing entries, not by reading the tex
 
 |  | Before | After |
 | --- | --- | --- |
-| Technologies | 7911 | 8429 |
+| Technologies | 7911 | 8430 |
 | Categories | 111 | 124 |
 
 | Change | Count |
 | --- | --- |
-| Added | 518 |
+| Added | 519 |
 | **Removed** | **0** |
 | Changed | 291 |
 
 Nothing was removed from the catalog.
 
-## Added (518)
+## Added (519)
 
-### From upstream (318)
+### From upstream (319)
 
 <details><summary>List</summary>
 
@@ -170,6 +170,7 @@ Nothing was removed from the catalog.
 - MessageMedia
 - Mexty
 - Mico
+- Microsoft Fabric
 - MiniBC
 - Moofx
 - MoreVago
