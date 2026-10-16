@@ -3086,6 +3086,7 @@
     {
       "name": "Microsoft Power BI",
       "fieldsAdded": [
+        "dom",
         "js",
         "scriptSrc"
       ],
