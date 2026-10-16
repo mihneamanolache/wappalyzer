@@ -4777,10 +4777,10 @@
     ],
     "description": "Microsoft Fabric is Microsoft's unified data and analytics platform, combining data engineering, warehousing, real-time analytics and Power BI on a shared OneLake storage layer.",
     "dom": [
-      "iframe[src*='app.fabric.microsoft.com']"
+      "iframe[src*='.fabric.microsoft.com/itemEmbed']"
     ],
     "headers": {
-      "Content-Security-Policy": "(?:app|api)\\.fabric\\.microsoft\\.com|onelake\\.(?:dfs|blob)\\.fabric\\.microsoft\\.com"
+      "Content-Security-Policy": "api\\.fabric\\.microsoft\\.com|onelake\\.(?:dfs|blob)\\.fabric\\.microsoft\\.com"
     },
     "icon": "default.svg",
     "oss": false,
@@ -4887,10 +4887,17 @@
       10
     ],
     "description": "Microsoft Power BI is a data analytics platform that transforms company data into rich visuals for insights and decision-making.",
+    "dom": [
+      "iframe[src*='app.powerbi.com/view?r='], iframe[src*='app.fabric.microsoft.com/view?r='], iframe[src*='app.powerbi.com/reportEmbed'], iframe[src*='app.fabric.microsoft.com/reportEmbed']"
+    ],
     "headers": {
       "Content-Security-Policy": "app\\.powerbi\\.com"
     },
     "icon": "MicrosoftPowerBI.svg",
+    "js": {
+      "powerBIAccessToken": "",
+      "powerBIEmbedToken": ""
+    },
     "pricing": [
       "freemium",
       "low",
@@ -4898,14 +4905,10 @@
       "poa"
     ],
     "saas": true,
-    "website": "https://www.microsoft.com/en-us/power-platform/products/power-bi",
-    "js": {
-      "powerBIAccessToken": "",
-      "powerBIEmbedToken": ""
-    },
     "scriptSrc": [
       "content\\.powerapps\\.com"
-    ]
+    ],
+    "website": "https://www.microsoft.com/en-us/power-platform/products/power-bi"
   },
   "Microsoft PowerPoint": {
     "cats": [

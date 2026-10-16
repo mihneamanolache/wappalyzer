@@ -728,7 +728,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Microsoft Commerce Server | - | - | cookies |
 | Microsoft FrontPage | meta | slug, dom | - |
 | Microsoft Insider Risk Management | xhrUrl | xhr | dom |
-| Microsoft Power BI | js, scriptSrc | - | - |
+| Microsoft Power BI | dom, js, scriptSrc | - | - |
 | Microsoft SQL Server | - | - | dns |
 | Miso | xhrUrl | xhr | - |
 | Mixpanel | - | - | dns |
