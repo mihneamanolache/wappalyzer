@@ -1,0 +1,112 @@
+{
+  "observedAt": "2026-10-22T06:50:47.452Z",
+  "method": "Direct public DNS lookups; TXT data filtered to relevant verification and DMARC records.",
+  "results": [
+    {
+      "name": "cisco.com",
+      "type": "TXT",
+      "values": [
+        "ZOOM_verify_Gf6CaEdJ5aKGvjcUrZRkiA"
+      ]
+    },
+    {
+      "name": "webex.com",
+      "type": "TXT",
+      "values": []
+    },
+    {
+      "name": "zoom.us",
+      "type": "TXT",
+      "values": [
+        "v=DMARC1; p=reject; ri=3600; rua=mailto:sesbounce@zoom.us,mailto:dmarc_rua@emaildefense.proofpoint.com"
+      ]
+    },
+    {
+      "name": "hs-neu-ulm.de",
+      "type": "TXT",
+      "values": [
+        "ZOOM_verify_-szKeKI0SIe79Hbfb0gQwg"
+      ]
+    },
+    {
+      "name": "_dmarc.valimail.com",
+      "type": "TXT",
+      "values": [
+        "v=DMARC1; p=reject; rua=mailto:dmarc_agg@vali.email,mailto:dmarc.reports@valimail.com"
+      ]
+    },
+    {
+      "name": "_dmarc.dmarcian.com",
+      "type": "TXT",
+      "values": [
+        "v=DMARC1; p=reject; rua=mailto:dmcn-corp-ag-in@corp-ag-in.dmarcian.com; ruf=mailto:wbxefl4v@fr.dmarcian.com;"
+      ]
+    },
+    {
+      "name": "_dmarc.proofpoint.com",
+      "type": "TXT",
+      "values": [
+        "v=DMARC1; p=reject; sp=reject; fo=1; rua=mailto:dmarc_rua@emaildefense.proofpoint.com; ruf=mailto:dmarc_ruf@emaildefense.proofpoint.com"
+      ]
+    },
+    {
+      "name": "_dmarc.agari.com",
+      "type": "TXT",
+      "values": [
+        "v=DMARC1; p=reject; sp=reject; fo=1; ri=3600; rua=mailto:agari-data@rua.agari.com; ruf=mailto:agari-data@ruf.agari.com"
+      ]
+    },
+    {
+      "name": "google.com",
+      "type": "TXT",
+      "values": [
+        "cisco-ci-domain-verification=47c38bc8c4b74b7233e9053220c1bbe76bcc1cd33c7acf7acd36cd6a5332004b"
+      ],
+      "observedAt": "2026-10-22T06:55:57.850Z"
+    },
+    {
+      "name": "oracle.com",
+      "type": "TXT",
+      "values": [
+        "webexdomainverification.F00R=81ccb499-274a-447d-a54a-934bb0dafec4",
+        "webexdomainverification.=5c0fd5af-2fff-48d7-a138-10711dd460bb",
+        "webexdomainverification.=603d007e-3304-48a2-b9bc-c8d22b669304",
+        "webexdomainverification.JRGF=35895e43-87ca-4bdf-8feb-b7a0e22694f3",
+        "webexdomainverification.=04ce0c34-7d39-41dd-a3ba-627a30cd205c",
+        "webexdomainverification.=bbd0294a-bc53-46f4-b21c-8dfab1cb7666",
+        "webexdomainverification.=d729667e-36b8-4d4a-bbb7-0f3069025573",
+        "webexdomainverification.JM3I=c1caad11-9eb5-4c76-877d-06dcfcb95db3",
+        "webexdomainverification.JRJC=6ac35490-0c1a-4729-b3fc-78a568159417",
+        "webexdomainverification.HO6U=eeb397a4-2b0c-4475-ae07-56dfc4507757",
+        "webexdomainverification.=1f146848-946a-45a1-b021-4b3d4ef924d6",
+        "webexdomainverification.JIOB=3bc19d00-8f37-45bd-9799-e8ffa9c77306",
+        "webexdomainverification.=6d066ca0-8f37-48c6-8a96-1909343f9c23",
+        "webexdomainverification.=21e2aa9c-745f-4388-a31f-eac4f6c16444",
+        "webexdomainverification.=2f927290-1d5f-4df2-b1bb-bbb71bea85a9",
+        "webexdomainverification.LSOE=4e1c3c86-abf0-4902-8a84-b34420ef075c",
+        "webexdomainverification.=cfeaa219-cb2c-458e-baea-d24703ba2355",
+        "webexdomainverification.=a3652afd-f531-4076-9a45-1e184df3a2d6",
+        "webexdomainverification.LSOJ=4b3a4ca8-7b0a-4bbc-8816-686e1bb4ddf7",
+        "webexdomainverification.=d3071182-7ce2-4cb6-b315-90e9b7f866dc",
+        "webexdomainverification.=e86664eb-38ad-46f7-aa1a-60203dfca9a0"
+      ],
+      "observedAt": "2026-10-22T06:55:57.931Z"
+    },
+    {
+      "name": "ieee.org",
+      "type": "TXT",
+      "values": [
+        "webexdomainverification.4C675B89B682B136E053AB06FC0A3F65=c73ce198-d532-4799-af31-918b8d8dc35f"
+      ],
+      "observedAt": "2026-10-22T06:55:58.299Z"
+    },
+    {
+      "name": "_dmarc.veridion.com",
+      "type": "TXT",
+      "values": [
+        "v=DMARC1; p=none; pct=100; adkim=s; aspf=r; rua=mailto:e39a4acff8634104a70542485ef28514@dmarc-reports.cloudflare.net;"
+      ],
+      "observedAt": "2026-10-22T06:55:58.352Z"
+    }
+  ]
+}

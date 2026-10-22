@@ -624,7 +624,10 @@
     "scriptSrc": [
       "oktacdn\\.com/.+/([\\d.]+)/\\;version:\\1"
     ],
-    "website": "https://developer.okta.com"
+    "website": "https://developer.okta.com",
+    "probe": {
+      "/.well-known/okta-organization": "^\\{\"kind\":\"okta-organization\","
+    }
   },
   "Olapic": {
     "cats": [

@@ -6,13 +6,13 @@
     "categories": 111
   },
   "after": {
-    "technologies": 8430,
+    "technologies": 8439,
     "categories": 124
   },
   "summary": {
-    "added": 519,
+    "added": 528,
     "removed": 0,
-    "changed": 291
+    "changed": 292
   },
   "newCategories": [
     {
@@ -89,6 +89,7 @@
     "ActivEngage",
     "Adenzo",
     "Adwos CMS",
+    "Agari DMARC Protection",
     "Agendize",
     "Akia",
     "AllMyLinks",
@@ -134,7 +135,9 @@
     "Cartline",
     "Cartylabs",
     "Chimpify",
+    "Cisco Webex",
     "CitrusLime",
+    "Cloudflare DMARC Management",
     "Cloudflare Turnstile for WooCommerce",
     "Commercy",
     "ComplyAuto",
@@ -229,7 +232,10 @@
     "MessageMedia",
     "Mexty",
     "Mico",
+    "Microsoft Entra ID",
+    "Microsoft Exchange Online",
     "Microsoft Fabric",
+    "Microsoft Intune",
     "MiniBC",
     "Moofx",
     "MoreVago",
@@ -264,6 +270,7 @@
     "Pixeleze",
     "Premion",
     "Printlane",
+    "Proofpoint Email Fraud Defense",
     "Prosperous AI",
     "Publive",
     "Quadran",
@@ -338,6 +345,7 @@
     "Ureserv",
     "Useberry",
     "Vagaro",
+    "Valimail",
     "Vera",
     "VeraCore",
     "VertaFlow",
@@ -386,6 +394,7 @@
     "autoship",
     "bun",
     "digi·access",
+    "dmarcian",
     "doxo",
     "eKonsilio",
     "eZCater",
@@ -3239,6 +3248,14 @@
       "valuesChanged": [
         "dns"
       ]
+    },
+    {
+      "name": "Okta",
+      "fieldsAdded": [
+        "probe"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
     },
     {
       "name": "OneTrust",

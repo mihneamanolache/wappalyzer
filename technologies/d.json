@@ -3063,6 +3063,18 @@
     ],
     "website": "https://www.atex.com/products/dm-polopoly"
   },
+  "dmarcian": {
+    "description": "dmarcian provides DMARC reporting or email authentication management. DNS reporting destinations indicate configuration, not confirmed report delivery.",
+    "website": "https://dmarcian.com/",
+    "cats": [
+      16
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "TXT _dmarc": "^v=DMARC1; p=(?:none|quarantine|reject); ru[af]=mailto:[^\\s@,;!?]+@[a-z0-9-]+\\.dmarcian\\.com(?:!\\d+[kmgt]?)?$"
+    }
+  },
   "DNN": {
     "cats": [
       1

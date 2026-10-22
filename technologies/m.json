@@ -4160,7 +4160,9 @@
       "MX": [
         "outlook\\.com"
       ],
-      "TXT": "^MS=ms\\d+"
+      "TXT": "^MS=ms\\d+",
+      "CNAME selector1._domainkey": "^selector[12]-[a-z0-9-]+\\._domainkey\\.[a-z0-9-]+\\.(?:onmicrosoft\\.com|[a-z]-v1\\.dkim\\.mail\\.microsoft)$",
+      "CNAME selector2._domainkey": "^selector[12]-[a-z0-9-]+\\._domainkey\\.[a-z0-9-]+\\.(?:onmicrosoft\\.com|[a-z]-v1\\.dkim\\.mail\\.microsoft)$"
     },
     "icon": "Microsoft 365.svg",
     "website": "https://www.microsoft.com/microsoft-365"
@@ -4729,6 +4731,18 @@
       ]
     }
   },
+  "Microsoft Entra ID": {
+    "description": "Microsoft Entra ID is a cloud identity service. Device registration DNS configuration does not establish a Premium subscription.",
+    "website": "https://www.microsoft.com/security/business/identity-access/microsoft-entra-id",
+    "cats": [
+      69
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "CNAME enterpriseregistration": "^enterpriseregistration\\.windows\\.net$"
+    }
+  },
   "Microsoft Excel": {
     "cats": [
       20
@@ -4759,6 +4773,18 @@
     "html": "<!-- OWA Version ([\\d.]+) -->",
     "website": "https://www.microsoft.com/exchange",
     "icon": "Microsoft Exchange.png"
+  },
+  "Microsoft Exchange Online": {
+    "description": "Microsoft Exchange Online is a hosted mail and calendaring service. Autodiscover DNS indicates client discovery configuration.",
+    "website": "https://www.microsoft.com/microsoft-365/exchange/exchange-online",
+    "cats": [
+      30
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "CNAME autodiscover": "^autodiscover\\.outlook\\.com$"
+    }
   },
   "Microsoft Exchange Server": {
     "cats": [
@@ -4890,6 +4916,18 @@
       "manage\\.office365\\.us/api/v1\\.0/[^/]+/activity/feed/.*",
       "manage\\.protection\\.apps\\.mil/api/v1\\.0/[^/]+/activity/feed/.*"
     ]
+  },
+  "Microsoft Intune": {
+    "description": "Microsoft Intune is a cloud endpoint management service. Enrollment DNS records indicate configured discovery, not current device usage.",
+    "website": "https://www.microsoft.com/security/business/endpoint-management/microsoft-intune",
+    "cats": [
+      16
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "CNAME enterpriseenrollment": "^enterpriseenrollment(?:-s)?\\.manage\\.microsoft\\.com$"
+    }
   },
   "Microsoft Power BI": {
     "cats": [
