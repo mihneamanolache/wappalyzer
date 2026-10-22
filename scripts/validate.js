@@ -22,6 +22,7 @@ const {
     CHANNELS,
     DNS_RECORDS,
     DOM_RULES,
+    HOSTNAME_CANDIDATES,
     KNOWN_FIELDS,
     METADATA,
     fileForTechnology,
@@ -112,26 +113,6 @@ function collectXhr(value) {
 
     return leaves
 }
-
-/**
- * Hostname-shaped candidates used to prove an xhr pattern can still fire.
- * Real hostnames observed during the xhr audit, plus generic shapes, plus a
- * slash-free skeleton derived from the pattern itself.
- */
-const HOSTNAME_CANDIDATES = [
-    'example.com',
-    'api.example.com',
-    'a.b.c.example.com',
-    'tenant.api.example.com',
-    'localhost',
-    '10.0.0.1',
-    'sub.domain.co.uk',
-    'x.amazonaws.com',
-    'eks.us-east-1.amazonaws.com',
-    'runtime.sagemaker.eu-west-1.amazonaws.com',
-    'acme.wd5.myworkday.com',
-    'gw.tidbcloud.com',
-]
 
 /** Crude slash-free expansion of a pattern's literal skeleton. */
 function hostnameSkeleton(pattern) {

@@ -103,7 +103,8 @@ const DNS_RECORDS = ['cname', 'mx', 'ns', 'soa', 'txt']
 
 /**
  * Hostname-shaped candidates used to prove an `xhr` pattern can still fire.
- * Real hostnames observed during the xhr audit, plus generic shapes.
+ * Real hostnames observed during the xhr audit, plus generic shapes and
+ * synthetic examples of officially documented endpoint formats.
  */
 const HOSTNAME_CANDIDATES = [
     'example.com',
@@ -118,6 +119,9 @@ const HOSTNAME_CANDIDATES = [
     'runtime.sagemaker.eu-west-1.amazonaws.com',
     'acme.wd5.myworkday.com',
     'gw.tidbcloud.com',
+    '1234567890abcdef1234567890abcdef.z12.w.api.fabric.microsoft.com',
+    '1234567890abcdef1234567890abcdef.z12.dfs.fabric.microsoft.com',
+    'cluster.z1.kusto.fabric.microsoft.com',
 ]
 
 /** Crude slash-free expansion of a pattern's literal skeleton. */
