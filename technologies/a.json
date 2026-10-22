@@ -3021,6 +3021,18 @@
     ],
     "website": "https://afthemes.com/products/covernews"
   },
+  "Agari DMARC Protection": {
+    "description": "Agari DMARC Protection provides DMARC reporting or email authentication management. DNS reporting destinations indicate configuration, not confirmed report delivery.",
+    "website": "https://www.agari.com/",
+    "cats": [
+      16
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "TXT _dmarc": "^v=DMARC1; p=(?:none|quarantine|reject); ru[af]=mailto:[^\\s@,;!?]+@(?:rua|ruf)\\.agari\\.com(?:!\\d+[kmgt]?)?$"
+    }
+  },
   "Age Gate": {
     "cats": [
       87

@@ -86,6 +86,20 @@
     ],
     "website": "https://www.vagaro.com/pro/schedulicity"
   },
+  "Valimail": {
+    "description": "Valimail provides DMARC reporting or email authentication management. DNS reporting destinations indicate configuration, not confirmed report delivery.",
+    "website": "https://www.valimail.com/",
+    "cats": [
+      16
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "TXT _dmarc": "^v=DMARC1; p=(?:none|quarantine|reject); ru[af]=mailto:[^\\s@,;!?]+@vali\\.email(?:!\\d+[kmgt]?)?$",
+      "NS _dmarc": "^ns\\.vali\\.email$",
+      "CNAME _dmarc": "^(?:[a-z0-9-]+\\.)+_dmarca\\.vali\\.email$"
+    }
+  },
   "Valuad": {
     "cats": [
       36

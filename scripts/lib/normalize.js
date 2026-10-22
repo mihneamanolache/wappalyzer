@@ -637,7 +637,8 @@ function normalizeEntry(name, original) {
         }
     }
 
-    // driver.js only resolves cname/mx/ns/soa/txt, so any other dns key is a
+    // The collector resolves base types plus a fixed named-query whitelist;
+    // an unsupported dns key is a
     // channel that never receives values. Map the known aliases across.
     if (isPlainObject(entry.dns)) {
         const dns = {}

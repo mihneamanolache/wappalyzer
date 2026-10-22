@@ -112,8 +112,25 @@ non-keyed channel an empty pattern matches everything, which is an error.
 
 ### DNS record types
 
-Only `cname`, `mx`, `ns`, `soa` and `txt` are resolved by `driver.js`. Any other
-`dns` key is an error. DNS requires `--probe`.
+Base keys `cname`, `mx`, `ns`, `soa` and `txt` are resolved by `driver.js`.
+Named queries use literal keys such as `CNAME selector1._domainkey` or
+`TXT _dmarc`. Only the fixed names in `NAMED_DNS_QUERIES` in
+`scripts/lib/channels.js` are accepted. Arbitrary prefixes and bare `SRV` keys
+are errors. DNS requires `--probe`.
+
+`basic` adds six named queries: `_dmarc` TXT, both Microsoft DKIM selectors,
+`enterpriseenrollment`, `enterpriseregistration` and `autodiscover` CNAMEs.
+`full` also collects DMARC delegation, SIP, LDAP, Kerberos, XMPP, CalDAV, BIMI,
+MTA-STS and TLS reporting records, plus fixed HTTPS discovery files.
+Names are relative to the crawled hostname with a leading `www.` removed.
+TXT chunks are joined without spaces. `TXT _dmarc` patterns receive canonical
+reporting addresses from one valid policy, not arbitrary text inside a record.
+
+Discovery documents in `WELL_KNOWN_PATHS` are structurally validated before
+their canonical JSON reaches the `probe` channel. Other probe paths retain their
+existing body-matching behavior. The additive `domainEvidence` result field
+contains configuration and association metadata, not claims of active usage or
+paid licenses. See [collection limits and evidence](research/domain-enrichment.md).
 
 ## Versions
 

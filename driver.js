@@ -28,6 +28,7 @@ const {
 } = Wappalyzer
 
 const { analyzeText } = require('./scripts/lib/text-signals')
+const { collectDomainEvidence, WELL_KNOWN_PATHS } = require('./scripts/lib/domain-evidence')
 
 const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS } =
     process.env
@@ -558,6 +559,7 @@ class Site {
         this.analyzedXhr = {}
         this.analyzedXhrUrl = []
         this.textSignals = []
+        this.domainEvidence = []
         this.analyzedRequires = {}
         this.detections = []
 
@@ -1381,6 +1383,7 @@ class Site {
             // Kept separate from `technologies`: a hiring signal is an inference
             // about the company, not a detection of the site.
             signals: this.textSignals,
+            domainEvidence: this.domainEvidence,
             technologies: resolve(this.detections).map(
                 ({
                     slug,
@@ -1433,7 +1436,7 @@ class Site {
                 .filter(({ probe }) => Object.keys(probe).length)
                 .forEach((technology) => {
                     paths.push(
-                        ...Object.keys(technology.probe).map((path) => ({
+                        ...Object.keys(technology.probe).filter((path) => !WELL_KNOWN_PATHS.includes(path)).map((path) => ({
                             type: 'probe',
                             path,
                             technology,
@@ -1466,6 +1469,15 @@ class Site {
         const domain = url.hostname.replace(/^www\./, '')
 
         await Promise.allSettled([
+            collectDomainEvidence({
+                url: url.href,
+                mode: this.options.probe,
+                timeout: this.options.maxWait,
+                onObservation: async (items, evidence) => {
+                    this.domainEvidence.push(evidence)
+                    await this.onDetect(url, analyze(items))
+                },
+            }),
             // Static files
             ...paths.map(async ({ type, path, technology }, index) => {
                 try {
@@ -1512,7 +1524,9 @@ class Site {
                         dns[type],
                         Array.isArray(records[type])
                             ? records[type].map((value) => {
-                                return typeof value === 'object'
+                                return type === 'txt' && Array.isArray(value)
+                                    ? value.join('')
+                                    : typeof value === 'object'
                                     ? Object.values(value).join(' ')
                                     : value
                             })

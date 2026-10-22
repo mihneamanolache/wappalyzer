@@ -3882,6 +3882,22 @@
     "icon": "Cisco.svg",
     "website": "https://www.cisco.com/"
   },
+  "Cisco Webex": {
+    "description": "Cisco Webex provides collaboration services. Domain verification records identify organization configuration, not a particular plan or active meeting.",
+    "website": "https://www.webex.com/",
+    "cats": [
+      19,
+      103
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "TXT": [
+        "^cisco-ci-domain-verification=[a-f0-9]{32,128}$",
+        "^webexdomainverification\\.[A-Za-z0-9]*=[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$"
+      ]
+    }
+  },
   "Citizen Space": {
     "cats": [
       1
@@ -5726,6 +5742,18 @@
       "static\\.cloudflareinsights\\.com/beacon(?:\\.min)?\\.js"
     ],
     "website": "https://www.cloudflare.com"
+  },
+  "Cloudflare DMARC Management": {
+    "description": "Cloudflare DMARC Management provides DMARC reporting or email authentication management. DNS reporting destinations indicate configuration, not confirmed report delivery.",
+    "website": "https://www.cloudflare.com/",
+    "cats": [
+      16
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "TXT _dmarc": "^v=DMARC1; p=(?:none|quarantine|reject); ru[af]=mailto:[^\\s@,;!?]+@dmarc-reports\\.cloudflare\\.net(?:!\\d+[kmgt]?)?$"
+    }
   },
   "Cloudflare Email Protection": {
     "cats": [

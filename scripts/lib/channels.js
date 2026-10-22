@@ -99,7 +99,31 @@ const DOM_RULES = ['exists', 'text', 'properties', 'attributes']
  * never populated, so its patterns cannot fire. Keys are compared lowercased
  * because transformPatterns lowercases keyed-channel keys.
  */
-const DNS_RECORDS = ['cname', 'mx', 'ns', 'soa', 'txt']
+const NAMED_DNS_QUERIES = {
+    'txt _dmarc': { type: 'TXT', prefix: '_dmarc' },
+    'cname _dmarc': { type: 'CNAME', prefix: '_dmarc', full: true },
+    'ns _dmarc': { type: 'NS', prefix: '_dmarc', full: true },
+    'cname selector1._domainkey': { type: 'CNAME', prefix: 'selector1._domainkey' },
+    'cname selector2._domainkey': { type: 'CNAME', prefix: 'selector2._domainkey' },
+    'cname enterpriseenrollment': { type: 'CNAME', prefix: 'enterpriseenrollment' },
+    'cname enterpriseregistration': { type: 'CNAME', prefix: 'enterpriseregistration' },
+    'cname autodiscover': { type: 'CNAME', prefix: 'autodiscover' },
+    'cname lyncdiscover': { type: 'CNAME', prefix: 'lyncdiscover', full: true },
+    'cname sip': { type: 'CNAME', prefix: 'sip', full: true },
+    'srv _sipfederationtls._tcp': { type: 'SRV', prefix: '_sipfederationtls._tcp', full: true },
+    'srv _sip._tls': { type: 'SRV', prefix: '_sip._tls', full: true },
+    'srv _autodiscover._tcp': { type: 'SRV', prefix: '_autodiscover._tcp', full: true },
+    'srv _ldap._tcp': { type: 'SRV', prefix: '_ldap._tcp', full: true },
+    'srv _kerberos._tcp': { type: 'SRV', prefix: '_kerberos._tcp', full: true },
+    'srv _xmpp-client._tcp': { type: 'SRV', prefix: '_xmpp-client._tcp', full: true },
+    'srv _xmpp-server._tcp': { type: 'SRV', prefix: '_xmpp-server._tcp', full: true },
+    'srv _caldav._tcp': { type: 'SRV', prefix: '_caldav._tcp', full: true },
+    'srv _caldavs._tcp': { type: 'SRV', prefix: '_caldavs._tcp', full: true },
+    'txt default._bimi': { type: 'TXT', prefix: 'default._bimi', full: true },
+    'txt _mta-sts': { type: 'TXT', prefix: '_mta-sts', full: true },
+    'txt _smtp._tls': { type: 'TXT', prefix: '_smtp._tls', full: true },
+}
+const DNS_RECORDS = ['cname', 'mx', 'ns', 'soa', 'txt', ...Object.keys(NAMED_DNS_QUERIES)]
 
 /**
  * Hostname-shaped candidates used to prove an `xhr` pattern can still fire.
@@ -196,6 +220,7 @@ module.exports = {
     hostnameSkeleton,
     requiresPathOrScheme,
     DNS_RECORDS,
+    NAMED_DNS_QUERIES,
     DOM_RULES,
     FLAT_CHANNELS,
     KEYED_CHANNELS,

@@ -6,20 +6,20 @@ Computed by parsing both revisions and comparing entries, not by reading the tex
 
 |  | Before | After |
 | --- | --- | --- |
-| Technologies | 7911 | 8430 |
+| Technologies | 7911 | 8439 |
 | Categories | 111 | 124 |
 
 | Change | Count |
 | --- | --- |
-| Added | 519 |
+| Added | 528 |
 | **Removed** | **0** |
-| Changed | 291 |
+| Changed | 292 |
 
 Nothing was removed from the catalog.
 
-## Added (519)
+## Added (528)
 
-### From upstream (319)
+### From upstream (328)
 
 <details><summary>List</summary>
 
@@ -30,6 +30,7 @@ Nothing was removed from the catalog.
 - ActivEngage
 - Adenzo
 - Adwos CMS
+- Agari DMARC Protection
 - Agendize
 - Akia
 - AllMyLinks
@@ -75,7 +76,9 @@ Nothing was removed from the catalog.
 - Cartline
 - Cartylabs
 - Chimpify
+- Cisco Webex
 - CitrusLime
+- Cloudflare DMARC Management
 - Cloudflare Turnstile for WooCommerce
 - Commercy
 - ComplyAuto
@@ -170,7 +173,10 @@ Nothing was removed from the catalog.
 - MessageMedia
 - Mexty
 - Mico
+- Microsoft Entra ID
+- Microsoft Exchange Online
 - Microsoft Fabric
+- Microsoft Intune
 - MiniBC
 - Moofx
 - MoreVago
@@ -205,6 +211,7 @@ Nothing was removed from the catalog.
 - Pixeleze
 - Premion
 - Printlane
+- Proofpoint Email Fraud Defense
 - Prosperous AI
 - Publive
 - Quadran
@@ -279,6 +286,7 @@ Nothing was removed from the catalog.
 - Ureserv
 - Useberry
 - Vagaro
+- Valimail
 - Vera
 - VeraCore
 - VertaFlow
@@ -327,6 +335,7 @@ Nothing was removed from the catalog.
 - autoship
 - bun
 - digi·access
+- dmarcian
 - doxo
 - eKonsilio
 - eZCater
@@ -573,7 +582,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | 210 | Workflow automation | 7 |
 | 211 | Observability | 7 |
 
-## Changed (291)
+## Changed (292)
 
 | Technology | Fields added | Fields removed | Values changed |
 | --- | --- | --- | --- |
@@ -745,6 +754,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Numberly MarTech Platform | scriptSrc | script | - |
 | OVH | - | - | dns |
 | Office 365 | - | apps | dns |
+| Okta | probe | - | - |
 | OneTrust | - | - | scriptSrc |
 | Open Source Presto | - | url | - |
 | OpenText WEM | scriptSrc | regex, script | headers |

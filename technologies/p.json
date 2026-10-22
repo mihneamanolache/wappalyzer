@@ -8459,6 +8459,18 @@
     "icon": "Proofpoint CASB.svg",
     "website": "https://www.proofpoint.com/us/products/information-protection/cloud-app-security-broker"
   },
+  "Proofpoint Email Fraud Defense": {
+    "description": "Proofpoint Email Fraud Defense provides DMARC reporting or email authentication management. DNS reporting destinations indicate configuration, not confirmed report delivery.",
+    "website": "https://www.proofpoint.com/us/products/email-protection/email-fraud-defense",
+    "cats": [
+      16
+    ],
+    "icon": "default.svg",
+    "saas": true,
+    "dns": {
+      "TXT _dmarc": "^v=DMARC1; p=(?:none|quarantine|reject); ru[af]=mailto:[^\\s@,;!?]+@emaildefense\\.proofpoint\\.com(?:!\\d+[kmgt]?)?$"
+    }
+  },
   "Prooven": {
     "cats": [
       76

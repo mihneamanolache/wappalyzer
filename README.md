@@ -206,6 +206,14 @@ const wappalyzer = new Wappalyzer()
 })()
 ```
 
+With `probe: 'basic'`, DNS detection includes Microsoft DKIM, enrollment,
+registration and mail discovery records, plus DMARC reporting providers.
+`probe: 'full'` additionally checks fixed service records and HTTPS discovery
+documents. Results include `domainEvidence` alongside `technologies` for
+configuration details such as original Microsoft tenant names and mobile app
+associations. These observations do not establish current usage or licenses.
+See [collection limits and evidence](docs/research/domain-enrichment.md).
+
 ### Events
 
 Listen to events with `site.on(eventName, callback)`. Use the `page` parameter to access the Puppeteer page instance ([reference](https://github.com/puppeteer/puppeteer/blob/main/docs/api.md#class-page)).
