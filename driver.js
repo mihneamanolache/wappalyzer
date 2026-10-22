@@ -244,6 +244,8 @@ function getDom(page, technologies = Wappalyzer.technologies) {
 
                             if (attributes) {
                                 Object.keys(attributes).forEach((attribute) => {
+                                    const value = node.getAttribute(attribute)
+
                                     if (
                                         node.hasAttribute(attribute) &&
                                             technologies.findIndex(
@@ -251,16 +253,14 @@ function getDom(page, technologies = Wappalyzer.technologies) {
                                                     name: _name,
                                                     selector: _selector,
                                                     attribute: _atrribute,
-                                                    value,
+                                                    value: observedValue,
                                                 }) =>
                                                     name === _name &&
                                                         selector === _selector &&
                                                         attribute === _atrribute &&
-                                                        value === toScalar(value)
+                                                        observedValue === toScalar(value)
                                             ) === -1
                                     ) {
-                                        const value = node.getAttribute(attribute)
-
                                         technologies.push({
                                             name,
                                             selector,
@@ -1667,3 +1667,5 @@ module.exports = Driver
 // unreachable from outside. Does not change the default export.
 module.exports.Site = Site
 module.exports.ANALYZED_REQUEST_TYPES = ANALYZED_REQUEST_TYPES
+// Exposed for collector regression tests, like Site above.
+module.exports.getDom = getDom

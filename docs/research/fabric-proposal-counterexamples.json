@@ -1,0 +1,93 @@
+{
+  "collectedAt": "2026-10-22T06:35:09.213Z",
+  "method": "Synthetic observations through the repository detection engine; proposed rules supplied by the user versus implemented rules. Not coverage measurements.",
+  "cases": [
+    {
+      "name": "Power BI report request to shared API",
+      "input": {
+        "xhr": "api.fabric.microsoft.com",
+        "xhrUrl": "https://api.fabric.microsoft.com/v1/workspaces/12345678-90ab-cdef-1234-567890abcdef/reports/12345678-90ab-cdef-1234-567890abcdef"
+      },
+      "grokProposal": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 40
+        }
+      ],
+      "implemented": []
+    },
+    {
+      "name": "Rayfin config probe at unrelated origin",
+      "input": {
+        "xhrUrl": "https://example.com/rayfin.config.json"
+      },
+      "grokProposal": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ],
+      "implemented": []
+    },
+    {
+      "name": "Fabric-shaped GraphQL path at unrelated origin",
+      "input": {
+        "xhrUrl": "https://example.com/v1/workspaces/12345678-90ab-cdef-1234-567890abcdef/graphqlapis/12345678-90ab-cdef-1234-567890abcdef/graphql"
+      },
+      "grokProposal": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ],
+      "implemented": []
+    },
+    {
+      "name": "Unused Rayfin configuration in a bundle",
+      "input": {
+        "scripts": "const configPath = \"/rayfin.config.json\";"
+      },
+      "grokProposal": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ],
+      "implemented": []
+    },
+    {
+      "name": "CSP report destination, without service use",
+      "input": {
+        "headers": {
+          "content-security-policy": [
+            "report-uri https://onelake.dfs.fabric.microsoft.com/"
+          ]
+        }
+      },
+      "grokProposal": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ],
+      "implemented": []
+    },
+    {
+      "name": "Report-only CSP, without service use",
+      "input": {
+        "headers": {
+          "content-security-policy-report-only": [
+            "connect-src https://onelake.dfs.fabric.microsoft.com"
+          ]
+        }
+      },
+      "grokProposal": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 75
+        }
+      ],
+      "implemented": []
+    }
+  ]
+}

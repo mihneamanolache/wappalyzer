@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-22",
+  "registry": "https://registry.npmjs.org/@microsoft%2ffabric-embed",
+  "name": "@microsoft/fabric-embed",
+  "version": "0.1.0",
+  "published": "2026-06-25T00:03:50.426Z",
+  "dist": {
+    "shasum": "7e91f16258cb86e7897a4c5048435b213e40e94f",
+    "tarball": "https://registry.npmjs.org/@microsoft/fabric-embed/-/fabric-embed-0.1.0.tgz",
+    "fileCount": 96,
+    "integrity": "sha512-FHatt9OEGoi6tFUHSCH7Jl6bN7jCqdWHCHwV4CVGn713viJRtGceTue7xp7mzfDD4KZOWop5E8+3SrgdDXm7jw==",
+    "signatures": [
+      {
+        "sig": "MEQCIHvAbdG8hwgOxfxFbFb7feZZp3EZLOYRbYzsSHPUAWb9AiA7hKb8cHZ049RbGZXGBoz1M861v9PcP3EYbW+MYsGvWw==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "unpackedSize": 113661
+  },
+  "verifiedSource": {
+    "file": "src/lib/embed-url.js",
+    "defaultHostname": "https://app.fabric.microsoft.com",
+    "defaultPath": "/itemEmbed"
+  },
+  "note": "Downloaded tarball inspected as source only; no package installation or lifecycle scripts executed."
+}

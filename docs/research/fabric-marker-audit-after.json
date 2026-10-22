@@ -1,0 +1,491 @@
+{
+  "collectedAt": "2026-10-22T06:34:46.435Z",
+  "catalogSha256": "c7e6d384c3e7f1a0a3c420aaac46f93800753b4419ba1fc65a60686befa50673",
+  "driverSha256": "6b3a88261c2cbce28aa08b26cbb0217d78826c0309d3e7b87f6e1f457d3d6a32",
+  "method": "Synthetic inputs through the real detection engine; DOM selectors evaluated in Chromium. Not live customer detections or coverage measurements.",
+  "cases": [
+    {
+      "channel": "xhr",
+      "input": "api.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "onelake.dfs.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "onelake.blob.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "westus-onelake.dfs.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "api.onelake.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "westus-api.onelake.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "1234567890abcdef1234567890abcdef.z12.dfs.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "1234567890abcdef1234567890abcdef.z12.graphql.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "cluster.z1.kusto.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "sql.cosmos.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "example-app.rayfin.windows.net",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "app.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "api.powerbi.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "api.fabric.microsoft.com.attacker.example",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "notapi.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhrUrl",
+      "input": "https://api.fabric.microsoft.com/v1/workspaces/12345678-90ab-cdef-1234-567890abcdef/lakehouses",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhrUrl",
+      "input": "https://api.fabric.microsoft.com/v1/workspaces/12345678-90ab-cdef-1234-567890abcdef/reports",
+      "detected": []
+    },
+    {
+      "channel": "xhrUrl",
+      "input": "https://api.fabric.microsoft.com.attacker.example/v1/workspaces/12345678-90ab-cdef-1234-567890abcdef/lakehouses",
+      "detected": []
+    },
+    {
+      "channel": "xhrUrl",
+      "input": "https://example.com/rayfin.config.json",
+      "detected": []
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://api.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://api.fabric.microsoft.com.attacker.example",
+      "detected": []
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://notapi.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "headers",
+      "input": "report-uri https://example.com/log/api.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://westus-onelake.dfs.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbed",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.fabric.microsoft.com/itemEmbed"
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbed?x=1",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.fabric.microsoft.com/itemEmbed?x=1"
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "//app.fabric.microsoft.com/itemEmbed",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "//app.fabric.microsoft.com/itemEmbed"
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.powerbi.com/itemEmbed",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.powerbi.com/itemEmbed"
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.powerbi.com/itemEmbed?x=1",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.powerbi.com/itemEmbed?x=1"
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/view?r=example",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.fabric.microsoft.com/view?r=example"
+        },
+        {
+          "name": "Microsoft Power BI",
+          "selector": "iframe[src*='app.powerbi.com/view?r='], iframe[src*='app.fabric.microsoft.com/view?r='], iframe[src*='app.powerbi.com/reportEmbed'], iframe[src*='app.fabric.microsoft.com/reportEmbed']",
+          "exists": ""
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Power BI",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/reportEmbed?reportId=example",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.fabric.microsoft.com/reportEmbed?reportId=example"
+        },
+        {
+          "name": "Microsoft Power BI",
+          "selector": "iframe[src*='app.powerbi.com/view?r='], iframe[src*='app.fabric.microsoft.com/view?r='], iframe[src*='app.powerbi.com/reportEmbed'], iframe[src*='app.fabric.microsoft.com/reportEmbed']",
+          "exists": ""
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Power BI",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.powerbi.com/view?r=example",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.powerbi.com/view?r=example"
+        },
+        {
+          "name": "Microsoft Power BI",
+          "selector": "iframe[src*='app.powerbi.com/view?r='], iframe[src*='app.fabric.microsoft.com/view?r='], iframe[src*='app.powerbi.com/reportEmbed'], iframe[src*='app.fabric.microsoft.com/reportEmbed']",
+          "exists": ""
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Power BI",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.powerbi.com/reportEmbed?reportId=example",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.powerbi.com/reportEmbed?reportId=example"
+        },
+        {
+          "name": "Microsoft Power BI",
+          "selector": "iframe[src*='app.powerbi.com/view?r='], iframe[src*='app.fabric.microsoft.com/view?r='], iframe[src*='app.powerbi.com/reportEmbed'], iframe[src*='app.fabric.microsoft.com/reportEmbed']",
+          "exists": ""
+        }
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Power BI",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://example.com/redirect?next=https://app.fabric.microsoft.com/itemEmbed",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/redirect?next=https://app.fabric.microsoft.com/itemEmbed"
+        }
+      ],
+      "detected": []
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbedLookalike",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.fabric.microsoft.com/itemEmbedLookalike"
+        }
+      ],
+      "detected": []
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbed@attacker.example/",
+      "observations": [
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://example.com/unrelated"
+        },
+        {
+          "name": "Microsoft Fabric",
+          "selector": "iframe[src]",
+          "attribute": "src",
+          "value": "https://app.fabric.microsoft.com/itemEmbed@attacker.example/"
+        }
+      ],
+      "detected": []
+    },
+    {
+      "channel": "scripts",
+      "input": "import { EmbedManager } from \"@microsoft/fabric-embed\";",
+      "detected": []
+    },
+    {
+      "channel": "scripts",
+      "input": "const endpoint = \"https://api.fabric.microsoft.com/v1/workspaces/abc/graphqlapis/def/graphql\";",
+      "detected": []
+    },
+    {
+      "channel": "scripts",
+      "input": "const backend = \"https://example-app.rayfin.windows.net\";",
+      "detected": []
+    }
+  ]
+}

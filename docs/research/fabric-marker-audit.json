@@ -1,0 +1,234 @@
+{
+  "collectedAt": "2026-10-22T06:04:43.026Z",
+  "catalogSha256": "c027cc4f1d39d4cbc771165b7c5fc6d4b44785d1ed7e0f3ae1443525b82781a7",
+  "method": "Synthetic inputs through the real detection engine; DOM selectors evaluated in Chromium. Not live customer detections or coverage measurements.",
+  "cases": [
+    {
+      "channel": "xhr",
+      "input": "api.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "onelake.dfs.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "onelake.blob.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "xhr",
+      "input": "westus-onelake.dfs.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "api.onelake.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "westus-api.onelake.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "1234567890abcdef1234567890abcdef.z12.dfs.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "cluster.z1.kusto.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "sql.cosmos.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "example-app.rayfin.windows.net",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "app.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "api.powerbi.com",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "api.fabric.microsoft.com.attacker.example",
+      "detected": []
+    },
+    {
+      "channel": "xhr",
+      "input": "notapi.fabric.microsoft.com",
+      "detected": []
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://api.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://api.fabric.microsoft.com.attacker.example",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://notapi.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "headers",
+      "input": "report-uri https://example.com/log/api.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "headers",
+      "input": "connect-src https://westus-onelake.dfs.fabric.microsoft.com",
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbed",
+      "matchedSelectors": [
+        "iframe[src*='.fabric.microsoft.com/itemEmbed']"
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbed?x=1",
+      "matchedSelectors": [
+        "iframe[src*='.fabric.microsoft.com/itemEmbed']"
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/view?r=example",
+      "matchedSelectors": [],
+      "detected": []
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/reportEmbed?reportId=example",
+      "matchedSelectors": [],
+      "detected": []
+    },
+    {
+      "channel": "dom",
+      "input": "https://example.com/redirect?next=https://app.fabric.microsoft.com/itemEmbed",
+      "matchedSelectors": [
+        "iframe[src*='.fabric.microsoft.com/itemEmbed']"
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbedLookalike",
+      "matchedSelectors": [
+        "iframe[src*='.fabric.microsoft.com/itemEmbed']"
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "dom",
+      "input": "https://app.fabric.microsoft.com/itemEmbed@attacker.example/",
+      "matchedSelectors": [
+        "iframe[src*='.fabric.microsoft.com/itemEmbed']"
+      ],
+      "detected": [
+        {
+          "name": "Microsoft Fabric",
+          "confidence": 100
+        }
+      ]
+    },
+    {
+      "channel": "scripts",
+      "input": "import { EmbedManager } from \"@microsoft/fabric-embed\";",
+      "detected": []
+    },
+    {
+      "channel": "scripts",
+      "input": "const endpoint = \"https://api.fabric.microsoft.com/v1/workspaces/abc/graphqlapis/def/graphql\";",
+      "detected": []
+    },
+    {
+      "channel": "scripts",
+      "input": "const backend = \"https://example-app.rayfin.windows.net\";",
+      "detected": []
+    }
+  ]
+}

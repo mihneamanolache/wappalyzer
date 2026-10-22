@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-22",
+  "method": "Purposive public-homepage check of three companies named in Microsoft Fabric customer stories. Not a recall estimate; errors are not negatives.",
+  "options": {
+    "maxWait": 20000,
+    "pageTimeout": 12000,
+    "settleMs": 3000,
+    "recursive": false,
+    "maxUrls": 1
+  },
+  "results": [
+    {
+      "url": "https://www.niras.com/",
+      "urls": [
+        {
+          "url": "https://www.niras.com/",
+          "status": 200
+        }
+      ],
+      "fabric": [],
+      "powerBI": []
+    },
+    {
+      "url": "https://www.peri.com/",
+      "urls": [
+        {
+          "url": "https://www.peri.com/",
+          "status": 301
+        },
+        {
+          "url": "https://www.peri.com/en",
+          "status": 200
+        }
+      ],
+      "fabric": [],
+      "powerBI": []
+    },
+    {
+      "url": "https://www.arvind.com/",
+      "urls": [
+        {
+          "url": "https://www.arvind.com/",
+          "status": 200
+        }
+      ],
+      "fabric": [],
+      "powerBI": []
+    }
+  ]
+}
