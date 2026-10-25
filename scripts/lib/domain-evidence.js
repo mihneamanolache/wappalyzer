@@ -64,9 +64,11 @@ async function lookupDns(name, type, timeout = 1500) {
 }
 
 // Strict HTTPS, a size cap, a real deadline, and no redirects or credentials.
-function getDocument(url, timeout = 1500) {
+// `lookup` pins the connection to addresses a destination guard already vetted.
+function getDocument(url, timeout = 1500, { lookup } = {}) {
     return new Promise((resolve, reject) => {
-        const request = https.get(url, { headers: { Accept: 'application/json, text/plain' } }, (response) => {
+        const options = { headers: { Accept: 'application/json, text/plain' }, ...(lookup ? { lookup } : {}) }
+        const request = https.get(url, options, (response) => {
             if (response.statusCode !== 200) {
                 response.destroy()
                 reject(new Error(`HTTP ${response.statusCode}`))
@@ -190,8 +192,14 @@ function parseDocument(path, body, source) {
     return null
 }
 
+// `beforeDial(url)` resolves to options for the request (a pinned `lookup`) or
+// rejects to refuse it. See destination-guard.js.
 async function collectDomainEvidence({ url, mode, timeout = 4000, lookup = lookupDns,
-    request = getDocument, onObservation = async () => {} }) {
+    request = getDocument, beforeDial, onObservation = async () => {} }) {
+    const fetchDocument = async (source, remaining) => {
+        const dial = beforeDial ? await beforeDial(source) : {}
+        return request(source, remaining, dial)
+    }
     const target = new URL(url)
     const domain = target.hostname.toLowerCase().replace(/^www\./, '')
     if (!mode || !publicHostname(domain)) return []
@@ -211,7 +219,7 @@ async function collectDomainEvidence({ url, mode, timeout = 4000, lookup = looku
             if (key === 'txt _mta-sts' && values.length === 1 && /^v=STSv1;\s*id=[a-z0-9]+;?$/i.test(values[0]) && Date.now() < deadline) {
                 const path = '/.well-known/mta-sts.txt'
                 const source = `https://mta-sts.${domain}${path}`
-                const policy = parseDocument(path, await request(source, Math.max(1, Math.min(1500, deadline - Date.now()))), source)
+                const policy = parseDocument(path, await fetchDocument(source, Math.max(1, Math.min(1500, deadline - Date.now()))), source)
                 if (policy) {
                     policy.url = source
                     policy.observedAt = new Date().toISOString()
@@ -225,7 +233,7 @@ async function collectDomainEvidence({ url, mode, timeout = 4000, lookup = looku
         for (const path of WELL_KNOWN_PATHS) {
             httpTasks.push(async (remaining) => {
                 const source = new URL(path, `https://${target.hostname}`).href
-                const observation = parseDocument(path, await request(source, remaining), source)
+                const observation = parseDocument(path, await fetchDocument(source, remaining), source)
                 if (!observation) return
                 observation.url = source
                 observation.observedAt = new Date().toISOString()

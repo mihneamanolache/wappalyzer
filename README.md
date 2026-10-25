@@ -174,6 +174,31 @@ const wappalyzer = new Wappalyzer(options)
 })()
 ```
 
+#### Refusing destinations
+
+`destinationGuard` lets the caller refuse connections to addresses it must never dial, such as sinkholes, botnet C2 servers or private ranges.
+It is an async function that receives a bare hostname and returns `{ blocked, reason, address, addresses }`.
+
+```javascript
+const options = {
+  destinationGuard: async (hostname) => {
+    const addresses = await resolveAndCheck(hostname) // your resolver and blocklist
+    return addresses.blocked
+      ? { blocked: true, reason: 'listed', address: addresses.hit }
+      : { blocked: false, addresses: addresses.all }
+  },
+}
+```
+
+- It is asked before the page is opened, before every browser request let through to the network (each redirect hop is a new request), and before every HTTP probe.
+- A refused page is never opened; `analyze()` records the url with a `Destination blocked` error.
+- A refused redirect hop or script is aborted.
+- `results.blockedDestinations` lists every refusal; `navigation: true` marks the page itself or one of its redirect hops.
+- HTTP probes connect only to the `addresses` the guard returned; an empty array refuses the probe, and leaving `addresses` out skips the pinning.
+- A guard that throws refuses the dial.
+- The browser resolves names itself, so page requests are checked but cannot be pinned to the checked address.
+  WebSockets and other connections that bypass request interception are not covered; a network-level egress policy is the backstop for those.
+
 Multiple URLs can be processed in parallel:
 
 ```javascript

@@ -53,6 +53,7 @@
         "technologies/*",
         "wappalyzer.js",
         "scripts/lib/channels.js",
+        "scripts/lib/destination-guard.js",
         "scripts/lib/domain-evidence.js",
         "scripts/lib/engine.js",
         "scripts/lib/text-signals.js"
