@@ -29,6 +29,13 @@ const {
 
 const { analyzeText } = require('./scripts/lib/text-signals')
 const { collectDomainEvidence, WELL_KNOWN_PATHS } = require('./scripts/lib/domain-evidence')
+const {
+    DESTINATION_BLOCKED,
+    DestinationBlockedError,
+    bareHostname,
+    checkDestination,
+    vetDial,
+} = require('./scripts/lib/destination-guard')
 
 const { CHROMIUM_BIN, CHROMIUM_DATA_DIR, CHROMIUM_WEBSOCKET, CHROMIUM_ARGS } =
     process.env
@@ -296,6 +303,9 @@ function get(url, options = {}) {
                     headers: {
                         'User-Agent': options.userAgent,
                     },
+                    // Set when a destinationGuard vetted this host: connect only
+                    // to the addresses it checked.
+                    ...(options.lookup ? { lookup: options.lookup } : {}),
                 },
                 (response) => {
                     if (response.statusCode >= 300) {
@@ -351,6 +361,9 @@ class Driver {
             probe: false,
             textSignals: false,
             proxy: false,
+            // async (hostname) => ({ blocked, reason, addresses }). See
+            // scripts/lib/destination-guard.js.
+            destinationGuard: null,
             noScripts: false,
             userAgent:
             'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
@@ -563,6 +576,11 @@ class Site {
         this.analyzedRequires = {}
         this.detections = []
 
+        // Hosts the destinationGuard refused, so the caller can tell a refused
+        // page apart from one that merely failed to load.
+        this.blockedDestinations = []
+        this.destinationVerdicts = new Map()
+
         this.listeners = {}
 
         this.pages = []
@@ -593,6 +611,72 @@ class Site {
         await this.onDetect(url, analyze({ xhr: hostname }))
 
         return true
+    }
+
+    /**
+     * The destinationGuard's verdict for one URL's host, asked once per host
+     * per site. Refusals are recorded; `navigation` marks the page itself (or
+     * one of its redirect hops) rather than a subresource.
+     */
+    async vetDestination(target, navigation = false) {
+        if (typeof this.options.destinationGuard !== 'function') {
+            return { blocked: false }
+        }
+
+        let parsed
+
+        try {
+            parsed = target instanceof URL ? target : new URL(target)
+        } catch (error) {
+            return { blocked: false }
+        }
+
+        // data:, blob: and the like never open a connection.
+        if (!['http:', 'https:'].includes(parsed.protocol)) {
+            return { blocked: false }
+        }
+
+        const hostname = bareHostname(parsed.hostname)
+
+        if (!this.destinationVerdicts.has(hostname)) {
+            this.destinationVerdicts.set(
+                hostname,
+                checkDestination(this.options.destinationGuard, hostname)
+            )
+        }
+
+        const verdict = await this.destinationVerdicts.get(hostname)
+
+        if (verdict.blocked) {
+            const seen = this.blockedDestinations.find(
+                (entry) => entry.hostname === hostname && entry.navigation === navigation
+            )
+
+            if (!seen) {
+                this.blockedDestinations.push({
+                    url: parsed.href,
+                    hostname,
+                    navigation,
+                    reason: verdict.reason || null,
+                    address: verdict.address || null,
+                })
+
+                this.log(`Destination blocked (${hostname}): ${verdict.reason || 'refused'}`)
+            }
+        }
+
+        return verdict
+    }
+
+    /** Options for a Node-side dial to `target`, or a DestinationBlockedError. */
+    async vetDial(target) {
+        const url = target instanceof URL ? target : new URL(target)
+
+        return vetDial(
+            this.options.destinationGuard,
+            url,
+            await this.vetDestination(url)
+        )
     }
 
     get analyzedUrls() {
@@ -704,11 +788,23 @@ class Site {
 
         this.setUrl(url.href)
 
+        // Refused before a page exists, so not even the browser dials it.
+        const destination = await this.vetDestination(url, true)
+
+        if (destination.blocked) {
+            throw new DestinationBlockedError(bareHostname(url.hostname), destination)
+        }
+
         const page = await this.newPage(url)
 
         await page.setRequestInterception(true)
 
         let responseReceived = false
+
+        // A redirect hop the guard refused. The aborted hop surfaces from
+        // page.goto as a generic net::ERR_BLOCKED_BY_CLIENT, which is restated
+        // as the refusal it actually was.
+        let refusedNavigation = null
 
         page.on('request', async (request) => {
             try {
@@ -754,6 +850,24 @@ class Site {
                 ) {
                     request.abort('blockedbyclient')
                 } else {
+                    // Every request let through to the network, which covers
+                    // each redirect hop: puppeteer surfaces a hop as a new
+                    // request.
+                    const isNavigation =
+                        request.isNavigationRequest() &&
+                        request.frame() === page.mainFrame()
+                    const verdict = await this.vetDestination(request.url(), isNavigation)
+
+                    if (verdict.blocked) {
+                        if (isNavigation && !refusedNavigation) {
+                            refusedNavigation = { url: request.url(), verdict }
+                        }
+
+                        request.abort('blockedbyclient')
+
+                        return
+                    }
+
                     await this.emit('request', { page, request })
 
                     if (Object.keys(this.options.headers).length) {
@@ -1194,6 +1308,15 @@ class Site {
                 // Continue
             }
 
+            if (refusedNavigation && error.code !== DESTINATION_BLOCKED) {
+                const { url: refusedUrl, verdict } = refusedNavigation
+
+                throw new DestinationBlockedError(
+                    bareHostname(new URL(refusedUrl).hostname),
+                    verdict
+                )
+            }
+
             if (error.message.includes('net::ERR_NAME_NOT_RESOLVED')) {
                 const newError = new Error(
                     `Hostname could not be resolved (${url.hostname})`
@@ -1380,6 +1503,9 @@ class Site {
 
         const results = {
             urls: this.analyzedUrls,
+            // Hosts the destinationGuard refused. A `navigation` entry means the
+            // page itself was never loaded from that host.
+            blockedDestinations: this.blockedDestinations.map((entry) => ({ ...entry })),
             // Kept separate from `technologies`: a hiring signal is an inference
             // about the company, not a detection of the site.
             signals: this.textSignals,
@@ -1473,6 +1599,10 @@ class Site {
                 url: url.href,
                 mode: this.options.probe,
                 timeout: this.options.maxWait,
+                beforeDial:
+                    typeof this.options.destinationGuard === 'function'
+                        ? (target) => this.vetDial(target)
+                        : undefined,
                 onObservation: async (items, evidence) => {
                     this.domainEvidence.push(evidence)
                     await this.onDetect(url, analyze(items))
@@ -1483,9 +1613,13 @@ class Site {
                 try {
                     await sleep(this.options.delay * index)
 
-                    const body = await get(new URL(path, url.href), {
+                    const target = new URL(path, url.href)
+                    const { lookup } = await this.vetDial(target)
+
+                    const body = await get(target, {
                         userAgent: this.options.userAgent,
                         timeout: Math.min(this.options.maxWait, 3000),
+                        lookup,
                     })
 
                     this.log(`Probe ok (${path})`)
@@ -1683,3 +1817,5 @@ module.exports.Site = Site
 module.exports.ANALYZED_REQUEST_TYPES = ANALYZED_REQUEST_TYPES
 // Exposed for collector regression tests, like Site above.
 module.exports.getDom = getDom
+module.exports.DESTINATION_BLOCKED = DESTINATION_BLOCKED
+module.exports.DestinationBlockedError = DestinationBlockedError
