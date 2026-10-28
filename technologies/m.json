@@ -4809,6 +4809,7 @@
         }
       }
     },
+    "html": "x-rayfin-sh-code-verifier",
     "icon": "default.svg",
     "oss": false,
     "pricing": [
@@ -4817,6 +4818,7 @@
       "high"
     ],
     "saas": true,
+    "url": "^https://[a-z0-9-]+\\.webapp\\.fabricapps\\.net(?::443)?/",
     "website": "https://www.microsoft.com/microsoft-fabric",
     "xhr": [
       "^(?:[a-z0-9-]+-)?onelake\\.(?:dfs|blob)\\.fabric\\.microsoft\\.com$",
@@ -4955,6 +4957,7 @@
     "scriptSrc": [
       "content\\.powerapps\\.com"
     ],
+    "url": "^https://app\\.(?:powerbi\\.com|fabric\\.microsoft\\.com)(?::443)?/",
     "website": "https://www.microsoft.com/en-us/power-platform/products/power-bi"
   },
   "Microsoft PowerPoint": {

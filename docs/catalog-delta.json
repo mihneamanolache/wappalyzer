@@ -3097,7 +3097,8 @@
       "fieldsAdded": [
         "dom",
         "js",
-        "scriptSrc"
+        "scriptSrc",
+        "url"
       ],
       "fieldsRemoved": [],
       "valuesChanged": []
