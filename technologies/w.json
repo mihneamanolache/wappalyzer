@@ -1366,6 +1366,27 @@
     ],
     "website": "https://webim.ru"
   },
+  "WebinarGeek": {
+    "cats": [
+      103
+    ],
+    "description": "WebinarGeek is a Dutch webinar platform for hosting, embedding and marketing live and automated webinars.",
+    "dom": [
+      "iframe[src*='webinargeek.com'], script[src*='embed.webinargeek.com']"
+    ],
+    "icon": "WebinarGeek.svg",
+    "js": {
+      "GeekEmbedStart": "",
+      "GeekEmbedLoaded": ""
+    },
+    "scriptSrc": [
+      "embed\\.webinargeek\\.com"
+    ],
+    "website": "https://www.webinargeek.com",
+    "xhr": [
+      "\\.webinargeek\\.com"
+    ]
+  },
   "Webinaris": {
     "cats": [
       32
@@ -1393,6 +1414,13 @@
       "www\\.webinato\\.com"
     ],
     "website": "https://www.webinato.com"
+  },
+  "WebIssues": {
+    "cats": [
+      13
+    ],
+    "website": "https://webissues.mimec.org/",
+    "html": "<div id=\"header-right\">webissues"
   },
   "Webito": {
     "cats": [
@@ -1630,6 +1658,16 @@
     ],
     "saas": true,
     "website": "https://www.webolytics.com"
+  },
+  "Weborama": {
+    "cats": [
+      36
+    ],
+    "website": "https://weborama.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*weborama\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*weborama\\.fr(?:[:/?#]|$)"
+    ]
   },
   "Webotit": {
     "cats": [
@@ -1909,6 +1947,7 @@
       "link[href^='wss://']"
     ],
     "html": [
+      "<link[^>]+rel=[\"']web-socket[\"']",
       "<(?:link|a)[^>]+href=[\"']wss?://"
     ],
     "icon": "WebSocket.svg",
@@ -1917,17 +1956,6 @@
     "headers": {
       "Upgrade": "websocket"
     }
-  },
-  "Websocket": {
-    "cats": [
-      19
-    ],
-    "html": [
-      "<link[^>]+rel=[\"']web-socket[\"']",
-      "<(?:link|a)[^>]+href=[\"']wss?://"
-    ],
-    "icon": "websocket.png",
-    "website": "https://en.wikipedia.org/wiki/WebSocket"
   },
   "WebSphere": {
     "cats": [
@@ -2420,6 +2448,15 @@
     ],
     "website": "https://weply.chat"
   },
+  "Werkzeug": {
+    "cats": [
+      18
+    ],
+    "website": "https://werkzeug.palletsprojects.com/",
+    "headers": {
+      "Server": "^werkzeug"
+    }
+  },
   "WeTravel": {
     "cats": [
       104
@@ -2514,7 +2551,11 @@
     ],
     "description": "WhatsApp Business is a free to download app available on Android and iPhone using which businesses can connect with their customers.",
     "dom": [
-      "a[href*='api.whatsapp.com/send'], a[href*='web.whatsapp.com/send'], div[class*='wptwa-container'], a[href*='wa.link'][target='_blank'], link[href*='plugins/creame-whatsapp-me']"
+      "div[class*='wptwa-container'], a[href*='wa.link'][target='_blank'], link[href*='plugins/creame-whatsapp-me']"
+    ],
+    "html": [
+      "https?://(?:api|web)\\.whatsapp\\.com/send/?\\?(?:[^\"'#<>\\s]*&(?:amp;)?)?phone=(?:\\+|%2b)?\\d+",
+      "<a[^>]+href=[\"']https?://(?:www\\.)?wa\\.me/message/[a-z\\d]+/?[?#\"']"
     ],
     "icon": "WhatsApp.svg",
     "scriptSrc": [
@@ -3055,6 +3096,15 @@
     "saas": true,
     "website": "https://www.winedirect.com"
   },
+  "Wing FTP Server": {
+    "cats": [
+      19
+    ],
+    "website": "https://www.wftpserver.com/",
+    "headers": {
+      "Server": "^wing ftp server"
+    }
+  },
   "Wink": {
     "cats": [
       26,
@@ -3085,6 +3135,13 @@
       "api\\.winlocal\\.ru"
     ],
     "website": "https://winlocal.ru"
+  },
+  "Winmail Server": {
+    "cats": [
+      30
+    ],
+    "website": "https://www.magicwinmail.com/",
+    "html": "^(?=[\\s\\S]{0,}?\\(build )(?=[\\s\\S]{0,}?background=\"customer/winmail_bg11\\.jpg)"
   },
   "Wins eCommerce": {
     "cats": [
@@ -3370,6 +3427,15 @@
     ],
     "website": "https://wishloop.com"
   },
+  "Wishpond": {
+    "cats": [
+      32
+    ],
+    "website": "https://wishpond.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*wishpond\\.net(?:[:/?#]|$)"
+    ]
+  },
   "Wistia": {
     "cats": [
       14
@@ -3388,7 +3454,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.wistia\\.com"
+      "\\.wistia\\.com",
+      "^https?://(?:[a-z0-9-]+\\.)*wistia\\.net(?:[:/?#]|$)"
     ],
     "website": "https://wistia.com"
   },
@@ -3511,7 +3578,8 @@
     ],
     "saas": true,
     "scripts": [
-      "static\\.wixstatic\\.com"
+      "(?:static\\.parastorage\\.com|static\\.wixstatic\\.com)\\\\?/services\\\\?/(?:wixstores|ecom-platform|bookings|events|pay-button)(?:-|\\\\?/)",
+      "progallery\\.wixapps\\.net\\\\?/(?:cart|gallery)\\.html\\?isStore=true"
     ],
     "website": "https://www.wix.com/freesitebuilder/tae-store"
   },
@@ -3894,7 +3962,9 @@
     ],
     "description": "WooCommerce Subscriptions primarily allows you to create and sell subscription products from your WooCommerce shop.",
     "dom": [
-      "link[href*='/wp-content/plugins/woocommerce-subscriptions/']"
+      "link[href*='/wp-content/plugins/woocommerce-subscriptions/']",
+      "link[href*=\"/plugins/woocommerce-subscriptions/\"]",
+      "script[src*=\"/plugins/woocommerce-subscriptions/\"]"
     ],
     "icon": "WooCommerce.svg",
     "implies": [
@@ -3907,7 +3977,10 @@
     "requires": [
       "WordPress"
     ],
-    "website": "https://woocommerce.com/products/woocommerce-subscriptions"
+    "website": "https://woocommerce.com/products/woocommerce-subscriptions",
+    "html": [
+      "/plugins/woocommerce-subscriptions/vendor/woocommerce/subscriptions-core/build"
+    ]
   },
   "Woodmart": {
     "cats": [
@@ -3986,6 +4059,15 @@
     ],
     "saas": true,
     "website": "https://woorise.com"
+  },
+  "Woosmap": {
+    "cats": [
+      35
+    ],
+    "website": "https://woosmap.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*woosmap\\.com(?:[:/?#]|$)"
+    ]
   },
   "Woostify": {
     "cats": [
@@ -4723,6 +4805,15 @@
     "saas": true,
     "website": "https://wowee.cz"
   },
+  "Wowza Streaming Engine": {
+    "cats": [
+      22
+    ],
+    "website": "https://www.wowza.com/streaming-engine",
+    "headers": {
+      "Server": "^wowzastreamingengine"
+    }
+  },
   "Wowza Video Player": {
     "cats": [
       14
@@ -4799,6 +4890,13 @@
     "html": "<!--.*WP Customer Reviews.*-->",
     "scriptSrc": "/wp-content/plugins/wp-customer-reviews/.*\\.js"
   },
+  "WP Directory Kit": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wpdirectorykit/",
+    "html": "/wp-content/plugins/wpdirectorykit/"
+  },
   "WP Easy Columns": {
     "cats": [
       87
@@ -4843,6 +4941,13 @@
     ],
     "website": "https://wpengine.com"
   },
+  "WP Fast Total Search": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/fulltext-search/",
+    "html": "wp-content/plugins/fulltext-search"
+  },
   "WP Fastest Cache": {
     "cats": [
       87,
@@ -4881,6 +4986,14 @@
       "/wpFeatherlight\\.pkgd\\.min\\.js"
     ],
     "website": "https://wordpress.org/plugins/wp-featherlight"
+  },
+  "WP Go Maps": {
+    "cats": [
+      5,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wp-google-maps/",
+    "html": "/wp-content/plugins/wp-google-maps"
   },
   "WP Google Map Embed": {
     "cats": [
@@ -4946,6 +5059,14 @@
     ],
     "website": "https://wpgridbuilder.com"
   },
+  "WP Hotel Booking": {
+    "cats": [
+      72,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wp-hotel-booking/",
+    "html": "/wp-content/plugins/wp-hotel-booking/"
+  },
   "WP Job Openings": {
     "cats": [
       87,
@@ -5003,6 +5124,13 @@
       "/wp-content/plugins/wp-maintenance-mode/.+wpmm\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1"
     ],
     "website": "https://github.com/andrianvaleanu/WP-Maintenance-Mode"
+  },
+  "WP Maps Pro": {
+    "cats": [
+      87
+    ],
+    "website": "https://www.wpmapspro.com/",
+    "html": "/wp-content/plugins/wp-maps-pro/"
   },
   "WP Page Numbers": {
     "cats": [
@@ -5308,6 +5436,14 @@
     ],
     "website": "https://wpbakery.com"
   },
+  "WPBookit": {
+    "cats": [
+      72,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wpbookit/",
+    "html": "/wp-content/plugins/wpbookit/"
+  },
   "wpCache": {
     "cats": [
       23,
@@ -5350,6 +5486,14 @@
       "WordPress"
     ],
     "website": "https://wpcacheon.io"
+  },
+  "wpDiscuz": {
+    "cats": [
+      15,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wpdiscuz/",
+    "html": "/wp-content/plugins/wpdiscuz"
   },
   "WPForms": {
     "cats": [
@@ -5403,6 +5547,13 @@
     ],
     "website": "https://wpml.org/"
   },
+  "WPMobile.App": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wpappninja/",
+    "html": "/wp-content/plugins/wpappninja"
+  },
   "WPMU DEV Smush": {
     "cats": [
       87
@@ -5422,6 +5573,13 @@
     ],
     "website": "https://wpmudev.com/project/wp-smush-pro"
   },
+  "WPS Hide Login": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wps-hide-login/",
+    "html": "/wp-content/plugins/wps-hide-login"
+  },
   "WPS Visitor Counter": {
     "cats": [
       87
@@ -5435,6 +5593,20 @@
       "WordPress"
     ],
     "website": "https://wordpress.org/plugins/wps-visitor-counter/"
+  },
+  "WPvivid Backup & Migration": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wpvivid-backuprestore/",
+    "html": "wp-content/plugins/wpvivid-backuprestore"
+  },
+  "WPZOOM Portfolio": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/wpzoom-portfolio/",
+    "html": "/wp-content/plugins/wpzoom-portfolio"
   },
   "Wrike": {
     "cats": [
@@ -5572,7 +5744,8 @@
     "saas": true,
     "scriptSrc": [
       "\\.bounceexchange\\.com",
-      "\\.smarterhq\\.io/"
+      "\\.smarterhq\\.io/",
+      "^https?://(?:[a-z0-9-]+\\.)*wknd\\.ai(?:[:/?#]|$)"
     ],
     "website": "https://www.wunderkind.co"
   },
@@ -5586,7 +5759,8 @@
       "WURFL": ""
     },
     "scriptSrc": [
-      "\\.wurfl\\.io"
+      "\\.wurfl\\.io",
+      "^https?://(?:[a-z0-9-]+\\.)*wurflcloud\\.com(?:[:/?#]|$)"
     ],
     "website": "https://web.wurfl.io/"
   },
@@ -5675,5 +5849,245 @@
       "/jquery\\.wysibb\\.min\\.js"
     ],
     "website": "https://wysibb.com"
+  },
+  "Wysistat": {
+    "cats": [
+      10
+    ],
+    "cookies": {
+      "wysistat": ""
+    },
+    "description": "Wysistat is a French web analytics and audience measurement service.",
+    "icon": "Wysistat.png",
+    "js": {
+      "_wsq": "",
+      "_wysistat": "",
+      "wysistat": ""
+    },
+    "scriptSrc": [
+      "www\\.wysistat\\.(?:com|net)/"
+    ],
+    "website": "https://www.wysistat.net",
+    "xhr": [
+      "wysistat\\.(?:com|net)"
+    ]
+  },
+  "WP Stratos": {
+    "cats": [
+      62,
+      88
+    ],
+    "description": "WP Stratos is a managed WordPress hosting platform.",
+    "headers": {
+      "platform": "^WP Stratos$",
+      "x-powered-by": "^WP Stratos Managed Cloud$"
+    },
+    "icon": "WP Stratos.svg",
+    "implies": "WordPress",
+    "saas": true,
+    "website": "https://wpstratos.com"
+  },
+  "WP ULike": {
+    "cats": [
+      87
+    ],
+    "description": "WP ULike is a WordPress plugin for adding like, dislike, and reaction controls to website content.",
+    "icon": "WP ULike.svg",
+    "js": {
+      "WordpressUlike": ""
+    },
+    "oss": true,
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": [
+      "/wp-content/plugins/wp-ulike/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+      "/wp-content/plugins/wp-ulike-pro/.+\\.js"
+    ],
+    "website": "https://wpulike.com"
+  },
+  "WaveRez": {
+    "cats": [
+      72
+    ],
+    "description": "WaveRez is an online booking software platform designed for the watersport and boat tour industry.",
+    "icon": "WaveRez.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "reservations\\.waverez\\.com",
+    "website": "https://waverez.com"
+  },
+  "Wavoto": {
+    "cats": [
+      6
+    ],
+    "description": "Wavoto is an eCommerce platform that provides integrated tools for managing online storefronts.",
+    "dom": "link[href*='www.wavoto.com']",
+    "icon": "Wavoto.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.wavoto.com"
+  },
+  "Weasy": {
+    "cats": [
+      6
+    ],
+    "description": "Weasy is an AI-based platform that automatically generates websites and online stores from minimal input.",
+    "icon": "Weasy.svg",
+    "js": {
+      "weasyPixel": ""
+    },
+    "meta": {
+      "author": "^Weasy$"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.weasy\\.io",
+    "website": "https://weasy.io"
+  },
+  "WebToffee EU Order Withdrawal Button for WooCommerce": {
+    "cats": [
+      87
+    ],
+    "description": "WebToffee EU Order Withdrawal Button for WooCommerce is an open-source plugin for submitting and managing online order withdrawal requests.",
+    "icon": "WebToffee EU Order Withdrawal Button.png",
+    "oss": true,
+    "requires": "WooCommerce",
+    "scriptSrc": "/wp-content/plugins/wt-eu-withdrawal-button/assets/js/wbte-ewb-frontend(?:\\.min)?\\.js(?:\\?ver=([\\d.]+))?\\;version:\\1",
+    "website": "https://wordpress.org/plugins/wt-eu-withdrawal-button/"
+  },
+  "Webmercs": {
+    "cats": [
+      6
+    ],
+    "description": "Webmercs is a platform that develops websites alongside integrated backend logistics and warehousing solutions for advanced customers operating in the B2C and B2B computer retail sector.",
+    "headers": {
+      "Server": "^Webmercs$"
+    },
+    "icon": "Webmercs.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.webmercs.com"
+  },
+  "Webstorio": {
+    "cats": [
+      51
+    ],
+    "description": "Webstorio is an AI-powered website builder with built-in CMS, hosting, ecommerce, forms, and database tools.",
+    "dom": "script[data-webstorio-sdk-stub], script#webstorio-sdk",
+    "icon": "Webstorio.png",
+    "implies": [
+      "Next.js"
+    ],
+    "js": {
+      "__webstorioCallQueue__": "",
+      "__webstorioQueue__": "",
+      "webstorio": ""
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://webstorio.com"
+  },
+  "Wegic": {
+    "cats": [
+      1
+    ],
+    "description": "Wegic is a platform that utilizes artificial intelligence to automate website design, development, and management based on user input.",
+    "icon": "Wegic.svg",
+    "js": {
+      "WegicCollect": "",
+      "WegicElementInspector": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.wegic\\.ai",
+    "website": "https://wegic.ai"
+  },
+  "Wirsindhandwerk": {
+    "cats": [
+      90
+    ],
+    "description": "Wirsindhandwerk is a customer review platform for trades businesses with embeddable rating widgets.",
+    "icon": "Wirsindhandwerk.svg",
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "^https?://w\\.(?:wsh|wirsindhandwerk)\\.de/(?:[a-f0-9]{32}|[a-z0-9]{40})\\.js(?:[?#]|$)",
+    "website": "https://www.wirsindhandwerk.de"
+  },
+  "Wobily": {
+    "cats": [
+      6
+    ],
+    "description": "Wobily is an Israel-based store builder system for creating and managing online shops.",
+    "icon": "Wobily.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdnw\\.wobily\\.com/",
+    "website": "https://www.wobily.com"
+  },
+  "WzShop": {
+    "cats": [
+      6
+    ],
+    "description": "WzShop is a SaaS platform for creating online catalogs and storefronts that route orders through WhatsApp and social channels.",
+    "icon": "WzShop.svg",
+    "meta": {
+      "generator": "^WzShop$"
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://wzshop.com.br"
+  },
+  "wpForo": {
+    "cats": [
+      87
+    ],
+    "description": "wpForo is a WordPress plugin for building discussion forums and online communities.",
+    "dom": "link[href*='/wp-content/plugins/wpforo/'], script[src*='/wp-content/plugins/wpforo/']",
+    "icon": "wpForo.png",
+    "implies": "WordPress",
+    "oss": true,
+    "pricing": [
+      "low",
+      "freemium",
+      "onetime"
+    ],
+    "website": "https://wpforo.com"
   }
 }

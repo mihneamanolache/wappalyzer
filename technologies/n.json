@@ -280,6 +280,15 @@
     ],
     "website": "https://narrativ.com/"
   },
+  "Narrative": {
+    "cats": [
+      97
+    ],
+    "website": "https://narrative.io",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*narrative\\.io(?:[:/?#]|$)"
+    ]
+  },
   "Narvar": {
     "cats": [
       102,
@@ -722,6 +731,15 @@
     "saas": true,
     "website": "https://neonone.com"
   },
+  "NEORY": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.neory.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*ad-srv\\.net(?:[:/?#]|$)"
+    ]
+  },
   "Neos CMS": {
     "cats": [
       1
@@ -1102,6 +1120,15 @@
       "X-Powered-By": "NetSuite"
     }
   },
+  "NetTalk": {
+    "cats": [
+      22
+    ],
+    "website": "https://www.capesoft.com/accessories/netsp.htm",
+    "headers": {
+      "Server": "^nettalk-webserver"
+    }
+  },
   "Nette Framework": {
     "cats": [
       18
@@ -1205,7 +1232,10 @@
       "recurring"
     ],
     "saas": true,
-    "website": "https://newrelic.com"
+    "website": "https://newrelic.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*nr-data\\.net(?:[:/?#]|$)"
+    ]
   },
   "New UI": {
     "cats": [
@@ -1943,6 +1973,13 @@
     ],
     "website": "https://ninjaforms.com"
   },
+  "Ninja Tables": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/ninja-tables/",
+    "html": "/wp-content/plugins/ninja-tables/"
+  },
   "NinjaCat": {
     "cats": [
       10,
@@ -2537,6 +2574,13 @@
     "oss": true,
     "website": "https://github.com/jaredreich/notie"
   },
+  "NotificationX": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/notificationx/",
+    "html": "/wp-content/plugins/notificationx"
+  },
   "Notifly": {
     "cats": [
       32
@@ -2618,6 +2662,17 @@
       "api\\.novabusca\\.com\\.br"
     ],
     "website": "https://novabusca.com.br"
+  },
+  "Nova Studio": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.novastudio.ai/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*polarcdn-engine\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*polarcdn-terrax\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*polarcdn\\.com(?:[:/?#]|$)"
+    ]
   },
   "NovaDB": {
     "cats": [
@@ -2892,12 +2947,14 @@
     "description": "Nunjucks is a full-featured templating engine for JavaScript.",
     "website": "https://mozilla.github.io/nunjucks/",
     "icon": "Nunjucks.svg",
-    "html": [
-      "\\{\\%\\s*(block|endblock|extends|for|endfor|if|endif|include)\\s*.*?\\s*\\%\\}",
-      "\\{\\{\\s*.*?\\s*\\}\\}"
+    "scriptSrc": [
+      "/nunjucks[@/](\\d+(?:\\.\\d+)+)/(?:browser/)?nunjucks(?:-slim)?(?:\\.min)?\\.js\\;version:\\1",
+      "\\bnunjucks(?:-slim)?(?:\\.min)?\\.js"
     ],
     "scripts": [
-      "nunjucks(?:\\.min)?\\.js"
+      "Browser bundle of nunjucks (\\d+(?:\\.\\d+)+)\\;version:\\1",
+      "\\bnunjucksPrecompiled\\b",
+      "nunjucks(?:-slim)?(?:\\.min)?\\.js"
     ]
   },
   "Nuqlium": {
@@ -3090,5 +3147,92 @@
     ],
     "saas": true,
     "website": "https://nyehandel.se"
+  },
+  "Nevuto": {
+    "cats": [
+      6
+    ],
+    "description": "Nevuto is a hosted ecommerce platform for building online stores with themes, checkout, payments, shipping, and sales-channel tools.",
+    "icon": "Nevuto.svg",
+    "meta": {
+      "generator": "^Nevuto$"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.nevu\\.to/s/files/.+/scripts/(?:main|vendor)\\.js",
+    "url": "^https?://[^/]+\\.nevu\\.to(?:[/?#]|$)",
+    "website": "https://nevuto.com"
+  },
+  "Nlet School": {
+    "cats": [
+      21
+    ],
+    "description": "Nlet School is a school management platform for admissions, attendance, fees, exams, transportation, and communication.",
+    "icon": "Nlet School.png",
+    "meta": {
+      "author": "^NLET(?: initiatives LLP)?$"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "url": "^https?://[^./]+\\.nletschool\\.com(?:/|$)",
+    "website": "https://nletschool.com/"
+  },
+  "NoShow": {
+    "cats": [
+      72
+    ],
+    "description": "NoShow is a software platform for managing restaurant reservations, enabling booking scheduling, table allocation, and customer reservation tracking.",
+    "icon": "NoShow.svg",
+    "js": {
+      "initNoShowBooking": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "app\\.noshow\\.io",
+    "website": "https://noshow.io"
+  },
+  "NorthWhistle": {
+    "cats": [
+      16
+    ],
+    "description": "NorthWhistle is a whistleblowing system that enables organizations to deploy compliant reporting websites through plug-and-play functionality.",
+    "icon": "NorthWhistle.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "app\\.northwhistle\\.com",
+    "website": "https://www.northwhistle.com"
+  },
+  "Nsin": {
+    "cats": [
+      31
+    ],
+    "description": "Nsin is a connectivity-focused CDN for keeping websites reachable across regions and networks.",
+    "headers": {
+      "Server": "^NSIN$",
+      "X-Nsin-Cache": "",
+      "X-Nsin-Edge": ""
+    },
+    "icon": "Nsin.png",
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://nsin.ir/"
   }
 }

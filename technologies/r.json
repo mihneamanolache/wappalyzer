@@ -1483,7 +1483,10 @@
     "js": {
       "REBELMOUSE_ACTIVE_TASKS_QUEUE": ""
     },
-    "website": "https://www.rebelmouse.com/"
+    "website": "https://www.rebelmouse.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*rbl\\.ms(?:[:/?#]|$)"
+    ]
   },
   "Rebuy": {
     "cats": [
@@ -2774,6 +2777,13 @@
     "saas": true,
     "website": "https://releva.ai"
   },
+  "Relevanssi": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/relevanssi/",
+    "html": "/wp-content/plugins/relevanssi/"
+  },
   "Relewise": {
     "cats": [
       76
@@ -3178,6 +3188,14 @@
       "\\.reputon\\.com/"
     ],
     "website": "https://reputon.com"
+  },
+  "Request a Quote for WooCommerce": {
+    "cats": [
+      6,
+      87
+    ],
+    "website": "https://woocommerce.com/products/request-a-quote-plugin/",
+    "html": "/wp-content/plugins/woocommerce-request-a-quote/"
   },
   "Request Metrics": {
     "cats": [
@@ -6051,5 +6069,316 @@
     },
     "saas": true,
     "website": "https://ryzeo.com"
+  },
+  "RAMP Interactive": {
+    "cats": [
+      1
+    ],
+    "description": "RAMP Interactive is a sports website management tool that enables organizations to create, update, and maintain team websites, schedules, registrations, and related content through a centralized online platform.",
+    "icon": "RAMPInteractive.svg",
+    "meta": {
+      "author": "RAMPInterActive\\.com"
+    },
+    "saas": true,
+    "scriptSrc": "api\\.rampinteractive\\.com",
+    "website": "https://rampinteractive.com"
+  },
+  "RVGlobalSoft": {
+    "cats": [
+      1
+    ],
+    "description": "RVGlobalSoft is a cPanel-based content management system that enables users to manage website content, files, and configurations through a hosting control panel interface.",
+    "icon": "RVGlobalSoft.svg",
+    "meta": {
+      "generator": "^RVGlobalsoft$"
+    },
+    "pricing": [
+      "onetime"
+    ],
+    "saas": true,
+    "website": "https://www.rvglobalsoft.com"
+  },
+  "Rackspace": {
+    "cats": [
+      88
+    ],
+    "description": "Rackspace is a cloud computing and managed hosting provider.",
+    "dns": {
+      "NS": "\\.rackspace\\.com"
+    },
+    "icon": "Rackspace.png",
+    "pricing": [
+      "recurring",
+      "poa"
+    ],
+    "website": "https://www.rackspace.com"
+  },
+  "RapiDoc": {
+    "cats": [
+      4
+    ],
+    "description": "RapiDoc is an open-source web component that generates interactive API documentation from OpenAPI specifications.",
+    "dom": "rapi-doc",
+    "icon": "RapiDoc.svg",
+    "oss": true,
+    "scriptSrc": "(?:^|/)rapidoc(?:-min)?\\.js(?:[?#]|$)",
+    "website": "https://rapidocweb.com"
+  },
+  "RateAbiz": {
+    "cats": [
+      90
+    ],
+    "description": "RateABiz is a reviews widgets for local service providers.",
+    "icon": "RateAbiz.svg",
+    "saas": true,
+    "scripts": "cdn\\.rateabiz\\.com",
+    "website": "https://rateabiz.com"
+  },
+  "RaveCapture": {
+    "cats": [
+      90
+    ],
+    "description": "RaveCapture is a platform for ecommerce stores to collect customer reviews, user-generated content, and survey responses in a single system to support trust-building and customer feedback management.",
+    "icon": "RaveCapture.svg",
+    "js": {
+      "trustspot_key": ""
+    },
+    "saas": true,
+    "scriptSrc": "trustspot\\.io",
+    "website": "https://ravecapture.com"
+  },
+  "ReQruiting": {
+    "cats": [
+      101
+    ],
+    "description": "ReQruiting is a platform that automates core HR and recruitment processes, including job postings, candidate tracking, and hiring workflow management.",
+    "icon": "ReQruiting.svg",
+    "js": {
+      "reqruiting.buildUrl": "",
+      "reqruitingApplyButtonText": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "api\\.reqruiting\\.com/",
+    "website": "https://www.reqruiting.com"
+  },
+  "React Aria": {
+    "cats": [
+      59
+    ],
+    "description": "React Aria is an open-source library of unstyled React components and hooks for building accessible user interfaces.",
+    "dom": {
+      "[class^='react-aria-'], [class*=' react-aria-']": {
+        "exists": ""
+      },
+      "[data-rac]": {
+        "exists": ""
+      },
+      "[data-react-aria-pressable='true']": {
+        "exists": ""
+      },
+      "[id^='react-aria-']": {
+        "exists": ""
+      }
+    },
+    "icon": "React Aria.svg",
+    "implies": "React",
+    "oss": true,
+    "website": "https://react-aria.adobe.com"
+  },
+  "Readdy": {
+    "cats": [
+      51
+    ],
+    "description": "Readdy is an AI website builder for generating and editing website layouts and content through automated design and content suggestions.",
+    "icon": "Readdy.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "public\\.readdy\\.ai",
+    "website": "https://readdy.ai"
+  },
+  "Recranet": {
+    "cats": [
+      72
+    ],
+    "description": "Recranet is a software solution for booking and sales, providing businesses with tools to manage trips and activities in an organized and centralized system.",
+    "icon": "Recranet.svg",
+    "js": {
+      "recranetConfig": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "static\\.recranet\\.com",
+    "website": "https://recranet.com"
+  },
+  "Recruitics": {
+    "cats": [
+      101
+    ],
+    "description": "Recruitics is an AI-based recruitment marketing platform that supports job advertising, candidate targeting, performance analytics, and optimization across multiple hiring channels.",
+    "icon": "Recruitics.svg",
+    "saas": true,
+    "scriptSrc": "\\.recruitics\\.com/",
+    "scripts": "\\.recruitics\\.com/",
+    "website": "https://www.recruitics.com"
+  },
+  "Referrizer": {
+    "cats": [
+      32
+    ],
+    "description": "Referrizer is a local business marketing automation solution that supports customer engagement, referral management, and campaign execution across digital channels.",
+    "icon": "Referrizer.svg",
+    "js": {
+      "referrizerWidget": ""
+    },
+    "saas": true,
+    "scriptSrc": "\\.referrizer\\.com",
+    "website": "https://business.referrizer.com"
+  },
+  "RegistrationMagic": {
+    "cats": [
+      87
+    ],
+    "cpe": "cpe:2.3:a:metagauss:registrationmagic:*:*:*:*:*:wordpress:*:*",
+    "description": "RegistrationMagic is a WordPress plugin that enables the creation and management of customized user registration forms and associated submission workflows.",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/custom-registration-form-builder-with-submission-manager/public/js/",
+    "website": "https://registrationmagic.com"
+  },
+  "Reniwn": {
+    "cats": [
+      51
+    ],
+    "description": "Reniwn is a website builder that enables the creation of professional-looking websites through customizable design and publishing tools.",
+    "saas": true,
+    "scriptSrc": "www\\.myreniwn\\.com/",
+    "website": "http://myreniwn.com"
+  },
+  "Rentware": {
+    "cats": [
+      93
+    ],
+    "description": "Rentware is rental management software with booking widgets for inventory, reservation, and online payment workflows.",
+    "dom": "rtr-widget-config, rentware-checkout, rtr-search, rentware-search",
+    "icon": "Rentware.svg",
+    "js": {
+      "RENTWARE_BASE_API_URL": "",
+      "RENTWARE_LANGUAGE": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "w-cdn\\.rentware\\.io/dist/rentware-widgets\\.esm\\.js",
+      "cdn\\.rtr-io\\.com/widgets(?:_sol_v2)?\\.js"
+    ],
+    "website": "https://rentware.com",
+    "xhrUrl": "widget\\.rtr-io\\.com/booking/system"
+  },
+  "RepairDesk": {
+    "cats": [
+      53
+    ],
+    "description": "RepairDesk is a repair shop management software.",
+    "icon": "RepairDesk.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.repairdesk\\.co/",
+    "website": "https://www.repairdesk.co"
+  },
+  "ReplySuite": {
+    "cats": [
+      52
+    ],
+    "description": "ReplySuite is an AI-powered customer engagement platform for automated website chat and response management.",
+    "icon": "ReplySuite.png",
+    "js": {
+      "ReplySuite": ""
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "replysuite\\.app/embed\\.js",
+    "website": "https://replysuite.app"
+  },
+  "Revotas": {
+    "cats": [
+      32
+    ],
+    "description": "Revotas is a digital marketing platform based in Turkey.",
+    "icon": "Revotas.svg",
+    "saas": true,
+    "scriptSrc": "\\.revotas\\.com",
+    "website": "https://www.revotas.com"
+  },
+  "Rivo": {
+    "cats": [
+      84
+    ],
+    "description": "Rivo is a Shopify loyalty and referrals platform.",
+    "icon": "Rivo.png",
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.shopify\\.com/extensions/[^/]+/rivo-loyalty-rewards-referrals-\\d+/assets/rivo-app-embed\\.js",
+    "website": "https://www.rivo.io"
+  },
+  "Rivyo": {
+    "cats": [
+      100
+    ],
+    "description": "Rivyo is a Shopify app for product reviews, loyalty programs, referrals, and user-generated content.",
+    "dom": "meta#th_rivyo_shop_url, meta#wc_rivyo_shop_url",
+    "icon": "Rivyo.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.shopify\\.com/extensions/[^/]+/rivyo-product-review-\\d+/assets/rivyo-script\\.js",
+    "scripts": "\\brivyoCustomerDetails\\b",
+    "website": "https://rivyo.com"
+  },
+  "Robocote": {
+    "cats": [
+      32
+    ],
+    "description": "Robocote is an artificial intelligence–driven platform that supports lead management and digital marketing processes.",
+    "icon": "Robocote.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "app\\.robocote\\.com",
+    "website": "https://robocote.com"
   }
 }

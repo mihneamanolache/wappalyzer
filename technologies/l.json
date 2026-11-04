@@ -268,6 +268,13 @@
     },
     "website": "https://laravel.com/docs/broadcasting#client-side-installation"
   },
+  "LaRecipe": {
+    "cats": [
+      4
+    ],
+    "website": "https://larecipe.saleem.dev/",
+    "html": "/binarytorch/larecipe/"
+  },
   "Lasso CRM": {
     "cats": [
       53
@@ -743,6 +750,14 @@
       "(?://|\\.)chatsystem\\.io/"
     ],
     "website": "https://www.leadchat.com"
+  },
+  "LeadConnector": {
+    "cats": [
+      32,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/leadconnector/",
+    "html": "/wp-content/plugins/leadconnector/"
   },
   "LeadDyno": {
     "cats": [
@@ -1226,6 +1241,14 @@
       "WordPress"
     ],
     "website": "https://www.learndash.com"
+  },
+  "LearnPress": {
+    "cats": [
+      21,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/learnpress/",
+    "html": "/wp-content/plugins/learnpress"
   },
   "LearnUpon": {
     "cats": [
@@ -2003,6 +2026,15 @@
     "oss": true,
     "website": "https://www.lighttpd.net"
   },
+  "LightWidget": {
+    "cats": [
+      5
+    ],
+    "website": "https://lightwidget.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*lightwidget\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Ligna": {
     "cats": [
       53
@@ -2659,6 +2691,13 @@
     ],
     "website": "https://www.listagram.com"
   },
+  "ListingPro": {
+    "cats": [
+      80
+    ],
+    "website": "https://listingprowp.com/",
+    "html": "/wp-content/plugins/listingpro"
+  },
   "Listrak": {
     "cats": [
       32,
@@ -2985,7 +3024,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "cdn\\.livechatinc\\.com/.*tracking\\.js"
+      "cdn\\.livechatinc\\.com/.*tracking\\.js",
+      "^https?://(?:[a-z0-9-]+\\.)*livechat-static\\.com(?:[:/?#]|$)"
     ],
     "website": "https://www.livechat.com/"
   },
@@ -3039,6 +3079,15 @@
     ],
     "saas": true,
     "website": "https://www.livehelp.it"
+  },
+  "LiveHelpNow": {
+    "cats": [
+      52
+    ],
+    "website": "https://livehelpnow.net",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*livehelpnow\\.net(?:[:/?#]|$)"
+    ]
   },
   "LiveIntent": {
     "cats": [
@@ -3106,7 +3155,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.(?:liveperson|contactatonce)?\\.(?:com|net|co\\.uk)/"
+      "\\.(?:liveperson|contactatonce)?\\.(?:com|net|co\\.uk)/",
+      "^https?://(?:[a-z0-9-]+\\.)*lpsnmedia\\.net(?:[:/?#]|$)"
     ],
     "website": "https://www.liveperson.com"
   },
@@ -3557,7 +3607,7 @@
     ],
     "icon": "Lodash.svg",
     "js": {
-      "_.VERSION": "^(.+)$\\;confidence:0\\;version:\\1",
+      "_.VERSION": "^([2-4]\\..+)$\\;confidence:0\\;version:\\1",
       "_.differenceBy": "",
       "_.templateSettings.imports._.templateSettings.imports._.VERSION": "^(.+)$\\;version:\\1"
     },
@@ -3628,6 +3678,21 @@
       "logaholic\\.hostpoint\\.ch/"
     ],
     "website": "https://www.logaholic.com"
+  },
+  "LogaTech": {
+    "cats": [
+      1,
+      51
+    ],
+    "description": "LogaTech is a web development company offering a platform used to build and manage multi-tenant CMS, CRM and e-commerce websites.",
+    "headers": {
+      "X-Powered-By": "^LogaTech$"
+    },
+    "icon": "LogaTech.png",
+    "meta": {
+      "generator": "^LogaTech$"
+    },
+    "website": "https://logatech.net"
   },
   "Loggly": {
     "cats": [
@@ -3998,6 +4063,15 @@
     ],
     "website": "https://www.loopweb.net"
   },
+  "Loop11": {
+    "cats": [
+      73
+    ],
+    "website": "https://loop11.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*loop11\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Loop54": {
     "cats": [
       29,
@@ -4136,6 +4210,20 @@
     ],
     "saas": true,
     "website": "https://www.loqate.com"
+  },
+  "Lotame": {
+    "cats": [
+      97,
+      36
+    ],
+    "description": "Lotame is a data management platform (DMP) providing audience data collection, segmentation and identity solutions via its Crowd Control tag.",
+    "scriptSrc": [
+      "\\.crwdcntrl\\.net/"
+    ],
+    "website": "https://www.lotame.com",
+    "xhr": [
+      "\\.crwdcntrl\\.net"
+    ]
   },
   "LotLinx": {
     "cats": [
@@ -4387,6 +4475,15 @@
     ],
     "saas": true,
     "website": "https://ltheme.com"
+  },
+  "LTK": {
+    "cats": [
+      71
+    ],
+    "website": "https://rewardstyle.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*rewardstyle\\.com(?:[:/?#]|$)"
+    ]
   },
   "Lua": {
     "cats": [
@@ -4726,5 +4823,154 @@
     "oss": false,
     "xhr": "api\\.lytx\\.com",
     "scriptSrc": "lytx\\.com"
+  },
+  "LLK Analytics": {
+    "cats": [
+      10
+    ],
+    "description": "LLK Analytics is a privacy-friendly analytics platform for websites, apps, and digital publications with realtime traffic statistics and AI-generated reports.",
+    "dom": "script[src*='js.llk.hk'][data-site-id]",
+    "icon": "LLK Analytics.svg",
+    "saas": true,
+    "scriptSrc": "js\\.llk\\.hk",
+    "website": "https://llk.hk/",
+    "xhr": "api\\.llk\\.hk"
+  },
+  "Laioutr": {
+    "cats": [
+      1
+    ],
+    "description": "Laioutr is a frontend management platform for building, managing, and delivering composable ecommerce storefronts.",
+    "headers": {
+      "X-Powered-By": "^Laioutr(?: \\(@laioutr-core/frontend-core@[\\d.]+\\))?$"
+    },
+    "icon": "Laioutr.png",
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.laioutr.com"
+  },
+  "LaunchLMS": {
+    "cats": [
+      21
+    ],
+    "description": "LaunchLMS is a learning management system that provides a customizable platform designed to adapt to different business training and development needs.",
+    "dom": "link[href*='static.launchlab.com.br/']",
+    "icon": "LaunchLMS.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://launchlms.com.br"
+  },
+  "LaunchMyStore": {
+    "cats": [
+      6
+    ],
+    "description": "LaunchMyStore is an ecommerce platform for creating and managing online stores, including themes, payments, inventory, and storefront tools.",
+    "headers": {
+      "link": "(?:assets|cdn)\\.launchmystore\\.io"
+    },
+    "icon": "LaunchMyStore.png",
+    "saas": true,
+    "scriptSrc": "assets\\.launchmystore\\.io/themes/[\\w-]+/assets/",
+    "website": "https://launchmystore.io"
+  },
+  "Lead Recorder": {
+    "cats": [
+      10
+    ],
+    "description": "Lead Recorder is an analytics platform that attributes website calls, form submissions, and bookings to their marketing sources.",
+    "dom": {
+      "script[src*='leadrecorder.com/api/script/']": {
+        "attributes": {
+          "src": "leadrecorder\\.com/api/script/[a-f\\d]{32}"
+        }
+      }
+    },
+    "icon": "Lead Recorder.png",
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "www\\.leadrecorder\\.com/api/script/[a-f\\d]{32}",
+    "website": "https://www.leadrecorder.com"
+  },
+  "LegitFit": {
+    "cats": [
+      72
+    ],
+    "description": "Legitfit is a booking and management platform designed to support scheduling and operations for boutique fitness studios.",
+    "icon": "LegitFit.svg",
+    "meta": {
+      "application-name": "^LegitFit$"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://legitfit.com"
+  },
+  "LerenTools": {
+    "cats": [
+      108
+    ],
+    "description": "LerenTools is a suite of Tiendanube storefront apps for badges, preorder flows, business rules, and related merchandising features.",
+    "icon": "LerenTools.png",
+    "saas": true,
+    "scriptSrc": "apps-scripts\\.tiendanube\\.com/[^?#]*lerentools/",
+    "website": "https://lerentools.com",
+    "xhr": "api\\.lerentools\\.com"
+  },
+  "Lindo.ai": {
+    "cats": [
+      51
+    ],
+    "description": "Lindo.ai is an AI-based website builder that generates and customizes websites from user inputs without requiring coding knowledge.",
+    "icon": "Lindo.svg",
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.lindoai\\.com",
+    "website": "https://lindo.ai"
+  },
+  "LiveChatAI": {
+    "cats": [
+      52
+    ],
+    "description": "LiveChatAI is a customer support platform for building AI chatbots trained on company content and handing conversations to human agents.",
+    "icon": "LiveChatAI.png",
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "^https://app\\.livechatai\\.com/embed\\.js",
+    "website": "https://livechatai.com"
+  },
+  "Loyalistic": {
+    "cats": [
+      32
+    ],
+    "description": "Loyalistic is a marketing automation software designed for small and medium-sized professional teams to showcase their expertise by creating content that helps people to buy.",
+    "icon": "Loyalistic.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.loyalistic\\.com/",
+    "website": "https://loyalistic.com"
   }
 }

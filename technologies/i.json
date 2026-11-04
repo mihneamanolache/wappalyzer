@@ -125,6 +125,15 @@
     ],
     "website": "https://carbondesignsystem.com"
   },
+  "IBM CICS Transaction Server": {
+    "cats": [
+      22
+    ],
+    "website": "https://www.ibm.com/products/cics-transaction-server",
+    "headers": {
+      "Server": "^ibm_cics_transaction_server"
+    }
+  },
   "IBM Cloud": {
     "cats": [
       63,
@@ -296,20 +305,25 @@
       "generator": "IBM Web Content Manager"
     }
   },
+  "IBM WebSEAL": {
+    "cats": [
+      64
+    ],
+    "website": "https://www.ibm.com/products/verify-identity-access",
+    "headers": {
+      "Server": "^webseal"
+    }
+  },
   "IBM WebSphere Application Server": {
     "cats": [
       22
     ],
     "icon": "IBM WebSphere Application Server.svg",
     "website": "https://www.ibm.com/products/websphere-application-server",
-    "headers": {
-      "X-Powered-By": "^Servlet/\\d{2}\\.\\d{2}$|PHP/?",
-      "Server": "^(?:IBM )?HTTP Server/\\d+(?:\\.\\d+)?(?:\\.\\d+)?(?:.?[ \\(\\w\\)]+)?"
-    },
     "meta": {
       "generator": "^(?:IBM )?WebSphere Application Server$"
     },
-    "html": "<!-- Created by IBM -->|[\\w\\s]+IBM"
+    "html": "\\bIBM\\s+WebSphere\\s+Application\\s+Server\\b"
   },
   "IBM WebSphere DataPower": {
     "cats": [
@@ -344,6 +358,13 @@
       "server": "IBM z/VM"
     },
     "website": "https://www.ibm.com/it-infrastructure/z/zvm"
+  },
+  "iCagenda": {
+    "cats": [
+      19
+    ],
+    "website": "https://www.icagenda.com/",
+    "html": "com_icagenda"
   },
   "ICE": {
     "cats": [
@@ -1292,12 +1313,20 @@
     "icon": "Impact.svg",
     "js": {
       "ImpactRadiusEvent": "",
-      "irEvent": ""
+      "irEvent": "",
+      "ire": "",
+      "ire_o": "",
+      "impactDataLayer": ""
     },
     "scriptSrc": [
-      "d\\.impactradius-event\\.com"
+      "d\\.impactradius-event\\.com",
+      "utt\\.impactcdn\\.com"
     ],
-    "website": "https://impact.com/"
+    "website": "https://impact.com/",
+    "cookies": {
+      "ir_gbd": "",
+      "ir_pi": ""
+    }
   },
   "imperia CMS": {
     "cats": [
@@ -1456,6 +1485,24 @@
       "events\\.impressure\\.io"
     ],
     "website": "https://impressure.io"
+  },
+  "Improve Digital": {
+    "cats": [
+      36
+    ],
+    "website": "https://360yield.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*360yield\\.com(?:[:/?#]|$)"
+    ]
+  },
+  "Improvely": {
+    "cats": [
+      10
+    ],
+    "website": "https://www.improvely.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*iljmp\\.com(?:[:/?#]|$)"
+    ]
   },
   "Imunify360": {
     "cats": [
@@ -1634,6 +1681,9 @@
     "website": "https://www.indexexchange.com",
     "xhr": [
       "\\.casalemedia\\.com"
+    ],
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*indexww\\.com(?:[:/?#]|$)"
     ]
   },
   "Indexhibit": {
@@ -1796,6 +1846,15 @@
     ],
     "website": "https://startinfinity.com"
   },
+  "Infinity Call Tracking": {
+    "cats": [
+      10
+    ],
+    "website": "https://infinity-tracking.net",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*infinity-tracking\\.net(?:[:/?#]|$)"
+    ]
+  },
   "Inflection AI": {
     "cats": [
       200,
@@ -1894,7 +1953,10 @@
       "recurring"
     ],
     "saas": true,
-    "website": "https://infogram.com"
+    "website": "https://infogram.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*jifo\\.co(?:[:/?#]|$)"
+    ]
   },
   "Infolinks": {
     "cats": [
@@ -1940,7 +2002,8 @@
       "szmvars": ""
     },
     "scriptSrc": [
-      "^https?://(?:[^/]+\\.)?i(?:oam|v)wbox\\.de/"
+      "^https?://(?:[^/]+\\.)?i(?:oam|v)wbox\\.de/",
+      "^https?://(?:[a-z0-9-]+\\.)*ioam\\.de(?:[:/?#]|$)"
     ],
     "website": "https://www.infonline.de"
   },
@@ -3173,6 +3236,15 @@
     ],
     "website": "https://www.invoca.com"
   },
+  "InZynk": {
+    "cats": [
+      36
+    ],
+    "website": "https://inzynk.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*inzynk\\.io(?:[:/?#]|$)"
+    ]
+  },
   "Ionic": {
     "cats": [
       18
@@ -3472,6 +3544,24 @@
     },
     "website": "https://ipresta.ir"
   },
+  "iPROM": {
+    "cats": [
+      36
+    ],
+    "website": "https://iprom.eu/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*iprom\\.net(?:[:/?#]|$)"
+    ]
+  },
+  "Ipsos DotMetrics": {
+    "cats": [
+      10
+    ],
+    "website": "https://www.dotmetrics.net/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*dotmetrics\\.net(?:[:/?#]|$)"
+    ]
+  },
   "ipstack": {
     "cats": [
       79
@@ -3694,7 +3784,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.issuu\\.com/"
+      "\\.issuu\\.com/",
+      "^https?://(?:[a-z0-9-]+\\.)*isu\\.pub(?:[:/?#]|$)"
     ],
     "website": "https://issuu.com"
   },
@@ -3979,5 +4070,256 @@
       "cdn\\.izooto\\.\\w+"
     ],
     "website": "https://www.izooto.com"
+  },
+  "ISO100": {
+    "cats": [
+      7
+    ],
+    "description": "ISO100 is a free photography portfolio website builder. Photographers can upload selected work, arrange it into galleries, choose a layout, and publish a clean, image-led portfolio with shareable gallery links and an optional custom domain.",
+    "headers": {
+      "content-security-policy": "api\\.iso100\\.app"
+    },
+    "icon": "ISO100.svg",
+    "meta": {
+      "generator": "^ISO100 \\(https://iso100\\.app\\)$"
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "api\\.iso100\\.app/v1/public/portfolios/[^/]+/(?:events|%65vents)",
+    "url": "\\.iso100\\.photos(?:/|$)",
+    "website": "https://iso100.app",
+    "xhr": "api\\.iso100\\.app"
+  },
+  "Iconify": {
+    "cats": [
+      59
+    ],
+    "description": "Iconify is an open-source icon framework that provides a common interface for rendering icons from multiple icon sets in web applications.",
+    "dom": [
+      "iconify-icon",
+      "[class~='iconify'][data-icon]"
+    ],
+    "icon": "Iconify.svg",
+    "oss": true,
+    "scriptSrc": [
+      "code\\.iconify\\.design/(?:iconify-icon/|\\d+/)([\\d.]+)/iconify(?:-icon)?\\.min\\.js\\;version:\\1",
+      "cdn\\.jsdelivr\\.net/npm/iconify-icon@([\\d.]+)/dist/iconify-icon\\.min\\.js\\;version:\\1"
+    ],
+    "website": "https://iconify.design/"
+  },
+  "ImobiBrasil": {
+    "cats": [
+      53
+    ],
+    "description": "ImobiBrasil is a real estate CRM and sales funnel system that integrates with property portals to manage listings, leads, and client interactions within a centralized platform.",
+    "icon": "ImobiBrasil.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.imobibrasil\\.app\\.br",
+    "website": "https://imobibrasil.com.br"
+  },
+  "Impel": {
+    "cats": [
+      6
+    ],
+    "description": "Impel is an automotive software platform that provides digital retailing and merchandising tools designed to assist vehicle shoppers in evaluating and selecting cars online.",
+    "icon": "Impel.svg",
+    "js": {
+      "ImpelAna": "",
+      "ImpelSpinviewer": ""
+    },
+    "saas": true,
+    "scriptSrc": "cdn\\.impel\\.io",
+    "website": "https://impel.ai"
+  },
+  "Incomaker": {
+    "cats": [
+      32
+    ],
+    "description": "Incomaker is a marketing and sales automation platform that centralizes lead capture, campaign management, customer engagement, and sales workflows across digital channels.",
+    "icon": "Incomaker.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.incomaker\\.com/",
+    "website": "https://www.incomaker.com"
+  },
+  "Ingresse": {
+    "cats": [
+      72
+    ],
+    "description": "Ingresse is a booking system that enables users to manage reservations.",
+    "icon": "Ingresse.svg",
+    "saas": true,
+    "scriptSrc": "\\.ingresse\\.com",
+    "scripts": "\\.ingresse\\.com",
+    "website": "https://ingresse.com"
+  },
+  "Inkybay": {
+    "cats": [
+      100,
+      76
+    ],
+    "description": "Inkybay is a Shopify product personalization app for configurable product options, live previews, and print-ready custom orders.",
+    "icon": "Inkybay.svg",
+    "js": {
+      "EFOLI_INKYBAY_SCRIPTTAG_JS_INIT": "",
+      "runInkybayApp": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": [
+      "\\.inkybay\\.com/shopify/js/inkybay\\.js",
+      "/inkybay-product-personalizer-\\d+/assets/app\\.js"
+    ],
+    "website": "https://inkybay.com"
+  },
+  "InstanteStore": {
+    "cats": [
+      6
+    ],
+    "description": "InstanteStore is a hosted shopping cart system that enables businesses to manage online stores.",
+    "icon": "InstanteStore.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.instantestore\\.com",
+    "website": "https://instantestore.com"
+  },
+  "Intelliplan": {
+    "cats": [
+      101
+    ],
+    "description": "Intelliplan is a recruitment and staffing system designed to support modern hiring workflows, candidate management, and workforce planning.",
+    "icon": "Intelliplan.svg",
+    "saas": true,
+    "scripts": "\\.app\\.intelliplan\\.eu",
+    "website": "https://www.intelliplan.se"
+  },
+  "Interspire Shopping Cart": {
+    "cats": [
+      6
+    ],
+    "description": "Interspire Shopping Cart is a platform that enables businesses to create, manage, and operate online stores.",
+    "icon": "Interspire.svg",
+    "meta": {
+      "generator": "^Interspire Shopping Cart$"
+    },
+    "pricing": [
+      "onetime",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.interspire.com"
+  },
+  "Interwow": {
+    "cats": [
+      10
+    ],
+    "cookies": {
+      "interwow_session": ""
+    },
+    "description": "Interwow is a user behavior analytics platform that collects and analyzes user interaction data to understand behavior patterns and measure engagement across digital products.",
+    "icon": "Interwow.svg",
+    "js": {
+      "Interwow.trackConversion": "",
+      "InterwowToken": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://interwow.com"
+  },
+  "Intlayer": {
+    "cats": [
+      59
+    ],
+    "description": "Intlayer is an internationalization framework and content management platform for JavaScript applications.",
+    "icon": "Intlayer.svg",
+    "js": {
+      "intlayer.enabled": ""
+    },
+    "oss": true,
+    "saas": true,
+    "scriptSrc": "IntlayerProvider-[\\w-]+\\.js",
+    "website": "https://intlayer.org"
+  },
+  "Inwink": {
+    "cats": [
+      32
+    ],
+    "description": "Inwink is an event management platform for creating, managing, and scaling events.",
+    "icon": "Inwink.svg",
+    "js": {
+      "inwink.absoluteUrl": "",
+      "inwinkEventContainer": ""
+    },
+    "pricing": [
+      "high",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.inwink\\.com/",
+    "website": "https://www.inwink.com"
+  },
+  "Iyong": {
+    "cats": [
+      32
+    ],
+    "description": "Iyong is an intelligent website designed to simplify internet marketing through streamlined tools and data-driven functionality.",
+    "icon": "Iyong.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "link\\.iyong\\.com",
+    "website": "https://m.iyong.com"
+  },
+  "inCMS": {
+    "cats": [
+      1
+    ],
+    "description": "inCMS is a software platform that enables users to create, edit, and manage website content online through a web-based interface.",
+    "icon": "inCMS.svg",
+    "js": {
+      "inCMS.members": ""
+    },
+    "meta": {
+      "generator": "inCMS[^\\d.]*([\\d.]+)?\\;version:\\1"
+    },
+    "saas": true,
+    "scriptSrc": "\\.incms\\.net",
+    "website": "https://incms.com"
+  },
+  "inPowered": {
+    "cats": [
+      32
+    ],
+    "description": "inPowered is a content amplification platform that distributes branded and editorial content across digital channels to extend reach and measure audience engagement.",
+    "icon": "inPowered.svg",
+    "saas": true,
+    "scriptSrc": "cdn\\.inpwrd\\.net",
+    "website": "https://inpowered.ai"
   }
 }

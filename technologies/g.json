@@ -1,4 +1,13 @@
 {
+  "G2": {
+    "cats": [
+      90
+    ],
+    "website": "https://www.g2.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*g2crowd\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Gainsight PX": {
     "cats": [
       10
@@ -661,7 +670,9 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.gsspcln\\.jp/"
+      "\\.gsspcln\\.jp/",
+      "^https?://(?:[a-z0-9-]+\\.)*genieesspv\\.jp(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*gssprt\\.jp(?:[:/?#]|$)"
     ],
     "website": "https://geniee.co.jp"
   },
@@ -710,6 +721,15 @@
     ],
     "website": "https://geniewords.com"
   },
+  "Geniuslink": {
+    "cats": [
+      71
+    ],
+    "website": "https://geni.us",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*geni\\.us(?:[:/?#]|$)"
+    ]
+  },
   "Genoo": {
     "cats": [
       32
@@ -734,6 +754,13 @@
     },
     "icon": "Gentoo.svg",
     "website": "https://www.gentoo.org"
+  },
+  "GEO my WP": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/geo-my-wp/",
+    "html": "/wp-content/plugins/geo-my-wp/"
   },
   "Geo Targetly": {
     "cats": [
@@ -791,6 +818,16 @@
     ],
     "website": "https://geodis.com"
   },
+  "GeoEdge": {
+    "cats": [
+      36,
+      16
+    ],
+    "website": "https://www.geoedge.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*geoedge\\.be(?:[:/?#]|$)"
+    ]
+  },
   "Geonetric": {
     "cats": [
       1
@@ -803,6 +840,16 @@
     },
     "saas": true,
     "website": "https://www.geonetric.com"
+  },
+  "GeoNode": {
+    "cats": [
+      1
+    ],
+    "website": "https://geonode.org/",
+    "html": [
+      "href=\"/catalogue/opensearch\" title=\"geonode search",
+      "powered by <a href=\"http://geonode\\.org"
+    ]
   },
   "Geotab": {
     "cats": [
@@ -1316,6 +1363,14 @@
       "generator": "Ghost(?:\\s([\\d.]+))?\\;version:\\1"
     },
     "website": "https://ghost.org"
+  },
+  "Gift Cards For WooCommerce Pro": {
+    "cats": [
+      6,
+      87
+    ],
+    "website": "https://wpswings.com/",
+    "html": "/wp-content/plugins/woocommerce-ultimate-gift-card"
   },
   "Gigalixir": {
     "cats": [
@@ -2338,6 +2393,15 @@
     ],
     "website": "https://www.gmo-pg.com"
   },
+  "Gnatta": {
+    "cats": [
+      52
+    ],
+    "website": "https://gnatta.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*gnatta\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Gnuboard": {
     "cats": [
       1
@@ -3134,7 +3198,8 @@
     },
     "scriptSrc": [
       "google-analytics\\.com/(?:ga|urchin|analytics)\\.js",
-      "googletagmanager\\.com/gtag/js"
+      "/gtag/js\\?(?:[^#]*&)?id=G-\\;version:GA4",
+      "/gtag/js\\?(?:[^#]*&)?id=UA-\\;version:UA"
     ],
     "scripts": [
       "gtag\\([^)]+'(UA-)\\;version:\\1?UA:",
@@ -3214,8 +3279,16 @@
     "description": "Google Campaign Manager 360 is a web-based ad management system for advertisers and agencies.",
     "icon": "Google Campaign Manager 360.svg",
     "website": "https://marketingplatform.google.com/about/campaign-manager-360/",
+    "html": [
+      "\\d+\\.fls\\.doubleclick\\.net/activityi?;src="
+    ],
+    "scriptSrc": [
+      "googletagmanager\\.com/gtag/js\\?id=DC-\\d"
+    ],
     "scripts": [
-      "fls.doubleclick.net"
+      "\"vtp_tagId\":\"DC-\\d+\"",
+      "\"function\":\"__fls\"",
+      "gtag\\(\\s*['\"]config['\"]\\s*,\\s*['\"]DC-\\d"
     ],
     "js": {
       "_cm_pixel": ""
@@ -3329,10 +3402,7 @@
     ],
     "description": "Google Compute Engine is Google's Infrastructure-as-a-Service (IaaS) offering, providing virtual machine instances for workloads.",
     "icon": "Google Cloud.svg",
-    "website": "https://cloud.google.com/compute/",
-    "headers": {
-      "Server": "(GSE|gws)"
-    }
+    "website": "https://cloud.google.com/compute/"
   },
   "Google Consumer Surveys": {
     "cats": [
@@ -3696,19 +3766,12 @@
     ],
     "description": "Google Tag Manager is a tag management system (TMS) that allows you to quickly and easily update measurement codes and related code fragments collectively known as tags on your website or mobile app.",
     "html": [
-      "googletagmanager\\.com/ns\\.html[^>]+></iframe>",
-      "<!-- (?:End )?Google Tag Manager -->"
+      "/ns\\.html\\?(?:[^\"'>]*&)?id=GTM-[A-Z0-9]+"
     ],
     "icon": "Google Tag Manager.svg",
-    "js": {
-      "google_tag_data": "",
-      "google_tag_manager": "",
-      "googletag": ""
-    },
     "saas": true,
     "scriptSrc": [
-      "googletagmanager\\.com/gtm\\.js",
-      "\\.googletagmanager\\.com/"
+      "/gtm\\.js\\?(?:[^#]*&)?id=GTM-"
     ],
     "website": "https://www.google.com/tagmanager"
   },
@@ -4148,6 +4211,15 @@
     ],
     "website": "https://govedia.com"
   },
+  "GovMetric": {
+    "cats": [
+      73
+    ],
+    "website": "https://govmetric.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*govmetric\\.com(?:[:/?#]|$)"
+    ]
+  },
   "GoZen Forms": {
     "cats": [
       110
@@ -4227,6 +4299,13 @@
       "\\.grade\\.us"
     ],
     "website": "https://www.grade.us"
+  },
+  "Gradio": {
+    "cats": [
+      18
+    ],
+    "website": "https://www.gradio.app/",
+    "html": "__gradio_mode__"
   },
   "Grafana": {
     "cats": [
@@ -4944,6 +5023,16 @@
     "url": "^https?://chat\\.groq\\.com(?:[:/]|$)",
     "xhr": "api\\.groq\\.com"
   },
+  "Group-Office": {
+    "cats": [
+      53
+    ],
+    "website": "https://www.group-office.com/",
+    "html": [
+      "\"theme\":\"group-office\",",
+      "powered by group-office"
+    ]
+  },
   "GroupBy": {
     "cats": [
       29
@@ -5458,5 +5547,195 @@
       "generator": "GX WebManager(?: ([\\d.]+))?\\;version:\\1"
     },
     "website": "https://www.gxsoftware.com/en/products/web-content-management.htm"
+  },
+  "Genlook Virtual try-on": {
+    "cats": [
+      100
+    ],
+    "description": "Genlook Virtual try-on is an AI-powered virtual fitting room app for Shopify stores.",
+    "icon": "Genlook.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "payg"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.shopify\\.com/extensions/[^/]+/genlook-[^/]+/assets/",
+    "website": "https://genlook.app"
+  },
+  "Gensolve": {
+    "cats": [
+      55
+    ],
+    "description": "Gensolve is a practice management software developed in New Zealand for managing appointments, billing, clinical records, and administrative workflows.",
+    "icon": "Gensolve.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.gensolve\\.com",
+    "scripts": "\\.gensolve\\.com",
+    "website": "https://www.gensolve.com"
+  },
+  "GetComplied": {
+    "cats": [
+      67
+    ],
+    "description": "GetComplied is a GDPR compliance platform for ecommerce platforms that supports the management of data protection requirements and regulatory obligations.",
+    "icon": "GetComplied.svg",
+    "js": {
+      "getComplied.api": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.getcomplied\\.com/",
+    "website": "https://www.getcomplied.com"
+  },
+  "Giftnote": {
+    "cats": [
+      100
+    ],
+    "description": "Giftnote is a Shopify application that enables personalized gift messaging and digital voucher creation for online retail transactions.",
+    "icon": "Giftnote.svg",
+    "js": {
+      "Giftnote.currency": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "website": "https://giftnote.com"
+  },
+  "Givy": {
+    "cats": [
+      100
+    ],
+    "description": "Givy is a Shopify app that supports custom gift card amounts and product gifting, enabling online stores to offer flexible gifting options beyond standard fixed-value gift cards.",
+    "icon": "Givy.svg",
+    "js": {
+      "GIVY.config": ""
+    },
+    "pricing": [],
+    "saas": true,
+    "website": "https://www.givy.ai"
+  },
+  "GoHire": {
+    "cats": [
+      101
+    ],
+    "description": "GoHire is an AI-first hiring platform that uses AI-driven matching and automated workflows to streamline candidate sourcing, screening, and hiring processes.",
+    "icon": "GoHire.svg",
+    "js": {
+      "gohire": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "widget\\.gohire\\.io/",
+    "website": "https://gohire.io"
+  },
+  "GoVoto": {
+    "cats": [
+      74
+    ],
+    "description": "GoVoto is a platform that improves website performance through conversion rate optimization, increasing the likelihood that visitors complete desired actions and become customers.",
+    "icon": "GoVoto.svg",
+    "saas": true,
+    "scriptSrc": "app\\.govoto\\.com",
+    "website": "https://www.govoto.com"
+  },
+  "Google for WooCommerce": {
+    "cats": [
+      87
+    ],
+    "description": "Google for WooCommerce is a WordPress plugin for connecting WooCommerce stores with Google Merchant Center and Google Ads.",
+    "icon": "Google.svg",
+    "implies": "Google Ads",
+    "oss": true,
+    "requires": [
+      "WordPress",
+      "WooCommerce"
+    ],
+    "scriptSrc": "/wp-content/plugins/google-listings-and-ads/js/build/gtag-events\\.js(?:\\?ver=([\\d.]+))?\\;version:\\1",
+    "scripts": "developer_id\\.dOGY3NW",
+    "website": "https://wordpress.org/plugins/google-listings-and-ads/"
+  },
+  "Gosuslugi": {
+    "cats": [
+      73
+    ],
+    "description": "Gosuslugi is a government-provided feedback widget that enables citizens to submit appeals and participate in polls directly on official agency websites through the Russian Public Services portal.",
+    "icon": "Gosuslugi.svg",
+    "saas": true,
+    "scriptSrc": "pos\\.gosuslugi\\.ru/",
+    "website": "https://www.gosuslugi.ru"
+  },
+  "Gradual": {
+    "cats": [
+      2
+    ],
+    "description": "Gradual is a community platform for hosting events, publishing content and courses, and connecting members.",
+    "icon": "Gradual.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "GradualPublicLayout",
+    "website": "https://www.gradual.com"
+  },
+  "Growthstack": {
+    "cats": [
+      32
+    ],
+    "description": "Growthstack is a growth management platform for healthcare practices, providing centralized tools to manage operations, patient engagement, and practice growth within a single system.",
+    "icon": "Growthstack.svg",
+    "meta": {
+      "generator": "^Growthstack by Influx$"
+    },
+    "saas": true,
+    "website": "https://www.growthstack.app"
+  },
+  "Gubagoo": {
+    "cats": [
+      52
+    ],
+    "description": "Gubagoo is a website chat software platform that provides messaging and engagement tools designed to interact with visitors and support conversion of web traffic.",
+    "icon": "Gubagoo.svg",
+    "saas": true,
+    "scriptSrc": "cdn\\.gubagoo\\.io",
+    "website": "https://www.gubagoo.com"
+  },
+  "Gunosy": {
+    "cats": [
+      36
+    ],
+    "description": "Gunosy is a Japan-based readable news summary advertising system that delivers sponsored content in a format designed to resemble concise news articles within digital media platforms.",
+    "icon": "Gunosy.svg",
+    "saas": true,
+    "scripts": "ad\\.gunosy\\.com",
+    "website": "https://gunosy.com"
+  },
+  "Gupy": {
+    "cats": [
+      101
+    ],
+    "description": "Gupy is a Brazilian-based recruitment software platform that provides tools for managing hiring processes, including candidate sourcing, selection, and recruitment workflow automation.",
+    "icon": "Gupy.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.gupy\\.io",
+    "website": "https://www.gupy.io"
   }
 }

@@ -856,6 +856,15 @@
     "saas": true,
     "website": "https://datatrics.com"
   },
+  "Datawrapper": {
+    "cats": [
+      19
+    ],
+    "website": "https://datawrapper.de",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*dwcdn\\.net(?:[:/?#]|$)"
+    ]
+  },
   "DatHuis": {
     "cats": [
       32
@@ -2807,7 +2816,8 @@
       "recurring"
     ],
     "scriptSrc": [
-      "disqus_url"
+      "disqus_url",
+      "^https?://(?:[a-z0-9-]+\\.)*disquscdn\\.com(?:[:/?#]|$)"
     ],
     "website": "https://disqus.com"
   },
@@ -3074,6 +3084,15 @@
     "dns": {
       "TXT _dmarc": "^v=DMARC1; p=(?:none|quarantine|reject); ru[af]=mailto:[^\\s@,;!?]+@[a-z0-9-]+\\.dmarcian\\.com(?:!\\d+[kmgt]?)?$"
     }
+  },
+  "DMCA.com Protection": {
+    "cats": [
+      16
+    ],
+    "website": "https://www.dmca.com/badges.aspx",
+    "scriptSrc": [
+      "^https?://images\\.dmca\\.com/badges/dmcabadgehelper\\.min\\.js(?:[?#]|$)"
+    ]
   },
   "DNN": {
     "cats": [
@@ -3640,7 +3659,9 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "js/_dmptv([\\d.]+)\\.js\\;version:\\1"
+      "js/_dmptv([\\d.]+)\\.js\\;version:\\1",
+      "^https?://(?:[a-z0-9-]+\\.)*trackedlink\\.net(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*trackedweb\\.net(?:[:/?#]|$)"
     ],
     "website": "https://dotdigital.com"
   },
@@ -3829,11 +3850,16 @@
       36
     ],
     "icon": "DoubleClick.svg",
+    "html": [
+      "\\d+\\.fls\\.doubleclick\\.net/activityi?;src="
+    ],
     "scriptSrc": [
-      "\\.doubleclick\\.net"
+      "googletagmanager\\.com/gtag/js\\?id=DC-\\d"
     ],
     "scripts": [
-      "fls\\.doubleclick\\.net"
+      "\"vtp_tagId\":\"DC-\\d+\"",
+      "\"function\":\"__fls\"",
+      "gtag\\(\\s*['\"]config['\"]\\s*,\\s*['\"]DC-\\d"
     ],
     "website": "https://support.google.com/ds/answer/6029713?hl=en"
   },
@@ -3888,6 +3914,13 @@
     "saas": true,
     "website": "https://doubleverify.com"
   },
+  "DouPHP": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.douphp.com",
+    "html": "^(?=[\\s\\S]{0,}?Powered by DouPHP)(?=[\\s\\S]{0,}?DouPHP)(?=[\\s\\S]{0,}?theme)"
+  },
   "Dover": {
     "cats": [
       101
@@ -3917,6 +3950,13 @@
       "dttrk\\.com"
     ],
     "website": "https://dovetale.com/"
+  },
+  "Download Manager": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/download-manager/",
+    "html": "wp-content/plugins/download-manager/"
   },
   "Download Monitor": {
     "cats": [
@@ -4902,6 +4942,15 @@
     ],
     "website": "https://wordpress.org/plugins/dynamicconditions"
   },
+  "Dynamic Converter": {
+    "cats": [
+      19
+    ],
+    "website": "https://dynamicconverter.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*dynamicconverter\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Dynamic Yield": {
     "cats": [
       74,
@@ -4980,7 +5029,10 @@
     "website": "https://www.dynatrace.com",
     "dns": {
       "TXT": "dynatrace-site-verification="
-    }
+    },
+    "scriptSrc": [
+      "^https?://js-cdn\\.dynatrace\\.com(?:[:/?#]|$)"
+    ]
   },
   "Dynatrace Application Monitoring": {
     "cats": [
@@ -5042,5 +5094,195 @@
     "saas": true,
     "website": "https://dyte.io",
     "xhrUrl": "cdn\\.dyte\\.in/"
+  },
+  "D4 Core": {
+    "cats": [
+      18
+    ],
+    "cookies": {
+      "CSRF_D4": ""
+    },
+    "description": "D4 Core is a PHP web application framework.",
+    "headers": {
+      "X-Powered-By": "(?:^|,\\s*)D4 Core(?:\\s+([\\d.]+))?(?:\\s*,|$)\\;version:\\1"
+    },
+    "icon": "D4 Core.png",
+    "implies": "PHP",
+    "meta": {
+      "generator": "^(?:D4 Core(?: v?([\\d.]+))?|D4 - Web Application Framework)$\\;version:\\1"
+    },
+    "website": "https://d4.si"
+  },
+  "DMVCFramework": {
+    "cats": [
+      18
+    ],
+    "description": "DMVCFramework is an open-source Delphi framework for building web APIs and web applications.",
+    "headers": {
+      "X-Powered-By": "^DMVCFramework\\s*([\\w.-]+)?\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://github.com/danieleteti/delphimvcframework"
+  },
+  "DZBuild": {
+    "cats": [
+      32
+    ],
+    "description": "DZBuild is a data-driven marketing system that analyzes customer data to support campaign management, audience segmentation, and performance measurement across digital channels.",
+    "icon": "DZBuild.svg",
+    "meta": {
+      "generator": "^DZBuild$"
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://dzbuild.com"
+  },
+  "Dearnex": {
+    "cats": [
+      6
+    ],
+    "description": "Dearnex is an ecommerce platform that enables the creation and management of online stores.",
+    "icon": "Dearnex.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.dearnex\\.cloud",
+    "website": "https://www.dearnex.com"
+  },
+  "Dehasoft E-Ticaret": {
+    "cats": [
+      6
+    ],
+    "cookies": {
+      "deha-session": ""
+    },
+    "description": "Dehasoft E-Ticaret is an ecommerce platform for managing products, orders, payments, shipping, and ERP integrations.",
+    "icon": "Dehasoft E-Ticaret.png",
+    "meta": {
+      "publisher": "^Dehasoft$"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.dehasofteticaret.com"
+  },
+  "Delta Commerce": {
+    "cats": [
+      67
+    ],
+    "description": "Delta Commerce is a cookie registration and consent management platform that enables websites to comply with privacy regulations by collecting, storing, and managing user consent preferences.",
+    "icon": "DeltaCommerce.svg",
+    "saas": true,
+    "scriptSrc": "\\.deltacommerce\\.com",
+    "website": "https://www.deltacommerce.com"
+  },
+  "DevBlox Hub": {
+    "cats": [
+      47
+    ],
+    "description": "DevBlox is a Roblox asset marketplace for developers offering scripts and models, with an emphasis on curated, secure assets for game development.",
+    "headers": {
+      "Content-Security-Policy": "devbloxhub\\.com"
+    },
+    "icon": "DevBloxHub.svg",
+    "saas": true,
+    "website": "https://www.devbloxhub.com"
+  },
+  "Dezrez": {
+    "cats": [
+      53
+    ],
+    "description": "Dezrez is an estate agent software platform that provides tools for property listings, client relationship management, marketing, and transaction handling within real estate agencies.",
+    "dom": "iframe[src*='www.dezrez.com']",
+    "icon": "Dezrez.svg",
+    "saas": true,
+    "scriptSrc": "www\\.dezrez\\.com",
+    "website": "https://www.dezrez.com"
+  },
+  "Dioxus": {
+    "cats": [
+      66
+    ],
+    "description": "Dioxus is a Rust framework for building fullstack web, desktop, and mobile apps.",
+    "icon": "Dioxus.png",
+    "implies": "Rust",
+    "js": {
+      "dx_hydrate": "",
+      "initial_dioxus_hydration_data": ""
+    },
+    "oss": true,
+    "scripts": "window\\.(?:initial_dioxus_hydration_data|dx_hydrate)",
+    "website": "https://dioxuslabs.com"
+  },
+  "Docebo": {
+    "cats": [
+      21
+    ],
+    "description": "Docebo is a learning management system for delivering, managing, and tracking online training programs.",
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\d?\\.dcbstatic\\.com/(?:public/static-content/init|(?:main|scripts|polyfills)\\.)",
+    "website": "https://www.docebo.com"
+  },
+  "Dockview": {
+    "cats": [
+      66
+    ],
+    "description": "Dockview is a JavaScript layout manager for building dockable panels, tabs, grids, and split views in web applications.",
+    "dom": ".dv-grid-view.dv-dockview",
+    "icon": "Dockview.svg",
+    "oss": true,
+    "website": "https://dockview.dev/"
+  },
+  "Dockvine": {
+    "cats": [
+      5
+    ],
+    "description": "Dockvine is a tool that enables visitors to browse social media pages within a website interface without navigating away.",
+    "icon": "Dockvine.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.dockvine\\.com",
+    "website": "https://dockvine.com"
+  },
+  "Docus": {
+    "cats": [
+      4
+    ],
+    "css": "\\.docus-sub-header\\s*\\{[^}]*--ui-header-height:\\s*112px",
+    "description": "Docus is an open-source documentation framework built with Nuxt and Markdown.",
+    "icon": "Docus.svg",
+    "implies": "Nuxt.js",
+    "js": {
+      "__NUXT__.config.public.docus": ""
+    },
+    "oss": true,
+    "scripts": "apiPath:\"/__docus__/assistant\"",
+    "website": "https://docus.dev"
+  },
+  "docmd": {
+    "cats": [
+      4
+    ],
+    "description": "docmd is an open-source documentation generator for building static documentation websites.",
+    "meta": {
+      "generator": "^docmd\\sv([\\d.x]+)$\\;version:\\1"
+    },
+    "oss": true,
+    "website": "https://docmd.io"
   }
 }

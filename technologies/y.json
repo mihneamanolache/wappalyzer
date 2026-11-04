@@ -237,7 +237,10 @@
     "description": "Yandex Maps is a mapping service with search, traffic and road conditions.",
     "icon": "Yandex Maps.svg",
     "website": "https://yandex.com/maps",
-    "scriptSrc": "/(api-maps|enterprise)\\.\\.yandex\\.[^/]+/2\\.1\\?"
+    "scriptSrc": [
+      "/(api-maps|enterprise)\\.\\.yandex\\.[^/]+/2\\.1\\?",
+      "^https?://api-maps\\.yandex\\.ru(?:[:/?#]|$)"
+    ]
   },
   "Yandex SmartCaptcha": {
     "cats": [
@@ -340,9 +343,14 @@
     },
     "scriptSrc": [
       "mc\\.yandex\\.ru/metrika/(?:tag|watch)\\.js",
-      "cdn\\.jsdelivr\\.net/npm/yandex\\-metrica\\-watch/watch\\.js"
+      "cdn\\.jsdelivr\\.net/npm/yandex\\-metrica\\-watch/watch\\.js",
+      "cdn\\.jsdelivr\\.net/npm/yandex\\-metrica\\-watch/(?:tag|watch)\\.js"
     ],
-    "website": "https://metrika.yandex.com"
+    "website": "https://metrika.yandex.com",
+    "scripts": [
+      "mc\\.yandex\\.ru/metrika/(?:tag|watch)\\.js",
+      "cdn\\.jsdelivr\\.net/npm/yandex\\-metrica\\-watch/(?:tag|watch)\\.js"
+    ]
   },
   "Yapla": {
     "cats": [
@@ -1196,6 +1204,26 @@
     "saas": true,
     "website": "https://www.youcms.eu"
   },
+  "YouDraw": {
+    "cats": [
+      6
+    ],
+    "description": "YouDraw is a Brazilian ecommerce and print-on-demand platform with hosted storefronts (YD Store).",
+    "headers": {
+      "X-Generator": "^YouDraw"
+    },
+    "icon": "YouDraw.png",
+    "meta": {
+      "generator": "^YouDraw"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://youdraw.com.br"
+  },
   "Youform": {
     "cats": [
       110
@@ -1429,5 +1457,50 @@
       "analytics\\.yxper\\.com"
     ],
     "website": "https://yxper.com"
+  },
+  "YzmCMS": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.yzmcms.com",
+    "html": "^(?=[\\s\\S]{0,}?YzmCMS)(?=[\\s\\S]{0,}?yzm-common\\.css)"
+  },
+  "Yacla": {
+    "cats": [
+      32
+    ],
+    "description": "Yacla is a service that delivers prequalified, engaged sales contacts directly to a CRM at a predetermined fixed price.",
+    "icon": "Yacla.svg",
+    "saas": true,
+    "scripts": "\\.yac\\.la",
+    "website": "https://yacla.com"
+  },
+  "Yaghoot Web": {
+    "cats": [
+      47,
+      54
+    ],
+    "description": "Yaghoot Web is a provider of website design, search engine optimization, and performance optimization.",
+    "icon": "YaghootWeb.svg",
+    "meta": {
+      "generator": "^yaghootweb$"
+    },
+    "saas": true,
+    "website": "https://yaghootweb.com"
+  },
+  "YouCanBookMe": {
+    "cats": [
+      72
+    ],
+    "description": "YouCanBookMe is an online scheduling solution for small businesses that enables appointment booking, calendar integration, and automated availability management.",
+    "icon": "YouCanBookMe.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.youcanbook\\.me",
+    "website": "https://youcanbook.me"
   }
 }

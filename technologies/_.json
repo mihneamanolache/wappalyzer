@@ -67,6 +67,16 @@
     ],
     "website": "https://modelviewer.dev"
   },
+  "|related| Natív Hirdetés Kft": {
+    "cats": [
+      36
+    ],
+    "icon": "related.png",
+    "scripts": [
+      "//related\\.hu"
+    ],
+    "website": "https://related.hu"
+  },
   "1&1 MyWebsite": {
     "cats": [
       1
@@ -261,6 +271,16 @@
     ],
     "website": "https://www.34sp.com"
   },
+  "3Q": {
+    "cats": [
+      14
+    ],
+    "icon": "3Q.png",
+    "scripts": [
+      "3qsdn\\.com"
+    ],
+    "website": "https://3q.video"
+  },
   "3Scale API Management": {
     "cats": [
       11
@@ -393,6 +413,13 @@
     ],
     "website": "https://51degrees.com"
   },
+  "53KF": {
+    "cats": [
+      52
+    ],
+    "website": "https://www.53kf.com/",
+    "html": "powered by 53kf"
+  },
   "5centsCDN": {
     "cats": [
       31
@@ -458,6 +485,13 @@
       "6valley_cookie_consent"
     ],
     "website": "https://6valley.app"
+  },
+  "74cms": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.74cms.com/",
+    "html": "powered by <a href=\"http://www\\.74cms\\.com/\""
   },
   "7moor": {
     "cats": [
@@ -554,5 +588,29 @@
       "\\.99minds\\.io"
     ],
     "website": "https://www.99minds.io"
+  },
+  "220Marketing": {
+    "cats": [
+      32
+    ],
+    "description": "220Marketing is a marketing service that provides solutions for the mortgage, insurance, real estate, and solar industries.",
+    "icon": "220Marketing.svg",
+    "saas": true,
+    "scripts": "\\.my220\\.com",
+    "website": "https://www.220marketing.com"
+  },
+  "2people": {
+    "cats": [
+      101
+    ],
+    "description": "2people is a human resources and job board system that supports job postings, applicant tracking, and basic HR management functions for organizations.",
+    "icon": "2people.svg",
+    "pricing": [
+      "payg",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "api\\.2people\\.com",
+    "website": "https://2people.com"
   }
 }

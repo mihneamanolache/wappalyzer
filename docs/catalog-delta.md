@@ -6,351 +6,952 @@ Computed by parsing both revisions and comparing entries, not by reading the tex
 
 |  | Before | After |
 | --- | --- | --- |
-| Technologies | 7911 | 8439 |
+| Technologies | 7911 | 9041 |
 | Categories | 111 | 124 |
 
 | Change | Count |
 | --- | --- |
-| Added | 528 |
-| **Removed** | **0** |
-| Changed | 292 |
+| Added | 1131 |
+| **Removed** | **1** |
+| Changed | 369 |
 
-Nothing was removed from the catalog.
+## Added (1131)
 
-## Added (528)
-
-### From upstream (328)
+### From upstream (931)
 
 <details><summary>List</summary>
 
+- 220Marketing
+- 2people
 - 321 CMS
+- 3Q
+- 53KF
+- 74cms
+- AAX
+- ACTV8
+- AIDEM Technologies
+- ANDCommerce
+- APILayer
+- AXENTRA OS
 - AbanteCart
+- Ably
 - AboutMyClinic
+- Accelevents
+- AccessGo
 - AccessiWay
 - ActivEngage
+- ActiveCollab
+- ActiveNow
+- AcyMailing
+- Ad6Media
+- AdKernel
+- AdMan Media
+- AdScore
+- AdSpeed
+- Adacado
+- Addingwell SST
 - Adenzo
+- Admatic
+- Adnami
+- Adnuntius
+- Ads Pro Plugin
+- AdsWizz
+- Adventive
+- AdvertServe
+- Advisible
+- Adwise
 - Adwos CMS
 - Agari DMARC Protection
 - Agendize
+- Agnicart
+- Aimharder
+- Airwallex
 - Akia
+- Akoova
+- Alibaba Cloud OSS
+- Alibaba Mail
 - AllMyLinks
+- AlloIncognito
+- AlphaSSL
+- Altervista Platform
+- Amondo
+- Anedot
 - Angular Notitia
 - Anthropic
 - Anubis
+- Anviara EU Widerrufsbutton
+- Anybot
+- Apache Struts
 - Apanio
+- Apester
+- Appfolio
+- Approcket
 - Apruvd
+- Apusic Application Server
 - Armin
 - Artifi
+- ArtsAI
 - AskHandle
+- Assoconnect
+- Assortion
+- Atarim
 - Athos Commerce
+- Atlas AI Digital Assistant
+- Atmail
+- Audienceful
+- Audigent
+- Audioboom
+- Audion
+- Autegro
+- AvantLink
 - Avasam
 - AvidAI
+- B Cart
+- BBB Accredited Business Seal
 - BITE
+- BLR
+- BSS Commerce
 - Balance
+- BannerFlow
+- Baseet
+- Baycloud
 - Bear Blog
 - BedBooking
+- Beepworld
 - Belliza
 - Benchmark
+- BidTheatre
+- Bidswitch
+- Bidtellect
+- Big Tuna
+- BigBlueButton
+- Bisup
+- Bit Assist
+- Bit Form
+- Bitbucket
 - Bitmovin
+- Bits UI
+- Bizrate Insights
 - Blankshield
+- Blanxer
 - Blockly
 - BlogHunch
 - Blue Corona
+- BoardDocs
 - Boberdoo
 - BokaBord
 - Bomb Bomb
+- Book Like A Boss
 - BookBanket
 - Booker
 - BookingKoala
 - Booklux
+- Booljs
+- Botco.ai
+- Botfaqtor
 - Botsplash
+- BounceHelp
 - Brafton
+- BrandRep
+- Brandmetrics
+- Brandnamic
+- Brella
 - Brivity
+- Broken Link Notifier
 - Bsport
+- BuckyDrop
+- Buddy eCommerce
+- BudgetGuard
+- Buildify
+- Buildium
+- Buildout
 - CHIIRP
 - Callgear
+- CampusGroups
+- Canvify
 - Canyon
+- Capital Turbine
 - Capsule CRM
 - CarWeb
 - Caremerge
+- Carepatron
 - Cartline
 - Cartylabs
+- Casablanca
+- Casdoor
+- Catchpoint
+- Celtra
 - Chimpify
+- Chiromatrix
+- ChurchDesk
 - Cisco Webex
+- Citadel
 - CitrusLime
+- Clientexec
+- ClipBucket
+- Cloudbac
 - Cloudflare DMARC Management
 - Cloudflare Turnstile for WooCommerce
+- CmsEasy
+- CmsTop
+- Coassemble
+- Codigo
+- CommBox
 - Commercy
+- Commrz
+- CommuniGate Pro
 - ComplyAuto
+- ComplyDog
 - Conduze
+- Configio
+- Confluence
+- Contrib
+- Contribly
 - Convious
 - CookieBAR
+- CookieTractor
 - Cool Popup
+- Coral
 - CoreMedia
+- Coremail
+- Council Advertising Network
+- CrystalCommerce
+- CssUserAgent
 - Curated
+- CusRev
+- D4 Core
+- DMCA.com Protection
+- DMVCFramework
+- DZBuild
 - Dapta
 - DataGrail
 - Databuddy
+- Datawrapper
+- Dearnex
+- Dehasoft E-Ticaret
+- Delta Commerce
+- DevBlox Hub
 - Devuelving
+- Dezrez
 - DialogTab
+- Dioxus
 - Divide
+- Docebo
+- Dockview
+- Dockvine
 - Doctena
+- Docus
+- DouPHP
+- Download Manager
 - DrChrono
 - DreamROI
 - DressOn
 - Droplabs
+- Dynamic Converter
 - Eaglecart
+- Ecer
+- Ecom
 - EdgeOne
+- EduSoho
+- Eflorista
+- Elephantfy
 - Elloha
+- EmailOctopus
 - Employment Hero
+- Enllax
+- EnvialoSimple
 - Enzuzo
+- Equalbrowse
+- Equalture
+- Euroland IR
+- Euroweb
+- Eventin
+- Everest Forms Pro
 - Eviivo
+- Experiture
 - EyeFitU
+- Face Age
+- FalakCart
 - Famous.ai
 - Farazi Bilişim
 - FeatherPanel
+- Feedbackify
 - Fider
 - Fieldd
 - FinConnect
 - Fixer
+- Flare
+- Flexmail
+- Flotiq
 - ForeUP
 - FormBucket
+- FormCraft
 - Formalize CSS
+- Formbricks
 - Formtoro
+- Forsid
 - Forumbee
+- FoxAppy
+- Foxentry
+- FrankenPHP
+- FreeWheel
+- Freetobook
+- Froomle
 - Full On Sport
+- Funil de Vendas
+- G2
+- GEO my WP
 - GOb2b
 - GOrendezvous
 - Genially
+- Geniuslink
+- Genlook Virtual try-on
+- Gensolve
+- GeoEdge
+- GeoNode
+- GetComplied
+- Gift Cards For WooCommerce Pro
+- Giftnote
+- Givy
+- Gnatta
+- GoHire
+- GoVoto
+- Google for WooCommerce
+- Gosuslugi
+- GovMetric
+- Gradio
+- Gradual
 - Grappos
+- Group-Office
+- Growthstack
+- Gubagoo
 - GuildQuality
+- Gunosy
 - GuppY
+- Gupy
+- HR Hotlink
+- Hackle
+- Hanweb JCMS
+- Happierleads
+- HappyOrNot
+- Harmonizely
+- Harri
+- HatenaCMS
 - Hearth
+- Helipod
 - Help.com
 - HelpCrunch
+- Heureka Conversion Measurement
 - HigherMe HR
+- HomeJunction
+- Horde
+- HostBill
+- HostChefs
 - Hotbot
+- Hubvisor
 - HumHub
+- Hybrid
+- Hypersoft
+- IBM CICS Transaction Server
+- IBM WebSEAL
+- ISO100
+- Iconify
+- ImobiBrasil
+- Impel
+- Improve Digital
+- Improvely
+- InZynk
+- Incomaker
 - Indeed
+- Infinity Call Tracking
 - Influenster
 - Informizely
+- Ingresse
+- Inkybay
 - Innovorder
 - Inplayer
 - Inso
+- InstanteStore
+- Intelliplan
 - Interago
+- Interspire Shopping Cart
 - Intervo
+- Interwow
+- Intlayer
+- Inwink
+- Ipsos DotMetrics
 - Iteras
+- Iyong
 - JamFeed
+- Jaspr
+- Jetimob
+- Jimo
+- Job Boardly
+- Jscrambler
+- K50
+- KOMERO
+- KPA
 - KRT CDN
 - KVCore
 - KYKLO
+- Kaily.ai
+- Kaipuyun Search
+- Kaizen Platform
 - KaliCart Bridge
 - Kapa.ai
+- Kargo
 - Kauz
+- KePixel
+- Kerio Connect
+- Keycloak
 - Kiprotect
 - Kit
 - Kiwify
 - Kleecks
+- Kleep
+- Knoku
+- Knorex XPO
+- Kobisi
+- Komerza
+- Kx AI Search & Discovery Agent
+- LLK Analytics
+- LTK
+- LaRecipe
+- Laioutr
+- LaunchLMS
+- LaunchMyStore
+- Lead Recorder
+- LeadConnector
 - Leads2b
 - LeadsLeap
 - Leaky Paywall
+- LearnPress
 - Learnbase
+- LegitFit
+- LerenTools
+- LightWidget
+- Lindo.ai
 - Line-Up
 - Liscio
+- ListingPro
+- LiveChatAI
+- LiveHelpNow
 - LocalSignal
 - LogMeIn
+- LogaTech
 - Logaholic
+- Loop11
+- Lotame
 - Lovi
+- Loyalistic
+- MCMS
 - MVD Studio
+- MacCMS
+- Madgex
+- Mage Loyalty
 - Maguru
+- MaidCentral
+- Mail Mint
 - Mailshake
 - Makeplans
 - Mangomint
+- MasterStudy LMS
+- Masthead CMS
+- Material for MkDocs
+- Mather Economics
+- Mavrck
+- Mayson
+- Mazeed+
 - Mega
+- Meiqia
+- Meku
+- MemberPress
 - Membership Toolkit
 - MembershipWorks
 - Menuu
 - MessageMedia
+- MetInfo
+- Metricool
 - Mexty
 - Mico
 - Microsoft Entra ID
 - Microsoft Exchange Online
 - Microsoft Fabric
 - Microsoft Intune
+- MingCute
 - MiniBC
+- Mirra
+- Momants
+- MonetizeMore
 - Moofx
 - MoreVago
+- Moya
+- Moyasar
+- Moyasar Plugin
+- Multiview
+- Musictoday
 - MyCred
+- MyNewTerm
 - MyPersonas
 - MyPlay
+- NEORY
 - NOCNOK
+- Narrative
 - Naukri
 - NeoAsist
 - Nepcha Analytics
+- NetTalk
+- Nevuto
 - Nexxtmove
+- Ninja Tables
 - NinjaCat
+- Nlet School
+- NoShow
 - Norse Env
+- NorthWhistle
+- NotificationX
+- Nova Studio
 - NovaDB
 - Novaresa
+- Nsin
+- Oat UI
+- Odometer.js
+- Omago
 - Omega Commerce
+- OmniWallet
 - OnChat
+- One Church Software
+- Onjax
 - Online Succes
+- Ontame
+- Open Game Panel
+- OpenAI Ads Measurement Pixel
+- OpenAM
+- OpenConf
+- OpenDXP
+- OpenWeatherMap
+- Operoo
+- Opinion Stage
 - OpnForm
+- OptKit
+- Opta
 - Optinopoli
+- Oracle Linux
+- Orange CDB
+- Orbit Commerce
+- Orioly
+- OwnerRez
+- Page Builder CK
+- PageLines
 - PageNudge
+- Pagefind
 - PagineGialle
 - Pancake
 - Partner Fleet
 - PatientLoop
 - Paycove
 - Paymattic
+- PaymentForm.io
 - Payva
+- Payzito
+- PbootCMS
 - Peachie
+- Peer39
+- Performax
 - Personyze
 - Pilera
+- Pitchero
 - Pixeleze
+- Podbean
+- Podscribe
+- Pointat
+- Popads
+- Popsixle
+- Populi
+- Post Timeline
+- PostFinance Checkout
+- Pozvonim
+- Prefixbox
 - Premion
+- Print Invoice & Delivery Notes for WooCommerce
+- Printify
 - Printlane
+- Profile Builder
+- Profitshare
 - Proofpoint Email Fraud Defense
+- PropertyMeld
 - Prosperous AI
+- PubNation
 - Publive
+- Pushnews
 - Quadran
 - Qualitando
 - Qualva
+- Quantyoo
+- Qubely
+- Quickly
 - Quicksprout
+- QuinBook
+- RAMP Interactive
 - RE-OS.com
 - REsimpli
+- RVGlobalSoft
+- Rackspace
+- RapiDoc
+- RateAbiz
+- RaveCapture
 - Rcode Vision
+- ReQruiting
 - ReSpec
+- React Aria
 - Read the Docs
+- Readdy
 - Recommy
+- Recranet
 - Recras
+- Recruitics
+- Referrizer
 - Refix
+- RegistrationMagic
+- Relevanssi
 - Remedo
+- Reniwn
+- Rentware
+- RepairDesk
 - ReplyBox
+- ReplySuite
+- Request a Quote for WooCommerce
 - Resonate
 - Returnflows
+- Revotas
 - Rezku
 - RhinoFit
 - Rispose
+- Rivo
+- Rivyo
 - Robarov
+- Robocote
 - Rofofk
 - RomanCart
 - Roya
 - Ruttl
 - Ruzuku
+- SEOJuice
+- STRIGHT
+- Sadrhub
+- Salam
+- SalesDrip
+- Salesforce Data 360
+- Salesgear
+- Salonkee
+- Samba TV
 - Sameday
 - Sanity.io
 - Satūs
+- Schudio
+- Scrapive
+- Seafile
 - SeedGrow
+- Seedtag
 - Segmetrics
+- Sekolahku
+- Seldit
+- SelectMedia
+- Selify
+- Sellauth
 - Selligent
+- Sensei LMS
 - SeoToaster CMS
+- Sepid
+- Shakebug
 - ShopStyle
+- ShopWise
+- Shopaccino
 - Shopiteka
 - Shopsys
+- Shorthand
+- Silk
+- Simple Job Board
 - Singenuity
+- Site Blindado
 - SiteGPT
 - SiteGalore
+- SiteNano
+- Sitepins
 - Sketchanet
+- Skillspace
 - SkyCMS by Netkoncept
+- Sleak.chat
+- Slim Framework
+- Slotted
+- Smadex
+- Smart Wishlist
+- SmartEditor2
 - SmartEmailing
+- SmartFront
+- Smartjobboard
+- Smartypilot
+- Smink
+- Smith.ai
+- SnapApp
 - SnatchBot
+- SociableKIT
+- Socialphotos
 - Socure
 - Soffront CRM
+- Sojern
+- Sonares
+- Sophus3
+- SourceKnowledge
 - Sourcey
+- Speed Shift Media
+- SplashThat
 - Sporcle
+- Sportradar
+- SproutStudio
 - SquadUP
 - Stampede
+- Stebby
+- StepFORM
 - Stockist
 - StoragePug
 - Store Vantage
 - Storenvy
+- Streak.js
+- StreamAMG
+- StreamingVideoProvider
 - StyleSeat
 - Subscrimia
+- SuiteDash
+- SupaDupa
+- Supermetrics
+- SupportBox
+- Supportly
+- SureCritic
+- SweetCode Pixel Manager for WooCommerce
+- Système de Design de l'État
+- THEADX
+- TMW Shield
+- TPMN
+- Tabler Icons
+- Tachyon Forge
+- Tag Groups
 - Tagalys
+- Taggstar
 - Tanx
+- Targito
+- Teletype App
 - Tempus
+- That Open Engine
+- The Media Trust
+- The Newsletter Plugin
+- ThemeGrill Demo Importer
+- TheraPsy Bookings
+- ThinkCMF
+- ThinkJS
 - Thinkstack
+- Tiendana
+- Tijara Plus
 - TimeTap
 - Timepad
+- TongWeb
 - TrackFox
+- Traffective
+- TrafficJunky
+- Transpond
 - Travello
+- Treatwell
+- Trello
+- TruConversion
+- Trust Guard
+- TrustX
+- Trustmary
 - Tulo
 - TuoTempo
+- TurboMail
 - TutorCruncher
+- Tutorbird
+- Twipla
 - Twsaa
+- Typedream
+- U-Mail
 - UXSniff
+- Uappi
+- Ucraft
+- Uebfaqe
 - Unblu Virtual Agent
+- Underdog Media
 - Uniform Digital Experience
+- UnifyDesk
+- Uniqodo
+- UpCloud Object Storage
+- UpContent
 - Ureserv
+- UseClick
+- UseResponse
 - Useberry
 - Vagaro
 - Valimail
+- Valorsic Studio
+- VdoCipher
+- Vectera
+- Vee
+- VenueSumo
 - Vera
 - VeraCore
+- Verificado
 - VertaFlow
 - VertaFlow Analytics
 - VertaFlow Booking
 - VertaFlow Chat
 - VertaFlow Forms
+- Vertical Booking
+- VideoAsk
+- Vidyard
 - VikaOn
+- Vinext
 - VirtFusion
 - VisBook
+- VisitorTracking
+- Vista HCM
 - Vizium
+- Vizzit
+- VoetbalAssist
 - Voizee
+- Volument
+- Vortala
+- Vost Veter
 - Voucherify
+- Voyado
 - W3 Ataiva
+- WP Directory Kit
+- WP Fast Total Search
+- WP Go Maps
+- WP Hotel Booking
+- WP Maps Pro
 - WP SEO AI
+- WP Stratos
+- WP ULike
+- WPBookit
+- WPMobile.App
+- WPS Hide Login
+- WPZOOM Portfolio
+- WPvivid Backup & Migration
+- WaveRez
+- Wavoto
+- Weasy
 - WebAdministrator CMS
 - WebAwesome
+- WebIssues
+- WebToffee EU Order Withdrawal Button for WooCommerce
+- WebinarGeek
 - Weblate
+- Webmercs
+- Weborama
+- Webstorio
 - Weezevent
+- Wegic
 - Wehaa
+- Werkzeug
 - Whelp
 - Wholesale Suite
 - WhosOn
+- Wing FTP Server
+- Winmail Server
+- Wirsindhandwerk
 - Wishloop
+- Wishpond
+- Wobily
+- Woosmap
 - Workplace by Meta
+- Wowza Streaming Engine
 - Wx3
 - Wyre
+- Wysistat
+- WzShop
 - X-Clacks-Overhead
+- XCompliant
+- Xendit
+- Yacla
+- Yaghoot Web
 - Yell eCommerce
 - Yomdel
+- YouCanBookMe
+- YouDraw
 - YouLead
 - YourGPT
+- YzmCMS
+- Z-Blog
+- ZClouding
+- ZOYEQ
 - Zad
 - Zadarma
 - Zammad
+- Zapia
 - Zapier
 - Zapnito
+- Zeeg
 - Zensical
+- Zephyr Cloud
+- Zeta Zync
 - Zevioo
 - Ziber
+- Zigaform
 - Zipleads
 - Znode
+- Zoomd
+- Zotonic
 - Zozi
+- Zucks
 - Zulip
+- Zyncro
 - Zyratalk
+- alugha
+- audienzz
 - autoship
+- b10cks
+- b2evolution
+- bValidator
+- beseller
 - bun
+- cituro
 - digi·access
 - dmarcian
+- docmd
 - doxo
 - eKonsilio
+- eTermin
 - eZCater
+- emetriq
 - eola
 - ezyVet
 - freewebstore
 - getUBetter
+- iCagenda
 - iMagaza
+- iPROM
 - iTCHYROBOT
+- inCMS
+- inPowered
+- jrni
+- kDrive
+- mediarithmics
+- miniBB
+- miniOrange SAML SSO
 - n8n
 - opentelemetry
+- phpList
+- privIQ
+- streaMonkey
+- tagDiv Composer
+- teachworks
 - theCut
 - tlooto
 - true
 - uSocial
+- wpDiscuz
+- wpForo
+- |related| Natív Hirdetés Kft
 
 </details>
 
@@ -582,7 +1183,7 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | 210 | Workflow automation | 7 |
 | 211 | Observability | 7 |
 
-## Changed (292)
+## Changed (369)
 
 | Technology | Fields added | Fields removed | Values changed |
 | --- | --- | --- | --- |
@@ -596,8 +1197,12 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | AWS IoT Device Defender | xhrUrl | xhr | - |
 | AWStats | scriptSrc | - | - |
 | Accenture Duck Creek | - | - | cats |
+| AccessiBe | - | - | scriptSrc |
+| ActBlue | scriptSrc | - | - |
+| ActiveCampaign | - | - | scriptSrc |
 | AdStir | scriptSrc | script | - |
 | Adobe Media Optimizer | scriptSrc | uncat, script | - |
+| Airship | - | - | scriptSrc |
 | Airtable | dns | - | - |
 | Alfahosting DNS | - | - | dns |
 | All in One SEO | - | dom | - |
@@ -614,33 +1219,44 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Amazon Publisher Services | xhrUrl | xhr | - |
 | Amazon Redshift | icon, saas, oss, xhr | - | cats |
 | Amazon Simple Workflow (SWF) | xhrUrl | xhr | - |
+| Amazon Web Services | - | headers, scripts | - |
 | Amazon Widgets | xhrUrl | xhr | dom |
+| Amplience | scriptSrc | - | - |
 | Apache Hudi | xhrUrl | xhr | - |
 | Apache Iceberg | xhrUrl | xhr | - |
 | Apple Numbers | - | mime | - |
 | Appwrite | scripts | - | - |
 | Atlassian Crucible | xhrUrl | xhr, dom | - |
 | Atlassian Jira Capture | xhrUrl | xhr | - |
+| Azure App Service | cookies, dns, implies, url | headers | - |
 | Azure DNS | - | - | dns |
 | Azure HDI | meta, xhrUrl | xhr | text, dom |
 | BMC Recovery Manager | xhrUrl | xhr | - |
 | BMC Release | - | - | implies |
+| Baidu Analytics (百度统计) | - | - | scriptSrc |
 | Bing Maps | scriptSrc | script | - |
 | Birdeye | - | - | scriptSrc |
 | Blackbaud Luminate Online | cookies | regex | - |
 | Blackbaud TeamRaiser | scriptSrc | script | - |
+| Blackbaud eTapestry | - | - | scripts |
 | Blackboard | - | - | dns |
-| BlueKai | scripts | script | - |
+| BlueKai | html, scriptSrc, scripts | script | - |
 | Bootstrap | - | - | scriptSrc |
+| BowNow | scriptSrc | - | - |
+| BuySellAds | - | - | scriptSrc |
 | CCH Site Builder | meta | dom | - |
+| CallTrackingMetrics | scriptSrc | - | - |
 | Canva | oss, dns, dom | - | cats |
 | Casewise | js | scripts | - |
 | Certona | scriptSrc | script | - |
+| Chartbeat | - | - | scriptSrc |
 | Chatra | xhrUrl | xhr | - |
 | Checkly | xhrUrl | xhr | - |
 | Citrix NetScaler | - | - | dom |
 | ClassiPress | - | keywords | - |
+| CleverTap | scriptSrc | - | - |
 | ClickUp | dns | - | - |
+| Cloudflare Bot Management | - | - | description |
 | Commerce Engine | xhrUrl | xhr | - |
 | Contentstack | scripts | - | - |
 | Cosmoshop | meta, url | - | scriptSrc |
@@ -654,11 +1270,14 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Digi Connect | icon | icons | - |
 | Dinahosting DNS | - | - | dns |
 | DiskStation Manager | scriptSrc | script, ssl | - |
+| Disqus | - | - | scriptSrc |
 | Docker | dns | - | - |
 | DocuSign | - | - | dns |
+| Dotdigital | - | - | scriptSrc |
+| DoubleClick Floodlight | html | - | scriptSrc, scripts |
 | Dremio | - | - | xhr |
 | Dropbox | description, saas, oss, xhr, scriptSrc | - | cats, dns |
-| Dynatrace | dns | - | - |
+| Dynatrace | dns, scriptSrc | - | - |
 | Dynatrace Application Monitoring | scriptSrc | script | - |
 | Dyte | xhrUrl | xhr | - |
 | Easy FancyBox | scriptSrc | dom, examples, script | - |
@@ -666,28 +1285,38 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Easy Social Share Buttons for WordPress | scriptSrc | script | - |
 | ElasticSuite | scripts | - | - |
 | Enfold | - | - | scripts, css |
+| Etracker | - | - | scriptSrc |
+| Extole | - | - | scriptSrc |
 | FLV Player | scripts | script | - |
 | Facebook Comments | - | language, category | - |
 | Facebook Like Button | scriptSrc | script | - |
+| Facebook Login | dom | js | - |
 | Facebook Login Button | scriptSrc | script | - |
 | Facebook Pixel Advanced Matching | xhrUrl | xhr | - |
 | Featherlight | - | npm | - |
+| Filestack | - | - | scriptSrc |
 | Finsweet | js | - | - |
 | Fisheye | - | tags, excludes | - |
+| Fonteva for Associations | - | - | html |
 | Force.com | scripts | script | - |
 | Forcepoint CASB | - | - | cats |
 | Forpsi DNS | - | - | dns |
 | FortiWeb | - | version | - |
 | Frontpage Slideshow | html | tests | - |
 | Genesys Workforce Management | - | - | js |
+| Geniee | - | - | scriptSrc |
 | GitLab | dns | - | - |
 | GlobalSign EV | certIssuer | ssl | - |
 | GoDaddy DNS | - | - | dns |
 | GoToAssist | scripts | script | - |
 | Google APIs | scriptSrc | script | - |
 | Google AdSense | - | - | scriptSrc |
+| Google Analytics | - | - | scriptSrc |
+| Google Campaign Manager 360 | html, scriptSrc | - | scripts |
+| Google Compute Engine | - | headers | - |
 | Google Consumer Surveys | scriptSrc | script | - |
 | Google Dataproc | meta | - | dom |
+| Google Tag Manager | - | js | html, scriptSrc |
 | Google Universal Analytics | scriptSrc | script | - |
 | Google Workspace | - | - | dns |
 | GraphQL | xhrUrl | xhr | - |
@@ -698,16 +1327,23 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | HiChina DNS | - | - | dns |
 | Hostpoint DNS | - | - | dns |
 | IBM Cloudant | - | excludes | - |
+| IBM WebSphere Application Server | - | headers | html |
 | IFS Enterprise Asset Management | - | - | probe |
+| INFOnline | - | - | scriptSrc |
 | IPinfo | xhrUrl | xhr | - |
 | Immuta | - | - | dom, meta |
+| Impact | cookies | - | js, scriptSrc |
+| Index Exchange | scriptSrc | - | - |
+| Infogram | scriptSrc | - | - |
 | Informatica Business Process Management | xhrUrl | xhr | - |
 | InstantSearch+ | - | - | cats |
 | Intercom | dns | - | - |
+| Issuu | - | - | scriptSrc |
 | JTL Shop | js | - | - |
 | JW Player | - | - | dom |
 | Juniper | - | excludes | - |
-| Kameleoon | - | - | js |
+| Kaltura | - | - | scriptSrc |
+| Kameleoon | - | - | js, scriptSrc |
 | Kimonix | - | - | scripts |
 | Klaviyo | dns | - | - |
 | Kubernetes Dashboard | description, saas, oss, html, implies | - | cats |
@@ -716,13 +1352,19 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Lijit | scriptSrc | script | - |
 | Linear | dns | - | - |
 | LinkedIn Insight Tag | scriptSrc | script | - |
+| LiveChat | - | - | scriptSrc |
+| LivePerson | - | - | scriptSrc |
 | Livewire | - | - | js |
 | Locomotive Scroll | - | - | js |
+| Lodash | - | - | js |
 | Loom | description, oss, dom, xhrUrl | - | cats, dns, xhr |
 | Lovable | dns, scriptSrc | - | cats |
 | MadCap Flare | - | developer | - |
 | Magento Business Intelligence | scriptSrc | script | - |
-| Matomo Analytics | - | - | scripts |
+| Mailmunch | scriptSrc | - | - |
+| Mapp | scriptSrc | - | - |
+| Marchex | - | - | scriptSrc |
+| Matomo Analytics | - | - | scriptSrc, scripts |
 | Maxymiser | scripts | script | - |
 | MicroAd | scriptSrc | script | - |
 | MicroAd COMPASS | scriptSrc | script | - |
@@ -743,21 +1385,27 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Mixpanel | - | - | dns |
 | MongoDB | dns | - | - |
 | Motive | oss, scriptSrc, xhr, dom | - | cats |
+| Movable Ink | scriptSrc | - | - |
 | My Calendar | scriptSrc | script | - |
 | MyFonts | xhrUrl | xhr | - |
 | Namecheap DNS | - | - | dns |
 | NetIQ Access Manager | cats | categories | - |
 | Netlify | dns | - | - |
+| New Relic | scriptSrc | - | - |
 | Niagahoster | - | implies | - |
 | Nielsen NetRatings SiteCensus | scriptSrc | script | - |
 | Notion | dns | - | - |
 | Numberly MarTech Platform | scriptSrc | script | - |
+| Nunjucks | scriptSrc | html | scripts |
 | OVH | - | - | dns |
 | Office 365 | - | apps | dns |
 | Okta | probe | - | - |
 | OneTrust | - | - | scriptSrc |
 | Open Source Presto | - | url | - |
+| OpenGSE | - | - | headers |
 | OpenText WEM | scriptSrc | regex, script | headers |
+| OpenX | - | - | scriptSrc |
+| OptinMonster | scriptSrc | - | - |
 | Oracle Eloqua | scriptSrc | script | - |
 | Oracle Endeca Information Discovery | js | scripts | - |
 | Oracle WebCenter Sites | - | - | dom |
@@ -766,16 +1414,21 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Palo Alto Networks | description, saas, oss, dns | - | cats |
 | Pegasus Reservation Platform | - | html, scripts | - |
 | Pendo | oss, dns | - | scriptSrc |
+| Pentaho | - | - | html |
 | PeopleSoft Program Management | xhrUrl | xhr | - |
 | Peoplesoft Project Portfolio Management | xhrUrl | xhr | - |
+| Piano | - | - | scriptSrc |
+| Picreel | - | - | scriptSrc |
 | Porto | - | - | css |
 | PowerPress | - | examples | - |
 | Prepr | scripts | - | - |
 | PrestaShop | scriptSrc | - | dom |
 | ProProfs Chat | scriptSrc | script | - |
+| ProgressBar.js | - | - | scriptSrc |
 | Qubit Universal Variable | - | - | js |
 | Quest Foglight | - | - | dom |
 | Radix UI | - | - | css |
+| RebelMouse | scriptSrc | - | - |
 | Redux | - | - | js |
 | Remodal | - | examples, npm | - |
 | Riskified | scriptSrc | - | - |
@@ -790,7 +1443,9 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Salesforce Service Cloud | xhrUrl | xhr | pricing, text |
 | Salesforce Work.Com | meta, xhrUrl | xhr | dom |
 | Salla | scriptSrc | - | - |
+| Schannel | - | - | headers |
 | Segment | - | - | dns |
+| Sentry | - | - | scriptSrc |
 | ServiceNow Agile Development | xhrUrl | xhr | dom, meta |
 | ServiceNow Application Portfolio Management (APM) | meta, xhrUrl | xhr | dom |
 | ServiceNow Automated Test Framework | meta, xhrUrl | xhr | dom |
@@ -817,30 +1472,39 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Shopware | scripts | - | - |
 | Sidr | - | keywords | - |
 | Siebel | scripts | script | - |
+| Sift | - | - | scriptSrc |
 | Simple Social Icons | html | stylesheets | - |
+| SimplyBook.me | - | - | dom, js, scriptSrc |
+| Sirvoy | - | scripts | - |
 | Sitecore | headers, scripts | - | - |
+| Siteimprove | - | - | scriptSrc |
 | Sitelinks Search Box | - | enhanced, schemaOrg | - |
 | SmarterStats | js | scripts | - |
+| Snap Pixel | - | - | scriptSrc |
 | SocialShopWave | scriptSrc | script | - |
 | SockJS | js | - | - |
 | Software AG CentraSite | xhrUrl | xhr | - |
 | Software AG NATURAL | xhrUrl | xhr | probe |
 | Software AG Terracotta | xhrUrl | xhr | - |
 | SolidJS | scriptSrc | - | - |
+| SoundCloud | - | - | scriptSrc |
 | Spacious | scriptSrc | script | - |
 | Spring Framework | - | name | - |
 | Stackify Retrace | - | - | js |
+| Stimulus | scriptSrc | - | html, js, scripts |
 | Stripe Checkout | scriptSrc | script | - |
-| SuccessFactors LMS | - | slug | - |
-| Supabase | scriptSrc | - | js |
+| SuccessFactors LMS | - | slug | scripts |
+| Supabase | scriptSrc | - | js, scripts |
 | Svelte | - | - | js |
 | Tailwind CSS | - | - | scriptSrc |
 | TeamViewer | oss, dns | - | cats |
 | Telerik UI for ASP.NET AJAX | - | dom | - |
 | Tenrox | - | excludes | - |
 | Teradata Vantage | xhrUrl | xhr | - |
+| Terminalfour | html | - | - |
 | Textalk Webshop | - | - | html |
 | Thomson Reuters ONESOURCE | - | - | cats |
+| Tidio | - | - | scriptSrc |
 | TomTom Maps API | scriptSrc | script | - |
 | TransIP DNS | - | - | dns |
 | Trino | - | url, xhr | - |
@@ -848,30 +1512,44 @@ Full metadata, deliberately **no detection channel** — these products emit not
 | Twenty Twenty-Two | - | - | dom |
 | Twilio Flex | scriptSrc | script | - |
 | Twilio Video | scriptSrc | script | - |
+| Twitter Ads | - | - | js |
 | Twitter Conversion Tag | scriptSrc | script | - |
 | Umbraco | xhrUrl | xhr | scripts |
+| Uniconsent | - | - | scriptSrc |
 | VMware Tanzu | meta | - | dom |
+| Viafoura | scriptSrc | - | - |
 | VisitorTrack | scriptSrc | script | - |
 | WP Customer Reviews | scriptSrc | script | - |
 | WURFL.js | scriptSrc | script | - |
-| WebSocket | headers | - | - |
+| WebSocket | headers | - | html |
 | Website Tonight | scriptSrc | script | - |
+| WhatsApp Business Chat | html | - | dom |
 | WiredMinds | scriptSrc | script | - |
+| Wistia | - | - | scriptSrc |
+| Wix eCommerce | - | - | scripts |
 | WooCommerce | - | - | scriptSrc |
+| WooCommerce Subscriptions | html | - | dom |
 | Workday | oss, dom, xhr | - | cats |
 | Workday Integration Cloud Platform | xhrUrl | xhr | - |
+| Wunderkind | - | - | scriptSrc |
+| Wurfl | - | - | scriptSrc |
+| X | scriptSrc | - | html |
 | Xaxis | scriptSrc | script | dns |
 | Xtime | - | - | dom |
 | Yandex ClickHouse | xhrUrl | xhr | - |
 | Yandex Maps | scriptSrc | script | - |
 | Yandex SmartCaptcha | js, scripts | - | - |
+| Yandex.Metrika | scripts | - | scriptSrc |
 | Yola | dom | - | - |
 | ZenBasket | scripts | - | - |
 | Zendesk Answer Bot | xhrUrl | xhr | - |
 | Zoho | oss | - | cats, dns |
 | anime.js | headers | - | js |
+| authorize.net | html | - | - |
 | commercetools | xhrUrl | xhr | - |
+| core-js | - | - | js |
 | dc.js | - | - | scriptSrc |
+| eKomi | scriptSrc | - | - |
 | ipapi.co | xhrUrl | xhr | - |
 | jQuery | - | - | scriptSrc |
 | jQuery BlockUI | requires, scriptSrc | npm | cats |

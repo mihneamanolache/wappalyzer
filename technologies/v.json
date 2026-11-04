@@ -100,6 +100,18 @@
       "CNAME _dmarc": "^(?:[a-z0-9-]+\\.)+_dmarca\\.vali\\.email$"
     }
   },
+  "Valorsic Studio": {
+    "cats": [
+      59
+    ],
+    "dom": {
+      "[data-valorsic-studio]": {
+        "exists": ""
+      }
+    },
+    "icon": "Valorsic Studio.png",
+    "website": "https://valorsic.studio"
+  },
   "Valuad": {
     "cats": [
       36
@@ -975,6 +987,34 @@
     ],
     "website": "https://www.vergic.com"
   },
+  "Verificado": {
+    "cats": [
+      90,
+      5
+    ],
+    "description": "Verificado is a SaaS platform for collecting, moderating and publishing verified product and seller reviews on ecommerce sites.",
+    "dom": [
+      "#verificadoAIwidget",
+      ".verificadoai-plp-rating",
+      "html[data-verificado]"
+    ],
+    "icon": "Verificado.svg",
+    "js": {
+      "VerificadoAI.version": "^(.+)$\\;version:\\1",
+      "verificadoAIKeyId": "",
+      "verificadoAIUriBaseCdn": ""
+    },
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "app\\.verificado\\.ai/js/widget/onsite-feedback-widget\\.js",
+      "cdn-mz-gj-vai\\.verificado\\.ai/(?:js/)?widget/"
+    ],
+    "website": "https://verificado.ai"
+  },
   "Verifone 2Checkout": {
     "cats": [
       41
@@ -1516,7 +1556,11 @@
     "pricing": [
       "poa"
     ],
-    "website": "https://viafoura.com"
+    "website": "https://viafoura.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*viafoura\\.co(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*viafoura\\.net(?:[:/?#]|$)"
+    ]
   },
   "ViArt Shop": {
     "cats": [
@@ -1737,6 +1781,15 @@
       "\\.vidscrip\\.com"
     ],
     "website": "https://studio.vidscrip.com"
+  },
+  "Vidyard": {
+    "cats": [
+      14
+    ],
+    "website": "https://www.vidyard.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*vidyard\\.com(?:[:/?#]|$)"
+    ]
   },
   "Vigbo": {
     "cats": [
@@ -2634,6 +2687,15 @@
       "\\.vizury\\.com"
     ],
     "website": "https://www.vizury.com"
+  },
+  "Vizzit": {
+    "cats": [
+      10
+    ],
+    "website": "https://www.vizzit.se",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*vizzit\\.se(?:[:/?#]|$)"
+    ]
   },
   "VK Pixel": {
     "cats": [
@@ -3646,5 +3708,194 @@
       "app\\.vyveplus\\.ai"
     ],
     "website": "https://vyveplus.ai"
+  },
+  "VdoCipher": {
+    "cats": [
+      14
+    ],
+    "description": "VdoCipher is a secure video hosting and DRM streaming platform.",
+    "dom": "iframe[src*='player.vdocipher.com/v2/'][allow*='encrypted-media']",
+    "icon": "VdoCipher.png",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.vdocipher.com"
+  },
+  "Vectera": {
+    "cats": [
+      72
+    ],
+    "description": "Vectera is an online client meeting booking system that enables scheduling, managing, and organizing virtual appointments through a web-based platform.",
+    "icon": "Vectera.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "www\\.vectera\\.com",
+    "website": "https://go.vectera.com"
+  },
+  "Vee": {
+    "cats": [
+      68
+    ],
+    "description": "Vee is an accessibility plugin for adding assistive browsing controls to websites.",
+    "scriptSrc": "vee-crm\\.com/js/",
+    "scripts": "Vee main\\.js - JavaScript Core // Version: ([\\d.]+)\\;version:\\1",
+    "website": "https://vee-crm.com"
+  },
+  "VenueSumo": {
+    "cats": [
+      93
+    ],
+    "description": "VenueSumo is a cloud-based venue management platform that centralizes sales, booking, and operational workflows to support revenue tracking and optimize administrative efficiency.",
+    "icon": "VenueSumo.svg",
+    "js": {
+      "venueSumo": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.venuesumo\\.app",
+    "website": "https://venuesumo.com"
+  },
+  "Vertical Booking": {
+    "cats": [
+      93
+    ],
+    "description": "Vertical Booking is a central reservation system (CRS) that provides modular tools for managing bookings.",
+    "icon": "VerticalBooking.svg",
+    "saas": true,
+    "scripts": "reservations\\.verticalbooking\\.com",
+    "website": "https://verticalbooking.com"
+  },
+  "VideoAsk": {
+    "cats": [
+      110
+    ],
+    "description": "VideoAsk is a platform for creating interactive video forms and embedding conversational video widgets on websites.",
+    "icon": "VideoAsk.svg",
+    "js": {
+      "videoask.loadEmbed": ""
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "^https?://(?:www\\.|static\\.)?videoask\\.com/embed/embed\\.js(?:[?#]|$)",
+    "url": "^https?://(?:www\\.)?videoask\\.com/f[a-z0-9]{8}(?:[/?#]|$)",
+    "website": "https://www.videoask.com"
+  },
+  "Vinext": {
+    "cats": [
+      18
+    ],
+    "description": "Vinext is a Vite plugin that reimplements the Next.js API surface, enabling Next.js-compatible development and deployment across a range of hosting environments.",
+    "icon": "Vinext.svg",
+    "js": {
+      "__VINEXT_RSC_CHUNKS__": "",
+      "__VINEXT_RSC_DONE__": ""
+    },
+    "oss": true,
+    "website": "https://github.com/cloudflare/vinext"
+  },
+  "VisitorTracking": {
+    "cats": [
+      10
+    ],
+    "description": "VisitorTracking is a website analytics solution that monitors visitor behavior and measures conversion events across web pages.",
+    "icon": "VisitorTracking.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "app\\.visitortracking\\.com/",
+    "website": "https://visitortracking.com"
+  },
+  "Vista HCM": {
+    "cats": [
+      101
+    ],
+    "description": "Vista HCM is a human capital management suite by PDS for HR, payroll, benefits, recruiting, onboarding, time tracking, self-service, analytics, and reporting.",
+    "dom": "link[href*='/Skin/VistaHCM/'], link[href*='/App_Themes/Vista/']",
+    "scripts": "application:'PDSVISTA'|dialogSkin:'VistaHCM'",
+    "url": "^https?://[^/]+\\.vistahrms\\.com/",
+    "website": "https://www.pdssoftware.com/vista-overview/"
+  },
+  "VoetbalAssist": {
+    "cats": [
+      45
+    ],
+    "description": "VoetbalAssist is a club management software platform that supports administrative tasks, member registration, scheduling, communication, and performance tracking for sports organizations.",
+    "icon": "VoetbalAssist.svg",
+    "pricing": [
+      "onetime",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cache\\.voetbalassist\\.nl/",
+    "website": "https://www.voetbalassist.nl"
+  },
+  "Volument": {
+    "cats": [
+      10
+    ],
+    "description": "Volument is a conversion optimization analytics platform that analyzes user behavior, measures performance, and identifies opportunities to improve digital experience and outcomes.",
+    "icon": "Volument.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.volument\\.com",
+    "website": "https://volument.com"
+  },
+  "Vortala": {
+    "cats": [
+      1
+    ],
+    "description": "Vortala is a website builder for healthcare practitioners, providing tools to create, manage, and maintain clinical websites.",
+    "icon": "Vortala.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.vortala\\.com",
+    "website": "https://vortala.com"
+  },
+  "Vost Veter": {
+    "cats": [
+      6
+    ],
+    "description": "Vost Veter is an automotive dealership platform that provides vehicle sales, maintenance, and repair services.",
+    "icon": "VostVeter.svg",
+    "js": {
+      "vostveter_callback": "",
+      "vostveter_pixel": ""
+    },
+    "saas": true,
+    "scriptSrc": "app\\.vostveter\\.ru",
+    "website": "https://vostveter.ru"
+  },
+  "Voyado": {
+    "cats": [
+      32
+    ],
+    "description": "Voyado is a marketing automation and consumer data platform that supports brand customer loyalty by enabling data-driven engagement, personalization, and lifecycle management across marketing channels.",
+    "icon": "Voyado.svg",
+    "js": {
+      "VOYADO_GET_CART_URL": "",
+      "VoyadoAnalyticsObject": ""
+    },
+    "pricing": [],
+    "saas": true,
+    "scriptSrc": "\\.voyado\\.com/",
+    "website": "https://voyado.com"
   }
 }

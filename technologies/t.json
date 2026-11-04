@@ -366,6 +366,13 @@
     ],
     "website": "https://trytada.com"
   },
+  "Tag Groups": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/tag-groups/",
+    "html": "/wp-content/plugins/tag-groups/"
+  },
   "Tagalys": {
     "cats": [
       76
@@ -400,6 +407,14 @@
       "\\.tagboard\\.com/"
     ],
     "website": "https://tagboard.com"
+  },
+  "tagDiv Composer": {
+    "cats": [
+      51,
+      87
+    ],
+    "website": "https://tagdiv.com/",
+    "html": "/wp-content/plugins/td-composer"
   },
   "Tagembed": {
     "cats": [
@@ -448,6 +463,15 @@
       "\\.taggbox\\.com"
     ],
     "website": "https://taggbox.com/"
+  },
+  "Taggstar": {
+    "cats": [
+      76
+    ],
+    "website": "https://syndigo.com/taggstar-solutions/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*taggstar\\.com(?:[:/?#]|$)"
+    ]
   },
   "Tagnology": {
     "cats": [
@@ -1137,6 +1161,15 @@
     ],
     "website": "https://targetbay.com"
   },
+  "Targito": {
+    "cats": [
+      32
+    ],
+    "website": "https://www.targito.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*targito\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Tars": {
     "cats": [
       52
@@ -1323,6 +1356,16 @@
       "\\.teachablecdn\\.com"
     ],
     "website": "https://teachable.com"
+  },
+  "teachworks": {
+    "cats": [
+      72
+    ],
+    "dom": [
+      "[id='teachworks-booking-button']"
+    ],
+    "icon": "teachworks.png",
+    "website": "https://teachworks.com"
   },
   "Teads": {
     "cats": [
@@ -1939,7 +1982,12 @@
     "meta": {
       "generator": "TERMINALFOUR"
     },
-    "website": "https://www.terminalfour.com"
+    "website": "https://www.terminalfour.com",
+    "html": [
+      "<[^>]+terminalfour\\.net/",
+      "<[^>]+t4Edit-page",
+      "<[^>]+/terminalfour/page/(?:section|content|directEdit)"
+    ]
   },
   "Terminus": {
     "cats": [
@@ -2312,6 +2360,15 @@
     ],
     "website": "https://thehotelsnetwork.com"
   },
+  "The Media Trust": {
+    "cats": [
+      16
+    ],
+    "website": "https://mediatrust.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*webcontentassessor\\.com(?:[:/?#]|$)"
+    ]
+  },
   "The Monetyzer": {
     "cats": [
       36
@@ -2418,6 +2475,20 @@
       "the-dotcom-public-cdn\\.s3\\.amazonaws\\.com/"
     ],
     "website": "https://www.the.com"
+  },
+  "THEADX": {
+    "cats": [
+      36
+    ],
+    "description": "THEADX is a Turkish advertising network and ad exchange that serves ad tags and tracking pixels via theadx.com.",
+    "icon": "THEADX.png",
+    "scriptSrc": [
+      "app\\.theadx\\.com/"
+    ],
+    "website": "https://www.theadx.com",
+    "xhr": [
+      "\\.theadx\\.com"
+    ]
   },
   "Theasys": {
     "cats": [
@@ -2856,6 +2927,13 @@
       "/wp-content/themes/colormag(?:-pro)?/"
     ],
     "website": "https://themegrill.com/themes/colormag"
+  },
+  "ThemeGrill Demo Importer": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/themegrill-demo-importer/",
+    "html": "/plugins/themegrill-demo-importer"
   },
   "ThemeGrill eStore": {
     "cats": [
@@ -3372,6 +3450,16 @@
     ],
     "website": "https://www.thinkupthemes.com/themes/minamaze"
   },
+  "ThinkCMF": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.thinkcmf.com/",
+    "html": "made by <a href=\"http://www\\.thinkcmf\\.com\" target=\"_blank\">thinkcmf</a>",
+    "headers": {
+      "X-Powered-By": "^thinkcmf"
+    }
+  },
   "Thinkific": {
     "cats": [
       21
@@ -3410,6 +3498,15 @@
       "\\.thinkingchat\\.com/"
     ],
     "website": "https://thinkingchat.com"
+  },
+  "ThinkJS": {
+    "cats": [
+      18
+    ],
+    "website": "https://thinkjs.org/",
+    "headers": {
+      "X-Powered-By": "^thinkjs"
+    }
   },
   "ThinkPHP": {
     "cats": [
@@ -3987,7 +4084,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "code\\.tidio\\.co"
+      "code\\.tidio\\.co",
+      "^https?://(?:[a-z0-9-]+\\.)*tidiochat\\.com(?:[:/?#]|$)"
     ],
     "website": "https://www.tidio.com"
   },
@@ -4983,6 +5081,15 @@
     ],
     "website": "https://www.toneden.io"
   },
+  "TongWeb": {
+    "cats": [
+      22
+    ],
+    "website": "https://www.tongtech.com/",
+    "headers": {
+      "Server": "^tongweb server"
+    }
+  },
   "Tontine": {
     "cats": [
       74
@@ -5298,6 +5405,15 @@
     },
     "website": "https://townnews.com/"
   },
+  "TPMN": {
+    "cats": [
+      36
+    ],
+    "website": "http://tpmn.io/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*tpmn\\.co\\.kr(?:[:/?#]|$)"
+    ]
+  },
   "Trac": {
     "cats": [
       13
@@ -5596,6 +5712,16 @@
     "saas": true,
     "website": "https://www.traek.io"
   },
+  "Traffective": {
+    "cats": [
+      36
+    ],
+    "icon": "Traffective.png",
+    "js": {
+      "traffectiveLib": ""
+    },
+    "website": "https://www.traffective.com"
+  },
   "TrafficGuard": {
     "cats": [
       36
@@ -5615,6 +5741,16 @@
       "trafficguard\\.ai"
     ],
     "website": "https://trafficguard.ai"
+  },
+  "TrafficJunky": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.trafficjunky.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*contentabc\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*trafficjunky\\.net(?:[:/?#]|$)"
+    ]
   },
   "TrafficStars": {
     "cats": [
@@ -6399,6 +6535,15 @@
     ],
     "website": "https://trovo.live"
   },
+  "TruConversion": {
+    "cats": [
+      10
+    ],
+    "website": "https://truconversion.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*truconversion\\.com(?:[:/?#]|$)"
+    ]
+  },
   "true": {
     "cats": [
       90
@@ -6531,6 +6676,15 @@
       "\\bTrunkrs\\b"
     ],
     "website": "https://trunkrs.nl"
+  },
+  "Trust Guard": {
+    "cats": [
+      16
+    ],
+    "website": "https://trust-guard.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*trust-guard\\.com(?:[:/?#]|$)"
+    ]
   },
   "TrustArc": {
     "cats": [
@@ -6725,6 +6879,15 @@
     ],
     "saas": true,
     "website": "https://site.trustvox.com.br"
+  },
+  "TrustX": {
+    "cats": [
+      36
+    ],
+    "website": "https://trustx.org",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*trustx\\.org(?:[:/?#]|$)"
+    ]
   },
   "TrustYou": {
     "cats": [
@@ -6942,6 +7105,16 @@
     ],
     "website": "https://github.com/turbolinks/turbolinks"
   },
+  "TurboMail": {
+    "cats": [
+      30
+    ],
+    "website": "http://www.turbomail.org/",
+    "html": [
+      "^(?=[\\s\\S]{0,}?powered by turbomail)(?=[\\s\\S]{0,}?wzcon1 clearfix)",
+      "<a href=\"http://www\\.turbomail\\.org\">powered by turbomail</a>"
+    ]
+  },
   "Turbopack": {
     "cats": [
       47
@@ -7022,6 +7195,17 @@
     ],
     "saas": true,
     "website": "https://tutorlms.com"
+  },
+  "Tutorbird": {
+    "cats": [
+      72
+    ],
+    "dom": [
+      "iframe[src*='.tutorbird.com']",
+      "a[href*='.tutorbird.com']"
+    ],
+    "icon": "Tutorbird.png",
+    "website": "https://tutorbird.com"
   },
   "TutorCruncher": {
     "cats": [
@@ -7584,7 +7768,7 @@
     "description": "Twitter Ads is an advertising platform for Twitter 'microblogging' system.",
     "icon": "Twitter.svg",
     "js": {
-      "twttr": ""
+      "twq": ""
     },
     "pricing": [
       "payg"
@@ -7981,5 +8165,260 @@
     ],
     "saas": true,
     "website": "https://tyslo.com"
+  },
+  "TMW Shield": {
+    "cats": [
+      16
+    ],
+    "description": "TMW Shield is a DDoS mitigation and proxy service for protected network, hosting, and application traffic.",
+    "headers": {
+      "server": "^TMW Shield$",
+      "x-tmw-cache": ""
+    },
+    "icon": "TMW-Shield.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.tmw.global"
+  },
+  "Tabler Icons": {
+    "cats": [
+      17
+    ],
+    "description": "Tabler Icons is an open-source icon library with SVG, icon font, and framework packages for web interfaces.",
+    "dom": "link[href*='tabler-icons'], svg.icon-tabler, svg.tabler-icon, i.ti[class*='ti-']",
+    "icon": "Tabler Icons.svg",
+    "oss": true,
+    "website": "https://tabler.io/icons"
+  },
+  "Tachyon Forge": {
+    "cats": [
+      51
+    ],
+    "description": "Tachyon Forge is an AI-based website builder that allows websites to be created and configured using Tachyon’s development engine and integrated tools.",
+    "headers": {
+      "X-Matched-Path": "/atlas\\.tachyon\\."
+    },
+    "icon": "TachyonForge.svg",
+    "saas": true,
+    "scripts": "tachyonwebtech\\.com/",
+    "website": "https://www.tachyonwebtech.com"
+  },
+  "Teletype App": {
+    "cats": [
+      52
+    ],
+    "description": "Teletype App is a messenger platform that enables real-time text-based communication between users across connected devices.",
+    "icon": "TeletypeApp.svg",
+    "js": {
+      "_teletypeWidget": "",
+      "teletypeExternalId": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "widget\\.teletype\\.app",
+    "website": "https://teletype.app"
+  },
+  "That Open Engine": {
+    "cats": [
+      25
+    ],
+    "description": "That Open Engine is an open-source collection of JavaScript libraries for building browser-based BIM applications.",
+    "icon": "That Open Engine.svg",
+    "implies": "Three.js",
+    "oss": true,
+    "scripts": [
+      "@thatopen/(?:components(?:-front)?|fragments|ui(?:-obc)?|web-ifc)",
+      "FragmentsManager"
+    ],
+    "website": "https://docs.thatopen.com"
+  },
+  "The Newsletter Plugin": {
+    "cats": [
+      87
+    ],
+    "description": "The Newsletter Plugin is a WordPress plugin for managing subscribers and creating, sending, and tracking email campaigns.",
+    "dom": "link#newsletter-css[href*='/wp-content/plugins/newsletter/style.css']",
+    "icon": "The Newsletter Plugin.svg",
+    "oss": true,
+    "pricing": [
+      "freemium",
+      "low",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/newsletter/(?:main|subscription/validate)\\.js(?:\\?ver=([\\d.]+))?\\;version:\\1",
+    "website": "https://www.thenewsletterplugin.com"
+  },
+  "TheraPsy Bookings": {
+    "cats": [
+      72
+    ],
+    "description": "TheraPsy Bookings is an online appointment scheduling service for therapists with hosted booking pages and embeddable calendars.",
+    "dom": {
+      "iframe[src*=\"bookings.therapsy.at\"]": {
+        "attributes": {
+          "src": "^https?://bookings\\.therapsy\\.at/\\?(?:[^#]*&)?id=[a-f0-9]{32}(?:[&#]|$)"
+        }
+      }
+    },
+    "icon": "TheraPsy Bookings.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "url": "^https?://bookings\\.therapsy\\.at/\\?(?:[^#]*&)?id=[a-f0-9]{32}(?:[&#]|$)",
+    "website": "https://www.therapsy.at/funktionen/bookings"
+  },
+  "Tiendana": {
+    "cats": [
+      6
+    ],
+    "description": "Tiendana is a SaaS platform that enables businesses to sell through point-of-sale terminals, an online store, and self-service kiosks.",
+    "headers": {
+      "Custom-Server": "^Tiendana$"
+    },
+    "icon": "Tiendana.svg",
+    "js": {
+      "tiendana.appendStoreParam": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.tiendana.com"
+  },
+  "Tijara Plus": {
+    "cats": [
+      6
+    ],
+    "description": "Tijara Plus is a hosted ecommerce platform for creating online stores and managing products, payments, and shipping.",
+    "headers": {
+      "X-Tijara-Plus": "^store$"
+    },
+    "icon": "Tijara Plus.png",
+    "js": {
+      "TijaraPlus.platform": "^Tijara Plus$"
+    },
+    "meta": {
+      "generator": "^Tijara Plus$"
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://tijaraplus.com"
+  },
+  "Transpond": {
+    "cats": [
+      32
+    ],
+    "description": "Transpond is a marketing platform that provides tools for campaign management, audience engagement, and performance tracking to support business marketing strategies.",
+    "dom": "api\\.transpond\\.io",
+    "icon": "Transpond.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "api\\.transpond\\.io/",
+    "website": "https://transpond.io"
+  },
+  "Treatwell": {
+    "cats": [
+      72
+    ],
+    "description": "Treatwell is an online marketplace and booking platform for hair, beauty, and wellness appointments.",
+    "icon": "Treatwell.png",
+    "meta": {
+      "og:site_name": "^Treatwell$"
+    },
+    "pricing": [
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "isTreatwellBrandedWidget",
+    "url": "^https?://(?:www\\.)?treatwell\\.(?:at|be|ch|co\\.uk|com|de|es|fr|gr|ie|it|lt|nl|pt)(?:[/?#]|$)",
+    "website": "https://www.treatwell.com"
+  },
+  "Trello": {
+    "cats": [
+      13
+    ],
+    "description": "Trello is a web-based collaboration and project management application that organizes work into boards, lists, and cards.",
+    "icon": "Trello.svg",
+    "js": {
+      "trelloVersion": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "p\\.trellocdn\\.com/(?:card|embed)\\.min\\.js",
+    "website": "https://trello.com"
+  },
+  "Trustmary": {
+    "cats": [
+      90
+    ],
+    "description": "Trustmary is a customer experience platform that structures and presents feedback data in a way that is accessible to both artificial intelligence systems and human audiences.",
+    "icon": "Trustmary.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "embed\\.trustmary\\.com",
+    "website": "https://trustmary.com"
+  },
+  "Twipla": {
+    "cats": [
+      10
+    ],
+    "description": "Twipla is a website intelligence platform with traffic analytics, heatmaps, session recordings, funnels, and visitor surveys.",
+    "dom": {
+      "script#wix-viewer-model": {
+        "text": "Twipla Session Recordings|dad178e5-571d-45bf-89a0-c1f97242199f"
+      }
+    },
+    "icon": "Twipla.svg",
+    "js": {
+      "_visaSettings": ""
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "(?:www\\.)?twipla\\.com/analytics/main\\.js",
+    "website": "https://www.twipla.com"
+  },
+  "Typedream": {
+    "cats": [
+      51
+    ],
+    "description": "Typedream is a website builder that enables users to create and publish websites without writing code, using a visual interface and prebuilt components.",
+    "icon": "Typedream.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "api\\.typedream\\.com",
+    "website": "https://typedream.com"
   }
 }

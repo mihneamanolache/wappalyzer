@@ -136,6 +136,13 @@
     ],
     "website": "https://www.kadencewp.com/product/virtue-free-theme"
   },
+  "Kaipuyun Search": {
+    "cats": [
+      29
+    ],
+    "website": "https://www.kaipuyun.cn/",
+    "html": "src=\"http://so\\.kaipuyun\\.cn\\?sitecode="
+  },
   "Kaira Vogue": {
     "cats": [
       80
@@ -167,6 +174,15 @@
       "\\.freespee\\.com/js/external/fs\\.(?:min\\.)?js"
     ],
     "website": "https://www.kaisa.io"
+  },
+  "Kaizen Platform": {
+    "cats": [
+      74
+    ],
+    "website": "https://kaizenplatform.net",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*kaizenplatform\\.net(?:[:/?#]|$)"
+    ]
   },
   "Kajabi": {
     "cats": [
@@ -278,7 +294,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "api\\.kaltura\\.(?:nordu\\.net|com)/"
+      "api\\.kaltura\\.(?:nordu\\.net|com)/",
+      "^https?://(?:[a-z0-9-]+\\.)*kaltura\\.com(?:[:/?#]|$)"
     ],
     "scripts": [
       "kalturaPlayer"
@@ -323,7 +340,9 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.kameleoon\\.\\w+/kameleoon\\.js"
+      "\\.kameleoon\\.\\w+/kameleoon\\.js",
+      "^https?://(?:[a-z0-9-]+\\.)*kameleoon\\.eu(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*kameleoon\\.io(?:[:/?#]|$)"
     ],
     "website": "https://kameleoon.com/"
   },
@@ -468,6 +487,15 @@
       "\\.kapturecrm\\.com/.+\\?ver=([\\d\\.]+)\\;version:\\1"
     ],
     "website": "https://www.kapturecrm.com"
+  },
+  "Kargo": {
+    "cats": [
+      36
+    ],
+    "website": "https://kargo.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*kargo\\.com(?:[:/?#]|$)"
+    ]
   },
   "Karma": {
     "cats": [
@@ -962,6 +990,15 @@
       "WWW-Authenticate": "^Kerberos"
     },
     "website": "https://tools.ietf.org/html/rfc4559"
+  },
+  "Kerio Connect": {
+    "cats": [
+      30
+    ],
+    "website": "https://www.gfi.com/products-and-solutions/email-and-messaging-solutions/kerioconnect",
+    "headers": {
+      "Server": "^kerio connect"
+    }
   },
   "KerningJS": {
     "cats": [
@@ -2174,6 +2211,15 @@
     ],
     "website": "https://www.knoma.io"
   },
+  "Knorex XPO": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.knorex.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*brand-display\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Knorish": {
     "cats": [
       21
@@ -3152,5 +3198,200 @@
       "\\.kyvio\\.com"
     ],
     "website": "https://kyvio.com"
+  },
+  "K50": {
+    "cats": [
+      32
+    ],
+    "description": "K50 is a platform that automates online advertising and the promotion of products and services across digital channels.",
+    "icon": "K50.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "k50-a\\.akamaihd\\.net/k50/k50tracker2\\.js",
+    "website": "https://k50.ru"
+  },
+  "KOMERO": {
+    "cats": [
+      6
+    ],
+    "description": "KOMERO is an ecommerce platform and website builder for creating online stores.",
+    "icon": "KOMERO.png",
+    "meta": {
+      "generator": "^KOMERO$"
+    },
+    "saas": true,
+    "website": "https://www.komero.ge"
+  },
+  "KPA": {
+    "cats": [
+      67
+    ],
+    "description": "KPA is a compliance solutions provider offering software, training, and advisory services that support automotive dealerships and related businesses in meeting regulatory and operational requirements.",
+    "icon": "KPA.svg",
+    "saas": true,
+    "scriptSrc": "publiccdn\\.mykpa\\.com",
+    "website": "https://kpa.io"
+  },
+  "Kaily.ai": {
+    "cats": [
+      32
+    ],
+    "description": "Kaily.ai is a conversational AI agent platform that connects to your data, APIs, and business tools to answer queries, execute actions, and automate workflows in real time.",
+    "icon": "KailyAI.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "app\\.copilotadvisor\\.com",
+    "website": "https://www.kaily.ai/"
+  },
+  "KePixel": {
+    "cats": [
+      42
+    ],
+    "description": "KePixel is a no-code server-side tracking and Conversion API platform for ecommerce stores and agencies.",
+    "icon": "KePixel.png",
+    "js": {
+      "__kepixelSallaLoaderInstalled": "",
+      "kepixel": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "kepixel-tag\\.web\\.app/kpx-salla-runtime\\.js",
+      "tag\\.kepixel\\.online/kpx-salla-collect\\.js"
+    ],
+    "website": "https://kepixel.online/"
+  },
+  "Keycloak": {
+    "cats": [
+      69
+    ],
+    "cookies": {
+      "KC_RESTART": ""
+    },
+    "cpe": "cpe:2.3:a:redhat:keycloak:*:*:*:*:*:*:*:*",
+    "description": "Keycloak is an open-source identity and access management system.",
+    "dom": "#kc-form-login[action*='/realms/'][action*='/login-actions/authenticate']",
+    "icon": "Keycloak.svg",
+    "implies": "Java",
+    "oss": true,
+    "url": "^https?://[^/]+/(?:auth/)?realms/[^/?#]+/protocol/openid-connect/auth(?:[/?#]|$)",
+    "website": "https://www.keycloak.org/"
+  },
+  "Kleep": {
+    "cats": [
+      76
+    ],
+    "description": "Kleep is an AI sizing and personalization platform for fashion ecommerce retailers.",
+    "icon": "Kleep.svg",
+    "js": {
+      "KleepSDK": "",
+      "openKleepA11y": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "cdn\\.shopify\\.com/extensions/[^/]+/kleep-[^/]+/assets/kleep-[^/]+\\.js",
+      "module\\.kleep\\.ai/api/widget"
+    ],
+    "website": "https://kleep.ai",
+    "xhr": "(?:drawer|fit|module|products)\\.kleep\\.ai"
+  },
+  "Knoku": {
+    "cats": [
+      4
+    ],
+    "description": "Knoku is an AI answer platform that indexes documentation and support content for website widgets, API, and chat integrations.",
+    "icon": "Knoku.svg",
+    "js": {
+      "__KNOKU_CONFIG__": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.knoku\\.com/widget\\.js",
+    "website": "https://knoku.com",
+    "xhrUrl": "api\\.knoku\\.com/api/v1/config/"
+  },
+  "Kobisi": {
+    "cats": [
+      6
+    ],
+    "description": "Kobisi is a Turkish ecommerce platform that provides tools for creating, managing, and operating online stores.",
+    "icon": "Kobisi.svg",
+    "meta": {
+      "author": "kobisi\\.com"
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.kobisi.com"
+  },
+  "Komerza": {
+    "cats": [
+      6
+    ],
+    "description": "Komerza is a commerce engine designed for modern brands that provides scalable infrastructure for managing online sales and supporting growth without predefined limits.",
+    "icon": "Komerza.svg",
+    "js": {
+      "Komerza.open": "",
+      "initKomerza": ""
+    },
+    "pricing": [
+      "onetime",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.komerza\\.com",
+    "website": "https://komerza.com"
+  },
+  "Kx AI Search & Discovery Agent": {
+    "cats": [
+      29
+    ],
+    "description": "Kx AI Search & Discovery Agent is an agentic search solution that interprets product data, collections, attributes, inventory, margins, and shopper intent to support product discovery and conversion optimization.",
+    "dom": "div#kxChatSearchBubbleBtn",
+    "icon": "KxAISearchDiscoveryAgent.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://apps.shopify.com/agentic-store"
+  },
+  "kDrive": {
+    "cats": [
+      95
+    ],
+    "description": "kDrive is a cloud storage and file-sharing service from Infomaniak.",
+    "meta": {
+      "og:site_name": "^kDrive$"
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "freemium"
+    ],
+    "saas": true,
+    "url": "^https?://kdrive\\.infomaniak\\.com/app/share/",
+    "website": "https://www.infomaniak.com/en/ksuite/kdrive"
   }
 }
