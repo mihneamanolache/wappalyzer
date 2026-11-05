@@ -723,6 +723,26 @@
     ],
     "website": "https://omacro.com"
   },
+  "Omago": {
+    "cats": [
+      52
+    ],
+    "description": "Omago is an AI customer-service assistant for business websites that answers visitor questions in the customer's own language, captures leads and hands conversations over to WhatsApp.",
+    "dom": [
+      "#omago-widget-container",
+      "#omago-widget-button"
+    ],
+    "icon": "Omago.svg",
+    "pricing": [
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "app\\.omago\\.ai/widget\\.js"
+    ],
+    "website": "https://omago.ai"
+  },
   "Omeda": {
     "cats": [
       86,
@@ -1552,6 +1572,15 @@
     ],
     "website": "https://onsitesupport.io"
   },
+  "Ontame": {
+    "cats": [
+      10
+    ],
+    "website": "https://talentech.com/products/data-analytics/ontame/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*ontame\\.io(?:[:/?#]|$)"
+    ]
+  },
   "OnUniverse": {
     "cats": [
       51
@@ -1812,6 +1841,13 @@
       "TXT": "openai-domain-verification="
     }
   },
+  "OpenAM": {
+    "cats": [
+      69
+    ],
+    "website": "https://www.openidentityplatform.org/openam",
+    "html": "action=\"/openam/ui/login\""
+  },
   "OpenBSD httpd": {
     "cats": [
       22
@@ -1897,6 +1933,19 @@
     ],
     "website": "https://www.opencms.org"
   },
+  "OpenConf": {
+    "cats": [
+      19
+    ],
+    "website": "https://www.openconf.org/",
+    "html": [
+      "powered by <a href=\"http://www\\.openconf\\.org",
+      "src=\"openconf\\.js\\?"
+    ],
+    "cookies": {
+      "openconf": ""
+    }
+  },
   "OpenCV": {
     "cats": [
       59
@@ -1954,7 +2003,7 @@
     ],
     "description": "OpenGSE is a test suite used for testing servlet compliance. It is deployed by using WAR files that are deployed on the server engine.",
     "headers": {
-      "Server": "GSE"
+      "X-Powered-By": "OpenGSE(?:/([\\d.]+))?\\;version:\\1"
     },
     "icon": "Google.svg",
     "implies": [
@@ -2289,7 +2338,8 @@
     "saas": true,
     "scriptSrc": [
       "https?://[^/]*\\.openx\\.net",
-      "https?://[^/]*\\.servedbyopenx\\.com"
+      "https?://[^/]*\\.servedbyopenx\\.com",
+      "^https?://(?:[a-z0-9-]+\\.)*openxcdn\\.net(?:[:/?#]|$)"
     ],
     "website": "https://openx.com"
   },
@@ -2337,6 +2387,16 @@
       "opigno_(?:commerce|wtp_app|scorm|learning_path)"
     ],
     "website": "https://www.opigno.org"
+  },
+  "Opinion Stage": {
+    "cats": [
+      73,
+      5
+    ],
+    "website": "https://opinionstage.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*opinionstage\\.com(?:[:/?#]|$)"
+    ]
   },
   "OpinionBar": {
     "cats": [
@@ -2402,6 +2462,15 @@
       "app\\.opscalendar\\.com/"
     ],
     "website": "https://opscalendar.com"
+  },
+  "Opta": {
+    "cats": [
+      5
+    ],
+    "website": "https://www.statsperform.com/products/opta-data/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*opta\\.net(?:[:/?#]|$)"
+    ]
   },
   "Optibase": {
     "cats": [
@@ -2644,7 +2713,12 @@
       "low",
       "recurring"
     ],
-    "website": "https://optinmonster.com"
+    "website": "https://optinmonster.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*opmnstr\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*optmnstr\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*optmstr\\.com(?:[:/?#]|$)"
+    ]
   },
   "OptinMonster plugin": {
     "cats": [
@@ -3173,6 +3247,31 @@
       "www\\.orankl\\.com/"
     ],
     "website": "https://www.orankl.com"
+  },
+  "Orbit Commerce": {
+    "cats": [
+      6
+    ],
+    "description": "Orbit Commerce is a hosted ecommerce platform from the UK with a drag-and-drop page builder, themes, payments, B2B selling and marketing tools.",
+    "headers": {
+      "X-Powered-By": "^Orbit Commerce$"
+    },
+    "icon": "Orbit Commerce.svg",
+    "implies": [
+      "Next.js"
+    ],
+    "js": {
+      "OrbitCommerce.platform": "^Orbit Commerce$"
+    },
+    "meta": {
+      "generator": "^Orbit Commerce$"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://orbitcommerce.net"
   },
   "Orbit Slider": {
     "cats": [
@@ -4282,5 +4381,222 @@
     },
     "saas": true,
     "website": "https://www.oxyshop.cz"
+  },
+  "Oat UI": {
+    "cats": [
+      66
+    ],
+    "description": "Oat UI is a lightweight, semantic HTML, CSS, and JavaScript UI component library.",
+    "dom": "ot-accordion, ot-dropdown, ot-tabs, ot-toast",
+    "icon": "Oat UI.svg",
+    "oss": true,
+    "scriptSrc": "(?:^|/)oat(?:\\.min)?\\.js(?:\\?|$)\\;confidence:50",
+    "website": "https://oat.ink"
+  },
+  "Odometer.js": {
+    "cats": [
+      59
+    ],
+    "description": "Odometer.js is a JavaScript library that smoothly animates transitions between numeric values for counters and metrics.",
+    "icon": "HubSpot.svg",
+    "js": {
+      "Odometer.init": ""
+    },
+    "oss": true,
+    "scriptSrc": "/js/odometer\\.min\\.js",
+    "website": "https://github.hubspot.com/odometer/docs/welcome"
+  },
+  "OmniWallet": {
+    "cats": [
+      84
+    ],
+    "description": "OmniWallet is an omnichannel loyalty SaaS platform that centralizes customer identification, incentive management, and behavioral tracking across online and offline channels.",
+    "icon": "OmniWallet.svg",
+    "js": {
+      "Omniwallet.ADMIN_API": "",
+      "OmniwalletPlugin": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://omniwallet.net"
+  },
+  "One Church Software": {
+    "cats": [
+      1
+    ],
+    "description": "One Church Software is a church management platform.",
+    "dom": "onechurch[url*='app\\.onechurchsoftware\\.com/']",
+    "icon": "OneChurchSoftware.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "app\\.onechurchsoftware\\.com",
+    "website": "https://onechurchsoftware.com"
+  },
+  "Onjax": {
+    "cats": [
+      53
+    ],
+    "description": "Onjax is a suite of sales and marketing tools designed to connect agents with more customers and support customer engagement and lead management.",
+    "icon": "Onjax.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.onjax\\.com",
+    "website": "https://onjax.com"
+  },
+  "Open Game Panel": {
+    "cats": [
+      9
+    ],
+    "cookies": {
+      "opengamepanel_web": ""
+    },
+    "description": "Open Game Panel is an open-source hosting control panel for deploying and managing multiplayer game servers.",
+    "dom": "span.controlpanellogin, .OGPVersionArea",
+    "icon": "Open Game Panel.png",
+    "implies": "PHP",
+    "oss": true,
+    "website": "https://opengamepanel.org"
+  },
+  "OpenAI Ads Measurement Pixel": {
+    "cats": [
+      36
+    ],
+    "description": "OpenAI Ads Measurement Pixel is a browser SDK for measuring website events that can be attributed to ads in ChatGPT.",
+    "dom": {
+      "script[data-bc-cookie-consent][type='text/plain']": {
+        "text": "bzrcdn\\.openai\\.com/sdk/oaiq\\.min\\.js"
+      }
+    },
+    "icon": "OpenAI Ads Measurement Pixel.svg",
+    "js": {
+      "oaiq": ""
+    },
+    "scriptSrc": "^https://bzrcdn\\.openai\\.com/sdk/oaiq\\.min\\.js(?:[?#]|$)",
+    "website": "https://developers.openai.com/ads/measurement-pixel"
+  },
+  "OpenDXP": {
+    "cats": [
+      1,
+      6
+    ],
+    "description": "OpenDXP is an open-source digital experience platform for PIM, DAM, headless CMS, and composable commerce.",
+    "dom": "a[id^='opendxp-navigation-renderer-menu-']",
+    "headers": {
+      "X-OpenDXP-Cache-Date": "",
+      "X-OpenDXP-Output-Cache-Disable-Reason": "",
+      "X-OpenDXP-Output-Cache-Tag": "",
+      "X-Powered-By": "(?:^|\\n)opendxp(?:\\n|$)"
+    },
+    "icon": "OpenDXP.svg",
+    "implies": "PHP",
+    "oss": true,
+    "probe": {
+      "/admin/login": "OpenDXP"
+    },
+    "scripts": "opendxp_toolbox\\.",
+    "website": "https://opendxp.io"
+  },
+  "OpenWeatherMap": {
+    "cats": [
+      35
+    ],
+    "description": "OpenWeatherMap is a web-based platform that provides interactive maps displaying current weather conditions, precipitation, and related meteorological data across various geographic locations.",
+    "icon": "OpenWeatherMap.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "api\\.openweathermap\\.org",
+    "website": "https://openweathermap.org"
+  },
+  "Operoo": {
+    "cats": [
+      21
+    ],
+    "description": "Operoo is a school workflow platform that supports administrative processes and communication management within educational institutions.",
+    "icon": "Operoo.svg",
+    "saas": true,
+    "scriptSrc": "app\\.operoo\\.com",
+    "website": "https://operoo.com"
+  },
+  "OptKit": {
+    "cats": [
+      32
+    ],
+    "description": "OptKit is a platform that delivers real-time, behavior-triggered calls to action based on user interactions and events across digital properties.",
+    "icon": "OptKit.svg",
+    "oss": true,
+    "scriptSrc": "cdn\\.optkit\\.com",
+    "website": "https://optkit.com"
+  },
+  "Oracle Linux": {
+    "cats": [
+      28
+    ],
+    "cpe": "cpe:2.3:o:oracle:linux:*:*:*:*:*:*:*:*",
+    "description": "Oracle Linux is an enterprise Linux distribution by Oracle, designed for cloud and on-premises workloads.",
+    "headers": {
+      "server": "\\(Oracle Linux(?: Server)?\\)"
+    },
+    "icon": "Oracle.svg",
+    "oss": true,
+    "website": "https://www.oracle.com/linux/"
+  },
+  "Orange CDB": {
+    "cats": [
+      31
+    ],
+    "description": "Orange CDB is a content delivery network (CDN) and edge computing solution that accelerates content distribution, improves traffic handling, and enhances performance by delivering web resources through geographically distributed servers.",
+    "headers": {
+      "X-Orange-Rule": "",
+      "X-Orange-Rule-Name": ""
+    },
+    "icon": "OrangeCDB.svg",
+    "saas": true,
+    "website": "https://wholesale.orange.com/international/en/our-solutions/cdn-content-delivery-boost.html"
+  },
+  "Orioly": {
+    "cats": [
+      72
+    ],
+    "description": "Orioly is a booking and management platform for tours and activities that automates scheduling, reservations, and related business processes.",
+    "icon": "Orioly.svg",
+    "js": {
+      "isOriolyLoaded": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "book-now\\.orioly\\.com",
+    "website": "https://orioly.com"
+  },
+  "OwnerRez": {
+    "cats": [
+      93
+    ],
+    "description": "OwnerRez is a vacation rental software platform that provides property managers with tools to manage bookings, guest communications, and property operations from a centralized system.",
+    "icon": "OwnerRez.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.ownerrez\\.com",
+    "website": "https://www.ownerrez.com"
   }
 }

@@ -898,6 +898,23 @@
     ],
     "website": "https://www.jobboardfire.com"
   },
+  "Job Boardly": {
+    "cats": [
+      101
+    ],
+    "cookies": {
+      "_job_boardly_session": ""
+    },
+    "description": "Job Boardly is a SaaS platform for creating and running hosted job boards without code.",
+    "icon": "Job Boardly.png",
+    "scriptSrc": [
+      "assets\\.jobboardly\\.com/"
+    ],
+    "website": "https://www.jobboardly.com",
+    "xhr": [
+      "(?:assets|cdn)\\.jobboardly\\.com"
+    ]
+  },
   "JobAdder": {
     "cats": [
       101
@@ -2243,5 +2260,71 @@
       "jwerty": ""
     },
     "website": "https://keithcirkel.co.uk/jwerty/"
+  },
+  "Jaspr": {
+    "cats": [
+      18
+    ],
+    "description": "Jaspr is an open-source web framework for building websites and applications with Dart.",
+    "dom": "a.jaspr-badge-link[href='https://jaspr.site']",
+    "implies": "Dart",
+    "oss": true,
+    "scriptSrc": "/main\\.client\\.dart\\.js",
+    "website": "https://jaspr.site"
+  },
+  "Jetimob": {
+    "cats": [
+      53
+    ],
+    "description": "Jetimob is a real estate management system that centralizes customer relationship management (CRM), rental management, and sales management within a single platform.",
+    "dom": "link[href*='www.jetimob.com']",
+    "icon": "Jetimob.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.jetimob.com"
+  },
+  "Jimo": {
+    "cats": [
+      58
+    ],
+    "description": "Jimo is a digital adoption platform for building in-app onboarding, product tours, and user engagement flows.",
+    "dom": "script[src*='undercity.usejimo.com/jimo-invader.js']",
+    "icon": "Jimo.svg",
+    "js": {
+      "JIMO_PROJECT_ID": "",
+      "jimo": "\\;confidence:50"
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "undercity\\.usejimo\\.com/jimo-invader\\.js",
+    "website": "https://jimo.ai"
+  },
+  "Jscrambler": {
+    "cats": [
+      16
+    ],
+    "description": "Jscrambler is a client-side security solution for JavaScript that protects application code through obfuscation, runtime protection, and tamper detection to reduce the risk of reverse engineering and code manipulation.",
+    "icon": "Jscrambler.svg",
+    "saas": true,
+    "scriptSrc": "\\.jscrambler\\.com",
+    "scripts": "\\.jscrambler\\.com",
+    "website": "https://jscrambler.com"
+  },
+  "jrni": {
+    "cats": [
+      72
+    ],
+    "description": "jrni is a platform that supports customer revenue generation by centralizing booking, scheduling, and customer engagement processes within a single system.",
+    "icon": "jrni.svg",
+    "saas": true,
+    "scriptSrc": "\\.bookingbug\\.com/",
+    "scripts": "\\.jrni\\.com",
+    "website": "https://www.jrni.com"
   }
 }

@@ -17,6 +17,13 @@
     "saas": true,
     "website": "https://u-komi.com/en/"
   },
+  "U-Mail": {
+    "cats": [
+      30
+    ],
+    "website": "http://www.comingchina.com/",
+    "html": "power by <a href=\"http://www\\.comingchina\\.com\">u-mail邮件服务器</a>"
+  },
   "Ubercart": {
     "cats": [
       6
@@ -797,6 +804,15 @@
       "version": "\\1"
     }
   },
+  "Underdog Media": {
+    "cats": [
+      36
+    ],
+    "website": "https://underdogmedia.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*underdog\\.media(?:[:/?#]|$)"
+    ]
+  },
   "Underscore.js": {
     "cats": [
       59
@@ -857,7 +873,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "cmp\\.uniconsent\\.mgr\\.consensu\\.org/"
+      "cmp\\.uniconsent\\.mgr\\.consensu\\.org/",
+      "^https?://cmp\\.uniconsent\\.com(?:[:/?#]|$)"
     ],
     "website": "https://www.uniconsent.com/"
   },
@@ -947,6 +964,15 @@
       "cdn\\.unipag\\.com"
     ],
     "website": "https://www.unipag.com"
+  },
+  "Uniqodo": {
+    "cats": [
+      76
+    ],
+    "website": "https://uniqodo.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*uniqodo\\.com(?:[:/?#]|$)"
+    ]
   },
   "Unito Hub": {
     "cats": [
@@ -2226,5 +2252,133 @@
       "\\.userly\\.net/"
     ],
     "website": "https://uzerly.fr"
+  },
+  "Uappi": {
+    "cats": [
+      6
+    ],
+    "description": "Uappi is an ecommerce platform for B2C, B2B, and marketplace operations.",
+    "dom": "a[href*='uappi.com.br/'][href*='utm_content=footersite']",
+    "icon": "Uappi.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "/sdk/uappi/loader\\.js",
+    "website": "https://uappi.com.br/"
+  },
+  "Ucraft": {
+    "cats": [
+      51
+    ],
+    "description": "Ucraft is a website building platform that enables the creation of websites or online stores.",
+    "icon": "Ucraft.svg",
+    "meta": {
+      "generator": "^Ucraft$"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "static\\.ucraft\\.net",
+    "website": "https://www.ucraft.com"
+  },
+  "Uebfaqe": {
+    "cats": [
+      51
+    ],
+    "description": "Uebfaqe is an AI website builder for creating, editing, and publishing sites on hosted subdomains or custom domains.",
+    "icon": "Uebfaqe.svg",
+    "meta": {
+      "generator": "^Uebfaqe$"
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "url": "^https?://[^/]+\\.uebfaqe\\.app/",
+    "website": "https://uebfaqe.ai"
+  },
+  "UnifyDesk": {
+    "cats": [
+      1
+    ],
+    "description": "UnifyDesk is a content management system for building and managing websites and mobile apps from a single dashboard.",
+    "icon": "UnifyDesk.svg",
+    "meta": {
+      "generator": "^UnifyDesk CMS$"
+    },
+    "saas": true,
+    "website": "https://bookmi.ca"
+  },
+  "UpCloud Object Storage": {
+    "cats": [
+      31,
+      63
+    ],
+    "description": "UpCloud Object Storage is an S3-compatible managed object storage service for static hosting and unstructured data.",
+    "dns": {
+      "CNAME": "^[a-z0-9]+\\.upcloudobjects\\.com\\.?$"
+    },
+    "icon": "UpCloud.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://upcloud.com/products/object-storage/"
+  },
+  "UpContent": {
+    "cats": [
+      96
+    ],
+    "description": "UpContent is a content discovery tool that identifies, curates, and surfaces relevant articles and media from across the web for use in digital publishing and marketing workflows.",
+    "icon": "UpContent.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.upcontent\\.com",
+    "website": "https://www.upcontent.com"
+  },
+  "UseClick": {
+    "cats": [
+      10
+    ],
+    "description": "UseClick is a privacy-focused analytics and link management platform for tracking website traffic, short links, and bio pages.",
+    "icon": "UseClick.svg",
+    "js": {
+      "useclick.version": "(.+)\\;version:\\1"
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "freemium"
+    ],
+    "saas": true,
+    "scriptSrc": "useclick\\.io/analytics\\.js",
+    "website": "https://useclick.io",
+    "xhrUrl": "useclick\\.io/api/analytics/collect"
+  },
+  "UseResponse": {
+    "cats": [
+      52
+    ],
+    "description": "UseResponse is a multi-channel customer support software suite that provides tools for managing customer inquiries, reducing response times, and supporting improved service workflows across communication channels.",
+    "icon": "UseResponse.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "static\\.useresponse\\.com/",
+    "website": "https://www.useresponse.com"
   }
 }

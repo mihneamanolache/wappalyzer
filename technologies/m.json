@@ -60,6 +60,13 @@
     ],
     "website": "https://go-macaron.com"
   },
+  "MacCMS": {
+    "cats": [
+      1
+    ],
+    "website": "https://github.com/magicblack/maccms10",
+    "html": "<script>var maccms=\\{\"path"
+  },
   "MachoThemes NewsMag": {
     "cats": [
       80
@@ -571,6 +578,14 @@
     ],
     "website": "https://mahocommerce.com"
   },
+  "Mail Mint": {
+    "cats": [
+      32,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/mail-mint/",
+    "html": "/wp-content/plugins/mail-mint/"
+  },
   "Mail.Ru Share": {
     "cats": [
       5
@@ -819,7 +834,10 @@
       "freemium"
     ],
     "saas": true,
-    "website": "https://www.mailmunch.com"
+    "website": "https://www.mailmunch.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*mailmunch\\.co(?:[:/?#]|$)"
+    ]
   },
   "Mailocator": {
     "cats": [
@@ -1501,7 +1519,13 @@
       "poa"
     ],
     "saas": true,
-    "website": "https://mapp.com"
+    "website": "https://mapp.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*wbtrk\\.net(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*webtrekk\\.net(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*wt-eu02\\.net(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*wt-safetag\\.com(?:[:/?#]|$)"
+    ]
   },
   "Mappedin": {
     "cats": [
@@ -1653,7 +1677,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.marchex\\.io/"
+      "\\.marchex\\.io/",
+      "^https?://(?:[a-z0-9-]+\\.)*voicestar\\.com(?:[:/?#]|$)"
     ],
     "website": "https://www.marchex.com"
   },
@@ -2101,6 +2126,14 @@
     },
     "website": "https://masterking32.com"
   },
+  "MasterStudy LMS": {
+    "cats": [
+      21,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/masterstudy-lms-learning-management-system/",
+    "html": "/wp-content/plugins/masterstudy-lms-learning-management-system/"
+  },
   "Mastery Manager": {
     "cats": [
       21
@@ -2244,6 +2277,15 @@
     ],
     "website": "https://mathjs.org"
   },
+  "Mather Economics": {
+    "cats": [
+      10
+    ],
+    "website": "https://www.mathereconomics.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*matheranalytics\\.com(?:[:/?#]|$)"
+    ]
+  },
   "MathJax": {
     "cats": [
       25
@@ -2303,7 +2345,8 @@
       "payg"
     ],
     "scriptSrc": [
-      "piwik\\.js|piwik\\.php"
+      "piwik\\.js|piwik\\.php",
+      "^https?://(?:[a-z0-9-]+\\.)*matomo\\.cloud(?:[:/?#]|$)"
     ],
     "scripts": [
       "matomo\\.js",
@@ -2626,6 +2669,13 @@
       "server": "Web Proxy"
     }
   },
+  "MCMS": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.mingsoft.net/",
+    "html": "/mcms/search\\.do\" method="
+  },
   "MDaemon": {
     "cats": [
       34
@@ -2862,6 +2912,15 @@
     },
     "saas": true,
     "website": "https://www.mediaplatform.com"
+  },
+  "mediarithmics": {
+    "cats": [
+      97
+    ],
+    "website": "https://www.mediarithmics.io/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*mediarithmics\\.com(?:[:/?#]|$)"
+    ]
   },
   "Mediavine": {
     "cats": [
@@ -3684,6 +3743,16 @@
     ],
     "website": "https://www.metikular.ch"
   },
+  "MetInfo": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.metinfo.cn/",
+    "html": [
+      "<div class=\"powered_by_metinfo\"></div>",
+      "<meta name=\"generator\" content=\"metinfo"
+    ]
+  },
   "metisMenu": {
     "cats": [
       59
@@ -3740,6 +3809,26 @@
       "/wp-content/plugins/metorik-helper(?:/.*)?(?:\\?.*)?$"
     ],
     "website": "https://metorik.com"
+  },
+  "Metricool": {
+    "cats": [
+      10
+    ],
+    "description": "Metricool is a social media management and analytics platform; its website tracker loads be.js from tracker.metricool.com and exposes the beTracker global.",
+    "dom": [
+      "img[src*=\"tracker.metricool.com/\"]"
+    ],
+    "icon": "Metricool.png",
+    "js": {
+      "beTracker": ""
+    },
+    "scriptSrc": [
+      "tracker\\.metricool\\.com/"
+    ],
+    "website": "https://metricool.com",
+    "xhr": [
+      "tracker\\.metricool\\.com"
+    ]
   },
   "Metrics Key": {
     "cats": [
@@ -5461,6 +5550,16 @@
     "icon": "mini_httpd.png",
     "website": "https://acme.com/software/mini_httpd"
   },
+  "miniBB": {
+    "cats": [
+      2
+    ],
+    "website": "https://www.minibb.com/",
+    "html": [
+      "<!--minibb copyright link",
+      "powered by <a href=\"http://www\\.minibb\\."
+    ]
+  },
   "MiniBC": {
     "cats": [
       41
@@ -7025,6 +7124,15 @@
     ],
     "website": "https://monetizepro.ai"
   },
+  "MonetizeMore": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.monetizemore.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*m2\\.ai(?:[:/?#]|$)"
+    ]
+  },
   "MongoDB": {
     "cats": [
       34
@@ -7686,7 +7794,10 @@
       "poa"
     ],
     "saas": true,
-    "website": "https://movableink.com"
+    "website": "https://movableink.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*micpn\\.com(?:[:/?#]|$)"
+    ]
   },
   "Movable Type": {
     "cats": [
@@ -8067,6 +8178,15 @@
     "xhr": [
       "anypoint\\.mulesoft\\.com",
       "[a-z0-9-]+\\.cloudhub\\.io"
+    ]
+  },
+  "Multiview": {
+    "cats": [
+      19
+    ],
+    "website": "https://multiview.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*multiview\\.com(?:[:/?#]|$)"
     ]
   },
   "Mura CMS": {
@@ -8734,5 +8854,284 @@
     ],
     "saas": true,
     "website": "https://www.ionos.com"
+  },
+  "Madgex": {
+    "cats": [
+      101
+    ],
+    "description": "Madgex is a job board software platform used to create, manage, and monetize online employment marketplaces.",
+    "icon": "Madgex.svg",
+    "js": {
+      "MADGEXi18n": "",
+      "runMadgexConfirmSession": ""
+    },
+    "saas": true,
+    "scriptSrc": "\\.madgex\\.com/",
+    "website": "https://madgex.com"
+  },
+  "Mage Loyalty": {
+    "cats": [
+      84,
+      100
+    ],
+    "description": "Mage Loyalty is a Shopify app for loyalty programs, referrals, wishlists, customer accounts, and memberships.",
+    "icon": "Mage Loyalty.png",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.shopify\\.com/extensions/[a-f\\d-]+/mage-loyalty-\\d+/assets/",
+    "website": "https://www.mageloyalty.com"
+  },
+  "MaidCentral": {
+    "cats": [
+      53
+    ],
+    "description": "MaidCentral is a software platform for managing cleaning businesses.",
+    "dom": "iframe[src*='.maidcentral.com/']",
+    "icon": "MaidCentral.svg",
+    "pricing": [
+      "high",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://maidcentral.com"
+  },
+  "Masthead CMS": {
+    "cats": [
+      1
+    ],
+    "description": "Masthead CMS is a content management system for local news publishers and editorial teams.",
+    "meta": {
+      "generator": "^Masthead CMS$"
+    },
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://mastheadcms.com"
+  },
+  "Material for MkDocs": {
+    "cats": [
+      4
+    ],
+    "description": "Material for MkDocs is a documentation framework built on MkDocs, a static site generator, providing tools and features for creating and organizing project documentation websites.",
+    "icon": "MaterialMkDocs.svg",
+    "meta": {
+      "generator": "^mkdocs-([\\d.]+)\\;version:\\1"
+    },
+    "website": "https://squidfunk.github.io/mkdocs-material/"
+  },
+  "Mavrck": {
+    "cats": [
+      32
+    ],
+    "description": "Mavrck is an influencer marketing platform that supports creator discovery, campaign management, content workflows, and performance measurement across social media channels.",
+    "icon": "Mavrck.svg",
+    "meta": {
+      "author": "Mavrck\\.Co"
+    },
+    "saas": true,
+    "scriptSrc": "\\.mavrck\\.co",
+    "website": "https://www.mavrck.co"
+  },
+  "Mayson": {
+    "cats": [
+      51
+    ],
+    "description": "Mayson is an AI-powered website and app builder platform.",
+    "dom": "link[href*='app.mayson.dev/icons/brand-logo-192x192.png']",
+    "icon": "Mayson.png",
+    "js": {
+      "__MAYSON": ""
+    },
+    "saas": true,
+    "scriptSrc": "\\.mayson\\.app/assets/index-[A-Za-z0-9]+\\.js",
+    "website": "https://mayson.dev"
+  },
+  "Mazeed+": {
+    "cats": [
+      76
+    ],
+    "description": "Mazeed+ is a platform that uses artificial intelligence to personalize and display targeted offers to website visitors based on user behavior and engagement.",
+    "icon": "Mazeed+.svg",
+    "saas": true,
+    "scriptSrc": "sdk-cdn\\.mazeedplus\\.com/",
+    "website": "https://mazeedplus.com"
+  },
+  "Meiqia": {
+    "cats": [
+      53
+    ],
+    "description": "Maiqia is an account-based customer relationship management (CRM) solution developed in Asia for managing client accounts, sales processes, and business interactions within a centralized platform.",
+    "icon": "Meiqia.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "static\\.meiqia\\.com",
+    "scripts": "static\\.meiqia\\.com",
+    "website": "https://www.meiqia.com"
+  },
+  "Meku": {
+    "cats": [
+      51
+    ],
+    "description": "Meku is an AI website and web app builder for creating and deploying full-stack sites.",
+    "icon": "Meku.svg",
+    "meta": {
+      "generator": "^Meku$"
+    },
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "assets\\.meku\\.app/public/(?:meku-analytics-v1|badge-v2)\\.js",
+      "cdn\\.meku\\.dev/meku/templates/"
+    ],
+    "website": "https://meku.dev"
+  },
+  "MemberPress": {
+    "cats": [
+      87,
+      21
+    ],
+    "description": "MemberPress is a WordPress plugin for creating membership sites, selling subscriptions and courses, and restricting access to content.",
+    "dom": "link[href*='/wp-content/plugins/memberpress'], script[src*='/wp-content/plugins/memberpress'], [class^='mepr-'], [class*=' mepr-'], [id^='mepr-'], [id^='mepr_']",
+    "icon": "MemberPress.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/memberpress(?:[-/])",
+    "website": "https://memberpress.com"
+  },
+  "MingCute": {
+    "cats": [
+      17
+    ],
+    "description": "MingCute is an open-source icon library for web and mobile interfaces.",
+    "dom": {
+      "[class*='i-mingcute-']": {
+        "attributes": {
+          "class": "(?:^|\\s)i-mingcute-[a-z0-9-]+-(?:line|fill)(?:\\s|$)"
+        }
+      }
+    },
+    "icon": "MingCute.svg",
+    "oss": true,
+    "website": "https://www.mingcute.com"
+  },
+  "Mirra": {
+    "cats": [
+      6
+    ],
+    "description": "Mirra is a try-before-you-buy and post-purchase ecommerce platform for fashion, apparel, and beauty brands.",
+    "dom": "#try-with-mirra-product-container, .try-with-mirra-extension, a[href*='trywithmirra.com/terms-and-conditions']",
+    "icon": "Mirra.svg",
+    "js": {
+      "TryWithMirra": ""
+    },
+    "pricing": [
+      "recurring",
+      "poa"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.shopify\\.com/extensions/[^/]+/mirra-[^/]+/assets/mirra-product-page\\.js",
+    "website": "https://trywithmirra.com"
+  },
+  "Momants": {
+    "cats": [
+      52
+    ],
+    "description": "Momants is an AI customer support and ticketing platform for events, festivals, and visitor attractions.",
+    "dom": "[data-agent][data-src='https://api-widget.momants.ai/widget.js']",
+    "icon": "Momants.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "^https?://api-widget\\.momants\\.ai/widget\\.js(?:\\?|$)",
+    "website": "https://www.momants.ai"
+  },
+  "Moya": {
+    "cats": [
+      1
+    ],
+    "description": "Moya is a heavy enterprise CMS focused on structured content, localization, and fast delivery, featuring an extensive editor interface, third-party integrations, and built-in ecommerce and blog functionality.",
+    "icon": "Moya.svg",
+    "js": {
+      "MoyaAutocomplete": "",
+      "MoyaLoader": ""
+    },
+    "meta": {
+      "generator": "Moya ([\\d\\.]+)\\;version:\\1"
+    },
+    "saas": true,
+    "website": "https://hjalp.stefna.is/en/knowledge/moya"
+  },
+  "Moyasar": {
+    "cats": [
+      41
+    ],
+    "description": "Moyasar is a payment gateway platform for accepting online payments in Saudi Arabia and the MENA region.",
+    "icon": "Moyasar.png",
+    "website": "https://moyasar.com/en"
+  },
+  "Moyasar Plugin": {
+    "cats": [
+      87
+    ],
+    "description": "Moyasar Plugin is a WooCommerce payment gateway plugin that adds Moyasar card and wallet payment methods to WordPress stores.",
+    "dom": "script#moyasar_triggers_js-js, script#moyasar_samsung_helper_js-js",
+    "icon": "Moyasar.png",
+    "implies": "Moyasar",
+    "oss": true,
+    "requires": "WooCommerce",
+    "scriptSrc": "/wp-content/plugins/moyasar/assets/general/js/helpers/(?:triggers|samsungHelper)\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://wordpress.org/plugins/moyasar/"
+  },
+  "Musictoday": {
+    "cats": [
+      6
+    ],
+    "description": "Musictoday is a provider of ecommerce solutions that supports brands with online storefronts, digital sales operations, and related services for managing and selling products online.",
+    "icon": "Musictoday.svg",
+    "saas": true,
+    "scriptSrc": "\\.musictoday\\.com/",
+    "website": "https://www.musictoday.com"
+  },
+  "MyNewTerm": {
+    "cats": [
+      101
+    ],
+    "description": "MyNewTerm is a directory of teaching and education job vacancies across schools, colleges, and training institutions.",
+    "icon": "MyNewTerm.svg",
+    "saas": true,
+    "scriptSrc": "api\\.mynewterm\\.com",
+    "website": "https://mynewterm.com"
+  },
+  "miniOrange SAML SSO": {
+    "cats": [
+      69
+    ],
+    "description": "miniOrange SAML SSO is a WordPress plugin that enables SAML 2.0 single sign-on through external identity providers.",
+    "dom": "link[href*='/wp-content/plugins/miniorange-saml-20-single-sign-on/']",
+    "icon": "miniOrange SAML SSO.png",
+    "oss": true,
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/miniorange-saml-20-single-sign-on/",
+    "website": "https://wordpress.org/plugins/miniorange-saml-20-single-sign-on/"
   }
 }

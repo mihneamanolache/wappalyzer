@@ -1332,6 +1332,16 @@
     ],
     "website": "https://edugram.com"
   },
+  "EduSoho": {
+    "cats": [
+      21
+    ],
+    "website": "https://www.edusoho.com/",
+    "html": [
+      "powered by <a href=\"http://www\\.edusoho\\.com/\" target=\"_blank\">edusoho",
+      "powered by edusoho"
+    ]
+  },
   "Edwiser Bridge": {
     "cats": [
       21,
@@ -1499,7 +1509,10 @@
       "poa"
     ],
     "saas": true,
-    "website": "https://www.ekomi.de"
+    "website": "https://www.ekomi.de",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*ekomi\\.com(?:[:/?#]|$)"
+    ]
   },
   "eKonsilio": {
     "cats": [
@@ -2295,6 +2308,24 @@
     ],
     "website": "https://www.emailjs.com"
   },
+  "EmailOctopus": {
+    "cats": [
+      75
+    ],
+    "description": "EmailOctopus is an email marketing and newsletter service whose signup forms are embedded on customer websites.",
+    "icon": "EmailOctopus.png",
+    "js": {
+      "emailOctopus": "",
+      "emailoctopus": ""
+    },
+    "scriptSrc": [
+      "emailoctopus\\.com/bundles"
+    ],
+    "website": "https://emailoctopus.com",
+    "xhr": [
+      "emailoctopus\\.com"
+    ]
+  },
   "Emanda": {
     "cats": [
       32
@@ -2540,6 +2571,15 @@
       "assets\\.emergent\\.sh"
     ],
     "website": "https://app.emergent.sh/"
+  },
+  "emetriq": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.emetriq.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*xplosion\\.de(?:[:/?#]|$)"
+    ]
   },
   "Emfont": {
     "cats": [
@@ -4040,7 +4080,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.etracker\\.com"
+      "\\.etracker\\.com",
+      "^https?://(?:[a-z0-9-]+\\.)*etracker\\.de(?:[:/?#]|$)"
     ],
     "website": "https://www.etracker.com"
   },
@@ -4066,6 +4107,15 @@
     ],
     "website": "https://www.eucookie.eu/"
   },
+  "Euroland IR": {
+    "cats": [
+      5
+    ],
+    "website": "https://tools.euroland.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*euroland\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Eveho": {
     "cats": [
       6
@@ -4081,6 +4131,13 @@
       "app\\.eveho\\.io"
     ],
     "website": "https://eveho.io"
+  },
+  "Eventin": {
+    "cats": [
+      87
+    ],
+    "website": "https://themewinter.com/eventin/",
+    "html": "/wp-content/plugins/eventin"
   },
   "Eventlink": {
     "cats": [
@@ -4108,6 +4165,14 @@
     ],
     "icon": "eventon.svg",
     "website": "https://www.myeventon.com"
+  },
+  "Everest Forms Pro": {
+    "cats": [
+      87,
+      110
+    ],
+    "website": "https://everestforms.net/",
+    "html": "/wp-content/plugins/everest-forms-pro/"
   },
   "Everflow": {
     "cats": [
@@ -4964,7 +5029,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.(?:extole|xtlo)\\.(?:com|net)/"
+      "\\.(?:extole|xtlo)\\.(?:com|net)/",
+      "^https?://(?:[a-z0-9-]+\\.)*extole\\.io(?:[:/?#]|$)"
     ],
     "website": "https://www.extole.com"
   },
@@ -5155,5 +5221,150 @@
       "\\.ezyvet\\.com/"
     ],
     "website": "https://www.ezyvet.com"
+  },
+  "Ecer": {
+    "cats": [
+      6
+    ],
+    "description": "Ecer is a B2B ecommerce marketplace and website platform for manufacturers, suppliers, and exporters.",
+    "icon": "Ecer.png",
+    "js": {
+      "watchECERIM": ""
+    },
+    "saas": true,
+    "website": "https://www.ecer.com"
+  },
+  "Ecom": {
+    "cats": [
+      6
+    ],
+    "description": "Ecom is a website builder and application development platform designed for online businesses to create, manage, and deploy web-based commerce solutions.",
+    "icon": "Ecom.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.ecom\\.md",
+    "website": "https://ecom.md"
+  },
+  "Eflorista": {
+    "cats": [
+      6
+    ],
+    "description": "Eflorista is an ecommerce and ERP platform for flower shops and businesses.",
+    "icon": "Eflorista.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "app\\.eflorista\\.com\\.br",
+    "website": "https://www.eflorista.com.br"
+  },
+  "Elephantfy": {
+    "cats": [
+      6
+    ],
+    "description": "Elephantfy is a Brazilian ecommerce platform for creating and managing online stores.",
+    "headers": {
+      "x-powered-by": "^Elephantfy(?:/[\\d.]+)?$"
+    },
+    "icon": "Elephantfy.png",
+    "meta": {
+      "generator": "^Elephantfy$"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://elephantfy.com.br"
+  },
+  "Enllax": {
+    "cats": [
+      59
+    ],
+    "description": "Enllax.js is a JavaScript plugin that enables parallax scrolling effects by adjusting the position and speed of page elements relative to the scroll movement.",
+    "oss": true,
+    "scriptSrc": "/jquery\\.enllax\\.min\\.js",
+    "website": "https://github.com/mmkjony/enllax.js"
+  },
+  "EnvialoSimple": {
+    "cats": [
+      75
+    ],
+    "description": "EnvialoSimple is a marketing platform and newsletter management system used to create, send, and track email campaigns.",
+    "icon": "EnvialoSimple.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.envialosimple\\.com/",
+    "website": "https://envialosimple.com"
+  },
+  "Equalbrowse": {
+    "cats": [
+      68
+    ],
+    "description": "Equalbrowse is a website accessibility platform that supports compliance with legal and regulatory standards through automated remediation, monitoring, and accessibility management features.",
+    "icon": "Equalbrowse.svg",
+    "js": {
+      "hhpEqualbrowsifyOptions": ""
+    },
+    "saas": true,
+    "scriptSrc": "app\\.equalbrowse\\.com",
+    "website": "https://equalbrowse.com"
+  },
+  "Equalture": {
+    "cats": [
+      101
+    ],
+    "description": "Equalture is a product that applies neuroscience-based methods to support hiring processes by assessing candidate behavior and decision-making to inform recruitment outcomes.",
+    "icon": "Equalture.svg",
+    "saas": true,
+    "scriptSrc": "app\\.equalture\\.com",
+    "website": "https://www.equalture.com"
+  },
+  "Euroweb": {
+    "cats": [
+      1
+    ],
+    "description": "Euroweb is a website builder that provides tools for creating, managing, and publishing websites for businesses and individuals.",
+    "icon": "Euroweb.svg",
+    "saas": true,
+    "scripts": "\\.euroweb\\.de",
+    "website": "https://www.euroweb.de"
+  },
+  "Experiture": {
+    "cats": [
+      32
+    ],
+    "description": "Experiture is a customer experience marketing platform that manages campaigns, customer data, and engagement across digital channels.",
+    "icon": "Experiture.svg",
+    "saas": true,
+    "scriptSrc": "\\.experiture\\.com",
+    "website": "https://www.experiture.com"
+  },
+  "eTermin": {
+    "cats": [
+      72
+    ],
+    "description": "eTermin is an online appointment scheduling platform with calendar, customer management, payment, and workflow automation features.",
+    "icon": "eTermin.svg",
+    "js": {
+      "etermin_session_id": ""
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "url": "^https?://(?:www\\.)?etermin\\.net/",
+    "website": "https://www.etermin.net"
   }
 }

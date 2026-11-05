@@ -139,6 +139,15 @@
     ],
     "website": "https://aasaan.app"
   },
+  "AAX": {
+    "cats": [
+      36
+    ],
+    "website": "https://acceptableads.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*aaxads\\.com(?:[:/?#]|$)"
+    ]
+  },
   "AB Tasty": {
     "cats": [
       74
@@ -220,6 +229,15 @@
       "app\\.ablecdp\\.com"
     ],
     "website": "https://www.ablecdp.com"
+  },
+  "Ably": {
+    "cats": [
+      19
+    ],
+    "website": "https://www.ably.io/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*ably\\.io(?:[:/?#]|$)"
+    ]
   },
   "ABLyft": {
     "cats": [
@@ -424,7 +442,9 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "acsbapp?\\.com/.*/acsb\\.js"
+      "acsbapp?\\.com/.*/acsb\\.js",
+      "^https?://(?:[a-z0-9-]+\\.)*acsbapp\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*acsbap\\.com(?:[:/?#]|$)"
     ],
     "website": "https://accessibe.com"
   },
@@ -491,7 +511,10 @@
     "scripts": [
       "www\\.accessiway\\.at"
     ],
-    "website": "https://www.accessiway.com"
+    "website": "https://www.accessiway.com",
+    "js": {
+      "accessWidget.config.footerHtml": ""
+    }
   },
   "Accesso": {
     "cats": [
@@ -919,7 +942,10 @@
       "payg"
     ],
     "saas": true,
-    "website": "https://secure.actblue.com"
+    "website": "https://secure.actblue.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*actblue\\.com(?:[:/?#]|$)"
+    ]
   },
   "actionhero.js": {
     "cats": [
@@ -1021,13 +1047,24 @@
       "plugins/activecampaign-subscription-forms/site_tracking\\.js",
       "\\.activehosted\\.com",
       "\\.app-us1\\.com",
-      "\\.ac-page\\.com"
+      "\\.ac-page\\.com",
+      "^https?://(?:[a-z0-9-]+\\.)*trackcmp\\.net(?:[:/?#]|$)"
     ],
     "url": [
       "\\.activehosted\\.com",
       "\\.ac-page\\.com"
     ],
     "website": "https://www.activecampaign.com"
+  },
+  "ActiveCollab": {
+    "cats": [
+      13
+    ],
+    "website": "https://activecollab.com/",
+    "html": [
+      "<p id=\"powered_by\"><a href=\"http://www\\.activecollab\\.com/\"",
+      "powered by activecollab"
+    ]
   },
   "ActivEngage": {
     "cats": [
@@ -1054,6 +1091,16 @@
       "ActiveXObject": ""
     },
     "website": "https://docs.microsoft.com/en-us/windows/win32/com/activex-objects"
+  },
+  "ACTV8": {
+    "cats": [
+      36
+    ],
+    "icon": "ACTV8.svg",
+    "js": {
+      "a8MpParams": ""
+    },
+    "website": "https://www.actv8me.com/"
   },
   "Acuity Scheduling": {
     "cats": [
@@ -1096,6 +1143,13 @@
     "saas": true,
     "website": "https://www.acuityads.com"
   },
+  "AcyMailing": {
+    "cats": [
+      32
+    ],
+    "website": "https://www.acymailing.com/",
+    "html": "com_acym"
+  },
   "AD EBiS": {
     "cats": [
       36,
@@ -1133,6 +1187,15 @@
       "\\.adlightning\\.com"
     ],
     "website": "https://www.adlightning.com"
+  },
+  "Ad6Media": {
+    "cats": [
+      36
+    ],
+    "website": "https://ad6media.fr",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*ad6media\\.fr(?:[:/?#]|$)"
+    ]
   },
   "Ada": {
     "cats": [
@@ -1175,6 +1238,15 @@
     "website": "https://www.adabra.com",
     "xhr": [
       "my\\.adabra\\.com"
+    ]
+  },
+  "Adacado": {
+    "cats": [
+      36
+    ],
+    "website": "https://adacado.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*adacado\\.com(?:[:/?#]|$)"
     ]
   },
   "Adally": {
@@ -1407,6 +1479,16 @@
       "s3\\.amazonaws\\.com/widgets\\.addi\\.com/bundle\\.min\\.js"
     ],
     "website": "https://co.addi.com/"
+  },
+  "Addingwell SST": {
+    "cats": [
+      42
+    ],
+    "html": [
+      "\\.js\\?aw='.*?\\+.*?dl;"
+    ],
+    "icon": "Addingwell SST.png",
+    "website": "https://www.addingwell.com"
   },
   "Addsearch": {
     "cats": [
@@ -1689,6 +1771,15 @@
     "saas": true,
     "website": "https://www.adjust.com"
   },
+  "AdKernel": {
+    "cats": [
+      36
+    ],
+    "website": "https://adkernel.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*adkernel\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Adline": {
     "cats": [
       10,
@@ -1720,6 +1811,29 @@
       "\\.adlooxtracking\\.com/"
     ],
     "website": "https://www.adloox.com"
+  },
+  "AdMan Media": {
+    "cats": [
+      36
+    ],
+    "website": "https://admanmedia.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*admanmedia\\.com(?:[:/?#]|$)"
+    ]
+  },
+  "Admatic": {
+    "cats": [
+      36
+    ],
+    "description": "Admatic is a Turkish advertising and supply-side platform (SSP) that serves ads via header bidding and programmatic exchanges.",
+    "icon": "Admatic.png",
+    "scriptSrc": [
+      "\\.admatic\\.com\\.tr/"
+    ],
+    "website": "https://www.admatic.com.tr",
+    "xhr": [
+      "\\.admatic\\.(?:com\\.tr|de|io)"
+    ]
   },
   "AdminBuy": {
     "cats": [
@@ -1870,6 +1984,15 @@
     ],
     "website": "https://www.adnabu.com"
   },
+  "Adnami": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.adnami.io/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*adnami\\.io(?:[:/?#]|$)"
+    ]
+  },
   "Adnegah": {
     "cats": [
       36
@@ -1886,6 +2009,16 @@
       "\\.adnegah\\.net/"
     ],
     "website": "https://adnegah.net"
+  },
+  "Adnuntius": {
+    "cats": [
+      36
+    ],
+    "icon": "Adnuntius.png",
+    "scripts": [
+      "cdn\\.adnuntius\\.com/adn\\.js"
+    ],
+    "website": "https://adnuntius.com"
   },
   "Adnymics": {
     "cats": [
@@ -2505,6 +2638,14 @@
     "saas": true,
     "website": "https://www.adroll.com/features/consent-management"
   },
+  "Ads Pro Plugin": {
+    "cats": [
+      36,
+      87
+    ],
+    "website": "https://codecanyon.net/user/scripteo",
+    "html": "/wp-content/plugins/ap-plugin-scripteo"
+  },
   "AdScale": {
     "cats": [
       36
@@ -2527,6 +2668,24 @@
     ],
     "website": "https://www.adscale.com"
   },
+  "AdScore": {
+    "cats": [
+      16
+    ],
+    "website": "https://www.adscore.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*adsco\\.re(?:[:/?#]|$)"
+    ]
+  },
+  "AdSpeed": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.adspeed.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*adspeed\\.net(?:[:/?#]|$)"
+    ]
+  },
   "AdStir": {
     "cats": [
       36
@@ -2538,6 +2697,15 @@
     },
     "website": "https://ad-stir.com/",
     "scriptSrc": "/js/adstir\\.(?:m|s)\\.js"
+  },
+  "AdsWizz": {
+    "cats": [
+      36
+    ],
+    "website": "https://adswizz.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*adswizz\\.com(?:[:/?#]|$)"
+    ]
   },
   "AdThrive": {
     "cats": [
@@ -2625,6 +2793,25 @@
     ],
     "website": "https://www.advancedcustomfields.com"
   },
+  "Adventive": {
+    "cats": [
+      36
+    ],
+    "description": "Adventive is an ad-serving and rich-media advertising platform; its ad tags are served from ads.adventive.com.",
+    "dom": [
+      "script[src*=\"ads.adventive.com/\"]",
+      "img[src*=\"ads.adventive.com/\"]",
+      "iframe[src*=\"ads.adventive.com/\"]"
+    ],
+    "icon": "Adventive.png",
+    "scriptSrc": [
+      "ads\\.adventive\\.com/"
+    ],
+    "website": "https://adventive.com",
+    "xhr": [
+      "ads\\.adventive\\.com"
+    ]
+  },
   "Advert Stream": {
     "cats": [
       36
@@ -2656,6 +2843,15 @@
     ],
     "website": "https://adverticum.net"
   },
+  "AdvertServe": {
+    "cats": [
+      36
+    ],
+    "website": "https://advertserve.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*advertserve\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Advin": {
     "cats": [
       6
@@ -2675,6 +2871,25 @@
       "\\.advin\\.cz/"
     ],
     "website": "https://www.advin.cz"
+  },
+  "Advisible": {
+    "cats": [
+      36
+    ],
+    "icon": "Advisible.png",
+    "scripts": [
+      "//cdn\\.advisible\\.com"
+    ],
+    "website": "https://www.advisible.com"
+  },
+  "Adwise": {
+    "cats": [
+      36
+    ],
+    "website": "https://adwise.bg",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*adwise\\.bg(?:[:/?#]|$)"
+    ]
   },
   "Adwos CMS": {
     "cats": [
@@ -3283,6 +3498,17 @@
     "saas": true,
     "website": "https://www.aidbase.ai"
   },
+  "AIDEM Technologies": {
+    "cats": [
+      36
+    ],
+    "icon": "AIDEM Technologies.png",
+    "scripts": [
+      "//zero\\.aidemsrv\\.com/dist/prebid\\.js",
+      "stream\\.aidemsrv\\.com/lib/stream\\.js"
+    ],
+    "website": "https://www.aidem.com/"
+  },
   "Aiden": {
     "cats": [
       108
@@ -3557,7 +3783,9 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "urbanairship\\.\\w+/notify/v([\\d.]+)\\;version:\\1"
+      "urbanairship\\.\\w+/notify/v([\\d.]+)\\;version:\\1",
+      "^https?://(?:[a-z0-9-]+\\.)*urbanairship\\.com(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*aswpsdkus\\.com(?:[:/?#]|$)"
     ],
     "website": "https://www.airship.com"
   },
@@ -4320,6 +4548,15 @@
     ],
     "website": "https://www.alibabacloud.com/product/object-storage-service"
   },
+  "Alibaba Cloud OSS": {
+    "cats": [
+      31
+    ],
+    "website": "https://www.alibabacloud.com/product/object-storage-service",
+    "headers": {
+      "Server": "^aliyunoss"
+    }
+  },
   "Alibaba Cloud Verification Code": {
     "cats": [
       16
@@ -4330,6 +4567,16 @@
       "cf\\.aliyun\\.com/"
     ],
     "website": "https://help.aliyun.com/document_detail/193141.html"
+  },
+  "Alibaba Mail": {
+    "cats": [
+      30
+    ],
+    "website": "https://qiye.aliyun.com/",
+    "html": [
+      "^(?=[\\s\\S]{0,}?action=\"/alimail/error/browserlog)(?=[\\s\\S]{0,}?content=\"阿里企业邮箱)",
+      "action=\"/alimail/error/browserlog"
+    ]
   },
   "Alimama": {
     "cats": [
@@ -4716,6 +4963,15 @@
     ],
     "website": "https://www.alpharank.ai"
   },
+  "AlphaSSL": {
+    "cats": [
+      16
+    ],
+    "website": "https://alphassl.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*alphassl\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Alpine Linux": {
     "cats": [
       28
@@ -4793,6 +5049,17 @@
       "js/alternc\\.js"
     ],
     "website": "https://alternc.com"
+  },
+  "Altervista Platform": {
+    "cats": [
+      11,
+      88
+    ],
+    "html": [
+      "<a href=\"http://www.altervista.org\">Altervista</a>"
+    ],
+    "icon": "Altervista Platform.png",
+    "website": "https://altervista.com"
   },
   "Altis": {
     "cats": [
@@ -5793,21 +6060,8 @@
         "\\.awsdns-"
       ]
     },
-    "headers": {
-      "x-amz-delete-marker": "",
-      "x-amz-err-code": "",
-      "x-amz-err-message": "",
-      "x-amz-id-2": "",
-      "x-amz-req-time-micros": "",
-      "x-amz-request-id": "",
-      "x-amz-rid": "",
-      "x-amz-version-id": ""
-    },
     "icon": "Amazon Web Services.svg",
     "saas": true,
-    "scripts": [
-      "\\.amazonaws\\.com"
-    ],
     "website": "https://aws.amazon.com/"
   },
   "Amazon Webstore": {
@@ -6111,7 +6365,12 @@
       "poa"
     ],
     "saas": true,
-    "website": "https://amplience.com"
+    "website": "https://amplience.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*amplience\\.net(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*bigcontent\\.io(?:[:/?#]|$)",
+      "^https?://(?:[a-z0-9-]+\\.)*adis\\.ws(?:[:/?#]|$)"
+    ]
   },
   "Amplify JS": {
     "cats": [
@@ -6365,6 +6624,15 @@
       "/wp-content/themes/lovecraft/"
     ],
     "website": "https://andersnoren.se/teman/lovecraft-wordpress-theme"
+  },
+  "Anedot": {
+    "cats": [
+      41
+    ],
+    "website": "https://anedot.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*anedot\\.com(?:[:/?#]|$)"
+    ]
   },
   "Anetwork": {
     "cats": [
@@ -7292,6 +7560,13 @@
       "class=\"spark-logo\""
     ]
   },
+  "Apache Struts": {
+    "cats": [
+      18
+    ],
+    "website": "https://struts.apache.org/",
+    "html": "=\"struts\\.token\\.name\""
+  },
   "Apache Superset": {
     "cats": [
       204,
@@ -7408,6 +7683,15 @@
     ],
     "oss": true,
     "website": "https://www.apereo.org/projects/cas"
+  },
+  "Apester": {
+    "cats": [
+      5
+    ],
+    "website": "https://apester.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*apester\\.com(?:[:/?#]|$)"
+    ]
   },
   "ApexCharts.js": {
     "cats": [
@@ -8269,6 +8553,15 @@
     ],
     "website": "https://www.aptusshop.pl"
   },
+  "Apusic Application Server": {
+    "cats": [
+      22
+    ],
+    "website": "https://www.apusic.com/",
+    "headers": {
+      "Server": "^apusic application server"
+    }
+  },
   "Apxium": {
     "cats": [
       41
@@ -8900,6 +9193,23 @@
     },
     "oss": true,
     "website": "https://artplayer.org"
+  },
+  "ArtsAI": {
+    "cats": [
+      36
+    ],
+    "description": "ArtsAI is an AI-driven advertising attribution and measurement platform that tracks campaign performance via its arttrk.com pixel.",
+    "dom": [
+      "img[src*=\"arttrk.com/pixel\"]"
+    ],
+    "html": [
+      "arttrk\\.com/pixel"
+    ],
+    "icon": "ArtsAI.png",
+    "website": "https://artsai.com",
+    "xhr": [
+      "arttrk\\.com"
+    ]
   },
   "Aruba.it": {
     "cats": [
@@ -9683,6 +9993,15 @@
     ],
     "website": "https://athoscommerce.com/"
   },
+  "Atlas AI Digital Assistant": {
+    "cats": [
+      52
+    ],
+    "website": "https://atlas.verse.ai/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*atlasrtx\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Atlasmic": {
     "cats": [
       52
@@ -9935,6 +10254,13 @@
     "icon": "Atlassian Statuspage.svg",
     "website": "https://www.atlassian.com/software/statuspage"
   },
+  "Atmail": {
+    "cats": [
+      30
+    ],
+    "website": "https://www.atmail.com/",
+    "html": "powered by atmail"
+  },
   "Atome": {
     "cats": [
       91
@@ -10080,6 +10406,25 @@
     ],
     "website": "https://www.webmandesign.eu/portfolio/auberge-wordpress-theme/"
   },
+  "audienzz": {
+    "cats": [
+      1
+    ],
+    "icon": "audienzz.png",
+    "js": {
+      "audienzz": ""
+    },
+    "website": "https://audienzz.ch"
+  },
+  "Audioboom": {
+    "cats": [
+      5
+    ],
+    "website": "https://audioboom.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*audioboom\\.com(?:[:/?#]|$)"
+    ]
+  },
   "AudioEye": {
     "cats": [
       68
@@ -10113,6 +10458,23 @@
     ],
     "icon": "Audiohook.svg",
     "website": "https://www.audiohook.com"
+  },
+  "Audion": {
+    "cats": [
+      36
+    ],
+    "description": "Audion is a digital audio advertising company; its Audion360 podcast player is embedded on publisher pages and loads from 360.audion.fm.",
+    "dom": [
+      "#audion360-podcast-player-init, .audion-reader"
+    ],
+    "icon": "Audion.png",
+    "scriptSrc": [
+      "\\.360\\.audion\\.fm/"
+    ],
+    "website": "https://www.audion.fm",
+    "xhr": [
+      "\\.audion\\.fm"
+    ]
   },
   "Auglio": {
     "cats": [
@@ -10310,7 +10672,11 @@
     "scriptSrc": [
       "\\.authorize\\.net/"
     ],
-    "website": "https://www.authorize.net"
+    "website": "https://www.authorize.net",
+    "html": [
+      "authorizenet\\\\?/directpost_payment",
+      "js\\.authorize\\.net"
+    ]
   },
   "authorized.by": {
     "cats": [
@@ -10866,6 +11232,15 @@
     ],
     "saas": true,
     "website": "https://www.avanser.com"
+  },
+  "AvantLink": {
+    "cats": [
+      71
+    ],
+    "website": "https://www.avantlink.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*avmws\\.com(?:[:/?#]|$)"
+    ]
   },
   "Avasam": {
     "cats": [
@@ -11490,14 +11865,22 @@
     "cats": [
       22
     ],
+    "cookies": {
+      "ARRAffinitySameSite": ""
+    },
     "description": "Azure App Service is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends.",
-    "headers": {
-      "server": [
-        "Kestrel",
-        "Microsoft-IIS/",
-        "ARR/"
+    "dns": {
+      "CNAME": [
+        "^[a-z0-9-]+\\.(?:[a-z0-9]+-\\d+\\.)?azurewebsites\\.net\\.?$",
+        "\\.appserviceenvironment\\.net\\.?$"
       ]
     },
+    "implies": [
+      "Azure"
+    ],
+    "url": [
+      "^https?://[a-z0-9-]+\\.(?:[a-z0-9]+-\\d+\\.)?azurewebsites\\.net(?:[:/]|$)"
+    ],
     "website": "https://azure.microsoft.com/services/app-service/"
   },
   "Azure Application Gateway": {
@@ -11729,5 +12112,358 @@
       "freemium"
     ],
     "website": "https://azuriom.com"
+  },
+  "ANDCommerce": {
+    "cats": [
+      6
+    ],
+    "description": "ANDCommerce is an ecommerce platform for building and operating online stores.",
+    "icon": "ANDCommerce.svg",
+    "meta": {
+      "generator": "^ANDCommerce$"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "/extension_andcommerce/",
+      "/andcommerce(?:scriptcontent|scriptlayout)_"
+    ],
+    "website": "https://www.andcommerce.com.br/"
+  },
+  "APILayer": {
+    "cats": [
+      47
+    ],
+    "description": "APILayer is an API marketplace that provides scalable APIs across multiple categories, including artificial intelligence and finance.",
+    "icon": "APILayer.svg",
+    "saas": true,
+    "scripts": "api\\.apilayer\\.com",
+    "website": "https://apilayer.com"
+  },
+  "AXENTRA OS": {
+    "cats": [
+      84,
+      100
+    ],
+    "description": "AXENTRA OS is a Shopify app for customer accounts, loyalty, order management, returns, subscriptions, reviews, and other post-purchase features.",
+    "icon": "AXENTRA OS.png",
+    "implies": "Shopify",
+    "js": {
+      "axentraFetchCached": "",
+      "axentraLoadScript": ""
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://axentraos.com"
+  },
+  "Accelevents": {
+    "cats": [
+      72
+    ],
+    "description": "Accelevents is an enterprise-grade event management software platform that supports planning, hosting, and managing virtual, hybrid, and in-person events.",
+    "dom": "link[href*='analytics.accelevents.com']",
+    "icon": "Accelevents.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.accelevents.com"
+  },
+  "AccessGo": {
+    "cats": [
+      68
+    ],
+    "description": "AccessGo is a digital accessibility solution that provides tools and on-site widgets to help websites meet recognized accessibility standards and enhance usability across diverse user needs.",
+    "icon": "AccessGo.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "widget\\.accessgo\\.de",
+    "website": "https://www.accessgo.de"
+  },
+  "ActiveNow": {
+    "cats": [
+      21
+    ],
+    "description": "ActiveNow is a platform for managing school extracurricular activities, including program organization, participation tracking, scheduling, and administrative coordination.",
+    "icon": "ActiveNow.svg",
+    "js": {
+      "activeNowFormSelector": "",
+      "activeNowOrigin": "",
+      "activenow": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.activenow\\.pl",
+    "website": "https://activenow.io"
+  },
+  "Agnicart": {
+    "cats": [
+      6
+    ],
+    "description": "Agnicart is an ecommerce SaaS platform which allows users to create their own store.",
+    "icon": "Agnicart.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "cdn\\.agnicart\\.com",
+    "website": "https://www.agnicart.com"
+  },
+  "Aimharder": {
+    "cats": [
+      72
+    ],
+    "description": "Aimharder is a software platform for managing sports facility operations, including scheduling, memberships, bookings, payments, and administrative tasks.",
+    "dom": "iframe[src*='.aimharder.com']",
+    "icon": "Aimharder.svg",
+    "saas": true,
+    "scriptSrc": "//aimharder\\.com/js/",
+    "website": "https://aimharder.com"
+  },
+  "Airwallex": {
+    "cats": [
+      41
+    ],
+    "description": "Airwallex is a global payments and financial platform for online payments, multi-currency accounts, transfers, and embedded finance.",
+    "dom": "iframe[title='Airwallex action popup'], link[href*='static.airwallex.com/widgets/sdk-controller/sdk/v1/index.js'], script#airwallex-fraud-api, script[src*='checkout.airwallex.com/'], script[src*='checkout-demo.airwallex.com/']",
+    "icon": "Airwallex.svg",
+    "js": {
+      "Airwallex": "",
+      "_AirwallexSDKs": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "website": "https://www.airwallex.com/us"
+  },
+  "Akoova": {
+    "cats": [
+      62,
+      88
+    ],
+    "description": "Akoova is an AWS-native managed platform that enables scalable deployment, hosting, and operation of Magento and Adobe Commerce environments.",
+    "headers": {
+      "K-Hosting-By": "^Akoova$"
+    },
+    "icon": "Akoova.svg",
+    "pricing": [],
+    "saas": true,
+    "website": "https://akoova.com"
+  },
+  "AlloIncognito": {
+    "cats": [
+      52
+    ],
+    "description": "AlloIncognito is a platform that provides communication capabilities to and within Russia.",
+    "icon": "AlloIncognito.svg",
+    "saas": true,
+    "scriptSrc": "api\\.alloincognito\\.ru",
+    "website": "https://www.alloincognito.ru"
+  },
+  "Amondo": {
+    "cats": [
+      96
+    ],
+    "description": "Amondo is a content aggregation, curation, and publishing platform that collects, organizes, and distributes digital content across channels.",
+    "icon": "Amondo.svg",
+    "js": {
+      "amondo.imprint": "",
+      "amondo_init": ""
+    },
+    "saas": true,
+    "scripts": "\\.amondo\\.com",
+    "website": "https://amondo.com"
+  },
+  "Anviara EU Widerrufsbutton": {
+    "cats": [
+      100
+    ],
+    "description": "Anviara EU Widerrufsbutton is a Shopify app that adds a compliant EU withdrawal button and form to online stores.",
+    "dom": ".anv-withdrawal-form, .anv-withdrawal-button",
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": [
+      "customerorderediting\\.com/assets/altcha-[\\da-f]+\\.js",
+      "cdn\\.shopify\\.com/extensions/.+/self-serve-order-edit-.+/assets/withdrawal-link-locale\\.js"
+    ],
+    "website": "https://anviara.com"
+  },
+  "Anybot": {
+    "cats": [
+      53
+    ],
+    "description": "Anybot is an omnichannel customer service automation platform that centralizes and streamlines customer interactions across multiple communication channels using automated workflows and response handling.",
+    "icon": "Anybot.svg",
+    "js": {
+      "$anybot.chat": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "anybot\\.me\\/js\\/anybot(?:\\.min)?\\.sdk\\.js",
+    "website": "https://anybot.me"
+  },
+  "Appfolio": {
+    "cats": [
+      1
+    ],
+    "description": "AppFolio is a property management software platform that provides tools for managing residential and commercial properties.",
+    "icon": "AppFolio.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/listings-for-appfolio-pro/js/",
+    "scripts": "cdn\\.appfolio\\.com",
+    "website": "https://www.appfolio.com"
+  },
+  "Approcket": {
+    "cats": [
+      51
+    ],
+    "description": "Approcket is a website builder platform that provides tools for creating, managing, and publishing websites and online stores through a hosted platform.",
+    "headers": {
+      "X-Powered-By": "^AppRocket$"
+    },
+    "icon": "Approcket.svg",
+    "meta": {
+      "generator": "^AppRocket Website Builder$"
+    },
+    "saas": true,
+    "website": "https://approcket.ir"
+  },
+  "Assoconnect": {
+    "cats": [
+      53
+    ],
+    "description": "Assoconnect is an association management software platform that provides tools for membership management, event organization, communication, and administrative operations.",
+    "icon": "Assoconnect.svg",
+    "meta": {
+      "author": "^AssoConnect$"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "app\\.assoconnect\\.com",
+    "website": "https://www.assoconnect.com"
+  },
+  "Assortion": {
+    "cats": [
+      6
+    ],
+    "description": "Assortion is a tool that helps merchants increase average order value by providing personalized upsell and cross-sell recommendations during the shopping experience.",
+    "icon": "Assortion.svg",
+    "js": {
+      "Assortion.cart": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "scriptSrc": "cdn\\.assortion\\.com/",
+    "website": "https://www.assortion.com"
+  },
+  "Atarim": {
+    "cats": [
+      47
+    ],
+    "description": "Atarim is an AI-based platform that enhances websites through an agentic creative system covering design, UX, SEO, copywriting, accessibility, and related optimization tasks.",
+    "icon": "Atarim.svg",
+    "js": {
+      "ATARIM.file": "",
+      "atarimUI": "",
+      "atarim_server_down": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.atarimworker\\.dev",
+    "website": "https://atarim.io"
+  },
+  "Audienceful": {
+    "cats": [
+      75
+    ],
+    "description": "Audienceful is an email marketing software platform used to create, manage, send, and analyze email campaigns.",
+    "dom": "form[action*='app.audienceful.com/']",
+    "icon": "Audienceful.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "app\\.audienceful\\.com",
+    "website": "https://www.audienceful.com"
+  },
+  "Audigent": {
+    "cats": [
+      97
+    ],
+    "description": "Audigent is a first-party data platform that curates and activates audience data while providing identity solutions for targeting, measurement, and data interoperability.",
+    "icon": "Audigent.svg",
+    "js": {
+      "audigentLogic": ""
+    },
+    "saas": true,
+    "website": "https://audigent.com"
+  },
+  "Autegro": {
+    "cats": [
+      6
+    ],
+    "description": "Autegro is a vehicle inventory and sales platform that integrates vehicle listings, detail pages, and lead forms into dealership websites.",
+    "dom": "script[data-ac24-widget][data-ac24-app-url='https://app.autegro.de']",
+    "icon": "Autegro.svg",
+    "pricing": [
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "^https?://app\\.autegro\\.de/widget\\.js(?:\\?|$)",
+    "website": "https://www.autegro.de"
+  },
+  "alugha": {
+    "cats": [
+      14
+    ],
+    "description": "alugha is a video hosting and localization platform with a multilingual player, subtitles, audio tracks, translation, and dubbing tools.",
+    "dom": "iframe[src^='https://alugha.com/embed/web-player'], iframe[src^='http://alugha.com/embed/web-player'], iframe[src^='//alugha.com/embed/web-player']",
+    "icon": "alugha.png",
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring",
+      "payg",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://alugha.com"
   }
 }

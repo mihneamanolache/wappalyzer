@@ -51,6 +51,33 @@
     "saas": true,
     "website": "https://fabric.inc"
   },
+  "Face Age": {
+    "cats": [
+      59,
+      112
+    ],
+    "description": "Face Age is an AI-powered JavaScript SDK for facial skin analysis.",
+    "dom": [
+      ".faceAge-main-module",
+      "iframe#FaceAge-module-iframe"
+    ],
+    "icon": "FaceAge.svg",
+    "js": {
+      "FaceAge.prototype.render": ""
+    },
+    "oss": true,
+    "saas": true,
+    "scriptSrc": [
+      "cdn\\.jsdelivr\\.net/npm/face-age@([\\d.]+)\\;version:\\1",
+      "cdn\\.jsdelivr\\.net/npm/face-age(?:/|$)",
+      "unpkg\\.com/face-age@([\\d.]+)\\;version:\\1",
+      "unpkg\\.com/face-age(?:/|$)"
+    ],
+    "website": "https://getfaceage.com",
+    "xhr": [
+      "core\\.getfaceage\\.com"
+    ]
+  },
   "Facebook": {
     "cats": [
       19
@@ -146,10 +173,12 @@
       69
     ],
     "description": "Facebook Login is a way for people to create accounts and log into your app across multiple platforms.",
+    "dom": [
+      ".fb-login-button, fb\\:login-button",
+      "iframe[src*='facebook.com/'][src*='/plugins/login_button']",
+      "a[href*='facebook.com/'][href*='/dialog/oauth']"
+    ],
     "icon": "Facebook.svg",
-    "js": {
-      "FB.getLoginStatus": ""
-    },
     "website": "https://developers.facebook.com/docs/facebook-login/"
   },
   "Facebook Login Button": {
@@ -1180,6 +1209,15 @@
     "saas": true,
     "website": "https://feedbackautomatic.com"
   },
+  "Feedbackify": {
+    "cats": [
+      73
+    ],
+    "website": "https://feedbackify.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*feedbackify\\.com(?:[:/?#]|$)"
+    ]
+  },
   "FeederNinja": {
     "cats": [
       5
@@ -1604,7 +1642,8 @@
     ],
     "saas": true,
     "scriptSrc": [
-      "\\.filestackapi\\.com"
+      "\\.filestackapi\\.com",
+      "^https?://(?:[a-z0-9-]+\\.)*filepicker\\.io(?:[:/?#]|$)"
     ],
     "scripts": [
       "\\.filestackapi\\.com"
@@ -2535,6 +2574,28 @@
       "\\.flexifunnels\\.com"
     ],
     "website": "https://flexifunnels.com"
+  },
+  "Flexmail": {
+    "cats": [
+      75,
+      32
+    ],
+    "description": "Flexmail is a Belgian email marketing platform offering campaign management, embeddable forms and surveys.",
+    "dom": [
+      "iframe[src*=\"flexmail.eu\"]",
+      "form[action*=\"flexmail.eu\"]"
+    ],
+    "headers": {
+      "Content-Security-Policy": "(?:^|[^a-z])flexmail\\.eu"
+    },
+    "icon": "Flexmail.png",
+    "scriptSrc": [
+      "\\.flexmail\\.eu/"
+    ],
+    "website": "https://flexmail.be",
+    "xhr": [
+      "\\.flexmail\\.eu"
+    ]
   },
   "Flexmls": {
     "cats": [
@@ -3558,7 +3619,6 @@
     "icon": "Fonteva.svg",
     "website": "https://www.fonteva.com/",
     "html": [
-      "(?:<style>[^<]*|[^>]*>)\\s*<div id=\"(?:powerup-powerboard|PowerBoardApp)Container\">",
       "<div id=\"(?:powerup-powerboard|PowerBoardApp)Container\">"
     ]
   },
@@ -4574,6 +4634,15 @@
     ],
     "website": "https://fourthwall.com/"
   },
+  "Foxentry": {
+    "cats": [
+      19
+    ],
+    "website": "https://foxentry.cz/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*foxentry\\.cz(?:[:/?#]|$)"
+    ]
+  },
   "FoxPush": {
     "cats": [
       5
@@ -4919,6 +4988,15 @@
     },
     "website": "https://freetextbox.com"
   },
+  "Freetobook": {
+    "cats": [
+      19
+    ],
+    "website": "https://freetobook.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*freetobook\\.com(?:[:/?#]|$)"
+    ]
+  },
   "freewebstore": {
     "cats": [
       6
@@ -4932,6 +5010,24 @@
     "pricing": [],
     "saas": true,
     "website": "https://freewebstore.com"
+  },
+  "FreeWheel": {
+    "cats": [
+      36
+    ],
+    "description": "FreeWheel (Comcast) is a video ad-serving and ad-management platform whose ad/user-sync calls are made to FreeWheel ad servers such as fwmrm.net.",
+    "dom": [
+      "img[src*=\"fwmrm.net\"]",
+      "iframe[src*=\"fwmrm.net\"]"
+    ],
+    "icon": "FreeWheel.png",
+    "scriptSrc": [
+      "fwmrm\\.net"
+    ],
+    "website": "https://www.freewheel.com",
+    "xhr": [
+      "fwmrm\\.net"
+    ]
   },
   "Frequenceo": {
     "cats": [
@@ -6123,5 +6219,179 @@
       "\\.fynd\\.com/"
     ],
     "website": "https://platform.fynd.com"
+  },
+  "FalakCart": {
+    "cats": [
+      6
+    ],
+    "description": "FalakCart is an ecommerce platform for creating and managing online stores with integrated storefront and checkout tooling.",
+    "dom": "img[src*='falakcart.blr1.digitaloceanspaces.com'], img[srcset*='falakcart.blr1.digitaloceanspaces.com'], link[imagesrcset*='falakcart.blr1.digitaloceanspaces.com']",
+    "headers": {
+      "set-cookie": "falakcart-session=",
+      "x-store-custom-domain": "^[a-z0-9.-]+$\\;confidence:34",
+      "x-store-status": "^active$\\;confidence:33",
+      "x-store-subdomain": "^[a-z0-9]{3,32}$\\;confidence:33"
+    },
+    "saas": true,
+    "website": "https://falakcart.com"
+  },
+  "Flare": {
+    "cats": [
+      100
+    ],
+    "description": "Flare is a Shopify app for configuring delivery dates, shipping rates, and checkout rules by location, product, method, lead time, cutoff, and capacity.",
+    "dom": "link[href*='/extensions/'][href*='/flare-'][href*='/assets/flare_'], script[src*='/extensions/'][src*='/flare-'][src*='/assets/flare_']",
+    "icon": "Flare.png",
+    "js": {
+      "__flareCartCheckoutGuardReady": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "requires": "Shopify",
+    "saas": true,
+    "website": "https://www.getflare.co.uk"
+  },
+  "Flotiq": {
+    "cats": [
+      1
+    ],
+    "description": "Flotiq is a content management platform that enables teams to create, collaborate on, and publish content without unnecessary complexity.",
+    "icon": "Flotiq.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "api\\.flotiq\\.com",
+    "website": "https://flotiq.com"
+  },
+  "FormCraft": {
+    "cats": [
+      110
+    ],
+    "cpe": "cpe:2.3:a:ncrafts:formcraft:*:*:*:*:*:wordpress:*:*",
+    "description": "FormCraft is a WordPress form builder plugin designed to create customizable, responsive forms for websites without requiring manual coding.",
+    "dom": "link[href*='/wp-content/plugins/formcraft3/dist/formcraft-common.css']",
+    "icon": "FormCraft.svg",
+    "pricing": [
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "saas": true,
+    "website": "https://formcraft-wp.com"
+  },
+  "Formbricks": {
+    "cats": [
+      73
+    ],
+    "description": "Formbricks is an open-source survey and experience management platform for collecting website, app, email, and link-based feedback.",
+    "js": {
+      "formbricks": ""
+    },
+    "oss": true,
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/js/formbricks\\.umd\\.cjs",
+    "website": "https://formbricks.com"
+  },
+  "Forsid": {
+    "cats": [
+      6
+    ],
+    "description": "Forsid is an ecommerce platform for creating and managing online stores.",
+    "headers": {
+      "X-Powered-By": "(?:^|,\\s*)Forsid(?:\\s*,|$)"
+    },
+    "js": {
+      "ForsidMiniCart": "",
+      "__forsid": "",
+      "forsidAnalytics": "",
+      "forsidDL": ""
+    },
+    "meta": {
+      "generator": "^Forsid$"
+    },
+    "saas": true,
+    "website": "https://forsid.com"
+  },
+  "FoxAppy": {
+    "cats": [
+      26
+    ],
+    "description": "FoxAppy is a service that converts ecommerce platforms into native mobile applications for mobile devices.",
+    "icon": "FoxAppy.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "com\\.foxappy\\.",
+    "website": "https://foxappy.com"
+  },
+  "FrankenPHP": {
+    "cats": [
+      22
+    ],
+    "cpe": "cpe:2.3:a:php:frankenphp:*:*:*:*:*:*:*:*",
+    "description": "FrankenPHP is an application server for PHP built on top of the Caddy web server.",
+    "headers": {
+      "Server": "FrankenPHP"
+    },
+    "icon": "FrankenPHP.svg",
+    "implies": [
+      "Caddy",
+      "PHP"
+    ],
+    "oss": true,
+    "website": "https://frankenphp.dev"
+  },
+  "Froomle": {
+    "cats": [
+      76
+    ],
+    "description": "Froomle is an AI personalization platform for product and content recommendations across websites and digital channels.",
+    "dom": "[data-froomle-config], [data-froomle-reco], [data-froomle-request-id], [data-component='froomle/recommendations']",
+    "icon": "Froomle.png",
+    "js": {
+      "FroomleFrontendSdk": "",
+      "FroomleFrontendSdkRuntime": ""
+    },
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "@froomle/frontend-sdk",
+      "(?:^|/)froomle(?:\\.global|\\.min)?(?:-[\\d.]+)?\\.js"
+    ],
+    "website": "https://www.froomle.ai",
+    "xhrUrl": "\\.froomle\\.com/api/[^/]+/(?:events|recommendations/requests)"
+  },
+  "Funil de Vendas": {
+    "cats": [
+      53
+    ],
+    "description": "Funil de Vendas is a gamified CRM platform that helps organizations track sales activity and motivate sales teams to reach daily performance targets through goal-based incentives and engagement features.",
+    "icon": "FunilDeVendas.svg",
+    "js": {
+      "Bt_WhatsFunil": "",
+      "KeyWhatsFunil": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "leads\\.funildevendas\\.com\\.br",
+    "website": "https://www.funildevendas.com.br"
   }
 }

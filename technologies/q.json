@@ -587,6 +587,16 @@
     ],
     "website": "https://www.quantummetric.com/"
   },
+  "Quantyoo": {
+    "cats": [
+      76
+    ],
+    "html": [
+      "https://quantyoo\\.de"
+    ],
+    "icon": "Quantyoo.png",
+    "website": "https://quantyoo.de"
+  },
   "Quarto": {
     "cats": [
       57
@@ -636,6 +646,14 @@
       "Vue.js"
     ],
     "website": "https://quasar.dev"
+  },
+  "Qubely": {
+    "cats": [
+      51,
+      87
+    ],
+    "website": "https://wordpress.org/plugins/qubely/",
+    "html": "qubely_urls"
   },
   "Qubit": {
     "cats": [
@@ -1224,5 +1242,41 @@
     "icon": "Qwik.svg",
     "oss": true,
     "website": "https://qwik.builder.io"
+  },
+  "Quickly": {
+    "cats": [
+      6
+    ],
+    "description": "Quickly is an ecommerce platform that enables creation and deployment of online stores.",
+    "icon": "Quickly.svg",
+    "js": {
+      "Quickly.platform": "",
+      "Quickly.version": "([\\d\\.]+)\\;version:\\1"
+    },
+    "meta": {
+      "generator": "^Quickly$"
+    },
+    "pricing": [
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://quickly.tn"
+  },
+  "QuinBook": {
+    "cats": [
+      72
+    ],
+    "description": "QuinBook is a booking and management platform for the leisure and events industry.",
+    "icon": "QuinBook.svg",
+    "pricing": [
+      "mid",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "api\\.quinbook\\.com",
+    "website": "https://quinbook.com"
   }
 }

@@ -59,6 +59,38 @@
     },
     "html": "hackerone\\.com/[a-z0-9_.-]+/embedded_submissions/new"
   },
+  "Hackle": {
+    "cats": [
+      74,
+      85,
+      10,
+      32,
+      53
+    ],
+    "description": "Hackle is an experimentation and growth platform providing A/B testing, feature flags, product analytics, and behavioral messaging.",
+    "html": [
+      "HACKLE_SDK_KEY"
+    ],
+    "icon": "Hackle.png",
+    "js": {
+      "HACKLE_PRELOAD_CLIENT": "",
+      "Hackle": "",
+      "HacklePlugin": "",
+      "_hackle": "",
+      "_hackleCafe24App": "",
+      "hackleClient": ""
+    },
+    "saas": true,
+    "scriptSrc": [
+      "@hackler/javascript-sdk@([\\d.]+)/\\;version:\\1",
+      "@hackler/javascript-sdk",
+      "\\.hackle\\.io/"
+    ],
+    "website": "https://hackle.io",
+    "xhr": [
+      "(?:sdk-api|client-sdk|event-api|event|monitoring|static|cdn\\d*)\\.hackle\\.io"
+    ]
+  },
   "Haddock": {
     "cats": [
       4
@@ -257,6 +289,13 @@
     ],
     "website": "https://hantana.org/"
   },
+  "Hanweb JCMS": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.hanweb.com/",
+    "html": "/jcms_files/jcms"
+  },
   "Hapana": {
     "cats": [
       53
@@ -271,6 +310,24 @@
       "\\.hapana\\.com/"
     ],
     "website": "https://www.hapana.com"
+  },
+  "Happierleads": {
+    "cats": [
+      10
+    ],
+    "description": "Happierleads is a B2B visitor-identification and lead-generation platform that reveals the companies visiting a website.",
+    "icon": "Happierleads.png",
+    "js": {
+      "Happierleads": "",
+      "hlRunning": ""
+    },
+    "scriptSrc": [
+      "rest\\.happierleads\\.com"
+    ],
+    "website": "https://www.happierleads.com",
+    "xhr": [
+      "(?:rest|session-recordings)\\.happierleads\\.com"
+    ]
   },
   "Happy Meal Prep": {
     "cats": [
@@ -2451,6 +2508,16 @@
     ],
     "website": "https://www.hoowla.com"
   },
+  "Horde": {
+    "cats": [
+      30
+    ],
+    "website": "https://www.horde.org/",
+    "html": [
+      "_sethordetitle",
+      "imp: copyright 2001-2009 the horde project"
+    ]
+  },
   "Horoshop": {
     "cats": [
       6
@@ -2467,6 +2534,13 @@
     ],
     "saas": true,
     "website": "https://horoshop.ua"
+  },
+  "HostBill": {
+    "cats": [
+      6
+    ],
+    "website": "https://hostbillapp.com/",
+    "html": "powered by <a href=\"http://hostbillapp\\.com"
   },
   "Hostens": {
     "cats": [
@@ -3348,6 +3422,15 @@
     "saas": true,
     "website": "https://hubtiger.com"
   },
+  "Hubvisor": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.hubvisor.io",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*hubvisor\\.io(?:[:/?#]|$)"
+    ]
+  },
   "Huckabuy": {
     "cats": [
       54
@@ -3736,6 +3819,15 @@
     ],
     "website": "https://www.hushly.com"
   },
+  "Hybrid": {
+    "cats": [
+      36
+    ],
+    "website": "https://hybrid.ai/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*hybrid\\.ai(?:[:/?#]|$)"
+    ]
+  },
   "Hydra-Shield": {
     "cats": [
       64
@@ -3949,5 +4041,131 @@
       "onetime"
     ],
     "website": "https://hyva.io"
+  },
+  "HR Hotlink": {
+    "cats": [
+      101
+    ],
+    "description": "HR Hotlink is a software tool that supports human resources processes for automotive organizations, including recruitment, employee records, and workforce management.",
+    "icon": "HRHotlink.svg",
+    "saas": true,
+    "scripts": "\\.hrhotlink\\.com",
+    "website": "https://corporate.hrhotlink.com"
+  },
+  "HappyOrNot": {
+    "cats": [
+      73
+    ],
+    "description": "HappyOrNot is a feedback system that collects and analyzes customer and employee satisfaction data to measure experience and inform service improvements.",
+    "icon": "HappyOrNot.svg",
+    "saas": true,
+    "scriptSrc": "feedback\\.happy-or-not\\.com",
+    "website": "https://www.happy-or-not.com"
+  },
+  "Harmonizely": {
+    "cats": [
+      72
+    ],
+    "description": "Harmonizely is a scheduling system that enables online appointment booking, calendar management, and time coordination through a web-based interface.",
+    "dom": "link[href*='app.harmonizely.com/']",
+    "icon": "Harmonizely.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://harmonizely.com"
+  },
+  "Harri": {
+    "cats": [
+      101
+    ],
+    "description": "Harri is a platform offering tools to automate HR processes, support remote work, and provide analytics on hiring trends and labor costs.",
+    "dom": "link[href*='.ourstory.harri.com']",
+    "icon": "Harri.svg",
+    "saas": true,
+    "scripts": "\\.ourstory\\.harri\\.com",
+    "website": "https://harri.com"
+  },
+  "HatenaCMS": {
+    "cats": [
+      1
+    ],
+    "description": "HatenaCMS is a no-code content management system from Hatena for building and managing business websites and owned media sites.",
+    "dom": "link[href*='cms.hatena.ne.jp/_next/static/']",
+    "icon": "Hatena.svg",
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cms\\.hatena\\.ne\\.jp/_next/static/",
+    "website": "https://www.hatena.ne.jp/cms/"
+  },
+  "Helipod": {
+    "cats": [
+      62
+    ],
+    "description": "Helipod is a platform as a service (PaaS) for deploying and running web applications.",
+    "headers": {
+      "server": "^Helipod$",
+      "x-powered-by": "^Helipod$"
+    },
+    "icon": "Helipod.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://helipod.io"
+  },
+  "Heureka Conversion Measurement": {
+    "cats": [
+      10
+    ],
+    "description": "Heureka Conversion Measurement is a conversion tracking service from the Heureka shopping-comparison network.",
+    "saas": true,
+    "scriptSrc": [
+      "ssl\\.heureka\\.cz/direct/i/gjs\\.php\\?n=wdgt",
+      "www\\.(?:heureka\\.(?:cz|sk)|arukereso\\.hu)/ocm/sdk\\.js"
+    ],
+    "website": "https://www.heureka.cz"
+  },
+  "HomeJunction": {
+    "cats": [
+      10
+    ],
+    "description": "HomeJunction is a provider of data applications for the real estate industry.",
+    "icon": "HomeJunction.svg",
+    "saas": true,
+    "scripts": "\\.homejunction\\.com",
+    "website": "https://www.homejunction.com"
+  },
+  "HostChefs": {
+    "cats": [
+      88
+    ],
+    "description": "HostChefs is a web hosting service that provides infrastructure and tools for deploying, managing, and maintaining websites online.",
+    "headers": {
+      "Server": "^HostChefs DDoS Protected$"
+    },
+    "icon": "HostChefs.svg",
+    "saas": true,
+    "website": "https://hostchefs.eu"
+  },
+  "Hypersoft": {
+    "cats": [
+      41
+    ],
+    "description": "Hypersoft is a provider of POS systems designed for restaurants and cafés.",
+    "headers": {
+      "Access-Control-Allow-Origin": "\\.myhypersoftapp\\.de"
+    },
+    "icon": "Hypersoft.svg",
+    "saas": true,
+    "website": "https://hypersoft.de"
   }
 }

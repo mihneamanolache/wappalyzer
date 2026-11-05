@@ -6,13 +6,13 @@
     "categories": 111
   },
   "after": {
-    "technologies": 8439,
+    "technologies": 9041,
     "categories": 124
   },
   "summary": {
-    "added": 528,
-    "removed": 0,
-    "changed": 292
+    "added": 1131,
+    "removed": 1,
+    "changed": 369
   },
   "newCategories": [
     {
@@ -82,334 +82,937 @@
     }
   ],
   "addedFromUpstream": [
+    "220Marketing",
+    "2people",
     "321 CMS",
+    "3Q",
+    "53KF",
+    "74cms",
+    "AAX",
+    "ACTV8",
+    "AIDEM Technologies",
+    "ANDCommerce",
+    "APILayer",
+    "AXENTRA OS",
     "AbanteCart",
+    "Ably",
     "AboutMyClinic",
+    "Accelevents",
+    "AccessGo",
     "AccessiWay",
     "ActivEngage",
+    "ActiveCollab",
+    "ActiveNow",
+    "AcyMailing",
+    "Ad6Media",
+    "AdKernel",
+    "AdMan Media",
+    "AdScore",
+    "AdSpeed",
+    "Adacado",
+    "Addingwell SST",
     "Adenzo",
+    "Admatic",
+    "Adnami",
+    "Adnuntius",
+    "Ads Pro Plugin",
+    "AdsWizz",
+    "Adventive",
+    "AdvertServe",
+    "Advisible",
+    "Adwise",
     "Adwos CMS",
     "Agari DMARC Protection",
     "Agendize",
+    "Agnicart",
+    "Aimharder",
+    "Airwallex",
     "Akia",
+    "Akoova",
+    "Alibaba Cloud OSS",
+    "Alibaba Mail",
     "AllMyLinks",
+    "AlloIncognito",
+    "AlphaSSL",
+    "Altervista Platform",
+    "Amondo",
+    "Anedot",
     "Angular Notitia",
     "Anthropic",
     "Anubis",
+    "Anviara EU Widerrufsbutton",
+    "Anybot",
+    "Apache Struts",
     "Apanio",
+    "Apester",
+    "Appfolio",
+    "Approcket",
     "Apruvd",
+    "Apusic Application Server",
     "Armin",
     "Artifi",
+    "ArtsAI",
     "AskHandle",
+    "Assoconnect",
+    "Assortion",
+    "Atarim",
     "Athos Commerce",
+    "Atlas AI Digital Assistant",
+    "Atmail",
+    "Audienceful",
+    "Audigent",
+    "Audioboom",
+    "Audion",
+    "Autegro",
+    "AvantLink",
     "Avasam",
     "AvidAI",
+    "B Cart",
+    "BBB Accredited Business Seal",
     "BITE",
+    "BLR",
+    "BSS Commerce",
     "Balance",
+    "BannerFlow",
+    "Baseet",
+    "Baycloud",
     "Bear Blog",
     "BedBooking",
+    "Beepworld",
     "Belliza",
     "Benchmark",
+    "BidTheatre",
+    "Bidswitch",
+    "Bidtellect",
+    "Big Tuna",
+    "BigBlueButton",
+    "Bisup",
+    "Bit Assist",
+    "Bit Form",
+    "Bitbucket",
     "Bitmovin",
+    "Bits UI",
+    "Bizrate Insights",
     "Blankshield",
+    "Blanxer",
     "Blockly",
     "BlogHunch",
     "Blue Corona",
+    "BoardDocs",
     "Boberdoo",
     "BokaBord",
     "Bomb Bomb",
+    "Book Like A Boss",
     "BookBanket",
     "Booker",
     "BookingKoala",
     "Booklux",
+    "Booljs",
+    "Botco.ai",
+    "Botfaqtor",
     "Botsplash",
+    "BounceHelp",
     "Brafton",
+    "BrandRep",
+    "Brandmetrics",
+    "Brandnamic",
+    "Brella",
     "Brivity",
+    "Broken Link Notifier",
     "Bsport",
+    "BuckyDrop",
+    "Buddy eCommerce",
+    "BudgetGuard",
+    "Buildify",
+    "Buildium",
+    "Buildout",
     "CHIIRP",
     "Callgear",
+    "CampusGroups",
+    "Canvify",
     "Canyon",
+    "Capital Turbine",
     "Capsule CRM",
     "CarWeb",
     "Caremerge",
+    "Carepatron",
     "Cartline",
     "Cartylabs",
+    "Casablanca",
+    "Casdoor",
+    "Catchpoint",
+    "Celtra",
     "Chimpify",
+    "Chiromatrix",
+    "ChurchDesk",
     "Cisco Webex",
+    "Citadel",
     "CitrusLime",
+    "Clientexec",
+    "ClipBucket",
+    "Cloudbac",
     "Cloudflare DMARC Management",
     "Cloudflare Turnstile for WooCommerce",
+    "CmsEasy",
+    "CmsTop",
+    "Coassemble",
+    "Codigo",
+    "CommBox",
     "Commercy",
+    "Commrz",
+    "CommuniGate Pro",
     "ComplyAuto",
+    "ComplyDog",
     "Conduze",
+    "Configio",
+    "Confluence",
+    "Contrib",
+    "Contribly",
     "Convious",
     "CookieBAR",
+    "CookieTractor",
     "Cool Popup",
+    "Coral",
     "CoreMedia",
+    "Coremail",
+    "Council Advertising Network",
+    "CrystalCommerce",
+    "CssUserAgent",
     "Curated",
+    "CusRev",
+    "D4 Core",
+    "DMCA.com Protection",
+    "DMVCFramework",
+    "DZBuild",
     "Dapta",
     "DataGrail",
     "Databuddy",
+    "Datawrapper",
+    "Dearnex",
+    "Dehasoft E-Ticaret",
+    "Delta Commerce",
+    "DevBlox Hub",
     "Devuelving",
+    "Dezrez",
     "DialogTab",
+    "Dioxus",
     "Divide",
+    "Docebo",
+    "Dockview",
+    "Dockvine",
     "Doctena",
+    "Docus",
+    "DouPHP",
+    "Download Manager",
     "DrChrono",
     "DreamROI",
     "DressOn",
     "Droplabs",
+    "Dynamic Converter",
     "Eaglecart",
+    "Ecer",
+    "Ecom",
     "EdgeOne",
+    "EduSoho",
+    "Eflorista",
+    "Elephantfy",
     "Elloha",
+    "EmailOctopus",
     "Employment Hero",
+    "Enllax",
+    "EnvialoSimple",
     "Enzuzo",
+    "Equalbrowse",
+    "Equalture",
+    "Euroland IR",
+    "Euroweb",
+    "Eventin",
+    "Everest Forms Pro",
     "Eviivo",
+    "Experiture",
     "EyeFitU",
+    "Face Age",
+    "FalakCart",
     "Famous.ai",
     "Farazi Bilişim",
     "FeatherPanel",
+    "Feedbackify",
     "Fider",
     "Fieldd",
     "FinConnect",
     "Fixer",
+    "Flare",
+    "Flexmail",
+    "Flotiq",
     "ForeUP",
     "FormBucket",
+    "FormCraft",
     "Formalize CSS",
+    "Formbricks",
     "Formtoro",
+    "Forsid",
     "Forumbee",
+    "FoxAppy",
+    "Foxentry",
+    "FrankenPHP",
+    "FreeWheel",
+    "Freetobook",
+    "Froomle",
     "Full On Sport",
+    "Funil de Vendas",
+    "G2",
+    "GEO my WP",
     "GOb2b",
     "GOrendezvous",
     "Genially",
+    "Geniuslink",
+    "Genlook Virtual try-on",
+    "Gensolve",
+    "GeoEdge",
+    "GeoNode",
+    "GetComplied",
+    "Gift Cards For WooCommerce Pro",
+    "Giftnote",
+    "Givy",
+    "Gnatta",
+    "GoHire",
+    "GoVoto",
+    "Google for WooCommerce",
+    "Gosuslugi",
+    "GovMetric",
+    "Gradio",
+    "Gradual",
     "Grappos",
+    "Group-Office",
+    "Growthstack",
+    "Gubagoo",
     "GuildQuality",
+    "Gunosy",
     "GuppY",
+    "Gupy",
+    "HR Hotlink",
+    "Hackle",
+    "Hanweb JCMS",
+    "Happierleads",
+    "HappyOrNot",
+    "Harmonizely",
+    "Harri",
+    "HatenaCMS",
     "Hearth",
+    "Helipod",
     "Help.com",
     "HelpCrunch",
+    "Heureka Conversion Measurement",
     "HigherMe HR",
+    "HomeJunction",
+    "Horde",
+    "HostBill",
+    "HostChefs",
     "Hotbot",
+    "Hubvisor",
     "HumHub",
+    "Hybrid",
+    "Hypersoft",
+    "IBM CICS Transaction Server",
+    "IBM WebSEAL",
+    "ISO100",
+    "Iconify",
+    "ImobiBrasil",
+    "Impel",
+    "Improve Digital",
+    "Improvely",
+    "InZynk",
+    "Incomaker",
     "Indeed",
+    "Infinity Call Tracking",
     "Influenster",
     "Informizely",
+    "Ingresse",
+    "Inkybay",
     "Innovorder",
     "Inplayer",
     "Inso",
+    "InstanteStore",
+    "Intelliplan",
     "Interago",
+    "Interspire Shopping Cart",
     "Intervo",
+    "Interwow",
+    "Intlayer",
+    "Inwink",
+    "Ipsos DotMetrics",
     "Iteras",
+    "Iyong",
     "JamFeed",
+    "Jaspr",
+    "Jetimob",
+    "Jimo",
+    "Job Boardly",
+    "Jscrambler",
+    "K50",
+    "KOMERO",
+    "KPA",
     "KRT CDN",
     "KVCore",
     "KYKLO",
+    "Kaily.ai",
+    "Kaipuyun Search",
+    "Kaizen Platform",
     "KaliCart Bridge",
     "Kapa.ai",
+    "Kargo",
     "Kauz",
+    "KePixel",
+    "Kerio Connect",
+    "Keycloak",
     "Kiprotect",
     "Kit",
     "Kiwify",
     "Kleecks",
+    "Kleep",
+    "Knoku",
+    "Knorex XPO",
+    "Kobisi",
+    "Komerza",
+    "Kx AI Search & Discovery Agent",
+    "LLK Analytics",
+    "LTK",
+    "LaRecipe",
+    "Laioutr",
+    "LaunchLMS",
+    "LaunchMyStore",
+    "Lead Recorder",
+    "LeadConnector",
     "Leads2b",
     "LeadsLeap",
     "Leaky Paywall",
+    "LearnPress",
     "Learnbase",
+    "LegitFit",
+    "LerenTools",
+    "LightWidget",
+    "Lindo.ai",
     "Line-Up",
     "Liscio",
+    "ListingPro",
+    "LiveChatAI",
+    "LiveHelpNow",
     "LocalSignal",
     "LogMeIn",
+    "LogaTech",
     "Logaholic",
+    "Loop11",
+    "Lotame",
     "Lovi",
+    "Loyalistic",
+    "MCMS",
     "MVD Studio",
+    "MacCMS",
+    "Madgex",
+    "Mage Loyalty",
     "Maguru",
+    "MaidCentral",
+    "Mail Mint",
     "Mailshake",
     "Makeplans",
     "Mangomint",
+    "MasterStudy LMS",
+    "Masthead CMS",
+    "Material for MkDocs",
+    "Mather Economics",
+    "Mavrck",
+    "Mayson",
+    "Mazeed+",
     "Mega",
+    "Meiqia",
+    "Meku",
+    "MemberPress",
     "Membership Toolkit",
     "MembershipWorks",
     "Menuu",
     "MessageMedia",
+    "MetInfo",
+    "Metricool",
     "Mexty",
     "Mico",
     "Microsoft Entra ID",
     "Microsoft Exchange Online",
     "Microsoft Fabric",
     "Microsoft Intune",
+    "MingCute",
     "MiniBC",
+    "Mirra",
+    "Momants",
+    "MonetizeMore",
     "Moofx",
     "MoreVago",
+    "Moya",
+    "Moyasar",
+    "Moyasar Plugin",
+    "Multiview",
+    "Musictoday",
     "MyCred",
+    "MyNewTerm",
     "MyPersonas",
     "MyPlay",
+    "NEORY",
     "NOCNOK",
+    "Narrative",
     "Naukri",
     "NeoAsist",
     "Nepcha Analytics",
+    "NetTalk",
+    "Nevuto",
     "Nexxtmove",
+    "Ninja Tables",
     "NinjaCat",
+    "Nlet School",
+    "NoShow",
     "Norse Env",
+    "NorthWhistle",
+    "NotificationX",
+    "Nova Studio",
     "NovaDB",
     "Novaresa",
+    "Nsin",
+    "Oat UI",
+    "Odometer.js",
+    "Omago",
     "Omega Commerce",
+    "OmniWallet",
     "OnChat",
+    "One Church Software",
+    "Onjax",
     "Online Succes",
+    "Ontame",
+    "Open Game Panel",
+    "OpenAI Ads Measurement Pixel",
+    "OpenAM",
+    "OpenConf",
+    "OpenDXP",
+    "OpenWeatherMap",
+    "Operoo",
+    "Opinion Stage",
     "OpnForm",
+    "OptKit",
+    "Opta",
     "Optinopoli",
+    "Oracle Linux",
+    "Orange CDB",
+    "Orbit Commerce",
+    "Orioly",
+    "OwnerRez",
+    "Page Builder CK",
+    "PageLines",
     "PageNudge",
+    "Pagefind",
     "PagineGialle",
     "Pancake",
     "Partner Fleet",
     "PatientLoop",
     "Paycove",
     "Paymattic",
+    "PaymentForm.io",
     "Payva",
+    "Payzito",
+    "PbootCMS",
     "Peachie",
+    "Peer39",
+    "Performax",
     "Personyze",
     "Pilera",
+    "Pitchero",
     "Pixeleze",
+    "Podbean",
+    "Podscribe",
+    "Pointat",
+    "Popads",
+    "Popsixle",
+    "Populi",
+    "Post Timeline",
+    "PostFinance Checkout",
+    "Pozvonim",
+    "Prefixbox",
     "Premion",
+    "Print Invoice & Delivery Notes for WooCommerce",
+    "Printify",
     "Printlane",
+    "Profile Builder",
+    "Profitshare",
     "Proofpoint Email Fraud Defense",
+    "PropertyMeld",
     "Prosperous AI",
+    "PubNation",
     "Publive",
+    "Pushnews",
     "Quadran",
     "Qualitando",
     "Qualva",
+    "Quantyoo",
+    "Qubely",
+    "Quickly",
     "Quicksprout",
+    "QuinBook",
+    "RAMP Interactive",
     "RE-OS.com",
     "REsimpli",
+    "RVGlobalSoft",
+    "Rackspace",
+    "RapiDoc",
+    "RateAbiz",
+    "RaveCapture",
     "Rcode Vision",
+    "ReQruiting",
     "ReSpec",
+    "React Aria",
     "Read the Docs",
+    "Readdy",
     "Recommy",
+    "Recranet",
     "Recras",
+    "Recruitics",
+    "Referrizer",
     "Refix",
+    "RegistrationMagic",
+    "Relevanssi",
     "Remedo",
+    "Reniwn",
+    "Rentware",
+    "RepairDesk",
     "ReplyBox",
+    "ReplySuite",
+    "Request a Quote for WooCommerce",
     "Resonate",
     "Returnflows",
+    "Revotas",
     "Rezku",
     "RhinoFit",
     "Rispose",
+    "Rivo",
+    "Rivyo",
     "Robarov",
+    "Robocote",
     "Rofofk",
     "RomanCart",
     "Roya",
     "Ruttl",
     "Ruzuku",
+    "SEOJuice",
+    "STRIGHT",
+    "Sadrhub",
+    "Salam",
+    "SalesDrip",
+    "Salesforce Data 360",
+    "Salesgear",
+    "Salonkee",
+    "Samba TV",
     "Sameday",
     "Sanity.io",
     "Satūs",
+    "Schudio",
+    "Scrapive",
+    "Seafile",
     "SeedGrow",
+    "Seedtag",
     "Segmetrics",
+    "Sekolahku",
+    "Seldit",
+    "SelectMedia",
+    "Selify",
+    "Sellauth",
     "Selligent",
+    "Sensei LMS",
     "SeoToaster CMS",
+    "Sepid",
+    "Shakebug",
     "ShopStyle",
+    "ShopWise",
+    "Shopaccino",
     "Shopiteka",
     "Shopsys",
+    "Shorthand",
+    "Silk",
+    "Simple Job Board",
     "Singenuity",
+    "Site Blindado",
     "SiteGPT",
     "SiteGalore",
+    "SiteNano",
+    "Sitepins",
     "Sketchanet",
+    "Skillspace",
     "SkyCMS by Netkoncept",
+    "Sleak.chat",
+    "Slim Framework",
+    "Slotted",
+    "Smadex",
+    "Smart Wishlist",
+    "SmartEditor2",
     "SmartEmailing",
+    "SmartFront",
+    "Smartjobboard",
+    "Smartypilot",
+    "Smink",
+    "Smith.ai",
+    "SnapApp",
     "SnatchBot",
+    "SociableKIT",
+    "Socialphotos",
     "Socure",
     "Soffront CRM",
+    "Sojern",
+    "Sonares",
+    "Sophus3",
+    "SourceKnowledge",
     "Sourcey",
+    "Speed Shift Media",
+    "SplashThat",
     "Sporcle",
+    "Sportradar",
+    "SproutStudio",
     "SquadUP",
     "Stampede",
+    "Stebby",
+    "StepFORM",
     "Stockist",
     "StoragePug",
     "Store Vantage",
     "Storenvy",
+    "Streak.js",
+    "StreamAMG",
+    "StreamingVideoProvider",
     "StyleSeat",
     "Subscrimia",
+    "SuiteDash",
+    "SupaDupa",
+    "Supermetrics",
+    "SupportBox",
+    "Supportly",
+    "SureCritic",
+    "SweetCode Pixel Manager for WooCommerce",
+    "Système de Design de l'État",
+    "THEADX",
+    "TMW Shield",
+    "TPMN",
+    "Tabler Icons",
+    "Tachyon Forge",
+    "Tag Groups",
     "Tagalys",
+    "Taggstar",
     "Tanx",
+    "Targito",
+    "Teletype App",
     "Tempus",
+    "That Open Engine",
+    "The Media Trust",
+    "The Newsletter Plugin",
+    "ThemeGrill Demo Importer",
+    "TheraPsy Bookings",
+    "ThinkCMF",
+    "ThinkJS",
     "Thinkstack",
+    "Tiendana",
+    "Tijara Plus",
     "TimeTap",
     "Timepad",
+    "TongWeb",
     "TrackFox",
+    "Traffective",
+    "TrafficJunky",
+    "Transpond",
     "Travello",
+    "Treatwell",
+    "Trello",
+    "TruConversion",
+    "Trust Guard",
+    "TrustX",
+    "Trustmary",
     "Tulo",
     "TuoTempo",
+    "TurboMail",
     "TutorCruncher",
+    "Tutorbird",
+    "Twipla",
     "Twsaa",
+    "Typedream",
+    "U-Mail",
     "UXSniff",
+    "Uappi",
+    "Ucraft",
+    "Uebfaqe",
     "Unblu Virtual Agent",
+    "Underdog Media",
     "Uniform Digital Experience",
+    "UnifyDesk",
+    "Uniqodo",
+    "UpCloud Object Storage",
+    "UpContent",
     "Ureserv",
+    "UseClick",
+    "UseResponse",
     "Useberry",
     "Vagaro",
     "Valimail",
+    "Valorsic Studio",
+    "VdoCipher",
+    "Vectera",
+    "Vee",
+    "VenueSumo",
     "Vera",
     "VeraCore",
+    "Verificado",
     "VertaFlow",
     "VertaFlow Analytics",
     "VertaFlow Booking",
     "VertaFlow Chat",
     "VertaFlow Forms",
+    "Vertical Booking",
+    "VideoAsk",
+    "Vidyard",
     "VikaOn",
+    "Vinext",
     "VirtFusion",
     "VisBook",
+    "VisitorTracking",
+    "Vista HCM",
     "Vizium",
+    "Vizzit",
+    "VoetbalAssist",
     "Voizee",
+    "Volument",
+    "Vortala",
+    "Vost Veter",
     "Voucherify",
+    "Voyado",
     "W3 Ataiva",
+    "WP Directory Kit",
+    "WP Fast Total Search",
+    "WP Go Maps",
+    "WP Hotel Booking",
+    "WP Maps Pro",
     "WP SEO AI",
+    "WP Stratos",
+    "WP ULike",
+    "WPBookit",
+    "WPMobile.App",
+    "WPS Hide Login",
+    "WPZOOM Portfolio",
+    "WPvivid Backup & Migration",
+    "WaveRez",
+    "Wavoto",
+    "Weasy",
     "WebAdministrator CMS",
     "WebAwesome",
+    "WebIssues",
+    "WebToffee EU Order Withdrawal Button for WooCommerce",
+    "WebinarGeek",
     "Weblate",
+    "Webmercs",
+    "Weborama",
+    "Webstorio",
     "Weezevent",
+    "Wegic",
     "Wehaa",
+    "Werkzeug",
     "Whelp",
     "Wholesale Suite",
     "WhosOn",
+    "Wing FTP Server",
+    "Winmail Server",
+    "Wirsindhandwerk",
     "Wishloop",
+    "Wishpond",
+    "Wobily",
+    "Woosmap",
     "Workplace by Meta",
+    "Wowza Streaming Engine",
     "Wx3",
     "Wyre",
+    "Wysistat",
+    "WzShop",
     "X-Clacks-Overhead",
+    "XCompliant",
+    "Xendit",
+    "Yacla",
+    "Yaghoot Web",
     "Yell eCommerce",
     "Yomdel",
+    "YouCanBookMe",
+    "YouDraw",
     "YouLead",
     "YourGPT",
+    "YzmCMS",
+    "Z-Blog",
+    "ZClouding",
+    "ZOYEQ",
     "Zad",
     "Zadarma",
     "Zammad",
+    "Zapia",
     "Zapier",
     "Zapnito",
+    "Zeeg",
     "Zensical",
+    "Zephyr Cloud",
+    "Zeta Zync",
     "Zevioo",
     "Ziber",
+    "Zigaform",
     "Zipleads",
     "Znode",
+    "Zoomd",
+    "Zotonic",
     "Zozi",
+    "Zucks",
     "Zulip",
+    "Zyncro",
     "Zyratalk",
+    "alugha",
+    "audienzz",
     "autoship",
+    "b10cks",
+    "b2evolution",
+    "bValidator",
+    "beseller",
     "bun",
+    "cituro",
     "digi·access",
     "dmarcian",
+    "docmd",
     "doxo",
     "eKonsilio",
+    "eTermin",
     "eZCater",
+    "emetriq",
     "eola",
     "ezyVet",
     "freewebstore",
     "getUBetter",
+    "iCagenda",
     "iMagaza",
+    "iPROM",
     "iTCHYROBOT",
+    "inCMS",
+    "inPowered",
+    "jrni",
+    "kDrive",
+    "mediarithmics",
+    "miniBB",
+    "miniOrange SAML SSO",
     "n8n",
     "opentelemetry",
+    "phpList",
+    "privIQ",
+    "streaMonkey",
+    "tagDiv Composer",
+    "teachworks",
     "theCut",
     "tlooto",
     "true",
-    "uSocial"
+    "uSocial",
+    "wpDiscuz",
+    "wpForo",
+    "|related| Natív Hirdetés Kft"
   ],
   "addedForRequest": [
     {
@@ -1653,7 +2256,9 @@
     "Zscaler",
     "pgvector"
   ],
-  "removedTechnologies": [],
+  "removedTechnologies": [
+    "Websocket"
+  ],
   "changed": [
     {
       "name": ".NET Framework",
@@ -1753,6 +2358,30 @@
       ]
     },
     {
+      "name": "AccessiBe",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "ActBlue",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "ActiveCampaign",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "AdStir",
       "fieldsAdded": [
         "scriptSrc"
@@ -1772,6 +2401,14 @@
         "script"
       ],
       "valuesChanged": []
+    },
+    {
+      "name": "Airship",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
     },
     {
       "name": "Airtable",
@@ -1928,6 +2565,15 @@
       "valuesChanged": []
     },
     {
+      "name": "Amazon Web Services",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "headers",
+        "scripts"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Amazon Widgets",
       "fieldsAdded": [
         "xhrUrl"
@@ -1938,6 +2584,14 @@
       "valuesChanged": [
         "dom"
       ]
+    },
+    {
+      "name": "Amplience",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
     },
     {
       "name": "Apache Hudi",
@@ -1997,6 +2651,19 @@
       "valuesChanged": []
     },
     {
+      "name": "Azure App Service",
+      "fieldsAdded": [
+        "cookies",
+        "dns",
+        "implies",
+        "url"
+      ],
+      "fieldsRemoved": [
+        "headers"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Azure DNS",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -2034,6 +2701,14 @@
       "fieldsRemoved": [],
       "valuesChanged": [
         "implies"
+      ]
+    },
+    {
+      "name": "Baidu Analytics (百度统计)",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
       ]
     },
     {
@@ -2075,6 +2750,14 @@
       "valuesChanged": []
     },
     {
+      "name": "Blackbaud eTapestry",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts"
+      ]
+    },
+    {
       "name": "Blackboard",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -2085,6 +2768,8 @@
     {
       "name": "BlueKai",
       "fieldsAdded": [
+        "html",
+        "scriptSrc",
         "scripts"
       ],
       "fieldsRemoved": [
@@ -2101,6 +2786,22 @@
       ]
     },
     {
+      "name": "BowNow",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "BuySellAds",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "CCH Site Builder",
       "fieldsAdded": [
         "meta"
@@ -2108,6 +2809,14 @@
       "fieldsRemoved": [
         "dom"
       ],
+      "valuesChanged": []
+    },
+    {
+      "name": "CallTrackingMetrics",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
       "valuesChanged": []
     },
     {
@@ -2141,6 +2850,14 @@
         "script"
       ],
       "valuesChanged": []
+    },
+    {
+      "name": "Chartbeat",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
     },
     {
       "name": "Chatra",
@@ -2179,12 +2896,28 @@
       "valuesChanged": []
     },
     {
+      "name": "CleverTap",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
       "name": "ClickUp",
       "fieldsAdded": [
         "dns"
       ],
       "fieldsRemoved": [],
       "valuesChanged": []
+    },
+    {
+      "name": "Cloudflare Bot Management",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "description"
+      ]
     },
     {
       "name": "Commerce Engine",
@@ -2319,6 +3052,14 @@
       "valuesChanged": []
     },
     {
+      "name": "Disqus",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Docker",
       "fieldsAdded": [
         "dns"
@@ -2332,6 +3073,25 @@
       "fieldsRemoved": [],
       "valuesChanged": [
         "dns"
+      ]
+    },
+    {
+      "name": "Dotdigital",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "DoubleClick Floodlight",
+      "fieldsAdded": [
+        "html"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc",
+        "scripts"
       ]
     },
     {
@@ -2360,7 +3120,8 @@
     {
       "name": "Dynatrace",
       "fieldsAdded": [
-        "dns"
+        "dns",
+        "scriptSrc"
       ],
       "fieldsRemoved": [],
       "valuesChanged": []
@@ -2435,6 +3196,22 @@
       ]
     },
     {
+      "name": "Etracker",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Extole",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "FLV Player",
       "fieldsAdded": [
         "scripts"
@@ -2460,6 +3237,16 @@
       ],
       "fieldsRemoved": [
         "script"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "Facebook Login",
+      "fieldsAdded": [
+        "dom"
+      ],
+      "fieldsRemoved": [
+        "js"
       ],
       "valuesChanged": []
     },
@@ -2492,6 +3279,14 @@
       "valuesChanged": []
     },
     {
+      "name": "Filestack",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Finsweet",
       "fieldsAdded": [
         "js"
@@ -2507,6 +3302,14 @@
         "excludes"
       ],
       "valuesChanged": []
+    },
+    {
+      "name": "Fonteva for Associations",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "html"
+      ]
     },
     {
       "name": "Force.com",
@@ -2558,6 +3361,14 @@
       "fieldsRemoved": [],
       "valuesChanged": [
         "js"
+      ]
+    },
+    {
+      "name": "Geniee",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
       ]
     },
     {
@@ -2615,6 +3426,33 @@
       ]
     },
     {
+      "name": "Google Analytics",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Google Campaign Manager 360",
+      "fieldsAdded": [
+        "html",
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts"
+      ]
+    },
+    {
+      "name": "Google Compute Engine",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "headers"
+      ],
+      "valuesChanged": []
+    },
+    {
       "name": "Google Consumer Surveys",
       "fieldsAdded": [
         "scriptSrc"
@@ -2632,6 +3470,17 @@
       "fieldsRemoved": [],
       "valuesChanged": [
         "dom"
+      ]
+    },
+    {
+      "name": "Google Tag Manager",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "js"
+      ],
+      "valuesChanged": [
+        "html",
+        "scriptSrc"
       ]
     },
     {
@@ -2728,11 +3577,29 @@
       "valuesChanged": []
     },
     {
+      "name": "IBM WebSphere Application Server",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "headers"
+      ],
+      "valuesChanged": [
+        "html"
+      ]
+    },
+    {
       "name": "IFS Enterprise Asset Management",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
         "probe"
+      ]
+    },
+    {
+      "name": "INFOnline",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
       ]
     },
     {
@@ -2753,6 +3620,33 @@
         "dom",
         "meta"
       ]
+    },
+    {
+      "name": "Impact",
+      "fieldsAdded": [
+        "cookies"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Index Exchange",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Infogram",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
     },
     {
       "name": "Informatica Business Process Management",
@@ -2781,6 +3675,14 @@
       "valuesChanged": []
     },
     {
+      "name": "Issuu",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "JTL Shop",
       "fieldsAdded": [
         "js"
@@ -2805,11 +3707,20 @@
       "valuesChanged": []
     },
     {
+      "name": "Kaltura",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Kameleoon",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
-        "js"
+        "js",
+        "scriptSrc"
       ]
     },
     {
@@ -2887,6 +3798,22 @@
       "valuesChanged": []
     },
     {
+      "name": "LiveChat",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "LivePerson",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Livewire",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -2896,6 +3823,14 @@
     },
     {
       "name": "Locomotive Scroll",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
+      "name": "Lodash",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
@@ -2947,10 +3882,35 @@
       "valuesChanged": []
     },
     {
+      "name": "Mailmunch",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Mapp",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
+      "name": "Marchex",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Matomo Analytics",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
+        "scriptSrc",
         "scripts"
       ]
     },
@@ -3151,6 +4111,14 @@
       ]
     },
     {
+      "name": "Movable Ink",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
       "name": "My Calendar",
       "fieldsAdded": [
         "scriptSrc"
@@ -3197,6 +4165,14 @@
       "valuesChanged": []
     },
     {
+      "name": "New Relic",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
       "name": "Niagahoster",
       "fieldsAdded": [],
       "fieldsRemoved": [
@@ -3231,6 +4207,18 @@
         "script"
       ],
       "valuesChanged": []
+    },
+    {
+      "name": "Nunjucks",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [
+        "html"
+      ],
+      "valuesChanged": [
+        "scripts"
+      ]
     },
     {
       "name": "OVH",
@@ -3275,6 +4263,14 @@
       "valuesChanged": []
     },
     {
+      "name": "OpenGSE",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "headers"
+      ]
+    },
+    {
       "name": "OpenText WEM",
       "fieldsAdded": [
         "scriptSrc"
@@ -3286,6 +4282,22 @@
       "valuesChanged": [
         "headers"
       ]
+    },
+    {
+      "name": "OpenX",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "OptinMonster",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
     },
     {
       "name": "Oracle Eloqua",
@@ -3365,6 +4377,14 @@
       ]
     },
     {
+      "name": "Pentaho",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "html"
+      ]
+    },
+    {
       "name": "PeopleSoft Program Management",
       "fieldsAdded": [
         "xhrUrl"
@@ -3383,6 +4403,22 @@
         "xhr"
       ],
       "valuesChanged": []
+    },
+    {
+      "name": "Piano",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Picreel",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
     },
     {
       "name": "Porto",
@@ -3429,6 +4465,14 @@
       "valuesChanged": []
     },
     {
+      "name": "ProgressBar.js",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Qubit Universal Variable",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -3451,6 +4495,14 @@
       "valuesChanged": [
         "css"
       ]
+    },
+    {
+      "name": "RebelMouse",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
     },
     {
       "name": "Redux",
@@ -3600,11 +4652,27 @@
       "valuesChanged": []
     },
     {
+      "name": "Schannel",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "headers"
+      ]
+    },
+    {
       "name": "Segment",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
         "dns"
+      ]
+    },
+    {
+      "name": "Sentry",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
       ]
     },
     {
@@ -3927,12 +4995,38 @@
       "valuesChanged": []
     },
     {
+      "name": "Sift",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Simple Social Icons",
       "fieldsAdded": [
         "html"
       ],
       "fieldsRemoved": [
         "stylesheets"
+      ],
+      "valuesChanged": []
+    },
+    {
+      "name": "SimplyBook.me",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom",
+        "js",
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Sirvoy",
+      "fieldsAdded": [],
+      "fieldsRemoved": [
+        "scripts"
       ],
       "valuesChanged": []
     },
@@ -3944,6 +5038,14 @@
       ],
       "fieldsRemoved": [],
       "valuesChanged": []
+    },
+    {
+      "name": "Siteimprove",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
     },
     {
       "name": "Sitelinks Search Box",
@@ -3963,6 +5065,14 @@
         "scripts"
       ],
       "valuesChanged": []
+    },
+    {
+      "name": "Snap Pixel",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
     },
     {
       "name": "SocialShopWave",
@@ -4023,6 +5133,14 @@
       "valuesChanged": []
     },
     {
+      "name": "SoundCloud",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Spacious",
       "fieldsAdded": [
         "scriptSrc"
@@ -4049,6 +5167,18 @@
       ]
     },
     {
+      "name": "Stimulus",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "html",
+        "js",
+        "scripts"
+      ]
+    },
+    {
       "name": "Stripe Checkout",
       "fieldsAdded": [
         "scriptSrc"
@@ -4064,7 +5194,9 @@
       "fieldsRemoved": [
         "slug"
       ],
-      "valuesChanged": []
+      "valuesChanged": [
+        "scripts"
+      ]
     },
     {
       "name": "Supabase",
@@ -4073,7 +5205,8 @@
       ],
       "fieldsRemoved": [],
       "valuesChanged": [
-        "js"
+        "js",
+        "scripts"
       ]
     },
     {
@@ -4130,6 +5263,14 @@
       "valuesChanged": []
     },
     {
+      "name": "Terminalfour",
+      "fieldsAdded": [
+        "html"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
       "name": "Textalk Webshop",
       "fieldsAdded": [],
       "fieldsRemoved": [],
@@ -4143,6 +5284,14 @@
       "fieldsRemoved": [],
       "valuesChanged": [
         "cats"
+      ]
+    },
+    {
+      "name": "Tidio",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
       ]
     },
     {
@@ -4212,6 +5361,14 @@
       "valuesChanged": []
     },
     {
+      "name": "Twitter Ads",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
       "name": "Twitter Conversion Tag",
       "fieldsAdded": [
         "scriptSrc"
@@ -4234,6 +5391,14 @@
       ]
     },
     {
+      "name": "Uniconsent",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "VMware Tanzu",
       "fieldsAdded": [
         "meta"
@@ -4242,6 +5407,14 @@
       "valuesChanged": [
         "dom"
       ]
+    },
+    {
+      "name": "Viafoura",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
     },
     {
       "name": "VisitorTrack",
@@ -4279,7 +5452,9 @@
         "headers"
       ],
       "fieldsRemoved": [],
-      "valuesChanged": []
+      "valuesChanged": [
+        "html"
+      ]
     },
     {
       "name": "Website Tonight",
@@ -4292,6 +5467,16 @@
       "valuesChanged": []
     },
     {
+      "name": "WhatsApp Business Chat",
+      "fieldsAdded": [
+        "html"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
+      ]
+    },
+    {
       "name": "WiredMinds",
       "fieldsAdded": [
         "scriptSrc"
@@ -4302,11 +5487,37 @@
       "valuesChanged": []
     },
     {
+      "name": "Wistia",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Wix eCommerce",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scripts"
+      ]
+    },
+    {
       "name": "WooCommerce",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
         "scriptSrc"
+      ]
+    },
+    {
+      "name": "WooCommerce Subscriptions",
+      "fieldsAdded": [
+        "html"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "dom"
       ]
     },
     {
@@ -4330,6 +5541,32 @@
         "xhr"
       ],
       "valuesChanged": []
+    },
+    {
+      "name": "Wunderkind",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "Wurfl",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
+      "name": "X",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "html"
+      ]
     },
     {
       "name": "Xaxis",
@@ -4381,6 +5618,16 @@
       "valuesChanged": []
     },
     {
+      "name": "Yandex.Metrika",
+      "fieldsAdded": [
+        "scripts"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "scriptSrc"
+      ]
+    },
+    {
       "name": "Yola",
       "fieldsAdded": [
         "dom"
@@ -4428,6 +5675,14 @@
       ]
     },
     {
+      "name": "authorize.net",
+      "fieldsAdded": [
+        "html"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
+    },
+    {
       "name": "commercetools",
       "fieldsAdded": [
         "xhrUrl"
@@ -4438,12 +5693,28 @@
       "valuesChanged": []
     },
     {
+      "name": "core-js",
+      "fieldsAdded": [],
+      "fieldsRemoved": [],
+      "valuesChanged": [
+        "js"
+      ]
+    },
+    {
       "name": "dc.js",
       "fieldsAdded": [],
       "fieldsRemoved": [],
       "valuesChanged": [
         "scriptSrc"
       ]
+    },
+    {
+      "name": "eKomi",
+      "fieldsAdded": [
+        "scriptSrc"
+      ],
+      "fieldsRemoved": [],
+      "valuesChanged": []
     },
     {
       "name": "ipapi.co",

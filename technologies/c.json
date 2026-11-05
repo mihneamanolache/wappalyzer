@@ -537,7 +537,10 @@
       "recurring"
     ],
     "saas": true,
-    "website": "https://www.calltrackingmetrics.com"
+    "website": "https://www.calltrackingmetrics.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*tctm\\.co(?:[:/?#]|$)"
+    ]
   },
   "CamanJS": {
     "cats": [
@@ -1696,6 +1699,13 @@
     },
     "website": "https://www.hannonhill.com/products/cascade-cms/"
   },
+  "Casdoor": {
+    "cats": [
+      69
+    ],
+    "website": "https://casdoor.org/",
+    "html": "^(?=[\\s\\S]{0,}?<title>casdoor)(?=[\\s\\S]{0,}?casdoor/manifest\\.json)"
+  },
   "Casewise": {
     "cats": [
       11
@@ -1868,6 +1878,15 @@
       "cdn\\.catchjs\\.com"
     ],
     "website": "https://catchjs.com"
+  },
+  "Catchpoint": {
+    "cats": [
+      78
+    ],
+    "website": "https://www.catchpoint.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*3gl\\.net(?:[:/?#]|$)"
+    ]
   },
   "CATS": {
     "cats": [
@@ -2060,6 +2079,15 @@
       "\\.cellxpert\\.com/"
     ],
     "website": "https://www.cellxpert.com"
+  },
+  "Celtra": {
+    "cats": [
+      36
+    ],
+    "website": "https://celtra.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*celtra\\.com(?:[:/?#]|$)"
+    ]
   },
   "Celum": {
     "cats": [
@@ -2661,7 +2689,8 @@
       "_sf_endpt": ""
     },
     "scriptSrc": [
-      "chartbeat\\.js"
+      "chartbeat\\.js",
+      "^https?://(?:[a-z0-9-]+\\.)*chartbeat\\.net(?:[:/?#]|$)"
     ],
     "website": "https://chartbeat.com"
   },
@@ -3898,6 +3927,16 @@
       ]
     }
   },
+  "Citadel": {
+    "cats": [
+      30
+    ],
+    "website": "https://www.citadel.org/",
+    "html": [
+      "/styles/webcit\\.css",
+      "<div class=\"boxlabel\">citadel server - powered by"
+    ]
+  },
   "Citizen Space": {
     "cats": [
       1
@@ -4003,6 +4042,29 @@
       "checkout-static\\.citruspay\\.com/"
     ],
     "website": "https://consumers.citruspay.com/"
+  },
+  "cituro": {
+    "cats": [
+      72
+    ],
+    "description": "cituro is a German online appointment-scheduling tool whose booking widget can be embedded on customer websites.",
+    "dom": [
+      "iframe[src*='cituro.com']"
+    ],
+    "icon": "cituro.png",
+    "js": {
+      "cituroLoader": "",
+      "cituroOptions": "",
+      "cituroWidget": "",
+      "buildCituroOptions": ""
+    },
+    "scriptSrc": [
+      "app\\.cituro\\.com/"
+    ],
+    "website": "https://www.cituro.com",
+    "xhr": [
+      "(?:app|cdn)\\.cituro\\.com"
+    ]
   },
   "City Hive": {
     "cats": [
@@ -4751,7 +4813,10 @@
       "recurring"
     ],
     "saas": true,
-    "website": "https://clevertap.com"
+    "website": "https://clevertap.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*wzrkt\\.com(?:[:/?#]|$)"
+    ]
   },
   "Clevy": {
     "cats": [
@@ -5303,6 +5368,13 @@
     ],
     "website": "https://www.clientacquisition.io"
   },
+  "Clientexec": {
+    "cats": [
+      6
+    ],
+    "website": "https://www.clientexec.com/",
+    "html": "powered by clientexec"
+  },
   "Clientify": {
     "cats": [
       32
@@ -5477,6 +5549,16 @@
     ],
     "website": "https://clipboardjs.com/"
   },
+  "ClipBucket": {
+    "cats": [
+      1
+    ],
+    "website": "https://github.com/MacWarrior/clipbucket-v5",
+    "html": [
+      "^(?=[\\s\\S]{0,}?<!-- clipbucket)(?=[\\s\\S]{0,}?content=\"clipbucket)",
+      "<!-- forged by clipbucket"
+    ]
+  },
   "Clock PMS": {
     "cats": [
       93
@@ -5594,6 +5676,22 @@
       "c9": ""
     },
     "website": "https://c9.io/"
+  },
+  "Cloudbac": {
+    "cats": [
+      1,
+      51
+    ],
+    "description": "Cloudbac is a SaaS website builder and hosting platform for businesses.",
+    "headers": {
+      "X-Powered-By": "^Cloudbac$"
+    },
+    "icon": "Cloudbac.svg",
+    "meta": {
+      "generator": "^Cloudbac$"
+    },
+    "saas": true,
+    "website": "https://www.cloudbac.com"
   },
   "Cloudbeds": {
     "cats": [
@@ -5720,7 +5818,7 @@
     "cookies": {
       "__cf_bm": ""
     },
-    "description": "Cloudflare bot management solution identifies and mitigates automated traffic to protect websites from bad bots.",
+    "description": "Cloudflare's bot protection identifies and mitigates automated traffic. Covers the Enterprise Bot Management add-on as well as Bot Fight Mode and Super Bot Fight Mode.",
     "icon": "CloudFlare.svg",
     "implies": [
       "Cloudflare"
@@ -6201,6 +6299,13 @@
     },
     "website": "https://cmsmadesimple.org"
   },
+  "CmsEasy": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.cmseasy.cn",
+    "html": "content=[\"']CmsEasy"
+  },
   "CMSimple": {
     "cats": [
       1
@@ -6213,6 +6318,17 @@
       "generator": "CMSimple( [\\d.]+)?\\;version:\\1"
     },
     "website": "https://www.cmsimple.org/en"
+  },
+  "CmsTop": {
+    "cats": [
+      1
+    ],
+    "website": "https://www.cmstop.com/",
+    "html": [
+      "^(?=[\\s\\S]{0,}?<a class=\"poweredby\" href=\"http://www\\.cmstop\\.com\")(?=[\\s\\S]{0,}?cmstop-list-text\\.css)",
+      "/css/cmstop-common\\.css",
+      "/js/cmstop-common\\.js"
+    ]
   },
   "Cnvert": {
     "cats": [
@@ -6496,6 +6612,15 @@
       "codetipi-"
     ],
     "website": "https://codetipi.com"
+  },
+  "Codigo": {
+    "cats": [
+      10
+    ],
+    "website": "https://www.codigo.se",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*codigo\\.se(?:[:/?#]|$)"
+    ]
   },
   "Coffee Script": {
     "cats": [
@@ -7424,6 +7549,15 @@
     ],
     "website": "https://comms.dev"
   },
+  "CommuniGate Pro": {
+    "cats": [
+      30
+    ],
+    "website": "https://www.communigate.com/",
+    "headers": {
+      "Server": "^communigatepro"
+    }
+  },
   "Community": {
     "cats": [
       2
@@ -7760,6 +7894,13 @@
       "recurring"
     ],
     "website": "https://www.confiant.com"
+  },
+  "Confluence": {
+    "cats": [
+      8
+    ],
+    "website": "https://www.atlassian.com/software/confluence",
+    "html": "^(?=[\\s\\S]{0,}?id=\"com-atlassian-confluence)(?=[\\s\\S]{0,}?name=\"confluence-base-url\")"
   },
   "Congressus": {
     "cats": [
@@ -9298,6 +9439,15 @@
     ],
     "website": "https://copypoison.com/"
   },
+  "Coral": {
+    "cats": [
+      15
+    ],
+    "website": "https://coralproject.net",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*coral\\.coralproject\\.net(?:[:/?#]|$)"
+    ]
+  },
   "Cordial": {
     "cats": [
       76,
@@ -9345,7 +9495,6 @@
       "__core-js_shared__": "",
       "__core-js_shared__.versions.0.version": "^(.+)$\\;version:\\1",
       "_babelPolyfill": "",
-      "core": "",
       "core.version": "^(.+)$\\;version:\\1"
     },
     "oss": true,
@@ -9385,6 +9534,18 @@
       "assets\\.corebook\\.io/"
     ],
     "website": "https://www.corebook.io"
+  },
+  "Coremail": {
+    "cats": [
+      30
+    ],
+    "website": "https://www.coremail.cn/",
+    "html": [
+      "/coremail/bundle/",
+      "action=\"/coremail/index\\.jsp",
+      "coremail/common",
+      "fmt_logoalt: \"coremail 电子邮件系统"
+    ]
   },
   "CoreMedia": {
     "cats": [
@@ -9624,6 +9785,15 @@
     },
     "icon": "CouchDB.svg",
     "website": "https://couchdb.apache.org"
+  },
+  "Council Advertising Network": {
+    "cats": [
+      36
+    ],
+    "website": "https://counciladvertising.net",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*counciladvertising\\.net(?:[:/?#]|$)"
+    ]
   },
   "Counseling Kit": {
     "cats": [
@@ -11477,5 +11647,272 @@
       "\\.czater\\.pl"
     ],
     "website": "https://www.czater.pl"
+  },
+  "CampusGroups": {
+    "cats": [
+      58
+    ],
+    "cookies": {
+      "CG.SessionID": ""
+    },
+    "description": "CampusGroups is a student engagement platform that supports community building by facilitating broad student participation across campus organizations and activities.",
+    "icon": "CampusGroups.svg",
+    "saas": true,
+    "website": "https://www.readyeducation.com/en-us/campusgroups"
+  },
+  "Canvify": {
+    "cats": [
+      51
+    ],
+    "description": "Canvify is a web application that enables the creation of Shopify landing pages from designs produced in Canva.",
+    "icon": "Canvify.svg",
+    "saas": true,
+    "scriptSrc": "cdn\\.canvify\\.app",
+    "scripts": "cdn\\.canvify\\.app",
+    "website": "https://canvify.app"
+  },
+  "Capital Turbine": {
+    "cats": [
+      32
+    ],
+    "description": "Capital Turbine is a marketing automation platform for financial advisors and wealth management firms.",
+    "dom": "a[href^='https://capitalturbine.com']",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://capitalturbine.com"
+  },
+  "Carepatron": {
+    "cats": [
+      53
+    ],
+    "description": "Carepatron is a cloud-based practice management platform for healthcare providers that supports scheduling, documentation, billing, and client management.",
+    "icon": "Carepatron.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.carepatron\\.com",
+    "website": "https://www.carepatron.com"
+  },
+  "Casablanca": {
+    "cats": [
+      72
+    ],
+    "description": "Casablanca is a hotel booking and property management platform for accommodation businesses.",
+    "dom": {
+      "a[href*='://ibe.casablanca.at/']": {
+        "attributes": {
+          "href": "^https?://ibe\\.casablanca\\.at/(?:[a-z]{2}/)?(?:IBE/)?a_\\d+_[a-z0-9]+(?:[/?#]|$)"
+        }
+      },
+      "iframe[src*='://ibe.casablanca.at/']": {
+        "attributes": {
+          "src": "^https?://ibe\\.casablanca\\.at/(?:[a-z]{2}/)?(?:IBE/)?a_\\d+_[a-z0-9]+(?:[/?#]|$)"
+        }
+      }
+    },
+    "icon": "default.svg",
+    "saas": true,
+    "scriptSrc": "frontend\\.casablanca\\.at/",
+    "website": "https://casablanca.at"
+  },
+  "Chiromatrix": {
+    "cats": [
+      1
+    ],
+    "description": "Chiromatrix is a website platform designed specifically for chiropractic practices, providing tools and infrastructure to manage online presence, content, and patient engagement.",
+    "icon": "Chiromatrix.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "apps\\.chiromatrixbase\\.com",
+    "website": "https://imatrix.com/chiropractic-marketing"
+  },
+  "ChurchDesk": {
+    "cats": [
+      53
+    ],
+    "description": "ChurchDesk is a church management software platform that supports administration, communication, scheduling, and record-keeping for religious organizations.",
+    "icon": "ChurchDesk.svg",
+    "js": {
+      "nsChurchDesk": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.churchdesk\\.com",
+    "website": "https://churchdesk.com"
+  },
+  "Coassemble": {
+    "cats": [
+      21
+    ],
+    "description": "Coassemble is an eLearning and team training platform that provides tools for creating, delivering, and managing training content for organizations and teams.",
+    "icon": "Coassemble.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "frontend\\.coassemble\\.com",
+    "website": "https://coassemble.com"
+  },
+  "CommBox": {
+    "cats": [
+      52
+    ],
+    "description": "CommBox is a customer communication platform with live chat, AI agents, and automation across messaging, voice, and web channels.",
+    "dom": "#commbox_splash > svg.cb_svg",
+    "icon": "CommBox.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "^https?://apps\\.commbox\\.io/+Scripts/connect\\.js(?:\\?|$)",
+    "website": "https://www.commbox.io"
+  },
+  "Commrz": {
+    "cats": [
+      6
+    ],
+    "description": "Commrz is a hosted website builder for creating ecommerce and portfolio websites.",
+    "icon": "Commrz.png",
+    "implies": "OpenCart",
+    "meta": {
+      "generator": "^Commrz$"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.commrz.com"
+  },
+  "ComplyDog": {
+    "cats": [
+      67
+    ],
+    "cookies": {
+      "complydog-marketing.first-touch-url": ""
+    },
+    "description": "ComplyDog is GDPR compliance software that enables software companies to manage data subject requests, automate Data Processing Agreement (DPA) signature workflows, and respond to common compliance inquiries from prospective customers.",
+    "icon": "ComplyDog.svg",
+    "js": {
+      "complydog.init": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "app\\.complydog\\.com/",
+    "website": "https://complydog.com"
+  },
+  "Configio": {
+    "cats": [
+      104
+    ],
+    "description": "Configio is an event registration software platform that supports event planning, promotion, and execution through integrated tools for managing registrations, payments, and attendee data.",
+    "icon": "Configio.svg",
+    "saas": true,
+    "scriptSrc": "media\\.configio\\.com",
+    "website": "https://www.configio.com"
+  },
+  "Contrib": {
+    "cats": [
+      5
+    ],
+    "description": "Contrib is a crypto marketplace widget that enables users to back and fund businesses through blockchain-based transactions.",
+    "icon": "Contrib.svg",
+    "meta": {
+      "author": "^contrib$"
+    },
+    "saas": true,
+    "scriptSrc": "\\.contrib\\.com/",
+    "website": "https://www.contrib.com"
+  },
+  "Contribly": {
+    "cats": [
+      96
+    ],
+    "description": "Contribly is a user-generated content (UGC) dashboard for journalists that streamlines the management of community submissions, supporting workflows from content intake through publication.",
+    "icon": "Contribly.svg",
+    "js": {
+      "$contriblyjQuery": "",
+      "contriblyApi": ""
+    },
+    "saas": true,
+    "scripts": "\\.amazonaws\\.com/contribly-widgets/",
+    "website": "https://www.contribly.com"
+  },
+  "CookieTractor": {
+    "cats": [
+      67
+    ],
+    "description": "CookieTractor is a cookie consent management platform that helps websites comply with privacy regulations like GDPR and CCPA.",
+    "icon": "CookieTractor.svg",
+    "js": {
+      "cookieTractor": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.cookietractor\\.com/",
+    "website": "https://www.cookietractor.com"
+  },
+  "CrystalCommerce": {
+    "cats": [
+      6
+    ],
+    "description": "CrystalCommerce is a game store management platform that provides point-of-sale functionality and inventory management tools to support retail operations.",
+    "icon": "CrystalCommerce.svg",
+    "meta": {
+      "application-name": "^CrystalCommerce$"
+    },
+    "saas": true,
+    "website": "https://www.crystalcommerce.com"
+  },
+  "CssUserAgent": {
+    "cats": [
+      47
+    ],
+    "description": "CssUserAgent is a tool that applies special CSS classes to web pages, allowing conditional styling based on user agent, browser, device, or environment.",
+    "icon": "CssUserAgent.svg",
+    "saas": true,
+    "scriptSrc": "/cssua\\.min\\.js",
+    "website": "https://cssuseragent.org"
+  },
+  "CusRev": {
+    "cats": [
+      90
+    ],
+    "description": "CusRev is a WooCommerce review platform and WordPress plugin for collecting, verifying, and displaying customer reviews.",
+    "dom": [
+      "link[href*='/wp-content/plugins/customer-reviews-woocommerce/']",
+      "a[href*='cusrev.com/'][href*='/reviews/']"
+    ],
+    "icon": "CusRev.png",
+    "oss": true,
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "requires": "WooCommerce",
+    "saas": true,
+    "scriptSrc": "/wp-content/plugins/customer-reviews-woocommerce/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://www.cusrev.com"
   }
 }

@@ -51,6 +51,14 @@
     ],
     "website": "https://www.b2chat.io"
   },
+  "b2evolution": {
+    "cats": [
+      1,
+      11
+    ],
+    "website": "https://b2evolution.net/",
+    "html": "powered by b2evolution"
+  },
   "Babel": {
     "cats": [
       19
@@ -280,7 +288,8 @@
     "description": "Baidu Analytics (百度统计) is a free tool for tracking and reporting traffic data of users visiting your site.",
     "icon": "Baidu Tongji.png",
     "scriptSrc": [
-      "hm\\.baidu\\.com/hm?\\.js"
+      "hm\\.baidu\\.com/hm?\\.js",
+      "^https?://hmcdn\\.baidu\\.com(?:[:/?#]|$)"
     ],
     "website": "https://tongji.baidu.com/"
   },
@@ -431,6 +440,15 @@
       "\\.bannerboo\\.com/"
     ],
     "website": "https://bannerboo.com"
+  },
+  "BannerFlow": {
+    "cats": [
+      36
+    ],
+    "website": "https://bannerflow.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*bannerflow\\.com(?:[:/?#]|$)"
+    ]
   },
   "Banno Banking": {
     "cats": [
@@ -851,6 +869,15 @@
       "\\.bazo\\.io/"
     ],
     "website": "https://bazo.io"
+  },
+  "BBB Accredited Business Seal": {
+    "cats": [
+      5
+    ],
+    "website": "https://www.bbb.org/business/accreditation/download-the-seal",
+    "scriptSrc": [
+      "^https?://seal-[a-z0-9-]+\\.bbb\\.org/badge/badge\\.min\\.js(?:[?#]|$)"
+    ]
   },
   "bbPress": {
     "cats": [
@@ -1793,6 +1820,33 @@
     ],
     "website": "https://bidmatic.io"
   },
+  "Bidswitch": {
+    "cats": [
+      36
+    ],
+    "website": "https://www.bidswitch.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*bidswitch\\.net(?:[:/?#]|$)"
+    ]
+  },
+  "Bidtellect": {
+    "cats": [
+      36
+    ],
+    "website": "https://bidtellect.com/",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*bttrack\\.com(?:[:/?#]|$)"
+    ]
+  },
+  "BidTheatre": {
+    "cats": [
+      36
+    ],
+    "website": "https://bidtheatre.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*bidtheatre\\.com(?:[:/?#]|$)"
+    ]
+  },
   "Big Cartel": {
     "cats": [
       6
@@ -2225,6 +2279,13 @@
     ],
     "website": "https://biskoui.ch"
   },
+  "Bitbucket": {
+    "cats": [
+      47
+    ],
+    "website": "https://bitbucket.org/",
+    "html": "bitbucket\\.page\\.login"
+  },
   "Bitcoin": {
     "cats": [
       41
@@ -2367,6 +2428,16 @@
     },
     "website": "http://www.konicaminolta.com/"
   },
+  "Bizrate Insights": {
+    "cats": [
+      73,
+      90
+    ],
+    "website": "https://bizrateinsights.com/",
+    "scriptSrc": [
+      "^https?://insights\\.bizrate\\.com/js/init\\.js(?:[?#]|$)"
+    ]
+  },
   "BizSpring": {
     "cats": [
       10
@@ -2455,7 +2526,7 @@
     "icon": "Blackbaud eTapestry.svg",
     "website": "https://www.blackbaud.com/products/blackbaud-etapestry",
     "html": "\\n[\\s\\S]*<div id=\"etapx-footer-credit\">",
-    "scripts": "etap\\..*\\.min\\.js|.*BlackbaudLabs\\.eTapestry.*",
+    "scripts": "etap\\..*\\.min\\.js|BlackbaudLabs\\.eTapestry",
     "js": {
       "Etap": "function",
       "BlackbaudLabs": "object"
@@ -3229,7 +3300,13 @@
     "description": "Oracle BlueKai Data Management Platform (DMP).",
     "icon": "BlueKai.svg",
     "website": "https://www.oracle.com/cx/advertising/data-management-platform/",
-    "scripts": "(?:_bk|bk_ai|bk_dc|bk_host|bk_pu|bk_rg|bkr|bkaddCrossDomainParam|bk_allow_multiple|bk_automateOnly|bk_async|bk_beacon_count|bk_core|bk_useMobile|bk_addPageCtx|bk_addSiteCtx|bk_addOptOut)"
+    "html": "//s?tags\\.bluekai\\.com/site/\\d",
+    "scriptSrc": "//(?:s?tags\\.bluekai\\.com|tags\\.bkrtx\\.com)/",
+    "scripts": [
+      "\\b(?:bkaddCrossDomainParam|bk_allow_multiple_calls|bk_use_multiple_iframes|bk_automateOnly|bk_beacon_count|bk_useMobile|bk_addPageCtx|bk_addSiteCtx|bk_addOptOut|bk_doJSTag)\\b",
+      "\\bBKTAG\\.doTag\\(",
+      "tags\\.bkrtx\\.com/js/bk-coretag\\.js"
+    ]
   },
   "Blueknow": {
     "cats": [
@@ -4096,6 +4173,16 @@
     ],
     "website": "https://bontii.dk"
   },
+  "Book Like A Boss": {
+    "cats": [
+      72
+    ],
+    "dom": [
+      "a[href*='bookme.name']"
+    ],
+    "icon": "Book Like A Boss.png",
+    "website": "https://www.booklikeaboss.com/"
+  },
   "Book N Pay": {
     "cats": [
       104
@@ -4740,8 +4827,8 @@
       "jQuery.fn.tooltip.Constructor.VERSION": "^(.+)$\\;version:\\1"
     },
     "scriptSrc": [
-      "bootstrap(?:[^>]*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)[^>]*?(?:\\.min)?\\.js\\;version:\\1",
-      "(?:/|-)bootstrap(?:[^/]*?([0-9a-fA-F]{7,40}|[\\d]+(?:\\.[\\d]+(?:\\.[\\d]+)?)?)|)[^/]*?(?:\\.min)?\\.js\\;version:\\1"
+      "(?<!/mage/)(?<!/Magento_Ui/js/lib/knockout/)(?<!/Magento_Ui/js/lib/knockout/bindings/)bootstrap(?!per[.-])(?:[^>]*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)[^>]*?(?:\\.min)?\\.js\\;version:\\1",
+      "(?:/|-)(?<!/mage/)(?<!/Magento_Ui/js/lib/knockout/)(?<!/Magento_Ui/js/lib/knockout/bindings/)bootstrap(?!per[.-])(?:[^/]*?([0-9a-fA-F]{7,40}|[\\d]+(?:\\.[\\d]+(?:\\.[\\d]+)?)?)|)[^/]*?(?:\\.min)?\\.js\\;version:\\1"
     ],
     "website": "https://getbootstrap.com"
   },
@@ -5214,7 +5301,10 @@
       "recurring"
     ],
     "saas": true,
-    "website": "https://bow-now.jp"
+    "website": "https://bow-now.jp",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*bownow\\.jp(?:[:/?#]|$)"
+    ]
   },
   "bowser": {
     "cats": [
@@ -5429,6 +5519,15 @@
       "cdn\\.brandfolder\\.com/"
     ],
     "website": "https://brandfolder.com"
+  },
+  "Brandmetrics": {
+    "cats": [
+      10
+    ],
+    "website": "https://www.brandmetrics.com",
+    "scriptSrc": [
+      "^https?://(?:[a-z0-9-]+\\.)*brandmetrics\\.com(?:[:/?#]|$)"
+    ]
   },
   "Brandquiz": {
     "cats": [
@@ -5975,6 +6074,13 @@
     "headers": {
       "Server": "BWS"
     }
+  },
+  "Broken Link Notifier": {
+    "cats": [
+      87
+    ],
+    "website": "https://wordpress.org/plugins/broken-link-notifier/",
+    "html": "blnotifier_front_end"
   },
   "Bronto": {
     "cats": [
@@ -6788,7 +6894,8 @@
     },
     "scriptSrc": [
       "^https?://s\\d\\.buysellads\\.com/",
-      "servedby-buysellads\\.com/monetization(?:\\.[\\w\\d]+)?\\.js"
+      "servedby-buysellads\\.com/monetization(?:\\.[\\w\\d]+)?\\.js",
+      "^https?://(?:[a-z0-9-]+\\.)*buysellads\\.net(?:[:/?#]|$)"
     ],
     "website": "https://buysellads.com"
   },
@@ -6902,5 +7009,457 @@
       "webcare\\.byside\\.com/"
     ],
     "website": "https://byside.com"
+  },
+  "B Cart": {
+    "cats": [
+      6
+    ],
+    "description": "BCart is a B2B ecommerce platform that supports digital transformation in ordering, billing, and sales processes.",
+    "icon": "BCart.svg",
+    "meta": {
+      "generator": "^Bcart$"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "assets\\.bcart\\.jp",
+    "website": "https://bcart.jp"
+  },
+  "BLR": {
+    "cats": [
+      21
+    ],
+    "description": "BLR is a compliance and training partner that provides resources and support for HR and EHS teams.",
+    "icon": "BLR.svg",
+    "saas": true,
+    "scriptSrc": "\\.blr\\.com",
+    "scripts": "\\.blr\\.com",
+    "website": "https://blr.com"
+  },
+  "BSS Commerce": {
+    "cats": [
+      6
+    ],
+    "description": "BSS Commerce is an ecommerce platform providing technology solutions for B2B, B2C, and B2B2C businesses.",
+    "icon": "BSSCommerce.svg",
+    "js": {
+      "BSS_PL.$": "",
+      "bss-po-js": ""
+    },
+    "saas": true,
+    "scripts": "\\.bsscommerce\\.com",
+    "website": "https://bsscommerce.com"
+  },
+  "Baseet": {
+    "cats": [
+      6
+    ],
+    "cookies": {
+      "_baseet_landing_page": ""
+    },
+    "description": "Baseet is an ecommerce platform for building and managing online stores.",
+    "icon": "Baseet.svg",
+    "pricing": [
+      "freemium",
+      "payg",
+      "recurring"
+    ],
+    "saas": true,
+    "url": "^https?://[^/]+\\.baseet\\.cc",
+    "website": "https://www.baseet.cc"
+  },
+  "Baycloud": {
+    "cats": [
+      67
+    ],
+    "description": "Baycloud is an ePrivacy compliance tool that manages user consent, data handling, and regulatory requirements for websites and digital services.",
+    "dom": "link[href*='cdn.baycloud.com']",
+    "icon": "Baycloud.svg",
+    "pricing": [],
+    "saas": true,
+    "scriptSrc": "cdn\\.baycloud\\.com",
+    "website": "https://baycloud.com"
+  },
+  "Beepworld": {
+    "cats": [
+      51
+    ],
+    "description": "Beepworld is a modular website-building platform that enables the creation of websites quickly without requiring technical knowledge.",
+    "icon": "Beepworld.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.beepworld\\.de",
+    "website": "https://beepworld.de"
+  },
+  "Big Tuna": {
+    "cats": [
+      1
+    ],
+    "description": "Big Tuna is a website platform designed to help small businesses create, manage, and maintain an online presence through integrated site-building and content management tools.",
+    "icon": "BigTuna.svg",
+    "saas": true,
+    "scripts": "staging\\.bigtuna\\.com",
+    "website": "https://bigtuna.com"
+  },
+  "BigBlueButton": {
+    "cats": [
+      103
+    ],
+    "cookies": {
+      "_greenlight-3_0_session": ""
+    },
+    "description": "BigBlueButton is an open-source virtual classroom and web conferencing platform for online teaching and collaboration.",
+    "dom": "meta[property='og:title'][content='BigBlueButton']",
+    "oss": true,
+    "website": "https://bigbluebutton.org"
+  },
+  "Bisup": {
+    "cats": [
+      88
+    ],
+    "description": "Bisup is a web hosting and cloud infrastructure provider offering shared hosting, reseller hosting, managed VPS, cloud servers, and dedicated servers.",
+    "headers": {
+      "X-Bisup-Hosting": "^Bisup$"
+    },
+    "icon": "Bisup.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.bisup.com"
+  },
+  "Bit Assist": {
+    "cats": [
+      5
+    ],
+    "description": "Bit Assist is a customer-support widget for embedding messaging channels, contact forms, FAQs, and third-party live-chat services on websites.",
+    "icon": "Bit Assist.svg",
+    "js": {
+      "bit_assist_.api.base": "(?:^|[=/])bit-assist/v1$"
+    },
+    "oss": true,
+    "pricing": [
+      "low",
+      "freemium",
+      "onetime",
+      "recurring"
+    ],
+    "scriptSrc": [
+      "/wp-content/plugins/bit-assist/iframe/bit-assist\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+      "bit-assist-widget-script-JAVASCRIPT-ASYNC"
+    ],
+    "website": "https://bitassist.co"
+  },
+  "Bit Form": {
+    "cats": [
+      110
+    ],
+    "description": "Bit Form is an open-source WordPress form builder plugin for creating contact, payment, multi-step, conversational, and calculator forms.",
+    "dom": "form[id^='form-bitforms_'].bf-form",
+    "icon": "Bit Form.svg",
+    "oss": true,
+    "pricing": [
+      "low",
+      "freemium",
+      "onetime",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/uploads/bitforms/form-scripts/\\d+/bitform-js-\\d+\\.js",
+    "website": "https://bit-form.com"
+  },
+  "Bits UI": {
+    "cats": [
+      66
+    ],
+    "css": "--bits-(?:accordion|popover|select|tooltip)-",
+    "description": "Bits UI is an open-source headless component library for building accessible Svelte interfaces.",
+    "dom": "[id^='bits-'][data-accordion-root], [id^='bits-'][data-checkbox-root], [id^='bits-'][data-dialog-trigger], [id^='bits-'][data-dropdown-menu-trigger], [id^='bits-'][data-popover-trigger], [id^='bits-'][data-select-trigger], [id^='bits-'][data-tabs-root], [id^='bits-'][data-tooltip-trigger]",
+    "icon": "Bits UI.svg",
+    "implies": "Svelte",
+    "oss": true,
+    "website": "https://bits-ui.com"
+  },
+  "Blanxer": {
+    "cats": [
+      6
+    ],
+    "description": "Blanxer is an ecommerce and point-of-sale platform for creating and managing online stores.",
+    "meta": {
+      "keywords": "\\bblanxer\\b\\;confidence:50",
+      "og:image": "^https://cdn2\\.blanxer\\.com/\\;confidence:50"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.blanxer.com",
+    "xhr": "api\\.blanxer\\.com"
+  },
+  "BoardDocs": {
+    "cats": [
+      1
+    ],
+    "description": "BoardDocs is a school board management software that supports the creation, distribution, and archival of meeting agendas, documents, and records for governing bodies.",
+    "icon": "Diligent.svg",
+    "saas": true,
+    "scriptSrc": "cdn\\.boarddocs\\.com",
+    "website": "https://www.diligent.com/lp/boarddocs"
+  },
+  "Booljs": {
+    "cats": [
+      12
+    ],
+    "description": "Booljs is a JavaScript framework for building web applications on the Bun runtime.",
+    "headers": {
+      "x-powered-by": "^Bool Typescript$"
+    },
+    "icon": "Booljs.svg",
+    "oss": true,
+    "website": "https://booljs.com"
+  },
+  "Botco.ai": {
+    "cats": [
+      52
+    ],
+    "description": "Botco.ai is a platform that provides generative AI chatbot solutions to support customer engagement, automate conversations, and deliver information across digital channels.",
+    "icon": "Botco.svg",
+    "js": {
+      "BotcoWebchat.Events": ""
+    },
+    "pricing": [],
+    "saas": true,
+    "scriptSrc": "\\.botco\\.ai/",
+    "website": "https://botco.ai"
+  },
+  "Botfaqtor": {
+    "cats": [
+      16
+    ],
+    "description": "Botfaqtor is a cybersecurity platform that aims to mitigate bot traffic and click fraud using customizable filtering rules.",
+    "icon": "Botfaqtor.svg",
+    "js": {
+      "Botfaqtor": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.botfaqtor\\.ru",
+    "website": "https://botfaqtor.ru"
+  },
+  "BounceHelp": {
+    "cats": [
+      10
+    ],
+    "description": "BounceHelp is a website engagement platform that enables real-time visitor interaction, behavior tracking, and on-site communication tools to help analyze user activity and improve engagement across web pages.",
+    "icon": "BounceHelp.svg",
+    "saas": true,
+    "scripts": "code\\.bouncehelp\\.com",
+    "website": "https://bouncehelp.com"
+  },
+  "BrandRep": {
+    "cats": [
+      32
+    ],
+    "description": "BrandRep is a local internet marketing solution that supports website online presence, search visibility, and customer engagement across digital channels.",
+    "icon": "BrandRep.svg",
+    "pricing": [
+      "high",
+      "recurring",
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "www\\.brandrep\\.com/",
+    "website": "https://www.brandrep.com"
+  },
+  "Brandnamic": {
+    "cats": [
+      32
+    ],
+    "description": "Brandnamic is a hospitality platform that provides software, marketing, and consulting services for managing operations, customer engagement, and digital presence.",
+    "icon": "Brandnamic.svg",
+    "js": {
+      "brandnamic.constants": ""
+    },
+    "meta": {
+      "publisher": "^Brandnamic GmbH"
+    },
+    "saas": true,
+    "website": "https://www.brandnamic.com"
+  },
+  "Brella": {
+    "cats": [
+      72
+    ],
+    "description": "Brella is an event networking platform that matches attendees, enables meeting scheduling, and supports in-person, virtual, and hybrid events.",
+    "headers": {
+      "X-Brella-Media-Type": ""
+    },
+    "icon": "Brella.svg",
+    "pricing": [],
+    "saas": true,
+    "scriptSrc": "\\.brella\\.io/",
+    "website": "https://www.brella.io"
+  },
+  "BuckyDrop": {
+    "cats": [
+      107
+    ],
+    "description": "BuckyDrop is a drop-shipping service specializing in sourcing, fulfillment, and operations across Chinese ecommerce platforms.",
+    "icon": "BuckyDrop.svg",
+    "js": {
+      "buckyShop.addCSS": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "cdn\\.mybuckyshop\\.com",
+    "website": "https://www.buckydrop.com"
+  },
+  "Buddy eCommerce": {
+    "cats": [
+      6
+    ],
+    "description": "Buddy eCommerce is a multi-tenant software-as-a-service (SaaS) ecommerce platform that enables businesses to create and manage branded storefront websites with centralized infrastructure and scalable online retail functionality.",
+    "headers": {
+      "X-Buddy-Ecommerce": "",
+      "X-Powered-By": "^Buddy eCommerce$"
+    },
+    "icon": "BuddyeCommerce.svg",
+    "meta": {
+      "generator": "^Buddy eCommerce$"
+    },
+    "saas": true,
+    "website": "https://hellobuddy.app"
+  },
+  "BudgetGuard": {
+    "cats": [
+      16
+    ],
+    "description": "BudgetGuard is a SaaS platform that detects invalid advertising traffic, click fraud, and campaign anomalies to help protect advertising budgets.",
+    "icon": "BudgetGuard.svg",
+    "js": {
+      "BudgetGuardTracking": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://budgetguard.lu",
+    "xhrUrl": "checker\\.budgetguard\\.lu/api/tracking/"
+  },
+  "Buildify": {
+    "cats": [
+      51
+    ],
+    "description": "Buildify is a drag-and-drop page builder system that enables users to visually create and arrange web page layouts without requiring coding knowledge.",
+    "icon": "Buildify.svg",
+    "js": {
+      "buildifyFrontend": "",
+      "buildifyFrontendConfig": ""
+    },
+    "pricing": [
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "/Aheadworks_Buildify/js/",
+    "website": "https://buildify.shop"
+  },
+  "Buildium": {
+    "cats": [
+      53
+    ],
+    "description": "Buildium is a property management system that supports leasing, accounting, maintenance tracking, and communication for residential and association property portfolios.",
+    "icon": "Buildium.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "info\\.buildium\\.com",
+    "website": "https://www.buildium.com"
+  },
+  "Buildout": {
+    "cats": [
+      32
+    ],
+    "description": "Buildout is a marketing platform focused on commercial real estate listings, analytics, and promotional workflows for brokers, landlords, and property teams.",
+    "icon": "Buildout.svg",
+    "js": {
+      "BuildOut.embed": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "//buildout\\.com/api\\.js",
+    "website": "https://www.buildout.com"
+  },
+  "b10cks": {
+    "cats": [
+      1
+    ],
+    "description": "b10cks is an open-source headless content management system with block-based content modeling, localization, versioning, and image processing.",
+    "dom": "[src*='api.b10cks.com/ilum/'], meta[content*='api.b10cks.com/ilum/']",
+    "headers": {
+      "content-security-policy": "(?:api|app)\\.b10cks\\.com"
+    },
+    "icon": "b10cks.svg",
+    "oss": true,
+    "pricing": [
+      "low",
+      "freemium",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "b10cks:\\{accessToken:\"blx_[^\"]+\",apiUrl:\"https://api\\.b10cks\\.com/api\"",
+    "website": "https://www.b10cks.com"
+  },
+  "bValidator": {
+    "cats": [
+      59
+    ],
+    "description": "bValidator is a jQuery plug-in for client side form validation.",
+    "icon": "bValidator.svg",
+    "js": {
+      "bValidator": ""
+    },
+    "oss": true,
+    "requires": "jQuery",
+    "scriptSrc": "/jquery\\.bvalidator\\.js",
+    "website": "https://code.google.com/archive/p/bvalidator"
+  },
+  "beseller": {
+    "cats": [
+      6
+    ],
+    "description": "beseller is a website builder for creating ecommerce websites and online stores.",
+    "icon": "beseller.svg",
+    "meta": {
+      "cms": "beSeller\\.by",
+      "generator": "beSeller\\.by"
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://beseller.by"
   }
 }
